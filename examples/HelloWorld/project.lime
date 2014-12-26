@@ -7,5 +7,8 @@
 	<source path="source" />
 	
 	<haxelib name="openfl" />
+    <haxelib name="away3d" />
+    <haxelib name="starling" />
+    <haxelib name="feathersui" />
 	
 </project>
