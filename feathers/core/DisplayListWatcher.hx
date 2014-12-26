@@ -235,7 +235,7 @@ class DisplayListWatcher extends EventDispatcher
 	{
 		if(!this._excludedObjects)
 		{
-			this._excludedObjects = new <DisplayObject>[];
+			this._excludedObjects = new Array();
 		}
 		this._excludedObjects.push(target);
 	}

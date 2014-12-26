@@ -620,7 +620,7 @@ class ScreenNavigator extends FeathersControl
 	{
 		if(!result)
 		{
-			result = new <String>[];
+			result = new Array();
 		}
 
 		for(var id:String in this._screens)

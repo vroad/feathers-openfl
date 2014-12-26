@@ -1246,7 +1246,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		}
 		else
 		{
-			result = new <int>[];
+			result = new Array();
 		}
 		if(!this._useVirtualLayout)
 		{

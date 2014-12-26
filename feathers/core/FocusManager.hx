@@ -120,7 +120,7 @@ class FocusManager
 		}
 		if(isEnabled)
 		{
-			STAGE_TO_STACK[stage] = new <IFocusManager>[];
+			STAGE_TO_STACK[stage] = new Array();
 			pushFocusManager(stage);
 		}
 		else

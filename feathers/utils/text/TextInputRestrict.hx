@@ -92,7 +92,7 @@ class TextInputRestrict
 			}
 			else
 			{
-				this._restricts = new <RegExp>[];
+				this._restricts = new Array();
 			}
 			if(this._restrict == "")
 			{

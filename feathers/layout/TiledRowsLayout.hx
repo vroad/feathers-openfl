@@ -1528,7 +1528,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else
 		{
-			result = new <int>[];
+			result = new Array();
 		}
 		if(!this._useVirtualLayout)
 		{

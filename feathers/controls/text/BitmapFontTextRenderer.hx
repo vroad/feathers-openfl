@@ -100,11 +100,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			//compiler doesn't like referencing CharLocation class in a
 			//static constant
-			CHAR_LOCATION_POOL = new <CharLocation>[];
+			CHAR_LOCATION_POOL = new Array();
 		}
 		if(!CHARACTER_BUFFER)
 		{
-			CHARACTER_BUFFER = new <CharLocation>[];
+			CHARACTER_BUFFER = new Array();
 		}
 		this.isQuickHitAreaEnabled = true;
 	}

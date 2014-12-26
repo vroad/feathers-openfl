@@ -1449,15 +1449,15 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			}
 			if(!this._inactiveFirstItemRenderers)
 			{
-				this._inactiveFirstItemRenderers = new <IGroupedListItemRenderer>[];
+				this._inactiveFirstItemRenderers = new Array();
 			}
 			if(!this._activeFirstItemRenderers)
 			{
-				this._activeFirstItemRenderers = new <IGroupedListItemRenderer>[];
+				this._activeFirstItemRenderers = new Array();
 			}
 			if(!this._unrenderedFirstItems)
 			{
-				this._unrenderedFirstItems = new <int>[];
+				this._unrenderedFirstItems = new Array();
 			}
 		}
 		else
@@ -1476,15 +1476,15 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			}
 			if(!this._inactiveLastItemRenderers)
 			{
-				this._inactiveLastItemRenderers = new <IGroupedListItemRenderer>[];
+				this._inactiveLastItemRenderers = new Array();
 			}
 			if(!this._activeLastItemRenderers)
 			{
-				this._activeLastItemRenderers = new <IGroupedListItemRenderer>[];
+				this._activeLastItemRenderers = new Array();
 			}
 			if(!this._unrenderedLastItems)
 			{
-				this._unrenderedLastItems = new <int>[];
+				this._unrenderedLastItems = new Array();
 			}
 		}
 		else
@@ -1503,15 +1503,15 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			}
 			if(!this._inactiveSingleItemRenderers)
 			{
-				this._inactiveSingleItemRenderers = new <IGroupedListItemRenderer>[];
+				this._inactiveSingleItemRenderers = new Array();
 			}
 			if(!this._activeSingleItemRenderers)
 			{
-				this._activeSingleItemRenderers = new <IGroupedListItemRenderer>[];
+				this._activeSingleItemRenderers = new Array();
 			}
 			if(!this._unrenderedSingleItems)
 			{
-				this._unrenderedSingleItems = new <int>[];
+				this._unrenderedSingleItems = new Array();
 			}
 		}
 		else

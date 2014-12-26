@@ -610,7 +610,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _selectedIndices:ListCollection = new ListCollection(new <int>[]);
+	private var _selectedIndices:ListCollection = new ListCollection(new Array());
 
 	/**
 	 * The indices of the currently selected items. Returns an empty <code>Vector.&lt;int&gt;</code>
@@ -714,7 +714,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 */
 	public function get_selectedItems():Array<Object>
 	{
-		return this.getSelectedItems(new <Object>[]);
+		return this.getSelectedItems(new Array());
 	}
 
 	/**
@@ -757,7 +757,7 @@ class List extends Scroller implements IFocusDisplayObject
 		}
 		else
 		{
-			result = new <Object>[];
+			result = new Array();
 		}
 		if(!this._dataProvider)
 		{

@@ -141,7 +141,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	{
 		if(!result)
 		{
-			result = new <int>[];
+			result = new Array();
 		}
 		else
 		{

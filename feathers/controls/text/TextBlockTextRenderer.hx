@@ -1516,7 +1516,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					if(!this.textSnapshots)
 					{
-						this.textSnapshots = new <Image>[];
+						this.textSnapshots = new Array();
 					}
 					else if(this.textSnapshots.length > snapshotIndex)
 					{
