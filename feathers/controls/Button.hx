@@ -50,7 +50,7 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.TRIGGERED
  */
-[Event(name="triggered",type="starling.events.Event")]
+//[Event(name="triggered",type="starling.events.Event")]
 
 /**
  * Dispatched when the button is pressed for a long time. The property
@@ -85,7 +85,7 @@ import starling.events.TouchPhase;
  * @see #isLongPressEnabled
  * @see #longPressDuration
  */
-[Event(name="longPress",type="starling.events.Event")]
+//[Event(name="longPress",type="starling.events.Event")]
 
 /**
  * A push button control that may be triggered when pressed and released.
