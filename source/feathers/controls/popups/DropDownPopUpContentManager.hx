@@ -1,0 +1,335 @@
+/*
+Feathers
+Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+
+This program is free software. You can redistribute and/or modify it in
+accordance with the terms of the accompanying license agreement.
+*/
+package feathers.controls.popups
+{
+	import feathers.core.IFeathersControl;
+	import feathers.core.IValidating;
+	import feathers.core.PopUpManager;
+	import feathers.core.ValidationQueue;
+	import feathers.events.FeathersEventType;
+	import feathers.utils.display.getDisplayObjectDepthFromStage;
+
+	import flash.errors.IllegalOperationError;
+	import flash.events.KeyboardEvent;
+	import flash.geom.Rectangle;
+	import flash.ui.Keyboard;
+
+	import starling.core.Starling;
+	import starling.display.DisplayObject;
+	import starling.display.DisplayObjectContainer;
+	import starling.display.Stage;
+	import starling.events.Event;
+	import starling.events.EventDispatcher;
+	import starling.events.ResizeEvent;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
+
+	/**
+	 * @inheritDoc
+	 */
+	[Event(name="open",type="starling.events.Event")]
+
+	/**
+	 * @inheritDoc
+	 */
+	[Event(name="close",type="starling.events.Event")]
+
+	/**
+	 * Displays pop-up content as a desktop-style drop-down.
+	 */
+	public class DropDownPopUpContentManager extends EventDispatcher implements IPopUpContentManager
+	{
+		/**
+		 * Constructor.
+		 */
+		public function DropDownPopUpContentManager()
+		{
+		}
+
+		/**
+		 * @private
+		 */
+		protected var content:DisplayObject;
+
+		/**
+		 * @private
+		 */
+		protected var source:DisplayObject;
+
+		/**
+		 * @inheritDoc
+		 */
+		public function get isOpen():Boolean
+		{
+			return this.content !== null;
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _gap:Number = 0;
+
+		/**
+		 * The space, in pixels, between the source and the pop-up.
+		 */
+		public function get gap():Number
+		{
+			return this._gap;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set gap(value:Number):void
+		{
+			this._gap = value;
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		public function open(content:DisplayObject, source:DisplayObject):void
+		{
+			if(this.isOpen)
+			{
+				throw new IllegalOperationError("Pop-up content is already open. Close the previous content before opening new content.");
+			}
+
+			this.content = content;
+			this.source = source;
+			PopUpManager.addPopUp(this.content, false, false);
+			if(this.content is IFeathersControl)
+			{
+				this.content.addEventListener(FeathersEventType.RESIZE, content_resizeHandler);
+			}
+			this.layout();
+			var stage:Stage = Starling.current.stage;
+			stage.addEventListener(TouchEvent.TOUCH, stage_touchHandler);
+			stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
+
+			//using priority here is a hack so that objects higher up in the
+			//display list have a chance to cancel the event first.
+			var priority:int = -getDisplayObjectDepthFromStage(this.content);
+			Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler, false, priority, true);
+			this.dispatchEventWith(Event.OPEN);
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		public function close():void
+		{
+			if(!this.isOpen)
+			{
+				return;
+			}
+			var stage:Stage = Starling.current.stage;
+			stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
+			stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
+			Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
+			if(this.content is IFeathersControl)
+			{
+				this.content.removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
+			}
+			PopUpManager.removePopUp(this.content);
+			this.content = null;
+			this.source = null;
+			this.dispatchEventWith(Event.CLOSE);
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		public function dispose():void
+		{
+			this.close();
+		}
+
+		/**
+		 * @private
+		 */
+		protected function layout():void
+		{
+			var stage:Stage = Starling.current.stage;
+			var globalOrigin:Rectangle = this.source.getBounds(stage);
+
+			if(this.source is IValidating)
+			{
+				IValidating(this.source).validate();
+			}
+
+			var sourceWidth:Number = this.source.width;
+			var hasSetBounds:Boolean = false;
+			var uiContent:IFeathersControl = this.content as IFeathersControl;
+			if(uiContent && uiContent.minWidth < sourceWidth)
+			{
+				uiContent.minWidth = sourceWidth;
+				hasSetBounds = true;
+			}
+			if(this.content is IValidating)
+			{
+				uiContent.validate();
+			}
+			if(!hasSetBounds && this.content.width < sourceWidth)
+			{
+				this.content.width = sourceWidth;
+			}
+
+			//we need to be sure that the source is properly positioned before
+			//positioning the content relative to it.
+			var validationQueue:ValidationQueue = ValidationQueue.forStarling(Starling.current)
+			if(validationQueue && !validationQueue.isValidating)
+			{
+				//force a COMPLETE validation of everything
+				//but only if we're not already doing that...
+				validationQueue.advanceTime(0);
+			}
+
+			var downSpace:Number = (stage.stageHeight - this.content.height) - (globalOrigin.y + globalOrigin.height + this._gap);
+			if(downSpace >= 0)
+			{
+				layoutBelow(globalOrigin);
+				return;
+			}
+
+			var upSpace:Number = globalOrigin.y - this._gap - this.content.height;
+			if(upSpace >= 0)
+			{
+				layoutAbove(globalOrigin);
+				return;
+			}
+
+			//worst case: pick the side that has the most available space
+			if(upSpace >= downSpace)
+			{
+				layoutAbove(globalOrigin);
+			}
+			else
+			{
+				layoutBelow(globalOrigin);
+			}
+
+			//the content is too big for the space, so we need to adjust it to
+			//fit properly
+			var newMaxHeight:Number = stage.stageHeight - (globalOrigin.y + globalOrigin.height);
+			if(uiContent)
+			{
+				if(uiContent.maxHeight > newMaxHeight)
+				{
+					uiContent.maxHeight = newMaxHeight;
+				}
+			}
+			else if(this.content.height > newMaxHeight)
+			{
+				this.content.height = newMaxHeight;
+			}
+		}
+
+		/**
+		 * @private
+		 */
+		protected function layoutAbove(globalOrigin:Rectangle):void
+		{
+			var idealXPosition:Number = globalOrigin.x + (globalOrigin.width - this.content.width) / 2;
+			var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
+			if(xPosition > idealXPosition)
+			{
+				xPosition = idealXPosition;
+			}
+			if(xPosition < 0)
+			{
+				xPosition = 0;
+			}
+			this.content.x = xPosition;
+			this.content.y = globalOrigin.y - this.content.height - this._gap;
+		}
+
+		/**
+		 * @private
+		 */
+		protected function layoutBelow(globalOrigin:Rectangle):void
+		{
+			var idealXPosition:Number = globalOrigin.x;
+			var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
+			if(xPosition > idealXPosition)
+			{
+				xPosition = idealXPosition;
+			}
+			if(xPosition < 0)
+			{
+				xPosition = 0;
+			}
+			this.content.x = xPosition;
+			this.content.y = globalOrigin.y + globalOrigin.height + this._gap;
+		}
+
+		/**
+		 * @private
+		 */
+		protected function content_resizeHandler(event:Event):void
+		{
+			this.layout();
+		}
+
+		/**
+		 * @private
+		 */
+		protected function nativeStage_keyDownHandler(event:KeyboardEvent):void
+		{
+			if(event.isDefaultPrevented())
+			{
+				//someone else already handled this one
+				return;
+			}
+			if(event.keyCode != Keyboard.BACK && event.keyCode != Keyboard.ESCAPE)
+			{
+				return;
+			}
+			//don't let the OS handle the event
+			event.preventDefault();
+
+			this.close();
+		}
+
+		/**
+		 * @private
+		 */
+		protected function stage_resizeHandler(event:ResizeEvent):void
+		{
+			this.layout();
+		}
+
+		/**
+		 * @private
+		 */
+		protected function stage_touchHandler(event:TouchEvent):void
+		{
+			var target:DisplayObject = DisplayObject(event.target);
+			if(this.content == target || (this.content is DisplayObjectContainer && DisplayObjectContainer(this.content).contains(target)))
+			{
+				return;
+			}
+			if(this.source == target || (this.source is DisplayObjectContainer && DisplayObjectContainer(this.source).contains(target)))
+			{
+				return;
+			}
+			if(!PopUpManager.isTopLevelPopUp(this.content))
+			{
+				return;
+			}
+			//any began touch is okay here. we don't need to check all touches
+			var touch:Touch = event.getTouch(Starling.current.stage, TouchPhase.BEGAN);
+			if(!touch)
+			{
+				return;
+			}
+			this.close();
+		}
+	}
+}
