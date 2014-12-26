@@ -3158,7 +3158,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 					newWidth = 0;
 				}
 			}
-			else if(this._originalSkinWidth === this._originalSkinWidth) //!isNaN
+			else if(this._originalSkinWidth == this._originalSkinWidth) //!isNaN
 			{
 				if(this._originalSkinWidth > newWidth)
 				{
@@ -3193,7 +3193,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 					newHeight = 0;
 				}
 			}
-			else if(this._originalSkinHeight === this._originalSkinHeight) //!isNaN
+			else if(this._originalSkinHeight == this._originalSkinHeight) //!isNaN
 			{
 				if(this._originalSkinHeight > newHeight)
 				{
@@ -3221,7 +3221,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return width;
 		}
 
-		var hasPreviousItem:Bool = width === width; //!isNaN
+		var hasPreviousItem:Bool = width == width; //!isNaN
 		if(!hasPreviousItem)
 		{
 			width = 0;
@@ -3262,7 +3262,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return width;
 		}
 
-		var hasPreviousItem:Bool = width === width; //!isNaN;
+		var hasPreviousItem:Bool = width == width; //!isNaN;
 		if(!hasPreviousItem)
 		{
 			width = 0;
@@ -3322,7 +3322,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return height;
 		}
 
-		var hasPreviousItem:Bool = height === height; //!isNaN
+		var hasPreviousItem:Bool = height == height; //!isNaN
 		if(!hasPreviousItem)
 		{
 			height = 0;
@@ -3363,7 +3363,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return height;
 		}
 
-		var hasPreviousItem:Bool = height === height; //!isNaN
+		var hasPreviousItem:Bool = height == height; //!isNaN
 		if(!hasPreviousItem)
 		{
 			height = 0;

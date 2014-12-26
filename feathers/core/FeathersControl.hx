@@ -1813,7 +1813,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 */
 	private function setSizeInternal(width:Float, height:Float, canInvalidate:Bool):Bool
 	{
-		if(this.explicitWidth === this.explicitWidth) //!isNaN
+		if(this.explicitWidth == this.explicitWidth) //!isNaN
 		{
 			width = this.explicitWidth;
 		}
@@ -1828,7 +1828,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 				width = this._maxWidth;
 			}
 		}
-		if(this.explicitHeight === this.explicitHeight) //!isNaN
+		if(this.explicitHeight == this.explicitHeight) //!isNaN
 		{
 			height = this.explicitHeight;
 		}

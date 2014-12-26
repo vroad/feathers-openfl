@@ -855,7 +855,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 */
 	public function set_itemRendererFactory(value:Function):Void
 	{
-		if(this._itemRendererFactory === value)
+		if(this._itemRendererFactory == value)
 		{
 			return;
 		}

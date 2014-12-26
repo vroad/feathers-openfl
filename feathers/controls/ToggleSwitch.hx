@@ -1125,7 +1125,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_onText(value:String):Void
 	{
-		if(value === null)
+		if(value == null)
 		{
 			value = "";
 		}
@@ -1163,7 +1163,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_offText(value:String):Void
 	{
-		if(value === null)
+		if(value == null)
 		{
 			value = "";
 		}

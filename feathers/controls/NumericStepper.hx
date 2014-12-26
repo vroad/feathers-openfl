@@ -1659,7 +1659,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	private function parseTextInputValue():Void
 	{
 		var newValue:Float = parseFloat(this.textInput.text);
-		if(newValue === newValue) //!isNaN
+		if(newValue == newValue) //!isNaN
 		{
 			this.value = newValue;
 			if(this.value != newValue && !this.isInvalid(INVALIDATION_FLAG_DATA))

@@ -110,7 +110,7 @@ class StateWithToggleValueSelector
 		if(target is IToggle && IToggle(target).isSelected)
 		{
 			value = this.stateToSelectedValue[state];
-			if(value === null)
+			if(value == null)
 			{
 				value = this.defaultSelectedValue;
 			}
@@ -119,7 +119,7 @@ class StateWithToggleValueSelector
 		{
 			value = this.stateToValue[state];
 		}
-		if(value === null)
+		if(value == null)
 		{
 			value = this.defaultValue;
 		}

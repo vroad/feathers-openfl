@@ -261,7 +261,7 @@ class Header extends FeathersControl
 	 */
 	public function set_title(value:String):Void
 	{
-		if(value === null)
+		if(value == null)
 		{
 			value = "";
 		}
@@ -1303,7 +1303,7 @@ class Header extends FeathersControl
 			}
 			var itemWidth:Float = item.width;
 			if(needsWidth &&
-				itemWidth === itemWidth) //!isNaN
+				itemWidth == itemWidth) //!isNaN
 			{
 				totalItemWidth += itemWidth;
 				if(i > 0)
@@ -1313,7 +1313,7 @@ class Header extends FeathersControl
 			}
 			var itemHeight:Float = item.height;
 			if(needsHeight &&
-				itemHeight === itemHeight && //!isNaN
+				itemHeight == itemHeight && //!isNaN
 				itemHeight > newHeight)
 			{
 				newHeight = itemHeight;
@@ -1329,7 +1329,7 @@ class Header extends FeathersControl
 			}
 			itemWidth = item.width;
 			if(needsWidth &&
-				itemWidth === itemWidth) //!isNaN
+				itemWidth == itemWidth) //!isNaN
 			{
 				totalItemWidth += itemWidth;
 				if(i > 0)
@@ -1339,7 +1339,7 @@ class Header extends FeathersControl
 			}
 			itemHeight = item.height;
 			if(needsHeight &&
-				itemHeight === itemHeight && //!isNaN
+				itemHeight == itemHeight && //!isNaN
 				itemHeight > newHeight)
 			{
 				newHeight = itemHeight;
@@ -1355,7 +1355,7 @@ class Header extends FeathersControl
 			}
 			itemWidth = item.width
 			if(needsWidth &&
-				itemWidth === itemWidth) //!isNaN
+				itemWidth == itemWidth) //!isNaN
 			{
 				totalItemWidth += itemWidth;
 				if(i > 0)
@@ -1365,7 +1365,7 @@ class Header extends FeathersControl
 			}
 			itemHeight = item.height;
 			if(needsHeight &&
-				itemHeight === itemHeight && //!isNaN
+				itemHeight == itemHeight && //!isNaN
 				itemHeight > newHeight)
 			{
 				newHeight = itemHeight;
@@ -1399,7 +1399,7 @@ class Header extends FeathersControl
 			var measuredTitleWidth:Float = HELPER_POINT.x;
 			var measuredTitleHeight:Float = HELPER_POINT.y;
 			if(needsWidth &&
-				measuredTitleWidth === measuredTitleWidth) //!isNaN
+				measuredTitleWidth == measuredTitleWidth) //!isNaN
 			{
 				newWidth += measuredTitleWidth;
 				if(leftItemCount > 0)
@@ -1412,7 +1412,7 @@ class Header extends FeathersControl
 				}
 			}
 			if(needsHeight &&
-				measuredTitleHeight === measuredTitleHeight && //!isNaN
+				measuredTitleHeight == measuredTitleHeight && //!isNaN
 				measuredTitleHeight > newHeight)
 			{
 				newHeight = measuredTitleHeight;
@@ -1433,13 +1433,13 @@ class Header extends FeathersControl
 			}
 		}
 		if(needsWidth &&
-			this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 			this.originalBackgroundWidth > newWidth)
 		{
 			newWidth = this.originalBackgroundWidth;
 		}
 		if(needsHeight &&
-			this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 			this.originalBackgroundHeight > newHeight)
 		{
 			newHeight = this.originalBackgroundHeight;

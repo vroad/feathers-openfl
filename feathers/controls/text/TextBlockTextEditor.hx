@@ -410,7 +410,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 */
 	override public function set_text(value:String):Void
 	{
-		if(value === null)
+		if(value == null)
 		{
 			//don't allow null or undefined
 			value = "";
@@ -503,15 +503,15 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 */
 	public function set_restrict(value:String):Void
 	{
-		if(this._restrict && this._restrict.restrict === value)
+		if(this._restrict && this._restrict.restrict == value)
 		{
 			return;
 		}
-		if(!this._restrict && value === null)
+		if(!this._restrict && value == null)
 		{
 			return;
 		}
-		if(value === null)
+		if(value == null)
 		{
 			this._restrict = null;
 		}

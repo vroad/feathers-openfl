@@ -54,7 +54,7 @@ class PopUpManager
 		if(!popUpManager)
 		{
 			var factory:Function = PopUpManager.popUpManagerFactory;
-			if(factory === null)
+			if(factory == null)
 			{
 				factory = PopUpManager.defaultPopUpManagerFactory;
 			}

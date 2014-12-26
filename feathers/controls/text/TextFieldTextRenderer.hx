@@ -178,7 +178,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		if(value === null)
+		if(value == null)
 		{
 			//flash.text.TextField won't accept a null value
 			value = "";

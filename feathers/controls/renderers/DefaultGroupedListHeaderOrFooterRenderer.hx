@@ -1334,7 +1334,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		if(needsWidth)
 		{
 			newWidth = this.content.width + this._paddingLeft + this._paddingRight;
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > newWidth)
 			{
 				newWidth = this.originalBackgroundWidth;
@@ -1343,7 +1343,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		if(needsHeight)
 		{
 			newHeight = this.content.height + this._paddingTop + this._paddingBottom;
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > newHeight)
 			{
 				newHeight = this.originalBackgroundHeight;

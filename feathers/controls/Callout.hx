@@ -1734,7 +1734,7 @@ class Callout extends FeathersControl
 		if(needsWidth)
 		{
 			newWidth = this._content.width + this._paddingLeft + this._paddingRight;
-			if(this._originalBackgroundWidth === this._originalBackgroundWidth) //!isNaN
+			if(this._originalBackgroundWidth == this._originalBackgroundWidth) //!isNaN
 			{
 				newWidth = Math.max(this._originalBackgroundWidth, newWidth);
 			}
@@ -1762,7 +1762,7 @@ class Callout extends FeathersControl
 		if(needsHeight)
 		{
 			newHeight = this._content.height + this._paddingTop + this._paddingBottom;
-			if(this._originalBackgroundHeight === this._originalBackgroundHeight) //!isNaN
+			if(this._originalBackgroundHeight == this._originalBackgroundHeight) //!isNaN
 			{
 				newHeight = Math.max(this._originalBackgroundHeight, newHeight);
 			}

@@ -40,7 +40,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	public static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor === Image)
+		if(oldDisplayObject && Object(oldDisplayObject).constructor == Image)
 		{
 			displayObject = Image(oldDisplayObject);
 			displayObject.texture = value;
@@ -61,7 +61,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	public static function scale3TextureValueTypeHandler(value:Scale3Textures, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:Scale3Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor === Scale3Image)
+		if(oldDisplayObject && Object(oldDisplayObject).constructor == Scale3Image)
 		{
 			displayObject = Scale3Image(oldDisplayObject);
 			displayObject.textures = value;
@@ -82,7 +82,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	public static function scale9TextureValueTypeHandler(value:Scale9Textures, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:Scale9Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor === Scale9Image)
+		if(oldDisplayObject && Object(oldDisplayObject).constructor == Scale9Image)
 		{
 			displayObject = Scale9Image(oldDisplayObject);
 			displayObject.textures = value;
@@ -104,7 +104,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	public static function uintValueTypeHandler(value:UInt, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:Quad;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor === Quad)
+		if(oldDisplayObject && Object(oldDisplayObject).constructor == Quad)
 		{
 			displayObject = Quad(oldDisplayObject);
 		}
@@ -184,7 +184,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	override public function updateValue(target:Object, state:Object, oldValue:Object = null):Object
 	{
 		var value:Object = super.updateValue(target, state);
-		if(value === null)
+		if(value == null)
 		{
 			return null;
 		}

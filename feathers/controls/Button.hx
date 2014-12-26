@@ -2114,7 +2114,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					newWidth = 0;
 				}
 			}
-			else if(this._originalSkinWidth === this._originalSkinWidth) //!isNaN
+			else if(this._originalSkinWidth == this._originalSkinWidth) //!isNaN
 			{
 				if(this._originalSkinWidth > newWidth)
 				{
@@ -2159,7 +2159,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					newHeight = 0;
 				}
 			}
-			else if(this._originalSkinHeight === this._originalSkinHeight) //!isNaN
+			else if(this._originalSkinHeight == this._originalSkinHeight) //!isNaN
 			{
 				if(this._originalSkinHeight > newHeight)
 				{

@@ -834,11 +834,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		{
 			distributedHeight = this.calculateDistributedHeight(items, explicitHeight, minHeight, maxHeight);
 		}
-		var hasDistributedHeight:Bool = distributedHeight === distributedHeight; //!isNaN
+		var hasDistributedHeight:Bool = distributedHeight == distributedHeight; //!isNaN
 
 		this._discoveredItemsCache.length = 0;
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var maxItemWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Float = boundsY + this._paddingTop;
 		var indexOffset:Int = 0;
@@ -1015,7 +1015,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 					if(layoutData)
 					{
 						var percentWidth:Float = layoutData.percentWidth;
-						if(percentWidth === percentWidth) //!isNaN
+						if(percentWidth == percentWidth) //!isNaN
 						{
 							if(percentWidth < 0)
 							{
@@ -1117,8 +1117,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var positionY:Float;
 		if(this._distributeHeights)
 		{
@@ -1257,8 +1257,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var resultLastIndex:Int = 0;
 		var visibleTypicalItemCount:Int = Math.ceil(height / (calculatedTypicalItemHeight + this._gap));
 		if(!this._hasVariableItemDimensions)
@@ -1406,8 +1406,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var positionY:Float = y + this._paddingTop;
 		var lastHeight:Float = 0;
 		var gap:Float = this._gap;
@@ -1518,7 +1518,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
 		var mustSetJustifyWidth:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY &&
-			justifyWidth === justifyWidth; //!isNaN
+			justifyWidth == justifyWidth; //!isNaN
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
@@ -1552,7 +1552,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			return;
 		}
 		if(this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY &&
-			justifyWidth === justifyWidth) //!isNaN
+			justifyWidth == justifyWidth) //!isNaN
 		{
 			this._typicalItem.width = justifyWidth;
 		}
@@ -1606,11 +1606,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			}
 		}
 		var availableSpace:Float = explicitHeight - this._paddingTop - this._paddingBottom - this._gap * (itemCount - 1);
-		if(itemCount > 1 && this._firstGap === this._firstGap) //!isNaN
+		if(itemCount > 1 && this._firstGap == this._firstGap) //!isNaN
 		{
 			availableSpace += this._gap - this._firstGap;
 		}
-		if(itemCount > 2 && this._lastGap === this._lastGap) //!isNaN
+		if(itemCount > 2 && this._lastGap == this._lastGap) //!isNaN
 		{
 			availableSpace += this._gap - this._lastGap;
 		}
@@ -1643,7 +1643,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				if(layoutData)
 				{
 					var percentHeight:Float = layoutData.percentHeight;
-					if(percentHeight === percentHeight) //!isNaN
+					if(percentHeight == percentHeight) //!isNaN
 					{
 						if(layoutItem is IFeathersControl)
 						{
@@ -1660,11 +1660,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			totalExplicitHeight += item.height;
 		}
 		totalExplicitHeight += this._gap * (itemCount - 1);
-		if(this._firstGap === this._firstGap && itemCount > 1)
+		if(this._firstGap == this._firstGap && itemCount > 1)
 		{
 			totalExplicitHeight += (this._firstGap - this._gap);
 		}
-		else if(this._lastGap === this._lastGap && itemCount > 2)
+		else if(this._lastGap == this._lastGap && itemCount > 2)
 		{
 			totalExplicitHeight += (this._lastGap - this._gap);
 		}

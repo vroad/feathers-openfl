@@ -835,7 +835,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	public function set_userData(value:*):Void
 	{
-		if(this._userData === value)
+		if(this._userData == value)
 		{
 			return;
 		}
@@ -1627,7 +1627,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		for(var i:Int = 0; i < lineCount; i++)
 		{
 			var line:TextLine = textLines[i];
-			if(line.validity === TextLineValidity.VALID)
+			if(line.validity == TextLineValidity.VALID)
 			{
 				line.filters = this._nativeFilters;
 				lastLine = line;

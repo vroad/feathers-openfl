@@ -1026,12 +1026,12 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		var availableHeight:Float = NaN;
 
 		var verticalTileCount:Int;
-		if(explicitHeight === explicitHeight) //!isNaN
+		if(explicitHeight == explicitHeight) //!isNaN
 		{
 			availableHeight = explicitHeight;
 			verticalTileCount = (explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
 		}
-		else if(maxHeight === maxHeight && //!isNaN
+		else if(maxHeight == maxHeight && //!isNaN
 			maxHeight < Number.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
@@ -1060,12 +1060,12 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var horizontalTileCount:Int;
-		if(explicitWidth === explicitWidth) //!isNaN
+		if(explicitWidth == explicitWidth) //!isNaN
 		{
 			availableWidth = explicitWidth;
 			horizontalTileCount = (explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
 		}
-		else if(maxWidth === maxWidth && //!isNaN
+		else if(maxWidth == maxWidth && //!isNaN
 			maxWidth < Number.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
@@ -1239,7 +1239,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 
 		var totalWidth:Float = positionX + tileWidth + this._paddingRight;
-		if(availableWidth === availableWidth) //!isNaN
+		if(availableWidth == availableWidth) //!isNaN
 		{
 			if(this._paging == PAGING_VERTICAL)
 			{
@@ -1251,7 +1251,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var totalHeight:Float = totalPageHeight;
-		if(availableHeight === availableHeight && //!isNaN
+		if(availableHeight == availableHeight && //!isNaN
 			this._paging == PAGING_VERTICAL)
 		{
 			totalHeight = Math.ceil(itemCount / perPage) * availableHeight;
@@ -1362,12 +1362,12 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		var availableHeight:Float = NaN;
 
 		var verticalTileCount:Int;
-		if(explicitHeight === explicitHeight) //!isNaN
+		if(explicitHeight == explicitHeight) //!isNaN
 		{
 			availableHeight = explicitHeight;
 			verticalTileCount = (explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
 		}
-		else if(maxHeight === maxHeight && //!isNaN
+		else if(maxHeight == maxHeight && //!isNaN
 			maxHeight < Number.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
@@ -1394,12 +1394,12 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var horizontalTileCount:Int;
-		if(explicitWidth === explicitWidth) //!isNaN
+		if(explicitWidth == explicitWidth) //!isNaN
 		{
 			availableWidth = explicitWidth;
 			horizontalTileCount = (explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
 		}
-		else if(maxWidth === maxWidth && //!isNaN
+		else if(maxWidth == maxWidth && //!isNaN
 			maxWidth < Number.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
@@ -1460,7 +1460,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 
 		var totalWidth:Float = positionX + tileWidth + this._paddingRight;
-		if(availableWidth === availableWidth) //!isNaN
+		if(availableWidth == availableWidth) //!isNaN
 		{
 			if(this._paging == PAGING_VERTICAL)
 			{
@@ -1472,7 +1472,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var totalHeight:Float = totalPageHeight;
-		if(availableHeight === availableHeight && //!isNaN
+		if(availableHeight == availableHeight && //!isNaN
 			this._paging == PAGING_VERTICAL)
 		{
 			totalHeight = Math.ceil(itemCount / perPage) * availableHeight;

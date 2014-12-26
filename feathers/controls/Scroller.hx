@@ -3017,7 +3017,7 @@ class Scroller extends FeathersControl
 			{
 				newWidth = 0;
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth) //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth) //!isNaN
 			{
 				newWidth = Math.max(newWidth, this.originalBackgroundWidth);
 			}
@@ -3037,7 +3037,7 @@ class Scroller extends FeathersControl
 			{
 				newHeight = 0;
 			}
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight) //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight) //!isNaN
 			{
 				newHeight = Math.max(newHeight, this.originalBackgroundHeight);
 			}
@@ -3994,7 +3994,7 @@ class Scroller extends FeathersControl
 	private function throwTo(targetHorizontalScrollPosition:Float = NaN, targetVerticalScrollPosition:Float = NaN, duration:Float = 0.5):Void
 	{
 		var changedPosition:Bool = false;
-		if(targetHorizontalScrollPosition === targetHorizontalScrollPosition) //!isNaN
+		if(targetHorizontalScrollPosition == targetHorizontalScrollPosition) //!isNaN
 		{
 			if(this._horizontalAutoScrollTween)
 			{
@@ -4028,7 +4028,7 @@ class Scroller extends FeathersControl
 			}
 		}
 
-		if(targetVerticalScrollPosition === targetVerticalScrollPosition) //!isNaN
+		if(targetVerticalScrollPosition == targetVerticalScrollPosition) //!isNaN
 		{
 			if(this._verticalAutoScrollTween)
 			{
@@ -4617,8 +4617,8 @@ class Scroller extends FeathersControl
 	 */
 	private function handlePendingScroll():Void
 	{
-		if(this.pendingHorizontalScrollPosition === this.pendingHorizontalScrollPosition ||
-			this.pendingVerticalScrollPosition === this.pendingVerticalScrollPosition) //!isNaN
+		if(this.pendingHorizontalScrollPosition == this.pendingHorizontalScrollPosition ||
+			this.pendingVerticalScrollPosition == this.pendingVerticalScrollPosition) //!isNaN
 		{
 			this.throwTo(this.pendingHorizontalScrollPosition, this.pendingVerticalScrollPosition, this.pendingScrollDuration);
 			this.pendingHorizontalScrollPosition = NaN;

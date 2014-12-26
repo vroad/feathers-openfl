@@ -44,7 +44,7 @@ class StyleProviderRegistry
 	public function StyleProviderRegistry(registerGlobally:Bool = true, styleProviderFactory:Function = null)
 	{
 		this._registerGlobally = registerGlobally;
-		if(styleProviderFactory === null)
+		if(styleProviderFactory == null)
 		{
 			this._styleProviderFactory = defaultStyleProviderFactory;
 		}
@@ -129,7 +129,7 @@ class StyleProviderRegistry
 			var styleProvider:IStyleProvider = IStyleProvider(this._classToStyleProvider[forClass]);
 			delete this._classToStyleProvider[forClass];
 			if(this._registerGlobally &&
-				forClass[GLOBAL_STYLE_PROVIDER_PROPERTY_NAME] === styleProvider)
+				forClass[GLOBAL_STYLE_PROVIDER_PROPERTY_NAME] == styleProvider)
 			{
 				//something else may have changed the global style provider
 				//after this registry set it, so we check if it's equal

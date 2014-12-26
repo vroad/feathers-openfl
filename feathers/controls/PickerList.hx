@@ -1320,7 +1320,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
-			if(buttonWidth === buttonWidth) //!isNaN
+			if(buttonWidth == buttonWidth) //!isNaN
 			{
 				newWidth = buttonWidth;
 			}
@@ -1331,7 +1331,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		}
 		if(needsHeight)
 		{
-			if(buttonHeight === buttonHeight) //!isNaN
+			if(buttonHeight == buttonHeight) //!isNaN
 			{
 				newHeight = buttonHeight;
 			}

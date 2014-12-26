@@ -1929,7 +1929,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.promptTextRenderer = null;
 		}
 
-		if(this._prompt === null)
+		if(this._prompt == null)
 		{
 			return;
 		}

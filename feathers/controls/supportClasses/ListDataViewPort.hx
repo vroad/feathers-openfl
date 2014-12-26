@@ -300,7 +300,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_itemRendererFactory(value:Function):Void
 	{
-		if(this._itemRendererFactory === value)
+		if(this._itemRendererFactory == value)
 		{
 			return;
 		}

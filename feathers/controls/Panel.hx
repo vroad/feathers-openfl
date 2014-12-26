@@ -929,7 +929,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			{
 				newWidth = Math.max(newWidth, this.footer.width);
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth) //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth) //!isNaN
 			{
 				newWidth = Math.max(newWidth, this.originalBackgroundWidth);
 			}
@@ -937,7 +937,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		if(needsHeight)
 		{
 			newHeight = this._viewPort.height + this._bottomViewPortOffset + this._topViewPortOffset;
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight) //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight) //!isNaN
 			{
 				newHeight = Math.max(newHeight, this.originalBackgroundHeight);
 			}

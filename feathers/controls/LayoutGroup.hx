@@ -541,13 +541,13 @@ class LayoutGroup extends FeathersControl
 				this.handleManualLayout();
 			}
 			var width:Float = this._layoutResult.contentWidth;
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > width)
 			{
 				width = this.originalBackgroundWidth;
 			}
 			var height:Float = this._layoutResult.contentHeight;
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > height)
 			{
 				height = this.originalBackgroundHeight;
@@ -646,12 +646,12 @@ class LayoutGroup extends FeathersControl
 			}
 			var itemMaxX:Float = item.x + item.width;
 			var itemMaxY:Float = item.y + item.height;
-			if(itemMaxX === itemMaxX && //!isNaN
+			if(itemMaxX == itemMaxX && //!isNaN
 				itemMaxX > maxX)
 			{
 				maxX = itemMaxX;
 			}
-			if(itemMaxY === itemMaxY && //!isNaN
+			if(itemMaxY == itemMaxY && //!isNaN
 				itemMaxY > maxY)
 			{
 				maxY = itemMaxY;

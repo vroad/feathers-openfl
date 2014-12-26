@@ -513,7 +513,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			this.refreshTextFormat();
 		}
 
-		if(!this.currentTextFormat || this._text === null)
+		if(!this.currentTextFormat || this._text == null)
 		{
 			result.setTo(0, 0);
 			return result;
@@ -576,7 +576,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			}
 
 			if(isKerningEnabled &&
-				previousCharID === previousCharID) //!isNaN
+				previousCharID == previousCharID) //!isNaN
 			{
 				currentX += charData.getKerning(previousCharID) * scale;
 			}
@@ -670,7 +670,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			this._characterBatch.batchable = !this._useSeparateBatch;
 			this._characterBatch.reset();
-			if(!this.currentTextFormat || this._text === null)
+			if(!this.currentTextFormat || this._text == null)
 			{
 				this.setSizeInternal(0, 0, false);
 				return;
@@ -701,7 +701,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		var lineHeight:Float = font.lineHeight * scale;
 
-		var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
+		var hasExplicitWidth:Bool = this.explicitWidth == this.explicitWidth; //!isNaN
 		var isAligned:Bool = this.currentTextFormat.align != TextFormatAlign.LEFT;
 		var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 		if(isAligned && maxLineWidth == Number.POSITIVE_INFINITY)
@@ -766,7 +766,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			}
 
 			if(isKerningEnabled &&
-				previousCharID === previousCharID) //!isNaN
+				previousCharID == previousCharID) //!isNaN
 			{
 				currentX += charData.getKerning(previousCharID) * scale;
 			}
@@ -1055,7 +1055,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			}
 			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
-				previousCharID === previousCharID) //!isNaN
+				previousCharID == previousCharID) //!isNaN
 			{
 				currentKerning = charData.getKerning(previousCharID) * scale;
 			}
@@ -1090,7 +1090,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				}
 				currentKerning = 0;
 				if(isKerningEnabled &&
-					previousCharID === previousCharID) //!isNaN
+					previousCharID == previousCharID) //!isNaN
 				{
 					currentKerning = charData.getKerning(previousCharID) * scale;
 				}
@@ -1111,7 +1111,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				}
 				currentKerning = 0;
 				if(isKerningEnabled &&
-					previousCharID === previousCharID) //!isNaN
+					previousCharID == previousCharID) //!isNaN
 				{
 					currentKerning = charData.getKerning(previousCharID) * scale;
 				}

@@ -383,7 +383,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	override public function set_text(value:String):Void
 	{
-		if(value === null)
+		if(value == null)
 		{
 			//don't allow null or undefined
 			value = "";
@@ -477,15 +477,15 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	public function set_restrict(value:String):Void
 	{
-		if(this._restrict && this._restrict.restrict === value)
+		if(this._restrict && this._restrict.restrict == value)
 		{
 			return;
 		}
-		if(!this._restrict && value === null)
+		if(!this._restrict && value == null)
 		{
 			return;
 		}
-		if(value === null)
+		if(value == null)
 		{
 			this._restrict = null;
 		}
@@ -728,7 +728,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	override private function layoutCharacters(result:Point = null):Point
 	{
 		result = super.layoutCharacters(result);
-		if(this.explicitWidth === this.explicitWidth && //!isNaN
+		if(this.explicitWidth == this.explicitWidth && //!isNaN
 			result.x > this.explicitWidth)
 		{
 			this._characterBatch.reset();
@@ -827,7 +827,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
-			var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
+			var hasExplicitWidth:Bool = this.explicitWidth == this.explicitWidth; //!isNaN
 			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
@@ -854,7 +854,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			}
 			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
-				previousCharID === previousCharID) //!isNaN
+				previousCharID == previousCharID) //!isNaN
 			{
 				currentKerning = charData.getKerning(previousCharID) * scale;
 			}
@@ -896,7 +896,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
-			var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
+			var hasExplicitWidth:Bool = this.explicitWidth == this.explicitWidth; //!isNaN
 			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
@@ -927,7 +927,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			}
 			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
-				previousCharID === previousCharID) //!isNaN
+				previousCharID == previousCharID) //!isNaN
 			{
 				currentKerning = charData.getKerning(previousCharID) * scale;
 			}

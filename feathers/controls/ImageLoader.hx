@@ -618,7 +618,7 @@ class ImageLoader extends FeathersControl
 	 */
 	public function get_originalSourceWidth():Float
 	{
-		if(this._currentTextureWidth === this._currentTextureWidth) //!isNaN
+		if(this._currentTextureWidth == this._currentTextureWidth) //!isNaN
 		{
 			return this._currentTextureWidth;
 		}
@@ -633,7 +633,7 @@ class ImageLoader extends FeathersControl
 	 */
 	public function get_originalSourceHeight():Float
 	{
-		if(this._currentTextureHeight === this._currentTextureHeight) //!isNaN
+		if(this._currentTextureHeight == this._currentTextureHeight) //!isNaN
 		{
 			return this._currentTextureHeight;
 		}
@@ -1061,7 +1061,7 @@ class ImageLoader extends FeathersControl
 		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
-			if(this._currentTextureWidth === this._currentTextureWidth) //!isNaN
+			if(this._currentTextureWidth == this._currentTextureWidth) //!isNaN
 			{
 				newWidth = this._currentTextureWidth * this._textureScale;
 				if(this._maintainAspectRatio && !needsHeight)
@@ -1080,7 +1080,7 @@ class ImageLoader extends FeathersControl
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			if(this._currentTextureHeight === this._currentTextureHeight) //!isNaN
+			if(this._currentTextureHeight == this._currentTextureHeight) //!isNaN
 			{
 				newHeight = this._currentTextureHeight * this._textureScale;
 				if(this._maintainAspectRatio && !needsWidth)
@@ -1339,13 +1339,13 @@ class ImageLoader extends FeathersControl
 	 */
 	private function verifyCurrentStarling():Void
 	{
-		if(!this.stage || Starling.current.stage === this.stage)
+		if(!this.stage || Starling.current.stage == this.stage)
 		{
 			return;
 		}
 		for each(var starling:Starling in Starling.all)
 		{
-			if(starling.stage === this.stage)
+			if(starling.stage == this.stage)
 			{
 				starling.makeCurrent();
 				break;
