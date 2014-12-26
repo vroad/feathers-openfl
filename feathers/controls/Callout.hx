@@ -675,7 +675,7 @@ class Callout extends FeathersControl
 	 * @see #closeOnTouchBeganOutside
 	 * @see #closeOnTouchEndedOutside
 	 */
-	public var closeOnKeys:Vector.<uint>;
+	public var closeOnKeys:Array<uint>;
 
 	/**
 	 * Determines if the callout will be disposed when <code>close()</code>

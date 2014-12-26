@@ -352,7 +352,7 @@ class Scroller extends FeathersControl
 	 * @private
 	 * Older saved velocities are given less importance.
 	 */
-	inline private static var VELOCITY_WEIGHTS:Vector.<Number> = new <Number>[1, 1.33, 1.66, 2];
+	inline private static var VELOCITY_WEIGHTS:Array<Number> = new <Number>[1, 1.33, 1.66, 2];
 
 	/**
 	 * @private

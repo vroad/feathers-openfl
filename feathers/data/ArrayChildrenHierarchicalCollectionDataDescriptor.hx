@@ -137,7 +137,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemLocation(data:Object, item:Object, result:Vector.<int> = null, ...rest:Array):Vector.<int>
+	public function getItemLocation(data:Object, item:Object, result:Array<int> = null, ...rest:Array):Array<int>
 	{
 		if(!result)
 		{
@@ -175,7 +175,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @private
 	 */
-	private function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Bool
+	private function findItemInBranch(branch:Array, item:Object, result:Array<int>):Bool
 	{
 		var index:Int = branch.indexOf(item);
 		if(index >= 0)

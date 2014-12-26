@@ -234,7 +234,7 @@ class DefaultFocusManager implements IFocusManager
 			if(container is IFocusExtras)
 			{
 				var containerWithExtras:IFocusExtras = IFocusExtras(container);
-				var extras:Vector.<DisplayObject> = containerWithExtras.focusExtrasBefore;
+				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
 				if(extras)
 				{
 					childCount = extras.length;
@@ -288,7 +288,7 @@ class DefaultFocusManager implements IFocusManager
 			if(container is IFocusExtras)
 			{
 				var containerWithExtras:IFocusExtras = IFocusExtras(container);
-				var extras:Vector.<DisplayObject> = containerWithExtras.focusExtrasBefore;
+				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
 				if(extras)
 				{
 					childCount = extras.length;
@@ -325,7 +325,7 @@ class DefaultFocusManager implements IFocusManager
 		if(container is IFocusExtras)
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
-			var extras:Vector.<DisplayObject> = focusContainer.focusExtrasAfter;
+			var extras:Array<DisplayObject> = focusContainer.focusExtrasAfter;
 			if(extras)
 			{
 				var skip:Bool = false;
@@ -422,7 +422,7 @@ class DefaultFocusManager implements IFocusManager
 		if(container is IFocusExtras)
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
-			var extras:Vector.<DisplayObject> = focusContainer.focusExtrasBefore;
+			var extras:Array<DisplayObject> = focusContainer.focusExtrasBefore;
 			if(extras)
 			{
 				var skip:Bool = false;

@@ -780,7 +780,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Bool):Void
 	{
-		var temp:Vector.<IListItemRenderer> = this._inactiveRenderers;
+		var temp:Array<IListItemRenderer> = this._inactiveRenderers;
 		this._inactiveRenderers = this._activeRenderers;
 		this._activeRenderers = temp;
 		if(this._activeRenderers.length > 0)

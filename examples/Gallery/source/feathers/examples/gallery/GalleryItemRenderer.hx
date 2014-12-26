@@ -323,7 +323,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	 */
 	private function touchHandler(event:TouchEvent):Void
 	{
-		var touches:Vector.<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
+		var touches:Array<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
 		if(touches.length == 0)
 		{
 			return;

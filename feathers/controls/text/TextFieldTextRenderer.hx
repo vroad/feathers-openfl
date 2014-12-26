@@ -97,7 +97,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * If multiple snapshots are needed due to texture size limits, the
 	 * snapshots appearing after the first are stored here.
 	 */
-	private var textSnapshots:Vector.<Image>;
+	private var textSnapshots:Array<Image>;
 
 	/**
 	 * @private

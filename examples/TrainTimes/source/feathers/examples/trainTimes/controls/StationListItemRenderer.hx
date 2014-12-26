@@ -663,7 +663,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 
-		var touches:Vector.<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
+		var touches:Array<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
 		if(touches.length == 0)
 		{
 			//end of hover

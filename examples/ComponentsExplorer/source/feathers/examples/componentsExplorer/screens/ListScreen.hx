@@ -121,7 +121,7 @@ class ListScreen extends PanelScreen
 
 	private function list_changeHandler(event:Event):Void
 	{
-		var selectedIndices:Vector.<int> = this._list.selectedIndices;
+		var selectedIndices:Array<int> = this._list.selectedIndices;
 		trace("List onChange:", selectedIndices.length > 0 ? selectedIndices : this._list.selectedIndex);
 	}
 

@@ -221,15 +221,15 @@ class ListCollection extends EventDispatcher
 		{
 			this.dataDescriptor = new ArrayListCollectionDataDescriptor();
 		}
-		else if(this._data is Vector.<Number> && !(this._dataDescriptor is VectorNumberListCollectionDataDescriptor))
+		else if(this._data is Array<Number> && !(this._dataDescriptor is VectorNumberListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorNumberListCollectionDataDescriptor();
 		}
-		else if(this._data is Vector.<int> && !(this._dataDescriptor is VectorIntListCollectionDataDescriptor))
+		else if(this._data is Array<int> && !(this._dataDescriptor is VectorIntListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorIntListCollectionDataDescriptor();
 		}
-		else if(this._data is Vector.<uint> && !(this._dataDescriptor is VectorUintListCollectionDataDescriptor))
+		else if(this._data is Array<uint> && !(this._dataDescriptor is VectorUintListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorUintListCollectionDataDescriptor();
 		}

@@ -70,7 +70,7 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult;
+	function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult;
 
 
 	/**
@@ -82,5 +82,5 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * <code>layout()</code> function. The width and height arguments are
 	 * the final bounds of the view port.</p>
 	 */
-	function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point;
+	function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point;
 }

@@ -152,7 +152,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * If multiple snapshots are needed due to texture size limits, the
 	 * snapshots appearing after the first are stored here.
 	 */
-	private var textSnapshots:Vector.<Image>;
+	private var textSnapshots:Array<Image>;
 
 	/**
 	 * @private
@@ -743,7 +743,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _tabStops:Vector.<TabStop>;
+	private var _tabStops:Array<TabStop>;
 
 	/**
 	 * Specifies the tab stops for the text in the text block, in the form
@@ -758,7 +758,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#tabStops Full description of flash.text.engine.TextBlock.tabStops in Adobe's Flash Platform API Reference
 	 */
-	public function get_tabStops():Vector.<TabStop>
+	public function get_tabStops():Array<TabStop>
 	{
 		return this._tabStops;
 	}
@@ -766,7 +766,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_tabStops(value:Vector.<TabStop>):Void
+	public function set_tabStops(value:Array<TabStop>):Void
 	{
 		if(this._tabStops == value)
 		{
@@ -1597,7 +1597,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
+	private function refreshTextLines(textLines:Array<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
 	{
 		if(this._textElement)
 		{
@@ -1758,7 +1758,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function alignTextLines(textLines:Vector.<TextLine>, width:Float, textAlign:String):Void
+	private function alignTextLines(textLines:Array<TextLine>, width:Float, textAlign:String):Void
 	{
 		var lineCount:Int = textLines.length;
 		for(var i:Int = 0; i < lineCount; i++)

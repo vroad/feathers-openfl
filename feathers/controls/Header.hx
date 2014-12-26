@@ -375,7 +375,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _leftItems:Vector.<DisplayObject>;
+	private var _leftItems:Array<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the left region of the header.
@@ -392,7 +392,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get_leftItems():Vector.<DisplayObject>
+	public function get_leftItems():Array<DisplayObject>
 	{
 		return this._leftItems;
 	}
@@ -400,7 +400,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_leftItems(value:Vector.<DisplayObject>):Void
+	public function set_leftItems(value:Array<DisplayObject>):Void
 	{
 		if(this._leftItems == value)
 		{
@@ -435,7 +435,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _centerItems:Vector.<DisplayObject>;
+	private var _centerItems:Array<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the center region of the header. If
@@ -454,7 +454,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get_centerItems():Vector.<DisplayObject>
+	public function get_centerItems():Array<DisplayObject>
 	{
 		return this._centerItems;
 	}
@@ -462,7 +462,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_centerItems(value:Vector.<DisplayObject>):Void
+	public function set_centerItems(value:Array<DisplayObject>):Void
 	{
 		if(this._centerItems == value)
 		{
@@ -497,7 +497,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _rightItems:Vector.<DisplayObject>;
+	private var _rightItems:Array<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the right region of the header.
@@ -513,7 +513,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get_rightItems():Vector.<DisplayObject>
+	public function get_rightItems():Array<DisplayObject>
 	{
 		return this._rightItems;
 	}
@@ -521,7 +521,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_rightItems(value:Vector.<DisplayObject>):Void
+	public function set_rightItems(value:Array<DisplayObject>):Void
 	{
 		if(this._rightItems == value)
 		{

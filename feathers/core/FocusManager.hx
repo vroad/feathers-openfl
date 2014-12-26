@@ -47,7 +47,7 @@ class FocusManager
 	 */
 	public static function getFocusManagerForStage(stage:Stage):IFocusManager
 	{
-		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage] as Vector.<IFocusManager>;
+		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
 		if(!stack)
 		{
 			return null;
@@ -93,7 +93,7 @@ class FocusManager
 	 */
 	public static function isEnabledForStage(stage:Stage):Bool
 	{
-		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
+		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
 		return stack != null;
 	}
 
@@ -113,7 +113,7 @@ class FocusManager
 	 */
 	public static function setEnabledForStage(stage:Stage, isEnabled:Bool):Void
 	{
-		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
+		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
 		if((isEnabled && stack) || (!isEnabled && !stack))
 		{
 			return;
@@ -143,7 +143,7 @@ class FocusManager
 		for(var key:Object in STAGE_TO_STACK)
 		{
 			var stage:Stage = Stage(key);
-			var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
+			var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
 			while(stack.length > 0)
 			{
 				var manager:IFocusManager = stack.pop();
@@ -204,7 +204,7 @@ class FocusManager
 		{
 			throw new ArgumentError(FOCUS_MANAGER_ROOT_MUST_BE_ON_STAGE_ERROR);
 		}
-		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage] as Vector.<IFocusManager>;
+		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
 		if(!stack)
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);
@@ -228,7 +228,7 @@ class FocusManager
 	public static function removeFocusManager(manager:IFocusManager):Void
 	{
 		var stage:Stage = manager.root.stage;
-		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage] as Vector.<IFocusManager>;
+		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
 		if(!stack)
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);

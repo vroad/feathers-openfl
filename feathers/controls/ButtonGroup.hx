@@ -105,7 +105,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_BUTTON_FIELDS:Vector.<String> = new <String>
+	inline private static var DEFAULT_BUTTON_FIELDS:Array<String> = new <String>
 	[
 		"defaultIcon",
 		"upIcon",
@@ -124,7 +124,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_BUTTON_EVENTS:Vector.<String> = new <String>
+	inline private static var DEFAULT_BUTTON_EVENTS:Array<String> = new <String>
 	[
 		Event.TRIGGERED,
 		Event.CHANGE,
@@ -1455,7 +1455,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function refreshButtons(isFactoryInvalid:Bool):Void
 	{
-		var temp:Vector.<Button> = this.inactiveButtons;
+		var temp:Array<Button> = this.inactiveButtons;
 		this.inactiveButtons = this.activeButtons;
 		this.activeButtons = temp;
 		this.activeButtons.length = 0;

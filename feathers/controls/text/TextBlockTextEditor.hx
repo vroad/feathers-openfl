@@ -727,7 +727,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
+	override private function refreshTextLines(textLines:Array<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
 	{
 		super.refreshTextLines(textLines, textLineParent, width, height);
 		if(textLineParent.width > width)

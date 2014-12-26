@@ -757,7 +757,7 @@ class PageIndicator extends FeathersControl
 	private function refreshSymbols(symbolsInvalid:Bool):Void
 	{
 		this.symbols.length = 0;
-		var temp:Vector.<DisplayObject> = this.cache;
+		var temp:Array<DisplayObject> = this.cache;
 		if(symbolsInvalid)
 		{
 			var symbolCount:Int = this.unselectedSymbols.length;

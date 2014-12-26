@@ -616,7 +616,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Returns a list of the screen identifiers that have been added.
 	 */
-	public function getScreenIDs(result:Vector.<String> = null):Vector.<String>
+	public function getScreenIDs(result:Array<String> = null):Array<String>
 	{
 		if(!result)
 		{

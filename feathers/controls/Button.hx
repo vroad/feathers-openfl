@@ -1119,7 +1119,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateNames:Vector.<String> = new <String>
+	private var _stateNames:Array<String> = new <String>
 	[
 		STATE_UP, STATE_DOWN, STATE_HOVER, STATE_DISABLED
 	];
@@ -1131,7 +1131,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #currentState
 	 */
-	private function get_stateNames():Vector.<String>
+	private function get_stateNames():Array<String>
 	{
 		return this._stateNames;
 	}

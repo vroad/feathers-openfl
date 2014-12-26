@@ -64,5 +64,5 @@ public interface IHierarchicalCollectionDataDescriptor
 	 * <p>The <code>rest</code> arguments are optional indices to narrow
 	 * the search.</p>
 	 */
-	function getItemLocation(data:Object, item:Object, result:Vector.<int> = null, ...rest:Array):Vector.<int>;
+	function getItemLocation(data:Object, item:Object, result:Array<int> = null, ...rest:Array):Array<int>;
 }

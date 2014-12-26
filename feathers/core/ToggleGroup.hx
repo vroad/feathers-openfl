@@ -51,7 +51,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _items:Vector.<IToggle> = new Vector.<IToggle>;
+	private var _items:Array<IToggle> = new Array<IToggle>;
 
 	/**
 	 * @private

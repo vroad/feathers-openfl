@@ -69,12 +69,12 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static var CHARACTER_BUFFER:Vector.<CharLocation>;
+	private static var CHARACTER_BUFFER:Array<CharLocation>;
 
 	/**
 	 * @private
 	 */
-	private static var CHAR_LOCATION_POOL:Vector.<CharLocation>;
+	private static var CHAR_LOCATION_POOL:Array<CharLocation>;
 
 	/**
 	 * @private

@@ -29,7 +29,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<Number>).length;
+		return (data as Array<Number>).length;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<Number>)[index];
+		return (data as Array<Number>)[index];
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<Number>)[index] = item as Number;
+		(data as Array<Number>)[index] = item as Number;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<Number>).splice(index, 0, item);
+		(data as Array<Number>).splice(index, 0, item);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<Number>).splice(index, 1)[0];
+		return (data as Array<Number>).splice(index, 1)[0];
 	}
 
 	/**
@@ -74,7 +74,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function removeAll(data:Object):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<Number>).length = 0;
+		(data as Array<Number>).length = 0;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<Number>).indexOf(item as Number);
+		return (data as Array<Number>).indexOf(item as Number);
 	}
 	
 	/**
@@ -91,9 +91,9 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	 */
 	private function checkForCorrectDataType(data:Object):Void
 	{
-		if(!(data is Vector.<Number>))
+		if(!(data is Array<Number>))
 		{
-			throw new IllegalOperationError("Expected Vector.<Number>. Received " + Object(data).constructor + " instead.");
+			throw new IllegalOperationError("Expected Array<Number>. Received " + Object(data).constructor + " instead.");
 		}
 	}
 }

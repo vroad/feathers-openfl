@@ -91,7 +91,7 @@ public final class ValidationQueue implements IAnimatable
 		{
 			this._starling.juggler.add(this);
 		}
-		var currentQueue:Vector.<IValidating> = (this._isValidating && delayIfValidating) ? this._delayedQueue : this._queue;
+		var currentQueue:Array<IValidating> = (this._isValidating && delayIfValidating) ? this._delayedQueue : this._queue;
 		if(currentQueue.indexOf(control) >= 0)
 		{
 			//already queued
@@ -158,7 +158,7 @@ public final class ValidationQueue implements IAnimatable
 			var item:IValidating = this._queue.shift();
 			item.validate();
 		}
-		var temp:Vector.<IValidating> = this._queue;
+		var temp:Array<IValidating> = this._queue;
 		this._queue = this._delayedQueue;
 		this._delayedQueue = temp;
 		this._isValidating = false;

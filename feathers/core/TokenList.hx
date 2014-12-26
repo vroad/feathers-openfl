@@ -71,7 +71,7 @@ class TokenList extends EventDispatcher
 			return;
 		}
 		this.names.length = 0;
-		this.names = Vector.<String>(value.split(" "));
+		this.names = Array<String>(value.split(" "));
 		this.dispatchEventWith(Event.CHANGE);
 	}
 

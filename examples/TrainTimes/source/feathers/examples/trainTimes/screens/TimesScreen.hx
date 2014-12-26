@@ -16,7 +16,7 @@ class TimesScreen extends PanelScreen
 {
 	inline public static var CHILD_NAME_TIMES_LIST:String = "timesList";
 
-	inline private static var NORTH_TIMES:Vector.<TimeData> = new <TimeData>
+	inline private static var NORTH_TIMES:Array<TimeData> = new <TimeData>
 	[
 		new TimeData(281, new Date(2013, 2, 6, 13, 5), new Date(2013, 2, 6, 13, 19)),
 		new TimeData(281, new Date(2013, 2, 6, 14, 5), new Date(2013, 2, 6, 14, 19)),

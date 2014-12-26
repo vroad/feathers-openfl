@@ -27,7 +27,7 @@ public interface IFocusExtras
 	 *
 	 * <p>May return <code>null</code> if there are no extra children.</p>
 	 */
-	function get_focusExtrasBefore():Vector.<DisplayObject>;
+	function get_focusExtrasBefore():Array<DisplayObject>;
 
 	/**
 	 * Extra display objects that are not accessible through standard
@@ -38,5 +38,5 @@ public interface IFocusExtras
 	 *
 	 * <p>May return <code>null</code> if there are no extra children.</p>
 	 */
-	function get_focusExtrasAfter():Vector.<DisplayObject>;
+	function get_focusExtrasAfter():Array<DisplayObject>;
 }

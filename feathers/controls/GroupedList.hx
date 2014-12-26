@@ -728,7 +728,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 			this.setSelectedLocation(-1, -1);
 			return;
 		}
-		var result:Vector.<int> = this._dataProvider.getItemLocation(value);
+		var result:Array<int> = this._dataProvider.getItemLocation(value);
 		if(result.length == 2)
 		{
 			this.setSelectedLocation(result[0], result[1]);

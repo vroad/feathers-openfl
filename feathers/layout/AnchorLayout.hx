@@ -93,7 +93,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
@@ -145,7 +145,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -159,14 +159,14 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function measureViewPort(items:Vector.<DisplayObject>, viewPortWidth:Float, viewPortHeight:Float, result:Point = null):Point
+	private function measureViewPort(items:Array<DisplayObject>, viewPortWidth:Float, viewPortHeight:Float, result:Point = null):Point
 	{
 		this._helperVector1.length = 0;
 		this._helperVector2.length = 0;
 		HELPER_POINT.x = 0;
 		HELPER_POINT.y = 0;
-		var mainVector:Vector.<DisplayObject> = items;
-		var otherVector:Vector.<DisplayObject> = this._helperVector1;
+		var mainVector:Array<DisplayObject> = items;
+		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.measureVector(items, otherVector, HELPER_POINT);
 		var currentLength:Float = otherVector.length;
 		while(currentLength > 0)
@@ -204,7 +204,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function measureVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, result:Point = null):Point
+	private function measureVector(items:Array<DisplayObject>, unpositionedItems:Array<DisplayObject>, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -590,12 +590,12 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function layoutWithBounds(items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Void
+	private function layoutWithBounds(items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Void
 	{
 		this._helperVector1.length = 0;
 		this._helperVector2.length = 0;
-		var mainVector:Vector.<DisplayObject> = items;
-		var otherVector:Vector.<DisplayObject> = this._helperVector1;
+		var mainVector:Array<DisplayObject> = items;
+		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.layoutVector(items, otherVector, x, y, width, height);
 		var currentLength:Float = otherVector.length;
 		while(currentLength > 0)
@@ -627,7 +627,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Float, boundsY:Float, viewPortWidth:Float, viewPortHeight:Float):Void
+	private function layoutVector(items:Array<DisplayObject>, unpositionedItems:Array<DisplayObject>, boundsX:Float, boundsY:Float, viewPortWidth:Float, viewPortHeight:Float):Void
 	{
 		unpositionedItems.length = 0;
 		var itemCount:Int = items.length;
@@ -949,7 +949,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function measureContent(items:Vector.<DisplayObject>, viewPortWidth:Float, viewPortHeight:Float, result:Point = null):Point
+	private function measureContent(items:Array<DisplayObject>, viewPortWidth:Float, viewPortHeight:Float, result:Point = null):Point
 	{
 		var maxX:Float = viewPortWidth;
 		var maxY:Float = viewPortHeight;
@@ -978,7 +978,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function isReadyForLayout(layoutData:AnchorLayoutData, index:Int, items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>):Bool
+	private function isReadyForLayout(layoutData:AnchorLayoutData, index:Int, items:Array<DisplayObject>, unpositionedItems:Array<DisplayObject>):Bool
 	{
 		var nextIndex:Int = index + 1;
 		var leftAnchorDisplayObject:DisplayObject = layoutData.leftAnchorDisplayObject;
@@ -1007,7 +1007,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function isReferenced(item:DisplayObject, items:Vector.<DisplayObject>):Bool
+	private function isReferenced(item:DisplayObject, items:Array<DisplayObject>):Bool
 	{
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)
@@ -1035,7 +1035,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, force:Bool):Void
+	private function validateItems(items:Array<DisplayObject>, force:Bool):Void
 	{
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)

@@ -935,7 +935,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		if(!result)
 		{
@@ -1138,7 +1138,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				//items on the current page and update the positions
 				if(this._paging != PAGING_NONE)
 				{
-					var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
+					var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 					var discoveredItemsFirstIndex:Int = this._useVirtualLayout ? 0 : (itemIndex - perPage);
 					var discoveredItemsLastIndex:Int = this._useVirtualLayout ? (this._discoveredItemsCache.length - 1) : (itemIndex - 1);
 					this.applyHorizontalAlign(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex, totalPageWidth, availablePageWidth);
@@ -1520,7 +1520,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int> = null):Array<int>
 	{
 		if(result)
 		{
@@ -1554,7 +1554,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1658,7 +1658,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyVisible(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, startX:Float, endX:Float, startY:Float, endY:Float):Void
+	private function applyVisible(items:Array<DisplayObject>, startIndex:Int, endIndex:Int, startX:Float, endX:Float, startY:Float, endY:Float):Void
 	{
 		for(var i:Int = startIndex; i <= endIndex; i++)
 		{
@@ -1677,7 +1677,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyHorizontalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemWidth:Float, availableWidth:Float):Void
+	private function applyHorizontalAlign(items:Array<DisplayObject>, startIndex:Int, endIndex:Int, totalItemWidth:Float, availableWidth:Float):Void
 	{
 		if(totalItemWidth >= availableWidth)
 		{
@@ -1711,7 +1711,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyVerticalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemHeight:Float, availableHeight:Float):Void
+	private function applyVerticalAlign(items:Array<DisplayObject>, startIndex:Int, endIndex:Int, totalItemHeight:Float, availableHeight:Float):Void
 	{
 		if(totalItemHeight >= availableHeight)
 		{
@@ -1743,7 +1743,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -1887,7 +1887,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -2004,7 +2004,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -2082,7 +2082,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>):Void
+	private function validateItems(items:Array<DisplayObject>):Void
 	{
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)

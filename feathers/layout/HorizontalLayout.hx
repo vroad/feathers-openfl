@@ -782,7 +782,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		var scrollX:Float = viewPortBounds ? viewPortBounds.scrollX : 0;
 		var scrollY:Float = viewPortBounds ? viewPortBounds.scrollY : 0;
@@ -921,7 +921,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 		}
 
-		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
+		var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalHeight:Float = maxItemHeight + this._paddingTop + this._paddingBottom;
@@ -1221,7 +1221,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int> = null):Array<int>
 	{
 		if(result)
 		{
@@ -1375,7 +1375,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1494,7 +1494,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, justifyHeight:Float, distributedWidth:Float):Void
+	private function validateItems(items:Array<DisplayObject>, justifyHeight:Float, distributedWidth:Float):Void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
@@ -1557,7 +1557,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateDistributedWidth(items:Vector.<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Float
+	private function calculateDistributedWidth(items:Array<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Float
 	{
 		var itemCount:Int = items.length;
 		if(explicitWidth !== explicitWidth) //isNaN
@@ -1604,7 +1604,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyPercentWidths(items:Vector.<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Void
+	private function applyPercentWidths(items:Array<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Void
 	{
 		var remainingWidth:Float = explicitWidth;
 		this._discoveredItemsCache.length = 0;

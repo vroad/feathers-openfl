@@ -189,7 +189,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _excludedObjects:Vector.<DisplayObject>;
+	private var _excludedObjects:Array<DisplayObject>;
 
 	/**
 	 * Stops listening to the root and cleans up anything else that needs to

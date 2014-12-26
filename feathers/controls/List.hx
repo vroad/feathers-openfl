@@ -644,17 +644,17 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public function get_selectedIndices():Vector.<int>
+	public function get_selectedIndices():Array<int>
 	{
-		return this._selectedIndices.data as Vector.<int>;
+		return this._selectedIndices.data as Array<int>;
 	}
 
 	/**
 	 * @private
 	 */
-	public function set_selectedIndices(value:Vector.<int>):Void
+	public function set_selectedIndices(value:Array<int>):Void
 	{
-		var oldValue:Vector.<int> = this._selectedIndices.data as Vector.<int>;
+		var oldValue:Array<int> = this._selectedIndices.data as Array<int>;
 		if(oldValue == value)
 		{
 			return;
@@ -712,7 +712,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public function get_selectedItems():Vector.<Object>
+	public function get_selectedItems():Array<Object>
 	{
 		return this.getSelectedItems(new <Object>[]);
 	}
@@ -720,7 +720,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedItems(value:Vector.<Object>):Void
+	public function set_selectedItems(value:Array<Object>):Void
 	{
 		if(!value || !this._dataProvider)
 		{
@@ -749,7 +749,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #selectedItems
 	 */
-	public function getSelectedItems(result:Vector.<Object> = null):Vector.<Object>
+	public function getSelectedItems(result:Array<Object> = null):Array<Object>
 	{
 		if(result)
 		{

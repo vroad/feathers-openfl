@@ -385,7 +385,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _stateNames:Vector.<String> = new <String>
+	private var _stateNames:Array<String> = new <String>
 	[
 		STATE_ENABLED, STATE_DISABLED, STATE_FOCUSED
 	];
@@ -397,7 +397,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #currentState
 	 */
-	private function get_stateNames():Vector.<String>
+	private function get_stateNames():Array<String>
 	{
 		return this._stateNames;
 	}
