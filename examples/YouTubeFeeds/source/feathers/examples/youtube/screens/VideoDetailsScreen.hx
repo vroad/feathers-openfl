@@ -12,8 +12,7 @@ import flash.net.navigateToURL;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
-
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 class VideoDetailsScreen extends PanelScreen
 {

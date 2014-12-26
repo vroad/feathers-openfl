@@ -52,7 +52,7 @@ package feathers.themes
 	 *
 	 * @eventType starling.events.Event.COMPLETE
 	 */
-	[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 	/**
 	 * The "Minimal" theme for mobile Feathers apps.

@@ -61,7 +61,7 @@ import starling.utils.SystemUtil;
  *
  * @eventType starling.events.Event.COMPLETE
  */
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 /**
  * Dispatched if an error occurs while loading the source content.
@@ -84,7 +84,7 @@ import starling.utils.SystemUtil;
  *
  * @eventType feathers.events.FeathersEventType.ERROR
  */
-[Event(name="error",type="starling.events.Event")]
+//[Event(name="error",type="starling.events.Event")]
 
 /**
  * Displays an image, either from an existing <code>Texture</code> object or

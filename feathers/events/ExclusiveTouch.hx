@@ -22,7 +22,7 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Allows a component to claim exclusive access to a touch to avoid

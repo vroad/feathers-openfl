@@ -31,8 +31,7 @@ import starling.utils.SystemUtil;
 
 /**
  * @copy feathers.core.IToggle#event:change
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Similar to a light switch with on and off states. Generally considered an

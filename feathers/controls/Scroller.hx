@@ -58,7 +58,7 @@ import starling.events.TouchPhase;
  * @see #event:scrollStart feathers.events.FeathersEventType.SCROLL_START
  * @see #event:scrollComplete feathers.events.FeathersEventType.SCROLL_COMPLETE
  */
-[Event(name="scroll",type="starling.events.Event")]
+//[Event(name="scroll",type="starling.events.Event")]
 
 /**
  * Dispatched when the scroller starts scrolling in either direction
@@ -89,7 +89,7 @@ import starling.events.TouchPhase;
  * @see #event:scrollComplete feathers.events.FeathersEventType.SCROLL_COMPLETE
  * @see #event:scroll feathers.events.FeathersEventType.SCROLL
  */
-[Event(name="scrollStart",type="starling.events.Event")]
+//[Event(name="scrollStart",type="starling.events.Event")]
 
 /**
  * Dispatched when the scroller finishes scrolling in either direction
@@ -122,7 +122,7 @@ import starling.events.TouchPhase;
  * @see #event:scrollStart feathers.events.FeathersEventType.SCROLL_START
  * @see #event:scroll feathers.events.FeathersEventType.SCROLL
  */
-[Event(name="scrollComplete",type="starling.events.Event")]
+//[Event(name="scrollComplete",type="starling.events.Event")]
 
 /**
  * Dispatched when the user starts dragging the scroller when
@@ -154,7 +154,7 @@ import starling.events.TouchPhase;
  * @see #event:endInteraction feathers.events.FeathersEventType.END_INTERACTION
  * @see #event:scroll feathers.events.FeathersEventType.SCROLL
  */
-[Event(name="beginInteraction",type="starling.events.Event")]
+//[Event(name="beginInteraction",type="starling.events.Event")]
 
 /**
  * Dispatched when the user stops dragging the scroller when
@@ -188,7 +188,7 @@ import starling.events.TouchPhase;
  * @see #event:beginInteraction feathers.events.FeathersEventType.BEGIN_INTERACTION
  * @see #event:scroll feathers.events.FeathersEventType.SCROLL
  */
-[Event(name="endInteraction",type="starling.events.Event")]
+//[Event(name="endInteraction",type="starling.events.Event")]
 
 /**
  * Allows horizontal and vertical scrolling of a <em>view port</em>. Not

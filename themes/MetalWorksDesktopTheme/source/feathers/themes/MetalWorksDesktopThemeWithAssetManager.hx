@@ -50,7 +50,7 @@ package feathers.themes
 	 *
 	 * @eventType starling.events.Event.COMPLETE
 	 */
-	[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 	/**
 	 * The "Metal Works" theme for desktop Feathers apps.

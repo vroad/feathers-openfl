@@ -57,7 +57,7 @@ import starling.utils.MatrixUtil;
  *   listening for the event.</td></tr>
  * </table>
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the user presses the Enter key while the editor has
@@ -83,7 +83,7 @@ import starling.utils.MatrixUtil;
  * @eventType feathers.events.FeathersEventType.ENTER
  * @see #returnKeyLabel
  */
-[Event(name="enter",type="starling.events.Event")]
+//[Event(name="enter",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor receives focus.
@@ -105,7 +105,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
  */
-[Event(name="focusIn",type="starling.events.Event")]
+//[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor loses focus.
@@ -127,7 +127,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
  */
-[Event(name="focusOut",type="starling.events.Event")]
+//[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is activated. Not all text editors will
@@ -150,7 +150,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_ACTIVATE
  */
-[Event(name="softKeyboardActivate",type="starling.events.Event")]
+//[Event(name="softKeyboardActivate",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is deactivated. Not all text editors
@@ -173,7 +173,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_DEACTIVATE
  */
-[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
+//[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
 
 /**
  * A Feathers text editor that uses the native <code>flash.text.StageText</code>

@@ -46,7 +46,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.INITIALIZE
  */
-[Event(name="initialize",type="starling.events.Event")]
+//[Event(name="initialize",type="starling.events.Event")]
 
 /**
  * Dispatched after the component has validated for the first time. Both
@@ -70,7 +70,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.CREATION_COMPLETE
  */
-[Event(name="creationComplete",type="starling.events.Event")]
+//[Event(name="creationComplete",type="starling.events.Event")]
 
 /**
  * Dispatched when the width or height of the control changes.
@@ -92,7 +92,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.RESIZE
  */
-[Event(name="resize",type="starling.events.Event")]
+//[Event(name="resize",type="starling.events.Event")]
 
 /**
  * Base class for all UI controls. Implements invalidation and sets up some

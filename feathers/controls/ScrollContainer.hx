@@ -33,8 +33,7 @@ import starling.display.DisplayObjectContainer;
  * </table>
  *
  * @eventType starling.events.Event.SCROLL
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 [DefaultProperty("mxmlContent")]
 /**

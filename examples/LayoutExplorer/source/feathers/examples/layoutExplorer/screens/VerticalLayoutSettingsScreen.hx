@@ -12,8 +12,7 @@ import feathers.layout.VerticalLayout;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
-
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 class VerticalLayoutSettingsScreen extends PanelScreen
 {

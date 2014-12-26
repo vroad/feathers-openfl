@@ -57,7 +57,7 @@ import starling.events.TouchPhase;
  * @eventType feathers.events.FeathersEventType.BEGIN_INTERACTION
  * @see #event:endInteraction feathers.events.FeathersEventType.END_INTERACTION
  */
-[Event(name="beginInteraction",type="starling.events.Event")]
+//[Event(name="beginInteraction",type="starling.events.Event")]
 
 /**
  * Dispatched when the user stops dragging the content to open or close a
@@ -82,7 +82,7 @@ import starling.events.TouchPhase;
  * @eventType feathers.events.FeathersEventType.END_INTERACTION
  * @see #event:beginInteraction feathers.events.FeathersEventType.BEGIN_INTERACTION
  */
-[Event(name="endInteraction",type="starling.events.Event")]
+//[Event(name="endInteraction",type="starling.events.Event")]
 
 /**
  * Dispatched when a drawer has completed opening. The <code>data</code>
@@ -106,7 +106,7 @@ import starling.events.TouchPhase;
  * @eventType starling.events.Event.OPEN
  * @see #event:close starling.events.Event.CLOSE
  */
-[Event(name="open",type="starling.events.Event")]
+//[Event(name="open",type="starling.events.Event")]
 
 /**
  * Dispatched when a drawer has completed closing. The <code>data</code>
@@ -130,7 +130,7 @@ import starling.events.TouchPhase;
  * @eventType starling.events.Event.CLOSE
  * @see #event:open starling.events.Event.OPEN
  */
-[Event(name="close",type="starling.events.Event")]
+//[Event(name="close",type="starling.events.Event")]
 
 /**
  * A container that displays primary content in the center surrounded by

@@ -42,8 +42,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the text area receives focus.
@@ -64,8 +63,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
- */
-[Event(name="focusIn",type="starling.events.Event")]
+ *///[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the text area loses focus.
@@ -86,8 +84,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
- */
-[Event(name="focusOut",type="starling.events.Event")]
+ *///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * A text entry control that allows users to enter and edit multiple lines

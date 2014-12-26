@@ -51,8 +51,7 @@ import starling.events.KeyboardEvent;
  * @eventType starling.events.Event.TRIGGERED
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TextEvent.html#LINK flash.events.TextEvent.LINK
- */
-[Event(name="triggered",type="starling.events.Event")]
+ *///[Event(name="triggered",type="starling.events.Event")]
 
 /**
  * Displays long passages of text in a scrollable container using the

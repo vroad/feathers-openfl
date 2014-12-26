@@ -31,13 +31,11 @@ import starling.events.TouchPhase;
 
 /**
  * @inheritDoc
- */
-[Event(name="open",type="starling.events.Event")]
+ *///[Event(name="open",type="starling.events.Event")]
 
 /**
  * @inheritDoc
- */
-[Event(name="close",type="starling.events.Event")]
+ *///[Event(name="close",type="starling.events.Event")]
 
 /**
  * Displays pop-up content as a desktop-style drop-down.

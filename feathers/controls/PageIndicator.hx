@@ -44,8 +44,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Displays a selected index, usually corresponding to a page index in

@@ -48,7 +48,7 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.CLOSE
  */
-[Event(name="close",type="starling.events.Event")]
+//[Event(name="close",type="starling.events.Event")]
 
 /**
  * A pop-up container that points at (or calls out) a specific region of

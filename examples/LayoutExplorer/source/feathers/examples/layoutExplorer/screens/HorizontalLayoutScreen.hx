@@ -11,10 +11,8 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.display.Quad;
 import starling.events.Event;
-
-[Event(name="complete",type="starling.events.Event")]
-
-[Event(name="showSettings",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
+//[Event(name="showSettings",type="starling.events.Event")]
 
 class HorizontalLayoutScreen extends PanelScreen
 {

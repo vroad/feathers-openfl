@@ -14,9 +14,7 @@ import feathers.system.DeviceCapabilities;
 import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
-
-[Event(name="complete",type="starling.events.Event")]
-[Event(name="showSettings",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
 class ItemRendererScreen extends PanelScreen
 {

@@ -11,8 +11,7 @@ import starling.events.EventDispatcher;
 
 /**
  * @inheritDoc
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Extra, optional data used by an <code>VerticalLayout</code> instance to

@@ -30,8 +30,7 @@ import starling.events.EventDispatcher;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Controls the selection of two or more IToggle instances where only one

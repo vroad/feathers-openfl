@@ -36,8 +36,7 @@ import starling.events.Event;
  * </table>
  *
  * @eventType feathers.events.DragDropEvent.DRAG_ENTER
- */
-[Event(name="dragEnter",type="feathers.events.DragDropEvent")]
+ *///[Event(name="dragEnter",type="feathers.events.DragDropEvent")]
 
 /**
  * Dispatched when the touch moves within the drop target's bounds.
@@ -65,8 +64,7 @@ import starling.events.Event;
  * </table>
  *
  * @eventType feathers.events.DragDropEvent.DRAG_MOVE
- */
-[Event(name="dragMove",type="feathers.events.DragDropEvent")]
+ *///[Event(name="dragMove",type="feathers.events.DragDropEvent")]
 
 /**
  * Dispatched when the touch exits the drop target's bounds or when
@@ -97,8 +95,7 @@ import starling.events.Event;
  * </table>
  *
  * @eventType feathers.events.DragDropEvent.DRAG_EXIT
- */
-[Event(name="dragExit",type="feathers.events.DragDropEvent")]
+ *///[Event(name="dragExit",type="feathers.events.DragDropEvent")]
 
 /**
  * Dispatched when an accepted drag is dropped on the target. Will
@@ -128,8 +125,7 @@ import starling.events.Event;
  * </table>
  *
  * @eventType feathers.events.DragDropEvent.DRAG_DROP
- */
-[Event(name="dragDrop",type="feathers.events.DragDropEvent")]
+ *///[Event(name="dragDrop",type="feathers.events.DragDropEvent")]
 
 /**
  * A display object that can accept data dropped by the drag and drop

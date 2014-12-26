@@ -34,8 +34,7 @@ import starling.events.EventDispatcher;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Positions and sizes items by anchoring their edges (or center points)

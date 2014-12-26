@@ -14,16 +14,11 @@ import feathers.system.DeviceCapabilities;
 import starling.core.Starling;
 import starling.events.Event;
 import starling.textures.Texture;
-
-[Event(name="showAnchor",type="starling.events.Event")]
-
-[Event(name="showHorizontal",type="starling.events.Event")]
-
-[Event(name="showVertical",type="starling.events.Event")]
-
-[Event(name="showTiledRows",type="starling.events.Event")]
-
-[Event(name="showTiledColumns",type="starling.events.Event")]
+//[Event(name="showAnchor",type="starling.events.Event")]
+//[Event(name="showHorizontal",type="starling.events.Event")]
+//[Event(name="showVertical",type="starling.events.Event")]
+//[Event(name="showTiledRows",type="starling.events.Event")]
+//[Event(name="showTiledColumns",type="starling.events.Event")]
 
 class MainMenuScreen extends PanelScreen
 {

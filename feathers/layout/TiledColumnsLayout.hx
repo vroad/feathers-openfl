@@ -35,8 +35,7 @@ import starling.events.EventDispatcher;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Positions items as tiles (equal width and height) from top to bottom

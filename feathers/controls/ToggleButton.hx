@@ -39,8 +39,7 @@ import starling.events.Event;
  *
  * @see #isSelected
  * @see #isToggle
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * A button that may be selected and deselected when triggered.

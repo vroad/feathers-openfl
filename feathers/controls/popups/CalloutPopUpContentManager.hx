@@ -16,13 +16,11 @@ import starling.events.EventDispatcher;
 
 /**
  * @inheritDoc
- */
-[Event(name="open",type="starling.events.Event")]
+ *///[Event(name="open",type="starling.events.Event")]
 
 /**
  * @inheritDoc
- */
-[Event(name="close",type="starling.events.Event")]
+ *///[Event(name="close",type="starling.events.Event")]
 
 /**
  * Displays pop-up content (such as the List in a PickerList) in a Callout.

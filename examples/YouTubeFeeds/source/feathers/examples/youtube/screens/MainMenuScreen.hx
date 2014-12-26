@@ -21,8 +21,7 @@ import flash.net.URLRequest;
 
 import starling.events.Event;
 import starling.textures.Texture;
-
-[Event(name="listVideos",type="starling.events.Event")]
+//[Event(name="listVideos",type="starling.events.Event")]
 
 class MainMenuScreen extends PanelScreen
 {

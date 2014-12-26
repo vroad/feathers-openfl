@@ -38,8 +38,7 @@ import starling.events.ResizeEvent;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the current screen is removed and there is no active
@@ -61,8 +60,7 @@ import starling.events.ResizeEvent;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.CLEAR
- */
-[Event(name="clear",type="starling.events.Event")]
+ *///[Event(name="clear",type="starling.events.Event")]
 
 /**
  * Dispatched when the transition between screens begins.
@@ -83,8 +81,7 @@ import starling.events.ResizeEvent;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_START
- */
-[Event(name="transitionStart",type="starling.events.Event")]
+ *///[Event(name="transitionStart",type="starling.events.Event")]
 
 /**
  * Dispatched when the transition between screens has completed.
@@ -105,8 +102,7 @@ import starling.events.ResizeEvent;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_COMPLETE
- */
-[Event(name="transitionComplete",type="starling.events.Event")]
+ *///[Event(name="transitionComplete",type="starling.events.Event")]
 
 /**
  * A "view stack"-like container that supports navigation between screens

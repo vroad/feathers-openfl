@@ -25,8 +25,7 @@ package feathers.controls;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Minimum requirements for a scroll bar to be usable with a <code>Scroller</code>

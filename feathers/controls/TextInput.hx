@@ -49,8 +49,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the user presses the Enter key while the text input
@@ -77,8 +76,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.ENTER
- */
-[Event(name="enter",type="starling.events.Event")]
+ *///[Event(name="enter",type="starling.events.Event")]
 
 /**
  * Dispatched when the text input receives focus.
@@ -99,8 +97,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
- */
-[Event(name="focusIn",type="starling.events.Event")]
+ *///[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the text input loses focus.
@@ -121,8 +118,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
- */
-[Event(name="focusOut",type="starling.events.Event")]
+ *///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is activated by the text editor. Not
@@ -144,8 +140,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_ACTIVATE
- */
-[Event(name="softKeyboardActivate",type="starling.events.Event")]
+ *///[Event(name="softKeyboardActivate",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is deactivated by the text editor. Not
@@ -167,8 +162,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_DEACTIVATE
- */
-[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
+ *///[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
 
 /**
  * A text entry control that allows users to enter and edit a single line of

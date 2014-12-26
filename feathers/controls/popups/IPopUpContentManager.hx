@@ -27,8 +27,7 @@ import starling.display.DisplayObject;
  * </table>
  *
  * @eventType starling.events.Event.OPEN
- */
-[Event(name="open",type="starling.events.Event")]
+ *///[Event(name="open",type="starling.events.Event")]
 
 /**
  * Dispatched when the pop-up content closes.
@@ -49,8 +48,7 @@ import starling.display.DisplayObject;
  * </table>
  *
  * @eventType starling.events.Event.CLOSE
- */
-[Event(name="close",type="starling.events.Event")]
+ *///[Event(name="close",type="starling.events.Event")]
 
 /**
  * Automatically manages pop-up content layout and positioning.

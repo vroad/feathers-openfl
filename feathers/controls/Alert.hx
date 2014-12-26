@@ -49,7 +49,7 @@ import starling.events.Event;
  *
  * @eventType starling.events.Event.CLOSE
  */
-[Event(name="close",type="starling.events.Event")]
+//[Event(name="close",type="starling.events.Event")]
 
 /**
  * Displays a message in a modal pop-up with a title and a set of buttons.

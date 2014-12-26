@@ -56,7 +56,7 @@ import starling.events.Event;
  *
  * @eventType starling.events.Event.TRIGGERED
  */
-[Event(name="triggered", type="starling.events.Event")]
+//[Event(name="triggered", type="starling.events.Event")]
 
 [DefaultProperty("dataProvider")]
 /**

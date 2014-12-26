@@ -26,7 +26,7 @@ package feathers.core;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * An interface for something that may be selected.

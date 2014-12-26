@@ -37,7 +37,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Positions items from top to bottom in a single column.

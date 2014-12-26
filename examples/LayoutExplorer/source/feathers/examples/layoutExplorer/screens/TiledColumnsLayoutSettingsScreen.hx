@@ -12,8 +12,7 @@ import feathers.layout.TiledColumnsLayout;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
-
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 class TiledColumnsLayoutSettingsScreen extends PanelScreen
 {

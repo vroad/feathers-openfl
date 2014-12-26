@@ -46,8 +46,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Select a value between a minimum and a maximum by using increment and

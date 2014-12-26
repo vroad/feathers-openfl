@@ -39,8 +39,7 @@ import starling.events.Event;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 [DefaultProperty("dataProvider")]
 /**

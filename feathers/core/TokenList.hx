@@ -29,8 +29,7 @@ import starling.events.EventDispatcher;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * A list of space-delimited tokens. Obviously, since they are delimited by

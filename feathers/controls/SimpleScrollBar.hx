@@ -42,8 +42,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType starling.events.Event.CHANGE
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the user starts dragging the scroll bar's thumb.
@@ -64,8 +63,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.BEGIN_INTERACTION
- */
-[Event(name="beginInteraction",type="starling.events.Event")]
+ *///[Event(name="beginInteraction",type="starling.events.Event")]
 
 /**
  * Dispatched when the user stops dragging the scroll bar's thumb.
@@ -86,8 +84,7 @@ import starling.events.TouchPhase;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.END_INTERACTION
- */
-[Event(name="endInteraction",type="starling.events.Event")]
+ *///[Event(name="endInteraction",type="starling.events.Event")]
 
 /**
  * Select a value between a minimum and a maximum by dragging a thumb over

@@ -18,7 +18,7 @@ import starling.display.DisplayObject;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Interface providing layout capabilities for containers.

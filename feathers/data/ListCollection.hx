@@ -32,7 +32,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the collection has changed drastically, such as when
@@ -55,7 +55,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.RESET
  */
-[Event(name="reset",type="starling.events.Event")]
+//[Event(name="reset",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is added to the collection.
@@ -78,7 +78,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.ADD_ITEM
  */
-[Event(name="addItem",type="starling.events.Event")]
+//[Event(name="addItem",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is removed from the collection.
@@ -101,7 +101,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.REMOVE_ITEM
  */
-[Event(name="removeItem",type="starling.events.Event")]
+//[Event(name="removeItem",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is replaced in the collection.
@@ -124,7 +124,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.REPLACE_ITEM
  */
-[Event(name="replaceItem",type="starling.events.Event")]
+//[Event(name="replaceItem",type="starling.events.Event")]
 
 /**
  * Dispatched when a property of an item in the collection has changed
@@ -153,7 +153,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.UPDATE_ITEM
  */
-[Event(name="updateItem",type="starling.events.Event")]
+//[Event(name="updateItem",type="starling.events.Event")]
 
 [DefaultProperty("data")]
 /**

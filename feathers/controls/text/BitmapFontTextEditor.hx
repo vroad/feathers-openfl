@@ -51,8 +51,7 @@ import starling.text.BitmapFont;
  *   <code>currentTarget</code> property to always access the Object
  *   listening for the event.</td></tr>
  * </table>
- */
-[Event(name="change",type="starling.events.Event")]
+ *///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the user presses the Enter key while the editor has
@@ -74,8 +73,7 @@ import starling.text.BitmapFont;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.ENTER
- */
-[Event(name="enter",type="starling.events.Event")]
+ *///[Event(name="enter",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor receives focus.
@@ -96,8 +94,7 @@ import starling.text.BitmapFont;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
- */
-[Event(name="focusIn",type="starling.events.Event")]
+ *///[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor loses focus.
@@ -118,8 +115,7 @@ import starling.text.BitmapFont;
  * </table>
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
- */
-[Event(name="focusOut",type="starling.events.Event")]
+ *///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * Renders text using <code>starling.text.BitmapFont</code> that may be

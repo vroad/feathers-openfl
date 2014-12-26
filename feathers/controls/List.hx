@@ -42,7 +42,7 @@ import starling.events.KeyboardEvent;
  *
  * @eventType starling.events.Event.CHANGE
  */
-[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when an item renderer is added to the list. When the layout is
@@ -67,7 +67,7 @@ import starling.events.KeyboardEvent;
  *
  * @eventType feathers.events.FeathersEventType.RENDERER_ADD
  */
-[Event(name="rendererAdd",type="starling.events.Event")]
+//[Event(name="rendererAdd",type="starling.events.Event")]
 
 /**
  * Dispatched when an item renderer is removed from the list. When the layout is
@@ -92,7 +92,7 @@ import starling.events.KeyboardEvent;
  *
  * @eventType feathers.events.FeathersEventType.RENDERER_REMOVE
  */
-[Event(name="rendererRemove",type="starling.events.Event")]
+//[Event(name="rendererRemove",type="starling.events.Event")]
 
 [DefaultProperty("dataProvider")]
 /**
