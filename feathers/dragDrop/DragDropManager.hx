@@ -108,22 +108,22 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static var avatarOffsetX:Number;
+	private static var avatarOffsetX:Float;
 
 	/**
 	 * @private
 	 */
-	private static var avatarOffsetY:Number;
+	private static var avatarOffsetY:Float;
 
 	/**
 	 * @private
 	 */
-	private static var dropTargetLocalX:Number;
+	private static var dropTargetLocalX:Float;
 
 	/**
 	 * @private
 	 */
-	private static var dropTargetLocalY:Number;
+	private static var dropTargetLocalY:Float;
 
 	/**
 	 * @private
@@ -135,7 +135,7 @@ class DragDropManager
 	 * immediately cancelled. Includes an optional "avatar", a visual
 	 * representation of the data that is being dragged.
 	 */
-	public static function startDrag(source:IDragSource, touch:Touch, data:DragData, dragAvatar:DisplayObject = null, dragAvatarOffsetX:Number = 0, dragAvatarOffsetY:Number = 0):Void
+	public static function startDrag(source:IDragSource, touch:Touch, data:DragData, dragAvatar:DisplayObject = null, dragAvatarOffsetX:Float = 0, dragAvatarOffsetY:Float = 0):Void
 	{
 		if(isDragging)
 		{

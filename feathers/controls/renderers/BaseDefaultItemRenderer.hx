@@ -699,7 +699,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryOffsetX:Number = 0;
+	private var _accessoryOffsetX:Float = 0;
 
 	/**
 	 * Offsets the x position of the accessory by a certain number of pixels.
@@ -713,7 +713,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryOffsetY
 	 */
-	public function get accessoryOffsetX():Number
+	public function get accessoryOffsetX():Float
 	{
 		return this._accessoryOffsetX;
 	}
@@ -721,7 +721,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set accessoryOffsetX(value:Number):Void
+	public function set accessoryOffsetX(value:Float):Void
 	{
 		if(this._accessoryOffsetX == value)
 		{
@@ -734,7 +734,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryOffsetY:Number = 0;
+	private var _accessoryOffsetY:Float = 0;
 
 	/**
 	 * Offsets the y position of the accessory by a certain number of pixels.
@@ -748,7 +748,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryOffsetX
 	 */
-	public function get accessoryOffsetY():Number
+	public function get accessoryOffsetY():Float
 	{
 		return this._accessoryOffsetY;
 	}
@@ -756,7 +756,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set accessoryOffsetY(value:Number):Void
+	public function set accessoryOffsetY(value:Float):Void
 	{
 		if(this._accessoryOffsetY == value)
 		{
@@ -769,7 +769,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryGap:Number = NaN;
+	private var _accessoryGap:Float = NaN;
 
 	/**
 	 * The space, in pixels, between the accessory and the other child it is
@@ -792,7 +792,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #gap
 	 * @see #accessoryPosition
 	 */
-	public function get accessoryGap():Number
+	public function get accessoryGap():Float
 	{
 		return this._accessoryGap;
 	}
@@ -800,7 +800,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set accessoryGap(value:Number):Void
+	public function set accessoryGap(value:Float):Void
 	{
 		if(this._accessoryGap == value)
 		{
@@ -813,7 +813,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _minAccessoryGap:Number = NaN;
+	private var _minAccessoryGap:Float = NaN;
 
 	/**
 	 * If the value of the <code>accessoryGap</code> property is
@@ -837,7 +837,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryGap
 	 */
-	public function get minAccessoryGap():Number
+	public function get minAccessoryGap():Float
 	{
 		return this._minAccessoryGap;
 	}
@@ -845,7 +845,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set minAccessoryGap(value:Number):Void
+	public function set minAccessoryGap(value:Float):Void
 	{
 		if(this._minAccessoryGap == value)
 		{
@@ -3132,7 +3132,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			HELPER_POINT.setTo(0, 0);
 		}
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this._label)
@@ -3167,7 +3167,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this._label)
@@ -3209,13 +3209,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function addIconWidth(width:Number):Number
+	private function addIconWidth(width:Float):Float
 	{
 		if(!this.currentIcon)
 		{
 			return width;
 		}
-		var iconWidth:Number = this.currentIcon.width;
+		var iconWidth:Float = this.currentIcon.width;
 		if(iconWidth !== iconWidth) //isNaN
 		{
 			return width;
@@ -3231,7 +3231,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			if(hasPreviousItem)
 			{
-				var adjustedGap:Number = this._gap;
+				var adjustedGap:Float = this._gap;
 				if(this._gap == Number.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
@@ -3250,13 +3250,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function addAccessoryWidth(width:Number):Number
+	private function addAccessoryWidth(width:Float):Float
 	{
 		if(!this.accessory)
 		{
 			return width;
 		}
-		var accessoryWidth:Number = this.accessory.width;
+		var accessoryWidth:Float = this.accessory.width;
 		if(accessoryWidth !== accessoryWidth) //isNaN
 		{
 			return width;
@@ -3272,7 +3272,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			if(hasPreviousItem)
 			{
-				var adjustedAccessoryGap:Number = this._accessoryGap;
+				var adjustedAccessoryGap:Float = this._accessoryGap;
 				//for some reason, if we don't call a function right here,
 				//compiling with the flex 4.6 SDK will throw a VerifyError
 				//for a stack overflow.
@@ -3310,13 +3310,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function addIconHeight(height:Number):Number
+	private function addIconHeight(height:Float):Float
 	{
 		if(!this.currentIcon)
 		{
 			return height;
 		}
-		var iconHeight:Number = this.currentIcon.height;
+		var iconHeight:Float = this.currentIcon.height;
 		if(iconHeight !== iconHeight) //isNaN
 		{
 			return height;
@@ -3332,7 +3332,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			if(hasPreviousItem)
 			{
-				var adjustedGap:Number = this._gap;
+				var adjustedGap:Float = this._gap;
 				if(this._gap == Number.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
@@ -3351,13 +3351,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function addAccessoryHeight(height:Number):Number
+	private function addAccessoryHeight(height:Float):Float
 	{
 		if(!this.accessory)
 		{
 			return height;
 		}
-		var accessoryHeight:Number = this.accessory.height;
+		var accessoryHeight:Float = this.accessory.height;
 		if(accessoryHeight !== accessoryHeight) //isNaN
 		{
 			return height;
@@ -3373,7 +3373,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			if(hasPreviousItem)
 			{
-				var adjustedAccessoryGap:Number = this._accessoryGap;
+				var adjustedAccessoryGap:Float = this._accessoryGap;
 				//for some reason, if we don't call a function right here,
 				//compiling with the flex 4.6 SDK will throw a VerifyError
 				//for a stack overflow.
@@ -3826,7 +3826,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		var iconIsInLayout:Boolean = this.currentIcon && this._iconPosition != ICON_POSITION_MANUAL;
 		var accessoryIsInLayout:Boolean = this.accessory && this._accessoryPosition != ACCESSORY_POSITION_MANUAL;
-		var accessoryGap:Number = this._accessoryGap;
+		var accessoryGap:Float = this._accessoryGap;
 		if(accessoryGap !== accessoryGap) //isNaN
 		{
 			accessoryGap = this._gap;
@@ -3914,7 +3914,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	override private function refreshMaxLabelWidth(forMeasurement:Boolean):Void
 	{
-		var calculatedWidth:Number = this.actualWidth;
+		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)
 		{
 			calculatedWidth = this.explicitWidth;
@@ -3925,12 +3925,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		calculatedWidth -= (this._paddingLeft + this._paddingRight);
 
-		var adjustedGap:Number = this._gap;
+		var adjustedGap:Float = this._gap;
 		if(adjustedGap == Number.POSITIVE_INFINITY)
 		{
 			adjustedGap = this._minGap;
 		}
-		var adjustedAccessoryGap:Number = this._accessoryGap;
+		var adjustedAccessoryGap:Float = this._accessoryGap;
 		if(adjustedAccessoryGap !== adjustedAccessoryGap) //isNaN
 		{
 			adjustedAccessoryGap = this._gap;
@@ -4054,14 +4054,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function positionRelativeToOthers(object:DisplayObject, relativeTo:DisplayObject, relativeTo2:DisplayObject, position:String, gap:Number, otherPosition:String, otherGap:Number):Void
+	private function positionRelativeToOthers(object:DisplayObject, relativeTo:DisplayObject, relativeTo2:DisplayObject, position:String, gap:Float, otherPosition:String, otherGap:Float):Void
 	{
-		var relativeToX:Number = relativeTo2 ? Math.min(relativeTo.x, relativeTo2.x) : relativeTo.x;
-		var relativeToY:Number = relativeTo2 ? Math.min(relativeTo.y, relativeTo2.y) : relativeTo.y;
-		var relativeToWidth:Number = relativeTo2 ? (Math.max(relativeTo.x + relativeTo.width, relativeTo2.x + relativeTo2.width) - relativeToX) : relativeTo.width;
-		var relativeToHeight:Number = relativeTo2 ? (Math.max(relativeTo.y + relativeTo.height, relativeTo2.y + relativeTo2.height) - relativeToY) : relativeTo.height;
-		var newRelativeToX:Number = relativeToX;
-		var newRelativeToY:Number = relativeToY;
+		var relativeToX:Float = relativeTo2 ? Math.min(relativeTo.x, relativeTo2.x) : relativeTo.x;
+		var relativeToY:Float = relativeTo2 ? Math.min(relativeTo.y, relativeTo2.y) : relativeTo.y;
+		var relativeToWidth:Float = relativeTo2 ? (Math.max(relativeTo.x + relativeTo.width, relativeTo2.x + relativeTo2.width) - relativeToX) : relativeTo.width;
+		var relativeToHeight:Float = relativeTo2 ? (Math.max(relativeTo.y + relativeTo.height, relativeTo2.y + relativeTo2.height) - relativeToY) : relativeTo.height;
+		var newRelativeToX:Float = relativeToX;
+		var newRelativeToY:Float = relativeToY;
 		if(position == ACCESSORY_POSITION_TOP)
 		{
 			if(gap == Number.POSITIVE_INFINITY)
@@ -4159,8 +4159,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 		}
 
-		var offsetX:Number = newRelativeToX - relativeToX;
-		var offsetY:Number = newRelativeToY - relativeToY;
+		var offsetX:Float = newRelativeToX - relativeToX;
+		var offsetY:Float = newRelativeToY - relativeToY;
 		if(!relativeTo2 || otherGap != Number.POSITIVE_INFINITY || !(
 			(position == ACCESSORY_POSITION_TOP && otherPosition == ACCESSORY_POSITION_TOP) ||
 			(position == ACCESSORY_POSITION_RIGHT && otherPosition == ACCESSORY_POSITION_RIGHT) ||

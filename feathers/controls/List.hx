@@ -227,14 +227,14 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Float = 0.998;
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_FAST
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>List</code>
@@ -1037,7 +1037,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPosition(horizontalScrollPosition:Number, verticalScrollPosition:Number, animationDuration:Number = NaN):Void
+	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPosition(horizontalScrollPosition, verticalScrollPosition, animationDuration);
@@ -1046,7 +1046,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Number = NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPageIndex(horizontalPageIndex, verticalPageIndex, animationDuration);
@@ -1076,7 +1076,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPosition()
 	 */
-	public function scrollToDisplayIndex(index:Int, animationDuration:Number = 0):Void
+	public function scrollToDisplayIndex(index:Int, animationDuration:Float = 0):Void
 	{
 		this.pendingHorizontalPageIndex = -1;
 		this.pendingVerticalPageIndex = -1;
@@ -1183,7 +1183,7 @@ class List extends Scroller implements IFocusDisplayObject
 				this.dataViewPort.getScrollPositionForIndex(this.pendingItemIndex, HELPER_POINT);
 				this.pendingItemIndex = -1;
 
-				var targetHorizontalScrollPosition:Number = HELPER_POINT.x;
+				var targetHorizontalScrollPosition:Float = HELPER_POINT.x;
 				if(targetHorizontalScrollPosition < this._minHorizontalScrollPosition)
 				{
 					targetHorizontalScrollPosition = this._minHorizontalScrollPosition;
@@ -1192,7 +1192,7 @@ class List extends Scroller implements IFocusDisplayObject
 				{
 					targetHorizontalScrollPosition = this._maxHorizontalScrollPosition;
 				}
-				var targetVerticalScrollPosition:Number = HELPER_POINT.y;
+				var targetVerticalScrollPosition:Float = HELPER_POINT.y;
 				if(targetVerticalScrollPosition < this._minVerticalScrollPosition)
 				{
 					targetVerticalScrollPosition = this._minVerticalScrollPosition;

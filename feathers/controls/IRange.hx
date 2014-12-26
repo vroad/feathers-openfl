@@ -50,12 +50,12 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get minimum():Number;
+	function get minimum():Float;
 
 	/**
 	 * @private
 	 */
-	function set minimum(value:Number):Void;
+	function set minimum(value:Float):Void;
 
 	/**
 	 * The maximum numeric value of the range.
@@ -69,12 +69,12 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get maximum():Number;
+	function get maximum():Float;
 
 	/**
 	 * @private
 	 */
-	function set maximum(value:Number):Void;
+	function set maximum(value:Float):Void;
 
 	/**
 	 * The current numeric value.
@@ -88,12 +88,12 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get value():Number;
+	function get value():Float;
 
 	/**
 	 * @private
 	 */
-	function set value(value:Number):Void;
+	function set value(value:Float):Void;
 
 	/**
 	 * The amount the value must change to increment or decrement.
@@ -107,10 +107,10 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get step():Number;
+	function get step():Float;
 
 	/**
 	 * @private
 	 */
-	function set step(value:Number):Void;
+	function set step(value:Float):Void;
 }

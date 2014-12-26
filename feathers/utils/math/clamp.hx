@@ -17,7 +17,7 @@ package feathers.utils.math;
  * 
  * @author Josh Tynjala (joshblog.net)
  */
-public function clamp(value:Number, minimum:Number, maximum:Number):Number
+public function clamp(value:Float, minimum:Float, maximum:Float):Float
 {
 	if(minimum > maximum)
 	{

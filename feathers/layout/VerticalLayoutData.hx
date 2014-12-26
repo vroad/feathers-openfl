@@ -27,7 +27,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function VerticalLayoutData(percentWidth:Number = NaN, percentHeight:Number = NaN)
+	public function VerticalLayoutData(percentWidth:Float = NaN, percentHeight:Float = NaN)
 	{
 		this._percentWidth = percentWidth;
 		this._percentHeight = percentHeight;
@@ -36,7 +36,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentWidth:Number;
+	private var _percentWidth:Float;
 
 	/**
 	 * The width of the layout object, as a percentage of the container's
@@ -46,7 +46,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentWidth():Number
+	public function get percentWidth():Float
 	{
 		return this._percentWidth;
 	}
@@ -54,7 +54,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentWidth(value:Number):Void
+	public function set percentWidth(value:Float):Void
 	{
 		if(this._percentWidth == value)
 		{
@@ -67,7 +67,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentHeight:Number;
+	private var _percentHeight:Float;
 
 	/**
 	 * The height of the layout object, as a percentage of the container's
@@ -82,7 +82,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentHeight():Number
+	public function get percentHeight():Float
 	{
 		return this._percentHeight;
 	}
@@ -90,7 +90,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentHeight(value:Number):Void
+	public function set percentHeight(value:Float):Void
 	{
 		if(this._percentHeight == value)
 		{

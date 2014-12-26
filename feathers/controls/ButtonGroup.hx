@@ -575,7 +575,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * Space, in pixels, between buttons.
@@ -588,7 +588,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -596,7 +596,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -609,7 +609,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _firstGap:Number = NaN;
+	private var _firstGap:Float = NaN;
 
 	/**
 	 * Space, in pixels, between the first two buttons. If <code>NaN</code>,
@@ -627,7 +627,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #gap
 	 * @see #lastGap
 	 */
-	public function get firstGap():Number
+	public function get firstGap():Float
 	{
 		return this._firstGap;
 	}
@@ -635,7 +635,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Number):Void
+	public function set firstGap(value:Float):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -648,7 +648,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastGap:Number = NaN;
+	private var _lastGap:Float = NaN;
 
 	/**
 	 * Space, in pixels, between the last two buttons. If <code>NaN</code>,
@@ -666,7 +666,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #gap
 	 * @see #firstGap
 	 */
-	public function get lastGap():Number
+	public function get lastGap():Float
 	{
 		return this._lastGap;
 	}
@@ -674,7 +674,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Number):Void
+	public function set lastGap(value:Float):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -703,7 +703,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -711,7 +711,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -722,7 +722,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's top edge and the
@@ -736,7 +736,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -744,7 +744,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -757,7 +757,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's right edge and the
@@ -771,7 +771,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -779,7 +779,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -792,7 +792,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's bottom edge and the
@@ -806,7 +806,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -814,7 +814,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -827,7 +827,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's left edge and the
@@ -841,7 +841,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -849,7 +849,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{

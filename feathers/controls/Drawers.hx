@@ -293,7 +293,7 @@ class Drawers extends FeathersControl
 	 * @private
 	 * The current velocity is given high importance.
 	 */
-	inline private static var CURRENT_VELOCITY_WEIGHT:Number = 2.33;
+	inline private static var CURRENT_VELOCITY_WEIGHT:Float = 2.33;
 
 	/**
 	 * @private
@@ -432,7 +432,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _overlaySkinOriginalAlpha:Number = 1;
+	private var _overlaySkinOriginalAlpha:Float = 1;
 
 	/**
 	 * @private
@@ -1470,7 +1470,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minimumDragDistance:Number = 0.04;
+	private var _minimumDragDistance:Float = 0.04;
 
 	/**
 	 * The minimum physical distance (in inches) that a touch must move
@@ -1483,7 +1483,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 0.04
 	 */
-	public function get minimumDragDistance():Number
+	public function get minimumDragDistance():Float
 	{
 		return this._minimumDragDistance;
 	}
@@ -1491,7 +1491,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumDragDistance(value:Number):Void
+	public function set minimumDragDistance(value:Float):Void
 	{
 		this._minimumDragDistance = value;
 	}
@@ -1499,7 +1499,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minimumDrawerThrowVelocity:Number = 5;
+	private var _minimumDrawerThrowVelocity:Float = 5;
 
 	/**
 	 * The minimum physical velocity (in inches per second) that a touch
@@ -1514,7 +1514,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 5
 	 */
-	public function get minimumDrawerThrowVelocity():Number
+	public function get minimumDrawerThrowVelocity():Float
 	{
 		return this._minimumDrawerThrowVelocity;
 	}
@@ -1522,7 +1522,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumDrawerThrowVelocity(value:Number):Void
+	public function set minimumDrawerThrowVelocity(value:Float):Void
 	{
 		this._minimumDrawerThrowVelocity = value;
 	}
@@ -1530,7 +1530,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _openGestureEdgeSize:Number = 0.1;
+	private var _openGestureEdgeSize:Float = 0.1;
 
 	/**
 	 * The minimum physical distance (in inches) that a touch must move
@@ -1543,7 +1543,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 0.1
 	 */
-	public function get openGestureEdgeSize():Number
+	public function get openGestureEdgeSize():Float
 	{
 		return this._openGestureEdgeSize;
 	}
@@ -1551,7 +1551,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openGestureEdgeSize(value:Number):Void
+	public function set openGestureEdgeSize(value:Float):Void
 	{
 		this._openGestureEdgeSize = value;
 	}
@@ -1712,7 +1712,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _openOrCloseDuration:Number = 0.25;
+	private var _openOrCloseDuration:Float = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when a drawer opens or
@@ -1728,7 +1728,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #openOrCloseEase
 	 */
-	public function get openOrCloseDuration():Number
+	public function get openOrCloseDuration():Float
 	{
 		return this._openOrCloseDuration;
 	}
@@ -1736,7 +1736,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openOrCloseDuration(value:Number):Void
+	public function set openOrCloseDuration(value:Float):Void
 	{
 		this._openOrCloseDuration = value;
 	}
@@ -1796,7 +1796,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var pendingToggleDuration:Number;
+	private var pendingToggleDuration:Float;
 
 	/**
 	 * @private
@@ -1831,22 +1831,22 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _startTouchX:Number;
+	private var _startTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _startTouchY:Number;
+	private var _startTouchY:Float;
 
 	/**
 	 * @private
 	 */
-	private var _currentTouchX:Number;
+	private var _currentTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _currentTouchY:Number;
+	private var _currentTouchY:Float;
 
 	/**
 	 * @private
@@ -1856,22 +1856,22 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousTouchX:Number;
+	private var _previousTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _previousTouchY:Number;
+	private var _previousTouchY:Float;
 
 	/**
 	 * @private
 	 */
-	private var _velocityX:Number = 0;
+	private var _velocityX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _velocityY:Number = 0;
+	private var _velocityY:Float = 0;
 
 	/**
 	 * @private
@@ -1939,7 +1939,7 @@ class Drawers extends FeathersControl
 	 * @see #openOrCloseDuration
 	 * @see #openOrCloseEase
 	 */
-	public function toggleTopDrawer(duration:Number = NaN):Void
+	public function toggleTopDrawer(duration:Float = NaN):Void
 	{
 		if(!this._topDrawer || this.isTopDrawerDocked)
 		{
@@ -1971,7 +1971,7 @@ class Drawers extends FeathersControl
 	 * @see #openOrCloseDuration
 	 * @see #openOrCloseEase
 	 */
-	public function toggleRightDrawer(duration:Number = NaN):Void
+	public function toggleRightDrawer(duration:Float = NaN):Void
 	{
 		if(!this._rightDrawer || this.isRightDrawerDocked)
 		{
@@ -2003,7 +2003,7 @@ class Drawers extends FeathersControl
 	 * @see #openOrCloseDuration
 	 * @see #openOrCloseEase
 	 */
-	public function toggleBottomDrawer(duration:Number = NaN):Void
+	public function toggleBottomDrawer(duration:Float = NaN):Void
 	{
 		if(!this._bottomDrawer || this.isBottomDrawerDocked)
 		{
@@ -2035,7 +2035,7 @@ class Drawers extends FeathersControl
 	 * @see #openOrCloseDuration
 	 * @see #openOrCloseEase
 	 */
-	public function toggleLeftDrawer(duration:Number = NaN):Void
+	public function toggleLeftDrawer(duration:Float = NaN):Void
 	{
 		if(!this._leftDrawer || this.isLeftDrawerDocked)
 		{
@@ -2130,7 +2130,7 @@ class Drawers extends FeathersControl
 			}
 		}
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
@@ -2151,7 +2151,7 @@ class Drawers extends FeathersControl
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
@@ -2204,12 +2204,12 @@ class Drawers extends FeathersControl
 		var isRightDrawerDocked:Boolean = this.isRightDrawerDocked;
 		var isBottomDrawerDocked:Boolean = this.isBottomDrawerDocked;
 		var isLeftDrawerDocked:Boolean = this.isLeftDrawerDocked;
-		var topDrawerHeight:Number = this._topDrawer ? this._topDrawer.height : 0;
-		var rightDrawerWidth:Number = this._rightDrawer ? this._rightDrawer.width : 0;
-		var bottomDrawerHeight:Number = this._bottomDrawer ? this._bottomDrawer.height : 0;
-		var leftDrawerWidth:Number = this._leftDrawer ? this._leftDrawer.width : 0;
+		var topDrawerHeight:Float = this._topDrawer ? this._topDrawer.height : 0;
+		var rightDrawerWidth:Float = this._rightDrawer ? this._rightDrawer.width : 0;
+		var bottomDrawerHeight:Float = this._bottomDrawer ? this._bottomDrawer.height : 0;
+		var leftDrawerWidth:Float = this._leftDrawer ? this._leftDrawer.width : 0;
 
-		var contentWidth:Number = this.actualWidth;
+		var contentWidth:Float = this.actualWidth;
 		if(isLeftDrawerDocked)
 		{
 			contentWidth -= leftDrawerWidth;
@@ -2218,7 +2218,7 @@ class Drawers extends FeathersControl
 		{
 			contentWidth -= rightDrawerWidth;
 		}
-		var contentHeight:Number = this.actualHeight;
+		var contentHeight:Float = this.actualHeight;
 		if(isTopDrawerDocked)
 		{
 			contentHeight -= topDrawerHeight;
@@ -2230,7 +2230,7 @@ class Drawers extends FeathersControl
 
 		if(isRightDrawerOpen)
 		{
-			var contentX:Number = -rightDrawerWidth;
+			var contentX:Float = -rightDrawerWidth;
 			if(isLeftDrawerDocked)
 			{
 				contentX += leftDrawerWidth;
@@ -2247,7 +2247,7 @@ class Drawers extends FeathersControl
 		}
 		if(isBottomDrawerOpen)
 		{
-			var contentY:Number = -bottomDrawerHeight;
+			var contentY:Float = -bottomDrawerHeight;
 			if(isTopDrawerDocked)
 			{
 				contentY += topDrawerHeight;
@@ -2276,8 +2276,8 @@ class Drawers extends FeathersControl
 
 		if(this._topDrawer)
 		{
-			var topDrawerX:Number = 0;
-			var topDrawerY:Number = 0;
+			var topDrawerX:Float = 0;
+			var topDrawerY:Float = 0;
 			if(isTopDrawerDocked)
 			{
 				if(isBottomDrawerOpen)
@@ -2303,9 +2303,9 @@ class Drawers extends FeathersControl
 
 		if(this._rightDrawer)
 		{
-			var rightDrawerX:Number = this.actualWidth - rightDrawerWidth;
-			var rightDrawerY:Number = 0;
-			var rightDrawerHeight:Number = this.actualHeight;
+			var rightDrawerX:Float = this.actualWidth - rightDrawerWidth;
+			var rightDrawerY:Float = 0;
+			var rightDrawerHeight:Float = this.actualHeight;
 			if(isRightDrawerDocked)
 			{
 				rightDrawerX = this._content.x + this._content.width;
@@ -2333,8 +2333,8 @@ class Drawers extends FeathersControl
 
 		if(this._bottomDrawer)
 		{
-			var bottomDrawerX:Number = 0;
-			var bottomDrawerY:Number = this.actualHeight - bottomDrawerHeight;
+			var bottomDrawerX:Float = 0;
+			var bottomDrawerY:Float = this.actualHeight - bottomDrawerHeight;
 			if(isBottomDrawerDocked)
 			{
 				if(!isLeftDrawerDocked)
@@ -2357,9 +2357,9 @@ class Drawers extends FeathersControl
 
 		if(this._leftDrawer)
 		{
-			var leftDrawerX:Number = 0;
-			var leftDrawerY:Number = 0;
-			var leftDrawerHeight:Number = this.actualHeight;
+			var leftDrawerX:Float = 0;
+			var leftDrawerY:Float = 0;
+			var leftDrawerHeight:Float = this.actualHeight;
 			if(isLeftDrawerDocked)
 			{
 				if(isRightDrawerOpen)
@@ -2462,8 +2462,8 @@ class Drawers extends FeathersControl
 			}
 		}
 		this._topDrawer.visible = true;
-		var targetPosition:Number = this._isTopDrawerOpen ? this._topDrawer.height : 0;
-		var duration:Number = this.pendingToggleDuration;
+		var targetPosition:Float = this._isTopDrawerOpen ? this._topDrawer.height : 0;
+		var duration:Float = this.pendingToggleDuration;
 		if(duration !== duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
@@ -2505,7 +2505,7 @@ class Drawers extends FeathersControl
 			}
 		}
 		this._rightDrawer.visible = true;
-		var targetPosition:Number = 0;
+		var targetPosition:Float = 0;
 		if(this._isRightDrawerOpen)
 		{
 			targetPosition = -this._rightDrawer.width
@@ -2514,7 +2514,7 @@ class Drawers extends FeathersControl
 		{
 			targetPosition += this._leftDrawer.width;
 		}
-		var duration:Number = this.pendingToggleDuration;
+		var duration:Float = this.pendingToggleDuration;
 		if(duration !== duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
@@ -2556,7 +2556,7 @@ class Drawers extends FeathersControl
 			}
 		}
 		this._bottomDrawer.visible = true;
-		var targetPosition:Number = 0;
+		var targetPosition:Float = 0;
 		if(this._isBottomDrawerOpen)
 		{
 			targetPosition = -this._bottomDrawer.height;
@@ -2565,7 +2565,7 @@ class Drawers extends FeathersControl
 		{
 			targetPosition += this._topDrawer.height;
 		}
-		var duration:Number = this.pendingToggleDuration;
+		var duration:Float = this.pendingToggleDuration;
 		if(duration !== duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
@@ -2607,8 +2607,8 @@ class Drawers extends FeathersControl
 			}
 		}
 		this._leftDrawer.visible = true;
-		var targetPosition:Number = this._isLeftDrawerOpen ? this._leftDrawer.width : 0;
-		var duration:Number = this.pendingToggleDuration;
+		var targetPosition:Float = this._isLeftDrawerOpen ? this._leftDrawer.width : 0;
+		var duration:Float = this.pendingToggleDuration;
 		if(duration !== duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
@@ -2839,8 +2839,8 @@ class Drawers extends FeathersControl
 		}
 
 		touch.getLocation(this, HELPER_POINT);
-		var localX:Number = HELPER_POINT.x;
-		var localY:Number = HELPER_POINT.y;
+		var localX:Float = HELPER_POINT.x;
+		var localY:Float = HELPER_POINT.y;
 		if(!this.isTopDrawerOpen && !this.isRightDrawerOpen && !this.isBottomDrawerOpen && !this.isLeftDrawerOpen)
 		{
 			if(this._openGesture == OPEN_GESTURE_NONE)
@@ -2852,7 +2852,7 @@ class Drawers extends FeathersControl
 				var isNearAnyEdge:Boolean = false;
 				if(this._topDrawer && !this.isTopDrawerDocked)
 				{
-					var topInches:Number = localY / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+					var topInches:Float = localY / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 					if(topInches >= 0 && topInches <= this._openGestureEdgeSize)
 					{
 						isNearAnyEdge = true;
@@ -2862,7 +2862,7 @@ class Drawers extends FeathersControl
 				{
 					if(this._rightDrawer && !this.isRightDrawerDocked)
 					{
-						var rightInches:Number = (this.actualWidth - localX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+						var rightInches:Float = (this.actualWidth - localX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 						if(rightInches >= 0 && rightInches <= this._openGestureEdgeSize)
 						{
 							isNearAnyEdge = true;
@@ -2872,7 +2872,7 @@ class Drawers extends FeathersControl
 					{
 						if(this._bottomDrawer && !this.isBottomDrawerDocked)
 						{
-							var bottomInches:Number = (this.actualHeight - localY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+							var bottomInches:Float = (this.actualHeight - localY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 							if(bottomInches >= 0 && bottomInches <= this._openGestureEdgeSize)
 							{
 								isNearAnyEdge = true;
@@ -2882,7 +2882,7 @@ class Drawers extends FeathersControl
 						{
 							if(this._leftDrawer && !this.isLeftDrawerDocked)
 							{
-								var leftInches:Number = localX / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+								var leftInches:Float = localX / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 								if(leftInches >= 0 && leftInches <= this._openGestureEdgeSize)
 								{
 									isNearAnyEdge = true;
@@ -2962,16 +2962,16 @@ class Drawers extends FeathersControl
 	private function handleDragEnd():Void
 	{
 		//take the average for more accuracy
-		var sum:Number = this._velocityX * CURRENT_VELOCITY_WEIGHT;
+		var sum:Float = this._velocityX * CURRENT_VELOCITY_WEIGHT;
 		var velocityCount:Int = this._previousVelocityX.length;
-		var totalWeight:Number = CURRENT_VELOCITY_WEIGHT;
+		var totalWeight:Float = CURRENT_VELOCITY_WEIGHT;
 		for(var i:Int = 0; i < velocityCount; i++)
 		{
-			var weight:Number = VELOCITY_WEIGHTS[i];
+			var weight:Float = VELOCITY_WEIGHTS[i];
 			sum += this._previousVelocityX.shift() * weight;
 			totalWeight += weight;
 		}
-		var inchesPerSecondX:Number = 1000 * (sum / totalWeight) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var inchesPerSecondX:Float = 1000 * (sum / totalWeight) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 
 		sum = this._velocityY * CURRENT_VELOCITY_WEIGHT;
 		velocityCount = this._previousVelocityY.length;
@@ -2982,7 +2982,7 @@ class Drawers extends FeathersControl
 			sum += this._previousVelocityY.shift() * weight;
 			totalWeight += weight;
 		}
-		var inchesPerSecondY:Number = 1000 * (sum / totalWeight) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var inchesPerSecondY:Float = 1000 * (sum / totalWeight) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 
 		this._isDragging = false;
 		if(this._isDraggingTopDrawer)
@@ -3015,7 +3015,7 @@ class Drawers extends FeathersControl
 			}
 			else
 			{
-				var positionToCheck:Number = 0;
+				var positionToCheck:Float = 0;
 				if(this.isLeftDrawerDocked)
 				{
 					positionToCheck = this._leftDrawer.width;
@@ -3070,8 +3070,8 @@ class Drawers extends FeathersControl
 	 */
 	private function handleDragMove():Void
 	{
-		var contentX:Number = 0;
-		var contentY:Number = 0;
+		var contentX:Float = 0;
+		var contentY:Float = 0;
 		if(this.isLeftDrawerDocked)
 		{
 			contentX = this._leftDrawer.width;
@@ -3082,7 +3082,7 @@ class Drawers extends FeathersControl
 		}
 		if(this._isDraggingLeftDrawer)
 		{
-			var leftDrawerWidth:Number = this._leftDrawer.width;
+			var leftDrawerWidth:Float = this._leftDrawer.width;
 			if(this.isLeftDrawerOpen)
 			{
 				contentX = leftDrawerWidth + this._currentTouchX - this._startTouchX;
@@ -3102,7 +3102,7 @@ class Drawers extends FeathersControl
 		}
 		else if(this._isDraggingRightDrawer)
 		{
-			var rightDrawerWidth:Number = this._rightDrawer.width;
+			var rightDrawerWidth:Float = this._rightDrawer.width;
 			if(this.isRightDrawerOpen)
 			{
 				contentX = -rightDrawerWidth + this._currentTouchX - this._startTouchX;
@@ -3126,7 +3126,7 @@ class Drawers extends FeathersControl
 		}
 		else if(this._isDraggingTopDrawer)
 		{
-			var topDrawerHeight:Number = this._topDrawer.height;
+			var topDrawerHeight:Float = this._topDrawer.height;
 			if(this.isTopDrawerOpen)
 			{
 				contentY = topDrawerHeight + this._currentTouchY - this._startTouchY;
@@ -3147,7 +3147,7 @@ class Drawers extends FeathersControl
 		}
 		else if(this._isDraggingBottomDrawer)
 		{
-			var bottomDrawerHeight:Number = this._bottomDrawer.height;
+			var bottomDrawerHeight:Float = this._bottomDrawer.height;
 			if(this.isBottomDrawerOpen)
 			{
 				contentY = -bottomDrawerHeight + this._currentTouchY - this._startTouchY;
@@ -3194,8 +3194,8 @@ class Drawers extends FeathersControl
 	 */
 	private function checkForDragToClose():Void
 	{
-		var horizontalInchesMoved:Number = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
-		var verticalInchesMoved:Number = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var horizontalInchesMoved:Float = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var verticalInchesMoved:Float = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 		if(this.isLeftDrawerOpen && horizontalInchesMoved <= -this._minimumDragDistance)
 		{
 			this._isDragging = true;
@@ -3241,8 +3241,8 @@ class Drawers extends FeathersControl
 	 */
 	private function checkForDragToOpen():Void
 	{
-		var horizontalInchesMoved:Number = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
-		var verticalInchesMoved:Number = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var horizontalInchesMoved:Float = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var verticalInchesMoved:Float = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 		if(this._leftDrawer && !this.isLeftDrawerDocked && horizontalInchesMoved >= this._minimumDragDistance)
 		{
 			this._isDragging = true;
@@ -3387,7 +3387,7 @@ class Drawers extends FeathersControl
 				clipRect = sprite.clipRect;
 				if(clipRect)
 				{
-					var rightClipWidth:Number = -this._content.x;
+					var rightClipWidth:Float = -this._content.x;
 					if(isLeftDrawerDocked)
 					{
 						rightClipWidth += this.leftDrawer.width;
@@ -3402,7 +3402,7 @@ class Drawers extends FeathersControl
 				clipRect = sprite.clipRect;
 				if(clipRect)
 				{
-					var bottomClipHeight:Number = -this._content.y;
+					var bottomClipHeight:Float = -this._content.y;
 					if(isTopDrawerDocked)
 					{
 						bottomClipHeight += this.topDrawer.height;
@@ -3420,8 +3420,8 @@ class Drawers extends FeathersControl
 					clipRect.width = this._content.x;
 				}
 			}
-			var contentX:Number = this._content.x;
-			var contentY:Number = this._content.y;
+			var contentX:Float = this._content.x;
+			var contentY:Float = this._content.y;
 			if(isTopDrawerDocked)
 			{
 				if(isLeftDrawerDocked)

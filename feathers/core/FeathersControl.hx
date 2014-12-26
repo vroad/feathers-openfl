@@ -507,7 +507,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * The width value explicitly set by calling the width setter or
 	 * setSize().
 	 */
-	private var explicitWidth:Number = NaN;
+	private var explicitWidth:Float = NaN;
 
 	/**
 	 * The final width value that should be used for layout. If the width
@@ -516,7 +516,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * automatic sizing behavior, but it's usually based on the component's
 	 * skin or content, including text or subcomponents.
 	 */
-	private var actualWidth:Number = 0;
+	private var actualWidth:Float = 0;
 
 	/**
 	 * @private
@@ -525,7 +525,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * uses unscaled values. This is the value exposed externally through
 	 * the <code>width</code> getter.
 	 */
-	private var scaledActualWidth:Number = 0;
+	private var scaledActualWidth:Float = 0;
 
 	/**
 	 * The width of the component, in pixels. This could be a value that was
@@ -556,7 +556,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public function get width():Number
+	override public function get width():Float
 	{
 		return this.scaledActualWidth;
 	}
@@ -564,7 +564,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):Void
+	override public function set width(value:Float):Void
 	{
 		if(this.explicitWidth == value)
 		{
@@ -591,7 +591,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * The height value explicitly set by calling the height setter or
 	 * setSize().
 	 */
-	private var explicitHeight:Number = NaN;
+	private var explicitHeight:Float = NaN;
 
 	/**
 	 * The final height value that should be used for layout. If the height
@@ -600,7 +600,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * automatic sizing behavior, but it's usually based on the component's
 	 * skin or content, including text or subcomponents.
 	 */
-	private var actualHeight:Number = 0;
+	private var actualHeight:Float = 0;
 
 	/**
 	 * @private
@@ -609,7 +609,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * uses unscaled values. This is the value exposed externally through
 	 * the <code>height</code> getter.
 	 */
-	private var scaledActualHeight:Number = 0;
+	private var scaledActualHeight:Float = 0;
 
 	/**
 	 * The height of the component, in pixels. This could be a value that
@@ -640,7 +640,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public function get height():Number
+	override public function get height():Float
 	{
 		return this.scaledActualHeight;
 	}
@@ -648,7 +648,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):Void
+	override public function set height(value:Float):Void
 	{
 		if(this.explicitHeight == value)
 		{
@@ -674,7 +674,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _minTouchWidth:Number = 0;
+	private var _minTouchWidth:Float = 0;
 
 	/**
 	 * If using <code>isQuickHitAreaEnabled</code>, and the hit area's
@@ -688,7 +688,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minTouchWidth():Number
+	public function get minTouchWidth():Float
 	{
 		return this._minTouchWidth;
 	}
@@ -696,7 +696,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minTouchWidth(value:Number):Void
+	public function set minTouchWidth(value:Float):Void
 	{
 		if(this._minTouchWidth == value)
 		{
@@ -709,7 +709,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _minTouchHeight:Number = 0;
+	private var _minTouchHeight:Float = 0;
 
 	/**
 	 * If using <code>isQuickHitAreaEnabled</code>, and the hit area's
@@ -723,7 +723,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minTouchHeight():Number
+	public function get minTouchHeight():Float
 	{
 		return this._minTouchHeight;
 	}
@@ -731,7 +731,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minTouchHeight(value:Number):Void
+	public function set minTouchHeight(value:Float):Void
 	{
 		if(this._minTouchHeight == value)
 		{
@@ -744,7 +744,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _minWidth:Number = 0;
+	private var _minWidth:Float = 0;
 
 	/**
 	 * The minimum recommended width to be used for self-measurement and,
@@ -761,7 +761,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minWidth():Number
+	public function get minWidth():Float
 	{
 		return this._minWidth;
 	}
@@ -769,7 +769,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minWidth(value:Number):Void
+	public function set minWidth(value:Float):Void
 	{
 		if(this._minWidth == value)
 		{
@@ -786,7 +786,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _minHeight:Number = 0;
+	private var _minHeight:Float = 0;
 
 	/**
 	 * The minimum recommended height to be used for self-measurement and,
@@ -803,7 +803,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minHeight():Number
+	public function get minHeight():Float
 	{
 		return this._minHeight;
 	}
@@ -811,7 +811,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minHeight(value:Number):Void
+	public function set minHeight(value:Float):Void
 	{
 		if(this._minHeight == value)
 		{
@@ -828,7 +828,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _maxWidth:Number = Number.POSITIVE_INFINITY;
+	private var _maxWidth:Float = Number.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended width to be used for self-measurement and,
@@ -845,7 +845,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default Number.POSITIVE_INFINITY
 	 */
-	public function get maxWidth():Number
+	public function get maxWidth():Float
 	{
 		return this._maxWidth;
 	}
@@ -853,7 +853,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set maxWidth(value:Number):Void
+	public function set maxWidth(value:Float):Void
 	{
 		if(this._maxWidth == value)
 		{
@@ -870,7 +870,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _maxHeight:Number = Number.POSITIVE_INFINITY;
+	private var _maxHeight:Float = Number.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended height to be used for self-measurement and,
@@ -887,7 +887,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default Number.POSITIVE_INFINITY
 	 */
-	public function get maxHeight():Number
+	public function get maxHeight():Float
 	{
 		return this._maxHeight;
 	}
@@ -895,7 +895,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set maxHeight(value:Number):Void
+	public function set maxHeight(value:Float):Void
 	{
 		if(this._maxHeight == value)
 		{
@@ -912,7 +912,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set scaleX(value:Number):Void
+	override public function set scaleX(value:Float):Void
 	{
 		super.scaleX = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -921,7 +921,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set scaleY(value:Number):Void
+	override public function set scaleY(value:Float):Void
 	{
 		super.scaleY = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -1245,7 +1245,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #focusPaddingBottom
 	 * @see #focusPaddingLeft
 	 */
-	public function get focusPadding():Number
+	public function get focusPadding():Float
 	{
 		return this._focusPaddingTop;
 	}
@@ -1253,7 +1253,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPadding(value:Number):Void
+	public function set focusPadding(value:Float):Void
 	{
 		this.focusPaddingTop = value;
 		this.focusPaddingRight = value;
@@ -1264,7 +1264,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _focusPaddingTop:Number = 0;
+	private var _focusPaddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the object's top edge and the
@@ -1283,7 +1283,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingTop():Number
+	public function get focusPaddingTop():Float
 	{
 		return this._focusPaddingTop;
 	}
@@ -1291,7 +1291,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingTop(value:Number):Void
+	public function set focusPaddingTop(value:Float):Void
 	{
 		if(this._focusPaddingTop == value)
 		{
@@ -1304,7 +1304,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _focusPaddingRight:Number = 0;
+	private var _focusPaddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the object's right edge and the
@@ -1323,7 +1323,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingRight():Number
+	public function get focusPaddingRight():Float
 	{
 		return this._focusPaddingRight;
 	}
@@ -1331,7 +1331,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingRight(value:Number):Void
+	public function set focusPaddingRight(value:Float):Void
 	{
 		if(this._focusPaddingRight == value)
 		{
@@ -1344,7 +1344,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _focusPaddingBottom:Number = 0;
+	private var _focusPaddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the object's bottom edge and the
@@ -1363,7 +1363,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingBottom():Number
+	public function get focusPaddingBottom():Float
 	{
 		return this._focusPaddingBottom;
 	}
@@ -1371,7 +1371,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingBottom(value:Number):Void
+	public function set focusPaddingBottom(value:Float):Void
 	{
 		if(this._focusPaddingBottom == value)
 		{
@@ -1384,7 +1384,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _focusPaddingLeft:Number = 0;
+	private var _focusPaddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the object's left edge and the
@@ -1403,7 +1403,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingLeft():Number
+	public function get focusPaddingLeft():Float
 	{
 		return this._focusPaddingLeft;
 	}
@@ -1411,7 +1411,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingLeft(value:Number):Void
+	public function set focusPaddingLeft(value:Float):Void
 	{
 		if(this._focusPaddingLeft == value)
 		{
@@ -1492,8 +1492,8 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			resultRect = new Rectangle();
 		}
 
-		var minX:Number = Number.MAX_VALUE, maxX:Number = -Number.MAX_VALUE;
-		var minY:Number = Number.MAX_VALUE, maxY:Number = -Number.MAX_VALUE;
+		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
+		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -1744,7 +1744,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * Sets both the width and the height of the control.
 	 */
-	public function setSize(width:Number, height:Number):Void
+	public function setSize(width:Float, height:Float):Void
 	{
 		this.explicitWidth = width;
 		var widthIsNaN:Boolean = width != width;
@@ -1811,7 +1811,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * and <code>height</code> values have not been set explicitly, and the
 	 * UI control needs to measure itself and choose an "ideal" size.
 	 */
-	private function setSizeInternal(width:Number, height:Number, canInvalidate:Boolean):Boolean
+	private function setSizeInternal(width:Float, height:Float, canInvalidate:Boolean):Boolean
 	{
 		if(this.explicitWidth === this.explicitWidth) //!isNaN
 		{
@@ -1980,7 +1980,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			this._hitArea.width = this.actualWidth;
 		}
-		var hitAreaX:Number = (this.actualWidth - this._hitArea.width) / 2;
+		var hitAreaX:Float = (this.actualWidth - this._hitArea.width) / 2;
 		if(hitAreaX !== hitAreaX) //isNaN
 		{
 			this._hitArea.x = 0;
@@ -2004,7 +2004,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			this._hitArea.height = this.actualHeight;
 		}
-		var hitAreaY:Number = (this.actualHeight - this._hitArea.height) / 2;
+		var hitAreaY:Float = (this.actualHeight - this._hitArea.height) / 2;
 		if(hitAreaY !== hitAreaY) //isNaN
 		{
 			this._hitArea.y = 0;

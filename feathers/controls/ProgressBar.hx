@@ -109,7 +109,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _value:Number = 0;
+	private var _value:Float = 0;
 
 	/**
 	 * The value of the progress bar, between the minimum and maximum.
@@ -126,7 +126,7 @@ class ProgressBar extends FeathersControl
 	 * @see #minimum
 	 * @see #maximum
 	 */
-	public function get value():Number
+	public function get value():Float
 	{
 		return this._value;
 	}
@@ -134,7 +134,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):Void
+	public function set value(newValue:Float):Void
 	{
 		newValue = clamp(newValue, this._minimum, this._maximum);
 		if(this._value == newValue)
@@ -148,7 +148,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minimum:Number = 0;
+	private var _minimum:Float = 0;
 
 	/**
 	 * The progress bar's value will not go lower than the minimum.
@@ -165,7 +165,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Number
+	public function get minimum():Float
 	{
 		return this._minimum;
 	}
@@ -173,7 +173,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):Void
+	public function set minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -186,7 +186,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _maximum:Number = 1;
+	private var _maximum:Float = 1;
 
 	/**
 	 * The progress bar's value will not go higher than the maximum.
@@ -203,7 +203,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Number
+	public function get maximum():Float
 	{
 		return this._maximum;
 	}
@@ -211,7 +211,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):Void
+	public function set maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -224,12 +224,12 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundWidth:Number = NaN;
+	private var _originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundHeight:Number = NaN;
+	private var _originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -327,12 +327,12 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalFillWidth:Number = NaN;
+	private var _originalFillWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalFillHeight:Number = NaN;
+	private var _originalFillHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -458,7 +458,7 @@ class ProgressBar extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -466,7 +466,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -477,7 +477,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's top edge and
@@ -490,7 +490,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -498,7 +498,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -511,7 +511,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's right edge
@@ -524,7 +524,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -532,7 +532,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -545,7 +545,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's bottom edge
@@ -558,7 +558,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -566,7 +566,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -579,7 +579,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's left edge
@@ -592,7 +592,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -600,7 +600,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -639,7 +639,7 @@ class ProgressBar extends FeathersControl
 
 		if(dataInvalid || sizeInvalid || stateInvalid || stylesInvalid)
 		{
-			var percentage:Number = (this._value - this._minimum) / (this._maximum - this._minimum);
+			var percentage:Float = (this._value - this._minimum) / (this._maximum - this._minimum);
 			if(this._direction == DIRECTION_VERTICAL)
 			{
 				this.currentFill.width = this.actualWidth - this._paddingLeft - this._paddingRight;
@@ -682,8 +682,8 @@ class ProgressBar extends FeathersControl
 		{
 			return false;
 		}
-		var newWidth:Number = needsWidth ? this._originalBackgroundWidth : this.explicitWidth;
-		var newHeight:Number = needsHeight ? this._originalBackgroundHeight  : this.explicitHeight;
+		var newWidth:Float = needsWidth ? this._originalBackgroundWidth : this.explicitWidth;
+		var newHeight:Float = needsHeight ? this._originalBackgroundHeight  : this.explicitHeight;
 		return this.setSizeInternal(newWidth, newHeight, false);
 	}
 

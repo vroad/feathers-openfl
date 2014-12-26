@@ -72,12 +72,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the source and the pop-up.
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -85,7 +85,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		this._gap = value;
 	}
@@ -163,7 +163,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			IValidating(this.source).validate();
 		}
 
-		var sourceWidth:Number = this.source.width;
+		var sourceWidth:Float = this.source.width;
 		var hasSetBounds:Boolean = false;
 		var uiContent:IFeathersControl = this.content as IFeathersControl;
 		if(uiContent && uiContent.minWidth < sourceWidth)
@@ -190,14 +190,14 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			validationQueue.advanceTime(0);
 		}
 
-		var downSpace:Number = (stage.stageHeight - this.content.height) - (globalOrigin.y + globalOrigin.height + this._gap);
+		var downSpace:Float = (stage.stageHeight - this.content.height) - (globalOrigin.y + globalOrigin.height + this._gap);
 		if(downSpace >= 0)
 		{
 			layoutBelow(globalOrigin);
 			return;
 		}
 
-		var upSpace:Number = globalOrigin.y - this._gap - this.content.height;
+		var upSpace:Float = globalOrigin.y - this._gap - this.content.height;
 		if(upSpace >= 0)
 		{
 			layoutAbove(globalOrigin);
@@ -216,7 +216,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 
 		//the content is too big for the space, so we need to adjust it to
 		//fit properly
-		var newMaxHeight:Number = stage.stageHeight - (globalOrigin.y + globalOrigin.height);
+		var newMaxHeight:Float = stage.stageHeight - (globalOrigin.y + globalOrigin.height);
 		if(uiContent)
 		{
 			if(uiContent.maxHeight > newMaxHeight)
@@ -235,8 +235,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	private function layoutAbove(globalOrigin:Rectangle):Void
 	{
-		var idealXPosition:Number = globalOrigin.x + (globalOrigin.width - this.content.width) / 2;
-		var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
+		var idealXPosition:Float = globalOrigin.x + (globalOrigin.width - this.content.width) / 2;
+		var xPosition:Float = Starling.current.stage.stageWidth - this.content.width;
 		if(xPosition > idealXPosition)
 		{
 			xPosition = idealXPosition;
@@ -254,8 +254,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	private function layoutBelow(globalOrigin:Rectangle):Void
 	{
-		var idealXPosition:Number = globalOrigin.x;
-		var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
+		var idealXPosition:Float = globalOrigin.x;
+		var xPosition:Float = Starling.current.stage.stageWidth - this.content.width;
 		if(xPosition > idealXPosition)
 		{
 			xPosition = idealXPosition;

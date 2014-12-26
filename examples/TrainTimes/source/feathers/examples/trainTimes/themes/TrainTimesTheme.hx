@@ -112,7 +112,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		return this._scaleToDPI;
 	}
 
-	private var scale:Number = 1;
+	private var scale:Float = 1;
 
 	private var primaryBackground:TiledImage;
 

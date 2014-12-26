@@ -16,7 +16,7 @@ package feathers.utils.math;
  * 
  * @see Math#ceil
  */
-public function roundUpToNearest(number:Number, nearest:Number = 1):Number
+public function roundUpToNearest(number:Float, nearest:Float = 1):Float
 {
 	if(nearest == 0)
 	{

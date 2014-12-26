@@ -10,10 +10,10 @@ package feathers.utils.display;
  * Calculates a scale value to maintain aspect ratio and fill the required
  * bounds (with the possibility of cutting of the edges a bit).
  */
-public function calculateScaleRatioToFill(originalWidth:Number, originalHeight:Number, targetWidth:Number, targetHeight:Number):Number
+public function calculateScaleRatioToFill(originalWidth:Float, originalHeight:Float, targetWidth:Float, targetHeight:Float):Float
 {
-	var widthRatio:Number = targetWidth / originalWidth;
-	var heightRatio:Number = targetHeight / originalHeight;
+	var widthRatio:Float = targetWidth / originalWidth;
+	var heightRatio:Float = targetHeight / originalHeight;
 	if(widthRatio > heightRatio)
 	{
 		return widthRatio;

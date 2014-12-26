@@ -23,56 +23,56 @@ class ViewPortBounds
 	/**
 	 * The x position of the view port, in pixels.
 	 */
-	public var x:Number = 0;
+	public var x:Float = 0;
 
 	/**
 	 * The y position of the view port, in pixels.
 	 */
-	public var y:Number = 0;
+	public var y:Float = 0;
 
 	/**
 	 * The horizontal scroll position of the view port, in pixels.
 	 */
-	public var scrollX:Number = 0;
+	public var scrollX:Float = 0;
 
 	/**
 	 * The vertical scroll position of the view port, in pixels.
 	 */
-	public var scrollY:Number = 0;
+	public var scrollY:Float = 0;
 
 	/**
 	 * The explicit width of the view port, in pixels. If <code>NaN</code>,
 	 * there is no explicit width value.
 	 */
-	public var explicitWidth:Number = NaN;
+	public var explicitWidth:Float = NaN;
 
 	/**
 	 * The explicit height of the view port, in pixels. If <code>NaN</code>,
 	 * there is no explicit height value.
 	 */
-	public var explicitHeight:Number = NaN;
+	public var explicitHeight:Float = NaN;
 
 	/**
 	 * The minimum width of the view port, in pixels. Should be 0 or
 	 * a positive number less than infinity.
 	 */
-	public var minWidth:Number = 0;
+	public var minWidth:Float = 0;
 
 	/**
 	 * The minimum width of the view port, in pixels. Should be 0 or
 	 * a positive number less than infinity.
 	 */
-	public var minHeight:Number = 0;
+	public var minHeight:Float = 0;
 
 	/**
 	 * The maximum width of the view port, in pixels. Should be 0 or
 	 * a positive number, including infinity.
 	 */
-	public var maxWidth:Number = Number.POSITIVE_INFINITY;
+	public var maxWidth:Float = Number.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum height of the view port, in pixels. Should be 0 or
 	 * a positive number, including infinity.
 	 */
-	public var maxHeight:Number = Number.POSITIVE_INFINITY;
+	public var maxHeight:Float = Number.POSITIVE_INFINITY;
 }

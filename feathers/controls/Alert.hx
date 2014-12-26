@@ -363,7 +363,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the alert's icon and its message text
@@ -376,7 +376,7 @@ class Alert extends Panel
 	 *
 	 * @default 0
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -384,7 +384,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -731,8 +731,8 @@ class Alert extends Panel
 			IValidating(this._icon).validate();
 		}
 
-		var oldHeaderWidth:Number = this.header.width;
-		var oldHeaderHeight:Number = this.header.height;
+		var oldHeaderWidth:Float = this.header.width;
+		var oldHeaderHeight:Float = this.header.height;
 		this.header.width = this.explicitWidth;
 		this.header.maxWidth = this._maxWidth;
 		this.header.height = NaN;
@@ -740,22 +740,22 @@ class Alert extends Panel
 
 		if(this.footer)
 		{
-			var oldFooterWidth:Number = this.footer.width;
-			var oldFooterHeight:Number = this.footer.height;
+			var oldFooterWidth:Float = this.footer.width;
+			var oldFooterHeight:Float = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
 			this.footer.height = NaN;
 			this.footer.validate();
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = this._viewPort.width + this._rightViewPortOffset + this._leftViewPortOffset;
 			if(this._icon)
 			{
-				var iconWidth:Number = this._icon.width;
+				var iconWidth:Float = this._icon.width;
 				if(iconWidth === iconWidth) //!isNaN
 				{
 					newWidth += this._icon.width + this._gap;
@@ -776,7 +776,7 @@ class Alert extends Panel
 			newHeight = this._viewPort.height;
 			if(this._icon)
 			{
-				var iconHeight:Number = this._icon.height;
+				var iconHeight:Float = this._icon.height;
 				if(iconHeight === iconHeight) //!isNaN
 				{
 					newHeight = Math.max(newHeight, this._icon.height);
@@ -916,7 +916,7 @@ class Alert extends Panel
 			{
 				IValidating(this._icon).validate();
 			}
-			var iconWidth:Number = this._icon.width;
+			var iconWidth:Float = this._icon.width;
 			if(iconWidth == iconWidth) //!isNaN
 			{
 				this._leftViewPortOffset += this._icon.width + this._gap;

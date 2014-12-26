@@ -417,12 +417,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _sharpness:Number = 0;
+	private var _sharpness:Float = 0;
 
 	/**
 	 * @see feathers.controls.ScrollText#sharpness
 	 */
-	public function get sharpness():Number
+	public function get sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -430,7 +430,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):Void
+	public function set sharpness(value:Float):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -443,12 +443,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _thickness:Number = 0;
+	private var _thickness:Float = 0;
 
 	/**
 	 * @see feathers.controls.ScrollText#thickness
 	 */
-	public function get thickness():Number
+	public function get thickness():Float
 	{
 		return this._thickness;
 	}
@@ -456,7 +456,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):Void
+	public function set thickness(value:Float):Void
 	{
 		if(this._thickness == value)
 		{
@@ -466,14 +466,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private var _minVisibleWidth:Number = 0;
+	private var _minVisibleWidth:Float = 0;
 
-	public function get minVisibleWidth():Number
+	public function get minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
 
-	public function set minVisibleWidth(value:Number):Void
+	public function set minVisibleWidth(value:Float):Void
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -487,14 +487,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleWidth():Number
+	public function get maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
 
-	public function set maxVisibleWidth(value:Number):Void
+	public function set maxVisibleWidth(value:Float):Void
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -508,11 +508,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _actualVisibleWidth:Number = 0;
+	private var _actualVisibleWidth:Float = 0;
 
-	private var _explicitVisibleWidth:Number = NaN;
+	private var _explicitVisibleWidth:Float = NaN;
 
-	public function get visibleWidth():Number
+	public function get visibleWidth():Float
 	{
 		if(this._explicitVisibleWidth !== this._explicitVisibleWidth) //isNaN
 		{
@@ -521,7 +521,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._explicitVisibleWidth;
 	}
 
-	public function set visibleWidth(value:Number):Void
+	public function set visibleWidth(value:Float):Void
 	{
 		if(this._explicitVisibleWidth == value ||
 			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
@@ -532,14 +532,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _minVisibleHeight:Number = 0;
+	private var _minVisibleHeight:Float = 0;
 
-	public function get minVisibleHeight():Number
+	public function get minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
 
-	public function set minVisibleHeight(value:Number):Void
+	public function set minVisibleHeight(value:Float):Void
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -553,14 +553,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleHeight():Number
+	public function get maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
 
-	public function set maxVisibleHeight(value:Number):Void
+	public function set maxVisibleHeight(value:Float):Void
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -574,11 +574,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _actualVisibleHeight:Number = 0;
+	private var _actualVisibleHeight:Float = 0;
 
-	private var _explicitVisibleHeight:Number = NaN;
+	private var _explicitVisibleHeight:Float = NaN;
 
-	public function get visibleHeight():Number
+	public function get visibleHeight():Float
 	{
 		if(this._explicitVisibleHeight !== this._explicitVisibleHeight) //isNaN
 		{
@@ -587,7 +587,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._explicitVisibleHeight;
 	}
 
-	public function set visibleHeight(value:Number):Void
+	public function set visibleHeight(value:Float):Void
 	{
 		if(this._explicitVisibleHeight == value ||
 			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
@@ -598,36 +598,36 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	public function get contentX():Number
+	public function get contentX():Float
 	{
 		return 0;
 	}
 
-	public function get contentY():Number
+	public function get contentY():Float
 	{
 		return 0;
 	}
 
-	private var _scrollStep:Number;
+	private var _scrollStep:Float;
 
-	public function get horizontalScrollStep():Number
+	public function get horizontalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
 
-	public function get verticalScrollStep():Number
+	public function get verticalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
 
-	private var _horizontalScrollPosition:Number = 0;
+	private var _horizontalScrollPosition:Float = 0;
 
-	public function get horizontalScrollPosition():Number
+	public function get horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
 
-	public function set horizontalScrollPosition(value:Number):Void
+	public function set horizontalScrollPosition(value:Float):Void
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -637,14 +637,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	private var _verticalScrollPosition:Number = 0;
+	private var _verticalScrollPosition:Float = 0;
 
-	public function get verticalScrollPosition():Number
+	public function get verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
 
-	public function set verticalScrollPosition(value:Number):Void
+	public function set verticalScrollPosition(value:Float):Void
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -654,14 +654,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
 
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -671,14 +671,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
 
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -688,14 +688,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
 
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -705,14 +705,14 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
 
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -732,7 +732,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._hasPendingRenderChange = true;
 	}
 
-	override public function set alpha(value:Number):Void
+	override public function set alpha(value:Float):Void
 	{
 		if(super.alpha == value)
 		{
@@ -753,18 +753,18 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return super.hasVisibleArea;
 	}
 
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		this.parent.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		this._textFieldContainer.x = starlingViewPort.x + HELPER_POINT.x * scaleFactor;
 		this._textFieldContainer.y = starlingViewPort.y + HELPER_POINT.y * scaleFactor;
 		this._textFieldContainer.scaleX = matrixToScaleX(HELPER_MATRIX) * scaleFactor;
@@ -845,7 +845,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 			this._scrollStep = this._textField.getLineMetrics(0).height * Starling.contentScaleFactor;
 		}
 
-		var calculatedVisibleWidth:Number = this._explicitVisibleWidth;
+		var calculatedVisibleWidth:Float = this._explicitVisibleWidth;
 		if(calculatedVisibleWidth != calculatedVisibleWidth)
 		{
 			if(this.stage)
@@ -866,8 +866,8 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 			}
 		}
 		this._textField.width = calculatedVisibleWidth - this._paddingLeft - this._paddingRight;
-		var totalContentHeight:Number = this._textField.height + this._paddingTop + this._paddingBottom;
-		var calculatedVisibleHeight:Number = this._explicitVisibleHeight;
+		var totalContentHeight:Float = this._textField.height + this._paddingTop + this._paddingBottom;
+		var calculatedVisibleHeight:Float = this._explicitVisibleHeight;
 		if(calculatedVisibleHeight != calculatedVisibleHeight)
 		{
 			calculatedVisibleHeight = totalContentHeight;

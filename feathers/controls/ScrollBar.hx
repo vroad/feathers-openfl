@@ -363,32 +363,32 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var thumbOriginalWidth:Number = NaN;
+	private var thumbOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var thumbOriginalHeight:Number = NaN;
+	private var thumbOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalWidth:Number = NaN;
+	private var minimumTrackOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalHeight:Number = NaN;
+	private var minimumTrackOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalWidth:Number = NaN;
+	private var maximumTrackOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalHeight:Number = NaN;
+	private var maximumTrackOriginalHeight:Float = NaN;
 
 	/**
 	 * The scroll bar's decrement button sub-component.
@@ -495,7 +495,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _value:Number = 0;
+	private var _value:Float = 0;
 
 	/**
 	 * @inheritDoc
@@ -508,7 +508,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #page
 	 * @see #event:change
 	 */
-	public function get value():Number
+	public function get value():Float
 	{
 		return this._value;
 	}
@@ -516,7 +516,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):Void
+	public function set value(newValue:Float):Void
 	{
 		newValue = clamp(newValue, this._minimum, this._maximum);
 		if(this._value == newValue)
@@ -534,7 +534,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _minimum:Number = 0;
+	private var _minimum:Float = 0;
 
 	/**
 	 * @inheritDoc
@@ -544,7 +544,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Number
+	public function get minimum():Float
 	{
 		return this._minimum;
 	}
@@ -552,7 +552,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):Void
+	public function set minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -565,7 +565,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _maximum:Number = 0;
+	private var _maximum:Float = 0;
 
 	/**
 	 * @inheritDoc
@@ -575,7 +575,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Number
+	public function get maximum():Float
 	{
 		return this._maximum;
 	}
@@ -583,7 +583,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):Void
+	public function set maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -596,7 +596,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _step:Number = 0;
+	private var _step:Float = 0;
 
 	/**
 	 * @inheritDoc
@@ -606,7 +606,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #page
 	 */
-	public function get step():Number
+	public function get step():Float
 	{
 		return this._step;
 	}
@@ -614,7 +614,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set step(value:Number):Void
+	public function set step(value:Float):Void
 	{
 		this._step = value;
 	}
@@ -622,7 +622,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _page:Number = 0;
+	private var _page:Float = 0;
 
 	/**
 	 * @inheritDoc
@@ -632,7 +632,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #step
 	 */
-	public function get page():Number
+	public function get page():Float
 	{
 		return this._page;
 	}
@@ -640,7 +640,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set page(value:Number):Void
+	public function set page(value:Float):Void
 	{
 		if(this._page == value)
 		{
@@ -668,7 +668,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -676,7 +676,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -687,7 +687,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, above the content, not
@@ -700,7 +700,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -708,7 +708,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -721,7 +721,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, to the right of the content, not
@@ -734,7 +734,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -742,7 +742,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -755,7 +755,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, below the content, not
@@ -768,7 +768,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -776,7 +776,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -789,7 +789,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, to the left of the content, not
@@ -802,7 +802,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -810,7 +810,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -833,7 +833,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _repeatDelay:Number = 0.05;
+	private var _repeatDelay:Float = 0.05;
 
 	/**
 	 * The time, in seconds, before actions are repeated. The first repeat
@@ -847,7 +847,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Number
+	public function get repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -855,7 +855,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Number):Void
+	public function set repeatDelay(value:Float):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -1793,27 +1793,27 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Number = NaN;
+	private var _touchStartX:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartY:Number = NaN;
+	private var _touchStartY:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Number = NaN;
+	private var _thumbStartX:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartY:Number = NaN;
+	private var _thumbStartY:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchValue:Number;
+	private var _touchValue:Float;
 
 	/**
 	 * @private
@@ -1952,8 +1952,8 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return false;
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(this._direction == DIRECTION_VERTICAL)
@@ -2271,7 +2271,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function layoutThumb():Void
 	{
-		var range:Number = this._maximum - this._minimum;
+		var range:Float = this._maximum - this._minimum;
 		this.thumb.visible = range > 0 && this._isEnabled;
 		if(!this.thumb.visible)
 		{
@@ -2281,9 +2281,9 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
 
-		var contentWidth:Number = this.actualWidth - this._paddingLeft - this._paddingRight;
-		var contentHeight:Number = this.actualHeight - this._paddingTop - this._paddingBottom;
-		var adjustedPageStep:Number = this._page;
+		var contentWidth:Float = this.actualWidth - this._paddingLeft - this._paddingRight;
+		var contentHeight:Float = this.actualHeight - this._paddingTop - this._paddingBottom;
+		var adjustedPageStep:Float = this._page;
 		if(this._page == 0)
 		{
 			adjustedPageStep = range;
@@ -2295,20 +2295,20 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			contentHeight -= (this.decrementButton.height + this.incrementButton.height);
-			var thumbMinHeight:Number = this.thumb.minHeight > 0 ? this.thumb.minHeight : this.thumbOriginalHeight;
+			var thumbMinHeight:Float = this.thumb.minHeight > 0 ? this.thumb.minHeight : this.thumbOriginalHeight;
 			this.thumb.width = this.thumbOriginalWidth;
 			this.thumb.height = Math.max(thumbMinHeight, contentHeight * adjustedPageStep / range);
-			var trackScrollableHeight:Number = contentHeight - this.thumb.height;
+			var trackScrollableHeight:Float = contentHeight - this.thumb.height;
 			this.thumb.x = this._paddingLeft + (this.actualWidth - this._paddingLeft - this._paddingRight - this.thumb.width) / 2;
 			this.thumb.y = this.decrementButton.height + this._paddingTop + Math.max(0, Math.min(trackScrollableHeight, trackScrollableHeight * (this._value - this._minimum) / range));
 		}
 		else //horizontal
 		{
 			contentWidth -= (this.decrementButton.width + this.decrementButton.width);
-			var thumbMinWidth:Number = this.thumb.minWidth > 0 ? this.thumb.minWidth : this.thumbOriginalWidth;
+			var thumbMinWidth:Float = this.thumb.minWidth > 0 ? this.thumb.minWidth : this.thumbOriginalWidth;
 			this.thumb.width = Math.max(thumbMinWidth, contentWidth * adjustedPageStep / range);
 			this.thumb.height = this.thumbOriginalHeight;
-			var trackScrollableWidth:Number = contentWidth - this.thumb.width;
+			var trackScrollableWidth:Float = contentWidth - this.thumb.width;
 			this.thumb.x = this.decrementButton.width + this._paddingLeft + Math.max(0, Math.min(trackScrollableWidth, trackScrollableWidth * (this._value - this._minimum) / range));
 			this.thumb.y = this._paddingTop + (this.actualHeight - this._paddingTop - this._paddingBottom - this.thumb.height) / 2;
 		}
@@ -2434,26 +2434,26 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function locationToValue(location:Point):Number
+	private function locationToValue(location:Point):Float
 	{
-		var percentage:Number = 0;
+		var percentage:Float = 0;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			var trackScrollableHeight:Number = this.actualHeight - this.thumb.height - this.decrementButton.height - this.incrementButton.height - this._paddingTop - this._paddingBottom;
+			var trackScrollableHeight:Float = this.actualHeight - this.thumb.height - this.decrementButton.height - this.incrementButton.height - this._paddingTop - this._paddingBottom;
 			if(trackScrollableHeight > 0)
 			{
-				var yOffset:Number = location.y - this._touchStartY - this._paddingTop;
-				var yPosition:Number = Math.min(Math.max(0, this._thumbStartY + yOffset - this.decrementButton.height), trackScrollableHeight);
+				var yOffset:Float = location.y - this._touchStartY - this._paddingTop;
+				var yPosition:Float = Math.min(Math.max(0, this._thumbStartY + yOffset - this.decrementButton.height), trackScrollableHeight);
 				percentage = yPosition / trackScrollableHeight;
 			}
 		}
 		else //horizontal
 		{
-			var trackScrollableWidth:Number = this.actualWidth - this.thumb.width - this.decrementButton.width - this.incrementButton.width - this._paddingLeft - this._paddingRight;
+			var trackScrollableWidth:Float = this.actualWidth - this.thumb.width - this.decrementButton.width - this.incrementButton.width - this._paddingLeft - this._paddingRight;
 			if(trackScrollableWidth > 0)
 			{
-				var xOffset:Number = location.x - this._touchStartX - this._paddingLeft;
-				var xPosition:Number = Math.min(Math.max(0, this._thumbStartX + xOffset - this.decrementButton.width), trackScrollableWidth);
+				var xOffset:Float = location.x - this._touchStartX - this._paddingLeft;
+				var xPosition:Float = Math.min(Math.max(0, this._thumbStartX + xOffset - this.decrementButton.width), trackScrollableWidth);
 				percentage = xPosition / trackScrollableWidth;
 			}
 		}
@@ -2484,7 +2484,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	{
 		if(this._touchValue < this._value)
 		{
-			var newValue:Number = Math.max(this._touchValue, this._value - this._page);
+			var newValue:Float = Math.max(this._touchValue, this._value - this._page);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);
@@ -2640,7 +2640,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			if(touch.phase == TouchPhase.MOVED)
 			{
 				touch.getLocation(this, HELPER_POINT);
-				var newValue:Number = this.locationToValue(HELPER_POINT);
+				var newValue:Float = this.locationToValue(HELPER_POINT);
 				if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 				{
 					newValue = roundToNearest(newValue, this._step);

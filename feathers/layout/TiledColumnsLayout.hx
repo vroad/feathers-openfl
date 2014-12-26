@@ -203,7 +203,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #horizontalGap
 	 * @see #verticalGap
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._verticalGap;
 	}
@@ -211,7 +211,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		this.horizontalGap = value;
 		this.verticalGap = value;
@@ -220,14 +220,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _horizontalGap:Number = 0;
+	private var _horizontalGap:Float = 0;
 
 	/**
 	 * The horizontal space, in pixels, between tiles.
 	 *
 	 * @default 0
 	 */
-	public function get horizontalGap():Number
+	public function get horizontalGap():Float
 	{
 		return this._horizontalGap;
 	}
@@ -235,7 +235,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set horizontalGap(value:Number):Void
+	public function set horizontalGap(value:Float):Void
 	{
 		if(this._horizontalGap == value)
 		{
@@ -248,14 +248,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _verticalGap:Number = 0;
+	private var _verticalGap:Float = 0;
 
 	/**
 	 * The vertical space, in pixels, between tiles.
 	 *
 	 * @default 0
 	 */
-	public function get verticalGap():Number
+	public function get verticalGap():Float
 	{
 		return this._verticalGap;
 	}
@@ -263,7 +263,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set verticalGap(value:Number):Void
+	public function set verticalGap(value:Float):Void
 	{
 		if(this._verticalGap == value)
 		{
@@ -286,7 +286,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -294,7 +294,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -305,14 +305,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The space, in pixels, above of items.
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -320,7 +320,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -333,14 +333,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The space, in pixels, to the right of the items.
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -348,7 +348,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -361,14 +361,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The space, in pixels, below the items.
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -376,7 +376,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -389,14 +389,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The space, in pixels, to the left of the items.
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -404,7 +404,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -832,7 +832,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Float = NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -858,7 +858,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get typicalItemWidth():Number
+	public function get typicalItemWidth():Float
 	{
 		return this._typicalItemWidth;
 	}
@@ -866,7 +866,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set typicalItemWidth(value:Number):Void
+	public function set typicalItemWidth(value:Float):Void
 	{
 		if(this._typicalItemWidth == value)
 		{
@@ -879,7 +879,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Float = NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -905,7 +905,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemWidth
 	 * @see #typicalItem
 	 */
-	public function get typicalItemHeight():Number
+	public function get typicalItemHeight():Float
 	{
 		return this._typicalItemHeight;
 	}
@@ -913,7 +913,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set typicalItemHeight(value:Number):Void
+	public function set typicalItemHeight(value:Float):Void
 	{
 		if(this._typicalItemHeight == value)
 		{
@@ -951,29 +951,29 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			return result;
 		}
 
-		var scrollX:Number = viewPortBounds ? viewPortBounds.scrollX : 0;
-		var scrollY:Number = viewPortBounds ? viewPortBounds.scrollY : 0;
-		var boundsX:Number = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Number = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Number = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Number = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Number = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Number = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
-		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var scrollX:Float = viewPortBounds ? viewPortBounds.scrollX : 0;
+		var scrollY:Float = viewPortBounds ? viewPortBounds.scrollY : 0;
+		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 		this.validateItems(items);
 
 		this._discoveredItemsCache.length = 0;
 		var itemCount:Int = items.length;
-		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
-		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		var tileWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
+		var tileHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		//a virtual layout assumes that all items are the same size as
 		//the typical item, so we don't need to measure every item in
 		//that case
@@ -990,8 +990,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				{
 					continue;
 				}
-				var itemWidth:Number = item.width;
-				var itemHeight:Number = item.height;
+				var itemWidth:Float = item.width;
+				var itemHeight:Float = item.height;
 				if(itemWidth > tileWidth)
 				{
 					tileWidth = itemWidth;
@@ -1022,8 +1022,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var availableWidth:Number = NaN;
-		var availableHeight:Number = NaN;
+		var availableWidth:Float = NaN;
+		var availableHeight:Float = NaN;
 
 		var verticalTileCount:Int;
 		if(explicitHeight === explicitHeight) //!isNaN
@@ -1095,28 +1095,28 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var totalPageWidth:Number = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap + this._paddingLeft + this._paddingRight;
-		var totalPageHeight:Number = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap + this._paddingTop + this._paddingBottom;
-		var availablePageWidth:Number = availableWidth;
+		var totalPageWidth:Float = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap + this._paddingLeft + this._paddingRight;
+		var totalPageHeight:Float = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap + this._paddingTop + this._paddingBottom;
+		var availablePageWidth:Float = availableWidth;
 		if(availablePageWidth !== availablePageWidth) //isNaN
 		{
 			availablePageWidth = totalPageWidth;
 		}
-		var availablePageHeight:Number = availableHeight;
+		var availablePageHeight:Float = availableHeight;
 		if(availablePageHeight !== availablePageHeight) //isNaN
 		{
 			availablePageHeight = totalPageHeight;
 		}
 
-		var startX:Number = boundsX + this._paddingLeft;
-		var startY:Number = boundsY + this._paddingTop;
+		var startX:Float = boundsX + this._paddingLeft;
+		var startY:Float = boundsY + this._paddingTop;
 
 		var perPage:Int = horizontalTileCount * verticalTileCount;
 		var pageIndex:Int = 0;
 		var nextPageStartIndex:Int = perPage;
-		var pageStartY:Number = startY;
-		var positionX:Number = startX;
-		var positionY:Number = startY;
+		var pageStartY:Float = startY;
+		var positionX:Float = startX;
+		var positionY:Float = startY;
 		var itemIndex:Int = 0;
 		var discoveredItemsCachePushIndex:Int = 0;
 		for(i = 0; i < itemCount; i++)
@@ -1238,7 +1238,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var totalWidth:Number = positionX + tileWidth + this._paddingRight;
+		var totalWidth:Float = positionX + tileWidth + this._paddingRight;
 		if(availableWidth === availableWidth) //!isNaN
 		{
 			if(this._paging == PAGING_VERTICAL)
@@ -1250,7 +1250,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				totalWidth = Math.ceil(itemCount / perPage) * availableWidth;
 			}
 		}
-		var totalHeight:Number = totalPageHeight;
+		var totalHeight:Float = totalPageHeight;
 		if(availableHeight === availableHeight && //!isNaN
 			this._paging == PAGING_VERTICAL)
 		{
@@ -1316,8 +1316,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.")
 		}
 
-		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
 		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
@@ -1326,19 +1326,19 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			result.y = explicitHeight;
 			return result;
 		}
-		var boundsX:Number = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Number = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Number = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Number = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Number = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Number = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
 
 		this.prepareTypicalItem();
-		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var tileWidth:Number = calculatedTypicalItemWidth;
-		var tileHeight:Number = calculatedTypicalItemHeight;
+		var tileWidth:Float = calculatedTypicalItemWidth;
+		var tileHeight:Float = calculatedTypicalItemHeight;
 		if(tileWidth < 0)
 		{
 			tileWidth = 0;
@@ -1358,8 +1358,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var availableWidth:Number = NaN;
-		var availableHeight:Number = NaN;
+		var availableWidth:Float = NaN;
+		var availableHeight:Float = NaN;
 
 		var verticalTileCount:Int;
 		if(explicitHeight === explicitHeight) //!isNaN
@@ -1426,14 +1426,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var totalPageHeight:Number = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap + this._paddingTop + this._paddingBottom;
+		var totalPageHeight:Float = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap + this._paddingTop + this._paddingBottom;
 
-		var startX:Number = boundsX + this._paddingLeft;
+		var startX:Float = boundsX + this._paddingLeft;
 
 		var perPage:Int = horizontalTileCount * verticalTileCount;
 		var pageIndex:Int = 0;
 		var nextPageStartIndex:Int = perPage;
-		var positionX:Number = startX;
+		var positionX:Float = startX;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
 			if(i != 0 && i % verticalTileCount == 0)
@@ -1459,7 +1459,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var totalWidth:Number = positionX + tileWidth + this._paddingRight;
+		var totalWidth:Float = positionX + tileWidth + this._paddingRight;
 		if(availableWidth === availableWidth) //!isNaN
 		{
 			if(this._paging == PAGING_VERTICAL)
@@ -1471,7 +1471,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				totalWidth = Math.ceil(itemCount / perPage) * availableWidth;
 			}
 		}
-		var totalHeight:Number = totalPageHeight;
+		var totalHeight:Float = totalPageHeight;
 		if(availableHeight === availableHeight && //!isNaN
 			this._paging == PAGING_VERTICAL)
 		{
@@ -1480,7 +1480,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 
 		if(needsWidth)
 		{
-			var resultX:Number = totalWidth;
+			var resultX:Float = totalWidth;
 			if(resultX < minWidth)
 			{
 				resultX = minWidth;
@@ -1497,7 +1497,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		if(needsHeight)
 		{
-			var resultY:Number = totalHeight;
+			var resultY:Float = totalHeight;
 			if(resultY < minHeight)
 			{
 				resultY = minHeight;
@@ -1518,7 +1518,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int> = null):Vector.<int>
 	{
 		if(result)
 		{
@@ -1552,7 +1552,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1561,13 +1561,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
 		var itemCount:Int = items.length;
-		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
-		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		var tileWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
+		var tileHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		//a virtual layout assumes that all items are the same size as
 		//the typical item, so we don't need to measure every item in
 		//that case
@@ -1584,8 +1584,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				{
 					continue;
 				}
-				var itemWidth:Number = item.width;
-				var itemHeight:Number = item.height;
+				var itemWidth:Float = item.width;
+				var itemHeight:Float = item.height;
 				if(itemWidth > tileWidth)
 				{
 					tileWidth = itemWidth;
@@ -1631,7 +1631,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			{
 				horizontalTileCount = 1;
 			}
-			var perPage:Number = horizontalTileCount * verticalTileCount;
+			var perPage:Float = horizontalTileCount * verticalTileCount;
 			var pageIndex:Int = index / perPage;
 			if(this._paging == PAGING_HORIZONTAL)
 			{
@@ -1655,7 +1655,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyVisible(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, startX:Number, endX:Number, startY:Number, endY:Number):Void
+	private function applyVisible(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, startX:Float, endX:Float, startY:Float, endY:Float):Void
 	{
 		for(var i:Int = startIndex; i <= endIndex; i++)
 		{
@@ -1664,8 +1664,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			{
 				continue;
 			}
-			var itemX:Number = item.x - item.pivotX;
-			var itemY:Number = item.y - item.pivotY;
+			var itemX:Float = item.x - item.pivotX;
+			var itemY:Float = item.y - item.pivotY;
 			item.visible = ((itemX + item.width) >= startX) && (itemX < endX) &&
 				((itemY + item.height) >= startY) && (itemY < endY);
 		}
@@ -1674,13 +1674,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyHorizontalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemWidth:Number, availableWidth:Number):Void
+	private function applyHorizontalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemWidth:Float, availableWidth:Float):Void
 	{
 		if(totalItemWidth >= availableWidth)
 		{
 			return;
 		}
-		var horizontalAlignOffsetX:Number = 0;
+		var horizontalAlignOffsetX:Float = 0;
 		if(this._horizontalAlign == HORIZONTAL_ALIGN_RIGHT)
 		{
 			horizontalAlignOffsetX = availableWidth - totalItemWidth;
@@ -1708,13 +1708,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyVerticalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemHeight:Number, availableHeight:Number):Void
+	private function applyVerticalAlign(items:Vector.<DisplayObject>, startIndex:Int, endIndex:Int, totalItemHeight:Float, availableHeight:Float):Void
 	{
 		if(totalItemHeight >= availableHeight)
 		{
 			return;
 		}
-		var verticalAlignOffsetY:Number = 0;
+		var verticalAlignOffsetY:Float = 0;
 		if(this._verticalAlign == VERTICAL_ALIGN_BOTTOM)
 		{
 			verticalAlignOffsetY = availableHeight - totalItemHeight;
@@ -1740,14 +1740,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
 	{
 		this.prepareTypicalItem();
-		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var tileWidth:Number = calculatedTypicalItemWidth;
-		var tileHeight:Number = calculatedTypicalItemHeight;
+		var tileWidth:Float = calculatedTypicalItemWidth;
+		var tileHeight:Float = calculatedTypicalItemHeight;
 		if(tileWidth < 0)
 		{
 			tileWidth = 0;
@@ -1790,9 +1790,9 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 
 		var startPageIndex:Int = Math.round(scrollX / width);
 		var minimum:Int = startPageIndex * perPage;
-		var totalRowWidth:Number = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap;
-		var leftSideOffset:Number = 0;
-		var rightSideOffset:Number = 0;
+		var totalRowWidth:Float = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap;
+		var leftSideOffset:Float = 0;
+		var rightSideOffset:Float = 0;
 		if(totalRowWidth < width)
 		{
 			if(this._horizontalAlign == HORIZONTAL_ALIGN_RIGHT)
@@ -1811,8 +1811,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var columnOffset:Int = 0;
-		var pageStartPosition:Number = startPageIndex * width;
-		var partialPageSize:Number = scrollX - pageStartPosition;
+		var pageStartPosition:Float = startPageIndex * width;
+		var partialPageSize:Float = scrollX - pageStartPosition;
 		if(partialPageSize < 0)
 		{
 			partialPageSize = -partialPageSize - this._paddingRight - rightSideOffset;
@@ -1856,14 +1856,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
 	{
 		this.prepareTypicalItem();
-		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var tileWidth:Number = calculatedTypicalItemWidth;
-		var tileHeight:Number = calculatedTypicalItemHeight;
+		var tileWidth:Float = calculatedTypicalItemWidth;
+		var tileHeight:Float = calculatedTypicalItemHeight;
 		if(tileWidth < 0)
 		{
 			tileWidth = 0;
@@ -1906,9 +1906,9 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 
 		var startPageIndex:Int = Math.round(scrollY / height);
 		var minimum:Int = startPageIndex * perPage;
-		var totalColumnHeight:Number = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap;
-		var topSideOffset:Number = 0;
-		var bottomSideOffset:Number = 0;
+		var totalColumnHeight:Float = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap;
+		var topSideOffset:Float = 0;
+		var bottomSideOffset:Float = 0;
 		if(totalColumnHeight < height)
 		{
 			if(this._verticalAlign == VERTICAL_ALIGN_BOTTOM)
@@ -1927,8 +1927,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 		var rowOffset:Int = 0;
-		var pageStartPosition:Number = startPageIndex * height;
-		var partialPageSize:Number = scrollY - pageStartPosition;
+		var pageStartPosition:Float = startPageIndex * height;
+		var partialPageSize:Float = scrollY - pageStartPosition;
 		if(partialPageSize < 0)
 		{
 			partialPageSize = -partialPageSize - this._paddingBottom - bottomSideOffset;
@@ -2001,14 +2001,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<int>):Void
 	{
 		this.prepareTypicalItem();
-		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var tileWidth:Number = calculatedTypicalItemWidth;
-		var tileHeight:Number = calculatedTypicalItemHeight;
+		var tileWidth:Float = calculatedTypicalItemWidth;
+		var tileHeight:Float = calculatedTypicalItemHeight;
 		if(tileWidth < 0)
 		{
 			tileWidth = 0;
@@ -2044,7 +2044,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			minimumItemCount = itemCount;
 		}
 		var columnIndexOffset:Int = 0;
-		var totalColumnWidth:Number = Math.ceil(itemCount / verticalTileCount) * (tileWidth + this._horizontalGap) - this._horizontalGap;
+		var totalColumnWidth:Float = Math.ceil(itemCount / verticalTileCount) * (tileWidth + this._horizontalGap) - this._horizontalGap;
 		if(totalColumnWidth < width)
 		{
 			if(this._verticalAlign == VERTICAL_ALIGN_BOTTOM)

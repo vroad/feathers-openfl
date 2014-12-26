@@ -62,7 +62,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * The minimum physical distance (in inches) that a touch must move
 	 * before the scroller starts scrolling.
 	 */
-	inline private static var MINIMUM_DRAG_DISTANCE:Number = 0.04;
+	inline private static var MINIMUM_DRAG_DISTANCE:Float = 0.04;
 
 	/**
 	 * @private
@@ -321,7 +321,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the switch's right edge and the
@@ -335,7 +335,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -343,7 +343,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -356,7 +356,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the switch's left edge and the
@@ -373,7 +373,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -381,7 +381,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -943,22 +943,22 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var onTrackSkinOriginalWidth:Number = NaN;
+	private var onTrackSkinOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var onTrackSkinOriginalHeight:Number = NaN;
+	private var onTrackSkinOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var offTrackSkinOriginalWidth:Number = NaN;
+	private var offTrackSkinOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var offTrackSkinOriginalHeight:Number = NaN;
+	private var offTrackSkinOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -1041,7 +1041,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _toggleDuration:Number = 0.15;
+	private var _toggleDuration:Float = 0.15;
 
 	/**
 	 * The duration, in seconds, of the animation when the toggle switch
@@ -1055,7 +1055,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0.15
 	 */
-	public function get toggleDuration():Number
+	public function get toggleDuration():Float
 	{
 		return this._toggleDuration;
 	}
@@ -1063,7 +1063,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set toggleDuration(value:Number):Void
+	public function set toggleDuration(value:Float):Void
 	{
 		this._toggleDuration = value;
 	}
@@ -1193,12 +1193,12 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Number;
+	private var _thumbStartX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Number;
+	private var _touchStartX:Float;
 
 	/**
 	 * @private
@@ -1860,8 +1860,8 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return false;
 		}
 		this.thumb.validate();
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(this.offTrack)
@@ -2031,9 +2031,9 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		this.thumb.validate();
 		this.thumb.y = (this.actualHeight - this.thumb.height) / 2;
 
-		var maxLabelWidth:Number = Math.max(0, this.actualWidth - this.thumb.width - this._paddingLeft - this._paddingRight);
-		var totalLabelHeight:Number = Math.max(this.onTextRenderer.height, this.offTextRenderer.height);
-		var labelHeight:Number;
+		var maxLabelWidth:Float = Math.max(0, this.actualWidth - this.thumb.width - this._paddingLeft - this._paddingRight);
+		var totalLabelHeight:Float = Math.max(this.onTextRenderer.height, this.offTextRenderer.height);
+		var labelHeight:Float;
 		if(this._labelAlign == LABEL_ALIGN_MIDDLE)
 		{
 			labelHeight = totalLabelHeight;
@@ -2065,16 +2065,16 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function layoutTracks():Void
 	{
-		var maxLabelWidth:Number = Math.max(0, this.actualWidth - this.thumb.width - this._paddingLeft - this._paddingRight);
-		var thumbOffset:Number = this.thumb.x - this._paddingLeft;
+		var maxLabelWidth:Float = Math.max(0, this.actualWidth - this.thumb.width - this._paddingLeft - this._paddingRight);
+		var thumbOffset:Float = this.thumb.x - this._paddingLeft;
 
-		var onScrollOffset:Number = maxLabelWidth - thumbOffset - (maxLabelWidth - this.onTextRenderer.width) / 2;
+		var onScrollOffset:Float = maxLabelWidth - thumbOffset - (maxLabelWidth - this.onTextRenderer.width) / 2;
 		var currentClipRect:Rectangle = this.onTextRenderer.clipRect;
 		currentClipRect.x = onScrollOffset
 		this.onTextRenderer.clipRect = currentClipRect;
 		this.onTextRenderer.x = this._paddingLeft - onScrollOffset;
 
-		var offScrollOffset:Number = -thumbOffset - (maxLabelWidth - this.offTextRenderer.width) / 2;
+		var offScrollOffset:Float = -thumbOffset - (maxLabelWidth - this.offTextRenderer.width) / 2;
 		currentClipRect = this.offTextRenderer.clipRect;
 		currentClipRect.x = offScrollOffset
 		this.offTextRenderer.clipRect = currentClipRect;
@@ -2109,7 +2109,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		}
 		this.thumb.validate();
 
-		var xPosition:Number = this._paddingLeft;
+		var xPosition:Float = this._paddingLeft;
 		if(this._isSelected)
 		{
 			xPosition = this.actualWidth - this.thumb.width - this._paddingRight;
@@ -2377,18 +2377,18 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 				return;
 			}
 			touch.getLocation(this, HELPER_POINT);
-			var trackScrollableWidth:Number = this.actualWidth - this._paddingLeft - this._paddingRight - this.thumb.width;
+			var trackScrollableWidth:Float = this.actualWidth - this._paddingLeft - this._paddingRight - this.thumb.width;
 			if(touch.phase == TouchPhase.MOVED)
 			{
-				var xOffset:Number = HELPER_POINT.x - this._touchStartX;
-				var xPosition:Number = Math.min(Math.max(this._paddingLeft, this._thumbStartX + xOffset), this._paddingLeft + trackScrollableWidth);
+				var xOffset:Float = HELPER_POINT.x - this._touchStartX;
+				var xPosition:Float = Math.min(Math.max(this._paddingLeft, this._thumbStartX + xOffset), this._paddingLeft + trackScrollableWidth);
 				this.thumb.x = xPosition;
 				this.layoutTracks();
 			}
 			else if(touch.phase == TouchPhase.ENDED)
 			{
-				var pixelsMoved:Number = Math.abs(HELPER_POINT.x - this._touchStartX);
-				var inchesMoved:Number = pixelsMoved / DeviceCapabilities.dpi;
+				var pixelsMoved:Float = Math.abs(HELPER_POINT.x - this._touchStartX);
+				var inchesMoved:Float = pixelsMoved / DeviceCapabilities.dpi;
 				if(inchesMoved > MINIMUM_DRAG_DISTANCE || (SystemUtil.isDesktop && pixelsMoved >= 1))
 				{
 					this._touchPointID = -1;

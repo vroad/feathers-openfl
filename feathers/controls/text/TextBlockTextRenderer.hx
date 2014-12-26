@@ -80,7 +80,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @private
 	 * This is enforced by the runtime.
 	 */
-	inline private static var MAX_TEXT_LINE_WIDTH:Number = 1000000;
+	inline private static var MAX_TEXT_LINE_WIDTH:Float = 1000000;
 
 	/**
 	 * @private
@@ -95,7 +95,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	inline private static var FUZZY_TRUNCATION_DIFFERENCE:Number = 0.000001;
+	inline private static var FUZZY_TRUNCATION_DIFFERENCE:Float = 0.000001;
 
 	/**
 	 * The text will be positioned to the left edge.
@@ -157,22 +157,22 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _textSnapshotScrollX:Number = 0;
+	private var _textSnapshotScrollX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _textSnapshotScrollY:Number = 0;
+	private var _textSnapshotScrollY:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _textSnapshotOffsetX:Number = 0;
+	private var _textSnapshotOffsetX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _textSnapshotOffsetY:Number = 0;
+	private var _textSnapshotOffsetY:Float = 0;
 
 	/**
 	 * @private
@@ -197,12 +197,12 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _previousContentWidth:Number = NaN;
+	private var _previousContentWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _previousContentHeight:Number = NaN;
+	private var _previousContentHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -408,7 +408,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _leading:Number = 0;
+	private var _leading:Float = 0;
 
 	/**
 	 * The amount of vertical space, in pixels, between lines.
@@ -420,7 +420,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0
 	 */
-	public function get leading():Number
+	public function get leading():Float
 	{
 		return this._leading;
 	}
@@ -428,7 +428,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set leading(value:Number):Void
+	public function set leading(value:Float):Void
 	{
 		if(this._leading == value)
 		{
@@ -514,7 +514,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(this._textLines.length == 0)
 		{
@@ -598,7 +598,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _baselineFontSize:Number = 12;
+	private var _baselineFontSize:Float = 12;
 
 	/**
 	 * The font size used to calculate the baselines for the lines created
@@ -614,7 +614,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontSize Full description of flash.text.engine.TextBlock.baselineFontSize in Adobe's Flash Platform API Reference
 	 * @see #baselineFontDescription
 	 */
-	public function get baselineFontSize():Number
+	public function get baselineFontSize():Float
 	{
 		return this._baselineFontSize;
 	}
@@ -622,7 +622,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set baselineFontSize(value:Number):Void
+	public function set baselineFontSize(value:Float):Void
 	{
 		if(this._baselineFontSize == value)
 		{
@@ -1079,7 +1079,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this.textSnapshot)
 		{
@@ -1224,8 +1224,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = this._maxWidth;
@@ -1274,7 +1274,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		if(sizeInvalid)
 		{
 			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
-			var rectangleSnapshotWidth:Number = this.actualWidth * Starling.contentScaleFactor;
+			var rectangleSnapshotWidth:Float = this.actualWidth * Starling.contentScaleFactor;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
@@ -1297,7 +1297,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 					this._snapshotWidth = getNextPowerOfTwo(rectangleSnapshotWidth);
 				}
 			}
-			var rectangleSnapshotHeight:Number = this.actualHeight * Starling.contentScaleFactor;
+			var rectangleSnapshotHeight:Float = this.actualHeight * Starling.contentScaleFactor;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
@@ -1383,19 +1383,19 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			result = new Rectangle();
 		}
-		var resultX:Number = 0;
-		var resultY:Number = 0;
-		var resultWidth:Number = 0;
-		var resultHeight:Number = 0;
+		var resultX:Float = 0;
+		var resultY:Float = 0;
+		var resultWidth:Float = 0;
+		var resultHeight:Float = 0;
 		var filterCount:Int = this._nativeFilters.length;
 		for(var i:Int = 0; i < filterCount; i++)
 		{
 			var filter:BitmapFilter = this._nativeFilters[i];
 			var filterRect:Rectangle = bitmapData.generateFilterRect(bitmapData.rect, filter);
-			var filterX:Number = filterRect.x;
-			var filterY:Number = filterRect.y;
-			var filterWidth:Number = filterRect.width;
-			var filterHeight:Number = filterRect.height;
+			var filterX:Float = filterRect.x;
+			var filterY:Float = filterRect.y;
+			var filterWidth:Float = filterRect.width;
+			var filterHeight:Float = filterRect.height;
 			if(resultX > filterX)
 			{
 				resultX = filterX;
@@ -1434,29 +1434,29 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.scale(scaleFactor, scaleFactor);
-		var totalBitmapWidth:Number = this._snapshotWidth;
-		var totalBitmapHeight:Number = this._snapshotHeight;
-		var clipWidth:Number = this.actualWidth * scaleFactor;
-		var clipHeight:Number = this.actualHeight * scaleFactor;
-		var xPosition:Number = 0;
-		var yPosition:Number = 0;
+		var totalBitmapWidth:Float = this._snapshotWidth;
+		var totalBitmapHeight:Float = this._snapshotHeight;
+		var clipWidth:Float = this.actualWidth * scaleFactor;
+		var clipHeight:Float = this.actualHeight * scaleFactor;
+		var xPosition:Float = 0;
+		var yPosition:Float = 0;
 		var bitmapData:BitmapData;
 		var snapshotIndex:Int = -1;
 		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		do
 		{
-			var currentBitmapWidth:Number = totalBitmapWidth;
+			var currentBitmapWidth:Float = totalBitmapWidth;
 			if(currentBitmapWidth > this._maxTextureDimensions)
 			{
 				currentBitmapWidth = this._maxTextureDimensions;
 			}
 			do
 			{
-				var currentBitmapHeight:Number = totalBitmapHeight;
+				var currentBitmapHeight:Float = totalBitmapHeight;
 				if(currentBitmapHeight > this._maxTextureDimensions)
 				{
 					currentBitmapHeight = this._maxTextureDimensions;
@@ -1597,7 +1597,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):Void
+	private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
 	{
 		if(this._textElement)
 		{
@@ -1620,7 +1620,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			}
 		}
 		HELPER_TEXT_LINES.length = 0;
-		var yPosition:Number = 0;
+		var yPosition:Float = 0;
 		var lineCount:Int = textLines.length;
 		var lastLine:TextLine;
 		var cacheIndex:Int = lineCount;
@@ -1665,7 +1665,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				this._truncationOffset = 0;
 				var previousLine:TextLine = line;
-				var lineWidth:Number = width;
+				var lineWidth:Float = width;
 				if(!this._wordWrap)
 				{
 					lineWidth = MAX_TEXT_LINE_WIDTH;
@@ -1695,7 +1695,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 				}
 				var lineLength:Int = line.rawTextLength;
 				var isTruncated:Boolean = false;
-				var difference:Number = 0;
+				var difference:Float = 0;
 				while(canTruncate && (difference = line.width - width) > FUZZY_TRUNCATION_DIFFERENCE)
 				{
 					isTruncated = true;
@@ -1758,7 +1758,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function alignTextLines(textLines:Vector.<TextLine>, width:Number, textAlign:String):Void
+	private function alignTextLines(textLines:Vector.<TextLine>, width:Float, textAlign:String):Void
 	{
 		var lineCount:Int = textLines.length;
 		for(var i:Int = 0; i < lineCount; i++)

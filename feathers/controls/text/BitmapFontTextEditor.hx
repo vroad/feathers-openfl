@@ -538,7 +538,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _scrollX:Number = 0;
+	private var _scrollX:Float = 0;
 
 	/**
 	 * @private
@@ -677,10 +677,10 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var oldBatchX:Number = this._batchX;
-		var oldCursorX:Number = this._cursorSkin.x;
+		var oldBatchX:Float = this._batchX;
+		var oldCursorX:Float = this._cursorSkin.x;
 		this._batchX -= this._scrollX;
 		this._cursorSkin.x -= this._scrollX;
 		super.render(support, parentAlpha);
@@ -749,8 +749,8 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		if(this._cursorSkin)
 		{
 			var font:BitmapFont = this.currentTextFormat.font;
-			var customSize:Number = this.currentTextFormat.size;
-			var scale:Number = customSize / font.size;
+			var customSize:Float = this.currentTextFormat.size;
+			var scale:Float = customSize / font.size;
 			if(scale !== scale) //isNaN
 			{
 				scale = 1;
@@ -808,17 +808,17 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
+	private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
 		if(!this._text || pointX <= 0)
 		{
 			return 0;
 		}
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var customLetterSpacing:Number = this.currentTextFormat.letterSpacing;
+		var customSize:Float = this.currentTextFormat.size;
+		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
-		var scale:Number = customSize / font.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
@@ -826,9 +826,9 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var align:String = this.currentTextFormat.align;
 		if(align != TextFormatAlign.LEFT)
 		{
-			var lineWidth:Number = this.measureText(HELPER_POINT).x;
+			var lineWidth:Float = this.measureText(HELPER_POINT).x;
 			var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
-			var maxLineWidth:Number = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
+			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
 				if(align == TextFormatAlign.RIGHT)
@@ -841,8 +841,8 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 				}
 			}
 		}
-		var currentX:Number = 0;
-		var previousCharID:Number = NaN;
+		var currentX:Float = 0;
+		var previousCharID:Float = NaN;
 		var charCount:Int = this._text.length;
 		for(var i:Int = 0; i < charCount; i++)
 		{
@@ -852,13 +852,13 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			{
 				continue;
 			}
-			var currentKerning:Number = 0;
+			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
 				previousCharID === previousCharID) //!isNaN
 			{
 				currentKerning = charData.getKerning(previousCharID) * scale;
 			}
-			var charWidth:Number = customLetterSpacing + currentKerning + charData.xAdvance * scale;
+			var charWidth:Float = customLetterSpacing + currentKerning + charData.xAdvance * scale;
 			if(pointX >= currentX && pointX < (currentX + charWidth))
 			{
 				if(pointX > (currentX + charWidth / 2))
@@ -880,24 +880,24 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getXPositionOfIndex(index:Int):Number
+	private function getXPositionOfIndex(index:Int):Float
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var customLetterSpacing:Number = this.currentTextFormat.letterSpacing;
+		var customSize:Float = this.currentTextFormat.size;
+		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
-		var scale:Number = customSize / font.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
 		}
-		var xPositionOffset:Number = 0;
+		var xPositionOffset:Float = 0;
 		var align:String = this.currentTextFormat.align;
 		if(align != TextFormatAlign.LEFT)
 		{
-			var lineWidth:Number = this.measureText(HELPER_POINT).x;
+			var lineWidth:Float = this.measureText(HELPER_POINT).x;
 			var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
-			var maxLineWidth:Number = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
+			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
 				if(align == TextFormatAlign.RIGHT)
@@ -910,8 +910,8 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 				}
 			}
 		}
-		var currentX:Number = 0;
-		var previousCharID:Number = NaN;
+		var currentX:Float = 0;
+		var previousCharID:Float = NaN;
 		var charCount:Int = this._text.length;
 		if(index < charCount)
 		{
@@ -925,7 +925,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			{
 				continue;
 			}
-			var currentKerning:Number = 0;
+			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
 				previousCharID === previousCharID) //!isNaN
 			{
@@ -946,14 +946,14 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			index = 0;
 		}
-		var cursorX:Number = this.getXPositionOfIndex(index);
+		var cursorX:Float = this.getXPositionOfIndex(index);
 		cursorX = int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 
 		//then we update the scroll to always show the cursor
-		var minScrollX:Number = cursorX + this._cursorSkin.width - this.actualWidth;
-		var maxScrollX:Number = this.getXPositionOfIndex(this._text.length) - this.actualWidth;
+		var minScrollX:Float = cursorX + this._cursorSkin.width - this.actualWidth;
+		var maxScrollX:Float = this.getXPositionOfIndex(this._text.length) - this.actualWidth;
 		if(maxScrollX < 0)
 		{
 			maxScrollX = 0;
@@ -978,19 +978,19 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	private function positionSelectionBackground():Void
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var scale:Number = customSize / font.size;
+		var customSize:Float = this.currentTextFormat.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
 		}
 
-		var startX:Number = this.getXPositionOfIndex(this._selectionBeginIndex) - this._scrollX;
+		var startX:Float = this.getXPositionOfIndex(this._selectionBeginIndex) - this._scrollX;
 		if(startX < 0)
 		{
 			startX = 0;
 		}
-		var endX:Number = this.getXPositionOfIndex(this._selectionEndIndex) - this._scrollX;
+		var endX:Float = this.getXPositionOfIndex(this._selectionEndIndex) - this._scrollX;
 		if(endX < 0)
 		{
 			endX = 0;

@@ -261,7 +261,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _value:Number = 0;
+	private var _value:Float = 0;
 
 	/**
 	 * The value of the numeric stepper, between the minimum and maximum.
@@ -281,7 +281,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #step
 	 * @see #event:change
 	 */
-	public function get value():Number
+	public function get value():Float
 	{
 		return this._value;
 	}
@@ -289,7 +289,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):Void
+	public function set value(newValue:Float):Void
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -310,7 +310,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _minimum:Number = 0;
+	private var _minimum:Float = 0;
 
 	/**
 	 * The numeric stepper's value will not go lower than the minimum.
@@ -329,7 +329,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #maximum
 	 * @see #step
 	 */
-	public function get minimum():Number
+	public function get minimum():Float
 	{
 		return this._minimum;
 	}
@@ -337,7 +337,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):Void
+	public function set minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -350,7 +350,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _maximum:Number = 0;
+	private var _maximum:Float = 0;
 
 	/**
 	 * The numeric stepper's value will not go higher than the maximum.
@@ -369,7 +369,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #minimum
 	 * @see #step
 	 */
-	public function get maximum():Number
+	public function get maximum():Float
 	{
 		return this._maximum;
 	}
@@ -377,7 +377,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):Void
+	public function set maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -390,7 +390,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _step:Number = 0;
+	private var _step:Float = 0;
 
 	/**
 	 * As the numeric stepper's buttons are pressed, the value is snapped to
@@ -410,7 +410,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #minimum
 	 * @see #maximum
 	 */
-	public function get step():Number
+	public function get step():Float
 	{
 		return this._step;
 	}
@@ -418,7 +418,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set step(value:Number):Void
+	public function set step(value:Float):Void
 	{
 		if(this._step == value)
 		{
@@ -440,7 +440,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _repeatDelay:Number = 0.05;
+	private var _repeatDelay:Float = 0.05;
 
 	/**
 	 * The time, in seconds, before actions are repeated. The first repeat
@@ -455,7 +455,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Number
+	public function get repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -463,7 +463,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Number):Void
+	public function set repeatDelay(value:Float):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -516,7 +516,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _buttonGap:Number = 0;
+	private var _buttonGap:Float = 0;
 
 	/**
 	 * The gap, in pixels, between the numeric stepper's increment and
@@ -534,7 +534,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #textInputGap
 	 * @see #buttonLayoutMode
 	 */
-	public function get buttonGap():Number
+	public function get buttonGap():Float
 	{
 		return this._buttonGap;
 	}
@@ -542,7 +542,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set buttonGap(value:Number):Void
+	public function set buttonGap(value:Float):Void
 	{
 		if(this._buttonGap == value)
 		{
@@ -555,7 +555,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _textInputGap:Number = 0;
+	private var _textInputGap:Float = 0;
 
 	/**
 	 * The gap, in pixels, between the numeric stepper's text input and its
@@ -573,7 +573,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #buttonGap
 	 * @see #buttonLayoutMode
 	 */
-	public function get textInputGap():Number
+	public function get textInputGap():Float
 	{
 		return this._textInputGap;
 	}
@@ -581,7 +581,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set textInputGap(value:Number):Void
+	public function set textInputGap(value:Float):Void
 	{
 		if(this._textInputGap == value)
 		{
@@ -1283,16 +1283,16 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return false;
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 
 		this.decrementButton.validate();
 		this.incrementButton.validate();
-		var oldTextInputWidth:Number = this.textInput.width;
-		var oldTextInputHeight:Number = this.textInput.height;
+		var oldTextInputWidth:Float = this.textInput.width;
+		var oldTextInputHeight:Float = this.textInput.height;
 		if(this._buttonLayoutMode == BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL)
 		{
-			var maxButtonWidth:Number = Math.max(this.decrementButton.width, this.incrementButton.width);
+			var maxButtonWidth:Float = Math.max(this.decrementButton.width, this.incrementButton.width);
 			this.textInput.minWidth = Math.max(0, this._minWidth - maxButtonWidth);
 			this.textInput.maxWidth = Math.max(0, this._maxWidth - maxButtonWidth);
 			this.textInput.width = Math.max(0, this.explicitWidth - maxButtonWidth)
@@ -1527,11 +1527,11 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
-		var maxCharactersBeforeDecimal:Number = Math.max(int(this._minimum).toString().length, int(this._maximum).toString().length, int(this._step).toString().length);
+		var maxCharactersBeforeDecimal:Float = Math.max(int(this._minimum).toString().length, int(this._maximum).toString().length, int(this._step).toString().length);
 
 		//roundToPrecision() helps us to avoid numbers like 1.00000000000000001
 		//caused by the inaccuracies of floating point math.
-		var maxCharactersAfterDecimal:Number = Math.max(roundToPrecision(this._minimum - int(this._minimum), 10).toString().length,
+		var maxCharactersAfterDecimal:Float = Math.max(roundToPrecision(this._minimum - int(this._minimum), 10).toString().length,
 			roundToPrecision(this._maximum - int(this._maximum), 10).toString().length,
 			roundToPrecision(this._step - int(this._step), 10).toString().length) - 2;
 		if(maxCharactersAfterDecimal < 0)
@@ -1557,7 +1557,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	{
 		if(this._buttonLayoutMode == BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL)
 		{
-			var buttonHeight:Number = (this.actualHeight - this._buttonGap) / 2;
+			var buttonHeight:Float = (this.actualHeight - this._buttonGap) / 2;
 			this.incrementButton.y = 0;
 			this.incrementButton.height = buttonHeight;
 			this.incrementButton.validate();
@@ -1566,8 +1566,8 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			this.decrementButton.height = buttonHeight;
 			this.decrementButton.validate();
 
-			var buttonWidth:Number = Math.max(this.decrementButton.width, this.incrementButton.width);
-			var buttonX:Number = this.actualWidth - buttonWidth;
+			var buttonWidth:Float = Math.max(this.decrementButton.width, this.incrementButton.width);
+			var buttonX:Float = this.actualWidth - buttonWidth;
 			this.decrementButton.x = buttonX;
 			this.incrementButton.x = buttonX;
 
@@ -1658,7 +1658,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private function parseTextInputValue():Void
 	{
-		var newValue:Number = parseFloat(this.textInput.text);
+		var newValue:Float = parseFloat(this.textInput.text);
 		if(newValue === newValue) //!isNaN
 		{
 			this.value = newValue;

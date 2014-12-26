@@ -102,22 +102,22 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _textSnapshotOffsetX:Number = 0;
+	private var _textSnapshotOffsetX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _textSnapshotOffsetY:Number = 0;
+	private var _textSnapshotOffsetY:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _previousActualWidth:Number = NaN;
+	private var _previousActualWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _previousActualHeight:Number = NaN;
+	private var _previousActualHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -386,13 +386,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this.textField)
 		{
 			return 0;
 		}
-		var gutterDimensionsOffset:Number = 0;
+		var gutterDimensionsOffset:Float = 0;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 2;
@@ -777,7 +777,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _sharpness:Number = 0;
+	private var _sharpness:Float = 0;
 
 	/**
 	 * The sharpness of the glyph edges in this text field. This property
@@ -796,7 +796,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get sharpness():Number
+	public function get sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -804,7 +804,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):Void
+	public function set sharpness(value:Float):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -817,7 +817,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _thickness:Number = 0;
+	private var _thickness:Float = 0;
 
 	/**
 	 * The thickness of the glyph edges in this text field. This property
@@ -836,7 +836,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get thickness():Number
+	public function get thickness():Float
 	{
 		return this._thickness;
 	}
@@ -844,7 +844,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):Void
+	public function set thickness(value:Float):Void
 	{
 		if(this._thickness == value)
 		{
@@ -1009,7 +1009,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this.textSnapshot)
 		{
@@ -1070,7 +1070,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		if(!this.textField)
 		{
 			this.textField = new TextField();
-			var scaleFactor:Number = Starling.contentScaleFactor;
+			var scaleFactor:Float = Starling.contentScaleFactor;
 			this.textField.scaleX = scaleFactor;
 			this.textField.scaleY = scaleFactor;
 			this.textField.mouseEnabled = this.textField.mouseWheelEnabled = false;
@@ -1165,21 +1165,21 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		this.textField.autoSize = TextFieldAutoSize.LEFT;
 		this.textField.wordWrap = false;
 
-		var scaleFactor:Number = Starling.contentScaleFactor;
-		var gutterDimensionsOffset:Number = 4;
+		var scaleFactor:Float = Starling.contentScaleFactor;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
 		}
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			//yes, this value is never used. this is a workaround for a bug
 			//in AIR for iOS where getting the value for textField.width the
 			//first time results in an incorrect value, but if you query it
 			//again, for some reason, it reports the correct width value.
-			var hackWorkaround:Number = this.textField.width;
+			var hackWorkaround:Float = this.textField.width;
 			newWidth = (this.textField.width / scaleFactor) - gutterDimensionsOffset;
 			if(newWidth < this._minWidth)
 			{
@@ -1200,7 +1200,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			this.textField.width = newWidth + gutterDimensionsOffset;
 			this.textField.wordWrap = this._wordWrap;
 		}
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			newHeight = (this.textField.height / scaleFactor) - gutterDimensionsOffset;
@@ -1237,8 +1237,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 
-		var scaleFactor:Number = Starling.contentScaleFactor;
-		var gutterDimensionsOffset:Number = 4;
+		var scaleFactor:Float = Starling.contentScaleFactor;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
@@ -1262,7 +1262,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			this.textField.width = this.actualWidth + gutterDimensionsOffset;
 			this.textField.height = this.actualHeight + gutterDimensionsOffset;
 			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
-			var rectangleSnapshotWidth:Number = this.actualWidth * scaleFactor;
+			var rectangleSnapshotWidth:Float = this.actualWidth * scaleFactor;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
@@ -1285,7 +1285,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					this._snapshotWidth = getNextPowerOfTwo(rectangleSnapshotWidth);
 				}
 			}
-			var rectangleSnapshotHeight:Number = this.actualHeight * scaleFactor;
+			var rectangleSnapshotHeight:Float = this.actualHeight * scaleFactor;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
@@ -1373,19 +1373,19 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			result = new Rectangle();
 		}
-		var resultX:Number = 0;
-		var resultY:Number = 0;
-		var resultWidth:Number = 0;
-		var resultHeight:Number = 0;
+		var resultX:Float = 0;
+		var resultY:Float = 0;
+		var resultWidth:Float = 0;
+		var resultHeight:Float = 0;
 		var filterCount:Int = this._nativeFilters.length;
 		for(var i:Int = 0; i < filterCount; i++)
 		{
 			var filter:BitmapFilter = this._nativeFilters[i];
 			var filterRect:Rectangle = bitmapData.generateFilterRect(bitmapData.rect, filter);
-			var filterX:Number = filterRect.x;
-			var filterY:Number = filterRect.y;
-			var filterWidth:Number = filterRect.width;
-			var filterHeight:Number = filterRect.height;
+			var filterX:Float = filterRect.x;
+			var filterY:Float = filterRect.y;
+			var filterWidth:Float = filterRect.width;
+			var filterHeight:Float = filterRect.height;
 			if(resultX > filterX)
 			{
 				resultX = filterX;
@@ -1424,32 +1424,32 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.scale(scaleFactor, scaleFactor);
-		var totalBitmapWidth:Number = this._snapshotWidth;
-		var totalBitmapHeight:Number = this._snapshotHeight;
-		var xPosition:Number = 0;
-		var yPosition:Number = 0;
+		var totalBitmapWidth:Float = this._snapshotWidth;
+		var totalBitmapHeight:Float = this._snapshotHeight;
+		var xPosition:Float = 0;
+		var yPosition:Float = 0;
 		var bitmapData:BitmapData;
 		var snapshotIndex:Int = -1;
 		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
-		var gutterPositionOffset:Number = 2 * scaleFactor;
+		var gutterPositionOffset:Float = 2 * scaleFactor;
 		if(this._useGutter)
 		{
 			gutterPositionOffset = 0;
 		}
 		do
 		{
-			var currentBitmapWidth:Number = totalBitmapWidth;
+			var currentBitmapWidth:Float = totalBitmapWidth;
 			if(currentBitmapWidth > this._maxTextureDimensions)
 			{
 				currentBitmapWidth = this._maxTextureDimensions;
 			}
 			do
 			{
-				var currentBitmapHeight:Number = totalBitmapHeight;
+				var currentBitmapHeight:Float = totalBitmapHeight;
 				if(currentBitmapHeight > this._maxTextureDimensions)
 				{
 					currentBitmapHeight = this._maxTextureDimensions;

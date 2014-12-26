@@ -480,7 +480,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * The baseline measurement of the text, in pixels.
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this.textEditor)
 		{
@@ -887,13 +887,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @private
 	 * The width of the first skin that was displayed.
 	 */
-	private var _originalSkinWidth:Number = NaN;
+	private var _originalSkinWidth:Float = NaN;
 
 	/**
 	 * @private
 	 * The height of the first skin that was displayed.
 	 */
-	private var _originalSkinHeight:Number = NaN;
+	private var _originalSkinHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -1226,7 +1226,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the icon and the text editor, if an
@@ -1241,7 +1241,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -1249,7 +1249,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -1278,7 +1278,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -1286,7 +1286,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -1297,7 +1297,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's top edge and the
@@ -1311,7 +1311,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -1319,7 +1319,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -1332,7 +1332,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's right edge and the
@@ -1346,7 +1346,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -1354,7 +1354,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -1367,7 +1367,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's bottom edge and
@@ -1381,7 +1381,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -1389,7 +1389,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1402,7 +1402,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's left edge and the
@@ -1416,7 +1416,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -1424,7 +1424,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -1834,12 +1834,12 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			return false;
 		}
 
-		var typicalTextWidth:Number = 0;
-		var typicalTextHeight:Number = 0;
+		var typicalTextWidth:Float = 0;
+		var typicalTextHeight:Float = 0;
 		if(this._typicalText)
 		{
-			var oldTextEditorWidth:Number = this.textEditor.width;
-			var oldTextEditorHeight:Number = this.textEditor.height;
+			var oldTextEditorWidth:Float = this.textEditor.width;
+			var oldTextEditorHeight:Float = this.textEditor.height;
 			var oldIgnoreTextChanges:Boolean = this._ignoreTextChanges;
 			this._ignoreTextChanges = true;
 			this.textEditor.setSize(NaN, NaN);
@@ -1858,8 +1858,8 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			typicalTextHeight = Math.max(typicalTextHeight, HELPER_POINT.y);
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = Math.max(this._originalSkinWidth, typicalTextWidth + this._paddingLeft + this._paddingRight);
@@ -2139,12 +2139,12 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.promptTextRenderer.validate();
 		}
 
-		var biggerHeight:Number = this.textEditor.height;
-		var biggerBaseline:Number = this.textEditor.baseline;
+		var biggerHeight:Float = this.textEditor.height;
+		var biggerBaseline:Float = this.textEditor.baseline;
 		if(this.promptTextRenderer)
 		{
-			var promptBaseline:Number = this.promptTextRenderer.baseline;
-			var promptHeight:Number = this.promptTextRenderer.height;
+			var promptBaseline:Float = this.promptTextRenderer.baseline;
+			var promptHeight:Float = this.promptTextRenderer.height;
 			if(promptBaseline > biggerBaseline)
 			{
 				biggerBaseline = promptBaseline;

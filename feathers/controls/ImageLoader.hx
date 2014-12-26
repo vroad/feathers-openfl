@@ -193,12 +193,12 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _currentTextureWidth:Number = NaN;
+	private var _currentTextureWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _currentTextureHeight:Number = NaN;
+	private var _currentTextureHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -399,7 +399,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _textureScale:Number = 1;
+	private var _textureScale:Float = 1;
 
 	/**
 	 * Scales the texture dimensions during measurement. Useful for UI that
@@ -413,7 +413,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 1
 	 */
-	public function get textureScale():Number
+	public function get textureScale():Float
 	{
 		return this._textureScale;
 	}
@@ -421,7 +421,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):Void
+	public function set textureScale(value:Float):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -616,7 +616,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
-	public function get originalSourceWidth():Number
+	public function get originalSourceWidth():Float
 	{
 		if(this._currentTextureWidth === this._currentTextureWidth) //!isNaN
 		{
@@ -631,7 +631,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
-	public function get originalSourceHeight():Number
+	public function get originalSourceHeight():Float
 	{
 		if(this._currentTextureHeight === this._currentTextureHeight) //!isNaN
 		{
@@ -724,12 +724,12 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _accumulatedPrepareTextureTime:Number;
+	private var _accumulatedPrepareTextureTime:Float;
 
 	/**
 	 * @private
 	 */
-	private var _textureQueueDuration:Number = Number.POSITIVE_INFINITY;
+	private var _textureQueueDuration:Float = Number.POSITIVE_INFINITY;
 
 	/**
 	 * If <code>delayTextureCreation</code> is <code>true</code> and the
@@ -755,7 +755,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #delayTextureCreation
 	 */
-	public function get textureQueueDuration():Number
+	public function get textureQueueDuration():Float
 	{
 		return this._textureQueueDuration;
 	}
@@ -763,13 +763,13 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureQueueDuration(value:Number):Void
+	public function set textureQueueDuration(value:Float):Void
 	{
 		if(this._textureQueueDuration == value)
 		{
 			return;
 		}
-		var oldDuration:Number = this._textureQueueDuration;
+		var oldDuration:Float = this._textureQueueDuration;
 		this._textureQueueDuration = value;
 		if(this._delayTextureCreation)
 		{
@@ -804,7 +804,7 @@ class ImageLoader extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -812,7 +812,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -823,7 +823,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's top edge and the
@@ -838,7 +838,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -846,7 +846,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -859,7 +859,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's right edge and the
@@ -874,7 +874,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -882,7 +882,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -895,7 +895,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's bottom edge and the
@@ -910,7 +910,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -918,7 +918,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -931,7 +931,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's left edge and the
@@ -946,7 +946,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -954,7 +954,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -967,7 +967,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this._snapToPixels)
 		{
@@ -1058,7 +1058,7 @@ class ImageLoader extends FeathersControl
 			return false;
 		}
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this._currentTextureWidth === this._currentTextureWidth) //!isNaN
@@ -1066,7 +1066,7 @@ class ImageLoader extends FeathersControl
 				newWidth = this._currentTextureWidth * this._textureScale;
 				if(this._maintainAspectRatio && !needsHeight)
 				{
-					var heightScale:Number = this.explicitHeight / (this._currentTextureHeight * this._textureScale);
+					var heightScale:Float = this.explicitHeight / (this._currentTextureHeight * this._textureScale);
 					newWidth *= heightScale;
 				}
 			}
@@ -1077,7 +1077,7 @@ class ImageLoader extends FeathersControl
 			newWidth += this._paddingLeft + this._paddingRight;
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this._currentTextureHeight === this._currentTextureHeight) //!isNaN
@@ -1085,7 +1085,7 @@ class ImageLoader extends FeathersControl
 				newHeight = this._currentTextureHeight * this._textureScale;
 				if(this._maintainAspectRatio && !needsWidth)
 				{
-					var widthScale:Number = this.explicitWidth / (this._currentTextureWidth * this._textureScale);
+					var widthScale:Float = this.explicitWidth / (this._currentTextureWidth * this._textureScale);
 					newHeight *= widthScale;
 				}
 			}

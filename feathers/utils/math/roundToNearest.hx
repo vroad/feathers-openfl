@@ -16,12 +16,12 @@ package feathers.utils.math;
  * 
  * @see Math#round
  */
-public function roundToNearest(number:Number, nearest:Number = 1):Number
+public function roundToNearest(number:Float, nearest:Float = 1):Float
 {
 	if(nearest == 0)
 	{
 		return number;
 	}
-	var roundedNumber:Number = Math.round(roundToPrecision(number / nearest, 10)) * nearest;
+	var roundedNumber:Float = Math.round(roundToPrecision(number / nearest, 10)) * nearest;
 	return roundToPrecision(roundedNumber, 10);
 }

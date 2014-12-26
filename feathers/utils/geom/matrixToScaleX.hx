@@ -13,9 +13,9 @@ import flash.geom.Matrix;
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/Matrix.html flash.geom.Matrix
  */
-public function matrixToScaleX(matrix:Matrix):Number
+public function matrixToScaleX(matrix:Matrix):Float
 {
-	var a:Number = matrix.a;
-	var b:Number = matrix.b;
+	var a:Float = matrix.a;
+	var b:Float = matrix.b;
 	return Math.sqrt(a * a + b * b);
 }

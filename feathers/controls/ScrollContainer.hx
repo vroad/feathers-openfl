@@ -178,14 +178,14 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Float = 0.998;
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_FAST
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollContainer</code>

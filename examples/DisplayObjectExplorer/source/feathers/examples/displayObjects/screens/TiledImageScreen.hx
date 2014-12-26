@@ -27,27 +27,27 @@ class TiledImageScreen extends Screen
 	private var _rightButton:Button;
 	private var _bottomButton:Button;
 
-	private var _minDisplayObjectWidth:Number;
-	private var _minDisplayObjectHeight:Number;
-	private var _maxDisplayObjectWidth:Number;
-	private var _maxDisplayObjectHeight:Number;
-	private var _startX:Number;
-	private var _startY:Number;
-	private var _startWidth:Number;
-	private var _startHeight:Number;
+	private var _minDisplayObjectWidth:Float;
+	private var _minDisplayObjectHeight:Float;
+	private var _maxDisplayObjectWidth:Float;
+	private var _maxDisplayObjectHeight:Float;
+	private var _startX:Float;
+	private var _startY:Float;
+	private var _startWidth:Float;
+	private var _startHeight:Float;
 	private var _rightTouchPointID:Int = -1;
 	private var _bottomTouchPointID:Int = -1;
 
 	private var _texture:Texture;
 
-	private var _padding:Number = 0;
+	private var _padding:Float = 0;
 
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._padding;
 	}
 
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		if(this._padding == value)
 		{

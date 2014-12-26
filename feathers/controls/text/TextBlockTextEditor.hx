@@ -698,10 +698,10 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var oldSnapshotX:Number = this._textSnapshotOffsetX;
-		var oldCursorX:Number = this._cursorSkin.x;
+		var oldSnapshotX:Float = this._textSnapshotOffsetX;
+		var oldCursorX:Float = this._cursorSkin.x;
 		this._cursorSkin.x -= this._textSnapshotScrollX;
 		super.render(support, parentAlpha);
 		this._textSnapshotOffsetX = oldSnapshotX;
@@ -727,7 +727,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):Void
+	override private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
 	{
 		super.refreshTextLines(textLines, textLineParent, width, height);
 		if(textLineParent.width > width)
@@ -786,7 +786,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
+	private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
 		if(!this._text || this._textLines.length == 0)
 		{
@@ -830,7 +830,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getXPositionOfCharIndex(index:Int):Number
+	private function getXPositionOfCharIndex(index:Int):Float
 	{
 		if(!this._text || this._textLines.length == 0)
 		{
@@ -862,20 +862,20 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 		{
 			index = 0;
 		}
-		var cursorX:Number = this.getXPositionOfCharIndex(index);
+		var cursorX:Float = this.getXPositionOfCharIndex(index);
 		cursorX = int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 		this._cursorSkin.height = this._elementFormat.fontSize;
 
 		//then we update the scroll to always show the cursor
-		var minScrollX:Number = cursorX + this._cursorSkin.width - this.actualWidth;
-		var maxScrollX:Number = this.getXPositionOfCharIndex(this._text.length) - this.actualWidth;
+		var minScrollX:Float = cursorX + this._cursorSkin.width - this.actualWidth;
+		var maxScrollX:Float = this.getXPositionOfCharIndex(this._text.length) - this.actualWidth;
 		if(maxScrollX < 0)
 		{
 			maxScrollX = 0;
 		}
-		var oldScrollX:Number = this._textSnapshotScrollX;
+		var oldScrollX:Float = this._textSnapshotScrollX;
 		if(this._textSnapshotScrollX < minScrollX)
 		{
 			this._textSnapshotScrollX = minScrollX;
@@ -899,12 +899,12 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 */
 	private function positionSelectionBackground():Void
 	{
-		var startX:Number = this.getXPositionOfCharIndex(this._selectionBeginIndex) - this._textSnapshotScrollX;
+		var startX:Float = this.getXPositionOfCharIndex(this._selectionBeginIndex) - this._textSnapshotScrollX;
 		if(startX < 0)
 		{
 			startX = 0;
 		}
-		var endX:Number = this.getXPositionOfCharIndex(this._selectionEndIndex) - this._textSnapshotScrollX;
+		var endX:Float = this.getXPositionOfCharIndex(this._selectionEndIndex) - this._textSnapshotScrollX;
 		if(endX < 0)
 		{
 			endX = 0;

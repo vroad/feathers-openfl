@@ -42,8 +42,8 @@ class Main extends Sprite
 	private var apiLoader:URLLoader;
 	private var loader:Loader;
 	private var fadeTween:Tween;
-	private var originalImageWidth:Number;
-	private var originalImageHeight:Number;
+	private var originalImageWidth:Float;
+	private var originalImageHeight:Float;
 
 	private function layout():Void
 	{
@@ -53,9 +53,9 @@ class Main extends Sprite
 
 		if(this.selectedImage)
 		{
-			var availableHeight:Number = this.stage.stageHeight - this.list.height;
-			var widthScale:Number = this.stage.stageWidth / this.originalImageWidth;
-			var heightScale:Number = availableHeight / this.originalImageHeight;
+			var availableHeight:Float = this.stage.stageHeight - this.list.height;
+			var widthScale:Float = this.stage.stageWidth / this.originalImageWidth;
+			var heightScale:Float = availableHeight / this.originalImageHeight;
 			this.selectedImage.scaleX = this.selectedImage.scaleY = Math.min(1, widthScale, heightScale);
 			this.selectedImage.x = (this.stage.stageWidth - this.selectedImage.width) / 2;
 			this.selectedImage.y = (availableHeight - this.selectedImage.height) / 2;

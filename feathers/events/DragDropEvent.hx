@@ -68,7 +68,7 @@ class DragDropEvent extends Event
 	/**
 	 * Constructor.
 	 */
-	public function DragDropEvent(type:String, dragData:DragData, isDropped:Boolean, localX:Number = NaN, localY:Number = NaN)
+	public function DragDropEvent(type:String, dragData:DragData, isDropped:Boolean, localX:Float = NaN, localY:Float = NaN)
 	{
 		super(type, false, dragData);
 		this.isDropped = isDropped;
@@ -95,7 +95,7 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public var localX:Number;
+	public var localX:Float;
 
 	/**
 	 * The y location, in pixels, of the current action, in the local
@@ -103,5 +103,5 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public var localY:Number;
+	public var localY:Float;
 }

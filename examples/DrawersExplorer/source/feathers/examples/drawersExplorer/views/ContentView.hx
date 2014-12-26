@@ -72,12 +72,12 @@ class ContentView extends ScrollContainer
 		openControlsPanel.addChild(this._leftButton);
 
 		this._topButton.validate();
-		var verticalOffset:Number = this._topButton.height * 1.5;
+		var verticalOffset:Float = this._topButton.height * 1.5;
 		topLayoutData.verticalCenter = -verticalOffset;
 		bottomLayoutData.verticalCenter = verticalOffset;
 
 		this._rightButton.validate();
-		var horizontalOffset:Number = this._rightButton.width;
+		var horizontalOffset:Float = this._rightButton.width;
 		rightLayoutData.horizontalCenter = horizontalOffset;
 		leftLayoutData.horizontalCenter = -horizontalOffset;
 	}

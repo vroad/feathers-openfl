@@ -13,10 +13,10 @@ class TiledRowsLayoutSettings
 	public var verticalAlign:String = TiledRowsLayout.VERTICAL_ALIGN_TOP;
 	public var tileHorizontalAlign:String = TiledRowsLayout.TILE_HORIZONTAL_ALIGN_LEFT;
 	public var tileVerticalAlign:String = TiledRowsLayout.TILE_VERTICAL_ALIGN_TOP;
-	public var horizontalGap:Number = 2;
-	public var verticalGap:Number = 2;
-	public var paddingTop:Number = 0;
-	public var paddingRight:Number = 0;
-	public var paddingBottom:Number = 0;
-	public var paddingLeft:Number = 0;
+	public var horizontalGap:Float = 2;
+	public var verticalGap:Float = 2;
+	public var paddingTop:Float = 0;
+	public var paddingRight:Float = 0;
+	public var paddingBottom:Float = 0;
+	public var paddingLeft:Float = 0;
 }

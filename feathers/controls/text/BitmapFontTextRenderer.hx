@@ -79,7 +79,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	inline private static var FUZZY_MAX_WIDTH_PADDING:Number = 0.000001;
+	inline private static var FUZZY_MAX_WIDTH_PADDING:Float = 0.000001;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>BitmapFontTextRenderer</code>
@@ -117,7 +117,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _batchX:Number = 0;
+	private var _batchX:Float = 0;
 
 	/**
 	 * @private
@@ -450,20 +450,20 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this._textFormat)
 		{
 			return 0;
 		}
 		var font:BitmapFont = this._textFormat.font;
-		var formatSize:Number = this._textFormat.size;
-		var fontSizeScale:Number = formatSize / font.size;
+		var formatSize:Float = this._textFormat.size;
+		var fontSizeScale:Float = formatSize / font.size;
 		if(fontSizeScale !== fontSizeScale) //isNaN
 		{
 			fontSizeScale = 1;
 		}
-		var baseline:Number = font.baseline;
+		var baseline:Float = font.baseline;
 		if(baseline !== baseline) //isNaN
 		{
 			return font.lineHeight * fontSizeScale;
@@ -474,10 +474,10 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var offsetX:Number = 0;
-		var offsetY:Number = 0;
+		var offsetX:Float = 0;
+		var offsetY:Float = 0;
 		if(this._snapToPixels)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
@@ -520,28 +520,28 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var customLetterSpacing:Number = this.currentTextFormat.letterSpacing;
+		var customSize:Float = this.currentTextFormat.size;
+		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
-		var scale:Number = customSize / font.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
 		}
-		var lineHeight:Number = font.lineHeight * scale;
-		var maxLineWidth:Number = this.explicitWidth;
+		var lineHeight:Float = font.lineHeight * scale;
+		var maxLineWidth:Float = this.explicitWidth;
 		if(maxLineWidth !== maxLineWidth) //isNaN
 		{
 			maxLineWidth = this._maxWidth;
 		}
 
-		var maxX:Number = 0;
-		var currentX:Number = 0;
-		var currentY:Number = 0;
-		var previousCharID:Number = NaN;
+		var maxX:Float = 0;
+		var currentX:Float = 0;
+		var currentY:Float = 0;
+		var previousCharID:Float = NaN;
 		var charCount:Int = this._text.length;
-		var startXOfPreviousWord:Number = 0;
-		var widthOfWhitespaceAfterWord:Number = 0;
+		var startXOfPreviousWord:Float = 0;
+		var widthOfWhitespaceAfterWord:Float = 0;
 		var wordCountForLine:Int = 0;
 		var line:String = "";
 		var word:String = "";
@@ -581,7 +581,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				currentX += charData.getKerning(previousCharID) * scale;
 			}
 
-			var offsetX:Number = charData.xAdvance * scale;
+			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
 				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
@@ -691,19 +691,19 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var customLetterSpacing:Number = this.currentTextFormat.letterSpacing;
+		var customSize:Float = this.currentTextFormat.size;
+		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
-		var scale:Number = customSize / font.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
 		}
-		var lineHeight:Number = font.lineHeight * scale;
+		var lineHeight:Float = font.lineHeight * scale;
 
 		var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
 		var isAligned:Boolean = this.currentTextFormat.align != TextFormatAlign.LEFT;
-		var maxLineWidth:Number = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
+		var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 		if(isAligned && maxLineWidth == Number.POSITIVE_INFINITY)
 		{
 			//we need to measure the text to get the maximum line width
@@ -718,13 +718,13 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		CHARACTER_BUFFER.length = 0;
 
-		var maxX:Number = 0;
-		var currentX:Number = 0;
-		var currentY:Number = 0;
-		var previousCharID:Number = NaN;
+		var maxX:Float = 0;
+		var currentX:Float = 0;
+		var currentY:Float = 0;
+		var previousCharID:Float = NaN;
 		var isWordComplete:Boolean = false;
-		var startXOfPreviousWord:Number = 0;
-		var widthOfWhitespaceAfterWord:Number = 0;
+		var startXOfPreviousWord:Float = 0;
+		var widthOfWhitespaceAfterWord:Float = 0;
 		var wordLength:Int = 0;
 		var wordCountForLine:Int = 0;
 		var charCount:Int = textToDraw ? textToDraw.length : 0;
@@ -771,7 +771,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				currentX += charData.getKerning(previousCharID) * scale;
 			}
 
-			var offsetX:Number = charData.xAdvance * scale;
+			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
 				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
@@ -912,7 +912,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:Int):Void
+	private function alignBuffer(maxLineWidth:Float, currentLineWidth:Float, skipCount:Int):Void
 	{
 		var align:String = this.currentTextFormat.align;
 		if(align == TextFormatAlign.CENTER)
@@ -945,7 +945,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:Int):Void
+	private function moveBufferedCharacters(xOffset:Float, yOffset:Float, skipCount:Int):Void
 	{
 		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
 		for(var i:Int = 0; i < charCount; i++)
@@ -959,7 +959,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function addCharacterToBatch(charData:BitmapChar, x:Number, y:Number, scale:Number, support:RenderSupport = null, parentAlpha:Number = 1):Void
+	private function addCharacterToBatch(charData:BitmapChar, x:Float, y:Float, scale:Float, support:RenderSupport = null, parentAlpha:Float = 1):Void
 	{
 		if(!HELPER_IMAGE)
 		{
@@ -1018,7 +1018,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function getTruncatedText(width:Number):String
+	private function getTruncatedText(width:Float):String
 	{
 		if(!this._text)
 		{
@@ -1033,16 +1033,16 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 
 		var font:BitmapFont = this.currentTextFormat.font;
-		var customSize:Number = this.currentTextFormat.size;
-		var customLetterSpacing:Number = this.currentTextFormat.letterSpacing;
+		var customSize:Float = this.currentTextFormat.size;
+		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
-		var scale:Number = customSize / font.size;
+		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
 			scale = 1;
 		}
-		var currentX:Number = 0;
-		var previousCharID:Number = NaN;
+		var currentX:Float = 0;
+		var previousCharID:Float = NaN;
 		var charCount:Int = this._text.length;
 		var truncationIndex:Int = -1;
 		for(var i:Int = 0; i < charCount; i++)
@@ -1053,7 +1053,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				continue;
 			}
-			var currentKerning:Number = 0;
+			var currentKerning:Float = 0;
 			if(isKerningEnabled &&
 				previousCharID === previousCharID) //!isNaN
 			{
@@ -1065,7 +1065,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				//floating point errors can cause unnecessary truncation,
 				//so we're going to be a little bit fuzzy on the greater
 				//than check. such tiny numbers shouldn't break anything.
-				var difference:Number = Math.abs(currentX - width);
+				var difference:Float = Math.abs(currentX - width);
 				if(difference > FUZZY_MAX_WIDTH_PADDING)
 				{
 					truncationIndex = i;
@@ -1137,7 +1137,7 @@ public function CharLocation()
 }
 
 public var char:BitmapChar;
-public var scale:Number;
-public var x:Number;
-public var y:Number;
+public var scale:Float;
+public var x:Float;
+public var y:Float;
 }

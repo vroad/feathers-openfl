@@ -11,10 +11,10 @@ package feathers.utils.display;
  * required bounds (with the possibility of a bit of empty space on the
  * edges).
  */
-public function calculateScaleRatioToFit(originalWidth:Number, originalHeight:Number, targetWidth:Number, targetHeight:Number):Number
+public function calculateScaleRatioToFit(originalWidth:Float, originalHeight:Float, targetWidth:Float, targetHeight:Float):Float
 {
-	var widthRatio:Number = targetWidth / originalWidth;
-	var heightRatio:Number = targetHeight / originalHeight;
+	var widthRatio:Float = targetWidth / originalWidth;
+	var heightRatio:Float = targetHeight / originalHeight;
 	if(widthRatio < heightRatio)
 	{
 		return widthRatio;

@@ -24,35 +24,35 @@ class LayoutBoundsResult
 	 * Usually, this value is <code>0</code>, but it may be negative.
 	 * negative.
 	 */
-	public var contentX:Number = 0;
+	public var contentX:Float = 0;
 
 	/**
 	 * The starting position of the view port's content on the y axis.
 	 * Usually, this value is <code>0</code>, but it may be negative.
 	 */
-	public var contentY:Number = 0;
+	public var contentY:Float = 0;
 
 	/**
 	 * The visible width of the view port. The view port's content may be
 	 * clipped.
 	 */
-	public var viewPortWidth:Number;
+	public var viewPortWidth:Float;
 
 	/**
 	 * The visible height of the view port. The view port's content may be
 	 * clipped.
 	 */
-	public var viewPortHeight:Number;
+	public var viewPortHeight:Float;
 
 	/**
 	 * The width of the content. May be larger or smaller than the view
 	 * port.
 	 */
-	public var contentWidth:Number;
+	public var contentWidth:Float;
 
 	/**
 	 * The height of the content. May be larger or smaller than the view
 	 * port.
 	 */
-	public var contentHeight:Number;
+	public var contentHeight:Float;
 }

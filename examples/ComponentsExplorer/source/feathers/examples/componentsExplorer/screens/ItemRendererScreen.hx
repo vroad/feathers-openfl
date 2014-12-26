@@ -34,14 +34,14 @@ class ItemRendererScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _settingsButton:Button;
 
-	private var _itemRendererGap:Number = 0;
+	private var _itemRendererGap:Float = 0;
 
-	public function get itemRendererGap():Number
+	public function get itemRendererGap():Float
 	{
 		return this._itemRendererGap;
 	}
 
-	public function set itemRendererGap(value:Number):Void
+	public function set itemRendererGap(value:Float):Void
 	{
 		if(this._itemRendererGap == value)
 		{

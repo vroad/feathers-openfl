@@ -58,7 +58,7 @@ public final class Scale9Textures
 		{
 			throw new ArgumentError(ZERO_HEIGHT_ERROR);
 		}
-		var textureScale:Number = texture.scale;
+		var textureScale:Float = texture.scale;
 		//the scale9Grid does not account for the texture's scale factor,
 		//so we need to scale the grid to match.
 		if(textureScale != 1)
@@ -239,17 +239,17 @@ public final class Scale9Textures
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, this._texture.width, this._texture.height);
 		}
-		var leftWidth:Number = this._scale9Grid.x;
-		var centerWidth:Number = this._scale9Grid.width;
-		var rightWidth:Number = textureFrame.width - this._scale9Grid.width - this._scale9Grid.x;
-		var topHeight:Number = this._scale9Grid.y;
-		var middleHeight:Number = this._scale9Grid.height;
-		var bottomHeight:Number = textureFrame.height - this._scale9Grid.height - this._scale9Grid.y;
+		var leftWidth:Float = this._scale9Grid.x;
+		var centerWidth:Float = this._scale9Grid.width;
+		var rightWidth:Float = textureFrame.width - this._scale9Grid.width - this._scale9Grid.x;
+		var topHeight:Float = this._scale9Grid.y;
+		var middleHeight:Float = this._scale9Grid.height;
+		var bottomHeight:Float = textureFrame.height - this._scale9Grid.height - this._scale9Grid.y;
 
-		var regionLeftWidth:Number = leftWidth + textureFrame.x;
-		var regionTopHeight:Number = topHeight + textureFrame.y;
-		var regionRightWidth:Number = rightWidth - (textureFrame.width - this._texture.width) - textureFrame.x;
-		var regionBottomHeight:Number = bottomHeight - (textureFrame.height - this._texture.height) - textureFrame.y;
+		var regionLeftWidth:Float = leftWidth + textureFrame.x;
+		var regionTopHeight:Float = topHeight + textureFrame.y;
+		var regionRightWidth:Float = rightWidth - (textureFrame.width - this._texture.width) - textureFrame.x;
+		var regionBottomHeight:Float = bottomHeight - (textureFrame.height - this._texture.height) - textureFrame.y;
 
 		var hasLeftFrame:Boolean = regionLeftWidth != leftWidth;
 		var hasTopFrame:Boolean = regionTopHeight != topHeight;

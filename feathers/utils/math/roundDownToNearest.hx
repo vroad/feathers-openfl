@@ -16,7 +16,7 @@ package feathers.utils.math;
  * 
  * @see Math#floor
  */
-public function roundDownToNearest(number:Number, nearest:Number = 1):Number
+public function roundDownToNearest(number:Float, nearest:Float = 1):Float
 {
 	if(nearest == 0)
 	{

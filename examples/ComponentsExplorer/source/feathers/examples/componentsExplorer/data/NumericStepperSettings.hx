@@ -5,5 +5,5 @@ class NumericStepperSettings
 	{
 	}
 
-	public var step:Number = 1;
+	public var step:Float = 1;
 }

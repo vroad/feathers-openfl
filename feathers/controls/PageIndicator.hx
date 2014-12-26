@@ -449,7 +449,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The spacing, in pixels, between symbols.
@@ -461,7 +461,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -469,7 +469,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -497,7 +497,7 @@ class PageIndicator extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -505,7 +505,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -516,7 +516,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the top edge of the component
@@ -529,7 +529,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -537,7 +537,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -550,7 +550,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the right edge of the component
@@ -563,7 +563,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -571,7 +571,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -584,7 +584,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the bottom edge of the component
@@ -597,7 +597,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -605,7 +605,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -618,7 +618,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the left edge of the component
@@ -631,7 +631,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -639,7 +639,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -899,7 +899,7 @@ class PageIndicator extends FeathersControl
 				{
 					if(this._interactionMode == INTERACTION_MODE_PRECISE)
 					{
-						var symbolHeight:Number = this.selectedSymbol.height + (this.unselectedSymbols[0].height + this._gap) * lastPageIndex;
+						var symbolHeight:Float = this.selectedSymbol.height + (this.unselectedSymbols[0].height + this._gap) * lastPageIndex;
 						var newIndex:Int = Math.round(lastPageIndex * (HELPER_POINT.y - this.symbols[0].y) / symbolHeight);
 						if(newIndex < 0)
 						{
@@ -927,7 +927,7 @@ class PageIndicator extends FeathersControl
 				{
 					if(this._interactionMode == INTERACTION_MODE_PRECISE)
 					{
-						var symbolWidth:Number = this.selectedSymbol.width + (this.unselectedSymbols[0].width + this._gap) * lastPageIndex;
+						var symbolWidth:Float = this.selectedSymbol.width + (this.unselectedSymbols[0].width + this._gap) * lastPageIndex;
 						newIndex = Math.round(lastPageIndex * (HELPER_POINT.x - this.symbols[0].x) / symbolWidth);
 						if(newIndex < 0)
 						{

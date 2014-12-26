@@ -105,7 +105,7 @@ class TabBarSlideTransitionManager
 	 *
 	 * @default 0.25
 	 */
-	public var duration:Number = 0.25;
+	public var duration:Float = 0.25;
 
 	/**
 	 * A delay before the transition starts, measured in seconds. This may
@@ -114,7 +114,7 @@ class TabBarSlideTransitionManager
 	 *
 	 * @default 0.1
 	 */
-	public var delay:Number = 0.1;
+	public var delay:Float = 0.1;
 
 	/**
 	 * The easing function to use.

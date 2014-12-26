@@ -140,7 +140,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	public function advanceTime(time:Number):Void
+	public function advanceTime(time:Float):Void
 	{
 		if(this._isValidating)
 		{

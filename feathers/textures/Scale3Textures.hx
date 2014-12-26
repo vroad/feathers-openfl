@@ -50,13 +50,13 @@ public final class Scale3Textures
 	 * @param secondRegionSize	The size, in pixels, of the second of the three regions. This value should be based on the original texture dimensions, with no adjustments for scale factor.
 	 * @param direction			Indicates if the regions should be positioned horizontally or vertically.
 	 */
-	public function Scale3Textures(texture:Texture, firstRegionSize:Number, secondRegionSize:Number, direction:String = DIRECTION_HORIZONTAL)
+	public function Scale3Textures(texture:Texture, firstRegionSize:Float, secondRegionSize:Float, direction:String = DIRECTION_HORIZONTAL)
 	{
 		if(secondRegionSize <= 0)
 		{
 			throw new ArgumentError(SECOND_REGION_ERROR);
 		}
-		var textureScale:Number = texture.scale;
+		var textureScale:Float = texture.scale;
 		//the region sizes do not account for the texture's scale factor,
 		//so we need to scale them to match.
 		if(textureScale != 1)
@@ -70,7 +70,7 @@ public final class Scale3Textures
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, texture.width, texture.height);
 		}
-		var maxSize:Number = (direction == DIRECTION_HORIZONTAL) ? textureFrame.width : textureFrame.height;
+		var maxSize:Float = (direction == DIRECTION_HORIZONTAL) ? textureFrame.width : textureFrame.height;
 		if((firstRegionSize + secondRegionSize) > maxSize)
 		{
 			throw new ArgumentError(SUM_REGIONS_ERROR);
@@ -98,12 +98,12 @@ public final class Scale3Textures
 	/**
 	 * @private
 	 */
-	private var _firstRegionSize:Number;
+	private var _firstRegionSize:Float;
 
 	/**
 	 * The size of the first region, in pixels.
 	 */
-	public function get firstRegionSize():Number
+	public function get firstRegionSize():Float
 	{
 		return this._firstRegionSize;
 	}
@@ -111,12 +111,12 @@ public final class Scale3Textures
 	/**
 	 * @private
 	 */
-	private var _secondRegionSize:Number;
+	private var _secondRegionSize:Float;
 
 	/**
 	 * The size of the second region, in pixels.
 	 */
-	public function get secondRegionSize():Number
+	public function get secondRegionSize():Float
 	{
 		return this._secondRegionSize;
 	}
@@ -189,7 +189,7 @@ public final class Scale3Textures
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, this._texture.width, this._texture.height);
 		}
-		var thirdRegionSize:Number;
+		var thirdRegionSize:Float;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			thirdRegionSize = textureFrame.height - this._firstRegionSize - this._secondRegionSize;
@@ -201,8 +201,8 @@ public final class Scale3Textures
 
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			var regionTopHeight:Number = this._firstRegionSize + textureFrame.y;
-			var regionBottomHeight:Number = thirdRegionSize - (textureFrame.height - this._texture.height) - textureFrame.y;
+			var regionTopHeight:Float = this._firstRegionSize + textureFrame.y;
+			var regionBottomHeight:Float = thirdRegionSize - (textureFrame.height - this._texture.height) - textureFrame.y;
 
 			var hasTopFrame:Boolean = regionTopHeight != this._firstRegionSize;
 			var hasRightFrame:Boolean = (textureFrame.width - textureFrame.x) != this._texture.width;
@@ -223,8 +223,8 @@ public final class Scale3Textures
 		}
 		else //horizontal
 		{
-			var regionLeftWidth:Number = this._firstRegionSize + textureFrame.x;
-			var regionRightWidth:Number = thirdRegionSize - (textureFrame.width - this._texture.width) - textureFrame.x;
+			var regionLeftWidth:Float = this._firstRegionSize + textureFrame.x;
+			var regionRightWidth:Float = thirdRegionSize - (textureFrame.width - this._texture.width) - textureFrame.x;
 
 			hasTopFrame = textureFrame.y != 0;
 			hasRightFrame = regionRightWidth != thirdRegionSize;

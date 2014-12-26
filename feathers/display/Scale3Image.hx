@@ -73,7 +73,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function Scale3Image(textures:Scale3Textures, textureScale:Number = 1)
+	public function Scale3Image(textures:Scale3Textures, textureScale:Float = 1)
 	{
 		super();
 		this.textures = textures;
@@ -155,12 +155,12 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _width:Number = NaN;
+	private var _width:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get width():Number
+	override public function get width():Float
 	{
 		return this._width;
 	}
@@ -168,7 +168,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):Void
+	override public function set width(value:Float):Void
 	{
 		if(this._width == value)
 		{
@@ -182,12 +182,12 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _height:Number = NaN;
+	private var _height:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get height():Number
+	override public function get height():Float
 	{
 		return this._height;
 	}
@@ -195,7 +195,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):Void
+	override public function set height(value:Float):Void
 	{
 		if(this._height == value)
 		{
@@ -209,7 +209,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _textureScale:Number = 1;
+	private var _textureScale:Float = 1;
 
 	/**
 	 * Scales the texture dimensions during measurement. Useful for UI that
@@ -222,7 +222,7 @@ class Scale3Image extends Sprite implements IValidating
 	 *
 	 * @default 1
 	 */
-	public function get textureScale():Number
+	public function get textureScale():Float
 	{
 		return this._textureScale;
 	}
@@ -230,7 +230,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):Void
+	public function set textureScale(value:Float):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -394,8 +394,8 @@ class Scale3Image extends Sprite implements IValidating
 			resultRect = new Rectangle();
 		}
 
-		var minX:Number = Number.MAX_VALUE, maxX:Number = -Number.MAX_VALUE;
-		var minY:Number = Number.MAX_VALUE, maxY:Number = -Number.MAX_VALUE;
+		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
+		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -456,7 +456,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this._isInvalid)
 		{
@@ -503,19 +503,19 @@ class Scale3Image extends Sprite implements IValidating
 			var image:Image;
 			if(this._textures.direction == Scale3Textures.DIRECTION_VERTICAL)
 			{
-				var scaledOppositeEdgeSize:Number = this._width;
-				var oppositeEdgeScale:Number = scaledOppositeEdgeSize / this._frame.width;
-				var scaledFirstRegionSize:Number = this._textures.firstRegionSize * oppositeEdgeScale;
-				var scaledThirdRegionSize:Number = (this._frame.height - this._textures.firstRegionSize - this._textures.secondRegionSize) * oppositeEdgeScale;sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
-				var sumFirstAndThird:Number = scaledFirstRegionSize + scaledThirdRegionSize;
+				var scaledOppositeEdgeSize:Float = this._width;
+				var oppositeEdgeScale:Float = scaledOppositeEdgeSize / this._frame.width;
+				var scaledFirstRegionSize:Float = this._textures.firstRegionSize * oppositeEdgeScale;
+				var scaledThirdRegionSize:Float = (this._frame.height - this._textures.firstRegionSize - this._textures.secondRegionSize) * oppositeEdgeScale;sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
+				var sumFirstAndThird:Float = scaledFirstRegionSize + scaledThirdRegionSize;
 				if(sumFirstAndThird > this._width)
 				{
-					var distortionScale:Number = (this._width / sumFirstAndThird);
+					var distortionScale:Float = (this._width / sumFirstAndThird);
 					scaledFirstRegionSize *= distortionScale;
 					scaledThirdRegionSize *= distortionScale;
 					sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
 				}
-				var scaledSecondRegionSize:Number = this._height - sumFirstAndThird;
+				var scaledSecondRegionSize:Float = this._height - sumFirstAndThird;
 
 				if(scaledOppositeEdgeSize > 0)
 				{

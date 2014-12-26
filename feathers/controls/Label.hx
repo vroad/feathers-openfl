@@ -177,7 +177,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * The baseline measurement of the text, in pixels.
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this.textRenderer)
 		{
@@ -375,7 +375,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		this.textRenderer.maxHeight = this._maxHeight;
 		this.textRenderer.height = this.explicitHeight;
 		this.textRenderer.measureText(HELPER_POINT);
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this._text)
@@ -388,7 +388,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this._text)

@@ -28,9 +28,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function AnchorLayoutData(top:Number = NaN, right:Number = NaN,
-		bottom:Number = NaN, left:Number = NaN, horizontalCenter:Number = NaN,
-		verticalCenter:Number = NaN)
+	public function AnchorLayoutData(top:Float = NaN, right:Float = NaN,
+		bottom:Float = NaN, left:Float = NaN, horizontalCenter:Float = NaN,
+		verticalCenter:Float = NaN)
 	{
 		this.top = top;
 		this.right = right;
@@ -43,7 +43,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentWidth:Number = NaN;
+	private var _percentWidth:Float = NaN;
 
 	/**
 	 * The width of the layout object, as a percentage of the container's
@@ -53,7 +53,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentWidth():Number
+	public function get percentWidth():Float
 	{
 		return this._percentWidth;
 	}
@@ -61,7 +61,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentWidth(value:Number):Void
+	public function set percentWidth(value:Float):Void
 	{
 		if(this._percentWidth == value)
 		{
@@ -74,7 +74,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentHeight:Number = NaN;
+	private var _percentHeight:Float = NaN;
 
 	/**
 	 * The height of the layout object, as a percentage of the container's
@@ -84,7 +84,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentHeight():Number
+	public function get percentHeight():Float
 	{
 		return this._percentHeight;
 	}
@@ -92,7 +92,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentHeight(value:Number):Void
+	public function set percentHeight(value:Float):Void
 	{
 		if(this._percentHeight == value)
 		{
@@ -137,7 +137,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _top:Number = NaN;
+	private var _top:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the top edge relative to the top
@@ -149,7 +149,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #topAnchorDisplayObject
 	 */
-	public function get top():Number
+	public function get top():Float
 	{
 		return this._top;
 	}
@@ -157,7 +157,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set top(value:Number):Void
+	public function set top(value:Float):Void
 	{
 		if(this._top == value)
 		{
@@ -202,7 +202,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _right:Number = NaN;
+	private var _right:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the right edge relative to the right
@@ -214,7 +214,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #rightAnchorDisplayObject
 	 */
-	public function get right():Number
+	public function get right():Float
 	{
 		return this._right;
 	}
@@ -222,7 +222,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set right(value:Number):Void
+	public function set right(value:Float):Void
 	{
 		if(this._right == value)
 		{
@@ -267,7 +267,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _bottom:Number = NaN;
+	private var _bottom:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the bottom edge relative to the bottom
@@ -279,7 +279,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #bottomAnchorDisplayObject
 	 */
-	public function get bottom():Number
+	public function get bottom():Float
 	{
 		return this._bottom;
 	}
@@ -287,7 +287,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set bottom(value:Number):Void
+	public function set bottom(value:Float):Void
 	{
 		if(this._bottom == value)
 		{
@@ -332,7 +332,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _left:Number = NaN;
+	private var _left:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the left edge relative to the left
@@ -344,7 +344,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #leftAnchorDisplayObject
 	 */
-	public function get left():Number
+	public function get left():Float
 	{
 		return this._left;
 	}
@@ -352,7 +352,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set left(value:Number):Void
+	public function set left(value:Float):Void
 	{
 		if(this._left == value)
 		{
@@ -397,7 +397,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _horizontalCenter:Number = NaN;
+	private var _horizontalCenter:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the horizontal center relative to the
@@ -410,7 +410,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #horizontalCenterAnchorDisplayObject
 	 */
-	public function get horizontalCenter():Number
+	public function get horizontalCenter():Float
 	{
 		return this._horizontalCenter;
 	}
@@ -418,7 +418,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set horizontalCenter(value:Number):Void
+	public function set horizontalCenter(value:Float):Void
 	{
 		if(this._horizontalCenter == value)
 		{
@@ -463,7 +463,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _verticalCenter:Number = NaN;
+	private var _verticalCenter:Float = NaN;
 
 	/**
 	 * The position, in pixels, of the vertical center relative to the
@@ -476,7 +476,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #verticalCenterAnchorDisplayObject
 	 */
-	public function get verticalCenter():Number
+	public function get verticalCenter():Float
 	{
 		return this._verticalCenter;
 	}
@@ -484,7 +484,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set verticalCenter(value:Number):Void
+	public function set verticalCenter(value:Float):Void
 	{
 		if(this._verticalCenter == value)
 		{

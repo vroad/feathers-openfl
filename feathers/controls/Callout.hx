@@ -193,7 +193,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var FUZZY_CONTENT_DIMENSIONS_PADDING:Number = 0.000001;
+	inline private static var FUZZY_CONTENT_DIMENSIONS_PADDING:Float = 0.000001;
 
 	/**
 	 * Quickly sets all stage padding properties to the same value. The
@@ -214,7 +214,7 @@ class Callout extends FeathersControl
 	 * @see #stagePaddingBottom
 	 * @see #stagePaddingLeft
 	 */
-	public static function get stagePadding():Number
+	public static function get stagePadding():Float
 	{
 		return Callout.stagePaddingTop;
 	}
@@ -222,7 +222,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public static function set stagePadding(value:Number):Void
+	public static function set stagePadding(value:Float):Void
 	{
 		Callout.stagePaddingTop = value;
 		Callout.stagePaddingRight = value;
@@ -241,7 +241,7 @@ class Callout extends FeathersControl
 	 * <listing version="3.0">
 	 * Callout.stagePaddingTop = 20;</listing>
 	 */
-	public static var stagePaddingTop:Number = 0;
+	public static var stagePaddingTop:Float = 0;
 
 	/**
 	 * The padding between a callout and the right edge of the stage when the
@@ -254,7 +254,7 @@ class Callout extends FeathersControl
 	 * <listing version="3.0">
 	 * Callout.stagePaddingRight = 20;</listing>
 	 */
-	public static var stagePaddingRight:Number = 0;
+	public static var stagePaddingRight:Float = 0;
 
 	/**
 	 * The padding between a callout and the bottom edge of the stage when the
@@ -267,7 +267,7 @@ class Callout extends FeathersControl
 	 * <listing version="3.0">
 	 * Callout.stagePaddingBottom = 20;</listing>
 	 */
-	public static var stagePaddingBottom:Number = 0;
+	public static var stagePaddingBottom:Float = 0;
 
 	/**
 	 * The margin between a callout and the top edge of the stage when the
@@ -280,7 +280,7 @@ class Callout extends FeathersControl
 	 * <listing version="3.0">
 	 * Callout.stagePaddingLeft = 20;</listing>
 	 */
-	public static var stagePaddingLeft:Number = 0;
+	public static var stagePaddingLeft:Float = 0;
 
 	/**
 	 * Returns a new <code>Callout</code> instance when <code>Callout.show()</code>
@@ -414,7 +414,7 @@ class Callout extends FeathersControl
 	private static function positionBestSideOfOrigin(callout:Callout, globalOrigin:Rectangle):Void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
-		var downSpace:Number = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
+		var downSpace:Float = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
 		if(downSpace >= stagePaddingBottom)
 		{
 			positionBelowOrigin(callout, globalOrigin);
@@ -422,7 +422,7 @@ class Callout extends FeathersControl
 		}
 
 		callout.measureWithArrowPosition(ARROW_POSITION_BOTTOM, HELPER_POINT);
-		var upSpace:Number = globalOrigin.y - HELPER_POINT.y;
+		var upSpace:Float = globalOrigin.y - HELPER_POINT.y;
 		if(upSpace >= stagePaddingTop)
 		{
 			positionAboveOrigin(callout, globalOrigin);
@@ -430,7 +430,7 @@ class Callout extends FeathersControl
 		}
 
 		callout.measureWithArrowPosition(ARROW_POSITION_LEFT, HELPER_POINT);
-		var rightSpace:Number = (Starling.current.stage.stageWidth - HELPER_POINT.x) - (globalOrigin.x + globalOrigin.width);
+		var rightSpace:Float = (Starling.current.stage.stageWidth - HELPER_POINT.x) - (globalOrigin.x + globalOrigin.width);
 		if(rightSpace >= stagePaddingRight)
 		{
 			positionToRightOfOrigin(callout, globalOrigin);
@@ -438,7 +438,7 @@ class Callout extends FeathersControl
 		}
 
 		callout.measureWithArrowPosition(ARROW_POSITION_RIGHT, HELPER_POINT);
-		var leftSpace:Number = globalOrigin.x - HELPER_POINT.x;
+		var leftSpace:Float = globalOrigin.x - HELPER_POINT.x;
 		if(leftSpace >= stagePaddingLeft)
 		{
 			positionToLeftOfOrigin(callout, globalOrigin);
@@ -470,7 +470,7 @@ class Callout extends FeathersControl
 	private static function positionAboveOrBelowOrigin(callout:Callout, globalOrigin:Rectangle):Void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
-		var downSpace:Number = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
+		var downSpace:Float = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
 		if(downSpace >= stagePaddingBottom)
 		{
 			positionBelowOrigin(callout, globalOrigin);
@@ -478,7 +478,7 @@ class Callout extends FeathersControl
 		}
 
 		callout.measureWithArrowPosition(ARROW_POSITION_BOTTOM, HELPER_POINT);
-		var upSpace:Number = globalOrigin.y - HELPER_POINT.y;
+		var upSpace:Float = globalOrigin.y - HELPER_POINT.y;
 		if(upSpace >= stagePaddingTop)
 		{
 			positionAboveOrigin(callout, globalOrigin);
@@ -502,7 +502,7 @@ class Callout extends FeathersControl
 	private static function positionToLeftOrRightOfOrigin(callout:Callout, globalOrigin:Rectangle):Void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_LEFT, HELPER_POINT);
-		var rightSpace:Number = (Starling.current.stage.stageWidth - HELPER_POINT.x) - (globalOrigin.x + globalOrigin.width);
+		var rightSpace:Float = (Starling.current.stage.stageWidth - HELPER_POINT.x) - (globalOrigin.x + globalOrigin.width);
 		if(rightSpace >= stagePaddingRight)
 		{
 			positionToRightOfOrigin(callout, globalOrigin);
@@ -510,7 +510,7 @@ class Callout extends FeathersControl
 		}
 
 		callout.measureWithArrowPosition(ARROW_POSITION_RIGHT, HELPER_POINT);
-		var leftSpace:Number = globalOrigin.x - HELPER_POINT.x;
+		var leftSpace:Float = globalOrigin.x - HELPER_POINT.x;
 		if(leftSpace >= stagePaddingLeft)
 		{
 			positionToLeftOfOrigin(callout, globalOrigin);
@@ -534,8 +534,8 @@ class Callout extends FeathersControl
 	private static function positionBelowOrigin(callout:Callout, globalOrigin:Rectangle):Void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
-		var idealXPosition:Number = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
-		var xPosition:Number = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageWidth - HELPER_POINT.x - stagePaddingRight, idealXPosition));
+		var idealXPosition:Float = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
+		var xPosition:Float = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageWidth - HELPER_POINT.x - stagePaddingRight, idealXPosition));
 		callout.x = xPosition;
 		callout.y = globalOrigin.y + globalOrigin.height;
 		if(callout._isValidating)
@@ -557,8 +557,8 @@ class Callout extends FeathersControl
 	private static function positionAboveOrigin(callout:Callout, globalOrigin:Rectangle):Void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_BOTTOM, HELPER_POINT);
-		var idealXPosition:Number = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
-		var xPosition:Number = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageWidth - HELPER_POINT.x - stagePaddingRight, idealXPosition));
+		var idealXPosition:Float = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
+		var xPosition:Float = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageWidth - HELPER_POINT.x - stagePaddingRight, idealXPosition));
 		callout.x = xPosition;
 		callout.y = globalOrigin.y - HELPER_POINT.y;
 		if(callout._isValidating)
@@ -581,8 +581,8 @@ class Callout extends FeathersControl
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_LEFT, HELPER_POINT);
 		callout.x = globalOrigin.x + globalOrigin.width;
-		var idealYPosition:Number = globalOrigin.y + Math.round((globalOrigin.height - HELPER_POINT.y) / 2);
-		var yPosition:Number = Math.max(stagePaddingTop, Math.min(Starling.current.stage.stageHeight - HELPER_POINT.y - stagePaddingBottom, idealYPosition));
+		var idealYPosition:Float = globalOrigin.y + Math.round((globalOrigin.height - HELPER_POINT.y) / 2);
+		var yPosition:Float = Math.max(stagePaddingTop, Math.min(Starling.current.stage.stageHeight - HELPER_POINT.y - stagePaddingBottom, idealYPosition));
 		callout.y = yPosition;
 		if(callout._isValidating)
 		{
@@ -604,8 +604,8 @@ class Callout extends FeathersControl
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_RIGHT, HELPER_POINT);
 		callout.x = globalOrigin.x - HELPER_POINT.x;
-		var idealYPosition:Number = globalOrigin.y + Math.round((globalOrigin.height - HELPER_POINT.y) / 2);
-		var yPosition:Number = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageHeight - HELPER_POINT.y - stagePaddingBottom, idealYPosition));
+		var idealYPosition:Float = globalOrigin.y + Math.round((globalOrigin.height - HELPER_POINT.y) / 2);
+		var yPosition:Float = Math.max(stagePaddingLeft, Math.min(Starling.current.stage.stageHeight - HELPER_POINT.y - stagePaddingBottom, idealYPosition));
 		callout.y = yPosition;
 		if(callout._isValidating)
 		{
@@ -905,7 +905,7 @@ class Callout extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -913,7 +913,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -924,7 +924,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's top edge and the
@@ -938,7 +938,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -946,7 +946,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -959,7 +959,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's right edge and
@@ -973,7 +973,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -981,7 +981,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -994,7 +994,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's bottom edge and
@@ -1008,7 +1008,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -1016,7 +1016,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1029,7 +1029,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's left edge and the
@@ -1043,7 +1043,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -1051,7 +1051,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -1120,12 +1120,12 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundWidth:Number = NaN;
+	private var _originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundHeight:Number = NaN;
+	private var _originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -1395,7 +1395,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _topArrowGap:Number = 0;
+	private var _topArrowGap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the top arrow skin and the background
@@ -1411,7 +1411,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get topArrowGap():Number
+	public function get topArrowGap():Float
 	{
 		return this._topArrowGap;
 	}
@@ -1419,7 +1419,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set topArrowGap(value:Number):Void
+	public function set topArrowGap(value:Float):Void
 	{
 		if(this._topArrowGap == value)
 		{
@@ -1432,7 +1432,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _bottomArrowGap:Number = 0;
+	private var _bottomArrowGap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the bottom arrow skin and the
@@ -1448,7 +1448,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get bottomArrowGap():Number
+	public function get bottomArrowGap():Float
 	{
 		return this._bottomArrowGap;
 	}
@@ -1456,7 +1456,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set bottomArrowGap(value:Number):Void
+	public function set bottomArrowGap(value:Float):Void
 	{
 		if(this._bottomArrowGap == value)
 		{
@@ -1469,7 +1469,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _rightArrowGap:Number = 0;
+	private var _rightArrowGap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the right arrow skin and the background
@@ -1485,7 +1485,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get rightArrowGap():Number
+	public function get rightArrowGap():Float
 	{
 		return this._rightArrowGap;
 	}
@@ -1493,7 +1493,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightArrowGap(value:Number):Void
+	public function set rightArrowGap(value:Float):Void
 	{
 		if(this._rightArrowGap == value)
 		{
@@ -1506,7 +1506,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _leftArrowGap:Number = 0;
+	private var _leftArrowGap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the right arrow skin and the background
@@ -1522,7 +1522,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get leftArrowGap():Number
+	public function get leftArrowGap():Float
 	{
 		return this._leftArrowGap;
 	}
@@ -1530,7 +1530,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftArrowGap(value:Number):Void
+	public function set leftArrowGap(value:Float):Void
 	{
 		if(this._leftArrowGap == value)
 		{
@@ -1543,7 +1543,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _arrowOffset:Number = 0;
+	private var _arrowOffset:Float = 0;
 
 	/**
 	 * The offset, in pixels, of the arrow skin from the horizontal center
@@ -1571,7 +1571,7 @@ class Callout extends FeathersControl
 	 * @see #arrowPosition
 	 * @see #origin
 	 */
-	public function get arrowOffset():Number
+	public function get arrowOffset():Float
 	{
 		return this._arrowOffset;
 	}
@@ -1579,7 +1579,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set arrowOffset(value:Number):Void
+	public function set arrowOffset(value:Float):Void
 	{
 		if(this._arrowOffset == value)
 		{
@@ -1729,8 +1729,8 @@ class Callout extends FeathersControl
 			IValidating(this._content).validate();
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = this._content.width + this._paddingLeft + this._paddingRight;
@@ -1841,12 +1841,12 @@ class Callout extends FeathersControl
 	 */
 	private function layoutChildren():Void
 	{
-		var xPosition:Number = (this._leftArrowSkin && this._arrowPosition == ARROW_POSITION_LEFT) ? this._leftArrowSkin.width + this._leftArrowGap : 0;
-		var yPosition:Number = (this._topArrowSkin &&  this._arrowPosition == ARROW_POSITION_TOP) ? this._topArrowSkin.height + this._topArrowGap : 0;
-		var widthOffset:Number = (this._rightArrowSkin && this._arrowPosition == ARROW_POSITION_RIGHT) ? this._rightArrowSkin.width + this._rightArrowGap : 0;
-		var heightOffset:Number = (this._bottomArrowSkin && this._arrowPosition == ARROW_POSITION_BOTTOM) ? this._bottomArrowSkin.height + this._bottomArrowGap : 0;
-		var backgroundWidth:Number = this.actualWidth - xPosition - widthOffset;
-		var backgroundHeight:Number = this.actualHeight - yPosition - heightOffset;
+		var xPosition:Float = (this._leftArrowSkin && this._arrowPosition == ARROW_POSITION_LEFT) ? this._leftArrowSkin.width + this._leftArrowGap : 0;
+		var yPosition:Float = (this._topArrowSkin &&  this._arrowPosition == ARROW_POSITION_TOP) ? this._topArrowSkin.height + this._topArrowGap : 0;
+		var widthOffset:Float = (this._rightArrowSkin && this._arrowPosition == ARROW_POSITION_RIGHT) ? this._rightArrowSkin.width + this._rightArrowGap : 0;
+		var heightOffset:Float = (this._bottomArrowSkin && this._arrowPosition == ARROW_POSITION_BOTTOM) ? this._bottomArrowSkin.height + this._bottomArrowGap : 0;
+		var backgroundWidth:Float = this.actualWidth - xPosition - widthOffset;
+		var backgroundHeight:Float = this.actualHeight - yPosition - heightOffset;
 		if(this._backgroundSkin)
 		{
 			this._backgroundSkin.x = xPosition;
@@ -1889,15 +1889,15 @@ class Callout extends FeathersControl
 			this._content.y = yPosition + this._paddingTop;
 			var oldIgnoreContentResize:Boolean = this._ignoreContentResize;
 			this._ignoreContentResize = true;
-			var contentWidth:Number = backgroundWidth - this._paddingLeft - this._paddingRight;
-			var difference:Number = Math.abs(this._content.width - contentWidth);
+			var contentWidth:Float = backgroundWidth - this._paddingLeft - this._paddingRight;
+			var difference:Float = Math.abs(this._content.width - contentWidth);
 			//instead of !=, we do some fuzzy math to account for possible
 			//floating point errors.
 			if(difference > FUZZY_CONTENT_DIMENSIONS_PADDING)
 			{
 				this._content.width = contentWidth;
 			}
-			var contentHeight:Number = backgroundHeight - this._paddingTop - this._paddingBottom;
+			var contentHeight:Float = backgroundHeight - this._paddingTop - this._paddingBottom;
 			difference = Math.abs(this._content.height - contentHeight);
 			//instead of !=, we do some fuzzy math to account for possible
 			//floating point errors.

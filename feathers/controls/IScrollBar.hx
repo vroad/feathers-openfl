@@ -50,10 +50,10 @@ public interface IScrollBar extends IRange
 	 * scrollBar.page = 10
 	 * scrollBar.value = 12;</listing>
 	 */
-	function get page():Number;
+	function get page():Float;
 
 	/**
 	 * @private
 	 */
-	function set page(value:Number):Void;
+	function set page(value:Float):Void;
 }

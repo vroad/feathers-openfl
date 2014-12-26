@@ -316,14 +316,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
 
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -333,14 +333,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
 
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -350,14 +350,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
 
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -367,14 +367,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
 
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -384,14 +384,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
 
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -471,13 +471,13 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return false;
 		}
 		this.icon.validate();
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			newWidth = this.icon.width;
 			newWidth += this._paddingLeft + this._paddingRight;
 		}
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			newHeight = this.icon.height;
@@ -567,9 +567,9 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 		this.icon.validate();
 		this.icon.x = this._paddingLeft;
-		var leftMarginWidth:Number = this._paddingLeft + this.icon.width + this._gap;
-		var availableLabelWidth:Number = this.actualWidth - this._paddingRight - leftMarginWidth;
-		var availableLabelHeight:Number = this.actualHeight - this._paddingTop - this._paddingBottom;
+		var leftMarginWidth:Float = this._paddingLeft + this.icon.width + this._gap;
+		var availableLabelWidth:Float = this.actualWidth - this._paddingRight - leftMarginWidth;
+		var availableLabelHeight:Float = this.actualHeight - this._paddingTop - this._paddingBottom;
 
 		this.actionContainer.width = availableLabelWidth;
 
@@ -624,7 +624,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private function selectionTween_onUpdate():Void
 	{
-		var ratio:Number = this.selectionTween.transitionFunc(this.selectionTween.currentTime / this.selectionTween.totalTime);
+		var ratio:Float = this.selectionTween.transitionFunc(this.selectionTween.currentTime / this.selectionTween.totalTime);
 		if(!this._isSelected)
 		{
 			ratio = 1 - ratio;

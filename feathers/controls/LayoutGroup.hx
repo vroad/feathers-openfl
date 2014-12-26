@@ -247,12 +247,12 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -437,8 +437,8 @@ class LayoutGroup extends FeathersControl
 	 */
 	override public function hitTest(localPoint:Point, forTouch:Boolean = false):DisplayObject
 	{
-		var localX:Number = localPoint.x;
-		var localY:Number = localPoint.y;
+		var localX:Float = localPoint.x;
+		var localY:Float = localPoint.y;
 		var result:DisplayObject = super.hitTest(localPoint, forTouch);
 		if(result)
 		{
@@ -458,7 +458,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this.currentBackgroundSkin && this.currentBackgroundSkin.hasVisibleArea)
 		{
@@ -540,13 +540,13 @@ class LayoutGroup extends FeathersControl
 			{
 				this.handleManualLayout();
 			}
-			var width:Number = this._layoutResult.contentWidth;
+			var width:Float = this._layoutResult.contentWidth;
 			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > width)
 			{
 				width = this.originalBackgroundWidth;
 			}
-			var height:Number = this._layoutResult.contentHeight;
+			var height:Float = this._layoutResult.contentHeight;
 			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > height)
 			{
@@ -621,12 +621,12 @@ class LayoutGroup extends FeathersControl
 	 */
 	private function handleManualLayout():Void
 	{
-		var maxX:Number = this.viewPortBounds.explicitWidth;
+		var maxX:Float = this.viewPortBounds.explicitWidth;
 		if(maxX !== maxX) //isNaN
 		{
 			maxX = 0;
 		}
-		var maxY:Number = this.viewPortBounds.explicitHeight;
+		var maxY:Float = this.viewPortBounds.explicitHeight;
 		if(maxY !== maxY) //isNaN
 		{
 			maxY = 0;
@@ -644,8 +644,8 @@ class LayoutGroup extends FeathersControl
 			{
 				IValidating(item).validate();
 			}
-			var itemMaxX:Number = item.x + item.width;
-			var itemMaxY:Number = item.y + item.height;
+			var itemMaxX:Float = item.x + item.width;
+			var itemMaxY:Float = item.y + item.height;
 			if(itemMaxX === itemMaxX && //!isNaN
 				itemMaxX > maxX)
 			{

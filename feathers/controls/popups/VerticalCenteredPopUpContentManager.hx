@@ -76,7 +76,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 * @see #marginBottom
 	 * @see #marginLeft
 	 */
-	public function get margin():Number
+	public function get margin():Float
 	{
 		return this.marginTop;
 	}
@@ -84,7 +84,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	public function set margin(value:Number):Void
+	public function set margin(value:Float):Void
 	{
 		this.marginTop = 0;
 		this.marginRight = 0;
@@ -106,7 +106,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 *
 	 * @see #margin
 	 */
-	public var marginTop:Number = 0;
+	public var marginTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the right edge of the content
@@ -122,7 +122,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 *
 	 * @see #margin
 	 */
-	public var marginRight:Number = 0;
+	public var marginRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the bottom edge of the content
@@ -138,7 +138,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 *
 	 * @see #margin
 	 */
-	public var marginBottom:Number = 0;
+	public var marginBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the left edge of the content
@@ -154,7 +154,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 *
 	 * @see #margin
 	 */
-	public var marginLeft:Number = 0;
+	public var marginLeft:Float = 0;
 
 	/**
 	 * @private
@@ -238,13 +238,13 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	private function layout():Void
 	{
 		var stage:Stage = Starling.current.stage;
-		var maxWidth:Number = stage.stageWidth;
+		var maxWidth:Float = stage.stageWidth;
 		if(maxWidth > stage.stageHeight)
 		{
 			maxWidth = stage.stageHeight;
 		}
 		maxWidth -= (this.marginLeft + this.marginRight);
-		var maxHeight:Number = stage.stageHeight - this.marginTop - this.marginBottom;
+		var maxHeight:Float = stage.stageHeight - this.marginTop - this.marginBottom;
 		var hasSetBounds:Boolean = false;
 		if(this.content is IFeathersControl)
 		{

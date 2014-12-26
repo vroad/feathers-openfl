@@ -73,7 +73,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function Scale9Image(textures:Scale9Textures, textureScale:Number = 1)
+	public function Scale9Image(textures:Scale9Textures, textureScale:Float = 1)
 	{
 		super();
 		this.textures = textures;
@@ -155,12 +155,12 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _width:Number = NaN;
+	private var _width:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get width():Number
+	override public function get width():Float
 	{
 		return this._width;
 	}
@@ -168,7 +168,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):Void
+	override public function set width(value:Float):Void
 	{
 		if(this._width == value)
 		{
@@ -182,12 +182,12 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _height:Number = NaN;
+	private var _height:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get height():Number
+	override public function get height():Float
 	{
 		return this._height;
 	}
@@ -195,7 +195,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):Void
+	override public function set height(value:Float):Void
 	{
 		if(this._height == value)
 		{
@@ -209,7 +209,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _textureScale:Number = 1;
+	private var _textureScale:Float = 1;
 
 	/**
 	 * Scales the texture dimensions during measurement. Useful for UI that
@@ -222,7 +222,7 @@ class Scale9Image extends Sprite implements IValidating
 	 *
 	 * @default 1
 	 */
-	public function get textureScale():Number
+	public function get textureScale():Float
 	{
 		return this._textureScale;
 	}
@@ -230,7 +230,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):Void
+	public function set textureScale(value:Float):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -394,8 +394,8 @@ class Scale9Image extends Sprite implements IValidating
 			resultRect = new Rectangle();
 		}
 
-		var minX:Number = Number.MAX_VALUE, maxX:Number = -Number.MAX_VALUE;
-		var minY:Number = Number.MAX_VALUE, maxY:Number = -Number.MAX_VALUE;
+		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
+		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -456,7 +456,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this._isInvalid)
 		{
@@ -501,20 +501,20 @@ class Scale9Image extends Sprite implements IValidating
 			helperImage.color = this._color;
 
 			var grid:Rectangle = this._textures.scale9Grid;
-			var scaledLeftWidth:Number = grid.x * this._textureScale;
-			var scaledRightWidth:Number = (this._frame.width - grid.x - grid.width) * this._textureScale;
-			var sumLeftAndRight:Number = scaledLeftWidth + scaledRightWidth;
+			var scaledLeftWidth:Float = grid.x * this._textureScale;
+			var scaledRightWidth:Float = (this._frame.width - grid.x - grid.width) * this._textureScale;
+			var sumLeftAndRight:Float = scaledLeftWidth + scaledRightWidth;
 			if(sumLeftAndRight > this._width)
 			{
-				var distortionScale:Number = (this._width / sumLeftAndRight);
+				var distortionScale:Float = (this._width / sumLeftAndRight);
 				scaledLeftWidth *= distortionScale;
 				scaledRightWidth *= distortionScale;
 				sumLeftAndRight + scaledLeftWidth + scaledRightWidth;
 			}
-			var scaledCenterWidth:Number = this._width - sumLeftAndRight;
-			var scaledTopHeight:Number = grid.y * this._textureScale;
-			var scaledBottomHeight:Number = (this._frame.height - grid.y - grid.height) * this._textureScale;
-			var sumTopAndBottom:Number = scaledTopHeight + scaledBottomHeight;
+			var scaledCenterWidth:Float = this._width - sumLeftAndRight;
+			var scaledTopHeight:Float = grid.y * this._textureScale;
+			var scaledBottomHeight:Float = (this._frame.height - grid.y - grid.height) * this._textureScale;
+			var sumTopAndBottom:Float = scaledTopHeight + scaledBottomHeight;
 			if(sumTopAndBottom > this._height)
 			{
 				distortionScale = (this._height / sumTopAndBottom);
@@ -522,7 +522,7 @@ class Scale9Image extends Sprite implements IValidating
 				scaledBottomHeight *= distortionScale;
 				sumTopAndBottom = scaledTopHeight + scaledBottomHeight;
 			}
-			var scaledMiddleHeight:Number = this._height - sumTopAndBottom;
+			var scaledMiddleHeight:Float = this._height - sumTopAndBottom;
 
 			if(scaledTopHeight > 0)
 			{

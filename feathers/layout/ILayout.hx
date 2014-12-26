@@ -82,5 +82,5 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * <code>layout()</code> function. The width and height arguments are
 	 * the final bounds of the view port.</p>
 	 */
-	function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
+	function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point;
 }

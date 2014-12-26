@@ -167,14 +167,14 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Float = 0.998;
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_FAST
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollText</code>
@@ -764,7 +764,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _sharpness:Number = 0;
+	private var _sharpness:Float = 0;
 
 	/**
 	 * The sharpness of the glyph edges in this text field. This property
@@ -783,7 +783,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get sharpness():Number
+	public function get sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -791,7 +791,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):Void
+	public function set sharpness(value:Float):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -804,7 +804,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _thickness:Number = 0;
+	private var _thickness:Float = 0;
 
 	/**
 	 * The thickness of the glyph edges in this text field. This property
@@ -823,7 +823,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get thickness():Number
+	public function get thickness():Float
 	{
 		return this._thickness;
 	}
@@ -831,7 +831,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):Void
+	public function set thickness(value:Float):Void
 	{
 		if(this._thickness == value)
 		{
@@ -844,7 +844,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get padding():Number
+	override public function get padding():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -854,7 +854,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textPaddingTop:Number = 0;
+	private var _textPaddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's top edge and
@@ -867,7 +867,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	override public function get paddingTop():Number
+	override public function get paddingTop():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -875,7 +875,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingTop(value:Number):Void
+	override public function set paddingTop(value:Float):Void
 	{
 		if(this._textPaddingTop == value)
 		{
@@ -888,7 +888,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textPaddingRight:Number = 0;
+	private var _textPaddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's right edge and
@@ -899,7 +899,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingRight = 20;</listing>
 	 */
-	override public function get paddingRight():Number
+	override public function get paddingRight():Float
 	{
 		return this._textPaddingRight;
 	}
@@ -907,7 +907,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingRight(value:Number):Void
+	override public function set paddingRight(value:Float):Void
 	{
 		if(this._textPaddingRight == value)
 		{
@@ -920,7 +920,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textPaddingBottom:Number = 0;
+	private var _textPaddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's bottom edge and
@@ -931,7 +931,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingBottom = 20;</listing>
 	 */
-	override public function get paddingBottom():Number
+	override public function get paddingBottom():Float
 	{
 		return this._textPaddingBottom;
 	}
@@ -939,7 +939,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingBottom(value:Number):Void
+	override public function set paddingBottom(value:Float):Void
 	{
 		if(this._textPaddingBottom == value)
 		{
@@ -952,7 +952,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textPaddingLeft:Number = 0;
+	private var _textPaddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's left edge and
@@ -963,7 +963,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingLeft = 20;</listing>
 	 */
-	override public function get paddingLeft():Number
+	override public function get paddingLeft():Float
 	{
 		return this._textPaddingLeft;
 	}
@@ -971,7 +971,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingLeft(value:Number):Void
+	override public function set paddingLeft(value:Float):Void
 	{
 		if(this._textPaddingLeft == value)
 		{
@@ -1010,12 +1010,12 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _alpha:Number = 1;
+	private var _alpha:Float = 1;
 
 	/**
 	 * @private
 	 */
-	override public function get alpha():Number
+	override public function get alpha():Float
 	{
 		return this._alpha;
 	}
@@ -1023,7 +1023,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set alpha(value:Number):Void
+	override public function set alpha(value:Float):Void
 	{
 		if(this._alpha == value)
 		{

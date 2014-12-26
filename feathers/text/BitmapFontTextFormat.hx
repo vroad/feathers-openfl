@@ -21,7 +21,7 @@ class BitmapFontTextFormat
 	/**
 	 * Constructor.
 	 */
-	public function BitmapFontTextFormat(font:Object, size:Number = NaN, color:UInt = 0xffffff, align:String = TextFormatAlign.LEFT)
+	public function BitmapFontTextFormat(font:Object, size:Float = NaN, color:UInt = 0xffffff, align:String = TextFormatAlign.LEFT)
 	{
 		if(font is String)
 		{
@@ -63,7 +63,7 @@ class BitmapFontTextFormat
 	 *
 	 * @default NaN
 	 */
-	public var size:Number;
+	public var size:Float;
 	
 	/**
 	 * The number of extra pixels between characters. May be positive or
@@ -71,7 +71,7 @@ class BitmapFontTextFormat
 	 *
 	 * @default 0
 	 */
-	public var letterSpacing:Number = 0;
+	public var letterSpacing:Float = 0;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**

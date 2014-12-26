@@ -37,14 +37,14 @@ class CalloutScreen extends PanelScreen
 	private var _bottomRightLayoutData:AnchorLayoutData;
 	private var _bottomLeftLayoutData:AnchorLayoutData;
 
-	private var _layoutPadding:Number = 0;
+	private var _layoutPadding:Float = 0;
 
-	public function get layoutPadding():Number
+	public function get layoutPadding():Float
 	{
 		return this._layoutPadding;
 	}
 
-	public function set layoutPadding(value:Number):Void
+	public function set layoutPadding(value:Float):Void
 	{
 		if(this._layoutPadding == value)
 		{

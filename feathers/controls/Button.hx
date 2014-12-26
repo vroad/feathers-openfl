@@ -609,7 +609,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 	
 	/**
 	 * The space, in pixels, between the icon and the label. Applies to
@@ -634,7 +634,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #iconPosition
 	 * @see #minGap
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return this._gap;
 	}
@@ -642,7 +642,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -655,7 +655,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _minGap:Number = 0;
+	private var _minGap:Float = 0;
 
 	/**
 	 * If the value of the <code>gap</code> property is
@@ -674,7 +674,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #gap
 	 */
-	public function get minGap():Number
+	public function get minGap():Float
 	{
 		return this._minGap;
 	}
@@ -682,7 +682,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set minGap(value:Number):Void
+	public function set minGap(value:Float):Void
 	{
 		if(this._minGap == value)
 		{
@@ -789,7 +789,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -797,7 +797,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -808,7 +808,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the button's top edge and the
@@ -822,7 +822,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -830,7 +830,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -843,7 +843,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the button's right edge and the
@@ -857,7 +857,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -865,7 +865,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -878,7 +878,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the button's bottom edge and
@@ -892,7 +892,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -900,7 +900,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -913,7 +913,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the button's left edge and the
@@ -927,7 +927,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -935,7 +935,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -948,7 +948,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _labelOffsetX:Number = 0;
+	private var _labelOffsetX:Float = 0;
 
 	/**
 	 * Offsets the x position of the label by a certain number of pixels.
@@ -966,7 +966,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelOffsetY
 	 */
-	public function get labelOffsetX():Number
+	public function get labelOffsetX():Float
 	{
 		return this._labelOffsetX;
 	}
@@ -974,7 +974,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set labelOffsetX(value:Number):Void
+	public function set labelOffsetX(value:Float):Void
 	{
 		if(this._labelOffsetX == value)
 		{
@@ -987,7 +987,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _labelOffsetY:Number = 0;
+	private var _labelOffsetY:Float = 0;
 
 	/**
 	 * Offsets the y position of the label by a certain number of pixels.
@@ -1005,7 +1005,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelOffsetX
 	 */
-	public function get labelOffsetY():Number
+	public function get labelOffsetY():Float
 	{
 		return this._labelOffsetY;
 	}
@@ -1013,7 +1013,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set labelOffsetY(value:Number):Void
+	public function set labelOffsetY(value:Float):Void
 	{
 		if(this._labelOffsetY == value)
 		{
@@ -1026,7 +1026,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _iconOffsetX:Number = 0;
+	private var _iconOffsetX:Float = 0;
 
 	/**
 	 * Offsets the x position of the icon by a certain number of pixels.
@@ -1044,7 +1044,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconOffsetY
 	 */
-	public function get iconOffsetX():Number
+	public function get iconOffsetX():Float
 	{
 		return this._iconOffsetX;
 	}
@@ -1052,7 +1052,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set iconOffsetX(value:Number):Void
+	public function set iconOffsetX(value:Float):Void
 	{
 		if(this._iconOffsetX == value)
 		{
@@ -1065,7 +1065,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _iconOffsetY:Number = 0;
+	private var _iconOffsetY:Float = 0;
 
 	/**
 	 * Offsets the y position of the icon by a certain number of pixels.
@@ -1083,7 +1083,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconOffsetX
 	 */
-	public function get iconOffsetY():Number
+	public function get iconOffsetY():Float
 	{
 		return this._iconOffsetY;
 	}
@@ -1091,7 +1091,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set iconOffsetY(value:Number):Void
+	public function set iconOffsetY(value:Float):Void
 	{
 		if(this._iconOffsetY == value)
 		{
@@ -1139,12 +1139,12 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _originalSkinWidth:Number = NaN;
+	private var _originalSkinWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalSkinHeight:Number = NaN;
+	private var _originalSkinHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -1925,7 +1925,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _longPressDuration:Number = 0.5;
+	private var _longPressDuration:Float = 0.5;
 
 	/**
 	 * The duration, in seconds, of a long press.
@@ -1940,7 +1940,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #event:longPress
 	 * @see #isLongPressEnabled
 	 */
-	public function get longPressDuration():Number
+	public function get longPressDuration():Float
 	{
 		return this._longPressDuration;
 	}
@@ -1948,7 +1948,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set longPressDuration(value:Number):Void
+	public function set longPressDuration(value:Float):Void
 	{
 		this._longPressDuration = value;
 	}
@@ -2077,7 +2077,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			HELPER_POINT.setTo(0, 0);
 		}
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this.currentIcon && this.label)
@@ -2085,7 +2085,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				if(this._iconPosition != ICON_POSITION_TOP && this._iconPosition != ICON_POSITION_BOTTOM &&
 					this._iconPosition != ICON_POSITION_MANUAL)
 				{
-					var adjustedGap:Number = this._gap;
+					var adjustedGap:Float = this._gap;
 					if(adjustedGap == Number.POSITIVE_INFINITY)
 					{
 						adjustedGap = this._minGap;
@@ -2123,7 +2123,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this.currentIcon && this.label)
@@ -2394,7 +2394,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			IValidating(this.currentIcon).validate();
 		}
-		var calculatedWidth:Number = this.actualWidth;
+		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)
 		{
 			calculatedWidth = this.explicitWidth;
@@ -2408,7 +2408,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			if(this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 				this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE)
 			{
-				var adjustedGap:Number = this._gap;
+				var adjustedGap:Float = this._gap;
 				if(adjustedGap == Number.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
@@ -2731,7 +2731,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function longPress_enterFrameHandler(event:Event):Void
 	{
-		var accumulatedTime:Number = (getTimer() - this._touchBeginTime) / 1000;
+		var accumulatedTime:Float = (getTimer() - this._touchBeginTime) / 1000;
 		if(accumulatedTime >= this._longPressDuration)
 		{
 			this.removeEventListener(Event.ENTER_FRAME, longPress_enterFrameHandler);

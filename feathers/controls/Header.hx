@@ -72,17 +72,17 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var IOS_RETINA_STATUS_BAR_HEIGHT:Number = 40;
+	inline private static var IOS_RETINA_STATUS_BAR_HEIGHT:Float = 40;
 
 	/**
 	 * @private
 	 */
-	inline private static var IOS_NON_RETINA_STATUS_BAR_HEIGHT:Number = 20;
+	inline private static var IOS_NON_RETINA_STATUS_BAR_HEIGHT:Float = 20;
 
 	/**
 	 * @private
 	 */
-	inline private static var IOS_RETINA_MINIMUM_DPI:Number = 264;
+	inline private static var IOS_RETINA_MINIMUM_DPI:Float = 264;
 
 	/**
 	 * @private
@@ -213,12 +213,12 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var leftItemsWidth:Number = 0;
+	private var leftItemsWidth:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var rightItemsWidth:Number = 0;
+	private var rightItemsWidth:Float = 0;
 
 	/**
 	 * @private
@@ -571,7 +571,7 @@ class Header extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -579,7 +579,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -590,7 +590,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's top edge and the
@@ -604,7 +604,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -612,7 +612,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -625,7 +625,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's right edge and the
@@ -639,7 +639,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -647,7 +647,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -660,7 +660,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's bottom edge and
@@ -674,7 +674,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -682,7 +682,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -695,7 +695,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's left edge and the
@@ -709,7 +709,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -717,7 +717,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -730,7 +730,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * Space, in pixels, between items. The same value is used with the
@@ -751,7 +751,7 @@ class Header extends FeathersControl
 	 * @see #leftItems
 	 * @see #rightItems
 	 */
-	public function get gap():Number
+	public function get gap():Float
 	{
 		return _gap;
 	}
@@ -759,7 +759,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):Void
+	public function set gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -772,7 +772,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _titleGap:Number = NaN;
+	private var _titleGap:Float = NaN;
 
 	/**
 	 * Space, in pixels, between the title and the left or right groups of
@@ -789,7 +789,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #gap
 	 */
-	public function get titleGap():Number
+	public function get titleGap():Float
 	{
 		return _titleGap;
 	}
@@ -797,7 +797,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleGap(value:Number):Void
+	public function set titleGap(value:Float):Void
 	{
 		if(this._titleGap == value)
 		{
@@ -891,12 +891,12 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -1289,10 +1289,10 @@ class Header extends FeathersControl
 		{
 			return false;
 		}
-		var newWidth:Number = needsWidth ? (this._paddingLeft + this._paddingRight) : this.explicitWidth;
-		var newHeight:Number = needsHeight ? 0 : this.explicitHeight;
+		var newWidth:Float = needsWidth ? (this._paddingLeft + this._paddingRight) : this.explicitWidth;
+		var newHeight:Float = needsHeight ? 0 : this.explicitHeight;
 
-		var totalItemWidth:Number = 0;
+		var totalItemWidth:Float = 0;
 		var leftItemCount:Int = this._leftItems ? this._leftItems.length : 0;
 		for(var i:Int = 0; i < leftItemCount; i++)
 		{
@@ -1301,7 +1301,7 @@ class Header extends FeathersControl
 			{
 				IValidating(item).validate();
 			}
-			var itemWidth:Number = item.width;
+			var itemWidth:Float = item.width;
 			if(needsWidth &&
 				itemWidth === itemWidth) //!isNaN
 			{
@@ -1311,7 +1311,7 @@ class Header extends FeathersControl
 					totalItemWidth += this._gap;
 				}
 			}
-			var itemHeight:Number = item.height;
+			var itemHeight:Float = item.height;
 			if(needsHeight &&
 				itemHeight === itemHeight && //!isNaN
 				itemHeight > newHeight)
@@ -1375,13 +1375,13 @@ class Header extends FeathersControl
 
 		if(this._title && !(this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems))
 		{
-			var calculatedTitleGap:Number = this._titleGap;
+			var calculatedTitleGap:Float = this._titleGap;
 			if(calculatedTitleGap !== calculatedTitleGap) //isNaN
 			{
 				calculatedTitleGap = this._gap;
 			}
 			newWidth += 2 * calculatedTitleGap;
-			var maxTitleWidth:Number = (needsWidth ? this._maxWidth : this.explicitWidth) - totalItemWidth;
+			var maxTitleWidth:Float = (needsWidth ? this._maxWidth : this.explicitWidth) - totalItemWidth;
 			if(leftItemCount > 0)
 			{
 				maxTitleWidth -= calculatedTitleGap;
@@ -1396,8 +1396,8 @@ class Header extends FeathersControl
 			}
 			this.titleTextRenderer.maxWidth = maxTitleWidth;
 			this.titleTextRenderer.measureText(HELPER_POINT);
-			var measuredTitleWidth:Number = HELPER_POINT.x;
-			var measuredTitleHeight:Number = HELPER_POINT.y;
+			var measuredTitleWidth:Float = HELPER_POINT.x;
+			var measuredTitleHeight:Float = HELPER_POINT.y;
 			if(needsWidth &&
 				measuredTitleWidth === measuredTitleWidth) //!isNaN
 			{
@@ -1421,7 +1421,7 @@ class Header extends FeathersControl
 		if(needsHeight)
 		{
 			newHeight += this._paddingTop + this._paddingBottom;
-			var extraPaddingTop:Number = this.calculateExtraOSStatusBarPadding();
+			var extraPaddingTop:Float = this.calculateExtraOSStatusBarPadding();
 			if(extraPaddingTop > 0)
 			{
 				//account for the minimum height before adding the padding
@@ -1541,7 +1541,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateExtraOSStatusBarPadding():Number
+	private function calculateExtraOSStatusBarPadding():Float
 	{
 		if(!this._useExtraPaddingForOSStatusBar)
 		{
@@ -1665,14 +1665,14 @@ class Header extends FeathersControl
 			return;
 		}
 		this.titleTextRenderer.visible = true;
-		var calculatedTitleGap:Number = this._titleGap;
+		var calculatedTitleGap:Float = this._titleGap;
 		if(calculatedTitleGap !== calculatedTitleGap) //isNaN
 		{
 			calculatedTitleGap = this._gap;
 		}
 		//left and right offsets already include padding
-		var leftOffset:Number = (this._leftItems && this._leftItems.length > 0) ? (this.leftItemsWidth + calculatedTitleGap) : 0;
-		var rightOffset:Number = (this._rightItems && this._rightItems.length > 0) ? (this.rightItemsWidth + calculatedTitleGap) : 0;
+		var leftOffset:Float = (this._leftItems && this._leftItems.length > 0) ? (this.leftItemsWidth + calculatedTitleGap) : 0;
+		var rightOffset:Float = (this._rightItems && this._rightItems.length > 0) ? (this.rightItemsWidth + calculatedTitleGap) : 0;
 		if(this._titleAlign == TITLE_ALIGN_PREFER_LEFT && (!this._leftItems || this._leftItems.length == 0))
 		{
 			this.titleTextRenderer.maxWidth = this.actualWidth - this._paddingLeft - rightOffset;
@@ -1687,11 +1687,11 @@ class Header extends FeathersControl
 		}
 		else
 		{
-			var actualWidthMinusPadding:Number = this.actualWidth - this._paddingLeft - this._paddingRight;
-			var actualWidthMinusOffsets:Number = this.actualWidth - leftOffset - rightOffset;
+			var actualWidthMinusPadding:Float = this.actualWidth - this._paddingLeft - this._paddingRight;
+			var actualWidthMinusOffsets:Float = this.actualWidth - leftOffset - rightOffset;
 			this.titleTextRenderer.maxWidth = actualWidthMinusOffsets;
 			this.titleTextRenderer.validate();
-			var idealTitlePosition:Number = this._paddingLeft + (actualWidthMinusPadding - this.titleTextRenderer.width) / 2;
+			var idealTitlePosition:Float = this._paddingLeft + (actualWidthMinusPadding - this.titleTextRenderer.width) / 2;
 			if(leftOffset > idealTitlePosition ||
 				(idealTitlePosition + this.titleTextRenderer.width) > (this.actualWidth - rightOffset))
 			{
@@ -1702,7 +1702,7 @@ class Header extends FeathersControl
 				this.titleTextRenderer.x = idealTitlePosition;
 			}
 		}
-		var paddingTop:Number = this._paddingTop + this.calculateExtraOSStatusBarPadding();
+		var paddingTop:Float = this._paddingTop + this.calculateExtraOSStatusBarPadding();
 		if(this._verticalAlign == VERTICAL_ALIGN_TOP)
 		{
 			this.titleTextRenderer.y = paddingTop;

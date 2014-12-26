@@ -242,12 +242,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _textFieldOffsetX:Number = 0;
+	private var _textFieldOffsetX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _textFieldOffsetY:Number = 0;
+	private var _textFieldOffsetY:Float = 0;
 
 	/**
 	 * @private
@@ -296,13 +296,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this.textField)
 		{
 			return 0;
 		}
-		var gutterDimensionsOffset:Number = 0;
+		var gutterDimensionsOffset:Float = 0;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 2;
@@ -849,7 +849,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		//theoretically, this will ensure that the TextField is set visible
 		//or invisible immediately after the snapshot changes visibility in
@@ -877,13 +877,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			}
 			if(position)
 			{
-				var gutterPositionOffset:Number = 2;
+				var gutterPositionOffset:Float = 2;
 				if(this._useGutter)
 				{
 					gutterPositionOffset = 0;
 				}
-				var positionX:Number = position.x + gutterPositionOffset;
-				var positionY:Number = position.y + gutterPositionOffset;
+				var positionX:Float = position.x + gutterPositionOffset;
+				var positionY:Float = position.y + gutterPositionOffset;
 				if(positionX < 0)
 				{
 					this._pendingSelectionBeginIndex = this._pendingSelectionEndIndex = 0;
@@ -931,7 +931,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 						//assume that the runtime has a bug. won't hurt.
 						if(bounds)
 						{
-							var boundsX:Number = bounds.x;
+							var boundsX:Float = bounds.x;
 							if(bounds && (boundsX + bounds.width - positionX) < (positionX - boundsX))
 							{
 								this._pendingSelectionBeginIndex++;
@@ -1128,13 +1128,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 
 		this.commitStylesAndData(this.measureTextField);
 
-		var gutterDimensionsOffset:Number = 4;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
 		}
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			this.measureTextField.wordWrap = false;
@@ -1149,7 +1149,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			this.measureTextField.wordWrap = this._wordWrap;
@@ -1268,7 +1268,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function refreshTextFieldSize():Void
 	{
-		var gutterDimensionsOffset:Number = 4;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
@@ -1288,12 +1288,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		this._textFieldClipRect.y = 0;
 
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var clipWidth:Number = this.actualWidth * Starling.contentScaleFactor * matrixToScaleX(HELPER_MATRIX);
+		var clipWidth:Float = this.actualWidth * Starling.contentScaleFactor * matrixToScaleX(HELPER_MATRIX);
 		if(clipWidth < 0)
 		{
 			clipWidth = 0;
 		}
-		var clipHeight:Number = this.actualHeight * Starling.contentScaleFactor * matrixToScaleY(HELPER_MATRIX);
+		var clipHeight:Float = this.actualHeight * Starling.contentScaleFactor * matrixToScaleY(HELPER_MATRIX);
 		if(clipHeight < 0)
 		{
 			clipHeight = 0;
@@ -1315,13 +1315,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
-		var gutterPositionOffset:Number = 2;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
+		var gutterPositionOffset:Float = 2;
 		if(this._useGutter)
 		{
 			gutterPositionOffset = 0;
@@ -1405,15 +1405,15 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		{
 			return;
 		}
-		var gutterPositionOffset:Number = 2;
+		var gutterPositionOffset:Float = 2;
 		if(this._useGutter)
 		{
 			gutterPositionOffset = 0;
 		}
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.translate(this._textFieldOffsetX - gutterPositionOffset, this._textFieldOffsetY - gutterPositionOffset);
 		HELPER_MATRIX.scale(scaleFactor * globalScaleX, scaleFactor * globalScaleY);

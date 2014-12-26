@@ -89,42 +89,42 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#minWidth
 	 */
-	function get minWidth():Number;
+	function get minWidth():Float;
 
 	/**
 	 * @private
 	 */
-	function set minWidth(value:Number):Void;
+	function set minWidth(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#minHeight
 	 */
-	function get minHeight():Number;
+	function get minHeight():Float;
 
 	/**
 	 * @private
 	 */
-	function set minHeight(value:Number):Void;
+	function set minHeight(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxWidth
 	 */
-	function get maxWidth():Number;
+	function get maxWidth():Float;
 
 	/**
 	 * @private
 	 */
-	function set maxWidth(value:Number):Void;
+	function set maxWidth(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxHeight
 	 */
-	function get maxHeight():Number;
+	function get maxHeight():Float;
 
 	/**
 	 * @private
 	 */
-	function set maxHeight(value:Number):Void;
+	function set maxHeight(value:Float):Void;
 
 	/**
 	 * @private
@@ -189,5 +189,5 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#setSize()
 	 */
-	function setSize(width:Number, height:Number):Void;
+	function setSize(width:Float, height:Float):Void;
 }

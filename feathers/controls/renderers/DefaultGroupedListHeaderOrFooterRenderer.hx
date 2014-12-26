@@ -863,12 +863,12 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -976,7 +976,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -984,7 +984,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -995,7 +995,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's top edge and
@@ -1008,7 +1008,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -1016,7 +1016,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -1029,7 +1029,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's right edge
@@ -1042,7 +1042,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -1050,7 +1050,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -1063,7 +1063,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's bottom edge
@@ -1076,7 +1076,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -1084,7 +1084,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1097,7 +1097,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's left edge
@@ -1110,7 +1110,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * 
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -1118,7 +1118,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -1310,7 +1310,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		if(this.contentLabel)
 		{
 			//special case for label to allow word wrap
-			var labelMaxWidth:Number = this.explicitWidth;
+			var labelMaxWidth:Float = this.explicitWidth;
 			if(needsWidth)
 			{
 				labelMaxWidth = this._maxWidth;
@@ -1329,8 +1329,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		{
 			IValidating(this.content).validate();
 		}
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = this.content.width + this._paddingLeft + this._paddingRight;

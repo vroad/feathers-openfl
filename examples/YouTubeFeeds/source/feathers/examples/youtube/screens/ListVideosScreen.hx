@@ -60,7 +60,7 @@ class ListVideosScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	public var savedVerticalScrollPosition:Number = 0;
+	public var savedVerticalScrollPosition:Float = 0;
 	public var savedSelectedIndex:Int = -1;
 	public var savedDataProvider:ListCollection;
 

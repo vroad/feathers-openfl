@@ -340,13 +340,13 @@ class Scroller extends FeathersControl
 	 * The point where we stop calculating velocity changes because floating
 	 * point issues can start to appear.
 	 */
-	inline private static var MINIMUM_VELOCITY:Number = 0.02;
+	inline private static var MINIMUM_VELOCITY:Float = 0.02;
 
 	/**
 	 * @private
 	 * The current velocity is given high importance.
 	 */
-	inline private static var CURRENT_VELOCITY_WEIGHT:Number = 2.33;
+	inline private static var CURRENT_VELOCITY_WEIGHT:Float = 2.33;
 
 	/**
 	 * @private
@@ -364,14 +364,14 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Float = 0.998;
 
 	/**
 	 * Decelerates a bit faster per millisecond than the default.
 	 *
 	 * @see #decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -459,22 +459,22 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _topViewPortOffset:Number;
+	private var _topViewPortOffset:Float;
 
 	/**
 	 * @private
 	 */
-	private var _rightViewPortOffset:Number;
+	private var _rightViewPortOffset:Float;
 
 	/**
 	 * @private
 	 */
-	private var _bottomViewPortOffset:Number;
+	private var _bottomViewPortOffset:Float;
 
 	/**
 	 * @private
 	 */
-	private var _leftViewPortOffset:Number;
+	private var _leftViewPortOffset:Float;
 
 	/**
 	 * @private
@@ -504,32 +504,32 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _startTouchX:Number;
+	private var _startTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _startTouchY:Number;
+	private var _startTouchY:Float;
 
 	/**
 	 * @private
 	 */
-	private var _startHorizontalScrollPosition:Number;
+	private var _startHorizontalScrollPosition:Float;
 
 	/**
 	 * @private
 	 */
-	private var _startVerticalScrollPosition:Number;
+	private var _startVerticalScrollPosition:Float;
 
 	/**
 	 * @private
 	 */
-	private var _currentTouchX:Number;
+	private var _currentTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _currentTouchY:Number;
+	private var _currentTouchY:Float;
 
 	/**
 	 * @private
@@ -539,22 +539,22 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousTouchX:Number;
+	private var _previousTouchX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _previousTouchY:Number;
+	private var _previousTouchY:Float;
 
 	/**
 	 * @private
 	 */
-	private var _velocityX:Number = 0;
+	private var _velocityX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _velocityY:Number = 0;
+	private var _velocityY:Float = 0;
 
 	/**
 	 * @private
@@ -569,12 +569,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastViewPortWidth:Number = 0;
+	private var _lastViewPortWidth:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _lastViewPortHeight:Number = 0;
+	private var _lastViewPortHeight:Float = 0;
 
 	/**
 	 * @private
@@ -1107,12 +1107,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var actualHorizontalScrollStep:Number = 1;
+	private var actualHorizontalScrollStep:Float = 1;
 
 	/**
 	 * @private
 	 */
-	private var explicitHorizontalScrollStep:Number = NaN;
+	private var explicitHorizontalScrollStep:Float = NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped horizontally. Passed
@@ -1126,7 +1126,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
-	public function get horizontalScrollStep():Number
+	public function get horizontalScrollStep():Float
 	{
 		return this.actualHorizontalScrollStep;
 	}
@@ -1134,7 +1134,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalScrollStep(value:Number):Void
+	public function set horizontalScrollStep(value:Float):Void
 	{
 		if(this.explicitHorizontalScrollStep == value)
 		{
@@ -1147,12 +1147,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _targetHorizontalScrollPosition:Number;
+	private var _targetHorizontalScrollPosition:Float;
 
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollPosition:Number = 0;
+	private var _horizontalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller has been scrolled horizontally (on
@@ -1166,7 +1166,7 @@ class Scroller extends FeathersControl
 	 * @see #minHorizontalScrollPosition
 	 * @see #maxHorizontalScrollPosition
 	 */
-	public function get horizontalScrollPosition():Number
+	public function get horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -1174,7 +1174,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalScrollPosition(value:Number):Void
+	public function set horizontalScrollPosition(value:Float):Void
 	{
 		if(this._snapScrollPositionsToPixels)
 		{
@@ -1196,7 +1196,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minHorizontalScrollPosition:Number = 0;
+	private var _minHorizontalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller may be scrolled horizontally to the
@@ -1209,7 +1209,7 @@ class Scroller extends FeathersControl
 	 * @see #horizontalScrollPosition
 	 * @see #maxHorizontalScrollPosition
 	 */
-	public function get minHorizontalScrollPosition():Number
+	public function get minHorizontalScrollPosition():Float
 	{
 		return this._minHorizontalScrollPosition;
 	}
@@ -1217,7 +1217,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _maxHorizontalScrollPosition:Number = 0;
+	private var _maxHorizontalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller may be scrolled horizontally to the
@@ -1230,7 +1230,7 @@ class Scroller extends FeathersControl
 	 * @see #horizontalScrollPosition
 	 * @see #minHorizontalScrollPosition
 	 */
-	public function get maxHorizontalScrollPosition():Number
+	public function get maxHorizontalScrollPosition():Float
 	{
 		return this._maxHorizontalScrollPosition;
 	}
@@ -1310,12 +1310,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var actualVerticalScrollStep:Number = 1;
+	private var actualVerticalScrollStep:Float = 1;
 
 	/**
 	 * @private
 	 */
-	private var explicitVerticalScrollStep:Number = NaN;
+	private var explicitVerticalScrollStep:Float = NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped vertically. Passed
@@ -1329,7 +1329,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
-	public function get verticalScrollStep():Number
+	public function get verticalScrollStep():Float
 	{
 		return this.actualVerticalScrollStep;
 	}
@@ -1337,7 +1337,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalScrollStep(value:Number):Void
+	public function set verticalScrollStep(value:Float):Void
 	{
 		if(this.explicitVerticalScrollStep == value)
 		{
@@ -1350,7 +1350,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _verticalMouseWheelScrollStep:Number = NaN;
+	private var _verticalMouseWheelScrollStep:Float = NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped vertically when
@@ -1365,7 +1365,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
-	public function get verticalMouseWheelScrollStep():Number
+	public function get verticalMouseWheelScrollStep():Float
 	{
 		return this._verticalMouseWheelScrollStep;
 	}
@@ -1373,7 +1373,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalMouseWheelScrollStep(value:Number):Void
+	public function set verticalMouseWheelScrollStep(value:Float):Void
 	{
 		if(this._verticalMouseWheelScrollStep == value)
 		{
@@ -1386,12 +1386,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _targetVerticalScrollPosition:Number;
+	private var _targetVerticalScrollPosition:Float;
 
 	/**
 	 * @private
 	 */
-	private var _verticalScrollPosition:Number = 0;
+	private var _verticalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller has been scrolled vertically (on
@@ -1402,7 +1402,7 @@ class Scroller extends FeathersControl
 	 * <listing version="3.0">
 	 * scroller.verticalScrollPosition = scroller.maxVerticalScrollPosition;</listing>
 	 */
-	public function get verticalScrollPosition():Number
+	public function get verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
@@ -1410,7 +1410,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalScrollPosition(value:Number):Void
+	public function set verticalScrollPosition(value:Float):Void
 	{
 		if(this._snapScrollPositionsToPixels)
 		{
@@ -1432,7 +1432,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minVerticalScrollPosition:Number = 0;
+	private var _minVerticalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller may be scrolled vertically beyond
@@ -1445,7 +1445,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #maxVerticalScrollPosition
 	 */
-	public function get minVerticalScrollPosition():Number
+	public function get minVerticalScrollPosition():Float
 	{
 		return this._minVerticalScrollPosition;
 	}
@@ -1453,7 +1453,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _maxVerticalScrollPosition:Number = 0;
+	private var _maxVerticalScrollPosition:Float = 0;
 
 	/**
 	 * The number of pixels the scroller may be scrolled vertically beyond
@@ -1466,7 +1466,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #minVerticalScrollPosition
 	 */
-	public function get maxVerticalScrollPosition():Number
+	public function get maxVerticalScrollPosition():Float
 	{
 		return this._maxVerticalScrollPosition;
 	}
@@ -1585,12 +1585,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var actualPageWidth:Number = 0;
+	private var actualPageWidth:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var explicitPageWidth:Number = NaN;
+	private var explicitPageWidth:Float = NaN;
 
 	/**
 	 * When set, the horizontal pages snap to this width value instead of
@@ -1603,7 +1603,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #snapToPages
 	 */
-	public function get pageWidth():Number
+	public function get pageWidth():Float
 	{
 		return this.actualPageWidth;
 	}
@@ -1611,7 +1611,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set pageWidth(value:Number):Void
+	public function set pageWidth(value:Float):Void
 	{
 		if(this.explicitPageWidth == value)
 		{
@@ -1637,12 +1637,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var actualPageHeight:Number = 0;
+	private var actualPageHeight:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var explicitPageHeight:Number = NaN;
+	private var explicitPageHeight:Float = NaN;
 
 	/**
 	 * When set, the vertical pages snap to this height value instead of
@@ -1655,7 +1655,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #snapToPages
 	 */
-	public function get pageHeight():Number
+	public function get pageHeight():Float
 	{
 		return this.actualPageHeight;
 	}
@@ -1663,7 +1663,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set pageHeight(value:Number):Void
+	public function set pageHeight(value:Float):Void
 	{
 		if(this.explicitPageHeight == value)
 		{
@@ -1720,7 +1720,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _elasticity:Number = 0.33;
+	private var _elasticity:Float = 0.33;
 
 	/**
 	 * If the scroll position goes outside the minimum or maximum bounds
@@ -1741,7 +1741,7 @@ class Scroller extends FeathersControl
 	 * @see #hasElasticEdges
 	 * @see #throwElasticity
 	 */
-	public function get elasticity():Number
+	public function get elasticity():Float
 	{
 		return this._elasticity;
 	}
@@ -1749,7 +1749,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set elasticity(value:Number):Void
+	public function set elasticity(value:Float):Void
 	{
 		this._elasticity = value;
 	}
@@ -1757,7 +1757,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _throwElasticity:Number = 0.05;
+	private var _throwElasticity:Float = 0.05;
 
 	/**
 	 * If the scroll position goes outside the minimum or maximum bounds
@@ -1778,7 +1778,7 @@ class Scroller extends FeathersControl
 	 * @see #hasElasticEdges
 	 * @see #elasticity
 	 */
-	public function get throwElasticity():Number
+	public function get throwElasticity():Float
 	{
 		return this._throwElasticity;
 	}
@@ -1786,7 +1786,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set throwElasticity(value:Number):Void
+	public function set throwElasticity(value:Float):Void
 	{
 		this._throwElasticity = value;
 	}
@@ -1870,12 +1870,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -2006,7 +2006,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minimumDragDistance:Number = 0.04;
+	private var _minimumDragDistance:Float = 0.04;
 
 	/**
 	 * The minimum physical distance (in inches) that a touch must move
@@ -2019,7 +2019,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.04
 	 */
-	public function get minimumDragDistance():Number
+	public function get minimumDragDistance():Float
 	{
 		return this._minimumDragDistance;
 	}
@@ -2027,7 +2027,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumDragDistance(value:Number):Void
+	public function set minimumDragDistance(value:Float):Void
 	{
 		this._minimumDragDistance = value;
 	}
@@ -2035,7 +2035,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _minimumPageThrowVelocity:Number = 5;
+	private var _minimumPageThrowVelocity:Float = 5;
 
 	/**
 	 * The minimum physical velocity (in inches per second) that a touch
@@ -2049,7 +2049,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 5
 	 */
-	public function get minimumPageThrowVelocity():Number
+	public function get minimumPageThrowVelocity():Float
 	{
 		return this._minimumPageThrowVelocity;
 	}
@@ -2057,7 +2057,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumPageThrowVelocity(value:Number):Void
+	public function set minimumPageThrowVelocity(value:Float):Void
 	{
 		this._minimumPageThrowVelocity = value;
 	}
@@ -2080,7 +2080,7 @@ class Scroller extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -2088,7 +2088,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):Void
+	public function set padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -2099,7 +2099,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the container's top edge and the
@@ -2112,7 +2112,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -2120,7 +2120,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):Void
+	public function set paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -2133,7 +2133,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the container's right edge and
@@ -2146,7 +2146,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -2154,7 +2154,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):Void
+	public function set paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -2167,7 +2167,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the container's bottom edge and
@@ -2180,7 +2180,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -2188,7 +2188,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):Void
+	public function set paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -2201,7 +2201,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the container's left edge and the
@@ -2214,7 +2214,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -2222,7 +2222,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):Void
+	public function set paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -2245,7 +2245,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _hideScrollBarAnimationDuration:Number = 0.2;
+	private var _hideScrollBarAnimationDuration:Float = 0.2;
 
 	/**
 	 * The duration, in seconds, of the animation when a scroll bar fades
@@ -2259,7 +2259,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.2
 	 */
-	public function get hideScrollBarAnimationDuration():Number
+	public function get hideScrollBarAnimationDuration():Float
 	{
 		return this._hideScrollBarAnimationDuration;
 	}
@@ -2267,7 +2267,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set hideScrollBarAnimationDuration(value:Number):Void
+	public function set hideScrollBarAnimationDuration(value:Float):Void
 	{
 		this._hideScrollBarAnimationDuration = value;
 	}
@@ -2306,7 +2306,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _elasticSnapDuration:Number = 0.5;
+	private var _elasticSnapDuration:Float = 0.5;
 
 	/**
 	 * The duration, in seconds, of the animation when a the scroller snaps
@@ -2321,7 +2321,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.5
 	 */
-	public function get elasticSnapDuration():Number
+	public function get elasticSnapDuration():Float
 	{
 		return this._elasticSnapDuration;
 	}
@@ -2329,7 +2329,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set elasticSnapDuration(value:Number):Void
+	public function set elasticSnapDuration(value:Float):Void
 	{
 		this._elasticSnapDuration = value;
 	}
@@ -2339,12 +2339,12 @@ class Scroller extends FeathersControl
 	 * This value is precalculated. See the <code>decelerationRate</code>
 	 * setter for the dynamic calculation.
 	 */
-	private var _logDecelerationRate:Number = -0.0020020026706730793;
+	private var _logDecelerationRate:Float = -0.0020020026706730793;
 
 	/**
 	 * @private
 	 */
-	private var _decelerationRate:Number = DECELERATION_RATE_NORMAL;
+	private var _decelerationRate:Float = DECELERATION_RATE_NORMAL;
 
 	/**
 	 * This value is used to decelerate the scroller when "thrown". The
@@ -2363,7 +2363,7 @@ class Scroller extends FeathersControl
 	 * @see #DECELERATION_RATE_NORMAL
 	 * @see #DECELERATION_RATE_FAST
 	 */
-	public function get decelerationRate():Number
+	public function get decelerationRate():Float
 	{
 		return this._decelerationRate;
 	}
@@ -2371,7 +2371,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set decelerationRate(value:Number):Void
+	public function set decelerationRate(value:Float):Void
 	{
 		if(this._decelerationRate == value)
 		{
@@ -2387,7 +2387,7 @@ class Scroller extends FeathersControl
 	 * This value is precalculated. See the <code>decelerationRate</code>
 	 * setter for the dynamic calculation.
 	 */
-	private var _fixedThrowDuration:Number = 2.996998998998728;
+	private var _fixedThrowDuration:Float = 2.996998998998728;
 
 	/**
 	 * @private
@@ -2431,7 +2431,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _pageThrowDuration:Number = 0.5;
+	private var _pageThrowDuration:Float = 0.5;
 
 	/**
 	 * The duration, in seconds, of the animation when the scroller is
@@ -2445,7 +2445,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.5
 	 */
-	public function get pageThrowDuration():Number
+	public function get pageThrowDuration():Float
 	{
 		return this._pageThrowDuration;
 	}
@@ -2453,7 +2453,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set pageThrowDuration(value:Number):Void
+	public function set pageThrowDuration(value:Float):Void
 	{
 		this._pageThrowDuration = value;
 	}
@@ -2461,7 +2461,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _mouseWheelScrollDuration:Number = 0.35;
+	private var _mouseWheelScrollDuration:Float = 0.35;
 
 	/**
 	 * The duration, in seconds, of the animation when the mouse wheel
@@ -2475,7 +2475,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.35
 	 */
-	public function get mouseWheelScrollDuration():Number
+	public function get mouseWheelScrollDuration():Float
 	{
 		return this._mouseWheelScrollDuration;
 	}
@@ -2483,7 +2483,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set mouseWheelScrollDuration(value:Number):Void
+	public function set mouseWheelScrollDuration(value:Float):Void
 	{
 		this._mouseWheelScrollDuration = value;
 	}
@@ -2591,14 +2591,14 @@ class Scroller extends FeathersControl
 	 * A value of <code>NaN</code> means that the scroller won't scroll to a
 	 * horizontal position after validating.
 	 */
-	private var pendingHorizontalScrollPosition:Number = NaN;
+	private var pendingHorizontalScrollPosition:Float = NaN;
 
 	/**
 	 * The pending vertical scroll position to scroll to after validating.
 	 * A value of <code>NaN</code> means that the scroller won't scroll to a
 	 * vertical position after validating.
 	 */
-	private var pendingVerticalScrollPosition:Number = NaN;
+	private var pendingVerticalScrollPosition:Float = NaN;
 
 	/**
 	 * The pending horizontal page index to scroll to after validating. A
@@ -2617,7 +2617,7 @@ class Scroller extends FeathersControl
 	/**
 	 * The duration of the pending scroll action.
 	 */
-	private var pendingScrollDuration:Number;
+	private var pendingScrollDuration:Float;
 
 	/**
 	 * @private
@@ -2627,7 +2627,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _revealScrollBarsDuration:Number = 1.0;
+	private var _revealScrollBarsDuration:Float = 1.0;
 
 	/**
 	 * The duration, in seconds, that the scroll bars will be shown when
@@ -2637,7 +2637,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #revealScrollBars()
 	 */
-	public function get revealScrollBarsDuration():Number
+	public function get revealScrollBarsDuration():Float
 	{
 		return this._revealScrollBarsDuration;
 	}
@@ -2645,7 +2645,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set revealScrollBarsDuration(value:Number):Void
+	public function set revealScrollBarsDuration(value:Float):Void
 	{
 		this._revealScrollBarsDuration = value;
 	}
@@ -2653,12 +2653,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalAutoScrollTweenEndRatio:Number = 1;
+	private var _horizontalAutoScrollTweenEndRatio:Float = 1;
 
 	/**
 	 * @private
 	 */
-	private var _verticalAutoScrollTweenEndRatio:Number = 1;
+	private var _verticalAutoScrollTweenEndRatio:Float = 1;
 
 	/**
 	 * @private
@@ -2730,7 +2730,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #throwEase
 	 */
-	public function scrollToPosition(horizontalScrollPosition:Number, verticalScrollPosition:Number, animationDuration:Number = NaN):Void
+	public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = NaN):Void
 	{
 		if(animationDuration !== animationDuration) //isNaN
 		{
@@ -2778,7 +2778,7 @@ class Scroller extends FeathersControl
 	 * @see #pageThrowDuration
 	 * @see #throwEase
 	 */
-	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Number = NaN):Void
+	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = NaN):Void
 	{
 		if(animationDuration !== animationDuration) //isNaN
 		{
@@ -2823,8 +2823,8 @@ class Scroller extends FeathersControl
 	{
 		//save localX and localY because localPoint could change after the
 		//call to super.hitTest().
-		var localX:Number = localPoint.x;
-		var localY:Number = localPoint.y;
+		var localX:Float = localPoint.x;
+		var localY:Float = localPoint.y;
 		//first check the children for touches
 		var result:DisplayObject = super.hitTest(localPoint, forTouch);
 		if(!result)
@@ -2889,8 +2889,8 @@ class Scroller extends FeathersControl
 
 		var needsWidthOrHeight:Boolean = this.explicitWidth !== this.explicitWidth ||
 			this.explicitHeight !== this.explicitHeight; //isNaN
-		var oldMaxHorizontalScrollPosition:Number = this._maxHorizontalScrollPosition;
-		var oldMaxVerticalScrollPosition:Number = this._maxVerticalScrollPosition;
+		var oldMaxHorizontalScrollPosition:Float = this._maxHorizontalScrollPosition;
+		var oldMaxVerticalScrollPosition:Float = this._maxVerticalScrollPosition;
 		var loopCount:Int = 0;
 		do
 		{
@@ -3000,8 +3000,8 @@ class Scroller extends FeathersControl
 			return false;
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(this._measureViewPort)
@@ -3209,22 +3209,22 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshViewPortBoundsWithoutFixedScrollBars():Void
 	{
-		var horizontalWidthOffset:Number = this._leftViewPortOffset + this._rightViewPortOffset;
-		var verticalHeightOffset:Number = this._topViewPortOffset + this._bottomViewPortOffset;
+		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
+		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
 
 		//if scroll bars are fixed, we're going to include the offsets even
 		//if they may not be needed in the final pass. if not fixed, the
 		//view port fills the entire bounds.
 		this._viewPort.visibleWidth = this.explicitWidth - horizontalWidthOffset;
 		this._viewPort.visibleHeight = this.explicitHeight - verticalHeightOffset;
-		var minVisibleWidth:Number = this._minWidth - horizontalWidthOffset;
+		var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
 		if(minVisibleWidth < 0)
 		{
 			minVisibleWidth = 0;
 		}
 		this._viewPort.minVisibleWidth = minVisibleWidth;
 		this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
-		var minVisibleHeight:Number = this._minHeight - verticalHeightOffset;
+		var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
 		if(minVisibleHeight < 0)
 		{
 			minVisibleHeight = 0;
@@ -3248,22 +3248,22 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshViewPortBoundsWithFixedScrollBars():Void
 	{
-		var horizontalWidthOffset:Number = this._leftViewPortOffset + this._rightViewPortOffset;
-		var verticalHeightOffset:Number = this._topViewPortOffset + this._bottomViewPortOffset;
+		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
+		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
 		var needsWidthOrHeight:Boolean = this.explicitWidth != this.explicitWidth ||
 			this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!(this._measureViewPort && needsWidthOrHeight))
 		{
 			//if we didn't need to do any measurement, we would have skipped
 			//setting this stuff earlier, and now is the last chance
-			var minVisibleWidth:Number = this._minWidth - horizontalWidthOffset;
+			var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
 			if(minVisibleWidth < 0)
 			{
 				minVisibleWidth = 0;
 			}
 			this._viewPort.minVisibleWidth = minVisibleWidth;
 			this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
-			var minVisibleHeight:Number = this._minHeight - verticalHeightOffset;
+			var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
 			if(minVisibleHeight < 0)
 			{
 				minVisibleHeight = 0;
@@ -3285,8 +3285,8 @@ class Scroller extends FeathersControl
 	{
 		this.refreshScrollSteps();
 
-		var oldMaxHSP:Number = this._maxHorizontalScrollPosition;
-		var oldMaxVSP:Number = this._maxVerticalScrollPosition;
+		var oldMaxHSP:Float = this._maxHorizontalScrollPosition;
+		var oldMaxVSP:Float = this._maxVerticalScrollPosition;
 		this.refreshMinAndMaxScrollPositions();
 		var maximumPositionsChanged:Boolean = this._maxHorizontalScrollPosition != oldMaxHSP || this._maxVerticalScrollPosition != oldMaxVSP;
 		if(maximumPositionsChanged && this._touchPointID < 0)
@@ -3325,7 +3325,7 @@ class Scroller extends FeathersControl
 			{
 				this._horizontalScrollPosition = roundToNearest(this._horizontalScrollPosition, this.actualPageWidth);
 			}
-			var targetHorizontalScrollPosition:Number = this._horizontalScrollPosition;
+			var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 			if(targetHorizontalScrollPosition < this._minHorizontalScrollPosition)
 			{
 				targetHorizontalScrollPosition = this._minHorizontalScrollPosition;
@@ -3342,7 +3342,7 @@ class Scroller extends FeathersControl
 			{
 				this._verticalScrollPosition = roundToNearest(this._verticalScrollPosition, this.actualPageHeight);
 			}
-			var targetVerticalScrollPosition:Number = this._verticalScrollPosition;
+			var targetVerticalScrollPosition:Float = this._verticalScrollPosition;
 			if(targetVerticalScrollPosition < this._minVerticalScrollPosition)
 			{
 				targetVerticalScrollPosition = this._minVerticalScrollPosition;
@@ -3397,8 +3397,8 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshMinAndMaxScrollPositions():Void
 	{
-		var visibleViewPortWidth:Number = this.actualWidth - (this._leftViewPortOffset + this._rightViewPortOffset);
-		var visibleViewPortHeight:Number = this.actualHeight - (this._topViewPortOffset + this._bottomViewPortOffset);
+		var visibleViewPortWidth:Float = this.actualWidth - (this._leftViewPortOffset + this._rightViewPortOffset);
+		var visibleViewPortHeight:Float = this.actualHeight - (this._topViewPortOffset + this._bottomViewPortOffset);
 		if(this.explicitPageWidth !== this.explicitPageWidth) //isNaN
 		{
 			this.actualPageWidth = visibleViewPortWidth;
@@ -3445,8 +3445,8 @@ class Scroller extends FeathersControl
 	{
 		if(this._snapToPages)
 		{
-			var horizontalRange:Number = this._maxHorizontalScrollPosition - this._minHorizontalScrollPosition;
-			var verticalPageRange:Number = this._maxVerticalScrollPosition - this._minVerticalScrollPosition;
+			var horizontalRange:Float = this._maxHorizontalScrollPosition - this._minHorizontalScrollPosition;
+			var verticalPageRange:Float = this._maxVerticalScrollPosition - this._minVerticalScrollPosition;
 			this._horizontalPageCount = Math.ceil(horizontalRange / this.actualPageWidth) + 1;
 			this._verticalPageCount = Math.ceil(verticalPageRange / this.actualPageHeight) + 1;
 		}
@@ -3472,7 +3472,7 @@ class Scroller extends FeathersControl
 				}
 				else
 				{
-					var adjustedHorizontalScrollPosition:Number = this._horizontalScrollPosition - this._minHorizontalScrollPosition;
+					var adjustedHorizontalScrollPosition:Float = this._horizontalScrollPosition - this._minHorizontalScrollPosition;
 					this._horizontalPageIndex = Math.floor(adjustedHorizontalScrollPosition / this.actualPageWidth);
 				}
 			}
@@ -3500,7 +3500,7 @@ class Scroller extends FeathersControl
 				}
 				else
 				{
-					var adjustedVerticalScrollPosition:Number = this._verticalScrollPosition - this._minVerticalScrollPosition;
+					var adjustedVerticalScrollPosition:Float = this._verticalScrollPosition - this._minVerticalScrollPosition;
 					this._verticalPageIndex = Math.floor(adjustedVerticalScrollPosition / this.actualPageHeight);
 				}
 			}
@@ -3594,8 +3594,8 @@ class Scroller extends FeathersControl
 	{
 		if(this.horizontalScrollBar && (this._measureViewPort || useActualBounds))
 		{
-			var scrollerWidth:Number = useActualBounds ? this.actualWidth : this.explicitWidth;
-			var totalWidth:Number = this._viewPort.width + this._leftViewPortOffset + this._rightViewPortOffset;
+			var scrollerWidth:Float = useActualBounds ? this.actualWidth : this.explicitWidth;
+			var totalWidth:Float = this._viewPort.width + this._leftViewPortOffset + this._rightViewPortOffset;
 			if(forceScrollBars || this._horizontalScrollPolicy == SCROLL_POLICY_ON ||
 				((totalWidth > scrollerWidth || totalWidth > this._maxWidth) &&
 					this._horizontalScrollPolicy != SCROLL_POLICY_OFF))
@@ -3621,8 +3621,8 @@ class Scroller extends FeathersControl
 	{
 		if(this.verticalScrollBar && (this._measureViewPort || useActualBounds))
 		{
-			var scrollerHeight:Number = useActualBounds ? this.actualHeight : this.explicitHeight;
-			var totalHeight:Number = this._viewPort.height + this._topViewPortOffset + this._bottomViewPortOffset;
+			var scrollerHeight:Float = useActualBounds ? this.actualHeight : this.explicitHeight;
+			var totalHeight:Float = this._viewPort.height + this._topViewPortOffset + this._bottomViewPortOffset;
 			if(forceScrollBars || this._verticalScrollPolicy == SCROLL_POLICY_ON ||
 				((totalHeight > scrollerHeight || totalHeight > this._maxHeight) &&
 					this._verticalScrollPolicy != SCROLL_POLICY_OFF))
@@ -3827,13 +3827,13 @@ class Scroller extends FeathersControl
 			var clipRect:Rectangle = this._viewPort.clipRect;
 			clipRect.x = this._horizontalScrollPosition;
 			clipRect.y = this._verticalScrollPosition;
-			var clipWidth:Number = this.actualWidth - this._leftViewPortOffset - this._rightViewPortOffset;
+			var clipWidth:Float = this.actualWidth - this._leftViewPortOffset - this._rightViewPortOffset;
 			if(clipWidth < 0)
 			{
 				clipWidth = 0;
 			}
 			clipRect.width = clipWidth;
-			var clipHeight:Number = this.actualHeight - this._topViewPortOffset - this._bottomViewPortOffset;
+			var clipHeight:Float = this.actualHeight - this._topViewPortOffset - this._bottomViewPortOffset;
 			if(clipHeight < 0)
 			{
 				clipHeight = 0;
@@ -3922,10 +3922,10 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function updateHorizontalScrollFromTouchPosition(touchX:Number):Void
+	private function updateHorizontalScrollFromTouchPosition(touchX:Float):Void
 	{
-		var offset:Number = this._startTouchX - touchX;
-		var position:Number = this._startHorizontalScrollPosition + offset;
+		var offset:Float = this._startTouchX - touchX;
+		var position:Float = this._startHorizontalScrollPosition + offset;
 		if(position < this._minHorizontalScrollPosition)
 		{
 			if(this._hasElasticEdges)
@@ -3954,10 +3954,10 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function updateVerticalScrollFromTouchPosition(touchY:Number):Void
+	private function updateVerticalScrollFromTouchPosition(touchY:Float):Void
 	{
-		var offset:Number = this._startTouchY - touchY;
-		var position:Number = this._startVerticalScrollPosition + offset;
+		var offset:Float = this._startTouchY - touchY;
+		var position:Float = this._startVerticalScrollPosition + offset;
 		if(position < this._minVerticalScrollPosition)
 		{
 			if(this._hasElasticEdges)
@@ -3991,7 +3991,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #scrollToPosition()
 	 */
-	private function throwTo(targetHorizontalScrollPosition:Number = NaN, targetVerticalScrollPosition:Number = NaN, duration:Number = 0.5):Void
+	private function throwTo(targetHorizontalScrollPosition:Float = NaN, targetVerticalScrollPosition:Float = NaN, duration:Float = 0.5):Void
 	{
 		var changedPosition:Boolean = false;
 		if(targetHorizontalScrollPosition === targetHorizontalScrollPosition) //!isNaN
@@ -4076,9 +4076,9 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	private function throwToPage(targetHorizontalPageIndex:Int = -1, targetVerticalPageIndex:Int = -1, duration:Number = 0.5):Void
+	private function throwToPage(targetHorizontalPageIndex:Int = -1, targetVerticalPageIndex:Int = -1, duration:Float = 0.5):Void
 	{
-		var targetHorizontalScrollPosition:Number = this._horizontalScrollPosition;
+		var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= 0)
 		{
 			targetHorizontalScrollPosition = this.actualPageWidth * targetHorizontalPageIndex;
@@ -4091,7 +4091,7 @@ class Scroller extends FeathersControl
 		{
 			targetHorizontalScrollPosition = this._maxHorizontalScrollPosition;
 		}
-		var targetVerticalScrollPosition:Number = this._verticalScrollPosition;
+		var targetVerticalScrollPosition:Float = this._verticalScrollPosition;
 		if(targetVerticalPageIndex >= 0)
 		{
 			targetVerticalScrollPosition = this.actualPageHeight * targetVerticalPageIndex;
@@ -4126,7 +4126,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateDynamicThrowDuration(pixelsPerMS:Number):Number
+	private function calculateDynamicThrowDuration(pixelsPerMS:Float):Float
 	{
 		return (Math.log(MINIMUM_VELOCITY / Math.abs(pixelsPerMS)) / this._logDecelerationRate) / 1000;
 	}
@@ -4134,7 +4134,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateThrowDistance(pixelsPerMS:Number):Number
+	private function calculateThrowDistance(pixelsPerMS:Float):Float
 	{
 		return (pixelsPerMS - MINIMUM_VELOCITY) / this._logDecelerationRate;
 	}
@@ -4144,7 +4144,7 @@ class Scroller extends FeathersControl
 	 */
 	private function finishScrollingHorizontally():Void
 	{
-		var targetHorizontalScrollPosition:Number = NaN;
+		var targetHorizontalScrollPosition:Float = NaN;
 		if(this._horizontalScrollPosition < this._minHorizontalScrollPosition)
 		{
 			targetHorizontalScrollPosition = this._minHorizontalScrollPosition;
@@ -4170,7 +4170,7 @@ class Scroller extends FeathersControl
 	 */
 	private function finishScrollingVertically():Void
 	{
-		var targetVerticalScrollPosition:Number = NaN;
+		var targetVerticalScrollPosition:Float = NaN;
 		if(this._verticalScrollPosition < this._minVerticalScrollPosition)
 		{
 			targetVerticalScrollPosition = this._minVerticalScrollPosition;
@@ -4194,14 +4194,14 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function throwHorizontally(pixelsPerMS:Number):Void
+	private function throwHorizontally(pixelsPerMS:Float):Void
 	{
 		if(this._snapToPages)
 		{
-			var inchesPerSecond:Number = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 			if(inchesPerSecond > this._minimumPageThrowVelocity)
 			{
-				var snappedPageHorizontalScrollPosition:Number = roundDownToNearest(this._horizontalScrollPosition, this.actualPageWidth);
+				var snappedPageHorizontalScrollPosition:Float = roundDownToNearest(this._horizontalScrollPosition, this.actualPageWidth);
 			}
 			else if(inchesPerSecond < -this._minimumPageThrowVelocity)
 			{
@@ -4209,11 +4209,11 @@ class Scroller extends FeathersControl
 			}
 			else
 			{
-				var lastPageWidth:Number = this._maxHorizontalScrollPosition % this.actualPageWidth;
-				var startOfLastPage:Number = this._maxHorizontalScrollPosition - lastPageWidth;
+				var lastPageWidth:Float = this._maxHorizontalScrollPosition % this.actualPageWidth;
+				var startOfLastPage:Float = this._maxHorizontalScrollPosition - lastPageWidth;
 				if(lastPageWidth < this.actualPageWidth && this._horizontalScrollPosition >= startOfLastPage)
 				{
-					var lastPagePosition:Number = this._horizontalScrollPosition - startOfLastPage;
+					var lastPagePosition:Float = this._horizontalScrollPosition - startOfLastPage;
 					if(inchesPerSecond > this._minimumPageThrowVelocity)
 					{
 						snappedPageHorizontalScrollPosition = startOfLastPage + roundDownToNearest(lastPagePosition, lastPageWidth);
@@ -4252,14 +4252,14 @@ class Scroller extends FeathersControl
 			return;
 		}
 
-		var absPixelsPerMS:Number = Math.abs(pixelsPerMS);
+		var absPixelsPerMS:Float = Math.abs(pixelsPerMS);
 		if(absPixelsPerMS <= MINIMUM_VELOCITY)
 		{
 			this.finishScrollingHorizontally();
 			return;
 		}
 
-		var duration:Number = this._fixedThrowDuration;
+		var duration:Float = this._fixedThrowDuration;
 		if(!this._useFixedThrowDuration)
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
@@ -4271,14 +4271,14 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function throwVertically(pixelsPerMS:Number):Void
+	private function throwVertically(pixelsPerMS:Float):Void
 	{
 		if(this._snapToPages)
 		{
-			var inchesPerSecond:Number = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 			if(inchesPerSecond > this._minimumPageThrowVelocity)
 			{
-				var snappedPageVerticalScrollPosition:Number = roundDownToNearest(this._verticalScrollPosition, this.actualPageHeight);
+				var snappedPageVerticalScrollPosition:Float = roundDownToNearest(this._verticalScrollPosition, this.actualPageHeight);
 			}
 			else if(inchesPerSecond < -this._minimumPageThrowVelocity)
 			{
@@ -4286,11 +4286,11 @@ class Scroller extends FeathersControl
 			}
 			else
 			{
-				var lastPageHeight:Number = this._maxVerticalScrollPosition % this.actualPageHeight;
-				var startOfLastPage:Number = this._maxVerticalScrollPosition - lastPageHeight;
+				var lastPageHeight:Float = this._maxVerticalScrollPosition % this.actualPageHeight;
+				var startOfLastPage:Float = this._maxVerticalScrollPosition - lastPageHeight;
 				if(lastPageHeight < this.actualPageHeight && this._verticalScrollPosition >= startOfLastPage)
 				{
-					var lastPagePosition:Number = this._verticalScrollPosition - startOfLastPage;
+					var lastPagePosition:Float = this._verticalScrollPosition - startOfLastPage;
 					if(inchesPerSecond > this._minimumPageThrowVelocity)
 					{
 						snappedPageVerticalScrollPosition = startOfLastPage + roundDownToNearest(lastPagePosition, lastPageHeight);
@@ -4329,14 +4329,14 @@ class Scroller extends FeathersControl
 			return;
 		}
 
-		var absPixelsPerMS:Number = Math.abs(pixelsPerMS);
+		var absPixelsPerMS:Float = Math.abs(pixelsPerMS);
 		if(absPixelsPerMS <= MINIMUM_VELOCITY)
 		{
 			this.finishScrollingVertically();
 			return;
 		}
 
-		var duration:Number = this._fixedThrowDuration;
+		var duration:Float = this._fixedThrowDuration;
 		if(!this._useFixedThrowDuration)
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
@@ -4350,7 +4350,7 @@ class Scroller extends FeathersControl
 	 */
 	private function onHorizontalAutoScrollTweenUpdate():Void
 	{
-		var ratio:Number = this._horizontalAutoScrollTween.transitionFunc(this._horizontalAutoScrollTween.currentTime / this._horizontalAutoScrollTween.totalTime);
+		var ratio:Float = this._horizontalAutoScrollTween.transitionFunc(this._horizontalAutoScrollTween.currentTime / this._horizontalAutoScrollTween.totalTime);
 		if(ratio >= this._horizontalAutoScrollTweenEndRatio)
 		{
 			if(!this._hasElasticEdges)
@@ -4375,7 +4375,7 @@ class Scroller extends FeathersControl
 	 */
 	private function onVerticalAutoScrollTweenUpdate():Void
 	{
-		var ratio:Number = this._verticalAutoScrollTween.transitionFunc(this._verticalAutoScrollTween.currentTime / this._verticalAutoScrollTween.totalTime);
+		var ratio:Float = this._verticalAutoScrollTween.transitionFunc(this._verticalAutoScrollTween.currentTime / this._verticalAutoScrollTween.totalTime);
 		if(ratio >= this._verticalAutoScrollTweenEndRatio)
 		{
 			if(!this._hasElasticEdges)
@@ -4400,8 +4400,8 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshHorizontalAutoScrollTweenEndRatio():Void
 	{
-		var distance:Number = Math.abs(this._targetHorizontalScrollPosition - this._startHorizontalScrollPosition);
-		var ratioOutOfBounds:Number = 0;
+		var distance:Float = Math.abs(this._targetHorizontalScrollPosition - this._startHorizontalScrollPosition);
+		var ratioOutOfBounds:Float = 0;
 		if(this._targetHorizontalScrollPosition > this._maxHorizontalScrollPosition)
 		{
 			ratioOutOfBounds = (this._targetHorizontalScrollPosition - this._maxHorizontalScrollPosition) / distance;
@@ -4443,8 +4443,8 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshVerticalAutoScrollTweenEndRatio():Void
 	{
-		var distance:Number = Math.abs(this._targetVerticalScrollPosition - this._startVerticalScrollPosition);
-		var ratioOutOfBounds:Number = 0;
+		var distance:Float = Math.abs(this._targetVerticalScrollPosition - this._startVerticalScrollPosition);
+		var ratioOutOfBounds:Float = 0;
 		if(this._targetVerticalScrollPosition > this._maxVerticalScrollPosition)
 		{
 			ratioOutOfBounds = (this._targetVerticalScrollPosition - this._maxVerticalScrollPosition) / distance;
@@ -4484,7 +4484,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function hideHorizontalScrollBar(delay:Number = 0):Void
+	private function hideHorizontalScrollBar(delay:Float = 0):Void
 	{
 		if(!this.horizontalScrollBar || this._scrollBarDisplayMode != SCROLL_BAR_DISPLAY_MODE_FLOAT || this._horizontalScrollBarHideTween)
 		{
@@ -4511,7 +4511,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function hideVerticalScrollBar(delay:Number = 0):Void
+	private function hideVerticalScrollBar(delay:Float = 0):Void
 	{
 		if(!this.verticalScrollBar || this._scrollBarDisplayMode != SCROLL_BAR_DISPLAY_MODE_FLOAT || this._verticalScrollBarHideTween)
 		{
@@ -4796,8 +4796,8 @@ class Scroller extends FeathersControl
 		}
 
 		touch.getLocation(this, HELPER_POINT);
-		var touchX:Number = HELPER_POINT.x;
-		var touchY:Number = HELPER_POINT.y;
+		var touchX:Float = HELPER_POINT.x;
+		var touchY:Float = HELPER_POINT.y;
 		if(touchX < this._leftViewPortOffset || touchY < this._topViewPortOffset ||
 			touchX >= this.actualWidth - this._rightViewPortOffset ||
 			touchY >= this.actualHeight - this._bottomViewPortOffset)
@@ -4893,8 +4893,8 @@ class Scroller extends FeathersControl
 			this._previousTouchX = this._currentTouchX;
 			this._previousTouchY = this._currentTouchY;
 		}
-		var horizontalInchesMoved:Number = Math.abs(this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
-		var verticalInchesMoved:Number = Math.abs(this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var horizontalInchesMoved:Float = Math.abs(this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var verticalInchesMoved:Float = Math.abs(this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 		if((this._horizontalScrollPolicy == SCROLL_POLICY_ON ||
 			(this._horizontalScrollPolicy == SCROLL_POLICY_AUTO && this._minHorizontalScrollPosition != this._maxHorizontalScrollPosition)) &&
 			!this._isDraggingHorizontally && horizontalInchesMoved >= this._minimumDragDistance)
@@ -4996,12 +4996,12 @@ class Scroller extends FeathersControl
 			if(!isFinishingHorizontally && this._isDraggingHorizontally)
 			{
 				//take the average for more accuracy
-				var sum:Number = this._velocityX * CURRENT_VELOCITY_WEIGHT;
+				var sum:Float = this._velocityX * CURRENT_VELOCITY_WEIGHT;
 				var velocityCount:Int = this._previousVelocityX.length;
-				var totalWeight:Number = CURRENT_VELOCITY_WEIGHT;
+				var totalWeight:Float = CURRENT_VELOCITY_WEIGHT;
 				for(var i:Int = 0; i < velocityCount; i++)
 				{
-					var weight:Number = VELOCITY_WEIGHTS[i];
+					var weight:Float = VELOCITY_WEIGHTS[i];
 					sum += this._previousVelocityX.shift() * weight;
 					totalWeight += weight;
 				}
@@ -5069,32 +5069,32 @@ class Scroller extends FeathersControl
 			return;
 		}
 
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var scaleFactor:Number = nativeScaleFactor / Starling.contentScaleFactor;
+		var scaleFactor:Float = nativeScaleFactor / Starling.contentScaleFactor;
 		HELPER_POINT.x = (event.stageX - starlingViewPort.x) * scaleFactor;
 		HELPER_POINT.y = (event.stageY - starlingViewPort.y) * scaleFactor;
 		if(this.contains(this.stage.hitTest(HELPER_POINT, true)))
 		{
 			this.globalToLocal(HELPER_POINT, HELPER_POINT);
-			var localMouseX:Number = HELPER_POINT.x;
-			var localMouseY:Number = HELPER_POINT.y;
+			var localMouseX:Float = HELPER_POINT.x;
+			var localMouseY:Float = HELPER_POINT.y;
 			if(localMouseX < this._leftViewPortOffset || localMouseY < this._topViewPortOffset ||
 				localMouseX >= this.actualWidth - this._rightViewPortOffset ||
 				localMouseY >= this.actualHeight - this._bottomViewPortOffset)
 			{
 				return;
 			}
-			var scrollStep:Number = this._verticalMouseWheelScrollStep;
+			var scrollStep:Float = this._verticalMouseWheelScrollStep;
 			if(scrollStep !== scrollStep) //isNaN
 			{
 				scrollStep = this.actualVerticalScrollStep;
 			}
-			var targetVerticalScrollPosition:Number = this._verticalScrollPosition - event.delta * scrollStep;
+			var targetVerticalScrollPosition:Float = this._verticalScrollPosition - event.delta * scrollStep;
 			if(targetVerticalScrollPosition < this._minVerticalScrollPosition)
 			{
 				targetVerticalScrollPosition = this._minVerticalScrollPosition;
@@ -5263,8 +5263,8 @@ class Scroller extends FeathersControl
 
 		//if we stopped the animation while the list was outside the scroll
 		//bounds, then let's account for that
-		var oldHorizontalScrollPosition:Number = this._horizontalScrollPosition;
-		var oldVerticalScrollPosition:Number = this._verticalScrollPosition;
+		var oldHorizontalScrollPosition:Float = this._horizontalScrollPosition;
+		var oldVerticalScrollPosition:Float = this._verticalScrollPosition;
 		if(this._horizontalScrollPosition < this._minHorizontalScrollPosition)
 		{
 			this._horizontalScrollPosition = this._minHorizontalScrollPosition;

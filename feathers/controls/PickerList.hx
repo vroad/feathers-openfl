@@ -554,12 +554,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Float = NaN;
 	
 	/**
 	 * @private
@@ -1284,15 +1284,15 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return false;
 		}
 
-		var buttonWidth:Number;
-		var buttonHeight:Number;
+		var buttonWidth:Float;
+		var buttonHeight:Float;
 		if(this._typicalItem)
 		{
 			if(this._typicalItemWidth !== this._typicalItemWidth || //isNaN
 				this._typicalItemHeight !== this._typicalItemHeight) //isNaN
 			{
-				var oldWidth:Number = this.button.width;
-				var oldHeight:Number = this.button.height;
+				var oldWidth:Float = this.button.width;
+				var oldHeight:Float = this.button.height;
 				this.button.width = NaN;
 				this.button.height = NaN;
 				if(this._typicalItem)
@@ -1316,8 +1316,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			buttonHeight = this.button.height;
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(buttonWidth === buttonWidth) //!isNaN

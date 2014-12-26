@@ -10,9 +10,9 @@ class HorizontalLayoutSettings
 	public var itemCount:Int = 75;
 	public var horizontalAlign:String = HorizontalLayout.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = HorizontalLayout.VERTICAL_ALIGN_TOP;
-	public var gap:Number = 2;
-	public var paddingTop:Number = 0;
-	public var paddingRight:Number = 0;
-	public var paddingBottom:Number = 0;
-	public var paddingLeft:Number = 0;
+	public var gap:Float = 2;
+	public var paddingTop:Float = 0;
+	public var paddingRight:Float = 0;
+	public var paddingBottom:Float = 0;
+	public var paddingLeft:Float = 0;
 }

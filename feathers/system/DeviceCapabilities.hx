@@ -24,7 +24,7 @@ class DeviceCapabilities
 	 * @see #isTablet()
 	 * @see #isPhone()
 	 */
-	public static var tabletScreenMinimumInches:Number = 5;
+	public static var tabletScreenMinimumInches:Float = 5;
 
 	/**
 	 * A custom width, in pixels, to use for calculations of the device's
@@ -34,7 +34,7 @@ class DeviceCapabilities
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html#fullScreenWidth Full description of flash.display.Stage.fullScreenWidth in Adobe's Flash Platform API Reference
 	 */
-	public static var screenPixelWidth:Number = NaN;
+	public static var screenPixelWidth:Float = NaN;
 
 	/**
 	 * A custom height, in pixels, to use for calculations of the device's
@@ -44,7 +44,7 @@ class DeviceCapabilities
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html#fullScreenWidth Full description of flash.display.Stage.fullScreenWidth in Adobe's Flash Platform API Reference
 	 */
-	public static var screenPixelHeight:Number = NaN;
+	public static var screenPixelHeight:Float = NaN;
 	
 	/**
 	 * The screen density to be used by Feathers. Defaults to the value of
@@ -80,12 +80,12 @@ class DeviceCapabilities
 	 */
 	public static function isTablet(stage:Stage):Boolean
 	{
-		var screenWidth:Number = screenPixelWidth;
+		var screenWidth:Float = screenPixelWidth;
 		if(screenWidth !== screenWidth) //isNaN
 		{
 			screenWidth = stage.fullScreenWidth;
 		}
-		var screenHeight:Number = screenPixelHeight;
+		var screenHeight:Float = screenPixelHeight;
 		if(screenHeight !== screenHeight) //isNaN
 		{
 			screenHeight = stage.fullScreenHeight;
@@ -115,9 +115,9 @@ class DeviceCapabilities
 	 *
 	 * @see #screenPixelWidth
 	 */
-	public static function screenInchesX(stage:Stage):Number
+	public static function screenInchesX(stage:Stage):Float
 	{
-		var screenWidth:Number = screenPixelWidth;
+		var screenWidth:Float = screenPixelWidth;
 		if(screenWidth !== screenWidth) //isNaN
 		{
 			screenWidth = stage.fullScreenWidth;
@@ -131,9 +131,9 @@ class DeviceCapabilities
 	 *
 	 * @see #screenPixelHeight
 	 */
-	public static function screenInchesY(stage:Stage):Number
+	public static function screenInchesY(stage:Stage):Float
 	{
-		var screenHeight:Number = screenPixelHeight;
+		var screenHeight:Float = screenPixelHeight;
 		if(screenHeight !== screenHeight) //isNaN
 		{
 			screenHeight = stage.fullScreenHeight;

@@ -144,14 +144,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Float = 0.998;
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_FAST
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Panel</code>
@@ -654,7 +654,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #outerPaddingLeft
 	 * @see feathers.controls.Scroller#padding
 	 */
-	public function get outerPadding():Number
+	public function get outerPadding():Float
 	{
 		return this._outerPaddingTop;
 	}
@@ -662,7 +662,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPadding(value:Number):Void
+	public function set outerPadding(value:Float):Void
 	{
 		this.outerPaddingTop = value;
 		this.outerPaddingRight = value;
@@ -673,7 +673,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _outerPaddingTop:Number = 0;
+	private var _outerPaddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's top edge and the
@@ -695,7 +695,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingTop
 	 */
-	public function get outerPaddingTop():Number
+	public function get outerPaddingTop():Float
 	{
 		return this._outerPaddingTop;
 	}
@@ -703,7 +703,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingTop(value:Number):Void
+	public function set outerPaddingTop(value:Float):Void
 	{
 		if(this._outerPaddingTop == value)
 		{
@@ -716,7 +716,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _outerPaddingRight:Number = 0;
+	private var _outerPaddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's right edge and the
@@ -739,7 +739,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingRight
 	 */
-	public function get outerPaddingRight():Number
+	public function get outerPaddingRight():Float
 	{
 		return this._outerPaddingRight;
 	}
@@ -747,7 +747,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingRight(value:Number):Void
+	public function set outerPaddingRight(value:Float):Void
 	{
 		if(this._outerPaddingRight == value)
 		{
@@ -760,7 +760,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _outerPaddingBottom:Number = 0;
+	private var _outerPaddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's bottom edge and the
@@ -782,7 +782,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingBottom
 	 */
-	public function get outerPaddingBottom():Number
+	public function get outerPaddingBottom():Float
 	{
 		return this._outerPaddingBottom;
 	}
@@ -790,7 +790,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingBottom(value:Number):Void
+	public function set outerPaddingBottom(value:Float):Void
 	{
 		if(this._outerPaddingBottom == value)
 		{
@@ -803,7 +803,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _outerPaddingLeft:Number = 0;
+	private var _outerPaddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's left edge and the
@@ -826,7 +826,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingLeft
 	 */
-	public function get outerPaddingLeft():Number
+	public function get outerPaddingLeft():Float
 	{
 		return this._outerPaddingLeft;
 	}
@@ -834,7 +834,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingLeft(value:Number):Void
+	public function set outerPaddingLeft(value:Float):Void
 	{
 		if(this._outerPaddingLeft == value)
 		{
@@ -903,8 +903,8 @@ class Panel extends ScrollContainer implements IFocusExtras
 		var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
 		this._ignoreFooterResizing = true;
 
-		var oldHeaderWidth:Number = this.header.width;
-		var oldHeaderHeight:Number = this.header.height;
+		var oldHeaderWidth:Float = this.header.width;
+		var oldHeaderHeight:Float = this.header.height;
 		this.header.width = this.explicitWidth;
 		this.header.maxWidth = this._maxWidth;
 		this.header.height = NaN;
@@ -912,16 +912,16 @@ class Panel extends ScrollContainer implements IFocusExtras
 
 		if(this.footer)
 		{
-			var oldFooterWidth:Number = this.footer.width;
-			var oldFooterHeight:Number = this.footer.height;
+			var oldFooterWidth:Float = this.footer.width;
+			var oldFooterHeight:Float = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
 			this.footer.height = NaN;
 			this.footer.validate();
 		}
 
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			newWidth = Math.max(this.header.width, this._viewPort.width + this._rightViewPortOffset + this._leftViewPortOffset);
@@ -1058,8 +1058,8 @@ class Panel extends ScrollContainer implements IFocusExtras
 
 		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
-		var oldHeaderWidth:Number = this.header.width;
-		var oldHeaderHeight:Number = this.header.height;
+		var oldHeaderWidth:Float = this.header.width;
+		var oldHeaderHeight:Float = this.header.height;
 		if(useActualBounds)
 		{
 			this.header.width = this.actualWidth - this._outerPaddingLeft - this._outerPaddingRight;
@@ -1080,8 +1080,8 @@ class Panel extends ScrollContainer implements IFocusExtras
 		{
 			var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
 			this._ignoreFooterResizing = true;
-			var oldFooterWidth:Number = this.footer.width;
-			var oldFooterHeight:Number = this.footer.height;
+			var oldFooterWidth:Float = this.footer.width;
+			var oldFooterHeight:Float = this.footer.height;
 			if(useActualBounds)
 			{
 				this.footer.width = this.actualWidth - this._outerPaddingLeft - this._outerPaddingRight;

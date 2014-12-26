@@ -354,22 +354,22 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalWidth:Number = NaN;
+	private var minimumTrackOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalHeight:Number = NaN;
+	private var minimumTrackOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalWidth:Number = NaN;
+	private var maximumTrackOriginalWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalHeight:Number = NaN;
+	private var maximumTrackOriginalHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -424,7 +424,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _value:Number = 0;
+	private var _value:Float = 0;
 	
 	/**
 	 * The value of the slider, between the minimum and maximum.
@@ -445,7 +445,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #step
 	 * @see #page
 	 */
-	public function get value():Number
+	public function get value():Float
 	{
 		return this._value;
 	}
@@ -453,7 +453,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):Void
+	public function set value(newValue:Float):Void
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -475,7 +475,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _minimum:Number = 0;
+	private var _minimum:Float = 0;
 	
 	/**
 	 * The slider's value will not go lower than the minimum.
@@ -494,7 +494,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Number
+	public function get minimum():Float
 	{
 		return this._minimum;
 	}
@@ -502,7 +502,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):Void
+	public function set minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -515,7 +515,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _maximum:Number = 0;
+	private var _maximum:Float = 0;
 	
 	/**
 	 * The slider's value will not go higher than the maximum. The maximum
@@ -536,7 +536,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Number
+	public function get maximum():Float
 	{
 		return this._maximum;
 	}
@@ -544,7 +544,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):Void
+	public function set maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -557,7 +557,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _step:Number = 0;
+	private var _step:Float = 0;
 	
 	/**
 	 * As the slider's thumb is dragged, the value is snapped to a multiple
@@ -579,7 +579,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #page
 	 */
-	public function get step():Number
+	public function get step():Float
 	{
 		return this._step;
 	}
@@ -587,7 +587,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set step(value:Number):Void
+	public function set step(value:Float):Void
 	{
 		if(this._step == value)
 		{
@@ -599,7 +599,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _page:Number = NaN;
+	private var _page:Float = NaN;
 
 	/**
 	 * If the <code>trackInteractionMode</code> property is set to
@@ -626,7 +626,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #page
 	 * @see #trackInteractionMode
 	 */
-	public function get page():Number
+	public function get page():Float
 	{
 		return this._page;
 	}
@@ -634,7 +634,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set page(value:Number):Void
+	public function set page(value:Float):Void
 	{
 		if(this._page == value)
 		{
@@ -697,7 +697,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _minimumPadding:Number = 0;
+	private var _minimumPadding:Float = 0;
 
 	/**
 	 * The space, in pixels, between the minimum position of the thumb and
@@ -711,7 +711,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
-	public function get minimumPadding():Number
+	public function get minimumPadding():Float
 	{
 		return this._minimumPadding;
 	}
@@ -719,7 +719,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumPadding(value:Number):Void
+	public function set minimumPadding(value:Float):Void
 	{
 		if(this._minimumPadding == value)
 		{
@@ -732,7 +732,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _maximumPadding:Number = 0;
+	private var _maximumPadding:Float = 0;
 
 	/**
 	 * The space, in pixels, between the maximum position of the thumb and
@@ -746,7 +746,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
-	public function get maximumPadding():Number
+	public function get maximumPadding():Float
 	{
 		return this._maximumPadding;
 	}
@@ -754,7 +754,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumPadding(value:Number):Void
+	public function set maximumPadding(value:Float):Void
 	{
 		if(this._maximumPadding == value)
 		{
@@ -893,7 +893,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _repeatDelay:Number = 0.05;
+	private var _repeatDelay:Float = 0.05;
 
 	/**
 	 * The time, in seconds, before actions are repeated. The first repeat
@@ -908,7 +908,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Number
+	public function get repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -916,7 +916,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Number):Void
+	public function set repeatDelay(value:Float):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -1452,27 +1452,27 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Number = NaN;
+	private var _touchStartX:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartY:Number = NaN;
+	private var _touchStartY:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Number = NaN;
+	private var _thumbStartX:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartY:Number = NaN;
+	private var _thumbStartY:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchValue:Number;
+	private var _touchValue:Float;
 	
 	/**
 	 * @private
@@ -1582,8 +1582,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return false;
 		}
 		this.thumb.validate();
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(this._direction == DIRECTION_VERTICAL)
@@ -1799,13 +1799,13 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			var trackScrollableHeight:Number = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
+			var trackScrollableHeight:Float = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
 			this.thumb.x = (this.actualWidth - this.thumb.width) / 2;
 			this.thumb.y = this._minimumPadding + trackScrollableHeight * (1 - (this._value - this._minimum) / (this._maximum - this._minimum));
 		}
 		else
 		{
-			var trackScrollableWidth:Number = this.actualWidth - this.thumb.width - this._minimumPadding - this._maximumPadding;
+			var trackScrollableWidth:Float = this.actualWidth - this.thumb.width - this._minimumPadding - this._maximumPadding;
 			this.thumb.x = this._minimumPadding + (trackScrollableWidth * (this._value - this._minimum) / (this._maximum - this._minimum));
 			this.thumb.y = (this.actualHeight - this.thumb.height) / 2;
 		}
@@ -1913,21 +1913,21 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function locationToValue(location:Point):Number
+	private function locationToValue(location:Point):Float
 	{
-		var percentage:Number;
+		var percentage:Float;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			var trackScrollableHeight:Number = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
-			var yOffset:Number = location.y - this._touchStartY - this._maximumPadding;
-			var yPosition:Number = Math.min(Math.max(0, this._thumbStartY + yOffset), trackScrollableHeight);
+			var trackScrollableHeight:Float = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
+			var yOffset:Float = location.y - this._touchStartY - this._maximumPadding;
+			var yPosition:Float = Math.min(Math.max(0, this._thumbStartY + yOffset), trackScrollableHeight);
 			percentage = 1 - (yPosition / trackScrollableHeight);
 		}
 		else //horizontal
 		{
-			var trackScrollableWidth:Number = this.actualWidth - this.thumb.width - this._minimumPadding - this._maximumPadding;
-			var xOffset:Number = location.x - this._touchStartX - this._minimumPadding;
-			var xPosition:Number = Math.min(Math.max(0, this._thumbStartX + xOffset), trackScrollableWidth);
+			var trackScrollableWidth:Float = this.actualWidth - this.thumb.width - this._minimumPadding - this._maximumPadding;
+			var xOffset:Float = location.x - this._touchStartX - this._minimumPadding;
+			var xPosition:Float = Math.min(Math.max(0, this._thumbStartX + xOffset), trackScrollableWidth);
 			percentage = xPosition / trackScrollableWidth;
 		}
 
@@ -1961,7 +1961,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function adjustPage():Void
 	{
-		var page:Number = this._page;
+		var page:Float = this._page;
 		if(page !== page) //isNaN
 		{
 			page = this._step;
@@ -2172,7 +2172,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			this.value = this._maximum;
 			return;
 		}
-		var page:Number = this._page;
+		var page:Float = this._page;
 		if(page !== page) //isNaN
 		{
 			page = this._step;

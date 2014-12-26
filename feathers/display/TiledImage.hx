@@ -63,7 +63,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function TiledImage(texture:Texture, textureScale:Number = 1)
+	public function TiledImage(texture:Texture, textureScale:Float = 1)
 	{
 		super();
 		this._hitArea = new Rectangle();
@@ -87,18 +87,18 @@ class TiledImage extends Sprite implements IValidating
 	private var _batch:QuadBatch;
 	private var _image:Image;
 
-	private var _originalImageWidth:Number;
-	private var _originalImageHeight:Number;
+	private var _originalImageWidth:Float;
+	private var _originalImageHeight:Float;
 
 	/**
 	 * @private
 	 */
-	private var _width:Number = NaN;
+	private var _width:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get width():Number
+	override public function get width():Float
 	{
 		return this._width;
 	}
@@ -106,7 +106,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):Void
+	override public function set width(value:Float):Void
 	{
 		if(this._width == value)
 		{
@@ -120,12 +120,12 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _height:Number = NaN;
+	private var _height:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	override public function get height():Number
+	override public function get height():Float
 	{
 		return this._height;
 	}
@@ -133,7 +133,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):Void
+	override public function set height(value:Float):Void
 	{
 		if(this._height == value)
 		{
@@ -312,7 +312,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _textureScale:Number = 1;
+	private var _textureScale:Float = 1;
 
 	/**
 	 * Scales the texture dimensions during measurement. Useful for UI that
@@ -325,7 +325,7 @@ class TiledImage extends Sprite implements IValidating
 	 *
 	 * @default 1
 	 */
-	public function get textureScale():Number
+	public function get textureScale():Float
 	{
 		return this._textureScale;
 	}
@@ -333,7 +333,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):Void
+	public function set textureScale(value:Float):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -382,8 +382,8 @@ class TiledImage extends Sprite implements IValidating
 			resultRect = new Rectangle();
 		}
 
-		var minX:Number = Number.MAX_VALUE, maxX:Number = -Number.MAX_VALUE;
-		var minY:Number = Number.MAX_VALUE, maxY:Number = -Number.MAX_VALUE;
+		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
+		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -444,7 +444,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * Set both the width and height in one call.
 	 */
-	public function setSize(width:Number, height:Number):Void
+	public function setSize(width:Float, height:Float):Void
 	{
 		this.width = width;
 		this.height = height;
@@ -453,7 +453,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		if(this._isInvalid)
 		{
@@ -492,27 +492,27 @@ class TiledImage extends Sprite implements IValidating
 			this._batch.batchable = !this._useSeparateBatch;
 			this._batch.reset();
 			this._image.scaleX = this._image.scaleY = this._textureScale;
-			var scaledTextureWidth:Number = this._originalImageWidth * this._textureScale;
-			var scaledTextureHeight:Number = this._originalImageHeight * this._textureScale;
+			var scaledTextureWidth:Float = this._originalImageWidth * this._textureScale;
+			var scaledTextureHeight:Float = this._originalImageHeight * this._textureScale;
 			var xImageCount:Int = Math.ceil(this._width / scaledTextureWidth);
 			var yImageCount:Int = Math.ceil(this._height / scaledTextureHeight);
 			var imageCount:Int = xImageCount * yImageCount;
-			var xPosition:Number = 0;
-			var yPosition:Number = 0;
-			var nextXPosition:Number = xPosition + scaledTextureWidth;
-			var nextYPosition:Number = yPosition + scaledTextureHeight;
+			var xPosition:Float = 0;
+			var yPosition:Float = 0;
+			var nextXPosition:Float = xPosition + scaledTextureWidth;
+			var nextYPosition:Float = yPosition + scaledTextureHeight;
 			for(var i:Int = 0; i < imageCount; i++)
 			{
 				this._image.x = xPosition;
 				this._image.y = yPosition;
 
-				var imageWidth:Number = (nextXPosition >= this._width) ? (this._width - xPosition) : scaledTextureWidth;
-				var imageHeight:Number = (nextYPosition >= this._height) ? (this._height - yPosition) : scaledTextureHeight;
+				var imageWidth:Float = (nextXPosition >= this._width) ? (this._width - xPosition) : scaledTextureWidth;
+				var imageHeight:Float = (nextYPosition >= this._height) ? (this._height - yPosition) : scaledTextureHeight;
 				this._image.width = imageWidth;
 				this._image.height = imageHeight;
 
-				var xCoord:Number = imageWidth / scaledTextureWidth;
-				var yCoord:Number = imageHeight / scaledTextureHeight;
+				var xCoord:Float = imageWidth / scaledTextureWidth;
+				var yCoord:Float = imageHeight / scaledTextureHeight;
 				HELPER_POINT.x = xCoord;
 				HELPER_POINT.y = 0;
 				this._image.setTexCoords(1, HELPER_POINT);

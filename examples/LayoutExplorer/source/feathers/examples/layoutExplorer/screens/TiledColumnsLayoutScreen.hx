@@ -51,10 +51,10 @@ class TiledColumnsLayoutScreen extends PanelScreen
 		this.snapToPages = this.settings.paging != TiledColumnsLayout.PAGING_NONE;
 		this.snapScrollPositionsToPixels = true;
 
-		var minQuadSize:Number = Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 15;
+		var minQuadSize:Float = Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 15;
 		for(var i:Int = 0; i < this.settings.itemCount; i++)
 		{
-			var size:Number = minQuadSize + minQuadSize * 2 * Math.random();
+			var size:Float = minQuadSize + minQuadSize * 2 * Math.random();
 			var quad:Quad = new Quad(size, size, 0xff8800);
 			this.addChild(quad);
 		}

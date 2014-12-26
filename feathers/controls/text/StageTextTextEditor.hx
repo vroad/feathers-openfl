@@ -219,7 +219,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function set x(value:Number):Void
+	override public function set x(value:Float):Void
 	{
 		if(super.x == value)
 		{
@@ -234,7 +234,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function set y(value:Number):Void
+	override public function set y(value:Float):Void
 	{
 		if(super.y == value)
 		{
@@ -380,7 +380,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Number
+	public function get baseline():Float
 	{
 		if(!this._measureTextField)
 		{
@@ -1068,10 +1068,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var desktopGutterPositionOffset:Number = 0;
-		var desktopGutterDimensionsOffset:Number = 0;
+		var desktopGutterPositionOffset:Float = 0;
+		var desktopGutterDimensionsOffset:Float = 0;
 		if(this._stageTextIsTextField)
 		{
 			desktopGutterPositionOffset = 2;
@@ -1086,12 +1086,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			stageTextViewPort = new Rectangle();
 		}
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		stageTextViewPort.x = Math.round(starlingViewPort.x + (HELPER_POINT.x * scaleFactor));
 		stageTextViewPort.y = Math.round(starlingViewPort.y + (HELPER_POINT.y * scaleFactor));
 		this.stageText.viewPort = stageTextViewPort;
@@ -1099,16 +1099,16 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		if(this.stageText.visible)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
-			var smallerGlobalScale:Number = globalScaleX;
+			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+			var smallerGlobalScale:Float = globalScaleX;
 			if(globalScaleY < globalScaleX)
 			{
 				smallerGlobalScale = globalScaleY;
 			}
 			//for some reason, we don't need to account for the native scale factor here
 			scaleFactor = Starling.contentScaleFactor;
-			var newFontSize:Number = this._fontSize * scaleFactor * smallerGlobalScale;
+			var newFontSize:Float = this._fontSize * scaleFactor * smallerGlobalScale;
 			if(this.stageText.fontSize != newFontSize)
 			{
 				//we need to check if this value has changed because on iOS
@@ -1141,8 +1141,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			if(position)
 			{
-				var positionX:Number = position.x + 2;
-				var positionY:Number = position.y + 2;
+				var positionX:Float = position.x + 2;
+				var positionY:Float = position.y + 2;
 				if(positionX < 0)
 				{
 					this._pendingSelectionBeginIndex = this._pendingSelectionEndIndex = 0;
@@ -1182,7 +1182,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					else
 					{
 						var bounds:Rectangle = this._measureTextField.getCharBoundaries(this._pendingSelectionBeginIndex);
-						var boundsX:Number = bounds.x;
+						var boundsX:Float = bounds.x;
 						if(bounds && (boundsX + bounds.width - positionX) < (positionX - boundsX))
 						{
 							this._pendingSelectionBeginIndex++;
@@ -1369,7 +1369,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 		this._measureTextField.autoSize = TextFieldAutoSize.LEFT;
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			newWidth = this._measureTextField.textWidth;
@@ -1385,7 +1385,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 		//the +4 is accounting for the TextField gutter
 		this._measureTextField.width = newWidth + 4;
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			//since we're measuring with TextField, but rendering with
@@ -1490,7 +1490,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function refreshMeasureProperties():Void
 	{
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
@@ -1558,15 +1558,15 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this.stageText.fontPosture = this._fontPosture;
 
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
-		var smallerGlobalScale:Number = globalScaleX;
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+		var smallerGlobalScale:Float = globalScaleX;
 		if(globalScaleY < globalScaleX)
 		{
 			smallerGlobalScale = globalScaleY;
 		}
 		//for some reason, we don't need to account for the native scale factor here
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		this.stageText.fontSize = this._fontSize * scaleFactor * smallerGlobalScale;
 
 		this.stageText.fontWeight = this._fontWeight;
@@ -1644,7 +1644,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			return;
 		}
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
@@ -1719,32 +1719,32 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		}
 
 		HELPER_POINT.x = HELPER_POINT.y = 0;
-		var desktopGutterPositionOffset:Number = 0;
-		var desktopGutterDimensionsOffset:Number = 0;
+		var desktopGutterPositionOffset:Float = 0;
+		var desktopGutterDimensionsOffset:Float = 0;
 		if(this._stageTextIsTextField)
 		{
 			desktopGutterPositionOffset = 2;
 			desktopGutterDimensionsOffset = 4;
 		}
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		stageTextViewPort.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
 		stageTextViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
-		var viewPortWidth:Number = Math.round((this.actualWidth + desktopGutterDimensionsOffset) * scaleFactor * globalScaleX);
+		var viewPortWidth:Float = Math.round((this.actualWidth + desktopGutterDimensionsOffset) * scaleFactor * globalScaleX);
 		if(viewPortWidth < 1 ||
 			viewPortWidth !== viewPortWidth) //isNaN
 		{
 			viewPortWidth = 1;
 		}
-		var viewPortHeight:Number = Math.round((this.actualHeight + desktopGutterDimensionsOffset) * scaleFactor * globalScaleY);
+		var viewPortHeight:Float = Math.round((this.actualHeight + desktopGutterDimensionsOffset) * scaleFactor * globalScaleY);
 		if(viewPortHeight < 1 ||
 			viewPortHeight !== viewPortHeight) //isNaN
 		{

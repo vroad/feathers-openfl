@@ -34,12 +34,12 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#x Full description of starling.display.DisplayObject.x in Gamua's Starling Framework API Reference
 	 */
-	function get x():Number;
+	function get x():Float;
 
 	/**
 	 * @private
 	 */
-	function set x(value:Number):Void;
+	function set x(value:Float):Void;
 
 	/**
 	 * The y, or vertical, position of the display object in the parent's
@@ -47,36 +47,36 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#y Full description of starling.display.DisplayObject.y in Gamua's Starling Framework API Reference
 	 */
-	function get y():Number;
+	function get y():Float;
 
 	/**
 	 * @private
 	 */
-	function set y(value:Number):Void;
+	function set y(value:Float):Void;
 
 	/**
 	 * The width of the display object in the parent's coordinate space.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#width Full description of starling.display.DisplayObject.width in Gamua's Starling Framework API Reference
 	 */
-	function get width():Number;
+	function get width():Float;
 
 	/**
 	 * @private
 	 */
-	function set width(value:Number):Void;
+	function set width(value:Float):Void;
 
 	/**
 	 * The height of the display object in the parent's coordinate space.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#height Full description of starling.display.DisplayObject.height in Gamua's Starling Framework API Reference
 	 */
-	function get height():Number;
+	function get height():Float;
 
 	/**
 	 * @private
 	 */
-	function set height(value:Number):Void;
+	function set height(value:Float):Void;
 
 	/**
 	 * The x coordinate of the display object's origin in its own coordinate
@@ -84,12 +84,12 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#pivotX Full description of starling.display.DisplayObject.pivotX in Gamua's Starling Framework API Reference
 	 */
-	function get pivotX():Number;
+	function get pivotX():Float;
 
 	/**
 	 * @private
 	 */
-	function set pivotX(value:Number):Void;
+	function set pivotX(value:Float):Void;
 
 	/**
 	 * The y coordinate of the display object's origin in its own coordinate
@@ -97,59 +97,59 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#pivotY Full description of starling.display.DisplayObject.pivotY in Gamua's Starling Framework API Reference
 	 */
-	function get pivotY():Number;
+	function get pivotY():Float;
 
 	/**
 	 * @private
 	 */
-	function set pivotY(value:Number):Void;
+	function set pivotY(value:Float):Void;
 
 	/**
 	 * This horizontal scale factor.
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#scaleX Full description of starling.display.DisplayObject.scaleX in Gamua's Starling Framework API Reference
 	 */
-	function get scaleX():Number;
+	function get scaleX():Float;
 
 	/**
 	 * @private
 	 */
-	function set scaleX(value:Number):Void;
+	function set scaleX(value:Float):Void;
 
 	/**
 	 * The vertical scale factor.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#scaleY Full description of starling.display.DisplayObject.scaleY in Gamua's Starling Framework API Reference
 	 */
-	function get scaleY():Number;
+	function get scaleY():Float;
 
 	/**
 	 * @private
 	 */
-	function set scaleY(value:Number):Void;
+	function set scaleY(value:Float):Void;
 
 	/**
 	 * The horizontal skew, in radians.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#skewX Full description of starling.display.DisplayObject.skewX in Gamua's Starling Framework API Reference
 	 */
-	function get skewX():Number;
+	function get skewX():Float;
 
 	/**
 	 * @private
 	 */
-	function set skewX(value:Number):Void;
+	function set skewX(value:Float):Void;
 
 	/**
 	 * The vertical skew, in radians.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#skewY Full description of starling.display.DisplayObject.skewY in Gamua's Starling Framework API Reference
 	 */
-	function get skewY():Number;
+	function get skewY():Float;
 
 	/**
 	 * @private
 	 */
-	function set skewY(value:Number):Void;
+	function set skewY(value:Float):Void;
 
 	/**
 	 * The blend mode used when rendering the display object.
@@ -204,24 +204,24 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#alpha Full description of starling.display.DisplayObject.alpha in Gamua's Starling Framework API Reference
 	 */
-	function get alpha():Number;
+	function get alpha():Float;
 
 	/**
 	 * @private
 	 */
-	function set alpha(value:Number):Void;
+	function set alpha(value:Float):Void;
 
 	/**
 	 * The rotation of the display object, in radians.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#rotation Full description of starling.display.DisplayObject.rotation in Gamua's Starling Framework API Reference
 	 */
-	function get rotation():Number;
+	function get rotation():Float;
 
 	/**
 	 * @private
 	 */
-	function set rotation(value:Number):Void;
+	function set rotation(value:Float):Void;
 
 	/**
 	 * The display object's parent, or <code>null</code> if it doesn't have
@@ -350,7 +350,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#render() Full description of starling.display.DisplayObject.render() in Gamua's Starling Framework API Reference
 	 */
-	function render(support:RenderSupport, parentAlpha:Number):Void;
+	function render(support:RenderSupport, parentAlpha:Float):Void;
 
 	/**
 	 * Disposes the display object.
