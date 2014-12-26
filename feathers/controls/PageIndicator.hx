@@ -783,7 +783,7 @@ class PageIndicator extends FeathersControl
 					this.addChild(this.selectedSymbol);
 				}
 				this.symbols.push(this.selectedSymbol);
-				if(this.selectedSymbol is IValidating)
+				if(Std.is(this.selectedSymbol, IValidating))
 				{
 					IValidating(this.selectedSymbol).validate();
 				}
@@ -801,7 +801,7 @@ class PageIndicator extends FeathersControl
 				}
 				this.unselectedSymbols.push(symbol);
 				this.symbols.push(symbol);
-				if(symbol is IValidating)
+				if(Std.is(symbol, IValidating))
 				{
 					IValidating(symbol).validate();
 				}
@@ -824,17 +824,17 @@ class PageIndicator extends FeathersControl
 	{
 		if(layoutInvalid)
 		{
-			if(this._direction == DIRECTION_VERTICAL && !(this._layout is VerticalLayout))
+			if(this._direction == DIRECTION_VERTICAL && !(Std.is(this._layout, VerticalLayout)))
 			{
 				this._layout = new VerticalLayout();
 				IVirtualLayout(this._layout).useVirtualLayout = false;
 			}
-			else if(this._direction != DIRECTION_VERTICAL && !(this._layout is HorizontalLayout))
+			else if(this._direction != DIRECTION_VERTICAL && !(Std.is(this._layout, HorizontalLayout)))
 			{
 				this._layout = new HorizontalLayout();
 				IVirtualLayout(this._layout).useVirtualLayout = false;
 			}
-			if(this._layout is VerticalLayout)
+			if(Std.is(this._layout, VerticalLayout))
 			{
 				var verticalLayout:VerticalLayout = VerticalLayout(this._layout);
 				verticalLayout.paddingTop = this._paddingTop;
@@ -845,7 +845,7 @@ class PageIndicator extends FeathersControl
 				verticalLayout.horizontalAlign = this._horizontalAlign;
 				verticalLayout.verticalAlign = this._verticalAlign;
 			}
-			if(this._layout is HorizontalLayout)
+			if(Std.is(this._layout, HorizontalLayout))
 			{
 				var horizontalLayout:HorizontalLayout = HorizontalLayout(this._layout);
 				horizontalLayout.paddingTop = this._paddingTop;

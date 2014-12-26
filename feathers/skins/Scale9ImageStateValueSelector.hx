@@ -55,7 +55,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	 */
 	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
 	{
-		if(!(value is Scale9Textures))
+		if(!(Std.is(value, Scale9Textures)))
 		{
 			throw new ArgumentError("Value for state must be a Scale9Textures instance.");
 		}
@@ -73,7 +73,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 			return null;
 		}
 
-		if(oldValue is Scale9Image)
+		if(Std.is(oldValue, Scale9Image))
 		{
 			var image:Scale9Image = Scale9Image(oldValue);
 			image.textures = textures;

@@ -928,7 +928,7 @@ package feathers.themes
 			skinSelector.setValueForState(this.buttonHoverSkinTextures, Button.STATE_HOVER, false);
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -954,7 +954,7 @@ package feathers.themes
 			skinSelector.setValueForState(this.buttonHoverSkinTextures, Button.STATE_HOVER, false);
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, null, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button

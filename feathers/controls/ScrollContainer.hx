@@ -612,7 +612,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 
 		if(layoutInvalid)
 		{
-			if(this._layout is IVirtualLayout)
+			if(Std.is(this._layout, IVirtualLayout))
 			{
 				IVirtualLayout(this._layout).useVirtualLayout = false;
 			}

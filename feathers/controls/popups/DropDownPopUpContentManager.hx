@@ -101,7 +101,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		this.content = content;
 		this.source = source;
 		PopUpManager.addPopUp(this.content, false, false);
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
 			this.content.addEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
@@ -130,7 +130,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
 			this.content.removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
@@ -156,7 +156,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		var stage:Stage = Starling.current.stage;
 		var globalOrigin:Rectangle = this.source.getBounds(stage);
 
-		if(this.source is IValidating)
+		if(Std.is(this.source, IValidating))
 		{
 			IValidating(this.source).validate();
 		}
@@ -169,7 +169,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			uiContent.minWidth = sourceWidth;
 			hasSetBounds = true;
 		}
-		if(this.content is IValidating)
+		if(Std.is(this.content, IValidating))
 		{
 			uiContent.validate();
 		}

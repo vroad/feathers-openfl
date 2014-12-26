@@ -280,7 +280,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
 				IValidating(item).validate();
 			}

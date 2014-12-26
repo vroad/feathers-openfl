@@ -55,7 +55,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	 */
 	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
 	{
-		if(!(value is Texture))
+		if(!(Std.is(value, Texture)))
 		{
 			throw new ArgumentError("Value for state must be a Texture instance.");
 		}
@@ -73,7 +73,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 			return null;
 		}
 
-		if(oldValue is Image)
+		if(Std.is(oldValue, Image))
 		{
 			var image:Image = Image(oldValue);
 			image.texture = texture;

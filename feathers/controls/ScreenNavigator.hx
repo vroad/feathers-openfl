@@ -403,7 +403,7 @@ class ScreenNavigator extends FeathersControl
 
 		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[id]);
 		this._activeScreen = item.getScreen();
-		if(this._activeScreen is IScreen)
+		if(Std.is(this._activeScreen, IScreen))
 		{
 			var screen:IScreen = IScreen(this._activeScreen);
 			screen.screenID = id;
@@ -417,7 +417,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
 			var eventAction:Object = events[eventName];
-			if(eventAction is Function)
+			if(Std.is(eventAction, Function))
 			{
 				if(signal)
 				{
@@ -428,7 +428,7 @@ class ScreenNavigator extends FeathersControl
 					this._activeScreen.addEventListener(eventName, eventAction as Function);
 				}
 			}
-			else if(eventAction is String)
+			else if(Std.is(eventAction, String))
 			{
 				if(signal)
 				{
@@ -506,7 +506,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
 			var eventAction:Object = events[eventName];
-			if(eventAction is Function)
+			if(Std.is(eventAction, Function))
 			{
 				if(signal)
 				{
@@ -517,7 +517,7 @@ class ScreenNavigator extends FeathersControl
 					this._activeScreen.removeEventListener(eventName, eventAction as Function);
 				}
 			}
-			else if(eventAction is String)
+			else if(Std.is(eventAction, String))
 			{
 				var eventListener:Function = savedScreenEvents[eventName] as Function;
 				if(signal)
@@ -751,8 +751,8 @@ class ScreenNavigator extends FeathersControl
 		if(this._previousScreenInTransition)
 		{
 			var item:ScreenNavigatorItem = this._screens[this._previousScreenInTransitionID];
-			var canBeDisposed:Bool = !(item.screen is DisplayObject);
-			if(this._previousScreenInTransition is IScreen)
+			var canBeDisposed:Bool = !(Std.is(item.screen, DisplayObject));
+			if(Std.is(this._previousScreenInTransition, IScreen))
 			{
 				var screen:IScreen = IScreen(this._previousScreenInTransition);
 				screen.screenID = null;

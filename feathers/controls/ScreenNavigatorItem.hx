@@ -78,16 +78,16 @@ class ScreenNavigatorItem
 	internal function getScreen():DisplayObject
 	{
 		var screenInstance:DisplayObject;
-		if(this.screen is Class)
+		if(Std.is(this.screen, Class))
 		{
 			var ScreenType:Class = Class(this.screen);
 			screenInstance = new ScreenType();
 		}
-		else if(this.screen is Function)
+		else if(Std.is(this.screen, Function))
 		{
 			screenInstance = DisplayObject(cast(this.screen, Function)());
 		}
-		else if(this.screen is DisplayObject)
+		else if(Std.is(this.screen, DisplayObject))
 		{
 			screenInstance = DisplayObject(this.screen);
 		}

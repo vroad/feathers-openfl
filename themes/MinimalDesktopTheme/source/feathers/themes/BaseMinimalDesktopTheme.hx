@@ -806,7 +806,7 @@ package feathers.themes
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -849,7 +849,7 @@ package feathers.themes
 			skinSelector.defaultValue = null;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(null, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -941,7 +941,7 @@ package feathers.themes
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -1404,7 +1404,7 @@ package feathers.themes
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 			iconSelector.defaultValue = this.pickerListButtonIconUpTexture;
 			iconSelector.setValueForState(this.pickerListButtonIconDisabledTexture, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button

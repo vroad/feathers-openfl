@@ -217,12 +217,12 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function setFocusManager(target:DisplayObject):Void
 	{
-		if(target is IFocusDisplayObject)
+		if(Std.is(target, IFocusDisplayObject))
 		{
 			var targetWithFocus:IFocusDisplayObject = IFocusDisplayObject(target);
 			targetWithFocus.focusManager = this;
 		}
-		else if(target is DisplayObjectContainer)
+		else if(Std.is(target, DisplayObjectContainer))
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
 			var childCount:Int = container.numChildren;
@@ -231,7 +231,7 @@ class DefaultFocusManager implements IFocusManager
 				var child:DisplayObject = container.getChildAt(i);
 				this.setFocusManager(child);
 			}
-			if(container is IFocusExtras)
+			if(Std.is(container, IFocusExtras))
 			{
 				var containerWithExtras:IFocusExtras = IFocusExtras(container);
 				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
@@ -263,7 +263,7 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function clearFocusManager(target:DisplayObject):Void
 	{
-		if(target is IFocusDisplayObject)
+		if(Std.is(target, IFocusDisplayObject))
 		{
 			var targetWithFocus:IFocusDisplayObject = IFocusDisplayObject(target);
 			if(targetWithFocus.focusManager == this)
@@ -276,7 +276,7 @@ class DefaultFocusManager implements IFocusManager
 				targetWithFocus.focusManager = null;
 			}
 		}
-		if(target is DisplayObjectContainer)
+		if(Std.is(target, DisplayObjectContainer))
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
 			var childCount:Int = container.numChildren;
@@ -285,7 +285,7 @@ class DefaultFocusManager implements IFocusManager
 				var child:DisplayObject = container.getChildAt(i);
 				this.clearFocusManager(child);
 			}
-			if(container is IFocusExtras)
+			if(Std.is(container, IFocusExtras))
 			{
 				var containerWithExtras:IFocusExtras = IFocusExtras(container);
 				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
@@ -317,12 +317,12 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function findPreviousFocus(container:DisplayObjectContainer, beforeChild:DisplayObject = null):IFocusDisplayObject
 	{
-		if(container is LayoutViewPort)
+		if(Std.is(container, LayoutViewPort))
 		{
 			container = container.parent;
 		}
 		var hasProcessedBeforeChild:Bool = beforeChild == null;
-		if(container is IFocusExtras)
+		if(Std.is(container, IFocusExtras))
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
 			var extras:Array<DisplayObject> = focusContainer.focusExtrasAfter;
@@ -371,7 +371,7 @@ class DefaultFocusManager implements IFocusManager
 				return foundChild;
 			}
 		}
-		if(container is IFocusExtras)
+		if(Std.is(container, IFocusExtras))
 		{
 			extras = focusContainer.focusExtrasBefore;
 			if(extras)
@@ -414,12 +414,12 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function findNextFocus(container:DisplayObjectContainer, afterChild:DisplayObject = null):IFocusDisplayObject
 	{
-		if(container is LayoutViewPort)
+		if(Std.is(container, LayoutViewPort))
 		{
 			container = container.parent;
 		}
 		var hasProcessedAfterChild:Bool = afterChild == null;
-		if(container is IFocusExtras)
+		if(Std.is(container, IFocusExtras))
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
 			var extras:Array<DisplayObject> = focusContainer.focusExtrasBefore;
@@ -470,7 +470,7 @@ class DefaultFocusManager implements IFocusManager
 				return foundChild;
 			}
 		}
-		if(container is IFocusExtras)
+		if(Std.is(container, IFocusExtras))
 		{
 			extras = focusContainer.focusExtrasAfter;
 			if(extras)
@@ -514,7 +514,7 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function findPreviousChildFocus(child:DisplayObject):IFocusDisplayObject
 	{
-		if(child is IFocusDisplayObject)
+		if(Std.is(child, IFocusDisplayObject))
 		{
 			var childWithFocus:IFocusDisplayObject = IFocusDisplayObject(child);
 			if(this.isValidFocus(childWithFocus))
@@ -522,7 +522,7 @@ class DefaultFocusManager implements IFocusManager
 				return childWithFocus;
 			}
 		}
-		else if(child is DisplayObjectContainer)
+		else if(Std.is(child, DisplayObjectContainer))
 		{
 			var childContainer:DisplayObjectContainer = DisplayObjectContainer(child);
 			var foundChild:IFocusDisplayObject = this.findPreviousFocus(childContainer);
@@ -539,7 +539,7 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function findNextChildFocus(child:DisplayObject):IFocusDisplayObject
 	{
-		if(child is IFocusDisplayObject)
+		if(Std.is(child, IFocusDisplayObject))
 		{
 			var childWithFocus:IFocusDisplayObject = IFocusDisplayObject(child);
 			if(this.isValidFocus(childWithFocus))
@@ -547,7 +547,7 @@ class DefaultFocusManager implements IFocusManager
 				return childWithFocus;
 			}
 		}
-		else if(child is DisplayObjectContainer)
+		else if(Std.is(child, DisplayObjectContainer))
 		{
 			var childContainer:DisplayObjectContainer = DisplayObjectContainer(child);
 			var foundChild:IFocusDisplayObject = this.findNextFocus(childContainer);
@@ -681,7 +681,7 @@ class DefaultFocusManager implements IFocusManager
 		var target:DisplayObject = touch.target;
 		do
 		{
-			if(target is IFocusDisplayObject)
+			if(Std.is(target, IFocusDisplayObject))
 			{
 				var tempFocusTarget:IFocusDisplayObject = IFocusDisplayObject(target);
 				if(this.isValidFocus(tempFocusTarget))

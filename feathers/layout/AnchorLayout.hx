@@ -217,7 +217,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		{
 			var item:DisplayObject = items[i];
 			var layoutData:AnchorLayoutData;
-			if(item is ILayoutDisplayObject)
+			if(Std.is(item, ILayoutDisplayObject))
 			{
 				var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 				if(!layoutItem.includeInLayout)
@@ -248,7 +248,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var maxX:Float = result.x;
 		var maxY:Float = result.y;
 		var isAnchored:Bool = false;
-		if(item is ILayoutDisplayObject)
+		if(Std.is(item, ILayoutDisplayObject))
 		{
 			var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 			var layoutData:AnchorLayoutData = layoutItem.layoutData as AnchorLayoutData;
@@ -351,7 +351,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function getTopOffset(item:DisplayObject):Float
 	{
-		if(item is ILayoutDisplayObject)
+		if(Std.is(item, ILayoutDisplayObject))
 		{
 			var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 			var layoutData:AnchorLayoutData = layoutItem.layoutData as AnchorLayoutData;
@@ -411,7 +411,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function getRightOffset(item:DisplayObject):Float
 	{
-		if(item is ILayoutDisplayObject)
+		if(Std.is(item, ILayoutDisplayObject))
 		{
 			var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 			var layoutData:AnchorLayoutData = layoutItem.layoutData as AnchorLayoutData;
@@ -471,7 +471,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function getBottomOffset(item:DisplayObject):Float
 	{
-		if(item is ILayoutDisplayObject)
+		if(Std.is(item, ILayoutDisplayObject))
 		{
 			var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 			var layoutData:AnchorLayoutData = layoutItem.layoutData as AnchorLayoutData;
@@ -531,7 +531,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function getLeftOffset(item:DisplayObject):Float
 	{
-		if(item is ILayoutDisplayObject)
+		if(Std.is(item, ILayoutDisplayObject))
 		{
 			var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
 			var layoutData:AnchorLayoutData = layoutItem.layoutData as AnchorLayoutData;
@@ -1047,7 +1047,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 					control.validate();
 					continue;
 				}
-				if(control is ILayoutDisplayObject)
+				if(Std.is(control, ILayoutDisplayObject))
 				{
 					var layoutControl:ILayoutDisplayObject = ILayoutDisplayObject(control);
 					if(!layoutControl.includeInLayout)

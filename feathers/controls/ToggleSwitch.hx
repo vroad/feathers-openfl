@@ -543,7 +543,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_defaultLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -603,7 +603,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_disabledLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -664,7 +664,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_onLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -725,7 +725,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	public function set_offLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -1353,7 +1353,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1523,7 +1523,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1691,7 +1691,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -2094,7 +2094,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function updateSelection():Void
 	{
-		if(this.thumb is IToggle)
+		if(Std.is(this.thumb, IToggle))
 		{
 			var toggleThumb:IToggle = IToggle(this.thumb);
 			if(this._toggleThumbSelection)

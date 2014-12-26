@@ -39,7 +39,7 @@ import starling.events.TouchPhase;
 /**
  * Displays a pop-up at the center of the stage, filling the vertical space.
  * The content will be sized horizontally so that it is no larger than the
- * the width or height of the stage (whichever is smaller).
+ * the width or height of the stage (Std.is(whichever, smaller)).
  */
 class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPopUpContentManager
 {
@@ -184,7 +184,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 
 		this.content = content;
 		PopUpManager.addPopUp(this.content, true, false);
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
 			this.content.addEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
@@ -213,7 +213,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
 			this.content.removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
@@ -244,7 +244,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		maxWidth -= (this.marginLeft + this.marginRight);
 		var maxHeight:Float = stage.stageHeight - this.marginTop - this.marginBottom;
 		var hasSetBounds:Bool = false;
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
 			//if it's a ui control that is able to auto-size, this section
 			//will ensure that the control stays within the required bounds.
@@ -254,7 +254,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			uiContent.maxHeight = maxHeight;
 			hasSetBounds = true;
 		}
-		if(this.content is IValidating)
+		if(Std.is(this.content, IValidating))
 		{
 			IValidating(this.content).validate();
 		}
@@ -333,7 +333,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			touch.getLocation(stage, HELPER_POINT);
 			var hitTestResult:DisplayObject = stage.hitTest(HELPER_POINT, true);
 			var isInBounds:Bool = false;
-			if(this.content is DisplayObjectContainer)
+			if(Std.is(this.content, DisplayObjectContainer))
 			{
 				isInBounds = DisplayObjectContainer(this.content).contains(hitTestResult);
 			}
@@ -357,7 +357,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			touch.getLocation(stage, HELPER_POINT);
 			hitTestResult = stage.hitTest(HELPER_POINT, true);
 			isInBounds = false;
-			if(this.content is DisplayObjectContainer)
+			if(Std.is(this.content, DisplayObjectContainer))
 			{
 				isInBounds = DisplayObjectContainer(this.content).contains(hitTestResult);
 			}

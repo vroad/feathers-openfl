@@ -854,7 +854,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 		var unrenderedItemCount:Int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
 		var canUseBeforeAndAfter:Bool = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
-			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
+			(!(Std.is(this._layout, IVariableVirtualLayout)) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		if(canUseBeforeAndAfter)
 		{

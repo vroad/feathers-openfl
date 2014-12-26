@@ -2547,7 +2547,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -2726,7 +2726,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -2847,7 +2847,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(this._labelFunction != null)
 		{
 			var labelResult:Object = this._labelFunction(item);
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
 			}
@@ -2856,13 +2856,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this._labelField != null && item && item.hasOwnProperty(this._labelField))
 		{
 			labelResult = item[this._labelField];
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
 			}
 			return labelResult.toString();
 		}
-		else if(item is String)
+		else if(Std.is(item, String))
 		{
 			return item as String;
 		}
@@ -2904,7 +2904,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this._iconLabelFunction != null)
 		{
 			var labelResult:Object = this._iconLabelFunction(item);
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				this.refreshIconLabelcast(labelResult, String);
 			}
@@ -2917,7 +2917,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this._iconLabelField != null && item && item.hasOwnProperty(this._iconLabelField))
 		{
 			labelResult = item[this._iconLabelField];
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				this.refreshIconLabelcast(labelResult, String);
 			}
@@ -2970,7 +2970,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this._accessoryLabelFunction != null)
 		{
 			var labelResult:Object = this._accessoryLabelFunction(item);
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				this.refreshAccessoryLabelcast(labelResult, String);
 			}
@@ -2983,7 +2983,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this._accessoryLabelField != null && item && item.hasOwnProperty(this._accessoryLabelField))
 		{
 			labelResult = item[this._accessoryLabelField];
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				this.refreshAccessoryLabelcast(labelResult, String);
 			}
@@ -3641,9 +3641,9 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 		if(this.accessory)
 		{
-			if(this.accessory is IFeathersControl)
+			if(Std.is(this.accessory, IFeathersControl))
 			{
-				if(!(this.accessory is BitmapFontTextRenderer))
+				if(!(Std.is(this.accessory, BitmapFontTextRenderer)))
 				{
 					this.accessory.addEventListener(TouchEvent.TOUCH, accessory_touchHandler);
 				}
@@ -3726,7 +3726,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshAccessory():Void
 	{
-		if(this.accessory is IFeathersControl)
+		if(Std.is(this.accessory, IFeathersControl))
 		{
 			IFeathersControl(this.accessory).isEnabled = this._isEnabled;
 		}
@@ -3959,7 +3959,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 					this.iconLabel.maxWidth = 0;
 				}
 			}
-			if(this.currentIcon is IValidating)
+			if(Std.is(this.currentIcon, IValidating))
 			{
 				IValidating(this.currentIcon).validate();
 			}
@@ -3980,7 +3980,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (this.currentIcon.width + adjustedGap);
 			}
-			if(this.accessory is IValidating)
+			if(Std.is(this.accessory, IValidating))
 			{
 				IValidating(this.accessory).validate();
 			}
@@ -3992,7 +3992,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else if(this.iconLabel)
 		{
 			var accessoryAffectsIconLabelMaxWidth:Bool = hasAccessoryToLeftOrRight && (hasIconToLeftOrRight || this._layoutOrder == LAYOUT_ORDER_LABEL_ICON_ACCESSORY);
-			if(this.accessory is IValidating)
+			if(Std.is(this.accessory, IValidating))
 			{
 				IValidating(this.accessory).validate();
 			}
@@ -4013,7 +4013,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
-			if(this.currentIcon is IValidating)
+			if(Std.is(this.currentIcon, IValidating))
 			{
 				IValidating(this.currentIcon).validate();
 			}
@@ -4024,7 +4024,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else
 		{
-			if(this.currentIcon is IValidating)
+			if(Std.is(this.currentIcon, IValidating))
 			{
 				IValidating(this.currentIcon).validate();
 			}
@@ -4032,7 +4032,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (adjustedGap + this.currentIcon.width);
 			}
-			if(this.accessory is IValidating)
+			if(Std.is(this.accessory, IValidating))
 			{
 				IValidating(this.accessory).validate();
 			}

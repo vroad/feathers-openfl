@@ -1005,7 +1005,7 @@ package feathers.themes
 		{
 			button.defaultLabelProperties.elementFormat = this.darkUIElementFormat;
 			button.disabledLabelProperties.elementFormat = this.darkUIDisabledElementFormat;
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -1031,7 +1031,7 @@ package feathers.themes
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -1075,7 +1075,7 @@ package feathers.themes
 			skinSelector.setValueForState(this.buttonQuietHoverSkinTextures, Button.STATE_HOVER, false);
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(null, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -1096,7 +1096,7 @@ package feathers.themes
 			button.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
 			button.downLabelProperties.elementFormat = this.darkUIElementFormat;
 			button.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				var toggleButton:ToggleButton = ToggleButton(button);
 				toggleButton.defaultSelectedLabelProperties.elementFormat = this.darkUIElementFormat;
@@ -1605,7 +1605,7 @@ package feathers.themes
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 			iconSelector.defaultValue = this.pickerListButtonIconTexture;
 			iconSelector.setValueForState(this.pickerListButtonIconDisabledTexture, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button

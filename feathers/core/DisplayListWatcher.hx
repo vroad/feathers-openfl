@@ -262,7 +262,7 @@ class DisplayListWatcher extends EventDispatcher
 		for(i in 0 ... objectCount)
 		{
 			var object:DisplayObject = this._excludedObjects[i];
-			if(object is DisplayObjectContainer)
+			if(Std.is(object, DisplayObjectContainer))
 			{
 				if(DisplayObjectContainer(object).contains(target))
 				{
@@ -423,7 +423,7 @@ class DisplayListWatcher extends EventDispatcher
 		for(i in 0 ... superTypeCount)
 		{
 			var type:Class = this._initializerSuperTypes[i];
-			if(target is type)
+			if(Std.is(target, type))
 			{
 				this.applyAllStylesForTypeFromMaps(target, type, this._initializerSuperTypeMap);
 			}

@@ -810,7 +810,7 @@ package feathers.themes
 		{
 			button.defaultLabelProperties.textFormat = this.primaryTextFormat;
 			button.disabledLabelProperties.textFormat = this.disabledTextFormat;
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				ToggleButton(button).selectedDisabledLabelProperties.textFormat = this.disabledTextFormat;
 			}
@@ -833,7 +833,7 @@ package feathers.themes
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -873,7 +873,7 @@ package feathers.themes
 			skinSelector.defaultValue = null;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(null, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -957,7 +957,7 @@ package feathers.themes
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
 			skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 			skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				//for convenience, this function can style both a regular button
 				//and a toggle button
@@ -975,7 +975,7 @@ package feathers.themes
 
 			button.defaultLabelProperties.textFormat = this.primaryTextFormat;
 			button.disabledLabelProperties.textFormat = this.disabledTextFormat;
-			if(button is ToggleButton)
+			if(Std.is(button, ToggleButton))
 			{
 				ToggleButton(button).selectedDisabledLabelProperties.textFormat = this.disabledTextFormat;
 			}

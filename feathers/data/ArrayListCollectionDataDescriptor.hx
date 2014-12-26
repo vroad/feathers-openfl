@@ -91,7 +91,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	 */
 	private function checkForCorrectDataType(data:Object):Void
 	{
-		if(!(data is Array))
+		if(!(Std.is(data, Array)))
 		{
 			throw new IllegalOperationError("Expected Array. Received " + Object(data).constructor + " instead.");
 		}

@@ -119,7 +119,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	 */
 	private function checkForCorrectDataType(data:Object):Void
 	{
-		if(!(data is XMLList))
+		if(!(Std.is(data, XMLList)))
 		{
 			throw new IllegalOperationError("Expected XMLList. Received " + Object(data).constructor + " instead.");
 		}

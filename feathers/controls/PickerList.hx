@@ -534,14 +534,14 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			return;
 		}
-		if(this._popUpContentManager is EventDispatcher)
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
 			var dispatcher:EventDispatcher = EventDispatcher(this._popUpContentManager);
 			dispatcher.removeEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.removeEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this._popUpContentManager = value;
-		if(this._popUpContentManager is EventDispatcher)
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
 			dispatcher = EventDispatcher(this._popUpContentManager);
 			dispatcher.addEventListener(Event.OPEN, popUpContentManager_openHandler);
@@ -750,7 +750,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -921,7 +921,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -980,7 +980,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._toggleButtonOnOpenAndClose = value;
-		if(this.button is IToggle)
+		if(Std.is(this.button, IToggle))
 		{
 			if(this._toggleButtonOnOpenAndClose && this._popUpContentManager.isOpen)
 			{
@@ -1017,7 +1017,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		if(this._labelFunction != null)
 		{
 			var labelResult:Object = this._labelFunction(item);
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
 			}
@@ -1026,13 +1026,13 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		else if(this._labelField != null && item && item.hasOwnProperty(this._labelField))
 		{
 			labelResult = item[this._labelField];
-			if(labelResult is String)
+			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
 			}
 			return labelResult.toString();
 		}
-		else if(item is String)
+		else if(Std.is(item, String))
 		{
 			return item as String;
 		}
@@ -1365,7 +1365,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		var factory:Function = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
 		var buttonName:String = this._customButtonName != null ? this._customButtonName : this.buttonName;
 		this.button = Button(factory());
-		if(this.button is ToggleButton)
+		if(Std.is(this.button, ToggleButton))
 		{
 			//we'll control the value of isSelected manually
 			ToggleButton(this.button).isToggle = false;

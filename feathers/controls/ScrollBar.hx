@@ -1070,7 +1070,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1243,7 +1243,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1415,7 +1415,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1588,7 +1588,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1761,7 +1761,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)

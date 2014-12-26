@@ -743,7 +743,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -951,7 +951,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1157,7 +1157,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)

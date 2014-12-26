@@ -153,7 +153,7 @@ class LayoutGroup extends FeathersControl
 		this._layout = value;
 		if(this._layout)
 		{
-			if(this._layout is IVirtualLayout)
+			if(Std.is(this._layout, IVirtualLayout))
 			{
 				IVirtualLayout(this._layout).useVirtualLayout = false;
 			}
@@ -339,11 +339,11 @@ class LayoutGroup extends FeathersControl
 	 */
 	override public function addChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
-		if(child is IFeathersControl)
+		if(Std.is(child, IFeathersControl))
 		{
 			child.addEventListener(FeathersEventType.RESIZE, child_resizeHandler);
 		}
-		if(child is ILayoutDisplayObject)
+		if(Std.is(child, ILayoutDisplayObject))
 		{
 			child.addEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
@@ -376,11 +376,11 @@ class LayoutGroup extends FeathersControl
 	override public function removeChildAt(index:Int, dispose:Bool = false):DisplayObject
 	{
 		var child:DisplayObject = super.removeChildAt(index, dispose);
-		if(child is IFeathersControl)
+		if(Std.is(child, IFeathersControl))
 		{
 			child.removeEventListener(FeathersEventType.RESIZE, child_resizeHandler);
 		}
-		if(child is ILayoutDisplayObject)
+		if(Std.is(child, ILayoutDisplayObject))
 		{
 			child.removeEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
@@ -588,7 +588,7 @@ class LayoutGroup extends FeathersControl
 			if(this.originalBackgroundWidth != this.originalBackgroundWidth ||
 				this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
-				if(this.currentBackgroundSkin is IValidating)
+				if(Std.is(this.currentBackgroundSkin, IValidating))
 				{
 					IValidating(this.currentBackgroundSkin).validate();
 				}
@@ -640,7 +640,7 @@ class LayoutGroup extends FeathersControl
 			{
 				continue;
 			}
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
 				IValidating(item).validate();
 			}
@@ -671,7 +671,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	private function validateChildren():Void
 	{
-		if(this.currentBackgroundSkin is IValidating)
+		if(Std.is(this.currentBackgroundSkin, IValidating))
 		{
 			IValidating(this.currentBackgroundSkin).validate();
 		}
@@ -679,7 +679,7 @@ class LayoutGroup extends FeathersControl
 		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
 				IValidating(item).validate();
 			}

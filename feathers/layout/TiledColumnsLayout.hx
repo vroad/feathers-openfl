@@ -2088,7 +2088,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			{
 				continue;
 			}
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
 				IValidating(item).validate();
 			}
@@ -2109,7 +2109,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			this._typicalItem.width = this._typicalItemWidth;
 			this._typicalItem.height = this._typicalItemHeight;
 		}
-		if(this._typicalItem is IValidating)
+		if(Std.is(this._typicalItem, IValidating))
 		{
 			IValidating(this._typicalItem).validate();
 		}

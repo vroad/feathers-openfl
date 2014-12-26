@@ -212,7 +212,7 @@ class ToggleGroup extends EventDispatcher
 		}
 		item.addEventListener(Event.CHANGE, item_changeHandler);
 
-		if(item is IGroupedToggle)
+		if(Std.is(item, IGroupedToggle))
 		{
 			IGroupedToggle(item).toggleGroup = this;
 		}
@@ -238,7 +238,7 @@ class ToggleGroup extends EventDispatcher
 		}
 		this._items.splice(index, 1);
 		item.removeEventListener(Event.CHANGE, item_changeHandler);
-		if(item is IGroupedToggle)
+		if(Std.is(item, IGroupedToggle))
 		{
 			IGroupedToggle(item).toggleGroup = null;
 		}
@@ -270,7 +270,7 @@ class ToggleGroup extends EventDispatcher
 		{
 			var item:IToggle = this._items.shift();
 			item.removeEventListener(Event.CHANGE, item_changeHandler);
-			if(item is IGroupedToggle)
+			if(Std.is(item, IGroupedToggle))
 			{
 				IGroupedToggle(item).toggleGroup = null;
 			}

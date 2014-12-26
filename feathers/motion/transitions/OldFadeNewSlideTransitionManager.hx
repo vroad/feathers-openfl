@@ -170,7 +170,7 @@ class OldFadeNewSlideTransitionManager
 			return;
 		}
 		var newScreenClassAndID:String = getQualifiedClassName(newScreen);
-		if(newScreen is IScreen)
+		if(Std.is(newScreen, IScreen))
 		{
 			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
 		}
@@ -178,7 +178,7 @@ class OldFadeNewSlideTransitionManager
 		if(stackIndex < 0)
 		{
 			var oldScreenClassAndID:String = getQualifiedClassName(oldScreen);
-			if(oldScreen is IScreen)
+			if(Std.is(oldScreen, IScreen))
 			{
 				oldScreenClassAndID += "~" + IScreen(oldScreen).screenID;
 			}

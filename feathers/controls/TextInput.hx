@@ -856,7 +856,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1545,7 +1545,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -2029,7 +2029,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			(this._originalSkinWidth != this._originalSkinWidth || //isNaN
 				this._originalSkinHeight != this._originalSkinHeight)) //isNaN
 		{
-			if(this.currentBackground is IValidating)
+			if(Std.is(this.currentBackground, IValidating))
 			{
 				IValidating(this.currentBackground).validate();
 			}
@@ -2054,7 +2054,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		{
 			this.currentIcon = DisplayObject(this._iconSelector.updateValue(this, this._currentState, this.currentIcon));
 		}
-		if(this.currentIcon is IFeathersControl)
+		if(Std.is(this.currentIcon, IFeathersControl))
 		{
 			IFeathersControl(this.currentIcon).isEnabled = this._isEnabled;
 		}
@@ -2088,7 +2088,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.currentBackground.height = this.actualHeight;
 		}
 
-		if(this.currentIcon is IValidating)
+		if(Std.is(this.currentIcon, IValidating))
 		{
 			IValidating(this.currentIcon).validate();
 		}

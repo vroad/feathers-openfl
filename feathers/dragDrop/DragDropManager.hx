@@ -244,7 +244,7 @@ class DragDropManager
 	private static function updateDropTarget(location:Point):Void
 	{
 		var target:DisplayObject = Starling.current.stage.hitTest(location, true);
-		while(target && !(target is IDropTarget))
+		while(target && !(Std.is(target, IDropTarget)))
 		{
 			target = target.parent;
 		}

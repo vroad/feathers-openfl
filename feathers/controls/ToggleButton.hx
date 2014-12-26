@@ -384,7 +384,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_defaultSelectedLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -444,7 +444,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedUpLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -504,7 +504,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDownLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -564,7 +564,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedHoverLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
@@ -624,7 +624,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDisabledLabelProperties(value:Object):Void
 	{
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}

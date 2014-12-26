@@ -1075,7 +1075,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1248,7 +1248,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)
@@ -1420,7 +1420,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
 			for (propertyName in value)

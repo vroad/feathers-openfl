@@ -175,7 +175,7 @@ class DefaultPopUpManager implements IPopUpManager
 
 		if(isCentered)
 		{
-			if(popUp is IFeathersControl)
+			if(Std.is(popUp, IFeathersControl))
 			{
 				popUp.addEventListener(FeathersEventType.RESIZE, popUp_resizeHandler);
 			}
@@ -240,7 +240,7 @@ class DefaultPopUpManager implements IPopUpManager
 	public function centerPopUp(popUp:DisplayObject):Void
 	{
 		var stage:Stage = this._root.stage;
-		if(popUp is IValidating)
+		if(Std.is(popUp, IValidating))
 		{
 			IValidating(popUp).validate();
 		}
@@ -290,7 +290,7 @@ class DefaultPopUpManager implements IPopUpManager
 		index = this._centeredPopUps.indexOf(popUp);
 		if(index >= 0)
 		{
-			if(popUp is IFeathersControl)
+			if(Std.is(popUp, IFeathersControl))
 			{
 				popUp.removeEventListener(FeathersEventType.RESIZE, popUp_resizeHandler);
 			}

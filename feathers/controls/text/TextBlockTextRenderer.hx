@@ -317,7 +317,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		if(value is TextElement)
+		if(Std.is(value, TextElement))
 		{
 			this._textElement = TextElement(value);
 		}
