@@ -17,7 +17,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 		super();
 	}
 
-	override protected function initializeStyleProviders():void
+	override private function initializeStyleProviders():void
 	{
 		super.initializeStyleProviders();
 		this.getStyleProviderForClass(ContentView).defaultStyleFunction = setContentViewStyles;
@@ -25,7 +25,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 		this.getStyleProviderForClass(DrawerView).setFunctionForStyleName(THEME_NAME_LEFT_AND_RIGHT_DRAWER, setLeftAndRightDrawerViewStyles);
 	}
 
-	protected function setContentViewStyles(view:ContentView):void
+	private function setContentViewStyles(view:ContentView):void
 	{
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -33,7 +33,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 		view.layout = layout;
 	}
 
-	protected function setLeftAndRightDrawerViewStyles(view:DrawerView):void
+	private function setLeftAndRightDrawerViewStyles(view:DrawerView):void
 	{
 		view.backgroundSkin = new Quad(10, 10, LIST_BACKGROUND_COLOR);
 
@@ -45,7 +45,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 		view.layout = layout;
 	}
 
-	protected function setTopAndBottomDrawerViewStyles(view:DrawerView):void
+	private function setTopAndBottomDrawerViewStyles(view:DrawerView):void
 	{
 		view.backgroundSkin = new Quad(10, 10, GROUPED_LIST_HEADER_BACKGROUND_COLOR);
 

@@ -190,7 +190,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * Quickly sets both <code>horizontalGap</code> and <code>verticalGap</code>
@@ -220,7 +220,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _horizontalGap:Number = 0;
+	private var _horizontalGap:Number = 0;
 
 	/**
 	 * The horizontal space, in pixels, between tiles.
@@ -248,7 +248,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _verticalGap:Number = 0;
+	private var _verticalGap:Number = 0;
 
 	/**
 	 * The vertical space, in pixels, between tiles.
@@ -305,7 +305,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The space, in pixels, above of items.
@@ -333,7 +333,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The space, in pixels, to the right of the items.
@@ -361,7 +361,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The space, in pixels, below the items.
@@ -389,7 +389,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The space, in pixels, to the left of the items.
@@ -417,7 +417,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:int = 0;
 
 	/**
 	 * Requests that the layout uses a specific number of columns in a row,
@@ -458,7 +458,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _requestedRowCount:int = 0;
+	private var _requestedRowCount:int = 0;
 
 	/**
 	 * Requests that the layout uses a specific number of rows, if possible.
@@ -499,7 +499,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -533,7 +533,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -567,7 +567,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _tileVerticalAlign:String = TILE_VERTICAL_ALIGN_MIDDLE;
+	private var _tileVerticalAlign:String = TILE_VERTICAL_ALIGN_MIDDLE;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -602,7 +602,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _tileHorizontalAlign:String = TILE_HORIZONTAL_ALIGN_CENTER;
+	private var _tileHorizontalAlign:String = TILE_HORIZONTAL_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
@@ -637,7 +637,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paging:String = PAGING_NONE;
+	private var _paging:String = PAGING_NONE;
 
 	/**
 	 * If the total combined height of the rows is larger than the height
@@ -672,7 +672,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _useSquareTiles:Boolean = true;
+	private var _useSquareTiles:Boolean = true;
 
 	/**
 	 * Determines if the tiles must be square or if their width and height
@@ -701,7 +701,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _manageVisibility:Boolean = false;
+	private var _manageVisibility:Boolean = false;
 
 	/**
 	 * Determines if items will be set invisible if they are outside the
@@ -741,7 +741,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -769,7 +769,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -795,7 +795,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -833,7 +833,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Number = NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -880,7 +880,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Number = NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -1658,7 +1658,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function applyVisible(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, startX:Number, endX:Number, startY:Number, endY:Number):void
+	private function applyVisible(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, startX:Number, endX:Number, startY:Number, endY:Number):void
 	{
 		for(var i:int = startIndex; i <= endIndex; i++)
 		{
@@ -1677,7 +1677,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function applyHorizontalAlign(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, totalItemWidth:Number, availableWidth:Number):void
+	private function applyHorizontalAlign(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, totalItemWidth:Number, availableWidth:Number):void
 	{
 		if(totalItemWidth >= availableWidth)
 		{
@@ -1711,7 +1711,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function applyVerticalAlign(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, totalItemHeight:Number, availableHeight:Number):void
+	private function applyVerticalAlign(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, totalItemHeight:Number, availableHeight:Number):void
 	{
 		if(totalItemHeight >= availableHeight)
 		{
@@ -1743,7 +1743,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
+	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
@@ -1887,7 +1887,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
+	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
@@ -2004,7 +2004,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
+	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int>):void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
@@ -2082,7 +2082,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>):void
+	private function validateItems(items:Vector.<DisplayObject>):void
 	{
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -2102,7 +2102,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function prepareTypicalItem():void
+	private function prepareTypicalItem():void
 	{
 		if(!this._typicalItem)
 		{

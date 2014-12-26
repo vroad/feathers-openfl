@@ -37,7 +37,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _styleFunction:Function;
+	private var _styleFunction:Function;
 
 	/**
 	 * The target Feathers UI component is passed to this function when

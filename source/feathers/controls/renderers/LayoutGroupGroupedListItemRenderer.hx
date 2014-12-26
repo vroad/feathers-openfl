@@ -52,7 +52,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroupGroupedListItemRenderer.globalStyleProvider;
 	}
@@ -60,7 +60,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _groupIndex:int = -1;
+	private var _groupIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -81,7 +81,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _itemIndex:int = -1;
+	private var _itemIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -102,7 +102,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _layoutIndex:int = -1;
+	private var _layoutIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -123,7 +123,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _owner:GroupedList;
+	private var _owner:GroupedList;
 
 	/**
 	 * @inheritDoc
@@ -149,7 +149,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 
 	/**
 	 * @inheritDoc
@@ -175,7 +175,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	protected var _isSelected:Boolean;
+	private var _isSelected:Boolean;
 
 	/**
 	 * @inheritDoc
@@ -211,7 +211,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -260,7 +260,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	 *
 	 * @see #postLayout()
 	 */
-	protected function preLayout():void
+	private function preLayout():void
 	{
 
 	}
@@ -282,7 +282,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	 *
 	 * @see #preLayout()
 	 */
-	protected function postLayout():void
+	private function postLayout():void
 	{
 
 	}
@@ -293,7 +293,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	 *
 	 * <p>Don't forget to handle the case where the data is <code>null</code>.</p>
 	 */
-	protected function commitData():void
+	private function commitData():void
 	{
 
 	}

@@ -26,7 +26,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	protected var _imageProperties:Object;
+	private var _imageProperties:Object;
 
 	/**
 	 * Optional properties to set on the Image instance.

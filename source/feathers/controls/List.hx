@@ -258,12 +258,12 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @private
 	 * The guts of the List's functionality. Handles layout and selection.
 	 */
-	protected var dataViewPort:ListDataViewPort;
+	private var dataViewPort:ListDataViewPort;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return List.globalStyleProvider;
 	}
@@ -279,7 +279,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * The layout algorithm used to position and, optionally, size the
@@ -320,7 +320,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _dataProvider:ListCollection;
+	private var _dataProvider:ListCollection;
 	
 	/**
 	 * The collection of data displayed by the list. Changing this property
@@ -407,7 +407,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _isSelectable:Boolean = true;
+	private var _isSelectable:Boolean = true;
 	
 	/**
 	 * Determines if items in the list may be selected. By default only a
@@ -451,7 +451,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _selectedIndex:int = -1;
+	private var _selectedIndex:int = -1;
 	
 	/**
 	 * The index of the currently selected item. Returns <code>-1</code> if
@@ -570,7 +570,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _allowMultipleSelection:Boolean = false;
+	private var _allowMultipleSelection:Boolean = false;
 
 	/**
 	 * If <code>true</code> multiple items may be selected at a time. If
@@ -610,7 +610,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _selectedIndices:ListCollection = new ListCollection(new <int>[]);
+	private var _selectedIndices:ListCollection = new ListCollection(new <int>[]);
 
 	/**
 	 * The indices of the currently selected items. Returns an empty <code>Vector.&lt;int&gt;</code>
@@ -776,7 +776,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererType:Class = DefaultListItemRenderer;
+	private var _itemRendererType:Class = DefaultListItemRenderer;
 	
 	/**
 	 * The class used to instantiate item renderers. Must implement the
@@ -817,7 +817,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererFactory:Function;
+	private var _itemRendererFactory:Function;
 	
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -867,7 +867,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:Object = null;
+	private var _typicalItem:Object = null;
 	
 	/**
 	 * Used to auto-size the list when a virtualized layout is used. If the
@@ -906,7 +906,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererName:String;
+	private var _itemRendererName:String;
 
 	/**
 	 * A name to add to all item renderers in this list. Typically used by a
@@ -948,7 +948,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererProperties:PropertyProxy;
+	private var _itemRendererProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to all of the list's item
@@ -1032,7 +1032,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * <code>-1</code> means that the scroller won't scroll to an item after
 	 * validating.
 	 */
-	protected var pendingItemIndex:int = -1;
+	private var pendingItemIndex:int = -1;
 
 	/**
 	 * @private
@@ -1108,7 +1108,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		var hasLayout:Boolean = this._layout != null;
 
@@ -1146,7 +1146,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		this.refreshDataViewPortProperties();
 		super.draw();
@@ -1156,7 +1156,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function refreshDataViewPortProperties():void
+	private function refreshDataViewPortProperties():void
 	{
 		this.dataViewPort.isSelectable = this._isSelectable;
 		this.dataViewPort.allowMultipleSelection = this._allowMultipleSelection;
@@ -1173,7 +1173,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function handlePendingScroll():void
+	override private function handlePendingScroll():void
 	{
 		if(this.pendingItemIndex >= 0)
 		{
@@ -1210,7 +1210,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1219,7 +1219,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1228,7 +1228,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(!this._dataProvider)
 		{
@@ -1258,7 +1258,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -1266,7 +1266,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):void
 	{
 		this.horizontalScrollPosition = 0;
 		this.verticalScrollPosition = 0;
@@ -1275,7 +1275,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function selectedIndices_changeHandler(event:Event):void
+	private function selectedIndices_changeHandler(event:Event):void
 	{
 		if(this._selectedIndices.length > 0)
 		{

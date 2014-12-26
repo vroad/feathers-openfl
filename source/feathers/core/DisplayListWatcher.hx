@@ -119,12 +119,12 @@ class DisplayListWatcher extends EventDispatcher
 	 * Tracks the objects that have been initialized. Uses weak keys so that
 	 * the tracked objects can be garbage collected.
 	 */
-	protected var initializedObjects:Dictionary = new Dictionary(true);
+	private var initializedObjects:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _initializeOnce:Boolean = true;
+	private var _initializeOnce:Boolean = true;
 
 	/**
 	 * Determines if objects added to the display list are initialized only
@@ -164,32 +164,32 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * The root of the display list that is watched for added children.
 	 */
-	protected var root:DisplayObjectContainer;
+	private var root:DisplayObjectContainer;
 
 	/**
 	 * @private
 	 */
-	protected var _initializerNoNameTypeMap:Dictionary = new Dictionary(true);
+	private var _initializerNoNameTypeMap:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _initializerNameTypeMap:Dictionary = new Dictionary(true);
+	private var _initializerNameTypeMap:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _initializerSuperTypeMap:Dictionary = new Dictionary(true);
+	private var _initializerSuperTypeMap:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _initializerSuperTypes:Vector.<Class> = new <Class>[];
+	private var _initializerSuperTypes:Vector.<Class> = new <Class>[];
 
 	/**
 	 * @private
 	 */
-	protected var _excludedObjects:Vector.<DisplayObject>;
+	private var _excludedObjects:Vector.<DisplayObject>;
 
 	/**
 	 * Stops listening to the root and cleans up anything else that needs to
@@ -417,7 +417,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function processAllInitializers(target:DisplayObject):void
+	private function processAllInitializers(target:DisplayObject):void
 	{
 		var superTypeCount:int = this._initializerSuperTypes.length;
 		for(var i:int = 0; i < superTypeCount; i++)
@@ -435,7 +435,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):void
+	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):void
 	{
 		var initializer:Function;
 		var hasNameInitializer:Boolean = false;
@@ -474,7 +474,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function addedHandler(event:Event):void
+	private function addedHandler(event:Event):void
 	{
 		this.initializeObject(event.target as DisplayObject);
 	}

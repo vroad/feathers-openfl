@@ -33,7 +33,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected static var NATIVE_STAGE_TO_FOCUS_TARGET:Dictionary = new Dictionary(true);
+	private static var NATIVE_STAGE_TO_FOCUS_TARGET:Dictionary = new Dictionary(true);
 
 	/**
 	 * Constructor.
@@ -59,17 +59,17 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected var _starling:Starling;
+	private var _starling:Starling;
 
 	/**
 	 * @private
 	 */
-	protected var _nativeFocusTarget:NativeFocusTarget;
+	private var _nativeFocusTarget:NativeFocusTarget;
 
 	/**
 	 * @private
 	 */
-	protected var _root:DisplayObjectContainer;
+	private var _root:DisplayObjectContainer;
 
 	/**
 	 * @inheritDoc
@@ -82,7 +82,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected var _isEnabled:Boolean = false;
+	private var _isEnabled:Boolean = false;
 
 	/**
 	 * @inheritDoc
@@ -147,12 +147,12 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected var _savedFocus:IFocusDisplayObject;
+	private var _savedFocus:IFocusDisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _focus:IFocusDisplayObject;
+	private var _focus:IFocusDisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -215,7 +215,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function setFocusManager(target:DisplayObject):void
+	private function setFocusManager(target:DisplayObject):void
 	{
 		if(target is IFocusDisplayObject)
 		{
@@ -261,7 +261,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function clearFocusManager(target:DisplayObject):void
+	private function clearFocusManager(target:DisplayObject):void
 	{
 		if(target is IFocusDisplayObject)
 		{
@@ -315,7 +315,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function findPreviousFocus(container:DisplayObjectContainer, beforeChild:DisplayObject = null):IFocusDisplayObject
+	private function findPreviousFocus(container:DisplayObjectContainer, beforeChild:DisplayObject = null):IFocusDisplayObject
 	{
 		if(container is LayoutViewPort)
 		{
@@ -412,7 +412,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function findNextFocus(container:DisplayObjectContainer, afterChild:DisplayObject = null):IFocusDisplayObject
+	private function findNextFocus(container:DisplayObjectContainer, afterChild:DisplayObject = null):IFocusDisplayObject
 	{
 		if(container is LayoutViewPort)
 		{
@@ -512,7 +512,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function findPreviousChildFocus(child:DisplayObject):IFocusDisplayObject
+	private function findPreviousChildFocus(child:DisplayObject):IFocusDisplayObject
 	{
 		if(child is IFocusDisplayObject)
 		{
@@ -537,7 +537,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function findNextChildFocus(child:DisplayObject):IFocusDisplayObject
+	private function findNextChildFocus(child:DisplayObject):IFocusDisplayObject
 	{
 		if(child is IFocusDisplayObject)
 		{
@@ -562,7 +562,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function isValidFocus(child:IFocusDisplayObject):Boolean
+	private function isValidFocus(child:IFocusDisplayObject):Boolean
 	{
 		if(!child || !child.isFocusEnabled || child.focusManager != this)
 		{
@@ -579,7 +579,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function stage_mouseFocusChangeHandler(event:FocusEvent):void
+	private function stage_mouseFocusChangeHandler(event:FocusEvent):void
 	{
 		event.preventDefault();
 	}
@@ -587,7 +587,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function stage_keyFocusChangeHandler(event:FocusEvent):void
+	private function stage_keyFocusChangeHandler(event:FocusEvent):void
 	{
 		//keyCode 0 is sent by IE, for some reason
 		if(event.keyCode != Keyboard.TAB && event.keyCode != 0)
@@ -652,7 +652,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function topLevelContainer_addedHandler(event:Event):void
+	private function topLevelContainer_addedHandler(event:Event):void
 	{
 		this.setFocusManager(DisplayObject(event.target));
 
@@ -661,7 +661,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function topLevelContainer_removedHandler(event:Event):void
+	private function topLevelContainer_removedHandler(event:Event):void
 	{
 		this.clearFocusManager(DisplayObject(event.target));
 	}
@@ -669,7 +669,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function topLevelContainer_touchHandler(event:TouchEvent):void
+	private function topLevelContainer_touchHandler(event:TouchEvent):void
 	{
 		var touch:Touch = event.getTouch(this._root, TouchPhase.BEGAN);
 		if(!touch)
@@ -698,7 +698,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_focusOutHandler(event:FocusEvent):void
+	private function nativeFocus_focusOutHandler(event:FocusEvent):void
 	{
 		var nativeFocus:InteractiveObject = InteractiveObject(event.currentTarget);
 		var nativeStage:Stage = this._starling.nativeStage;

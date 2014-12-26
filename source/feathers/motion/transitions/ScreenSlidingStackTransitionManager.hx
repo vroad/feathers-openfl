@@ -66,27 +66,27 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * The <code>ScreenNavigator</code> being managed.
 	 */
-	protected var navigator:ScreenNavigator;
+	private var navigator:ScreenNavigator;
 
 	/**
 	 * @private
 	 */
-	protected var _stack:Vector.<String> = new <String>[];
+	private var _stack:Vector.<String> = new <String>[];
 
 	/**
 	 * @private
 	 */
-	protected var _activeTransition:Tween;
+	private var _activeTransition:Tween;
 
 	/**
 	 * @private
 	 */
-	protected var _savedOtherTarget:DisplayObject;
+	private var _savedOtherTarget:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Function;
 	
 	/**
 	 * The duration of the transition, in seconds.
@@ -133,7 +133,7 @@ class ScreenSlidingStackTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	protected function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
 	{
 		if(this._activeTransition)
 		{
@@ -201,7 +201,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransitionPush_onUpdate():void
+	private function activeTransitionPush_onUpdate():void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -213,7 +213,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransitionPop_onUpdate():void
+	private function activeTransitionPop_onUpdate():void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -225,7 +225,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransition_onComplete():void
+	private function activeTransition_onComplete():void
 	{
 		this._activeTransition = null;
 		this._savedOtherTarget = null;

@@ -133,23 +133,23 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
+	private static const LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
 	LOADER_CONTEXT.imageDecodingPolicy = ImageDecodingPolicy.ON_LOAD;
 
 	/**
 	 * @private
 	 */
-	protected static const ATF_FILE_EXTENSION:String = "atf";
+	private static const ATF_FILE_EXTENSION:String = "atf";
 
 	/**
 	 * @private
 	 */
-	protected static var textureQueueHead:ImageLoader;
+	private static var textureQueueHead:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected static var textureQueueTail:ImageLoader;
+	private static var textureQueueTail:ImageLoader;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ImageLoader</code>
@@ -171,64 +171,64 @@ class ImageLoader extends FeathersControl
 	/**
 	 * The internal <code>starling.display.Image</code> child.
 	 */
-	protected var image:Image;
+	private var image:Image;
 
 	/**
 	 * The internal <code>flash.display.Loader</code> used to load textures
 	 * from URLs.
 	 */
-	protected var loader:Loader;
+	private var loader:Loader;
 
 	/**
 	 * The internal <code>flash.net.URLLoader</code> used to load raw data
 	 * from URLs.
 	 */
-	protected var urlLoader:URLLoader;
+	private var urlLoader:URLLoader;
 
 	/**
 	 * @private
 	 */
-	protected var _lastURL:String;
+	private var _lastURL:String;
 
 	/**
 	 * @private
 	 */
-	protected var _currentTextureWidth:Number = NaN;
+	private var _currentTextureWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _currentTextureHeight:Number = NaN;
+	private var _currentTextureHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _currentTexture:Texture;
+	private var _currentTexture:Texture;
 
 	/**
 	 * @private
 	 */
-	protected var _texture:Texture;
+	private var _texture:Texture;
 
 	/**
 	 * @private
 	 */
-	protected var _textureBitmapData:BitmapData;
+	private var _textureBitmapData:BitmapData;
 
 	/**
 	 * @private
 	 */
-	protected var _textureRawData:ByteArray;
+	private var _textureRawData:ByteArray;
 
 	/**
 	 * @private
 	 */
-	protected var _isTextureOwner:Boolean = false;
+	private var _isTextureOwner:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ImageLoader.globalStyleProvider;
 	}
@@ -236,7 +236,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _source:Object;
+	private var _source:Object;
 
 	/**
 	 * The <code>Texture</code> to display, or a URL pointing to an image
@@ -301,7 +301,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _loadingTexture:Texture;
+	private var _loadingTexture:Texture;
 
 	/**
 	 * A texture to display while a URL source is loading.
@@ -338,7 +338,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _errorTexture:Texture;
+	private var _errorTexture:Texture;
 
 	/**
 	 * A texture to display when a URL source cannot be loaded for any
@@ -376,7 +376,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isLoaded:Boolean = false;
+	private var _isLoaded:Boolean = false;
 
 	/**
 	 * Indicates if the source has completed loading, if the source is a
@@ -643,17 +643,17 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _pendingBitmapDataTexture:BitmapData;
+	private var _pendingBitmapDataTexture:BitmapData;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingRawTextureData:ByteArray;
+	private var _pendingRawTextureData:ByteArray;
 
 	/**
 	 * @private
 	 */
-	protected var _delayTextureCreation:Boolean = false;
+	private var _delayTextureCreation:Boolean = false;
 
 	/**
 	 * Determines if a loaded bitmap may be converted to a texture
@@ -709,27 +709,27 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isInTextureQueue:Boolean = false;
+	private var _isInTextureQueue:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _textureQueuePrevious:ImageLoader;
+	private var _textureQueuePrevious:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var _textureQueueNext:ImageLoader;
+	private var _textureQueueNext:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var _accumulatedPrepareTextureTime:Number;
+	private var _accumulatedPrepareTextureTime:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _textureQueueDuration:Number = Number.POSITIVE_INFINITY;
+	private var _textureQueueDuration:Number = Number.POSITIVE_INFINITY;
 
 	/**
 	 * If <code>delayTextureCreation</code> is <code>true</code> and the
@@ -823,7 +823,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's top edge and the
@@ -859,7 +859,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's right edge and the
@@ -895,7 +895,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's bottom edge and the
@@ -931,7 +931,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the control's left edge and the
@@ -1008,7 +1008,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
@@ -1049,7 +1049,7 @@ class ImageLoader extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1102,7 +1102,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function commitData():void
+	private function commitData():void
 	{
 		if(this._source is Texture)
 		{
@@ -1191,7 +1191,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function commitStyles():void
+	private function commitStyles():void
 	{
 		if(!this.image)
 		{
@@ -1204,7 +1204,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		if(!this.image || !this._currentTexture)
 		{
@@ -1238,7 +1238,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshCurrentTexture():void
+	private function refreshCurrentTexture():void
 	{
 		var newTexture:Texture = this._texture;
 		if(!newTexture)
@@ -1298,7 +1298,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function cleanupTexture():void
+	private function cleanupTexture():void
 	{
 		if(this._isTextureOwner)
 		{
@@ -1337,7 +1337,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function verifyCurrentStarling():void
+	private function verifyCurrentStarling():void
 	{
 		if(!this.stage || Starling.current.stage === this.stage)
 		{
@@ -1356,7 +1356,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function replaceBitmapDataTexture(bitmapData:BitmapData):void
+	private function replaceBitmapDataTexture(bitmapData:BitmapData):void
 	{
 		if(Starling.handleLostContext && !Starling.current.contextValid)
 		{
@@ -1394,7 +1394,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function replaceRawTextureData(rawData:ByteArray):void
+	private function replaceRawTextureData(rawData:ByteArray):void
 	{
 		if(Starling.handleLostContext && !Starling.current.contextValid)
 		{
@@ -1432,7 +1432,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function addToTextureQueue():void
+	private function addToTextureQueue():void
 	{
 		if(!this._delayTextureCreation)
 		{
@@ -1465,7 +1465,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function removeFromTextureQueue():void
+	private function removeFromTextureQueue():void
 	{
 		if(!this._isInTextureQueue)
 		{
@@ -1513,7 +1513,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function preparePendingTexture():void
+	private function preparePendingTexture():void
 	{
 		if(this._textureQueueDuration > 0)
 		{
@@ -1529,7 +1529,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function processPendingTexture():void
+	private function processPendingTexture():void
 	{
 		if(this._pendingBitmapDataTexture)
 		{
@@ -1552,7 +1552,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function processTextureQueue_enterFrameHandler(event:EnterFrameEvent):void
+	private function processTextureQueue_enterFrameHandler(event:EnterFrameEvent):void
 	{
 		this._accumulatedPrepareTextureTime += event.passedTime;
 		if(this._accumulatedPrepareTextureTime >= this._textureQueueDuration)
@@ -1565,7 +1565,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function imageLoader_removedFromStageHandler(event:starling.events.Event):void
+	private function imageLoader_removedFromStageHandler(event:starling.events.Event):void
 	{
 		if(this._isInTextureQueue)
 		{
@@ -1576,7 +1576,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):void
 	{
 		var bitmap:Bitmap = Bitmap(this.loader.content);
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
@@ -1603,7 +1603,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
@@ -1618,7 +1618,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rawDataLoader_completeHandler(event:flash.events.Event):void
+	private function rawDataLoader_completeHandler(event:flash.events.Event):void
 	{
 		var rawData:ByteArray = ByteArray(this.urlLoader.data);
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
@@ -1644,7 +1644,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rawDataLoader_errorHandler(event:ErrorEvent):void
+	private function rawDataLoader_errorHandler(event:ErrorEvent):void
 	{
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);

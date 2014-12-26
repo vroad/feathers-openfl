@@ -37,7 +37,7 @@ class StationScreen extends Screen
 
 	private var _headerTween:Tween;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._stationList = new List();
 		this._stationList.styleNameList.add(CHILD_NAME_STATION_LIST);
@@ -72,7 +72,7 @@ class StationScreen extends Screen
 		this.addChild(this._destinationHeader);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		this._departureHeader.width = this.actualWidth;
 		this._destinationHeader.width = this.actualWidth;

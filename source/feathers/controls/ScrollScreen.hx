@@ -168,7 +168,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ScrollScreen.globalStyleProvider;
 	}
@@ -176,7 +176,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _screenID:String;
+	private var _screenID:String;
 
 	/**
 	 * @inheritDoc
@@ -197,7 +197,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _owner:ScreenNavigator;
+	private var _owner:ScreenNavigator;
 
 	/**
 	 * @inheritDoc
@@ -236,7 +236,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var backButtonHandler:Function;
+	private var backButtonHandler:Function;
 
 	/**
 	 * Optional callback for the menu hardware key. Automatically handles
@@ -259,7 +259,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var menuButtonHandler:Function;
+	private var menuButtonHandler:Function;
 
 	/**
 	 * Optional callback for the search hardware key. Automatically handles
@@ -282,12 +282,12 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var searchButtonHandler:Function;
+	private var searchButtonHandler:Function;
 
 	/**
 	 * @private
 	 */
-	protected function scrollScreen_addedToStageHandler(event:Event):void
+	private function scrollScreen_addedToStageHandler(event:Event):void
 	{
 		this.addEventListener(Event.REMOVED_FROM_STAGE, scrollScreen_removedFromStageHandler);
 		//using priority here is a hack so that objects higher up in the
@@ -299,7 +299,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	protected function scrollScreen_removedFromStageHandler(event:Event):void
+	private function scrollScreen_removedFromStageHandler(event:Event):void
 	{
 		this.removeEventListener(Event.REMOVED_FROM_STAGE, scrollScreen_removedFromStageHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, scrollScreen_nativeStage_keyDownHandler);
@@ -308,7 +308,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	protected function scrollScreen_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function scrollScreen_nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{

@@ -78,7 +78,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Radio.globalStyleProvider;
 	}
@@ -94,7 +94,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	protected var _toggleGroup:ToggleGroup;
+	private var _toggleGroup:ToggleGroup;
 
 	/**
 	 * @inheritDoc
@@ -137,7 +137,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	protected function radio_addedToStageHandler(event:Event):void
+	private function radio_addedToStageHandler(event:Event):void
 	{
 		if(!this._toggleGroup)
 		{
@@ -148,7 +148,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	protected function radio_removedFromStageHandler(event:Event):void
+	private function radio_removedFromStageHandler(event:Event):void
 	{
 		if(this._toggleGroup == defaultRadioGroup)
 		{

@@ -159,12 +159,12 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected var content:DisplayObject;
+	private var content:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var touchPointID:int = -1;
+	private var touchPointID:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -235,7 +235,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		var stage:Stage = Starling.current.stage;
 		var maxWidth:Number = stage.stageWidth;
@@ -282,7 +282,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected function content_resizeHandler(event:Event):void
+	private function content_resizeHandler(event:Event):void
 	{
 		this.layout();
 	}
@@ -290,7 +290,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{
@@ -310,7 +310,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.layout();
 	}
@@ -318,7 +318,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	protected function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):void
 	{
 		if(!PopUpManager.isTopLevelPopUp(this.content))
 		{

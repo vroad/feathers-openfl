@@ -43,7 +43,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _percentWidth:Number = NaN;
+	private var _percentWidth:Number = NaN;
 
 	/**
 	 * The width of the layout object, as a percentage of the container's
@@ -74,7 +74,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _percentHeight:Number = NaN;
+	private var _percentHeight:Number = NaN;
 
 	/**
 	 * The height of the layout object, as a percentage of the container's
@@ -105,7 +105,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _topAnchorDisplayObject:DisplayObject;
+	private var _topAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The top edge of the layout object will be relative to this anchor.
@@ -137,7 +137,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _top:Number = NaN;
+	private var _top:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the top edge relative to the top
@@ -170,7 +170,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _rightAnchorDisplayObject:DisplayObject;
+	private var _rightAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The right edge of the layout object will be relative to this anchor.
@@ -202,7 +202,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _right:Number = NaN;
+	private var _right:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the right edge relative to the right
@@ -235,7 +235,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _bottomAnchorDisplayObject:DisplayObject;
+	private var _bottomAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The bottom edge of the layout object will be relative to this anchor.
@@ -267,7 +267,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _bottom:Number = NaN;
+	private var _bottom:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the bottom edge relative to the bottom
@@ -300,7 +300,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _leftAnchorDisplayObject:DisplayObject;
+	private var _leftAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The left edge of the layout object will be relative to this anchor.
@@ -332,7 +332,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _left:Number = NaN;
+	private var _left:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the left edge relative to the left
@@ -365,7 +365,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _horizontalCenterAnchorDisplayObject:DisplayObject;
+	private var _horizontalCenterAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The horizontal center of the layout object will be relative to this
@@ -397,7 +397,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _horizontalCenter:Number = NaN;
+	private var _horizontalCenter:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the horizontal center relative to the
@@ -431,7 +431,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _verticalCenterAnchorDisplayObject:DisplayObject;
+	private var _verticalCenterAnchorDisplayObject:DisplayObject;
 
 	/**
 	 * The vertical center of the layout object will be relative to this
@@ -463,7 +463,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _verticalCenter:Number = NaN;
+	private var _verticalCenter:Number = NaN;
 
 	/**
 	 * The position, in pixels, of the vertical center relative to the

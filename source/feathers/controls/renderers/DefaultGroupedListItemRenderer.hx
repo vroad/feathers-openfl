@@ -184,7 +184,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return DefaultGroupedListItemRenderer.globalStyleProvider;
 	}
@@ -192,7 +192,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	protected var _groupIndex:int = -1;
+	private var _groupIndex:int = -1;
 	
 	/**
 	 * @inheritDoc
@@ -213,7 +213,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	protected var _itemIndex:int = -1;
+	private var _itemIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -234,7 +234,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	protected var _layoutIndex:int = -1;
+	private var _layoutIndex:int = -1;
 
 	/**
 	 * @inheritDoc

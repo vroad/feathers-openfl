@@ -204,7 +204,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_POSITION:String = "position";
+	private static const INVALIDATION_FLAG_POSITION:String = "position";
 
 	/**
 	 * Constructor.
@@ -250,28 +250,28 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * The StageText instance. It's typed Object so that a replacement class
 	 * can be used in browser-based Flash Player.
 	 */
-	protected var stageText:Object;
+	private var stageText:Object;
 
 	/**
 	 * An image that displays a snapshot of the native <code>StageText</code>
 	 * in the Starling display list when the editor doesn't have focus.
 	 */
-	protected var textSnapshot:Image;
+	private var textSnapshot:Image;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreStageTextChanges:Boolean = false;
+	private var _ignoreStageTextChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * The text displayed by the input.
@@ -310,7 +310,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _measureTextField:TextField;
+	private var _measureTextField:TextField;
 
 	/**
 	 * @private
@@ -318,22 +318,22 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * the hood. We want to eliminate that damn TextField gutter to improve
 	 * consistency across platforms.
 	 */
-	protected var _stageTextIsTextField:Boolean = false;
+	private var _stageTextIsTextField:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _stageTextHasFocus:Boolean = false;
+	private var _stageTextHasFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -354,7 +354,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -375,7 +375,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _stageTextIsComplete:Boolean = false;
+	private var _stageTextIsComplete:Boolean = false;
 
 	/**
 	 * @inheritDoc
@@ -392,7 +392,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _autoCapitalize:String = "none";
+	private var _autoCapitalize:String = "none";
 
 	/**
 	 * Controls how a device applies auto capitalization to user input. This
@@ -429,7 +429,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _autoCorrect:Boolean = false;
+	private var _autoCorrect:Boolean = false;
 
 	/**
 	 * Indicates whether a device auto-corrects user input for spelling or
@@ -467,7 +467,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _color:uint = 0x000000;
+	private var _color:uint = 0x000000;
 
 	/**
 	 * Specifies text color as a number containing three 8-bit RGB
@@ -504,7 +504,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _disabledColor:uint = 0x999999;
+	private var _disabledColor:uint = 0x999999;
 
 	/**
 	 * Specifies text color when the component is disabled as a number
@@ -542,7 +542,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Boolean = false;
 
 	/**
 	 * Indicates whether the text field is a password text field that hides
@@ -578,7 +578,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _isEditable:Boolean = true;
+	private var _isEditable:Boolean = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -622,7 +622,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _fontFamily:String = null;
+	private var _fontFamily:String = null;
 
 	/**
 	 * Indicates the name of the current font family. A value of null
@@ -658,7 +658,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _fontPosture:String = FontPosture.NORMAL;
+	private var _fontPosture:String = FontPosture.NORMAL;
 
 	/**
 	 * Specifies the font posture, using constants defined in the
@@ -695,7 +695,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _fontSize:int = 12;
+	private var _fontSize:int = 12;
 
 	/**
 	 * The size in pixels for the current font family.
@@ -730,7 +730,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _fontWeight:String = FontWeight.NORMAL;
+	private var _fontWeight:String = FontWeight.NORMAL;
 
 	/**
 	 * Specifies the font weight, using constants defined in the
@@ -767,7 +767,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _locale:String = "en";
+	private var _locale:String = "en";
 
 	/**
 	 * Indicates the locale of the text. <code>StageText</code> uses the
@@ -804,7 +804,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _maxChars:int = 0;
+	private var _maxChars:int = 0;
 
 	/**
 	 * Indicates the maximum number of characters that a user can enter into
@@ -842,7 +842,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _multiline:Boolean = false;
+	private var _multiline:Boolean = false;
 
 	/**
 	 * Indicates whether the StageText object can display more than one line
@@ -886,7 +886,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _restrict:String;
+	private var _restrict:String;
 
 	/**
 	 * Restricts the set of characters that a user can enter into the text
@@ -923,7 +923,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _returnKeyLabel:String = "default";
+	private var _returnKeyLabel:String = "default";
 
 	/**
 	 * Indicates the label on the Return key for devices that feature a soft
@@ -963,7 +963,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _softKeyboardType:String = "default";
+	private var _softKeyboardType:String = "default";
 
 	/**
 	 * Controls the appearance of the soft keyboard. Valid values are
@@ -1003,7 +1003,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _textAlign:String = TextFormatAlign.START;
+	private var _textAlign:String = TextFormatAlign.START;
 
 	/**
 	 * Indicates the paragraph alignment. Valid values are defined as
@@ -1277,7 +1277,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(this._measureTextField && !this._measureTextField.parent)
 		{
@@ -1302,7 +1302,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1316,7 +1316,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function commit():void
+	private function commit():void
 	{
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1357,7 +1357,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function measure(result:Point = null):Point
+	private function measure(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1422,7 +1422,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):void
 	{
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1472,7 +1472,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1488,7 +1488,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshMeasureProperties():void
+	private function refreshMeasureProperties():void
 	{
 		var nativeScaleFactor:Number = 1;
 		if(Starling.current.supportHighResolutions)
@@ -1532,7 +1532,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshStageTextProperties():void
+	private function refreshStageTextProperties():void
 	{
 		if(this.stageText.multiline != this._multiline)
 		{
@@ -1581,7 +1581,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function doPendingActions():void
+	private function doPendingActions():void
 	{
 		if(this._isWaitingToSetFocus)
 		{
@@ -1607,7 +1607,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function texture_onRestore():void
+	private function texture_onRestore():void
 	{
 		this.refreshSnapshot();
 		if(this.textSnapshot)
@@ -1624,7 +1624,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshot():void
+	private function refreshSnapshot():void
 	{
 		//StageText's stage property cannot be null when we call
 		//drawViewPortToBitmapData()
@@ -1709,7 +1709,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshViewPort():void
+	private function refreshViewPort():void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageTextViewPort:Rectangle = this.stageText.viewPort;
@@ -1762,7 +1762,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function disposeStageText():void
+	private function disposeStageText():void
 	{
 		if(!this.stageText)
 		{
@@ -1787,7 +1787,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function createStageText():void
+	private function createStageText():void
 	{
 		this._stageTextIsComplete = false;
 		var StageTextType:Class;
@@ -1819,7 +1819,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function textEditor_removedFromStageHandler(event:starling.events.Event):void
+	private function textEditor_removedFromStageHandler(event:starling.events.Event):void
 	{
 		//remove this from the stage, if needed
 		//it will be added back next time we receive focus
@@ -1829,7 +1829,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_changeHandler(event:flash.events.Event):void
+	private function stageText_changeHandler(event:flash.events.Event):void
 	{
 		if(this._ignoreStageTextChanges)
 		{
@@ -1841,7 +1841,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_completeHandler(event:flash.events.Event):void
+	private function stageText_completeHandler(event:flash.events.Event):void
 	{
 		this.stageText.removeEventListener(flash.events.Event.COMPLETE, stageText_completeHandler);
 		this.invalidate();
@@ -1852,7 +1852,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_focusInHandler(event:FocusEvent):void
+	private function stageText_focusInHandler(event:FocusEvent):void
 	{
 		this._stageTextHasFocus = true;
 		if(this.textSnapshot)
@@ -1866,7 +1866,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_focusOutHandler(event:FocusEvent):void
+	private function stageText_focusOutHandler(event:FocusEvent):void
 	{
 		this._stageTextHasFocus = false;
 		//since StageText doesn't expose its scroll position, we need to
@@ -1883,7 +1883,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_keyDownHandler(event:KeyboardEvent):void
+	private function stageText_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))
 		{
@@ -1903,7 +1903,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_keyUpHandler(event:KeyboardEvent):void
+	private function stageText_keyUpHandler(event:KeyboardEvent):void
 	{
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))
 		{
@@ -1914,7 +1914,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_softKeyboardActivateHandler(event:SoftKeyboardEvent):void
+	private function stageText_softKeyboardActivateHandler(event:SoftKeyboardEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
 	}
@@ -1922,7 +1922,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):void
+	private function stageText_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}

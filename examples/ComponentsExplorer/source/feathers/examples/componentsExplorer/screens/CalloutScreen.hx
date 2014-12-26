@@ -54,7 +54,7 @@ class CalloutScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return CalloutScreen.globalStyleProvider;
 	}
@@ -71,7 +71,7 @@ class CalloutScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -124,7 +124,7 @@ class CalloutScreen extends PanelScreen
 		}
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 

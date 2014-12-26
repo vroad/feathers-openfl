@@ -90,17 +90,17 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
+	private static const INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const LABEL_FIELD:String = "label";
+	private static const LABEL_FIELD:String = "label";
 
 	/**
 	 * @private
 	 */
-	protected static const ENABLED_FIELD:String = "isEnabled";
+	private static const ENABLED_FIELD:String = "isEnabled";
 
 	/**
 	 * @private
@@ -220,7 +220,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function defaultButtonFactory():Button
+	private static function defaultButtonFactory():Button
 	{
 		return new Button();
 	}
@@ -235,7 +235,7 @@ class ButtonGroup extends FeathersControl
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the buttons. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the button name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_BUTTON</code>.
 	 *
@@ -245,7 +245,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #customButtonName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var buttonName:String = DEFAULT_CHILD_NAME_BUTTON;
+	private var buttonName:String = DEFAULT_CHILD_NAME_BUTTON;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the first button.
@@ -256,7 +256,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #customFirstButtonName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var firstButtonName:String = DEFAULT_CHILD_NAME_BUTTON;
+	private var firstButtonName:String = DEFAULT_CHILD_NAME_BUTTON;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the last button.
@@ -267,47 +267,47 @@ class ButtonGroup extends FeathersControl
 	 * @see #customLastButtonName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var lastButtonName:String = DEFAULT_CHILD_NAME_BUTTON;
+	private var lastButtonName:String = DEFAULT_CHILD_NAME_BUTTON;
 
 	/**
 	 * @private
 	 */
-	protected var activeFirstButton:Button;
+	private var activeFirstButton:Button;
 
 	/**
 	 * @private
 	 */
-	protected var inactiveFirstButton:Button;
+	private var inactiveFirstButton:Button;
 
 	/**
 	 * @private
 	 */
-	protected var activeLastButton:Button;
+	private var activeLastButton:Button;
 
 	/**
 	 * @private
 	 */
-	protected var inactiveLastButton:Button;
+	private var inactiveLastButton:Button;
 
 	/**
 	 * @private
 	 */
-	protected var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var activeButtons:Vector.<Button> = new <Button>[];
+	private var activeButtons:Vector.<Button> = new <Button>[];
 
 	/**
 	 * @private
 	 */
-	protected var inactiveButtons:Vector.<Button> = new <Button>[];
+	private var inactiveButtons:Vector.<Button> = new <Button>[];
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ButtonGroup.globalStyleProvider;
 	}
@@ -315,7 +315,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _dataProvider:ListCollection;
+	private var _dataProvider:ListCollection;
 
 	/**
 	 * The collection of data to be displayed with buttons.
@@ -399,27 +399,27 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var verticalLayout:VerticalLayout;
+	private var verticalLayout:VerticalLayout;
 
 	/**
 	 * @private
 	 */
-	protected var horizontalLayout:HorizontalLayout;
+	private var horizontalLayout:HorizontalLayout;
 
 	/**
 	 * @private
 	 */
-	protected var _viewPortBounds:ViewPortBounds = new ViewPortBounds();
+	private var _viewPortBounds:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	protected var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
+	private var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	protected var _direction:String = DIRECTION_VERTICAL;
+	private var _direction:String = DIRECTION_VERTICAL;
 
 	[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
@@ -457,7 +457,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
 
 	[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
@@ -497,7 +497,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
+	private var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -537,7 +537,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _distributeButtonSizes:Boolean = true;
+	private var _distributeButtonSizes:Boolean = true;
 
 	/**
 	 * If <code>true</code>, the buttons will be equally sized in the
@@ -575,7 +575,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * Space, in pixels, between buttons.
@@ -609,7 +609,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _firstGap:Number = NaN;
+	private var _firstGap:Number = NaN;
 
 	/**
 	 * Space, in pixels, between the first two buttons. If <code>NaN</code>,
@@ -648,7 +648,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _lastGap:Number = NaN;
+	private var _lastGap:Number = NaN;
 
 	/**
 	 * Space, in pixels, between the last two buttons. If <code>NaN</code>,
@@ -722,7 +722,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's top edge and the
@@ -757,7 +757,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's right edge and the
@@ -792,7 +792,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's bottom edge and the
@@ -827,7 +827,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the group's left edge and the
@@ -862,7 +862,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _buttonFactory:Function = defaultButtonFactory;
+	private var _buttonFactory:Function = defaultButtonFactory;
 
 	/**
 	 * Creates a new button. A button must be an instance of <code>Button</code>.
@@ -913,7 +913,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _firstButtonFactory:Function;
+	private var _firstButtonFactory:Function;
 
 	/**
 	 * Creates a new first button. If the <code>firstButtonFactory</code> is
@@ -966,7 +966,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _lastButtonFactory:Function;
+	private var _lastButtonFactory:Function;
 
 	/**
 	 * Creates a new last button. If the <code>lastButtonFactory</code> is
@@ -1019,7 +1019,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _buttonInitializer:Function = defaultButtonInitializer;
+	private var _buttonInitializer:Function = defaultButtonInitializer;
 
 	/**
 	 * Modifies a button, perhaps by changing its label and icons, based on the
@@ -1065,7 +1065,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customButtonName:String;
+	private var _customButtonName:String;
 
 	/**
 	 * A name to add to all buttons in this button group. Typically used by
@@ -1108,7 +1108,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customFirstButtonName:String;
+	private var _customFirstButtonName:String;
 
 	/**
 	 * A name to add to the first button in this button group. Typically
@@ -1150,7 +1150,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customLastButtonName:String;
+	private var _customLastButtonName:String;
 
 	/**
 	 * A name to add to the last button in this button group. Typically used
@@ -1192,7 +1192,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _buttonProperties:PropertyProxy;
+	private var _buttonProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to all of the button
@@ -1280,7 +1280,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1314,7 +1314,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function commitEnabled():void
+	private function commitEnabled():void
 	{
 		var buttonCount:int = this.activeButtons.length;
 		for(var i:int = 0; i < buttonCount; i++)
@@ -1327,7 +1327,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshButtonStyles():void
+	private function refreshButtonStyles():void
 	{
 		for(var propertyName:String in this._buttonProperties)
 		{
@@ -1342,7 +1342,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshLayoutStyles():void
+	private function refreshLayoutStyles():void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1393,7 +1393,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function defaultButtonInitializer(button:Button, item:Object):void
+	private function defaultButtonInitializer(button:Button, item:Object):void
 	{
 		if(item is Object)
 		{
@@ -1453,7 +1453,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshButtons(isFactoryInvalid:Boolean):void
+	private function refreshButtons(isFactoryInvalid:Boolean):void
 	{
 		var temp:Vector.<Button> = this.inactiveButtons;
 		this.inactiveButtons = this.activeButtons;
@@ -1510,7 +1510,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function clearInactiveButtons():void
+	private function clearInactiveButtons():void
 	{
 		var itemCount:int = this.inactiveButtons.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1535,7 +1535,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createFirstButton(item:Object):Button
+	private function createFirstButton(item:Object):Button
 	{
 		var isNewInstance:Boolean = false;
 		if(this.inactiveFirstButton)
@@ -1576,7 +1576,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createLastButton(item:Object):Button
+	private function createLastButton(item:Object):Button
 	{
 		var isNewInstance:Boolean = false;
 		if(this.inactiveLastButton)
@@ -1617,7 +1617,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createButton(item:Object):Button
+	private function createButton(item:Object):Button
 	{
 		var isNewInstance:Boolean = false;
 		if(this.inactiveButtons.length == 0)
@@ -1652,7 +1652,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function destroyButton(button:Button):void
+	private function destroyButton(button:Button):void
 	{
 		button.removeEventListener(Event.TRIGGERED, button_triggeredHandler);
 		this.removeChild(button, true);
@@ -1661,7 +1661,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutButtons():void
+	private function layoutButtons():void
 	{
 		this._viewPortBounds.x = 0;
 		this._viewPortBounds.y = 0;
@@ -1687,7 +1687,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1695,7 +1695,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -1703,7 +1703,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function button_triggeredHandler(event:Event):void
+	private function button_triggeredHandler(event:Event):void
 	{
 		//if this was called after dispose, ignore it
 		if(!this._dataProvider || !this.activeButtons)
@@ -1719,7 +1719,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function defaultButtonEventsListener(event:Event):void
+	private function defaultButtonEventsListener(event:Event):void
 	{
 		var button:Button = Button(event.currentTarget);
 		var index:int = this.activeButtons.indexOf(button);

@@ -255,47 +255,47 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var textEditorViewPort:ITextEditorViewPort;
+	private var textEditorViewPort:ITextEditorViewPort;
 
 	/**
 	 * @private
 	 */
-	protected var _textEditorHasFocus:Boolean = false;
+	private var _textEditorHasFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionStartIndex:int = -1;
+	private var _pendingSelectionStartIndex:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _textAreaTouchPointID:int = -1;
+	private var _textAreaTouchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _oldMouseCursor:String = null;
+	private var _oldMouseCursor:String = null;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreTextChanges:Boolean = false;
+	private var _ignoreTextChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TextArea.globalStyleProvider;
 	}
@@ -341,7 +341,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _stateNames:Vector.<String> = new <String>
+	private var _stateNames:Vector.<String> = new <String>
 	[
 		STATE_ENABLED, STATE_DISABLED, STATE_FOCUSED
 	];
@@ -353,7 +353,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #currentState
 	 */
-	protected function get stateNames():Vector.<String>
+	private function get stateNames():Vector.<String>
 	{
 		return this._stateNames;
 	}
@@ -361,14 +361,14 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _currentState:String = STATE_ENABLED;
+	private var _currentState:String = STATE_ENABLED;
 
 	/**
 	 * The current state of the input.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected function get currentState():String
+	private function get currentState():String
 	{
 		return this._currentState;
 	}
@@ -376,7 +376,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set currentState(value:String):void
+	private function set currentState(value:String):void
 	{
 		if(this._currentState == value)
 		{
@@ -393,7 +393,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * The text displayed by the text area. The text area dispatches
@@ -436,7 +436,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _maxChars:int = 0;
+	private var _maxChars:int = 0;
 
 	/**
 	 * The maximum number of characters that may be entered.
@@ -470,7 +470,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _restrict:String;
+	private var _restrict:String;
 
 	/**
 	 * Limits the set of characters that may be entered.
@@ -504,7 +504,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _isEditable:Boolean = true;
+	private var _isEditable:Boolean = true;
 
 	/**
 	 * Determines if the text area is editable. If the text area is not
@@ -538,7 +538,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _backgroundFocusedSkin:DisplayObject;
+	private var _backgroundFocusedSkin:DisplayObject;
 
 	/**
 	 * A display object displayed behind the text area's content when it
@@ -585,7 +585,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _stateToSkinFunction:Function;
+	private var _stateToSkinFunction:Function;
 
 	/**
 	 * Returns a skin for the current state.
@@ -616,7 +616,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textEditorFactory:Function;
+	private var _textEditorFactory:Function;
 
 	/**
 	 * A function used to instantiate the text editor view port. If
@@ -666,7 +666,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textEditorProperties:PropertyProxy;
+	private var _textEditorProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the text area's text
@@ -824,7 +824,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var textEditorInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -876,7 +876,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see #textEditorViewPort
 	 * @see #textEditorFactory
 	 */
-	protected function createTextEditor():void
+	private function createTextEditor():void
 	{
 		if(this.textEditorViewPort)
 		{
@@ -910,7 +910,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function doPendingActions():void
+	private function doPendingActions():void
 	{
 		if(this._isWaitingToSetFocus || (this._focusManager && this._focusManager.focus == this))
 		{
@@ -933,7 +933,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function refreshTextEditorProperties():void
+	private function refreshTextEditorProperties():void
 	{
 		this.textEditorViewPort.maxChars = this._maxChars;
 		this.textEditorViewPort.restrict = this._restrict;
@@ -948,7 +948,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function refreshBackgroundSkin():void
+	override private function refreshBackgroundSkin():void
 	{
 		var oldSkin:DisplayObject = this.currentBackgroundSkin;
 		if(this._stateToSkinFunction != null)
@@ -991,7 +991,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function setFocusOnTextEditorWithTouch(touch:Touch):void
+	private function setFocusOnTextEditorWithTouch(touch:Touch):void
 	{
 		if(!this.isFocusEnabled)
 		{
@@ -1012,7 +1012,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textArea_touchHandler(event:TouchEvent):void
+	private function textArea_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -1079,7 +1079,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textArea_scrollHandler(event:Event):void
+	private function textArea_scrollHandler(event:Event):void
 	{
 		this.removeEventListener(Event.SCROLL, textArea_scrollHandler);
 		this._textAreaTouchPointID = -1;
@@ -1088,7 +1088,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textArea_removedFromStageHandler(event:Event):void
+	private function textArea_removedFromStageHandler(event:Event):void
 	{
 		if(!this._focusManager && this._textEditorHasFocus)
 		{
@@ -1108,7 +1108,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		if(!this._focusManager)
 		{
@@ -1121,7 +1121,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		if(!this._focusManager)
 		{
@@ -1135,7 +1135,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textEditor_changeHandler(event:Event):void
+	private function textEditor_changeHandler(event:Event):void
 	{
 		if(this._ignoreTextChanges)
 		{
@@ -1147,7 +1147,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textEditor_focusInHandler(event:Event):void
+	private function textEditor_focusInHandler(event:Event):void
 	{
 		this._textEditorHasFocus = true;
 		this.currentState = STATE_FOCUSED;
@@ -1166,7 +1166,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textEditor_focusOutHandler(event:Event):void
+	private function textEditor_focusOutHandler(event:Event):void
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;

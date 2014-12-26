@@ -401,12 +401,12 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @private
 	 * The guts of the List's functionality. Handles layout and selection.
 	 */
-	protected var dataViewPort:GroupedListDataViewPort;
+	private var dataViewPort:GroupedListDataViewPort;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return GroupedList.globalStyleProvider;
 	}
@@ -422,7 +422,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * The layout algorithm used to position and, optionally, size the
@@ -461,7 +461,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _dataProvider:HierarchicalCollection;
+	private var _dataProvider:HierarchicalCollection;
 
 	/**
 	 * The collection of data displayed by the list. Changing this property
@@ -585,7 +585,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _isSelectable:Boolean = true;
+	private var _isSelectable:Boolean = true;
 
 	/**
 	 * Determines if an item in the list may be selected.
@@ -622,7 +622,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _selectedGroupIndex:int = -1;
+	private var _selectedGroupIndex:int = -1;
 
 	/**
 	 * The group index of the currently selected item. Returns <code>-1</code>
@@ -658,7 +658,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _selectedItemIndex:int = -1;
+	private var _selectedItemIndex:int = -1;
 
 	/**
 	 * The item index of the currently selected item. Returns <code>-1</code>
@@ -742,7 +742,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererType:Class = DefaultGroupedListItemRenderer;
+	private var _itemRendererType:Class = DefaultGroupedListItemRenderer;
 
 	/**
 	 * The class used to instantiate item renderers. Must implement the
@@ -793,7 +793,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererFactory:Function;
+	private var _itemRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -852,7 +852,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:Object = null;
+	private var _typicalItem:Object = null;
 
 	/**
 	 * Used to auto-size the list when a virtualized layout is used. If the
@@ -891,7 +891,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererName:String;
+	private var _itemRendererName:String;
 
 	/**
 	 * A name to add to all item renderers in this list. Typically used by a
@@ -936,7 +936,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererProperties:PropertyProxy;
+	private var _itemRendererProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to all of the list's item
@@ -1018,7 +1018,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _firstItemRendererType:Class;
+	private var _firstItemRendererType:Class;
 
 	/**
 	 * The class used to instantiate the item renderer for the first item in
@@ -1059,7 +1059,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _firstItemRendererFactory:Function;
+	private var _firstItemRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1114,7 +1114,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _firstItemRendererName:String;
+	private var _firstItemRendererName:String;
 
 	/**
 	 * A name to add to all item renderers in this list that are the first
@@ -1163,7 +1163,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _lastItemRendererType:Class;
+	private var _lastItemRendererType:Class;
 
 	/**
 	 * The class used to instantiate the item renderer for the last item in
@@ -1205,7 +1205,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _lastItemRendererFactory:Function;
+	private var _lastItemRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1260,7 +1260,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _lastItemRendererName:String;
+	private var _lastItemRendererName:String;
 
 	/**
 	 * A name to add to all item renderers in this list that are the last
@@ -1309,7 +1309,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _singleItemRendererType:Class;
+	private var _singleItemRendererType:Class;
 
 	/**
 	 * The class used to instantiate the item renderer for an item in a
@@ -1351,7 +1351,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _singleItemRendererFactory:Function;
+	private var _singleItemRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1406,7 +1406,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _singleItemRendererName:String;
+	private var _singleItemRendererName:String;
 
 	/**
 	 * A name to add to all item renderers in this list that are an item in
@@ -1456,7 +1456,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate header renderers. Must implement the
@@ -1494,7 +1494,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerRendererFactory:Function;
+	private var _headerRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new header renderer.
@@ -1545,7 +1545,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerRendererName:String = DEFAULT_CHILD_NAME_HEADER_RENDERER;
+	private var _headerRendererName:String = DEFAULT_CHILD_NAME_HEADER_RENDERER;
 
 	/**
 	 * A name to add to all header renderers in this grouped list. Typically
@@ -1587,7 +1587,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerRendererProperties:PropertyProxy;
+	private var _headerRendererProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to all of the grouped
@@ -1668,7 +1668,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _footerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate footer renderers. Must implement the
@@ -1706,7 +1706,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerRendererFactory:Function;
+	private var _footerRendererFactory:Function;
 
 	/**
 	 * A function called that is expected to return a new footer renderer.
@@ -1757,7 +1757,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerRendererName:String = DEFAULT_CHILD_NAME_FOOTER_RENDERER;
+	private var _footerRendererName:String = DEFAULT_CHILD_NAME_FOOTER_RENDERER;
 
 	/**
 	 * A name to add to all footer renderers in this grouped list. Typically
@@ -1799,7 +1799,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerRendererProperties:PropertyProxy;
+	private var _footerRendererProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to all of the grouped
@@ -1880,7 +1880,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerField:String = "header";
+	private var _headerField:String = "header";
 
 	/**
 	 * The field in a group that contains the data for a header. If the
@@ -1924,7 +1924,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _headerFunction:Function;
+	private var _headerFunction:Function;
 
 	/**
 	 * A function used to generate header data for a specific group. If this
@@ -1973,7 +1973,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerField:String = "footer";
+	private var _footerField:String = "footer";
 
 	/**
 	 * The field in a group that contains the data for a footer. If the
@@ -2017,7 +2017,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _footerFunction:Function;
+	private var _footerFunction:Function;
 
 	/**
 	 * A function used to generate footer data for a specific group. If this
@@ -2068,14 +2068,14 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <code>-1</code> means that the scroller won't scroll to a group after
 	 * validating.
 	 */
-	protected var pendingGroupIndex:int = -1;
+	private var pendingGroupIndex:int = -1;
 
 	/**
 	 * The pending item index to scroll to after validating. A value of
 	 * <code>-1</code> means that the scroller won't scroll to an item after
 	 * validating.
 	 */
-	protected var pendingItemIndex:int = -1;
+	private var pendingItemIndex:int = -1;
 
 	/**
 	 * @private
@@ -2210,7 +2210,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		var hasLayout:Boolean = this._layout != null;
 
@@ -2249,7 +2249,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		this.refreshDataViewPortProperties();
 		super.draw();
@@ -2259,7 +2259,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function refreshDataViewPortProperties():void
+	private function refreshDataViewPortProperties():void
 	{
 		this.dataViewPort.isSelectable = this._isSelectable;
 		this.dataViewPort.setSelectedLocation(this._selectedGroupIndex, this._selectedItemIndex);
@@ -2299,7 +2299,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function handlePendingScroll():void
+	override private function handlePendingScroll():void
 	{
 		if(this.pendingGroupIndex >= 0 && this.pendingItemIndex >= 0)
 		{
@@ -2337,7 +2337,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2346,7 +2346,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2355,7 +2355,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(!this._dataProvider)
 		{
@@ -2445,7 +2445,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -2453,7 +2453,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):void
 	{
 		this.horizontalScrollPosition = 0;
 		this.verticalScrollPosition = 0;
@@ -2462,7 +2462,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataViewPort_changeHandler(event:Event):void
+	private function dataViewPort_changeHandler(event:Event):void
 	{
 		this.setSelectedLocation(this.dataViewPort.selectedGroupIndex, this.dataViewPort.selectedItemIndex);
 	}

@@ -45,27 +45,27 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	protected var _popUps:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _popUps:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _popUpToOverlay:Dictionary = new Dictionary(true);
+	private var _popUpToOverlay:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _popUpToFocusManager:Dictionary = new Dictionary(true);
+	private var _popUpToFocusManager:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
 	 */
-	protected var _centeredPopUps:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _centeredPopUps:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _overlayFactory:Function = defaultOverlayFactory;
+	private var _overlayFactory:Function = defaultOverlayFactory;
 
 	/**
 	 * @copy PopUpManager#overlayFactory
@@ -86,12 +86,12 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	protected var _ignoreRemoval:Boolean = false;
+	private var _ignoreRemoval:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _root:DisplayObjectContainer;
+	private var _root:DisplayObjectContainer;
 
 	/**
 	 * @copy PopUpManager#root
@@ -251,7 +251,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	protected function popUp_resizeHandler(event:Event):void
+	private function popUp_resizeHandler(event:Event):void
 	{
 		var popUp:DisplayObject = DisplayObject(event.currentTarget);
 		var index:int = this._centeredPopUps.indexOf(popUp);
@@ -265,7 +265,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	protected function popUp_removedFromStageHandler(event:Event):void
+	private function popUp_removedFromStageHandler(event:Event):void
 	{
 		if(this._ignoreRemoval)
 		{
@@ -306,7 +306,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		var stage:Stage = this._root.stage;
 		var popUpCount:int = this._popUps.length;

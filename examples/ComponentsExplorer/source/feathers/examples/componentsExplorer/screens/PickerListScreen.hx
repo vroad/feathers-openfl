@@ -26,7 +26,7 @@ class PickerListScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _list:PickerList;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

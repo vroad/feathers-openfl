@@ -184,7 +184,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 	
 	/**
 	 * The data source for this collection. May be any type of data, but a
@@ -248,7 +248,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _dataDescriptor:IListCollectionDataDescriptor;
+	private var _dataDescriptor:IListCollectionDataDescriptor;
 
 	/**
 	 * Describes the underlying data source by translating APIs.

@@ -25,17 +25,17 @@ class FocusManager
 	/**
 	 * @private
 	 */
-	protected static const FOCUS_MANAGER_NOT_ENABLED_ERROR:String = "The specified action is not permitted when the focus manager is not enabled.";
+	private static const FOCUS_MANAGER_NOT_ENABLED_ERROR:String = "The specified action is not permitted when the focus manager is not enabled.";
 
 	/**
 	 * @private
 	 */
-	protected static const FOCUS_MANAGER_ROOT_MUST_BE_ON_STAGE_ERROR:String = "A focus manager may not be added or removed for a display object that is not on stage.";
+	private static const FOCUS_MANAGER_ROOT_MUST_BE_ON_STAGE_ERROR:String = "A focus manager may not be added or removed for a display object that is not on stage.";
 
 	/**
 	 * @private
 	 */
-	protected static const STAGE_TO_STACK:Dictionary = new Dictionary(true);
+	private static const STAGE_TO_STACK:Dictionary = new Dictionary(true);
 
 	/**
 	 * Returns the active focus manager for the specified Starling stage.

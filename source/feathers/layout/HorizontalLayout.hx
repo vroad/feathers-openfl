@@ -93,17 +93,17 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _widthCache:Array = [];
+	private var _widthCache:Array = [];
 
 	/**
 	 * @private
 	 */
-	protected var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between items.
@@ -131,7 +131,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _firstGap:Number = NaN;
+	private var _firstGap:Number = NaN;
 
 	/**
 	 * The space, in pixels, between the first and second items. If the
@@ -161,7 +161,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _lastGap:Number = NaN;
+	private var _lastGap:Number = NaN;
 
 	/**
 	 * The space, in pixels, between the last and second to last items. If
@@ -220,7 +220,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, above the items.
@@ -248,7 +248,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The space, in pixels, that appears to the right, after the last item.
@@ -276,7 +276,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, above the items.
@@ -304,7 +304,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The space, in pixels, that appears to the left, before the first
@@ -334,7 +334,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -368,7 +368,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -402,7 +402,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -430,7 +430,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _hasVariableItemDimensions:Boolean = false;
+	private var _hasVariableItemDimensions:Boolean = false;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -460,7 +460,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _distributeWidths:Boolean = false;
+	private var _distributeWidths:Boolean = false;
 
 	/**
 	 * Distributes the width of the view port equally to each item. If the
@@ -491,7 +491,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _manageVisibility:Boolean = false;
+	private var _manageVisibility:Boolean = false;
 
 	/**
 	 * Determines if items will be set invisible if they are outside the
@@ -531,7 +531,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _beforeVirtualizedItemCount:int = 0;
+	private var _beforeVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -557,7 +557,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _afterVirtualizedItemCount:int = 0;
+	private var _afterVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -583,7 +583,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -613,7 +613,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -651,7 +651,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Number = NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -698,7 +698,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Number = NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -745,7 +745,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _scrollPositionHorizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
+	private var _scrollPositionHorizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -1494,7 +1494,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, justifyHeight:Number, distributedWidth:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, justifyHeight:Number, distributedWidth:Number):void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
@@ -1529,7 +1529,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function prepareTypicalItem(justifyHeight:Number):void
+	private function prepareTypicalItem(justifyHeight:Number):void
 	{
 		if(!this._typicalItem)
 		{
@@ -1557,7 +1557,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function calculateDistributedWidth(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):Number
+	private function calculateDistributedWidth(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):Number
 	{
 		var itemCount:int = items.length;
 		if(explicitWidth !== explicitWidth) //isNaN
@@ -1604,7 +1604,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function applyPercentWidths(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):void
+	private function applyPercentWidths(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):void
 	{
 		var remainingWidth:Number = explicitWidth;
 		this._discoveredItemsCache.length = 0;

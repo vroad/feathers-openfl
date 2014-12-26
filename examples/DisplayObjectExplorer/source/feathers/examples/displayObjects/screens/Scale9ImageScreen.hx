@@ -60,7 +60,7 @@ class Scale9ImageScreen extends Screen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Scale9ImageScreen.globalStyleProvider;
 	}
@@ -75,7 +75,7 @@ class Scale9ImageScreen extends Screen
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._header = new Header();
 		this._header.title = "Scale 9 Image";
@@ -99,7 +99,7 @@ class Scale9ImageScreen extends Screen
 		this.addChild(this._bottomButton);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		this._header.width = this.actualWidth;
 		this._header.validate();

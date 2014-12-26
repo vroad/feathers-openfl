@@ -167,7 +167,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	protected function queueSortFunction(first:IValidating, second:IValidating):int
+	private function queueSortFunction(first:IValidating, second:IValidating):int
 	{
 		var difference:int = second.depth - first.depth;
 		if(difference > 0)

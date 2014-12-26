@@ -26,12 +26,12 @@ class TextInputScreen extends PanelScreen
 	private var _notEditableInput:TextInput;
 	private var _searchInput:TextInput;
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TextInputScreen.globalStyleProvider;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

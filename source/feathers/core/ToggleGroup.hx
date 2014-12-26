@@ -51,17 +51,17 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _items:Vector.<IToggle> = new Vector.<IToggle>;
+	private var _items:Vector.<IToggle> = new Vector.<IToggle>;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreChanges:Boolean = false;
+	private var _ignoreChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isSelectionRequired:Boolean = true;
+	private var _isSelectionRequired:Boolean = true;
 
 	/**
 	 * Determines if the user can deselect the currently selected item or
@@ -132,7 +132,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _selectedIndex:int = -1;
+	private var _selectedIndex:int = -1;
 	
 	/**
 	 * The index of the currently selected toggle.
@@ -353,7 +353,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function item_changeHandler(event:Event):void
+	private function item_changeHandler(event:Event):void
 	{
 		if(this._ignoreChanges)
 		{

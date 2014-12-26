@@ -67,7 +67,7 @@ class ListVideosScreen extends PanelScreen
 	private var _loader:URLLoader;
 	private var _savedLoaderData:*;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -118,7 +118,7 @@ class ListVideosScreen extends PanelScreen
 		this._owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 

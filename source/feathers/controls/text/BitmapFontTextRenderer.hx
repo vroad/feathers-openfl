@@ -112,22 +112,22 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _characterBatch:QuadBatch;
+	private var _characterBatch:QuadBatch;
 
 	/**
 	 * @private
 	 */
-	protected var _batchX:Number = 0;
+	private var _batchX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var currentTextFormat:BitmapFontTextFormat;
+	private var currentTextFormat:BitmapFontTextFormat;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return BitmapFontTextRenderer.globalStyleProvider;
 	}
@@ -135,7 +135,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _textFormat:BitmapFontTextFormat;
+	private var _textFormat:BitmapFontTextFormat;
 	
 	/**
 	 * The font and styles used to draw the text.
@@ -168,7 +168,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _disabledTextFormat:BitmapFontTextFormat;
+	private var _disabledTextFormat:BitmapFontTextFormat;
 
 	/**
 	 * The font and styles used to draw the text when the label is disabled.
@@ -201,7 +201,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _text:String = null;
+	private var _text:String = null;
 	
 	/**
 	 * The text to display.
@@ -234,7 +234,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _smoothing:String = TextureSmoothing.BILINEAR;
+	private var _smoothing:String = TextureSmoothing.BILINEAR;
 
 	[Inspectable(type="String",enumeration="bilinear,trilinear,none")]
 	/**
@@ -270,7 +270,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _wordWrap:Boolean = false;
+	private var _wordWrap:Boolean = false;
 
 	/**
 	 * If the width or maxWidth values are set, then the text will continue
@@ -304,7 +304,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Boolean = true;
 
 	/**
 	 * Determines if the position of the text should be snapped to the
@@ -340,7 +340,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _truncateToFit:Boolean = true;
+	private var _truncateToFit:Boolean = true;
 
 	/**
 	 * If word wrap is disabled, and the text is longer than the width of
@@ -381,7 +381,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _truncationText:String = "...";
+	private var _truncationText:String = "...";
 
 	/**
 	 * The text to display at the end of the label if it is truncated.
@@ -414,7 +414,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _useSeparateBatch:Boolean = true;
+	private var _useSeparateBatch:Boolean = true;
 
 	/**
 	 * Determines if the characters are batched normally by Starling or if
@@ -641,7 +641,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this._characterBatch)
 		{
@@ -654,7 +654,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -683,7 +683,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function layoutCharacters(result:Point = null):Point
+	private function layoutCharacters(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -885,7 +885,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function trimBuffer(skipCount:int):void
+	private function trimBuffer(skipCount:int):void
 	{
 		var countToRemove:int = 0;
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
@@ -912,7 +912,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:int):void
+	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:int):void
 	{
 		var align:String = this.currentTextFormat.align;
 		if(align == TextFormatAlign.CENTER)
@@ -928,7 +928,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function addBufferToBatch(skipCount:int):void
+	private function addBufferToBatch(skipCount:int):void
 	{
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
 		var pushIndex:int = CHAR_LOCATION_POOL.length;
@@ -945,7 +945,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:int):void
+	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:int):void
 	{
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
 		for(var i:int = 0; i < charCount; i++)
@@ -959,7 +959,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function addCharacterToBatch(charData:BitmapChar, x:Number, y:Number, scale:Number, support:RenderSupport = null, parentAlpha:Number = 1):void
+	private function addCharacterToBatch(charData:BitmapChar, x:Number, y:Number, scale:Number, support:RenderSupport = null, parentAlpha:Number = 1):void
 	{
 		if(!HELPER_IMAGE)
 		{
@@ -992,7 +992,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function refreshTextFormat():void
+	private function refreshTextFormat():void
 	{
 		if(!this._isEnabled && this._disabledTextFormat)
 		{
@@ -1018,7 +1018,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function getTruncatedText(width:Number):String
+	private function getTruncatedText(width:Number):String
 	{
 		if(!this._text)
 		{

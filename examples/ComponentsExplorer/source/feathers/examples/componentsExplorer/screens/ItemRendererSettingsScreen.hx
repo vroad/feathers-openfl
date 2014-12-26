@@ -55,7 +55,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

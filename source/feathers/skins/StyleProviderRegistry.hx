@@ -16,12 +16,12 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	protected static const GLOBAL_STYLE_PROVIDER_PROPERTY_NAME:String = "globalStyleProvider";
+	private static const GLOBAL_STYLE_PROVIDER_PROPERTY_NAME:String = "globalStyleProvider";
 
 	/**
 	 * @private
 	 */
-	protected static function defaultStyleProviderFactory():IStyleProvider
+	private static function defaultStyleProviderFactory():IStyleProvider
 	{
 		return new StyleNameFunctionStyleProvider();
 	}
@@ -58,17 +58,17 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	protected var _registerGlobally:Boolean;
+	private var _registerGlobally:Boolean;
 
 	/**
 	 * @private
 	 */
-	protected var _styleProviderFactory:Function;
+	private var _styleProviderFactory:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _classToStyleProvider:Dictionary = new Dictionary(true);
+	private var _classToStyleProvider:Dictionary = new Dictionary(true);
 
 	/**
 	 * Disposes the theme.
@@ -142,7 +142,7 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	protected function validateComponentClass(type:Class):void
+	private function validateComponentClass(type:Class):void
 	{
 		if(!this._registerGlobally || Object(type).hasOwnProperty(GLOBAL_STYLE_PROVIDER_PROPERTY_NAME))
 		{

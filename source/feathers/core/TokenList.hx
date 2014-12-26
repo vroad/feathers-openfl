@@ -49,7 +49,7 @@ class TokenList extends EventDispatcher
 	 * @private
 	 * Storage for the tokens.
 	 */
-	protected var names:Vector.<String> = new <String>[];
+	private var names:Vector.<String> = new <String>[];
 
 	/**
 	 * The tokens formatted with space delimiters.
@@ -150,7 +150,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function removeAt(index:int):void
+	private function removeAt(index:int):void
 	{
 		if(index < 0)
 		{

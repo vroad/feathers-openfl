@@ -210,12 +210,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected static var DOWN_STATE_DELAY_MS:int = 250;
+	private static var DOWN_STATE_DELAY_MS:int = 250;
 
 	/**
 	 * @private
 	 */
-	protected static function defaultLoaderFactory():ImageLoader
+	private static function defaultLoaderFactory():ImageLoader
 	{
 		return new ImageLoader();
 	}
@@ -237,7 +237,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var iconLabelName:String = DEFAULT_CHILD_NAME_ICON_LABEL;
+	private var iconLabelName:String = DEFAULT_CHILD_NAME_ICON_LABEL;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the accessory
@@ -245,52 +245,52 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var accessoryLabelName:String = DEFAULT_CHILD_NAME_ACCESSORY_LABEL;
+	private var accessoryLabelName:String = DEFAULT_CHILD_NAME_ACCESSORY_LABEL;
 
 	/**
 	 * @private
 	 */
-	protected var skinLoader:ImageLoader;
+	private var skinLoader:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var iconLoader:ImageLoader;
+	private var iconLoader:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var iconLabel:ITextRenderer;
+	private var iconLabel:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	protected var accessoryLoader:ImageLoader;
+	private var accessoryLoader:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var accessoryLabel:ITextRenderer;
+	private var accessoryLabel:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	protected var accessory:DisplayObject;
+	private var accessory:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _skinIsFromItem:Boolean = false;
+	private var _skinIsFromItem:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _iconIsFromItem:Boolean = false;
+	private var _iconIsFromItem:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _accessoryIsFromItem:Boolean = false;
+	private var _accessoryIsFromItem:Boolean = false;
 
 	/**
 	 * @private
@@ -323,7 +323,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 
 	/**
 	 * The item displayed by this renderer. This property is set by the
@@ -350,22 +350,22 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _owner:Scroller;
+	private var _owner:Scroller;
 
 	/**
 	 * @private
 	 */
-	protected var _delayedCurrentState:String;
+	private var _delayedCurrentState:String;
 
 	/**
 	 * @private
 	 */
-	protected var _stateDelayTimer:Timer;
+	private var _stateDelayTimer:Timer;
 
 	/**
 	 * @private
 	 */
-	protected var _useStateDelayTimer:Boolean = true;
+	private var _useStateDelayTimer:Boolean = true;
 
 	/**
 	 * If true, the down state (and subsequent state changes) will be
@@ -396,12 +396,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <code>isToggle</code> is set to <code>false</code>. Subclasses are
 	 * expected to change this value, if required.
 	 */
-	protected var isSelectableWithoutToggle:Boolean = true;
+	private var isSelectableWithoutToggle:Boolean = true;
 
 	/**
 	 * @private
 	 */
-	protected var _itemHasLabel:Boolean = true;
+	private var _itemHasLabel:Boolean = true;
 
 	/**
 	 * If true, the label will come from the renderer's item using the
@@ -436,7 +436,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _itemHasIcon:Boolean = true;
+	private var _itemHasIcon:Boolean = true;
 
 	/**
 	 * If true, the icon will come from the renderer's item using the
@@ -471,7 +471,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _itemHasAccessory:Boolean = true;
+	private var _itemHasAccessory:Boolean = true;
 
 	/**
 	 * If true, the accessory will come from the renderer's item using the
@@ -506,7 +506,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _itemHasSkin:Boolean = false;
+	private var _itemHasSkin:Boolean = false;
 
 	/**
 	 * If true, the skin will come from the renderer's item using the
@@ -542,7 +542,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _itemHasSelectable:Boolean = false;
+	private var _itemHasSelectable:Boolean = false;
 
 	/**
 	 * If true, the ability to select the renderer will come from the
@@ -578,7 +578,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _itemHasEnabled:Boolean = false;
+	private var _itemHasEnabled:Boolean = false;
 
 	/**
 	 * If true, the renderer's enabled state will come from the renderer's
@@ -613,7 +613,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryPosition:String = ACCESSORY_POSITION_RIGHT;
+	private var _accessoryPosition:String = ACCESSORY_POSITION_RIGHT;
 
 	[Inspectable(type="String",enumeration="top,right,bottom,left,manual")]
 	/**
@@ -656,7 +656,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _layoutOrder:String = LAYOUT_ORDER_LABEL_ICON_ACCESSORY;
+	private var _layoutOrder:String = LAYOUT_ORDER_LABEL_ICON_ACCESSORY;
 
 	[Inspectable(type="String",enumeration="labelIconAccessory,labelAccessoryIcon")]
 	/**
@@ -699,7 +699,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryOffsetX:Number = 0;
+	private var _accessoryOffsetX:Number = 0;
 
 	/**
 	 * Offsets the x position of the accessory by a certain number of pixels.
@@ -734,7 +734,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryOffsetY:Number = 0;
+	private var _accessoryOffsetY:Number = 0;
 
 	/**
 	 * Offsets the y position of the accessory by a certain number of pixels.
@@ -769,7 +769,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryGap:Number = NaN;
+	private var _accessoryGap:Number = NaN;
 
 	/**
 	 * The space, in pixels, between the accessory and the other child it is
@@ -813,7 +813,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _minAccessoryGap:Number = NaN;
+	private var _minAccessoryGap:Number = NaN;
 
 	/**
 	 * If the value of the <code>accessoryGap</code> property is
@@ -858,7 +858,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function set currentState(value:String):void
+	override private function set currentState(value:String):void
 	{
 		if(this._isEnabled && !this._isToggle && (!this.isSelectableWithoutToggle || (this._itemHasSelectable && !this.itemToSelectable(this._data))))
 		{
@@ -898,12 +898,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var accessoryTouchPointID:int = -1;
+	private var accessoryTouchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _stopScrollingOnAccessoryTouch:Boolean = true;
+	private var _stopScrollingOnAccessoryTouch:Boolean = true;
 
 	/**
 	 * If enabled, calls owner.stopScrolling() when TouchEvents are
@@ -933,7 +933,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _isSelectableOnAccessoryTouch:Boolean = false;
+	private var _isSelectableOnAccessoryTouch:Boolean = false;
 
 	/**
 	 * If enabled, the item renderer may be selected by touching the
@@ -964,7 +964,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _delayTextureCreationOnScroll:Boolean = false;
+	private var _delayTextureCreationOnScroll:Boolean = false;
 
 	/**
 	 * If enabled, automatically manages the <code>delayTextureCreation</code>
@@ -998,7 +998,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _labelField:String = "label";
+	private var _labelField:String = "label";
 
 	/**
 	 * The field in the item that contains the label text to be displayed by
@@ -1045,7 +1045,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _labelFunction:Function;
+	private var _labelFunction:Function;
 
 	/**
 	 * A function used to generate label text for a specific item. If this
@@ -1094,7 +1094,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconField:String = "icon";
+	private var _iconField:String = "icon";
 
 	/**
 	 * The field in the item that contains a display object to be displayed
@@ -1149,7 +1149,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconFunction:Function;
+	private var _iconFunction:Function;
 
 	/**
 	 * A function used to generate an icon for a specific item.
@@ -1224,7 +1224,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconSourceField:String = "iconSource";
+	private var _iconSourceField:String = "iconSource";
 
 	/**
 	 * The field in the item that contains a <code>starling.textures.Texture</code>
@@ -1284,7 +1284,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconSourceFunction:Function;
+	private var _iconSourceFunction:Function;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -1366,7 +1366,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconLabelField:String = "iconLabel";
+	private var _iconLabelField:String = "iconLabel";
 
 	/**
 	 * The field in the item that contains a string to be displayed in a
@@ -1427,7 +1427,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconLabelFunction:Function;
+	private var _iconLabelFunction:Function;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -1494,7 +1494,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryField:String = "accessory";
+	private var _accessoryField:String = "accessory";
 
 	/**
 	 * The field in the item that contains a display object to be positioned
@@ -1553,7 +1553,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryFunction:Function;
+	private var _accessoryFunction:Function;
 
 	/**
 	 * A function that returns a display object to be positioned in the
@@ -1633,7 +1633,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessorySourceField:String = "accessorySource";
+	private var _accessorySourceField:String = "accessorySource";
 
 	/**
 	 * A field in the item that contains a <code>starling.textures.Texture</code>
@@ -1695,7 +1695,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessorySourceFunction:Function;
+	private var _accessorySourceFunction:Function;
 
 	/**
 	 * A function that generates a <code>starling.textures.Texture</code>
@@ -1779,7 +1779,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryLabelField:String = "accessoryLabel";
+	private var _accessoryLabelField:String = "accessoryLabel";
 
 	/**
 	 * The field in the item that contains a string to be displayed in a
@@ -1840,7 +1840,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryLabelFunction:Function;
+	private var _accessoryLabelFunction:Function;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -1907,7 +1907,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _skinField:String = "skin";
+	private var _skinField:String = "skin";
 
 	/**
 	 * The field in the item that contains a display object to be displayed
@@ -1955,7 +1955,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _skinFunction:Function;
+	private var _skinFunction:Function;
 
 	/**
 	 * A function used to generate a background skin for a specific item.
@@ -2023,7 +2023,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _skinSourceField:String = "skinSource";
+	private var _skinSourceField:String = "skinSource";
 
 	/**
 	 * The field in the item that contains a <code>starling.textures.Texture</code>
@@ -2082,7 +2082,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _skinSourceFunction:Function;
+	private var _skinSourceFunction:Function;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -2163,7 +2163,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _selectableField:String = "selectable";
+	private var _selectableField:String = "selectable";
 
 	/**
 	 * The field in the item that determines if the item renderer can be
@@ -2208,7 +2208,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _selectableFunction:Function;
+	private var _selectableFunction:Function;
 
 	/**
 	 * A function used to determine if a specific item is selectable. If this
@@ -2258,7 +2258,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _enabledField:String = "enabled";
+	private var _enabledField:String = "enabled";
 
 	/**
 	 * The field in the item that determines if the item renderer is
@@ -2303,7 +2303,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _enabledFunction:Function;
+	private var _enabledFunction:Function;
 
 	/**
 	 * A function used to determine if a specific item is enabled. If this
@@ -2353,7 +2353,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _explicitIsToggle:Boolean = false;
+	private var _explicitIsToggle:Boolean = false;
 
 	/**
 	 * @private
@@ -2372,7 +2372,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _explicitIsEnabled:Boolean = false;
+	private var _explicitIsEnabled:Boolean = false;
 
 	/**
 	 * @private
@@ -2392,7 +2392,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconLoaderFactory:Function = defaultLoaderFactory;
+	private var _iconLoaderFactory:Function = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2443,7 +2443,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconLabelFactory:Function;
+	private var _iconLabelFactory:Function;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2494,7 +2494,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _iconLabelProperties:PropertyProxy;
+	private var _iconLabelProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to a label icon, if one
@@ -2571,7 +2571,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryLoaderFactory:Function = defaultLoaderFactory;
+	private var _accessoryLoaderFactory:Function = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2622,7 +2622,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryLabelFactory:Function;
+	private var _accessoryLabelFactory:Function;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2673,7 +2673,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _accessoryLabelProperties:PropertyProxy;
+	private var _accessoryLabelProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to a label accessory. The
@@ -2750,7 +2750,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _skinLoaderFactory:Function = defaultLoaderFactory;
+	private var _skinLoaderFactory:Function = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2801,7 +2801,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected var _ignoreAccessoryResizes:Boolean = false;
+	private var _ignoreAccessoryResizes:Boolean = false;
 
 	/**
 	 * @private
@@ -2887,7 +2887,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>iconField</code></li>
 	 * </ol>
 	 */
-	protected function itemToIcon(item:Object):DisplayObject
+	private function itemToIcon(item:Object):DisplayObject
 	{
 		if(this._iconSourceFunction != null)
 		{
@@ -2953,7 +2953,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>accessoryField</code></li>
 	 * </ol>
 	 */
-	protected function itemToAccessory(item:Object):DisplayObject
+	private function itemToAccessory(item:Object):DisplayObject
 	{
 		if(this._accessorySourceFunction != null)
 		{
@@ -3017,7 +3017,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>skinField</code></li>
 	 * </ol>
 	 */
-	protected function itemToSkin(item:Object):DisplayObject
+	private function itemToSkin(item:Object):DisplayObject
 	{
 		if(this._skinSourceFunction != null)
 		{
@@ -3053,7 +3053,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>selectableField</code></li>
 	 * </ol>
 	 */
-	protected function itemToSelectable(item:Object):Boolean
+	private function itemToSelectable(item:Object):Boolean
 	{
 		if(this._selectableFunction != null)
 		{
@@ -3077,7 +3077,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>enabledField</code></li>
 	 * </ol>
 	 */
-	protected function itemToEnabled(item:Object):Boolean
+	private function itemToEnabled(item:Object):Boolean
 	{
 		if(this._enabledFunction != null)
 		{
@@ -3094,7 +3094,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -3113,7 +3113,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @inheritDoc
 	 */
-	override protected function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -3209,7 +3209,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function addIconWidth(width:Number):Number
+	private function addIconWidth(width:Number):Number
 	{
 		if(!this.currentIcon)
 		{
@@ -3250,7 +3250,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function addAccessoryWidth(width:Number):Number
+	private function addAccessoryWidth(width:Number):Number
 	{
 		if(!this.accessory)
 		{
@@ -3310,7 +3310,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function addIconHeight(height:Number):Number
+	private function addIconHeight(height:Number):Number
 	{
 		if(!this.currentIcon)
 		{
@@ -3351,7 +3351,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function addAccessoryHeight(height:Number):Number
+	private function addAccessoryHeight(height:Number):Number
 	{
 		if(!this.accessory)
 		{
@@ -3412,7 +3412,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * This function is here to work around a bug in the Flex 4.6 SDK
 	 * compiler. For explanation, see the places where it gets called.
 	 */
-	protected function doNothing():void {}
+	private function doNothing():void {}
 
 	/**
 	 * Updates the renderer to display the item's data. Override this
@@ -3420,7 +3420,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <p>Don't forget to handle the case where the data is <code>null</code>.</p>
 	 */
-	protected function commitData():void
+	private function commitData():void
 	{
 		if(this._data && this._owner)
 		{
@@ -3516,7 +3516,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshIsEnabled(value:Boolean):void
+	private function refreshIsEnabled(value:Boolean):void
 	{
 		if(this._isEnabled == value)
 		{
@@ -3545,7 +3545,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function replaceIcon(newIcon:DisplayObject):void
+	private function replaceIcon(newIcon:DisplayObject):void
 	{
 		if(this.iconLoader && this.iconLoader != newIcon)
 		{
@@ -3598,7 +3598,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function replaceAccessory(newAccessory:DisplayObject):void
+	private function replaceAccessory(newAccessory:DisplayObject):void
 	{
 		if(this.accessory == newAccessory)
 		{
@@ -3661,7 +3661,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function replaceSkin(newSkin:DisplayObject):void
+	private function replaceSkin(newSkin:DisplayObject):void
 	{
 		if(this.skinLoader && this.skinLoader != newSkin)
 		{
@@ -3707,7 +3707,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function refreshIcon():void
+	override private function refreshIcon():void
 	{
 		super.refreshIcon();
 		if(this.iconLabel)
@@ -3724,7 +3724,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshAccessory():void
+	private function refreshAccessory():void
 	{
 		if(this.accessory is IFeathersControl)
 		{
@@ -3744,7 +3744,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshIconSource(source:Object):void
+	private function refreshIconSource(source:Object):void
 	{
 		if(!this.iconLoader)
 		{
@@ -3758,7 +3758,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshIconLabel(label:String):void
+	private function refreshIconLabel(label:String):void
 	{
 		if(!this.iconLabel)
 		{
@@ -3772,7 +3772,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshAccessorySource(source:Object):void
+	private function refreshAccessorySource(source:Object):void
 	{
 		if(!this.accessoryLoader)
 		{
@@ -3786,7 +3786,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshAccessoryLabel(label:String):void
+	private function refreshAccessoryLabel(label:String):void
 	{
 		if(!this.accessoryLabel)
 		{
@@ -3800,7 +3800,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function refreshSkinSource(source:Object):void
+	private function refreshSkinSource(source:Object):void
 	{
 		if(!this.skinLoader)
 		{
@@ -3814,7 +3814,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function layoutContent():void
+	override private function layoutContent():void
 	{
 		var oldIgnoreAccessoryResizes:Boolean = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
@@ -3912,7 +3912,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function refreshMaxLabelWidth(forMeasurement:Boolean):void
+	override private function refreshMaxLabelWidth(forMeasurement:Boolean):void
 	{
 		var calculatedWidth:Number = this.actualWidth;
 		if(forMeasurement)
@@ -4054,7 +4054,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function positionRelativeToOthers(object:DisplayObject, relativeTo:DisplayObject, relativeTo2:DisplayObject, position:String, gap:Number, otherPosition:String, otherGap:Number):void
+	private function positionRelativeToOthers(object:DisplayObject, relativeTo:DisplayObject, relativeTo2:DisplayObject, position:String, gap:Number, otherPosition:String, otherGap:Number):void
 	{
 		var relativeToX:Number = relativeTo2 ? Math.min(relativeTo.x, relativeTo2.x) : relativeTo.x;
 		var relativeToY:Number = relativeTo2 ? Math.min(relativeTo.y, relativeTo2.y) : relativeTo.y;
@@ -4255,7 +4255,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function owner_scrollStartHandler(event:Event):void
+	private function owner_scrollStartHandler(event:Event):void
 	{
 		if(this._delayTextureCreationOnScroll)
 		{
@@ -4289,7 +4289,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function owner_scrollCompleteHandler(event:Event):void
+	private function owner_scrollCompleteHandler(event:Event):void
 	{
 		if(this._delayTextureCreationOnScroll)
 		{
@@ -4307,7 +4307,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function button_removedFromStageHandler(event:Event):void
+	override private function button_removedFromStageHandler(event:Event):void
 	{
 		super.button_removedFromStageHandler(event);
 		this.accessoryTouchPointID = -1;
@@ -4316,7 +4316,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function itemRenderer_triggeredHandler(event:Event):void
+	private function itemRenderer_triggeredHandler(event:Event):void
 	{
 		if(this._isToggle || !this.isSelectableWithoutToggle || (this._itemHasSelectable && !this.itemToSelectable(this._data)))
 		{
@@ -4328,7 +4328,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function stateDelayTimer_timerCompleteHandler(event:TimerEvent):void
+	private function stateDelayTimer_timerCompleteHandler(event:TimerEvent):void
 	{
 		super.currentState = this._delayedCurrentState;
 		this._delayedCurrentState = null;
@@ -4337,7 +4337,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function button_touchHandler(event:TouchEvent):void
+	override private function button_touchHandler(event:TouchEvent):void
 	{
 		if(this.accessory && !this._isSelectableOnAccessoryTouch && this.accessory != this.accessoryLabel && this.accessory != this.accessoryLoader && this.touchPointID < 0)
 		{
@@ -4356,7 +4356,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function accessory_touchHandler(event:TouchEvent):void
+	private function accessory_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -4394,7 +4394,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function accessory_resizeHandler(event:Event):void
+	private function accessory_resizeHandler(event:Event):void
 	{
 		if(this._ignoreAccessoryResizes)
 		{
@@ -4406,7 +4406,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	protected function loader_completeOrErrorHandler(event:Event):void
+	private function loader_completeOrErrorHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

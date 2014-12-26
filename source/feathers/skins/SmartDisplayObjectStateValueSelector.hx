@@ -133,7 +133,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	protected var _displayObjectProperties:Object;
+	private var _displayObjectProperties:Object;
 
 	/**
 	 * Optional properties to set on the Scale9Image instance.
@@ -160,7 +160,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	protected var _handlers:Dictionary = new Dictionary(true);
+	private var _handlers:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
@@ -243,7 +243,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	protected function valueToValueTypeHandler(value:Object):Function
+	private function valueToValueTypeHandler(value:Object):Function
 	{
 		var type:Class = Class(value.constructor);
 		return this._handlers[type] as Function;

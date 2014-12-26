@@ -209,55 +209,55 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * The text field sub-component.
 	 */
-	protected var textField:TextField;
+	private var textField:TextField;
 
 	/**
 	 * An image that displays a snapshot of the native <code>TextField</code>
 	 * in the Starling display list when the editor doesn't have focus.
 	 */
-	protected var textSnapshot:Image;
+	private var textSnapshot:Image;
 
 	/**
 	 * The separate text field sub-component used for measurement.
 	 * Typically, the main text field often doesn't report correct values
 	 * for a full frame if its dimensions are changed too often.
 	 */
-	protected var measureTextField:TextField;
+	private var measureTextField:TextField;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotWidth:int = 0;
+	private var _snapshotWidth:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotHeight:int = 0;
+	private var _snapshotHeight:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textFieldClipRect:Rectangle = new Rectangle();
+	private var _textFieldClipRect:Rectangle = new Rectangle();
 
 	/**
 	 * @private
 	 */
-	protected var _textFieldOffsetX:Number = 0;
+	private var _textFieldOffsetX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textFieldOffsetY:Number = 0;
+	private var _textFieldOffsetY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * @inheritDoc
@@ -313,12 +313,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _previousTextFormat:TextFormat;
+	private var _previousTextFormat:TextFormat;
 
 	/**
 	 * @private
 	 */
-	protected var _textFormat:TextFormat;
+	private var _textFormat:TextFormat;
 
 	/**
 	 * The format of the text, such as font and styles.
@@ -358,7 +358,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _disabledTextFormat:TextFormat;
+	private var _disabledTextFormat:TextFormat;
 
 	/**
 	 * The font and styles used to draw the text when the component is disabled.
@@ -395,7 +395,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _embedFonts:Boolean = false;
+	private var _embedFonts:Boolean = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -431,7 +431,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _wordWrap:Boolean = false;
+	private var _wordWrap:Boolean = false;
 
 	/**
 	 * Determines if the TextField wraps text to the next line.
@@ -466,7 +466,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _multiline:Boolean = false;
+	private var _multiline:Boolean = false;
 
 	/**
 	 * Indicates whether field is a multiline text field.
@@ -501,7 +501,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _isHTML:Boolean = false;
+	private var _isHTML:Boolean = false;
 
 	/**
 	 * Determines if the TextField should display the value of the
@@ -537,7 +537,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _alwaysShowSelection:Boolean = false;
+	private var _alwaysShowSelection:Boolean = false;
 
 	/**
 	 * When set to <code>true</code> and the text field is not in focus,
@@ -575,7 +575,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Boolean = false;
 
 	/**
 	 * Specifies whether the text field is a password text field that hides
@@ -612,7 +612,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _maxChars:int = 0;
+	private var _maxChars:int = 0;
 
 	/**
 	 * The maximum number of characters that the text field can contain, as
@@ -650,7 +650,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _restrict:String;
+	private var _restrict:String;
 
 	/**
 	 * Indicates the set of characters that a user can enter into the text
@@ -687,7 +687,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _isEditable:Boolean = true;
+	private var _isEditable:Boolean = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -721,7 +721,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _useGutter:Boolean = false;
+	private var _useGutter:Boolean = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -765,17 +765,17 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _textFieldHasFocus:Boolean = false;
+	private var _textFieldHasFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -796,7 +796,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -817,7 +817,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected var resetScrollOnFocusOut:Boolean = true;
+	private var resetScrollOnFocusOut:Boolean = true;
 
 	/**
 	 * @private
@@ -1030,7 +1030,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.textField = new TextField();
 		this.textField.needsSoftKeyboard = true;
@@ -1051,7 +1051,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1065,7 +1065,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function commit():void
+	private function commit():void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1093,7 +1093,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1109,7 +1109,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function measure(result:Point = null):Point
+	private function measure(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1178,7 +1178,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function commitStylesAndData(textField:TextField):void
+	private function commitStylesAndData(textField:TextField):void
 	{
 		textField.maxChars = this._maxChars;
 		textField.restrict = this._restrict;
@@ -1238,7 +1238,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1266,7 +1266,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function refreshTextFieldSize():void
+	private function refreshTextFieldSize():void
 	{
 		var gutterDimensionsOffset:Number = 4;
 		if(this._useGutter)
@@ -1280,7 +1280,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshotParameters():void
+	private function refreshSnapshotParameters():void
 	{
 		this._textFieldOffsetX = 0;
 		this._textFieldOffsetY = 0;
@@ -1305,7 +1305,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function transformTextField():void
+	private function transformTextField():void
 	{
 		if(!this.textField.visible)
 		{
@@ -1336,7 +1336,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function positionSnapshot():void
+	private function positionSnapshot():void
 	{
 		if(!this.textSnapshot)
 		{
@@ -1350,7 +1350,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function checkIfNewSnapshotIsNeeded():void
+	private function checkIfNewSnapshotIsNeeded():void
 	{
 		var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 		if(canUseRectangleTexture)
@@ -1370,7 +1370,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function doPendingActions():void
+	private function doPendingActions():void
 	{
 		if(this._isWaitingToSetFocus)
 		{
@@ -1391,7 +1391,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function texture_onRestore():void
+	private function texture_onRestore():void
 	{
 		this.refreshSnapshot();
 	}
@@ -1399,7 +1399,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshot():void
+	private function refreshSnapshot():void
 	{
 		if(this._snapshotWidth <= 0 || this._snapshotHeight <= 0)
 		{
@@ -1455,7 +1455,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textEditor_addedToStageHandler(event:Event):void
+	private function textEditor_addedToStageHandler(event:Event):void
 	{
 		if(!this.textField.parent)
 		{
@@ -1467,7 +1467,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textEditor_removedFromStageHandler(event:Event):void
+	private function textEditor_removedFromStageHandler(event:Event):void
 	{
 		if(this.textField.parent)
 		{
@@ -1480,7 +1480,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textEditor_enterFrameHandler(event:Event):void
+	private function textEditor_enterFrameHandler(event:Event):void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, textEditor_enterFrameHandler);
 		this.refreshSnapshot();
@@ -1494,7 +1494,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_changeHandler(event:flash.events.Event):void
+	private function textField_changeHandler(event:flash.events.Event):void
 	{
 		this.text = this.textField.text;
 	}
@@ -1502,7 +1502,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_focusInHandler(event:FocusEvent):void
+	private function textField_focusInHandler(event:FocusEvent):void
 	{
 		this._textFieldHasFocus = true;
 		if(this.textSnapshot)
@@ -1516,7 +1516,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_focusOutHandler(event:FocusEvent):void
+	private function textField_focusOutHandler(event:FocusEvent):void
 	{
 		this._textFieldHasFocus = false;
 
@@ -1533,7 +1533,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_keyDownHandler(event:KeyboardEvent):void
+	private function textField_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.keyCode == Keyboard.ENTER)
 		{
@@ -1544,7 +1544,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):void
+	private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
 	}
@@ -1552,7 +1552,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	protected function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):void
+	private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}

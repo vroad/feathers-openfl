@@ -54,7 +54,7 @@ class Main extends LayoutGroup
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//we want this container to fill the whole stage
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
@@ -163,7 +163,7 @@ class Main extends LayoutGroup
 		this.addChild(this._list);
 	}
 	
-	protected function tileListItemRendererFactory():IListItemRenderer
+	private function tileListItemRendererFactory():IListItemRenderer
 	{
 		var renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
 		renderer.labelField = "label";
@@ -173,18 +173,18 @@ class Main extends LayoutGroup
 		return renderer;
 	}
 
-	protected function list_scrollHandler(event:Event):void
+	private function list_scrollHandler(event:Event):void
 	{
 		this._pageIndicator.pageCount = this._list.horizontalPageCount;
 		this._pageIndicator.selectedIndex = this._list.horizontalPageIndex;
 	}
 
-	protected function pageIndicator_changeHandler(event:Event):void
+	private function pageIndicator_changeHandler(event:Event):void
 	{
 		this._list.scrollToPageIndex(this._pageIndicator.selectedIndex, 0, this._list.pageThrowDuration);
 	}
 
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}

@@ -215,7 +215,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected static function defaultButtonGroupFactory():ButtonGroup
+	private static function defaultButtonGroupFactory():ButtonGroup
 	{
 		return new ButtonGroup();
 	}
@@ -233,40 +233,40 @@ class Alert extends Panel
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the alert's
-	 * message text renderer. This variable is <code>protected</code> so
+	 * message text renderer. This variable is <code>private</code> so
 	 * that sub-classes can customize the message name in their constructors
 	 * instead of using the default name defined by
 	 * <code>DEFAULT_CHILD_NAME_MESSAGE</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var messageName:String = DEFAULT_CHILD_NAME_MESSAGE;
+	private var messageName:String = DEFAULT_CHILD_NAME_MESSAGE;
 
 	/**
 	 * The header sub-component.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var headerHeader:Header;
+	private var headerHeader:Header;
 
 	/**
 	 * The button group sub-component.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var buttonGroupFooter:ButtonGroup;
+	private var buttonGroupFooter:ButtonGroup;
 
 	/**
 	 * The message text renderer sub-component.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var messageTextRenderer:ITextRenderer;
+	private var messageTextRenderer:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Alert.globalStyleProvider;
 	}
@@ -274,7 +274,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _title:String = null;
+	private var _title:String = null;
 
 	/**
 	 * The title text displayed in the alert's header.
@@ -300,7 +300,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _message:String = null;
+	private var _message:String = null;
 
 	/**
 	 * The alert's main text content.
@@ -326,7 +326,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _icon:DisplayObject;
+	private var _icon:DisplayObject;
 
 	/**
 	 * The alert's optional icon content to display next to the text.
@@ -363,7 +363,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the alert's icon and its message text
@@ -397,7 +397,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _buttonsDataProvider:ListCollection;
+	private var _buttonsDataProvider:ListCollection;
 
 	/**
 	 * The data provider of the alert's <code>ButtonGroup</code>.
@@ -423,7 +423,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _messageFactory:Function;
+	private var _messageFactory:Function;
 
 	/**
 	 * A function used to instantiate the alert's message text renderer
@@ -482,7 +482,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _messageProperties:PropertyProxy;
+	private var _messageProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the alert's message
@@ -666,7 +666,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this.layout)
 		{
@@ -680,7 +680,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES)
@@ -717,7 +717,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -811,7 +811,7 @@ class Alert extends Panel
 	 * @see #headerFactory
 	 * @see #customHeaderName
 	 */
-	override protected function createHeader():void
+	override private function createHeader():void
 	{
 		super.createHeader();
 		this.headerHeader = Header(this.header);
@@ -828,7 +828,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #customButtonGroupName
 	 */
-	protected function createButtonGroup():void
+	private function createButtonGroup():void
 	{
 		if(this.buttonGroupFooter)
 		{
@@ -842,7 +842,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function createFooter():void
+	override private function createFooter():void
 	{
 		this.createButtonGroup();
 	}
@@ -858,7 +858,7 @@ class Alert extends Panel
 	 * @see #messageTextRenderer
 	 * @see #messageFactory
 	 */
-	protected function createMessage():void
+	private function createMessage():void
 	{
 		if(this.messageTextRenderer)
 		{
@@ -877,7 +877,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function refreshHeaderStyles():void
+	override private function refreshHeaderStyles():void
 	{
 		super.refreshHeaderStyles();
 		this.headerHeader.title = this._title;
@@ -886,7 +886,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function refreshFooterStyles():void
+	override private function refreshFooterStyles():void
 	{
 		super.refreshFooterStyles();
 		this.buttonGroupFooter.dataProvider = this._buttonsDataProvider;
@@ -895,7 +895,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected function refreshMessageStyles():void
+	private function refreshMessageStyles():void
 	{
 		for(var propertyName:String in this._messageProperties)
 		{
@@ -907,7 +907,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override protected function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
+	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
 	{
 		super.calculateViewPortOffsets(forceScrollBars, useActualBounds);
 		if(this._icon)
@@ -927,7 +927,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected function buttonsFooter_triggeredHandler(event:Event, data:Object):void
+	private function buttonsFooter_triggeredHandler(event:Event, data:Object):void
 	{
 		this.removeFromParent();
 		this.dispatchEventWith(Event.CLOSE, false, data);

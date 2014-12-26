@@ -24,13 +24,13 @@ class DropTarget extends LayoutGroup implements IDropTarget
 	private var _background:Quad;
 	private var _dragFormat:String;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._background = new Quad(1, 1, DEFAULT_COLOR);
 		this.addChildAt(this._background, 0);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		super.draw();
 		this._background.width = this.actualWidth;

@@ -57,42 +57,42 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_LEFT_CONTENT:String = "leftContent";
+	private static const INVALIDATION_FLAG_LEFT_CONTENT:String = "leftContent";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_RIGHT_CONTENT:String = "rightContent";
+	private static const INVALIDATION_FLAG_RIGHT_CONTENT:String = "rightContent";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_CENTER_CONTENT:String = "centerContent";
+	private static const INVALIDATION_FLAG_CENTER_CONTENT:String = "centerContent";
 
 	/**
 	 * @private
 	 */
-	protected static const IOS_RETINA_STATUS_BAR_HEIGHT:Number = 40;
+	private static const IOS_RETINA_STATUS_BAR_HEIGHT:Number = 40;
 
 	/**
 	 * @private
 	 */
-	protected static const IOS_NON_RETINA_STATUS_BAR_HEIGHT:Number = 20;
+	private static const IOS_NON_RETINA_STATUS_BAR_HEIGHT:Number = 20;
 
 	/**
 	 * @private
 	 */
-	protected static const IOS_RETINA_MINIMUM_DPI:Number = 264;
+	private static const IOS_RETINA_MINIMUM_DPI:Number = 264;
 
 	/**
 	 * @private
 	 */
-	protected static const IOS_NAME_PREFIX:String = "iPhone OS ";
+	private static const IOS_NAME_PREFIX:String = "iPhone OS ";
 
 	/**
 	 * @private
 	 */
-	protected static const STATUS_BAR_MIN_IOS_VERSION:int = 7;
+	private static const STATUS_BAR_MIN_IOS_VERSION:int = 7;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Header</code>
@@ -192,44 +192,44 @@ class Header extends FeathersControl
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the header's title. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the title name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_TITLE</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var titleName:String = DEFAULT_CHILD_NAME_TITLE;
+	private var titleName:String = DEFAULT_CHILD_NAME_TITLE;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the header's items. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the item name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_ITEM</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var itemName:String = DEFAULT_CHILD_NAME_ITEM;
+	private var itemName:String = DEFAULT_CHILD_NAME_ITEM;
 
 	/**
 	 * @private
 	 */
-	protected var leftItemsWidth:Number = 0;
+	private var leftItemsWidth:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var rightItemsWidth:Number = 0;
+	private var rightItemsWidth:Number = 0;
 
 	/**
 	 * @private
 	 * The layout algorithm. Shared by both sides.
 	 */
-	protected var _layout:HorizontalLayout;
+	private var _layout:HorizontalLayout;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Header.globalStyleProvider;
 	}
@@ -237,7 +237,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _title:String = "";
+	private var _title:String = "";
 
 	/**
 	 * The text displayed for the header's title.
@@ -276,7 +276,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _titleFactory:Function;
+	private var _titleFactory:Function;
 
 	/**
 	 * A function used to instantiate the header's title text renderer
@@ -341,12 +341,12 @@ class Header extends FeathersControl
 	 * @see #titleFactory
 	 * @see #createTitle()
 	 */
-	protected var titleTextRenderer:ITextRenderer;
+	private var titleTextRenderer:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	protected var _disposeItems:Boolean = true;
+	private var _disposeItems:Boolean = true;
 
 	/**
 	 * Determines if the <code>leftItems</code>, <code>centerItems</code>,
@@ -375,7 +375,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftItems:Vector.<DisplayObject>;
+	private var _leftItems:Vector.<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the left region of the header.
@@ -435,7 +435,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _centerItems:Vector.<DisplayObject>;
+	private var _centerItems:Vector.<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the center region of the header. If
@@ -497,7 +497,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightItems:Vector.<DisplayObject>;
+	private var _rightItems:Vector.<DisplayObject>;
 
 	/**
 	 * The UI controls that appear in the right region of the header.
@@ -590,7 +590,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's top edge and the
@@ -625,7 +625,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's right edge and the
@@ -660,7 +660,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's bottom edge and
@@ -695,7 +695,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the header's left edge and the
@@ -730,7 +730,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * Space, in pixels, between items. The same value is used with the
@@ -772,7 +772,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _titleGap:Number = NaN;
+	private var _titleGap:Number = NaN;
 
 	/**
 	 * Space, in pixels, between the title and the left or right groups of
@@ -810,7 +810,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _useExtraPaddingForOSStatusBar:Boolean = false;
+	private var _useExtraPaddingForOSStatusBar:Boolean = false;
 
 	/**
 	 * If enabled, the header's top padding will be increased to account for
@@ -852,7 +852,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
+	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -891,22 +891,22 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentBackgroundSkin:DisplayObject;
+	private var currentBackgroundSkin:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * A display object displayed behind the header's content.
@@ -950,7 +950,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _backgroundDisabledSkin:DisplayObject;
+	private var _backgroundDisabledSkin:DisplayObject;
 
 	/**
 	 * A background to display when the header is disabled.
@@ -994,7 +994,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _titleProperties:PropertyProxy;
+	private var _titleProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the header's title. The
@@ -1066,7 +1066,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _titleAlign:String = TITLE_ALIGN_CENTER;
+	private var _titleAlign:String = TITLE_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="center,preferLeft,preferRight")]
 	/**
@@ -1135,7 +1135,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this._layout)
 		{
@@ -1148,7 +1148,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1281,7 +1281,7 @@ class Header extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1459,7 +1459,7 @@ class Header extends FeathersControl
 	 * @see #titleTextRenderer
 	 * @see #titleFactory
 	 */
-	protected function createTitle():void
+	private function createTitle():void
 	{
 		if(this.titleTextRenderer)
 		{
@@ -1477,7 +1477,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshBackground():void
+	private function refreshBackground():void
 	{
 		this.currentBackgroundSkin = this._backgroundSkin;
 		if(!this._isEnabled && this._backgroundDisabledSkin)
@@ -1510,7 +1510,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshLayout():void
+	private function refreshLayout():void
 	{
 		this._layout.gap = this._gap;
 		this._layout.paddingTop = this._paddingTop + this.calculateExtraOSStatusBarPadding();
@@ -1521,7 +1521,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshEnabled():void
+	private function refreshEnabled():void
 	{
 		this.titleTextRenderer.isEnabled = this._isEnabled;
 	}
@@ -1529,7 +1529,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshTitleStyles():void
+	private function refreshTitleStyles():void
 	{
 		for(var propertyName:String in this._titleProperties)
 		{
@@ -1541,7 +1541,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function calculateExtraOSStatusBarPadding():Number
+	private function calculateExtraOSStatusBarPadding():Number
 	{
 		if(!this._useExtraPaddingForOSStatusBar)
 		{
@@ -1567,7 +1567,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutBackground():void
+	private function layoutBackground():void
 	{
 		if(!this.currentBackgroundSkin)
 		{
@@ -1580,7 +1580,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutLeftItems():void
+	private function layoutLeftItems():void
 	{
 		for each(var item:DisplayObject in this._leftItems)
 		{
@@ -1608,7 +1608,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutRightItems():void
+	private function layoutRightItems():void
 	{
 		for each(var item:DisplayObject in this._rightItems)
 		{
@@ -1635,7 +1635,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutCenterItems():void
+	private function layoutCenterItems():void
 	{
 		for each(var item:DisplayObject in this._centerItems)
 		{
@@ -1657,7 +1657,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutTitle():void
+	private function layoutTitle():void
 	{
 		if((this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems) || this._title.length == 0)
 		{
@@ -1720,7 +1720,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function header_addedToStageHandler(event:Event):void
+	private function header_addedToStageHandler(event:Event):void
 	{
 		Starling.current.nativeStage.addEventListener("fullScreen", nativeStage_fullScreenHandler);
 	}
@@ -1728,7 +1728,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function header_removedFromStageHandler(event:Event):void
+	private function header_removedFromStageHandler(event:Event):void
 	{
 		Starling.current.nativeStage.removeEventListener("fullScreen", nativeStage_fullScreenHandler);
 	}
@@ -1736,7 +1736,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function nativeStage_fullScreenHandler(event:FullScreenEvent):void
+	private function nativeStage_fullScreenHandler(event:FullScreenEvent):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
@@ -1744,7 +1744,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function titleProperties_onChange(proxy:PropertyProxy, propertyName:String):void
+	private function titleProperties_onChange(proxy:PropertyProxy, propertyName:String):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1752,7 +1752,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function item_resizeHandler(event:Event):void
+	private function item_resizeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

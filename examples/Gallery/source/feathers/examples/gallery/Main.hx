@@ -36,16 +36,16 @@ class Main extends Sprite
 		this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 
-	protected var selectedImage:Image;
-	protected var list:List;
-	protected var message:Label;
-	protected var apiLoader:URLLoader;
-	protected var loader:Loader;
-	protected var fadeTween:Tween;
-	protected var originalImageWidth:Number;
-	protected var originalImageHeight:Number;
+	private var selectedImage:Image;
+	private var list:List;
+	private var message:Label;
+	private var apiLoader:URLLoader;
+	private var loader:Loader;
+	private var fadeTween:Tween;
+	private var originalImageWidth:Number;
+	private var originalImageHeight:Number;
 
-	protected function layout():void
+	private function layout():void
 	{
 		this.list.width = this.stage.stageWidth;
 		this.list.height = 100;
@@ -67,7 +67,7 @@ class Main extends Sprite
 		this.message.y = (availableHeight - this.message.height) / 2;
 	}
 
-	protected function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):void
 	{
 		var item:GalleryItem = GalleryItem(this.list.selectedItem);
 		if(!item)
@@ -103,7 +103,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	protected function addedToStageHandler(event:starling.events.Event):void
+	private function addedToStageHandler(event:starling.events.Event):void
 	{
 		//this is an *extended* version of MetalWorksMobileTheme
 		new GalleryTheme();
@@ -136,12 +136,12 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.layout();
 	}
 
-	protected function apiLoader_completeListener(event:flash.events.Event):void
+	private function apiLoader_completeListener(event:flash.events.Event):void
 	{
 		var result:XML = XML(this.apiLoader.data);
 		if(result.attribute("stat") == "fail")
@@ -172,13 +172,13 @@ class Main extends Sprite
 		this.list.selectedIndex = 0;
 	}
 
-	protected function apiLoader_errorListener(event:flash.events.Event):void
+	private function apiLoader_errorListener(event:flash.events.Event):void
 	{
 		this.message.text = "Error loading images.";
 		this.layout();
 	}
 
-	protected function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):void
 	{
 		var texture:Texture = Texture.fromBitmap(Bitmap(this.loader.content));
 		if(this.selectedImage)
@@ -207,7 +207,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	protected function loader_errorHandler(event:flash.events.Event):void
+	private function loader_errorHandler(event:flash.events.Event):void
 	{
 		this.message.text = "Error loading image.";
 		this.layout();

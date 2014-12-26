@@ -22,7 +22,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		super();
 	}
 
-	override protected function initializeStyleProviders():void
+	override private function initializeStyleProviders():void
 	{
 		super.initializeStyleProviders();
 
@@ -38,7 +38,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		this.getStyleProviderForClass(ToggleScreen).defaultStyleFunction = this.setToggleScreenStyles;
 	}
 
-	protected function setButtonScreenIconButtonStyles(button:Button):void
+	private function setButtonScreenIconButtonStyles(button:Button):void
 	{
 		//don't forget to set styles from the super class, if required
 		this.setButtonStyles(button);
@@ -52,7 +52,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		button.defaultIcon = icon;
 	}
 
-	protected function setButtonScreenStyles(screen:ButtonScreen):void
+	private function setButtonScreenStyles(screen:ButtonScreen):void
 	{
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -64,17 +64,17 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_ON;
 	}
 
-	protected function setCalloutScreenStyles(screen:CalloutScreen):void
+	private function setCalloutScreenStyles(screen:CalloutScreen):void
 	{
 		screen.layoutPadding = this.gutterSize;
 	}
 
-	protected function setItemRendererScreenStyles(screen:ItemRendererScreen):void
+	private function setItemRendererScreenStyles(screen:ItemRendererScreen):void
 	{
 		screen.itemRendererGap = this.gutterSize;
 	}
 
-	protected function setLabelScreenStyles(screen:LabelScreen):void
+	private function setLabelScreenStyles(screen:LabelScreen):void
 	{
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
@@ -86,7 +86,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_ON;
 	}
 
-	protected function setProgressBarScreenStyles(screen:ProgressBarScreen):void
+	private function setProgressBarScreenStyles(screen:ProgressBarScreen):void
 	{
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -95,7 +95,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.layout = layout;
 	}
 
-	protected function setSliderScreenStyles(screen:SliderScreen):void
+	private function setSliderScreenStyles(screen:SliderScreen):void
 	{
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -104,7 +104,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.layout = layout;
 	}
 
-	protected function setTextInputScreenStyles(screen:TextInputScreen):void
+	private function setTextInputScreenStyles(screen:TextInputScreen):void
 	{
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -116,7 +116,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_ON;
 	}
 
-	protected function setToggleScreenStyles(screen:ToggleScreen):void
+	private function setToggleScreenStyles(screen:ToggleScreen):void
 	{
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;

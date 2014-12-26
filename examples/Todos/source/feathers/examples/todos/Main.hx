@@ -77,7 +77,7 @@ class Main extends PanelScreen
 		return this._toolbar;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

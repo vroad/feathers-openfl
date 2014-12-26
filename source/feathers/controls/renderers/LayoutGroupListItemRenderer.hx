@@ -52,7 +52,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroupListItemRenderer.globalStyleProvider;
 	}
@@ -60,7 +60,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	protected var _index:int = -1;
+	private var _index:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -81,7 +81,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	protected var _owner:List;
+	private var _owner:List;
 
 	/**
 	 * @inheritDoc
@@ -107,7 +107,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 
 	/**
 	 * @inheritDoc
@@ -133,7 +133,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	protected var _isSelected:Boolean;
+	private var _isSelected:Boolean;
 
 	/**
 	 * @inheritDoc
@@ -169,7 +169,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -218,7 +218,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * @see #postLayout()
 	 */
-	protected function preLayout():void
+	private function preLayout():void
 	{
 
 	}
@@ -240,7 +240,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * @see #preLayout()
 	 */
-	protected function postLayout():void
+	private function postLayout():void
 	{
 
 	}
@@ -251,7 +251,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * <p>Don't forget to handle the case where the data is <code>null</code>.</p>
 	 */
-	protected function commitData():void
+	private function commitData():void
 	{
 
 	}

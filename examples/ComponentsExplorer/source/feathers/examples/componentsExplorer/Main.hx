@@ -95,7 +95,7 @@ class Main extends Drawers
 	private var _menu:MainMenuScreen;
 	private var _transitionManager:ScreenSlidingStackTransitionManager;
 	
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

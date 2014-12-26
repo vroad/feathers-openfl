@@ -43,62 +43,62 @@ class TabBarSlideTransitionManager
 	/**
 	 * The <code>ScreenNavigator</code> being managed.
 	 */
-	protected var navigator:ScreenNavigator;
+	private var navigator:ScreenNavigator;
 
 	/**
 	 * The <code>TabBar</code> that controls the navigation.
 	 */
-	protected var tabBar:TabBar;
+	private var tabBar:TabBar;
 
 	/**
 	 * @private
 	 */
-	protected var _activeTransition:Tween;
+	private var _activeTransition:Tween;
 
 	/**
 	 * @private
 	 */
-	protected var _savedOtherTarget:DisplayObject;
+	private var _savedOtherTarget:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _oldScreen:DisplayObject;
+	private var _oldScreen:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _newScreen:DisplayObject;
+	private var _newScreen:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingIndex:int;
+	private var _pendingIndex:int;
 
 	/**
 	 * @private
 	 */
-	protected var _activeIndex:int;
+	private var _activeIndex:int;
 
 	/**
 	 * @private
 	 */
-	protected var _isFromRight:Boolean = true;
+	private var _isFromRight:Boolean = true;
 
 	/**
 	 * @private
 	 */
-	protected var _isWaitingOnTabBarChange:Boolean = true;
+	private var _isWaitingOnTabBarChange:Boolean = true;
 
 	/**
 	 * @private
 	 */
-	protected var _isWaitingOnTransitionChange:Boolean = true;
+	private var _isWaitingOnTransitionChange:Boolean = true;
 
 	/**
 	 * The duration of the transition, measured in seconds.
@@ -135,7 +135,7 @@ class TabBarSlideTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	protected function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
 	{
 		this._oldScreen = oldScreen;
 		this._newScreen = newScreen;
@@ -154,7 +154,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected function transitionNow():void
+	private function transitionNow():void
 	{
 		this._activeIndex = this._pendingIndex;
 		if(this._activeTransition)
@@ -214,7 +214,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransitionFromRight_onUpdate():void
+	private function activeTransitionFromRight_onUpdate():void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -226,7 +226,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransitionFromLeft_onUpdate():void
+	private function activeTransitionFromLeft_onUpdate():void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -238,7 +238,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransition_onComplete():void
+	private function activeTransition_onComplete():void
 	{
 		this._savedOtherTarget = null;
 		this._activeTransition = null;
@@ -251,7 +251,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected function tabBar_changeHandler(event:Event):void
+	private function tabBar_changeHandler(event:Event):void
 	{
 		this._pendingIndex = this.tabBar.selectedIndex;
 		if(this._pendingIndex == this._activeIndex)

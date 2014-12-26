@@ -66,12 +66,12 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
+	private static const INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
 
 	/**
 	 * Flag to indicate that the clipping has changed.
 	 */
-	protected static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
+	private static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>LayoutGroup</code>
@@ -93,23 +93,23 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * The items added to the group.
 	 */
-	protected var items:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var items:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * The view port bounds result object passed to the layout. Its values
 	 * should be set in <code>refreshViewPortBounds()</code>.
 	 */
-	protected var viewPortBounds:ViewPortBounds = new ViewPortBounds();
+	private var viewPortBounds:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	protected var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
+	private var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroup.globalStyleProvider;
 	}
@@ -117,7 +117,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * Controls the way that the group's children are positioned and sized.
@@ -167,12 +167,12 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _mxmlContentIsReady:Boolean = false;
+	private var _mxmlContentIsReady:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _mxmlContent:Array;
+	private var _mxmlContent:Array;
 
 	[ArrayElementType("feathers.core.IFeathersControl")]
 	/**
@@ -209,7 +209,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _clipContent:Boolean = false;
+	private var _clipContent:Boolean = false;
 
 	/**
 	 * If true, the group will be clipped to its bounds. In other words,
@@ -247,22 +247,22 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentBackgroundSkin:DisplayObject;
+	private var currentBackgroundSkin:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * The default background to display behind all content. The background
@@ -297,7 +297,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _backgroundDisabledSkin:DisplayObject;
+	private var _backgroundDisabledSkin:DisplayObject;
 
 	/**
 	 * The background to display behind all content when the layout group is
@@ -332,7 +332,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Boolean = false;
 
 	/**
 	 * @private
@@ -498,7 +498,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.refreshMXMLContent();
 	}
@@ -506,7 +506,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -573,7 +573,7 @@ class LayoutGroup extends FeathersControl
 	 * Choose the appropriate background skin based on the control's current
 	 * state.
 	 */
-	protected function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():void
 	{
 		if(!this._isEnabled && this._backgroundDisabledSkin)
 		{
@@ -602,7 +602,7 @@ class LayoutGroup extends FeathersControl
 	 * Refreshes the values in the <code>viewPortBounds</code> variable that
 	 * is passed to the layout.
 	 */
-	protected function refreshViewPortBounds():void
+	private function refreshViewPortBounds():void
 	{
 		this.viewPortBounds.x = 0;
 		this.viewPortBounds.y = 0;
@@ -619,7 +619,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleManualLayout():void
+	private function handleManualLayout():void
 	{
 		var maxX:Number = this.viewPortBounds.explicitWidth;
 		if(maxX !== maxX) //isNaN
@@ -669,7 +669,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function validateChildren():void
+	private function validateChildren():void
 	{
 		if(this.currentBackgroundSkin is IValidating)
 		{
@@ -689,7 +689,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshMXMLContent():void
+	private function refreshMXMLContent():void
 	{
 		if(!this._mxmlContent || this._mxmlContentIsReady)
 		{
@@ -707,7 +707,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshClipRect():void
+	private function refreshClipRect():void
 	{
 		if(this._clipContent)
 		{
@@ -732,7 +732,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layout_changeHandler(event:Event):void
+	private function layout_changeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
@@ -740,7 +740,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function child_resizeHandler(event:Event):void
+	private function child_resizeHandler(event:Event):void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -752,7 +752,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function child_layoutDataChangeHandler(event:Event):void
+	private function child_layoutDataChangeHandler(event:Event):void
 	{
 		if(this._ignoreChildChanges)
 		{

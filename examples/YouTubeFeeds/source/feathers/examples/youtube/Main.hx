@@ -26,7 +26,7 @@ class Main extends ScreenNavigator
 	private var _transitionManager:ScreenSlidingStackTransitionManager;
 	private var _model:YouTubeModel;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

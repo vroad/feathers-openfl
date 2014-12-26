@@ -199,12 +199,12 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var textViewPort:TextFieldViewPort;
+	private var textViewPort:TextFieldViewPort;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ScrollText.globalStyleProvider;
 	}
@@ -220,7 +220,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * The text to display. If <code>isHTML</code> is <code>true</code>, the
@@ -261,7 +261,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _isHTML:Boolean = false;
+	private var _isHTML:Boolean = false;
 
 	/**
 	 * Determines if the TextField should display the text as HTML or not.
@@ -298,7 +298,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textFormat:TextFormat;
+	private var _textFormat:TextFormat;
 
 	/**
 	 * The font and styles used to draw the text.
@@ -334,7 +334,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _disabledTextFormat:TextFormat;
+	private var _disabledTextFormat:TextFormat;
 
 	/**
 	 * The font and styles used to draw the text when the component is disabled.
@@ -371,7 +371,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _styleSheet:StyleSheet;
+	private var _styleSheet:StyleSheet;
 
 	/**
 	 * The <code>StyleSheet</code> object to pass to the TextField.
@@ -421,7 +421,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _embedFonts:Boolean = false;
+	private var _embedFonts:Boolean = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -854,7 +854,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textPaddingTop:Number = 0;
+	private var _textPaddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's top edge and
@@ -888,7 +888,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textPaddingRight:Number = 0;
+	private var _textPaddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's right edge and
@@ -920,7 +920,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textPaddingBottom:Number = 0;
+	private var _textPaddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's bottom edge and
@@ -952,7 +952,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _textPaddingLeft:Number = 0;
+	private var _textPaddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's left edge and
@@ -984,7 +984,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _visible:Boolean = true;
+	private var _visible:Boolean = true;
 
 	/**
 	 * @private
@@ -1010,7 +1010,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _alpha:Number = 1;
+	private var _alpha:Number = 1;
 
 	/**
 	 * @private
@@ -1044,7 +1044,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1088,7 +1088,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function textViewPort_triggeredHandler(event:Event, link:String):void
+	private function textViewPort_triggeredHandler(event:Event, link:String):void
 	{
 		this.dispatchEventWith(Event.TRIGGERED, false, link);
 	}
@@ -1096,7 +1096,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1105,7 +1105,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1114,7 +1114,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{

@@ -26,13 +26,13 @@ class DragSource extends LayoutGroup implements IDragSource
 	private var _draggedObject:DisplayObject;
 	private var _dragFormat:String;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._background = new Quad(1, 1, 0x36322e);
 		this.addChildAt(this._background, 0);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		super.draw();
 		this._background.width = this.actualWidth;

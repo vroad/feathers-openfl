@@ -58,7 +58,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected static const CIRCULAR_REFERENCE_ERROR:String = "It is impossible to create this layout due to a circular reference in the AnchorLayoutData.";
+	private static const CIRCULAR_REFERENCE_ERROR:String = "It is impossible to create this layout due to a circular reference in the AnchorLayoutData.";
 
 	/**
 	 * @private
@@ -75,12 +75,12 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected var _helperVector1:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _helperVector1:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _helperVector2:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _helperVector2:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @inheritDoc
@@ -159,7 +159,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureViewPort(items:Vector.<DisplayObject>, viewPortWidth:Number, viewPortHeight:Number, result:Point = null):Point
+	private function measureViewPort(items:Vector.<DisplayObject>, viewPortWidth:Number, viewPortHeight:Number, result:Point = null):Point
 	{
 		this._helperVector1.length = 0;
 		this._helperVector2.length = 0;
@@ -204,7 +204,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, result:Point = null):Point
+	private function measureVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -244,7 +244,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureItem(item:DisplayObject, result:Point):void
+	private function measureItem(item:DisplayObject, result:Point):void
 	{
 		var maxX:Number = result.x;
 		var maxY:Number = result.y;
@@ -289,7 +289,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureItemHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData):Number
+	private function measureItemHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData):Number
 	{
 		var itemWidth:Number = item.width;
 		if(layoutData && item is IFeathersControl)
@@ -316,7 +316,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureItemVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData):Number
+	private function measureItemVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData):Number
 	{
 		var itemHeight:Number = item.height;
 		if(layoutData && item is IFeathersControl)
@@ -345,12 +345,12 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 * This function is here to work around a bug in the Flex 4.6 SDK
 	 * compiler. For explanation, see the places where it gets called.
 	 */
-	protected function doNothing():void {}
+	private function doNothing():void {}
 
 	/**
 	 * @private
 	 */
-	protected function getTopOffset(item:DisplayObject):Number
+	private function getTopOffset(item:DisplayObject):Number
 	{
 		if(item is ILayoutDisplayObject)
 		{
@@ -410,7 +410,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function getRightOffset(item:DisplayObject):Number
+	private function getRightOffset(item:DisplayObject):Number
 	{
 		if(item is ILayoutDisplayObject)
 		{
@@ -470,7 +470,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function getBottomOffset(item:DisplayObject):Number
+	private function getBottomOffset(item:DisplayObject):Number
 	{
 		if(item is ILayoutDisplayObject)
 		{
@@ -530,7 +530,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function getLeftOffset(item:DisplayObject):Number
+	private function getLeftOffset(item:DisplayObject):Number
 	{
 		if(item is ILayoutDisplayObject)
 		{
@@ -590,7 +590,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function layoutWithBounds(items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):void
+	private function layoutWithBounds(items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):void
 	{
 		this._helperVector1.length = 0;
 		this._helperVector2.length = 0;
@@ -627,7 +627,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
 	{
 		unpositionedItems.length = 0;
 		var itemCount:int = items.length;
@@ -661,7 +661,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function positionHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function positionHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
 	{
 		var uiItem:IFeathersControl = item as IFeathersControl;
 		var percentWidth:Number = layoutData.percentWidth;
@@ -805,7 +805,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function positionVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function positionVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
 	{
 		var uiItem:IFeathersControl = item as IFeathersControl;
 		var percentHeight:Number = layoutData.percentHeight;
@@ -949,7 +949,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function measureContent(items:Vector.<DisplayObject>, viewPortWidth:Number, viewPortHeight:Number, result:Point = null):Point
+	private function measureContent(items:Vector.<DisplayObject>, viewPortWidth:Number, viewPortHeight:Number, result:Point = null):Point
 	{
 		var maxX:Number = viewPortWidth;
 		var maxY:Number = viewPortHeight;
@@ -978,7 +978,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function isReadyForLayout(layoutData:AnchorLayoutData, index:int, items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>):Boolean
+	private function isReadyForLayout(layoutData:AnchorLayoutData, index:int, items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>):Boolean
 	{
 		var nextIndex:int = index + 1;
 		var leftAnchorDisplayObject:DisplayObject = layoutData.leftAnchorDisplayObject;
@@ -1007,7 +1007,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function isReferenced(item:DisplayObject, items:Vector.<DisplayObject>):Boolean
+	private function isReferenced(item:DisplayObject, items:Vector.<DisplayObject>):Boolean
 	{
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1035,7 +1035,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, force:Boolean):void
+	private function validateItems(items:Vector.<DisplayObject>, force:Boolean):void
 	{
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)

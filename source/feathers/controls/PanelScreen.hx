@@ -176,7 +176,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return PanelScreen.globalStyleProvider;
 	}
@@ -184,7 +184,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _screenID:String;
+	private var _screenID:String;
 
 	/**
 	 * @inheritDoc
@@ -205,7 +205,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _owner:ScreenNavigator;
+	private var _owner:ScreenNavigator;
 
 	/**
 	 * @inheritDoc
@@ -244,7 +244,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var backButtonHandler:Function;
+	private var backButtonHandler:Function;
 
 	/**
 	 * Optional callback for the menu hardware key. Automatically handles
@@ -267,7 +267,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var menuButtonHandler:Function;
+	private var menuButtonHandler:Function;
 
 	/**
 	 * Optional callback for the search hardware key. Automatically handles
@@ -290,12 +290,12 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var searchButtonHandler:Function;
+	private var searchButtonHandler:Function;
 
 	/**
 	 * @private
 	 */
-	protected function panelScreen_addedToStageHandler(event:Event):void
+	private function panelScreen_addedToStageHandler(event:Event):void
 	{
 		this.addEventListener(Event.REMOVED_FROM_STAGE, panelScreen_removedFromStageHandler);
 		//using priority here is a hack so that objects higher up in the
@@ -307,7 +307,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	protected function panelScreen_removedFromStageHandler(event:Event):void
+	private function panelScreen_removedFromStageHandler(event:Event):void
 	{
 		this.removeEventListener(Event.REMOVED_FROM_STAGE, panelScreen_removedFromStageHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, panelScreen_nativeStage_keyDownHandler);
@@ -316,7 +316,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	protected function panelScreen_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function panelScreen_nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{

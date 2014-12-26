@@ -85,64 +85,64 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * The TextField instance used to render the text before taking a
 	 * texture snapshot.
 	 */
-	protected var textField:TextField;
+	private var textField:TextField;
 
 	/**
 	 * An image that displays a snapshot of the native <code>TextField</code>
 	 * in the Starling display list when the editor doesn't have focus.
 	 */
-	protected var textSnapshot:Image;
+	private var textSnapshot:Image;
 
 	/**
 	 * If multiple snapshots are needed due to texture size limits, the
 	 * snapshots appearing after the first are stored here.
 	 */
-	protected var textSnapshots:Vector.<Image>;
+	private var textSnapshots:Vector.<Image>;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotOffsetX:Number = 0;
+	private var _textSnapshotOffsetX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotOffsetY:Number = 0;
+	private var _textSnapshotOffsetY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _previousActualWidth:Number = NaN;
+	private var _previousActualWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _previousActualHeight:Number = NaN;
+	private var _previousActualHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotWidth:int = 0;
+	private var _snapshotWidth:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotHeight:int = 0;
+	private var _snapshotHeight:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _hasMeasured:Boolean = false;
+	private var _hasMeasured:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TextFieldTextRenderer.globalStyleProvider;
 	}
@@ -150,7 +150,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * @inheritDoc
@@ -190,7 +190,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _isHTML:Boolean = false;
+	private var _isHTML:Boolean = false;
 
 	/**
 	 * Determines if the TextField should display the text as HTML or not.
@@ -227,7 +227,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _textFormat:TextFormat;
+	private var _textFormat:TextFormat;
 
 	/**
 	 * The font and styles used to draw the text.
@@ -263,7 +263,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _disabledTextFormat:TextFormat;
+	private var _disabledTextFormat:TextFormat;
 
 	/**
 	 * The font and styles used to draw the text when the component is disabled.
@@ -300,7 +300,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _styleSheet:StyleSheet;
+	private var _styleSheet:StyleSheet;
 
 	/**
 	 * The <code>StyleSheet</code> object to pass to the TextField.
@@ -350,7 +350,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _embedFonts:Boolean = false;
+	private var _embedFonts:Boolean = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -403,7 +403,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _wordWrap:Boolean = false;
+	private var _wordWrap:Boolean = false;
 
 	/**
 	 * Determines if the TextField wraps text to the next line.
@@ -438,7 +438,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Boolean = true;
 
 	/**
 	 * Determines if the text should be snapped to the nearest whole pixel
@@ -857,7 +857,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _maxTextureDimensions:int = 2048;
+	private var _maxTextureDimensions:int = 2048;
 
 	/**
 	 * The maximum size of individual textures that are managed by this text
@@ -900,7 +900,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _nativeFilters:Array;
+	private var _nativeFilters:Array;
 
 	/**
 	 * Native filters to pass to the <code>flash.text.TextField</code>
@@ -936,7 +936,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _useGutter:Boolean = false;
+	private var _useGutter:Boolean = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -1065,7 +1065,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this.textField)
 		{
@@ -1082,7 +1082,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1097,7 +1097,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function commit():void
+	private function commit():void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1152,7 +1152,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function measure(result:Point = null):Point
+	private function measure(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1231,7 +1231,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1351,7 +1351,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1367,7 +1367,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function measureNativeFilters(bitmapData:BitmapData, result:Rectangle = null):Rectangle
+	private function measureNativeFilters(bitmapData:BitmapData, result:Rectangle = null):Rectangle
 	{
 		if(!result)
 		{
@@ -1410,7 +1410,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function texture_onRestore():void
+	private function texture_onRestore():void
 	{
 		this.refreshSnapshot();
 	}
@@ -1418,7 +1418,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshot():void
+	private function refreshSnapshot():void
 	{
 		if(this._snapshotWidth <= 0 || this._snapshotHeight <= 0)
 		{
@@ -1587,7 +1587,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function enterFrameHandler(event:Event):void
+	private function enterFrameHandler(event:Event):void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		this.refreshSnapshot();

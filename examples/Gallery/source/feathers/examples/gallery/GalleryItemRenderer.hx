@@ -48,17 +48,17 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected var image:ImageLoader;
+	private var image:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var touchPointID:int = -1;
+	private var touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var fadeTween:Tween;
+	private var fadeTween:Tween;
 
 	/**
 	 * @private
@@ -89,7 +89,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected var _owner:List;
+	private var _owner:List;
 
 	/**
 	 * @inheritDoc
@@ -182,7 +182,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.image = new ImageLoader();
 		this.image.textureQueueDuration = 0.25;
@@ -194,7 +194,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -229,7 +229,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = isNaN(this.explicitWidth);
 		var needsHeight:Boolean = isNaN(this.explicitHeight);
@@ -305,7 +305,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function fadeTween_onComplete():void
+	private function fadeTween_onComplete():void
 	{
 		this.fadeTween = null;
 	}
@@ -313,7 +313,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):void
 	{
 		this.touchPointID = -1;
 	}
@@ -321,7 +321,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):void
 	{
 		var touches:Vector.<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
 		if(touches.length == 0)
@@ -372,7 +372,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function owner_scrollStartHandler(event:Event):void
+	private function owner_scrollStartHandler(event:Event):void
 	{
 		this.touchPointID = -1;
 		this.image.delayTextureCreation = true;
@@ -381,7 +381,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function owner_scrollCompleteHandler(event:Event):void
+	private function owner_scrollCompleteHandler(event:Event):void
 	{
 		this.image.delayTextureCreation = false;
 	}
@@ -389,7 +389,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	protected function image_completeHandler(event:Event):void
+	private function image_completeHandler(event:Event):void
 	{
 		this.image.alpha = 0;
 		this.image.visible = true;
@@ -400,7 +400,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	protected function image_errorHandler(event:Event):void
+	private function image_errorHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

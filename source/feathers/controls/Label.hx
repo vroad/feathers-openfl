@@ -97,12 +97,12 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see #createTextRenderer()
 	 * @see #textRendererFactory
 	 */
-	protected var textRenderer:ITextRenderer;
+	private var textRenderer:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Label.globalStyleProvider;
 	}
@@ -110,7 +110,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _text:String = null;
+	private var _text:String = null;
 
 	/**
 	 * The text displayed by the label.
@@ -143,7 +143,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _wordWrap:Boolean = false;
+	private var _wordWrap:Boolean = false;
 
 	/**
 	 * Determines if the text wraps to the next line when it reaches the
@@ -189,7 +189,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _textRendererFactory:Function;
+	private var _textRendererFactory:Function;
 
 	/**
 	 * A function used to instantiate the label's text renderer
@@ -239,7 +239,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _textRendererProperties:PropertyProxy;
+	private var _textRendererProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the text renderer. The
@@ -311,7 +311,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -360,7 +360,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -414,7 +414,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see #textRenderer
 	 * @see #textRendererFactory
 	 */
-	protected function createTextRenderer():void
+	private function createTextRenderer():void
 	{
 		if(this.textRenderer)
 		{
@@ -430,7 +430,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected function refreshEnabled():void
+	private function refreshEnabled():void
 	{
 		this.textRenderer.isEnabled = this._isEnabled;
 	}
@@ -438,7 +438,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected function refreshTextRendererData():void
+	private function refreshTextRendererData():void
 	{
 		this.textRenderer.text = this._text;
 		this.textRenderer.visible = this._text && this._text.length > 0;
@@ -447,7 +447,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected function refreshTextRendererStyles():void
+	private function refreshTextRendererStyles():void
 	{
 		this.textRenderer.wordWrap = this._wordWrap;
 		for(var propertyName:String in this._textRendererProperties)
@@ -460,7 +460,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		this.textRenderer.width = this.actualWidth;
 		this.textRenderer.height = this.actualHeight;
@@ -470,7 +470,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected function textRendererProperties_onChange(proxy:PropertyProxy, propertyName:String):void
+	private function textRendererProperties_onChange(proxy:PropertyProxy, propertyName:String):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

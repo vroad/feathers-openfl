@@ -127,27 +127,27 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
+	private static const INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY:String = "minimumTrackFactory";
+	private static const INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY:String = "minimumTrackFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY:String = "maximumTrackFactory";
+	private static const INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY:String = "maximumTrackFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
+	private static const INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
+	private static const INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
 
 	/**
 	 * The scroll bar's thumb may be dragged horizontally (on the x-axis).
@@ -244,7 +244,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static function defaultThumbFactory():Button
+	private static function defaultThumbFactory():Button
 	{
 		return new Button();
 	}
@@ -252,7 +252,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static function defaultMinimumTrackFactory():Button
+	private static function defaultMinimumTrackFactory():Button
 	{
 		return new Button();
 	}
@@ -260,7 +260,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static function defaultMaximumTrackFactory():Button
+	private static function defaultMaximumTrackFactory():Button
 	{
 		return new Button();
 	}
@@ -268,7 +268,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static function defaultDecrementButtonFactory():Button
+	private static function defaultDecrementButtonFactory():Button
 	{
 		return new Button();
 	}
@@ -276,7 +276,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected static function defaultIncrementButtonFactory():Button
+	private static function defaultIncrementButtonFactory():Button
 	{
 		return new Button();
 	}
@@ -292,7 +292,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the minimum track. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the minimum track name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_MINIMUM_TRACK</code>.
 	 *
@@ -302,11 +302,11 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customMinimumTrackName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var minimumTrackName:String = DEFAULT_CHILD_NAME_MINIMUM_TRACK;
+	private var minimumTrackName:String = DEFAULT_CHILD_NAME_MINIMUM_TRACK;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the maximum track. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the maximum track name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_MAXIMUM_TRACK</code>.
 	 *
@@ -316,11 +316,11 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customMaximumTrackName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var maximumTrackName:String = DEFAULT_CHILD_NAME_MAXIMUM_TRACK;
+	private var maximumTrackName:String = DEFAULT_CHILD_NAME_MAXIMUM_TRACK;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the thumb. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the thumb name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_THUMB</code>.
 	 *
@@ -330,11 +330,11 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customThumbName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbName:String = DEFAULT_CHILD_NAME_THUMB;
+	private var thumbName:String = DEFAULT_CHILD_NAME_THUMB;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the decrement button. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the decrement button name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_DECREMENT_BUTTON</code>.
 	 *
@@ -344,11 +344,11 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customDecrementButtonName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var decrementButtonName:String = DEFAULT_CHILD_NAME_DECREMENT_BUTTON;
+	private var decrementButtonName:String = DEFAULT_CHILD_NAME_DECREMENT_BUTTON;
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the increment button. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the increment button name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_INCREMENT_BUTTON</code>.
 	 *
@@ -358,37 +358,37 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customIncrementButtonName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var incrementButtonName:String = DEFAULT_CHILD_NAME_INCREMENT_BUTTON;
+	private var incrementButtonName:String = DEFAULT_CHILD_NAME_INCREMENT_BUTTON;
 
 	/**
 	 * @private
 	 */
-	protected var thumbOriginalWidth:Number = NaN;
+	private var thumbOriginalWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var thumbOriginalHeight:Number = NaN;
+	private var thumbOriginalHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var minimumTrackOriginalWidth:Number = NaN;
+	private var minimumTrackOriginalWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var minimumTrackOriginalHeight:Number = NaN;
+	private var minimumTrackOriginalHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var maximumTrackOriginalWidth:Number = NaN;
+	private var maximumTrackOriginalWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var maximumTrackOriginalHeight:Number = NaN;
+	private var maximumTrackOriginalHeight:Number = NaN;
 
 	/**
 	 * The scroll bar's decrement button sub-component.
@@ -398,7 +398,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #decrementButtonFactory
 	 * @see #createDecrementButton()
 	 */
-	protected var decrementButton:Button;
+	private var decrementButton:Button;
 
 	/**
 	 * The scroll bar's increment button sub-component.
@@ -408,7 +408,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #incrementButtonFactory
 	 * @see #createIncrementButton()
 	 */
-	protected var incrementButton:Button;
+	private var incrementButton:Button;
 
 	/**
 	 * The scroll bar's thumb sub-component.
@@ -418,7 +418,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #createThumb()
 	 */
-	protected var thumb:Button;
+	private var thumb:Button;
 
 	/**
 	 * The scroll bar's minimum track sub-component.
@@ -428,7 +428,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #minimumTrackFactory
 	 * @see #createMinimumTrack()
 	 */
-	protected var minimumTrack:Button;
+	private var minimumTrack:Button;
 
 	/**
 	 * The scroll bar's maximum track sub-component.
@@ -438,12 +438,12 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #maximumTrackFactory
 	 * @see #createMaximumTrack()
 	 */
-	protected var maximumTrack:Button;
+	private var maximumTrack:Button;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ScrollBar.globalStyleProvider;
 	}
@@ -451,7 +451,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _direction:String = DIRECTION_HORIZONTAL;
+	private var _direction:String = DIRECTION_HORIZONTAL;
 
 	[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
@@ -495,7 +495,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _value:Number = 0;
+	private var _value:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -534,7 +534,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _minimum:Number = 0;
+	private var _minimum:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -565,7 +565,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _maximum:Number = 0;
+	private var _maximum:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -596,7 +596,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _step:Number = 0;
+	private var _step:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -622,7 +622,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _page:Number = 0;
+	private var _page:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -687,7 +687,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, above the content, not
@@ -721,7 +721,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the right of the content, not
@@ -755,7 +755,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, below the content, not
@@ -789,7 +789,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the left of the content, not
@@ -823,17 +823,17 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var currentRepeatAction:Function;
+	private var currentRepeatAction:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _repeatTimer:Timer;
+	private var _repeatTimer:Timer;
 
 	/**
 	 * @private
 	 */
-	protected var _repeatDelay:Number = 0.05;
+	private var _repeatDelay:Number = 0.05;
 
 	/**
 	 * The time, in seconds, before actions are repeated. The first repeat
@@ -868,7 +868,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var isDragging:Boolean = false;
+	private var isDragging:Boolean = false;
 
 	/**
 	 * Determines if the scroll bar dispatches the <code>Event.CHANGE</code>
@@ -886,7 +886,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _trackLayoutMode:String = TRACK_LAYOUT_MODE_SINGLE;
+	private var _trackLayoutMode:String = TRACK_LAYOUT_MODE_SINGLE;
 
 	[Inspectable(type="String",enumeration="single,minMax")]
 	/**
@@ -924,7 +924,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _minimumTrackFactory:Function;
+	private var _minimumTrackFactory:Function;
 
 	/**
 	 * A function used to generate the scroll bar's minimum track
@@ -975,7 +975,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customMinimumTrackName:String;
+	private var _customMinimumTrackName:String;
 
 	/**
 	 * A name to add to the scroll bar's minimum track sub-component. Typically
@@ -1021,7 +1021,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _minimumTrackProperties:PropertyProxy;
+	private var _minimumTrackProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the scroll bar's
@@ -1097,7 +1097,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _maximumTrackFactory:Function;
+	private var _maximumTrackFactory:Function;
 
 	/**
 	 * A function used to generate the scroll bar's maximum track
@@ -1148,7 +1148,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customMaximumTrackName:String;
+	private var _customMaximumTrackName:String;
 
 	/**
 	 * A name to add to the scroll bar's maximum track sub-component. Typically
@@ -1194,7 +1194,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _maximumTrackProperties:PropertyProxy;
+	private var _maximumTrackProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the scroll bar's
@@ -1270,7 +1270,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _thumbFactory:Function;
+	private var _thumbFactory:Function;
 
 	/**
 	 * A function used to generate the scroll bar's thumb sub-component.
@@ -1321,7 +1321,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customThumbName:String;
+	private var _customThumbName:String;
 
 	/**
 	 * A name to add to the scroll bar's thumb sub-component. Typically
@@ -1367,7 +1367,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _thumbProperties:PropertyProxy;
+	private var _thumbProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the scroll bar's thumb
@@ -1442,7 +1442,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _decrementButtonFactory:Function;
+	private var _decrementButtonFactory:Function;
 
 	/**
 	 * A function used to generate the scroll bar's decrement button
@@ -1493,7 +1493,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customDecrementButtonName:String;
+	private var _customDecrementButtonName:String;
 
 	/**
 	 * A name to add to the scroll bar's decrement button sub-component. Typically
@@ -1539,7 +1539,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _decrementButtonProperties:PropertyProxy;
+	private var _decrementButtonProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the scroll bar's
@@ -1615,7 +1615,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _incrementButtonFactory:Function;
+	private var _incrementButtonFactory:Function;
 
 	/**
 	 * A function used to generate the scroll bar's increment button
@@ -1666,7 +1666,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customIncrementButtonName:String;
+	private var _customIncrementButtonName:String;
 
 	/**
 	 * A name to add to the scroll bar's increment button sub-component. Typically
@@ -1712,7 +1712,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _incrementButtonProperties:PropertyProxy;
+	private var _incrementButtonProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the scroll bar's
@@ -1788,37 +1788,37 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _touchPointID:int = -1;
+	private var _touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _touchStartX:Number = NaN;
+	private var _touchStartX:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _touchStartY:Number = NaN;
+	private var _touchStartY:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _thumbStartX:Number = NaN;
+	private var _thumbStartX:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _thumbStartY:Number = NaN;
+	private var _thumbStartY:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _touchValue:Number;
+	private var _touchValue:Number;
 
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1916,7 +1916,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		if(this.minimumTrackOriginalWidth !== this.minimumTrackOriginalWidth || //isNaN
 			this.minimumTrackOriginalHeight !== this.minimumTrackOriginalHeight) //isNaN
@@ -2018,7 +2018,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #customThumbName
 	 */
-	protected function createThumb():void
+	private function createThumb():void
 	{
 		if(this.thumb)
 		{
@@ -2047,7 +2047,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #minimumTrackFactory
 	 * @see #customMinimumTrackName
 	 */
-	protected function createMinimumTrack():void
+	private function createMinimumTrack():void
 	{
 		if(this.minimumTrack)
 		{
@@ -2077,7 +2077,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #maximumTrackFactory
 	 * @see #customMaximumTrackName
 	 */
-	protected function createMaximumTrack():void
+	private function createMaximumTrack():void
 	{
 		if(this._trackLayoutMode == TRACK_LAYOUT_MODE_MIN_MAX)
 		{
@@ -2113,7 +2113,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #decrementButtonFactory
 	 * @see #customDecremenButtonName
 	 */
-	protected function createDecrementButton():void
+	private function createDecrementButton():void
 	{
 		if(this.decrementButton)
 		{
@@ -2142,7 +2142,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #incrementButtonFactory
 	 * @see #customIncrementButtonName
 	 */
-	protected function createIncrementButton():void
+	private function createIncrementButton():void
 	{
 		if(this.incrementButton)
 		{
@@ -2163,7 +2163,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function refreshThumbStyles():void
+	private function refreshThumbStyles():void
 	{
 		for(var propertyName:String in this._thumbProperties)
 		{
@@ -2175,7 +2175,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function refreshMinimumTrackStyles():void
+	private function refreshMinimumTrackStyles():void
 	{
 		for(var propertyName:String in this._minimumTrackProperties)
 		{
@@ -2187,7 +2187,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function refreshMaximumTrackStyles():void
+	private function refreshMaximumTrackStyles():void
 	{
 		if(!this.maximumTrack)
 		{
@@ -2203,7 +2203,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function refreshDecrementButtonStyles():void
+	private function refreshDecrementButtonStyles():void
 	{
 		for(var propertyName:String in this._decrementButtonProperties)
 		{
@@ -2215,7 +2215,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function refreshIncrementButtonStyles():void
+	private function refreshIncrementButtonStyles():void
 	{
 		for(var propertyName:String in this._incrementButtonProperties)
 		{
@@ -2227,7 +2227,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		this.layoutStepButtons();
 		this.layoutThumb();
@@ -2245,7 +2245,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function layoutStepButtons():void
+	private function layoutStepButtons():void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -2269,7 +2269,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function layoutThumb():void
+	private function layoutThumb():void
 	{
 		var range:Number = this._maximum - this._minimum;
 		this.thumb.visible = range > 0 && this._isEnabled;
@@ -2317,7 +2317,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function layoutTrackWithMinMax():void
+	private function layoutTrackWithMinMax():void
 	{
 		var showButtons:Boolean = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
@@ -2381,7 +2381,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function layoutTrackWithSingle():void
+	private function layoutTrackWithSingle():void
 	{
 		var showButtons:Boolean = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
@@ -2434,7 +2434,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function locationToValue(location:Point):Number
+	private function locationToValue(location:Point):Number
 	{
 		var percentage:Number = 0;
 		if(this._direction == DIRECTION_VERTICAL)
@@ -2464,7 +2464,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function decrement():void
+	private function decrement():void
 	{
 		this.value -= this._step;
 	}
@@ -2472,7 +2472,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function increment():void
+	private function increment():void
 	{
 		this.value += this._step;
 	}
@@ -2480,7 +2480,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function adjustPage():void
+	private function adjustPage():void
 	{
 		if(this._touchValue < this._value)
 		{
@@ -2505,7 +2505,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function startRepeatTimer(action:Function):void
+	private function startRepeatTimer(action:Function):void
 	{
 		this.currentRepeatAction = action;
 		if(this._repeatDelay > 0)
@@ -2527,7 +2527,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function thumbProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function thumbProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2535,7 +2535,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function minimumTrackProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function minimumTrackProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2543,7 +2543,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function maximumTrackProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function maximumTrackProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2551,7 +2551,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function decrementButtonProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function decrementButtonProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2559,7 +2559,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function incrementButtonProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function incrementButtonProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2567,7 +2567,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):void
 	{
 		this._touchPointID = -1;
 		if(this._repeatTimer)
@@ -2579,7 +2579,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function track_touchHandler(event:TouchEvent):void
+	private function track_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -2622,7 +2622,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function thumb_touchHandler(event:TouchEvent):void
+	private function thumb_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -2679,7 +2679,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function decrementButton_touchHandler(event:TouchEvent):void
+	private function decrementButton_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -2715,7 +2715,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function incrementButton_touchHandler(event:TouchEvent):void
+	private function incrementButton_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -2751,7 +2751,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function repeatTimer_timerHandler(event:TimerEvent):void
+	private function repeatTimer_timerHandler(event:TimerEvent):void
 	{
 		if(this._repeatTimer.currentCount < 5)
 		{

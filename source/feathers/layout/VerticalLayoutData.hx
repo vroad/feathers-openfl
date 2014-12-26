@@ -36,7 +36,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _percentWidth:Number;
+	private var _percentWidth:Number;
 
 	/**
 	 * The width of the layout object, as a percentage of the container's
@@ -67,7 +67,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	protected var _percentHeight:Number;
+	private var _percentHeight:Number;
 
 	/**
 	 * The height of the layout object, as a percentage of the container's

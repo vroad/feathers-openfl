@@ -80,22 +80,22 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @private
 	 * This is enforced by the runtime.
 	 */
-	protected static const MAX_TEXT_LINE_WIDTH:Number = 1000000;
+	private static const MAX_TEXT_LINE_WIDTH:Number = 1000000;
 
 	/**
 	 * @private
 	 */
-	protected static const LINE_FEED:String = "\n";
+	private static const LINE_FEED:String = "\n";
 
 	/**
 	 * @private
 	 */
-	protected static const CARRIAGE_RETURN:String = "\r";
+	private static const CARRIAGE_RETURN:String = "\r";
 
 	/**
 	 * @private
 	 */
-	protected static const FUZZY_TRUNCATION_DIFFERENCE:Number = 0.000001;
+	private static const FUZZY_TRUNCATION_DIFFERENCE:Number = 0.000001;
 
 	/**
 	 * The text will be positioned to the left edge.
@@ -140,99 +140,99 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * The TextBlock instance used to render the text before taking a
 	 * texture snapshot.
 	 */
-	protected var textBlock:TextBlock;
+	private var textBlock:TextBlock;
 
 	/**
 	 * An image that displays a snapshot of the native <code>TextBlock</code>
 	 * in the Starling display list when the editor doesn't have focus.
 	 */
-	protected var textSnapshot:Image;
+	private var textSnapshot:Image;
 
 	/**
 	 * If multiple snapshots are needed due to texture size limits, the
 	 * snapshots appearing after the first are stored here.
 	 */
-	protected var textSnapshots:Vector.<Image>;
+	private var textSnapshots:Vector.<Image>;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotScrollX:Number = 0;
+	private var _textSnapshotScrollX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotScrollY:Number = 0;
+	private var _textSnapshotScrollY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotOffsetX:Number = 0;
+	private var _textSnapshotOffsetX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textSnapshotOffsetY:Number = 0;
+	private var _textSnapshotOffsetY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textLineContainer:Sprite;
+	private var _textLineContainer:Sprite;
 
 	/**
 	 * @private
 	 */
-	protected var _textLines:Vector.<TextLine> = new <TextLine>[];
+	private var _textLines:Vector.<TextLine> = new <TextLine>[];
 
 	/**
 	 * @private
 	 */
-	protected var _measurementTextLineContainer:Sprite;
+	private var _measurementTextLineContainer:Sprite;
 
 	/**
 	 * @private
 	 */
-	protected var _measurementTextLines:Vector.<TextLine> = new <TextLine>[];
+	private var _measurementTextLines:Vector.<TextLine> = new <TextLine>[];
 
 	/**
 	 * @private
 	 */
-	protected var _previousContentWidth:Number = NaN;
+	private var _previousContentWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _previousContentHeight:Number = NaN;
+	private var _previousContentHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotWidth:int = 0;
+	private var _snapshotWidth:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotHeight:int = 0;
+	private var _snapshotHeight:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _truncationOffset:int = 0;
+	private var _truncationOffset:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textElement:TextElement;
+	private var _textElement:TextElement;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TextBlockTextRenderer.globalStyleProvider;
 	}
@@ -240,7 +240,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _text:String;
+	private var _text:String;
 
 	/**
 	 * @inheritDoc
@@ -279,7 +279,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _content:ContentElement;
+	private var _content:ContentElement;
 
 	/**
 	 * Sets the contents of the <code>TextBlock</code> to a complex value
@@ -332,7 +332,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _elementFormat:ElementFormat;
+	private var _elementFormat:ElementFormat;
 
 	/**
 	 * The font and styles used to draw the text. This property will be
@@ -369,7 +369,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _disabledElementFormat:ElementFormat;
+	private var _disabledElementFormat:ElementFormat;
 
 	/**
 	 * The font and styles used to draw the text when the component is
@@ -408,7 +408,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _leading:Number = 0;
+	private var _leading:Number = 0;
 
 	/**
 	 * The amount of vertical space, in pixels, between lines.
@@ -441,7 +441,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _textAlign:String = TEXT_ALIGN_LEFT;
+	private var _textAlign:String = TEXT_ALIGN_LEFT;
 
 	/**
 	 * The alignment of the text. For justified text, see the
@@ -480,7 +480,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _wordWrap:Boolean = false;
+	private var _wordWrap:Boolean = false;
 
 	/**
 	 * Determines if the text wraps to the next line when it reaches the
@@ -526,7 +526,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _applyNonLinearFontScaling:Boolean = true;
+	private var _applyNonLinearFontScaling:Boolean = true;
 
 	/**
 	 * Specifies that you want to enhance screen appearance at the expense
@@ -562,7 +562,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _baselineFontDescription:FontDescription;
+	private var _baselineFontDescription:FontDescription;
 
 	/**
 	 * The font used to determine the baselines for all the lines created from the block, independent of their content.
@@ -598,7 +598,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _baselineFontSize:Number = 12;
+	private var _baselineFontSize:Number = 12;
 
 	/**
 	 * The font size used to calculate the baselines for the lines created
@@ -635,7 +635,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _baselineZero:String = TextBaseline.ROMAN;
+	private var _baselineZero:String = TextBaseline.ROMAN;
 
 	/**
 	 * Specifies which baseline is at y=0 for lines created from this block.
@@ -671,7 +671,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _bidiLevel:int = 0;
+	private var _bidiLevel:int = 0;
 
 	/**
 	 * Specifies the bidirectional paragraph embedding level of the text
@@ -707,7 +707,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _lineRotation:String = TextRotation.ROTATE_0;
+	private var _lineRotation:String = TextRotation.ROTATE_0;
 
 	/**
 	 * Rotates the text lines in the text block as a unit.
@@ -743,7 +743,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _tabStops:Vector.<TabStop>;
+	private var _tabStops:Vector.<TabStop>;
 
 	/**
 	 * Specifies the tab stops for the text in the text block, in the form
@@ -779,7 +779,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _textJustifier:TextJustifier = new SpaceJustifier();
+	private var _textJustifier:TextJustifier = new SpaceJustifier();
 
 	/**
 	 * Specifies the <code>TextJustifier</code> to use during line creation.
@@ -812,7 +812,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _userData:*;
+	private var _userData:*;
 
 	/**
 	 * Provides a way for the application to associate arbitrary data with
@@ -846,7 +846,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Boolean = true;
 
 	/**
 	 * Determines if the text should be snapped to the nearest whole pixel
@@ -877,7 +877,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _maxTextureDimensions:int = 2048;
+	private var _maxTextureDimensions:int = 2048;
 
 	/**
 	 * The maximum size of individual textures that are managed by this text
@@ -920,7 +920,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _nativeFilters:Array;
+	private var _nativeFilters:Array;
 
 	/**
 	 * Native filters to pass to the <code>flash.text.engine.TextLine</code>
@@ -956,7 +956,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _truncationText:String = "...";
+	private var _truncationText:String = "...";
 
 	/**
 	 * The text to display at the end of the label if it is truncated.
@@ -991,7 +991,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _truncateToFit:Boolean = true;
+	private var _truncateToFit:Boolean = true;
 
 	/**
 	 * If word wrap is disabled, and the text is longer than the width of
@@ -1135,7 +1135,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this.textBlock)
 		{
@@ -1154,7 +1154,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1168,7 +1168,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function commit():void
+	private function commit():void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1215,7 +1215,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function measure(result:Point = null):Point
+	private function measure(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1265,7 +1265,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1361,7 +1361,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1377,7 +1377,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function measureNativeFilters(bitmapData:BitmapData, result:Rectangle = null):Rectangle
+	private function measureNativeFilters(bitmapData:BitmapData, result:Rectangle = null):Rectangle
 	{
 		if(!result)
 		{
@@ -1420,7 +1420,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function texture_onRestore():void
+	private function texture_onRestore():void
 	{
 		this.refreshSnapshot();
 	}
@@ -1428,7 +1428,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshot():void
+	private function refreshSnapshot():void
 	{
 		if(this._snapshotWidth == 0 || this._snapshotHeight == 0)
 		{
@@ -1597,7 +1597,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):void
+	private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):void
 	{
 		if(this._textElement)
 		{
@@ -1758,7 +1758,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function alignTextLines(textLines:Vector.<TextLine>, width:Number, textAlign:String):void
+	private function alignTextLines(textLines:Vector.<TextLine>, width:Number, textAlign:String):void
 	{
 		var lineCount:int = textLines.length;
 		for(var i:int = 0; i < lineCount; i++)

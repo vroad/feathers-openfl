@@ -80,7 +80,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		if(ToggleButton.globalStyleProvider)
 		{
@@ -92,7 +92,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	protected var _isToggle:Boolean = true;
+	private var _isToggle:Boolean = true;
 
 	/**
 	 * Determines if the button may be selected or deselected as a result of
@@ -126,7 +126,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	protected var _isSelected:Boolean = false;
+	private var _isSelected:Boolean = false;
 
 	/**
 	 * Indicates if the button is selected or not. The button may be
@@ -819,7 +819,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	override protected function trigger():void
+	override private function trigger():void
 	{
 		super.trigger();
 		if(this._isToggle)

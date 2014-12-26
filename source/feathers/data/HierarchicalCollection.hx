@@ -179,7 +179,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 
 	/**
 	 * The data source for this collection. May be any type of data, but a
@@ -209,7 +209,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _dataDescriptor:IHierarchicalCollectionDataDescriptor = new ArrayChildrenHierarchicalCollectionDataDescriptor();
+	private var _dataDescriptor:IHierarchicalCollectionDataDescriptor = new ArrayChildrenHierarchicalCollectionDataDescriptor();
 
 	/**
 	 * Describes the underlying data source by translating APIs.
@@ -392,7 +392,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function disposeGroupInternal(group:Object, path:Array, disposeGroup:Function, disposeItem:Function):void
+	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Function, disposeItem:Function):void
 	{
 		if(disposeGroup != null)
 		{

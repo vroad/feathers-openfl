@@ -42,7 +42,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected static const stageToObject:Dictionary = new Dictionary(true);
+	private static const stageToObject:Dictionary = new Dictionary(true);
 
 	/**
 	 * Retrieves the exclusive touch manager for the specified stage.
@@ -87,17 +87,17 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _stageListenerCount:int = 0;
+	private var _stageListenerCount:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _stage:Stage;
+	private var _stage:Stage;
 
 	/**
 	 * @private
 	 */
-	protected var _claims:Dictionary = new Dictionary();
+	private var _claims:Dictionary = new Dictionary();
 
 	/**
 	 * Allows a display object to claim a touch by its ID. Returns
@@ -164,7 +164,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):void
 	{
 		for(var key:Object in this._claims)
 		{

@@ -287,7 +287,7 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherField
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	protected static const SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD:String = "activeScreen";
+	private static const SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD:String = "activeScreen";
 
 	/**
 	 * @private
@@ -334,12 +334,12 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherField
 	 * @see #contentEventDispatcherFunction
 	 */
-	protected var contentEventDispatcher:EventDispatcher;
+	private var contentEventDispatcher:EventDispatcher;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Drawers.globalStyleProvider;
 	}
@@ -347,7 +347,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _content:DisplayObject;
+	private var _content:DisplayObject;
 
 	/**
 	 * The primary content displayed in the center of the container.
@@ -432,12 +432,12 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _overlaySkinOriginalAlpha:Number = 1;
+	private var _overlaySkinOriginalAlpha:Number = 1;
 
 	/**
 	 * @private
 	 */
-	protected var _overlaySkin:DisplayObject;
+	private var _overlaySkin:DisplayObject;
 
 	/**
 	 * An optional display object that appears above the content when a
@@ -484,7 +484,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _topDrawer:DisplayObject;
+	private var _topDrawer:DisplayObject;
 
 	/**
 	 * The drawer that appears above the primary content.
@@ -533,7 +533,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _topDrawerDockMode:String = DOCK_MODE_NONE;
+	private var _topDrawerDockMode:String = DOCK_MODE_NONE;
 
 	/**
 	 * Determines if the top drawer is docked in all, some, or no stage
@@ -571,7 +571,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _topDrawerToggleEventType:String;
+	private var _topDrawerToggleEventType:String;
 
 	/**
 	 * When this event is dispatched by the content event dispatcher, the
@@ -616,7 +616,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isTopDrawerOpen:Boolean = false;
+	private var _isTopDrawerOpen:Boolean = false;
 
 	/**
 	 * Indicates if the top drawer is currently open. If you want to check
@@ -699,7 +699,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightDrawer:DisplayObject;
+	private var _rightDrawer:DisplayObject;
 
 	/**
 	 * The drawer that appears to the right of the primary content.
@@ -748,7 +748,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightDrawerDockMode:String = DOCK_MODE_NONE;
+	private var _rightDrawerDockMode:String = DOCK_MODE_NONE;
 
 	/**
 	 * Determines if the right drawer is docked in all, some, or no stage
@@ -786,7 +786,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightDrawerToggleEventType:String;
+	private var _rightDrawerToggleEventType:String;
 
 	/**
 	 * When this event is dispatched by the content event dispatcher, the
@@ -831,7 +831,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isRightDrawerOpen:Boolean = false;
+	private var _isRightDrawerOpen:Boolean = false;
 
 	/**
 	 * Indicates if the right drawer is currently open. If you want to check
@@ -914,7 +914,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _bottomDrawer:DisplayObject;
+	private var _bottomDrawer:DisplayObject;
 
 	/**
 	 * The drawer that appears below the primary content.
@@ -963,7 +963,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _bottomDrawerDockMode:String = DOCK_MODE_NONE;
+	private var _bottomDrawerDockMode:String = DOCK_MODE_NONE;
 
 	/**
 	 * Determines if the bottom drawer is docked in all, some, or no stage
@@ -1001,7 +1001,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _bottomDrawerToggleEventType:String;
+	private var _bottomDrawerToggleEventType:String;
 
 	/**
 	 * When this event is dispatched by the content event dispatcher, the
@@ -1046,7 +1046,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isBottomDrawerOpen:Boolean = false;
+	private var _isBottomDrawerOpen:Boolean = false;
 
 	/**
 	 * Indicates if the bottom drawer is currently open. If you want to check
@@ -1129,7 +1129,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftDrawer:DisplayObject;
+	private var _leftDrawer:DisplayObject;
 
 	/**
 	 * The drawer that appears below the primary content.
@@ -1178,7 +1178,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftDrawerDockMode:String = DOCK_MODE_NONE;
+	private var _leftDrawerDockMode:String = DOCK_MODE_NONE;
 
 	/**
 	 * Determines if the left drawer is docked in all, some, or no stage
@@ -1216,7 +1216,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftDrawerToggleEventType:String;
+	private var _leftDrawerToggleEventType:String;
 
 	/**
 	 * When this event is dispatched by the content event dispatcher, the
@@ -1261,7 +1261,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isLeftDrawerOpen:Boolean = false;
+	private var _isLeftDrawerOpen:Boolean = false;
 
 	/**
 	 * Indicates if the left drawer is currently open. If you want to check
@@ -1344,7 +1344,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
+	private var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
 
 	[Inspectable(type="String",enumeration="stage,content")]
 	/**
@@ -1394,7 +1394,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _clipDrawers:Boolean = true;
+	private var _clipDrawers:Boolean = true;
 
 	/**
 	 * Determines if the drawers are clipped while opening or closing. If
@@ -1437,7 +1437,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _openGesture:String = OPEN_GESTURE_DRAG_CONTENT_EDGE;
+	private var _openGesture:String = OPEN_GESTURE_DRAG_CONTENT_EDGE;
 
 	/**
 	 * An optional touch gesture used to open a drawer.
@@ -1470,7 +1470,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _minimumDragDistance:Number = 0.04;
+	private var _minimumDragDistance:Number = 0.04;
 
 	/**
 	 * The minimum physical distance (in inches) that a touch must move
@@ -1499,7 +1499,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _minimumDrawerThrowVelocity:Number = 5;
+	private var _minimumDrawerThrowVelocity:Number = 5;
 
 	/**
 	 * The minimum physical velocity (in inches per second) that a touch
@@ -1530,7 +1530,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _openGestureEdgeSize:Number = 0.1;
+	private var _openGestureEdgeSize:Number = 0.1;
 
 	/**
 	 * The minimum physical distance (in inches) that a touch must move
@@ -1559,7 +1559,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _contentEventDispatcherChangeEventType:String;
+	private var _contentEventDispatcherChangeEventType:String;
 
 	/**
 	 * The event dispatched by the content to indicate that the content
@@ -1612,7 +1612,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _contentEventDispatcherField:String;
+	private var _contentEventDispatcherField:String;
 
 	/**
 	 * A property of the <code>content</code> that references an event
@@ -1658,7 +1658,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _contentEventDispatcherFunction:Function;
+	private var _contentEventDispatcherFunction:Function;
 
 	/**
 	 * A function that returns an event dispatcher that dispatches events to
@@ -1707,12 +1707,12 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _openOrCloseTween:Tween;
+	private var _openOrCloseTween:Tween;
 
 	/**
 	 * @private
 	 */
-	protected var _openOrCloseDuration:Number = 0.25;
+	private var _openOrCloseDuration:Number = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when a drawer opens or
@@ -1744,7 +1744,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _openOrCloseEase:Object = Transitions.EASE_OUT;
+	private var _openOrCloseEase:Object = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function used for opening or closing the drawers.
@@ -1776,112 +1776,112 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var isToggleTopDrawerPending:Boolean = false;
+	private var isToggleTopDrawerPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var isToggleRightDrawerPending:Boolean = false;
+	private var isToggleRightDrawerPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var isToggleBottomDrawerPending:Boolean = false;
+	private var isToggleBottomDrawerPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var isToggleLeftDrawerPending:Boolean = false;
+	private var isToggleLeftDrawerPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var pendingToggleDuration:Number;
+	private var pendingToggleDuration:Number;
 
 	/**
 	 * @private
 	 */
-	protected var touchPointID:int = -1;
+	private var touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _isDragging:Boolean = false;
+	private var _isDragging:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isDraggingTopDrawer:Boolean = false;
+	private var _isDraggingTopDrawer:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isDraggingRightDrawer:Boolean = false;
+	private var _isDraggingRightDrawer:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isDraggingBottomDrawer:Boolean = false;
+	private var _isDraggingBottomDrawer:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isDraggingLeftDrawer:Boolean = false;
+	private var _isDraggingLeftDrawer:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _startTouchX:Number;
+	private var _startTouchX:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _startTouchY:Number;
+	private var _startTouchY:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _currentTouchX:Number;
+	private var _currentTouchX:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _currentTouchY:Number;
+	private var _currentTouchY:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _previousTouchTime:int;
+	private var _previousTouchTime:int;
 
 	/**
 	 * @private
 	 */
-	protected var _previousTouchX:Number;
+	private var _previousTouchX:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _previousTouchY:Number;
+	private var _previousTouchY:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _velocityX:Number = 0;
+	private var _velocityX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _velocityY:Number = 0;
+	private var _velocityY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _previousVelocityX:Vector.<Number> = new <Number>[];
+	private var _previousVelocityX:Vector.<Number> = new <Number>[];
 
 	/**
 	 * @private
 	 */
-	protected var _previousVelocityY:Vector.<Number> = new <Number>[];
+	private var _previousVelocityY:Vector.<Number> = new <Number>[];
 
 	/**
 	 * @private
@@ -2056,7 +2056,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -2095,7 +2095,7 @@ class Drawers extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -2178,7 +2178,7 @@ class Drawers extends FeathersControl
 	/**
 	 * Positions and sizes the children.
 	 */
-	protected function layoutChildren():void
+	private function layoutChildren():void
 	{
 		if(this._topDrawer is IValidating)
 		{
@@ -2405,7 +2405,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handlePendingActions():void
+	private function handlePendingActions():void
 	{
 		if(this.isToggleTopDrawerPending)
 		{
@@ -2436,7 +2436,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function openOrCloseTopDrawer():void
+	private function openOrCloseTopDrawer():void
 	{
 		if(!this._topDrawer || this.isTopDrawerDocked)
 		{
@@ -2479,7 +2479,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function openOrCloseRightDrawer():void
+	private function openOrCloseRightDrawer():void
 	{
 		if(!this._rightDrawer || this.isRightDrawerDocked)
 		{
@@ -2530,7 +2530,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function openOrCloseBottomDrawer():void
+	private function openOrCloseBottomDrawer():void
 	{
 		if(!this._bottomDrawer || this.isBottomDrawerDocked)
 		{
@@ -2581,7 +2581,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function openOrCloseLeftDrawer():void
+	private function openOrCloseLeftDrawer():void
 	{
 		if(!this._leftDrawer || this.isLeftDrawerDocked)
 		{
@@ -2624,7 +2624,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function applyTopClipRect():void
+	private function applyTopClipRect():void
 	{
 		if(!this._clipDrawers || !(this._topDrawer is Sprite))
 		{
@@ -2640,7 +2640,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function applyRightClipRect():void
+	private function applyRightClipRect():void
 	{
 		if(!this._clipDrawers || !(this._rightDrawer is Sprite))
 		{
@@ -2656,7 +2656,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function applyBottomClipRect():void
+	private function applyBottomClipRect():void
 	{
 		if(!this._clipDrawers || !(this._bottomDrawer is Sprite))
 		{
@@ -2672,7 +2672,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function applyLeftClipRect():void
+	private function applyLeftClipRect():void
 	{
 		if(!this._clipDrawers || !(this._leftDrawer is Sprite))
 		{
@@ -2701,7 +2701,7 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherFunction
 	 * @see #contentEventDispatcherChangeEventType
 	 */
-	protected function contentToContentEventDispatcher():EventDispatcher
+	private function contentToContentEventDispatcher():EventDispatcher
 	{
 		if(this._contentEventDispatcherFunction != null)
 		{
@@ -2717,7 +2717,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshCurrentEventTarget():void
+	private function refreshCurrentEventTarget():void
 	{
 		if(this.contentEventDispatcher)
 		{
@@ -2763,7 +2763,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshDrawerStates():void
+	private function refreshDrawerStates():void
 	{
 		var needsToHideOverlay:Boolean = false;
 		if(this.isTopDrawerDocked && this._isTopDrawerOpen)
@@ -2796,7 +2796,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleTapToClose(touch:Touch):void
+	private function handleTapToClose(touch:Touch):void
 	{
 		touch.getLocation(this.stage, HELPER_POINT);
 		if(this != this.stage.hitTest(HELPER_POINT, true))
@@ -2829,7 +2829,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleTouchBegan(touch:Touch):void
+	private function handleTouchBegan(touch:Touch):void
 	{
 		var exclusiveTouch:ExclusiveTouch = ExclusiveTouch.forStage(this.stage);
 		if(exclusiveTouch.getClaim(touch.id))
@@ -2928,7 +2928,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleTouchMoved(touch:Touch):void
+	private function handleTouchMoved(touch:Touch):void
 	{
 		touch.getLocation(this, HELPER_POINT);
 		this._currentTouchX = HELPER_POINT.x;
@@ -2959,7 +2959,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleDragEnd():void
+	private function handleDragEnd():void
 	{
 		//take the average for more accuracy
 		var sum:Number = this._velocityX * CURRENT_VELOCITY_WEIGHT;
@@ -3068,7 +3068,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function handleDragMove():void
+	private function handleDragMove():void
 	{
 		var contentX:Number = 0;
 		var contentY:Number = 0;
@@ -3192,7 +3192,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function checkForDragToClose():void
+	private function checkForDragToClose():void
 	{
 		var horizontalInchesMoved:Number = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 		var verticalInchesMoved:Number = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
@@ -3239,7 +3239,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function checkForDragToOpen():void
+	private function checkForDragToOpen():void
 	{
 		var horizontalInchesMoved:Number = (this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
 		var verticalInchesMoved:Number = (this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
@@ -3290,7 +3290,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function positionOverlaySkin():void
+	private function positionOverlaySkin():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3316,7 +3316,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function topDrawerOpenOrCloseTween_onUpdate():void
+	private function topDrawerOpenOrCloseTween_onUpdate():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3328,7 +3328,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rightDrawerOpenOrCloseTween_onUpdate():void
+	private function rightDrawerOpenOrCloseTween_onUpdate():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3340,7 +3340,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function bottomDrawerOpenOrCloseTween_onUpdate():void
+	private function bottomDrawerOpenOrCloseTween_onUpdate():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3352,7 +3352,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function leftDrawerOpenOrCloseTween_onUpdate():void
+	private function leftDrawerOpenOrCloseTween_onUpdate():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3364,7 +3364,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function openOrCloseTween_onUpdate():void
+	private function openOrCloseTween_onUpdate():void
 	{
 		if(this._clipDrawers)
 		{
@@ -3467,7 +3467,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function topDrawerOpenOrCloseTween_onComplete():void
+	private function topDrawerOpenOrCloseTween_onComplete():void
 	{
 		if(this._overlaySkin)
 		{
@@ -3498,7 +3498,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rightDrawerOpenOrCloseTween_onComplete():void
+	private function rightDrawerOpenOrCloseTween_onComplete():void
 	{
 		this._openOrCloseTween = null;
 		if(this._rightDrawer is Sprite)
@@ -3525,7 +3525,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function bottomDrawerOpenOrCloseTween_onComplete():void
+	private function bottomDrawerOpenOrCloseTween_onComplete():void
 	{
 		this._openOrCloseTween = null;
 		if(this._bottomDrawer is Sprite)
@@ -3552,7 +3552,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function leftDrawerOpenOrCloseTween_onComplete():void
+	private function leftDrawerOpenOrCloseTween_onComplete():void
 	{
 		this._openOrCloseTween = null;
 		if(this._leftDrawer is Sprite)
@@ -3579,7 +3579,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_eventDispatcherChangeHandler(event:Event):void
+	private function content_eventDispatcherChangeHandler(event:Event):void
 	{
 		this.refreshCurrentEventTarget();
 	}
@@ -3587,7 +3587,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function drawers_addedToStageHandler(event:Event):void
+	private function drawers_addedToStageHandler(event:Event):void
 	{
 		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 		//using priority here is a hack so that objects higher up in the
@@ -3599,7 +3599,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function drawers_removedFromStageHandler(event:Event):void
+	private function drawers_removedFromStageHandler(event:Event):void
 	{
 		if(this.touchPointID >= 0)
 		{
@@ -3619,7 +3619,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function drawers_touchHandler(event:TouchEvent):void
+	private function drawers_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled || this._openOrCloseTween)
 		{
@@ -3688,7 +3688,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function exclusiveTouch_changeHandler(event:Event, touchID:int):void
+	private function exclusiveTouch_changeHandler(event:Event, touchID:int):void
 	{
 		if(this.touchPointID < 0 || this.touchPointID != touchID || this._isDragging)
 		{
@@ -3708,7 +3708,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
@@ -3716,7 +3716,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function drawers_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function drawers_nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{
@@ -3756,7 +3756,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_topDrawerToggleEventTypeHandler(event:Event):void
+	private function content_topDrawerToggleEventTypeHandler(event:Event):void
 	{
 		if(!this._topDrawer || this.isTopDrawerDocked)
 		{
@@ -3769,7 +3769,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_rightDrawerToggleEventTypeHandler(event:Event):void
+	private function content_rightDrawerToggleEventTypeHandler(event:Event):void
 	{
 		if(!this._rightDrawer || this.isRightDrawerDocked)
 		{
@@ -3782,7 +3782,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_bottomDrawerToggleEventTypeHandler(event:Event):void
+	private function content_bottomDrawerToggleEventTypeHandler(event:Event):void
 	{
 		if(!this._bottomDrawer || this.isBottomDrawerDocked)
 		{
@@ -3795,7 +3795,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_leftDrawerToggleEventTypeHandler(event:Event):void
+	private function content_leftDrawerToggleEventTypeHandler(event:Event):void
 	{
 		if(!this._leftDrawer || this.isLeftDrawerDocked)
 		{
@@ -3808,7 +3808,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_resizeHandler(event:Event):void
+	private function content_resizeHandler(event:Event):void
 	{
 		if(this._isValidating || this._autoSizeMode != AUTO_SIZE_MODE_CONTENT)
 		{
@@ -3820,7 +3820,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function drawer_resizeHandler(event:Event):void
+	private function drawer_resizeHandler(event:Event):void
 	{
 		if(this._isValidating)
 		{

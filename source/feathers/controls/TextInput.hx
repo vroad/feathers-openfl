@@ -202,7 +202,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_PROMPT_FACTORY:String = "promptFactory";
+	private static const INVALIDATION_FLAG_PROMPT_FACTORY:String = "promptFactory";
 
 	/**
 	 * The <code>TextInput</code> is enabled and does not have focus.
@@ -297,21 +297,21 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var textEditor:ITextEditor;
+	private var textEditor:ITextEditor;
 
 	/**
 	 * The prompt text renderer sub-component.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var promptTextRenderer:ITextRenderer;
+	private var promptTextRenderer:ITextRenderer;
 
 	/**
 	 * The currently selected background, based on state.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var currentBackground:DisplayObject;
+	private var currentBackground:DisplayObject;
 
 	/**
 	 * The currently visible icon. The value will be <code>null</code> if
@@ -319,27 +319,27 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected var currentIcon:DisplayObject;
+	private var currentIcon:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _textEditorHasFocus:Boolean = false;
+	private var _textEditorHasFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreTextChanges:Boolean = false;
+	private var _ignoreTextChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _touchPointID:int = -1;
+	private var _touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TextInput.globalStyleProvider;
 	}
@@ -385,7 +385,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _stateNames:Vector.<String> = new <String>
+	private var _stateNames:Vector.<String> = new <String>
 	[
 		STATE_ENABLED, STATE_DISABLED, STATE_FOCUSED
 	];
@@ -397,7 +397,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #currentState
 	 */
-	protected function get stateNames():Vector.<String>
+	private function get stateNames():Vector.<String>
 	{
 		return this._stateNames;
 	}
@@ -405,14 +405,14 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _currentState:String = STATE_ENABLED;
+	private var _currentState:String = STATE_ENABLED;
 
 	/**
 	 * The current state of the input.
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected function get currentState():String
+	private function get currentState():String
 	{
 		return this._currentState;
 	}
@@ -420,7 +420,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function set currentState(value:String):void
+	private function set currentState(value:String):void
 	{
 		if(this._currentState == value)
 		{
@@ -437,7 +437,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _text:String = "";
+	private var _text:String = "";
 
 	/**
 	 * The text displayed by the text input. The text input dispatches
@@ -492,7 +492,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _prompt:String = null;
+	private var _prompt:String = null;
 
 	/**
 	 * The prompt, hint, or description text displayed by the input when the
@@ -526,7 +526,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _typicalText:String;
+	private var _typicalText:String;
 
 	/**
 	 * The text used to measure the input when the dimensions are not set
@@ -561,7 +561,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _maxChars:int = 0;
+	private var _maxChars:int = 0;
 
 	/**
 	 * The maximum number of characters that may be entered. If <code>0</code>,
@@ -596,7 +596,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _restrict:String;
+	private var _restrict:String;
 
 	/**
 	 * Limits the set of characters that may be entered.
@@ -630,7 +630,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Boolean = false;
 
 	/**
 	 * Determines if the entered text will be masked so that it cannot be
@@ -665,7 +665,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _isEditable:Boolean = true;
+	private var _isEditable:Boolean = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -699,7 +699,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _textEditorFactory:Function;
+	private var _textEditorFactory:Function;
 
 	/**
 	 * A function used to instantiate the text editor. If null,
@@ -748,7 +748,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _promptFactory:Function;
+	private var _promptFactory:Function;
 
 	/**
 	 * A function used to instantiate the prompt text renderer. If null,
@@ -803,7 +803,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _promptProperties:PropertyProxy;
+	private var _promptProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the text input's prompt
@@ -887,18 +887,18 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @private
 	 * The width of the first skin that was displayed.
 	 */
-	protected var _originalSkinWidth:Number = NaN;
+	private var _originalSkinWidth:Number = NaN;
 
 	/**
 	 * @private
 	 * The height of the first skin that was displayed.
 	 */
-	protected var _originalSkinHeight:Number = NaN;
+	private var _originalSkinHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _skinSelector:StateValueSelector = new StateValueSelector();
+	private var _skinSelector:StateValueSelector = new StateValueSelector();
 
 	/**
 	 * The skin used when no other skin is defined for the current state.
@@ -1027,7 +1027,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _stateToSkinFunction:Function;
+	private var _stateToSkinFunction:Function;
 
 	/**
 	 * Returns a skin for the current state.
@@ -1058,7 +1058,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _iconSelector:StateValueSelector = new StateValueSelector();
+	private var _iconSelector:StateValueSelector = new StateValueSelector();
 
 	/**
 	 * The icon used when no other icon is defined for the current state.
@@ -1195,7 +1195,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _stateToIconFunction:Function;
+	private var _stateToIconFunction:Function;
 
 	/**
 	 * Returns an icon for the current state.
@@ -1226,7 +1226,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the icon and the text editor, if an
@@ -1297,7 +1297,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's top edge and the
@@ -1332,7 +1332,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's right edge and the
@@ -1367,7 +1367,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's bottom edge and
@@ -1402,7 +1402,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the input's left edge and the
@@ -1437,7 +1437,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
+	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -1479,27 +1479,27 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * Flag indicating that the text editor should get focus after it is
 	 * created.
 	 */
-	protected var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _oldMouseCursor:String = null;
+	private var _oldMouseCursor:String = null;
 
 	/**
 	 * @private
 	 */
-	protected var _textEditorProperties:PropertyProxy;
+	private var _textEditorProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the text input's
@@ -1726,7 +1726,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1825,7 +1825,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1897,7 +1897,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #textEditor
 	 * @see #textEditorFactory
 	 */
-	protected function createTextEditor():void
+	private function createTextEditor():void
 	{
 		if(this.textEditor)
 		{
@@ -1921,7 +1921,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function createPrompt():void
+	private function createPrompt():void
 	{
 		if(this.promptTextRenderer)
 		{
@@ -1942,7 +1942,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function doPendingActions():void
+	private function doPendingActions():void
 	{
 		if(this._isWaitingToSetFocus)
 		{
@@ -1973,7 +1973,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function refreshTextEditorProperties():void
+	private function refreshTextEditorProperties():void
 	{
 		this.textEditor.displayAsPassword = this._displayAsPassword;
 		this.textEditor.maxChars = this._maxChars;
@@ -1989,7 +1989,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function refreshPromptProperties():void
+	private function refreshPromptProperties():void
 	{
 		if(!this.promptTextRenderer)
 		{
@@ -2009,7 +2009,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():void
 	{
 		var oldSkin:DisplayObject = this.currentBackground;
 		if(this._stateToSkinFunction != null)
@@ -2049,7 +2049,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected function refreshIcon():void
+	private function refreshIcon():void
 	{
 		var oldIcon:DisplayObject = this.currentIcon;
 		if(this._stateToIconFunction != null)
@@ -2084,7 +2084,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	protected function layoutChildren():void
+	private function layoutChildren():void
 	{
 		if(this.currentBackground)
 		{
@@ -2231,7 +2231,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function setFocusOnTextEditorWithTouch(touch:Touch):void
+	private function setFocusOnTextEditorWithTouch(touch:Touch):void
 	{
 		if(!this.isFocusEnabled)
 		{
@@ -2250,7 +2250,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function childProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Object):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2258,7 +2258,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textInput_removedFromStageHandler(event:Event):void
+	private function textInput_removedFromStageHandler(event:Event):void
 	{
 		if(!this._focusManager && this._textEditorHasFocus)
 		{
@@ -2277,7 +2277,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textInput_touchHandler(event:TouchEvent):void
+	private function textInput_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled || !this._isEditable)
 		{
@@ -2333,7 +2333,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		if(!this._focusManager)
 		{
@@ -2346,7 +2346,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		if(!this._focusManager)
 		{
@@ -2359,7 +2359,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textEditor_changeHandler(event:Event):void
+	private function textEditor_changeHandler(event:Event):void
 	{
 		if(this._ignoreTextChanges)
 		{
@@ -2371,7 +2371,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textEditor_enterHandler(event:Event):void
+	private function textEditor_enterHandler(event:Event):void
 	{
 		this.dispatchEventWith(FeathersEventType.ENTER);
 	}
@@ -2379,7 +2379,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textEditor_focusInHandler(event:Event):void
+	private function textEditor_focusInHandler(event:Event):void
 	{
 		if(!this.visible)
 		{
@@ -2401,7 +2401,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	protected function textEditor_focusOutHandler(event:Event):void
+	private function textEditor_focusOutHandler(event:Event):void
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;

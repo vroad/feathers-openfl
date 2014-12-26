@@ -27,12 +27,12 @@ class ContentView extends ScrollContainer
 	private var _bottomButton:Button;
 	private var _leftButton:Button;
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ContentView.globalStyleProvider;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		var openControlsPanel:Panel = new Panel();
 		openControlsPanel.headerProperties.title = "Open Drawers";

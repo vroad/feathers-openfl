@@ -89,7 +89,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @private
 	 */
-	protected function checkForCorrectDataType(data:Object):void
+	private function checkForCorrectDataType(data:Object):void
 	{
 		if(!(data is Array))
 		{

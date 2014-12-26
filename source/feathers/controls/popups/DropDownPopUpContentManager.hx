@@ -54,12 +54,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var content:DisplayObject;
+	private var content:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var source:DisplayObject;
+	private var source:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -72,7 +72,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the source and the pop-up.
@@ -153,7 +153,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		var stage:Stage = Starling.current.stage;
 		var globalOrigin:Rectangle = this.source.getBounds(stage);
@@ -233,7 +233,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function layoutAbove(globalOrigin:Rectangle):void
+	private function layoutAbove(globalOrigin:Rectangle):void
 	{
 		var idealXPosition:Number = globalOrigin.x + (globalOrigin.width - this.content.width) / 2;
 		var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
@@ -252,7 +252,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function layoutBelow(globalOrigin:Rectangle):void
+	private function layoutBelow(globalOrigin:Rectangle):void
 	{
 		var idealXPosition:Number = globalOrigin.x;
 		var xPosition:Number = Starling.current.stage.stageWidth - this.content.width;
@@ -271,7 +271,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function content_resizeHandler(event:Event):void
+	private function content_resizeHandler(event:Event):void
 	{
 		this.layout();
 	}
@@ -279,7 +279,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{
@@ -299,7 +299,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.layout();
 	}
@@ -307,7 +307,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):void
 	{
 		var target:DisplayObject = DisplayObject(event.target);
 		if(this.content == target || (this.content is DisplayObjectContainer && DisplayObjectContainer(this.content).contains(target)))

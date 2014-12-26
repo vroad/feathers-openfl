@@ -38,12 +38,12 @@ class ToggleScreen extends PanelScreen
 	private var _radioGroup:ToggleGroup;
 	private var _backButton:Button;
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ToggleScreen.globalStyleProvider;
 	}
 
-	protected var _innerLayout:ILayout;
+	private var _innerLayout:ILayout;
 
 	public function get innerLayout():ILayout
 	{
@@ -60,7 +60,7 @@ class ToggleScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -130,7 +130,7 @@ class ToggleScreen extends PanelScreen
 		}
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 

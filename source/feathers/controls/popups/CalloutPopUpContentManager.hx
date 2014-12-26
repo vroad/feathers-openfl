@@ -94,12 +94,12 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	protected var content:DisplayObject;
+	private var content:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var callout:Callout;
+	private var callout:Callout;
 
 	/**
 	 * @inheritDoc
@@ -148,7 +148,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	protected function cleanup():void
+	private function cleanup():void
 	{
 		this.content = null;
 		this.callout.content = null;
@@ -159,7 +159,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	protected function callout_closeHandler(event:Event):void
+	private function callout_closeHandler(event:Event):void
 	{
 		this.cleanup();
 		this.dispatchEventWith(Event.CLOSE);

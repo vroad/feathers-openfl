@@ -654,7 +654,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	protected function invalidate():void
+	private function invalidate():void
 	{
 		if(this._isInvalid)
 		{

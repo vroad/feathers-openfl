@@ -25,7 +25,7 @@ class TabBarScreen extends PanelScreen
 	private var _tabBar:TabBar;
 	private var _label:Label;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

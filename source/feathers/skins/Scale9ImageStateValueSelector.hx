@@ -26,7 +26,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	protected var _imageProperties:Object;
+	private var _imageProperties:Object;
 
 	/**
 	 * Optional properties to set on the Scale9Image instance.

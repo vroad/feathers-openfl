@@ -25,7 +25,7 @@ class StateValueSelector
 	 * @private
 	 * Stores the values for each state.
 	 */
-	protected var stateToValue:Dictionary = new Dictionary(true);
+	private var stateToValue:Dictionary = new Dictionary(true);
 
 	/**
 	 * If there is no value for the specified state, a default value can

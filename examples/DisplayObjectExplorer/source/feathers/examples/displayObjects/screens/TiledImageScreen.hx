@@ -57,7 +57,7 @@ class TiledImageScreen extends Screen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TiledImageScreen.globalStyleProvider;
 	}
@@ -72,7 +72,7 @@ class TiledImageScreen extends Screen
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._header = new Header();
 		this._header.title = "Tiled Image";
@@ -96,7 +96,7 @@ class TiledImageScreen extends Screen
 		this.addChild(this._bottomButton);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		this._header.width = this.actualWidth;
 		this._header.validate();

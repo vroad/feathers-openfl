@@ -68,7 +68,7 @@ class ItemRendererScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ItemRendererScreen.globalStyleProvider;
 	}
@@ -86,7 +86,7 @@ class ItemRendererScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()!
 		super.initialize();
@@ -131,7 +131,7 @@ class ItemRendererScreen extends PanelScreen
 		];
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{if(this.settings.hasIcon)
 	{
 		switch(this.settings.iconType)

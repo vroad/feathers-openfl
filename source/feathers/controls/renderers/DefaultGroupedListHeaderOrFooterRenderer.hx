@@ -103,7 +103,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected static function defaultImageLoaderFactory():ImageLoader
+	private static function defaultImageLoaderFactory():ImageLoader
 	{
 		return new ImageLoader();
 	}
@@ -122,27 +122,27 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var contentLabelName:String = DEFAULT_CHILD_NAME_CONTENT_LABEL;
+	private var contentLabelName:String = DEFAULT_CHILD_NAME_CONTENT_LABEL;
 
 	/**
 	 * @private
 	 */
-	protected var contentImage:ImageLoader;
+	private var contentImage:ImageLoader;
 
 	/**
 	 * @private
 	 */
-	protected var contentLabel:ITextRenderer;
+	private var contentLabel:ITextRenderer;
 
 	/**
 	 * @private
 	 */
-	protected var content:DisplayObject;
+	private var content:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return DefaultGroupedListHeaderOrFooterRenderer.globalStyleProvider;
 	}
@@ -150,7 +150,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _data:Object;
+	private var _data:Object;
 
 	/**
 	 * @inheritDoc
@@ -176,7 +176,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _groupIndex:int = -1;
+	private var _groupIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -197,7 +197,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _layoutIndex:int = -1;
+	private var _layoutIndex:int = -1;
 
 	/**
 	 * @inheritDoc
@@ -218,7 +218,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _owner:GroupedList;
+	private var _owner:GroupedList;
 
 	/**
 	 * @inheritDoc
@@ -244,7 +244,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
 	[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
@@ -285,7 +285,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
+	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -326,7 +326,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentField:String = "content";
+	private var _contentField:String = "content";
 
 	/**
 	 * The field in the item that contains a display object to be positioned
@@ -378,7 +378,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentFunction:Function;
+	private var _contentFunction:Function;
 
 	/**
 	 * A function that returns a display object to be positioned in the
@@ -442,7 +442,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentSourceField:String = "source";
+	private var _contentSourceField:String = "source";
 
 	/**
 	 * The field in the data that contains a <code>starling.textures.Texture</code>
@@ -503,7 +503,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentSourceFunction:Function;
+	private var _contentSourceFunction:Function;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -573,7 +573,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentLabelField:String = "label";
+	private var _contentLabelField:String = "label";
 
 	/**
 	 * The field in the item that contains a string to be displayed in a
@@ -633,7 +633,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentLabelFunction:Function;
+	private var _contentLabelFunction:Function;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -699,7 +699,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentLoaderFactory:Function = defaultImageLoaderFactory;
+	private var _contentLoaderFactory:Function = defaultImageLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -746,7 +746,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentLabelFactory:Function;
+	private var _contentLabelFactory:Function;
 
 	/**
 	 * A function that generates an <code>ITextRenderer</code> that uses the result
@@ -793,7 +793,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _contentLabelProperties:PropertyProxy;
+	private var _contentLabelProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to a content label.
@@ -863,22 +863,22 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentBackgroundSkin:DisplayObject;
+	private var currentBackgroundSkin:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * A background to behind the component's content.
@@ -922,7 +922,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _backgroundDisabledSkin:DisplayObject;
+	private var _backgroundDisabledSkin:DisplayObject;
 
 	/**
 	 * A background to display when the component is disabled.
@@ -995,7 +995,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's top edge and
@@ -1029,7 +1029,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's right edge
@@ -1063,7 +1063,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's bottom edge
@@ -1097,7 +1097,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the component's left edge
@@ -1170,7 +1170,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *     <li><code>contentField</code></li>
 	 * </ol>
 	 */
-	protected function itemToContent(item:Object):DisplayObject
+	private function itemToContent(item:Object):DisplayObject
 	{
 		if(this._contentSourceFunction != null)
 		{
@@ -1235,7 +1235,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1295,7 +1295,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -1355,7 +1355,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():void
 	{
 		this.currentBackgroundSkin = this._backgroundSkin;
 		if(!this._isEnabled && this._backgroundDisabledSkin)
@@ -1387,7 +1387,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function commitData():void
+	private function commitData():void
 	{
 		if(this._owner)
 		{
@@ -1418,7 +1418,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function refreshContentSource(source:Object):void
+	private function refreshContentSource(source:Object):void
 	{
 		if(!this.contentImage)
 		{
@@ -1430,7 +1430,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function refreshContentLabel(label:String):void
+	private function refreshContentLabel(label:String):void
 	{
 		if(label !== null)
 		{
@@ -1452,7 +1452,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function refreshEnabled():void
+	private function refreshEnabled():void
 	{
 		if(this.content is IFeathersControl)
 		{
@@ -1463,7 +1463,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function refreshContentLabelStyles():void
+	private function refreshContentLabelStyles():void
 	{
 		if(!this.contentLabel)
 		{
@@ -1479,7 +1479,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function layout():void
+	private function layout():void
 	{
 		if(!this.content)
 		{
@@ -1543,7 +1543,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	protected function contentLabelProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function contentLabelProperties_onChange(proxy:PropertyProxy, name:String):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

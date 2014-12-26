@@ -23,12 +23,12 @@ class DrawerView extends ScrollContainer
 	private var _titleLabel:Label;
 	private var _dockCheck:Check;
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return DrawerView.globalStyleProvider;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

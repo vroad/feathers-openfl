@@ -30,7 +30,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected var _registry:StyleProviderRegistry;
+	private var _registry:StyleProviderRegistry;
 
 	/**
 	 * Disposes the theme.
@@ -48,7 +48,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 * Returns a <code>StyleNameFunctionStyleProvider</code> to be passed to
 	 * the specified class.
 	 */
-	protected function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
+	private function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
 	{
 		return StyleNameFunctionStyleProvider(this._registry.getStyleProvider(type));
 	}

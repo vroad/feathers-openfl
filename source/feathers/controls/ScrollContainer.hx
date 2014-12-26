@@ -69,7 +69,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
+	private static const INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
 
 	/**
 	 * An alternate name to use with <code>ScrollContainer</code> to allow a
@@ -211,17 +211,17 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 * and <code>removeChild()</code> will be passed to the internal view
 	 * port.
 	 */
-	protected var displayListBypassEnabled:Boolean = true;
+	private var displayListBypassEnabled:Boolean = true;
 
 	/**
 	 * @private
 	 */
-	protected var layoutViewPort:LayoutViewPort;
+	private var layoutViewPort:LayoutViewPort;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ScrollContainer.globalStyleProvider;
 	}
@@ -229,7 +229,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * Controls the way that the container's children are positioned and
@@ -266,12 +266,12 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	protected var _mxmlContentIsReady:Boolean = false;
+	private var _mxmlContentIsReady:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _mxmlContent:Array;
+	private var _mxmlContent:Array;
 
 	[ArrayElementType("feathers.core.IFeathersControl")]
 	/**
@@ -589,7 +589,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 		this.refreshMXMLContent();
@@ -598,7 +598,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -626,7 +626,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	protected function refreshMXMLContent():void
+	private function refreshMXMLContent():void
 	{
 		if(!this._mxmlContent || this._mxmlContentIsReady)
 		{

@@ -62,7 +62,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return ProgressBar.globalStyleProvider;
 	}
@@ -70,7 +70,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _direction:String = DIRECTION_HORIZONTAL;
+	private var _direction:String = DIRECTION_HORIZONTAL;
 
 	[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
@@ -109,7 +109,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _value:Number = 0;
+	private var _value:Number = 0;
 
 	/**
 	 * The value of the progress bar, between the minimum and maximum.
@@ -148,7 +148,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _minimum:Number = 0;
+	private var _minimum:Number = 0;
 
 	/**
 	 * The progress bar's value will not go lower than the minimum.
@@ -186,7 +186,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _maximum:Number = 1;
+	private var _maximum:Number = 1;
 
 	/**
 	 * The progress bar's value will not go higher than the maximum.
@@ -224,22 +224,22 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _originalBackgroundWidth:Number = NaN;
+	private var _originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _originalBackgroundHeight:Number = NaN;
+	private var _originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentBackground:DisplayObject;
+	private var currentBackground:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * The primary background to display.
@@ -283,7 +283,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _backgroundDisabledSkin:DisplayObject;
+	private var _backgroundDisabledSkin:DisplayObject;
 
 	/**
 	 * A background to display when the progress bar is disabled.
@@ -327,22 +327,22 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _originalFillWidth:Number = NaN;
+	private var _originalFillWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _originalFillHeight:Number = NaN;
+	private var _originalFillHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentFill:DisplayObject;
+	private var currentFill:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _fillSkin:DisplayObject;
+	private var _fillSkin:DisplayObject;
 
 	/**
 	 * The primary fill to display.
@@ -399,7 +399,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _fillDisabledSkin:DisplayObject;
+	private var _fillDisabledSkin:DisplayObject;
 
 	/**
 	 * A fill to display when the progress bar is disabled.
@@ -477,7 +477,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's top edge and
@@ -511,7 +511,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's right edge
@@ -545,7 +545,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's bottom edge
@@ -579,7 +579,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the progress bar's left edge
@@ -613,7 +613,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -674,7 +674,7 @@ class ProgressBar extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -690,7 +690,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshBackground():void
+	private function refreshBackground():void
 	{
 		this.currentBackground = this._backgroundSkin;
 		if(this._backgroundDisabledSkin)
@@ -725,7 +725,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshFill():void
+	private function refreshFill():void
 	{
 		this.currentFill = this._fillSkin;
 		if(this._fillDisabledSkin)

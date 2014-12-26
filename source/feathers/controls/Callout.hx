@@ -166,7 +166,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_ORIGIN:String = "origin";
+	private static const INVALIDATION_FLAG_ORIGIN:String = "origin";
 
 	/**
 	 * @private
@@ -181,7 +181,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const DIRECTION_TO_FUNCTION:Object = {};
+	private static const DIRECTION_TO_FUNCTION:Object = {};
 	DIRECTION_TO_FUNCTION[DIRECTION_ANY] = positionBestSideOfOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_UP] = positionAboveOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_DOWN] = positionBelowOrigin;
@@ -193,7 +193,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const FUZZY_CONTENT_DIMENSIONS_PADDING:Number = 0.000001;
+	private static const FUZZY_CONTENT_DIMENSIONS_PADDING:Number = 0.000001;
 
 	/**
 	 * Quickly sets all stage padding properties to the same value. The
@@ -395,7 +395,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionWithSupportedDirections(callout:Callout, globalOrigin:Rectangle, direction:String):void
+	private static function positionWithSupportedDirections(callout:Callout, globalOrigin:Rectangle, direction:String):void
 	{
 		if(DIRECTION_TO_FUNCTION.hasOwnProperty(direction))
 		{
@@ -411,7 +411,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionBestSideOfOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionBestSideOfOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
 		var downSpace:Number = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
@@ -467,7 +467,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionAboveOrBelowOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionAboveOrBelowOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
 		var downSpace:Number = (Starling.current.stage.stageHeight - HELPER_POINT.y) - (globalOrigin.y + globalOrigin.height);
@@ -499,7 +499,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionToLeftOrRightOfOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionToLeftOrRightOfOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_LEFT, HELPER_POINT);
 		var rightSpace:Number = (Starling.current.stage.stageWidth - HELPER_POINT.x) - (globalOrigin.x + globalOrigin.width);
@@ -531,7 +531,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionBelowOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionBelowOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_TOP, HELPER_POINT);
 		var idealXPosition:Number = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
@@ -554,7 +554,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionAboveOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionAboveOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_BOTTOM, HELPER_POINT);
 		var idealXPosition:Number = globalOrigin.x + Math.round((globalOrigin.width - HELPER_POINT.x) / 2);
@@ -577,7 +577,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionToRightOfOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionToRightOfOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_LEFT, HELPER_POINT);
 		callout.x = globalOrigin.x + globalOrigin.width;
@@ -600,7 +600,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function positionToLeftOfOrigin(callout:Callout, globalOrigin:Rectangle):void
+	private static function positionToLeftOfOrigin(callout:Callout, globalOrigin:Rectangle):void
 	{
 		callout.measureWithArrowPosition(ARROW_POSITION_RIGHT, HELPER_POINT);
 		callout.x = globalOrigin.x - HELPER_POINT.x;
@@ -715,12 +715,12 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isReadyToClose:Boolean = false;
+	private var _isReadyToClose:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Callout.globalStyleProvider;
 	}
@@ -728,7 +728,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _content:DisplayObject;
+	private var _content:DisplayObject;
 
 	/**
 	 * The display object that will be presented by the callout. This object
@@ -785,7 +785,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _origin:DisplayObject;
+	private var _origin:DisplayObject;
 
 	/**
 	 * A callout may be positioned relative to another display object, known
@@ -845,7 +845,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _supportedDirections:String = DIRECTION_ANY;
+	private var _supportedDirections:String = DIRECTION_ANY;
 
 	[Inspectable(type="String",enumeration="any,vertical,horizontal,up,down,left,right")]
 	/**
@@ -924,7 +924,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's top edge and the
@@ -959,7 +959,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's right edge and
@@ -994,7 +994,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's bottom edge and
@@ -1029,7 +1029,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the callout's left edge and the
@@ -1064,7 +1064,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _arrowPosition:String = ARROW_POSITION_TOP;
+	private var _arrowPosition:String = ARROW_POSITION_TOP;
 
 	[Inspectable(type="String",enumeration="top,right,bottom,left")]
 	/**
@@ -1120,17 +1120,17 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _originalBackgroundWidth:Number = NaN;
+	private var _originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _originalBackgroundHeight:Number = NaN;
+	private var _originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * The primary background to display.
@@ -1174,12 +1174,12 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var currentArrowSkin:DisplayObject;
+	private var currentArrowSkin:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _bottomArrowSkin:DisplayObject;
+	private var _bottomArrowSkin:DisplayObject;
 
 	/**
 	 * The arrow skin to display on the bottom edge of the callout. This
@@ -1233,7 +1233,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _topArrowSkin:DisplayObject;
+	private var _topArrowSkin:DisplayObject;
 
 	/**
 	 * The arrow skin to display on the top edge of the callout. This arrow
@@ -1287,7 +1287,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftArrowSkin:DisplayObject;
+	private var _leftArrowSkin:DisplayObject;
 
 	/**
 	 * The arrow skin to display on the left edge of the callout. This arrow
@@ -1341,7 +1341,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightArrowSkin:DisplayObject;
+	private var _rightArrowSkin:DisplayObject;
 
 	/**
 	 * The arrow skin to display on the right edge of the callout. This
@@ -1395,7 +1395,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _topArrowGap:Number = 0;
+	private var _topArrowGap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the top arrow skin and the background
@@ -1432,7 +1432,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _bottomArrowGap:Number = 0;
+	private var _bottomArrowGap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the bottom arrow skin and the
@@ -1469,7 +1469,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _rightArrowGap:Number = 0;
+	private var _rightArrowGap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the right arrow skin and the background
@@ -1506,7 +1506,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _leftArrowGap:Number = 0;
+	private var _leftArrowGap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the right arrow skin and the background
@@ -1543,7 +1543,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _arrowOffset:Number = 0;
+	private var _arrowOffset:Number = 0;
 
 	/**
 	 * The offset, in pixels, of the arrow skin from the horizontal center
@@ -1592,12 +1592,12 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalBoundsOfOrigin:Rectangle;
+	private var _lastGlobalBoundsOfOrigin:Rectangle;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreContentResize:Boolean = false;
+	private var _ignoreContentResize:Boolean = false;
 
 	/**
 	 * @private
@@ -1636,7 +1636,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.addEventListener(Event.REMOVED_FROM_STAGE, callout_removedFromStageHandler);
 	}
@@ -1644,7 +1644,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -1700,7 +1700,7 @@ class Callout extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		this.measureWithArrowPosition(this._arrowPosition, HELPER_POINT);
 		return this.setSizeInternal(HELPER_POINT.x, HELPER_POINT.y, false);
@@ -1709,7 +1709,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function measureWithArrowPosition(arrowPosition:String, result:Point = null):Point
+	private function measureWithArrowPosition(arrowPosition:String, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1795,7 +1795,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshArrowSkin():void
+	private function refreshArrowSkin():void
 	{
 		this.currentArrowSkin = null;
 		if(this._arrowPosition == ARROW_POSITION_BOTTOM)
@@ -1839,7 +1839,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutChildren():void
+	private function layoutChildren():void
 	{
 		var xPosition:Number = (this._leftArrowSkin && this._arrowPosition == ARROW_POSITION_LEFT) ? this._leftArrowSkin.width + this._leftArrowGap : 0;
 		var yPosition:Number = (this._topArrowSkin &&  this._arrowPosition == ARROW_POSITION_TOP) ? this._topArrowSkin.height + this._topArrowGap : 0;
@@ -1912,7 +1912,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function positionToOrigin():void
+	private function positionToOrigin():void
 	{
 		if(!this._origin)
 		{
@@ -1937,7 +1937,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function callout_addedToStageHandler(event:Event):void
+	private function callout_addedToStageHandler(event:Event):void
 	{
 		//using priority here is a hack so that objects higher up in the
 		//display list have a chance to cancel the event first.
@@ -1955,7 +1955,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function callout_removedFromStageHandler(event:Event):void
+	private function callout_removedFromStageHandler(event:Event):void
 	{
 		this.stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, callout_nativeStage_keyDownHandler);
@@ -1964,7 +1964,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function callout_oneEnterFrameHandler(event:Event):void
+	private function callout_oneEnterFrameHandler(event:Event):void
 	{
 		this.removeEventListener(EnterFrameEvent.ENTER_FRAME, callout_oneEnterFrameHandler);
 		this._isReadyToClose = true;
@@ -1973,7 +1973,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function callout_enterFrameHandler(event:EnterFrameEvent):void
+	private function callout_enterFrameHandler(event:EnterFrameEvent):void
 	{
 		this.positionToOrigin();
 	}
@@ -1981,7 +1981,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):void
 	{
 		var target:DisplayObject = DisplayObject(event.target);
 		if(!this._isReadyToClose ||
@@ -2019,7 +2019,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function callout_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function callout_nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{
@@ -2038,7 +2038,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function origin_removedFromStageHandler(event:Event):void
+	private function origin_removedFromStageHandler(event:Event):void
 	{
 		this.close(this.disposeOnSelfClose);
 	}
@@ -2046,7 +2046,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function content_resizeHandler(event:Event):void
+	private function content_resizeHandler(event:Event):void
 	{
 		if(this._ignoreContentResize)
 		{

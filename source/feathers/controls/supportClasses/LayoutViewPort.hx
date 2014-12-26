@@ -225,7 +225,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		super.dispose();
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -245,7 +245,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 	}
 
-	override protected function refreshViewPortBounds():void
+	override private function refreshViewPortBounds():void
 	{
 		this.viewPortBounds.x = 0;
 		this.viewPortBounds.y = 0;
@@ -259,7 +259,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	override protected function handleManualLayout():void
+	override private function handleManualLayout():void
 	{
 		var minX:Number = 0;
 		var minY:Number = 0;

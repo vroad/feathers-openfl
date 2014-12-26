@@ -69,7 +69,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _defaultStyleFunction:Function;
+	private var _defaultStyleFunction:Function;
 
 	/**
 	 * The target Feathers UI component is passed to this function when
@@ -98,7 +98,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _styleNameMap:Object;
+	private var _styleNameMap:Object;
 
 	/**
 	 * The target Feathers UI component is passed to this function when

@@ -38,7 +38,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _originalStyleProvider:IStyleProvider;
+	private var _originalStyleProvider:IStyleProvider;
 
 	/**
 	 * The <code>addOnFunction</code> will be called after the original
@@ -60,7 +60,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _addOnFunction:Function;
+	private var _addOnFunction:Function;
 
 	/**
 	 * A function to call after applying the original style provider's

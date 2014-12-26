@@ -32,13 +32,13 @@ import starling.events.Event;
  *         {
  *         }
  *
- *         override protected function initialize():void
+ *         override private function initialize():void
  *         {
  *             //runs once when screen is first added to the stage.
  *             //a good place to add children and set a layout.
  *         }
  *
- *         override protected function draw():void
+ *         override private function draw():void
  *         {
  *             //override only if you want to do manual measurement and layout.
  *         }
@@ -71,7 +71,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Screen.globalStyleProvider;
 	}
@@ -79,7 +79,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _screenID:String;
+	private var _screenID:String;
 
 	/**
 	 * @inheritDoc
@@ -100,7 +100,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _owner:ScreenNavigator;
+	private var _owner:ScreenNavigator;
 
 	/**
 	 * @inheritDoc
@@ -139,7 +139,7 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var backButtonHandler:Function;
+	private var backButtonHandler:Function;
 	
 	/**
 	 * Optional callback for the menu hardware key. Automatically handles
@@ -162,7 +162,7 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var menuButtonHandler:Function;
+	private var menuButtonHandler:Function;
 	
 	/**
 	 * Optional callback for the search hardware key. Automatically handles
@@ -185,12 +185,12 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * @default null
 	 */
-	protected var searchButtonHandler:Function;
+	private var searchButtonHandler:Function;
 	
 	/**
 	 * @private
 	 */
-	protected function screen_addedToStageHandler(event:Event):void
+	private function screen_addedToStageHandler(event:Event):void
 	{
 		if(event.target != this)
 		{
@@ -206,7 +206,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	protected function screen_removedFromStageHandler(event:Event):void
+	private function screen_removedFromStageHandler(event:Event):void
 	{
 		if(event.target != this)
 		{
@@ -219,7 +219,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	protected function screen_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function screen_nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{

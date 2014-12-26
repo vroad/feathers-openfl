@@ -30,13 +30,13 @@ class Main extends Sprite
 	/**
 	 * The Feathers Button control that we'll be creating.
 	 */
-	protected var button:Button;
+	private var button:Button;
 
 	/**
 	 * Where the magic happens. Start after the main class has been added
 	 * to the stage so that we can access the stage property.
 	 */
-	protected function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):void
 	{
 		this.removeEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 
@@ -75,7 +75,7 @@ class Main extends Sprite
 	/**
 	 * Listener for the Button's Event.TRIGGERED event.
 	 */
-	protected function button_triggeredHandler(event:Event):void
+	private function button_triggeredHandler(event:Event):void
 	{
 		var label:Label = new Label();
 		label.text = "Hi, I'm Feathers!\nHave a nice day.";

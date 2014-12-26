@@ -37,22 +37,22 @@ class ScreenFadeTransitionManager
 	/**
 	 * The <code>ScreenNavigator</code> being managed.
 	 */
-	protected var navigator:ScreenNavigator;
+	private var navigator:ScreenNavigator;
 
 	/**
 	 * @private
 	 */
-	protected var _activeTransition:Tween;
+	private var _activeTransition:Tween;
 
 	/**
 	 * @private
 	 */
-	protected var _savedOtherTarget:DisplayObject;
+	private var _savedOtherTarget:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Function;
 	
 	/**
 	 * The duration of the transition, measured in seconds.
@@ -89,7 +89,7 @@ class ScreenFadeTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	protected function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
 	{
 		if(!oldScreen && !newScreen)
 		{
@@ -150,7 +150,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransition_onUpdate():void
+	private function activeTransition_onUpdate():void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -162,7 +162,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	protected function activeTransition_onComplete():void
+	private function activeTransition_onComplete():void
 	{
 		this._savedOtherTarget = null;
 		this._activeTransition = null;

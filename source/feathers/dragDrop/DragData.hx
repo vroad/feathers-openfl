@@ -23,7 +23,7 @@ class DragData
 	/**
 	 * @private
 	 */
-	protected var _data:Object = {};
+	private var _data:Object = {};
 
 	/**
 	 * Determines if the specified data format is available.

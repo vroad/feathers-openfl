@@ -157,7 +157,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function defaultSelectedSymbolFactory():Quad
+	private static function defaultSelectedSymbolFactory():Quad
 	{
 		return new Quad(25, 25, 0xffffff);
 	}
@@ -165,7 +165,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function defaultNormalSymbolFactory():Quad
+	private static function defaultNormalSymbolFactory():Quad
 	{
 		return new Quad(25, 25, 0xcccccc);
 	}
@@ -183,32 +183,32 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var selectedSymbol:DisplayObject;
+	private var selectedSymbol:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var cache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var cache:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var unselectedSymbols:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var unselectedSymbols:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var symbols:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var symbols:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var touchPointID:int = -1;
+	private var touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return PageIndicator.globalStyleProvider;
 	}
@@ -216,7 +216,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _pageCount:int = 1;
+	private var _pageCount:int = 1;
 
 	/**
 	 * The number of available pages.
@@ -249,7 +249,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _selectedIndex:int = 0;
+	private var _selectedIndex:int = 0;
 
 	/**
 	 * The currently selected index.
@@ -297,7 +297,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _interactionMode:String = INTERACTION_MODE_PREVIOUS_NEXT;
+	private var _interactionMode:String = INTERACTION_MODE_PREVIOUS_NEXT;
 
 	[Inspectable(type="String",enumeration="previousNext,precise")]
 	/**
@@ -329,12 +329,12 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * @private
 	 */
-	protected var _direction:String = DIRECTION_HORIZONTAL;
+	private var _direction:String = DIRECTION_HORIZONTAL;
 
 	[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
@@ -371,7 +371,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -410,7 +410,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
+	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -449,7 +449,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The spacing, in pixels, between symbols.
@@ -516,7 +516,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the top edge of the component
@@ -550,7 +550,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the right edge of the component
@@ -584,7 +584,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the bottom edge of the component
@@ -618,7 +618,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the left edge of the component
@@ -652,7 +652,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _normalSymbolFactory:Function = defaultNormalSymbolFactory;
+	private var _normalSymbolFactory:Function = defaultNormalSymbolFactory;
 
 	/**
 	 * A function used to create a normal symbol. May be any Starling
@@ -694,7 +694,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _selectedSymbolFactory:Function = defaultSelectedSymbolFactory;
+	private var _selectedSymbolFactory:Function = defaultSelectedSymbolFactory;
 
 	/**
 	 * A function used to create a selected symbol. May be any Starling
@@ -736,7 +736,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -754,7 +754,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshSymbols(symbolsInvalid:Boolean):void
+	private function refreshSymbols(symbolsInvalid:Boolean):void
 	{
 		this.symbols.length = 0;
 		var temp:Vector.<DisplayObject> = this.cache;
@@ -821,7 +821,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutSymbols(layoutInvalid:Boolean):void
+	private function layoutSymbols(layoutInvalid:Boolean):void
 	{
 		if(layoutInvalid)
 		{
@@ -873,7 +873,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled || this._pageCount < 2)
 		{

@@ -16,8 +16,8 @@ class TodoItemRenderer extends DefaultListItemRenderer
 		this.itemHasAccessory = false;
 	}
 
-	protected var check:Check;
-	protected var deleteButton:Button;
+	private var check:Check;
+	private var deleteButton:Button;
 
 	private var _isEditable:Boolean = false;
 
@@ -51,7 +51,7 @@ class TodoItemRenderer extends DefaultListItemRenderer
 		super.dispose();
 	}
 
-	override protected function commitData():void
+	override private function commitData():void
 	{
 		super.commitData();
 		var item:TodoItem = this._data as TodoItem;
@@ -84,7 +84,7 @@ class TodoItemRenderer extends DefaultListItemRenderer
 		}
 	}
 
-	protected function check_changeHandler(event:Event):void
+	private function check_changeHandler(event:Event):void
 	{
 		var item:TodoItem = this._data as TodoItem;
 		if(!item)
@@ -94,7 +94,7 @@ class TodoItemRenderer extends DefaultListItemRenderer
 		item.isCompleted = this.check.isSelected;
 	}
 
-	protected function deleteButton_triggeredHandler(event:Event):void
+	private function deleteButton_triggeredHandler(event:Event):void
 	{
 		List(this._owner).dataProvider.removeItemAt(this._index);
 	}

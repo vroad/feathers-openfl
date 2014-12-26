@@ -38,7 +38,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static var _touchPointID:int = -1;
+	private static var _touchPointID:int = -1;
 
 	/**
 	 * The ID of the touch that initiated the current drag. Returns <code>-1</code>
@@ -54,7 +54,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static var _dragSource:IDragSource;
+	private static var _dragSource:IDragSource;
 
 	/**
 	 * The <code>IDragSource</code> that started the current drag.
@@ -67,7 +67,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static var _dragData:DragData;
+	private static var _dragData:DragData;
 
 	/**
 	 * Determines if the drag and drop manager is currently handling a drag.
@@ -91,44 +91,44 @@ class DragDropManager
 	 * @private
 	 * The current target of the current drag.
 	 */
-	protected static var dropTarget:IDropTarget;
+	private static var dropTarget:IDropTarget;
 
 	/**
 	 * @private
 	 * Indicates if the current drag has been accepted by the dropTarget.
 	 */
-	protected static var isAccepted:Boolean = false;
+	private static var isAccepted:Boolean = false;
 
 	/**
 	 * @private
 	 * The avatar for the current drag data.
 	 */
-	protected static var avatar:DisplayObject;
+	private static var avatar:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected static var avatarOffsetX:Number;
+	private static var avatarOffsetX:Number;
 
 	/**
 	 * @private
 	 */
-	protected static var avatarOffsetY:Number;
+	private static var avatarOffsetY:Number;
 
 	/**
 	 * @private
 	 */
-	protected static var dropTargetLocalX:Number;
+	private static var dropTargetLocalX:Number;
 
 	/**
 	 * @private
 	 */
-	protected static var dropTargetLocalY:Number;
+	private static var dropTargetLocalY:Number;
 
 	/**
 	 * @private
 	 */
-	protected static var avatarOldTouchable:Boolean;
+	private static var avatarOldTouchable:Boolean;
 
 	/**
 	 * Starts a new drag. If another drag is currently active, it is
@@ -200,7 +200,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static function completeDrag(isDropped:Boolean):void
+	private static function completeDrag(isDropped:Boolean):void
 	{
 		if(!isDragging)
 		{
@@ -220,7 +220,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static function cleanup():void
+	private static function cleanup():void
 	{
 		if(avatar)
 		{
@@ -241,7 +241,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static function updateDropTarget(location:Point):void
+	private static function updateDropTarget(location:Point):void
 	{
 		var target:DisplayObject = Starling.current.stage.hitTest(location, true);
 		while(target && !(target is IDropTarget))
@@ -279,7 +279,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private static function nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.keyCode == Keyboard.ESCAPE || event.keyCode == Keyboard.BACK)
 		{
@@ -291,7 +291,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	protected static function stage_touchHandler(event:TouchEvent):void
+	private static function stage_touchHandler(event:TouchEvent):void
 	{
 		var stage:Stage = Starling.current.stage;
 		var touch:Touch = event.getTouch(stage, null, _touchPointID);

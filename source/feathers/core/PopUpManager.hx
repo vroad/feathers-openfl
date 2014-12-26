@@ -20,7 +20,7 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	protected static const _starlingToPopUpManager:Dictionary = new Dictionary(true);
+	private static const _starlingToPopUpManager:Dictionary = new Dictionary(true);
 
 	/**
 	 * The default factory that creates a pop-up manager.

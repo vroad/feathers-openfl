@@ -36,7 +36,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	private static const TRAVEL_TO_TEXT:String = "TRAVEL TO";
 	private static const QUESTION_MARK:String = "?";
 
-	protected static function defaultLoaderFactory():ImageLoader
+	private static function defaultLoaderFactory():ImageLoader
 	{
 		return new ImageLoader();
 	}
@@ -46,17 +46,17 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
-	protected var background:Quad;
-	protected var actionContainer:ScrollContainer;
-	protected var confirmButton:Button;
-	protected var cancelButton:Button;
-	protected var nameLabel:Label;
-	protected var detailsLabel:Label;
-	protected var icon:ImageLoader;
+	private var background:Quad;
+	private var actionContainer:ScrollContainer;
+	private var confirmButton:Button;
+	private var cancelButton:Button;
+	private var nameLabel:Label;
+	private var detailsLabel:Label;
+	private var icon:ImageLoader;
 
-	protected var _touchPointID:int = -1;
+	private var _touchPointID:int = -1;
 
-	protected var _data:StationData;
+	private var _data:StationData;
 
 	public function get data():Object
 	{
@@ -74,7 +74,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	protected var _index:int = -1;
+	private var _index:int = -1;
 
 	public function get index():int
 	{
@@ -91,7 +91,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.isFirstItem = this._index == 0;
 	}
 
-	protected var _isFirstItem:Boolean = false;
+	private var _isFirstItem:Boolean = false;
 
 	public function get isFirstItem():Boolean
 	{
@@ -108,7 +108,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	protected var _isLastItem:Boolean = false;
+	private var _isLastItem:Boolean = false;
 
 	public function get isLastItem():Boolean
 	{
@@ -125,7 +125,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	protected var _isInDestinationPhase:Boolean = false;
+	private var _isInDestinationPhase:Boolean = false;
 
 	public function get isInDestinationPhase():Boolean
 	{
@@ -142,7 +142,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	protected var _owner:List;
+	private var _owner:List;
 
 	public function get owner():List
 	{
@@ -171,9 +171,9 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	protected var isSelectionWaitingToBeAnimated:Boolean = false;
+	private var isSelectionWaitingToBeAnimated:Boolean = false;
 
-	protected var _isSelected:Boolean = false;
+	private var _isSelected:Boolean = false;
 
 	public function get isSelected():Boolean
 	{
@@ -197,7 +197,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.dispatchEventWith(Event.CHANGE);
 	}
 
-	protected var _normalIconTexture:Texture;
+	private var _normalIconTexture:Texture;
 
 	public function get normalIconTexture():Texture
 	{
@@ -214,7 +214,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _firstNormalIconTexture:Texture;
+	private var _firstNormalIconTexture:Texture;
 
 	public function get firstNormalIconTexture():Texture
 	{
@@ -231,7 +231,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _lastNormalIconTexture:Texture;
+	private var _lastNormalIconTexture:Texture;
 
 	public function get lastNormalIconTexture():Texture
 	{
@@ -248,7 +248,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _selectedIconTexture:Texture;
+	private var _selectedIconTexture:Texture;
 
 	public function get selectedIconTexture():Texture
 	{
@@ -265,7 +265,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _firstSelectedIconTexture:Texture;
+	private var _firstSelectedIconTexture:Texture;
 
 	public function get firstSelectedIconTexture():Texture
 	{
@@ -282,7 +282,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _lastSelectedIconTexture:Texture;
+	private var _lastSelectedIconTexture:Texture;
 
 	public function get lastSelectedIconTexture():Texture
 	{
@@ -299,7 +299,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	protected var _iconLoaderFactory:Function = defaultLoaderFactory;
+	private var _iconLoaderFactory:Function = defaultLoaderFactory;
 
 	public function get iconLoaderFactory():Function
 	{
@@ -316,7 +316,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	public function get paddingTop():Number
 	{
@@ -333,7 +333,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	public function get paddingRight():Number
 	{
@@ -350,7 +350,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	public function get paddingBottom():Number
 	{
@@ -367,7 +367,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	public function get paddingLeft():Number
 	{
@@ -384,7 +384,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	public function get gap():Number
 	{
@@ -403,9 +403,9 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	public var confirmCallback:Function;
 
-	protected var selectionTween:Tween;
+	private var selectionTween:Tween;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.background = new Quad(10, 10, 0x3b2a41);
 		this.background.alpha = 0;
@@ -437,7 +437,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.addChild(this.cancelButton);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -462,7 +462,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 	}
 
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = isNaN(this.explicitWidth);
 		var needsHeight:Boolean = isNaN(this.explicitHeight);
@@ -485,7 +485,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this.setSizeInternal(newWidth, newHeight, false);
 	}
 
-	protected function refreshIcon():void
+	private function refreshIcon():void
 	{
 		if(this.icon)
 		{
@@ -496,7 +496,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addChild(this.icon);
 	}
 
-	protected function commitData():void
+	private function commitData():void
 	{
 		if(this._owner)
 		{
@@ -560,7 +560,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 	}
 
-	protected function layout():void
+	private function layout():void
 	{
 		this.background.width = this.actualWidth;
 		this.background.height = this.actualHeight;
@@ -622,7 +622,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.y = this.actualHeight - this.actionContainer.height;
 	}
 
-	protected function selectionTween_onUpdate():void
+	private function selectionTween_onUpdate():void
 	{
 		var ratio:Number = this.selectionTween.transitionFunc(this.selectionTween.currentTime / this.selectionTween.totalTime);
 		if(!this._isSelected)
@@ -633,30 +633,30 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.x = this.actualWidth - this.actionContainer.width * ratio;
 	}
 
-	protected function selectionTween_onSelectComplete():void
+	private function selectionTween_onSelectComplete():void
 	{
 		this.selectionTween = null;
 	}
 
-	protected function selectionTween_onDeselectComplete():void
+	private function selectionTween_onDeselectComplete():void
 	{
 		this.detailsLabel.visible = false;
 		this.actionContainer.visible = false;
 		this.selectionTween = null;
 	}
 
-	protected function selectionTween_onConfirmComplete():void
+	private function selectionTween_onConfirmComplete():void
 	{
 		this.actionContainer.visible = false;
 		this.selectionTween = null;
 	}
 
-	protected function selectionTween_onUnconfirmComplete():void
+	private function selectionTween_onUnconfirmComplete():void
 	{
 		this.selectionTween = null;
 	}
 
-	protected function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -716,12 +716,12 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		HELPER_TOUCHES_VECTOR.length = 0;
 	}
 
-	protected function owner_scrollHandler(event:Event):void
+	private function owner_scrollHandler(event:Event):void
 	{
 		this._touchPointID = -1;
 	}
 
-	protected function confirmButton_triggeredHandler(event:Event):void
+	private function confirmButton_triggeredHandler(event:Event):void
 	{
 		if(this.confirmCallback == null)
 		{
@@ -730,7 +730,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.confirmCallback();
 	}
 
-	protected function cancelButton_triggeredHandler(event:Event):void
+	private function cancelButton_triggeredHandler(event:Event):void
 	{
 		this._owner.selectedIndex = -1;
 	}

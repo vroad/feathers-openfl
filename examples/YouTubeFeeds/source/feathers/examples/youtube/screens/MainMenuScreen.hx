@@ -46,7 +46,7 @@ class MainMenuScreen extends PanelScreen
 	public var savedSelectedIndex:int = -1;
 	public var savedDataProvider:ListCollection;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 
@@ -88,7 +88,7 @@ class MainMenuScreen extends PanelScreen
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 

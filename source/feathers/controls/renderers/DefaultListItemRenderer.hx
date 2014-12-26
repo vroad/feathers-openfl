@@ -184,7 +184,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return DefaultListItemRenderer.globalStyleProvider;
 	}
@@ -192,7 +192,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	protected var _index:int = -1;
+	private var _index:int = -1;
 	
 	/**
 	 * @inheritDoc

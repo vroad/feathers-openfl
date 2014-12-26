@@ -52,7 +52,7 @@ class Check extends ToggleButton
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Check.globalStyleProvider;
 	}

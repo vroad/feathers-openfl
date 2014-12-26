@@ -27,14 +27,14 @@ class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 	private var _rightGripTexture:Texture;
 	private var _bottomGripTexture:Texture;
 
-	override protected function initializeTextures():void
+	override private function initializeTextures():void
 	{
 		super.initializeTextures();
 		this._rightGripTexture = Texture.fromEmbeddedAsset(VERTICAL_GRIP, false);
 		this._bottomGripTexture = Texture.fromEmbeddedAsset(HORIZONTAL_GRIP, false);
 	}
 
-	override protected function initializeStyleProviders():void
+	override private function initializeStyleProviders():void
 	{
 		super.initializeStyleProviders();
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_RIGHT_GRIP, setRightGripStyles);

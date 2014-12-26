@@ -29,7 +29,7 @@ class Main extends LayoutGroup
 	private var _tabBar:TabBar;
 	private var _transitionManager:TabBarSlideTransitionManager;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 

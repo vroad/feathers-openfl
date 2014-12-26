@@ -165,17 +165,17 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_HEADER_FACTORY:String = "headerFactory";
+	private static const INVALIDATION_FLAG_HEADER_FACTORY:String = "headerFactory";
 
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_FOOTER_FACTORY:String = "footerFactory";
+	private static const INVALIDATION_FLAG_FOOTER_FACTORY:String = "footerFactory";
 
 	/**
 	 * @private
 	 */
-	protected static function defaultHeaderFactory():IFeathersControl
+	private static function defaultHeaderFactory():IFeathersControl
 	{
 		return new Header();
 	}
@@ -196,7 +196,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #createHeader()
 	 */
-	protected var header:IFeathersControl;
+	private var header:IFeathersControl;
 
 	/**
 	 * The footer sub-component.
@@ -206,25 +206,25 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #createFooter()
 	 */
-	protected var footer:IFeathersControl;
+	private var footer:IFeathersControl;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header.
 	 *
 	 * <p>To customize the header name without subclassing, see
 	 * <code>customHeaderName</code>.</p> This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the header name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_HEADER</code>.
 	 *
 	 * @see #customHeaderName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var headerName:String = DEFAULT_CHILD_NAME_HEADER;
+	private var headerName:String = DEFAULT_CHILD_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the footer. This
-	 * variable is <code>protected</code> so that sub-classes can customize
+	 * variable is <code>private</code> so that sub-classes can customize
 	 * the footer name in their constructors instead of using the default
 	 * name defined by <code>DEFAULT_CHILD_NAME_FOOTER</code>.
 	 *
@@ -234,12 +234,12 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #customFooterName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var footerName:String = DEFAULT_CHILD_NAME_FOOTER;
+	private var footerName:String = DEFAULT_CHILD_NAME_FOOTER;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return Panel.globalStyleProvider;
 	}
@@ -247,7 +247,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _headerFactory:Function;
+	private var _headerFactory:Function;
 
 	/**
 	 * A function used to generate the panel's header sub-component.
@@ -309,7 +309,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customHeaderName:String;
+	private var _customHeaderName:String;
 
 	/**
 	 * A name to add to the panel's header sub-component. Typically
@@ -360,7 +360,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _headerProperties:PropertyProxy;
+	private var _headerProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the container's
@@ -436,7 +436,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _footerFactory:Function;
+	private var _footerFactory:Function;
 
 	/**
 	 * A function used to generate the panel's footer sub-component.
@@ -487,7 +487,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customFooterName:String;
+	private var _customFooterName:String;
 
 	/**
 	 * A name to add to the panel's footer sub-component. Typically
@@ -538,7 +538,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _footerProperties:PropertyProxy;
+	private var _footerProperties:PropertyProxy;
 
 	/**
 	 * A set of key/value pairs to be passed down to the container's
@@ -673,7 +673,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _outerPaddingTop:Number = 0;
+	private var _outerPaddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's top edge and the
@@ -716,7 +716,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _outerPaddingRight:Number = 0;
+	private var _outerPaddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's right edge and the
@@ -760,7 +760,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _outerPaddingBottom:Number = 0;
+	private var _outerPaddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's bottom edge and the
@@ -803,7 +803,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _outerPaddingLeft:Number = 0;
+	private var _outerPaddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the panel's left edge and the
@@ -847,17 +847,17 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _ignoreHeaderResizing:Boolean = false;
+	private var _ignoreHeaderResizing:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreFooterResizing:Boolean = false;
+	private var _ignoreFooterResizing:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var headerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_HEADER_FACTORY);
 		var footerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOOTER_FACTORY);
@@ -889,7 +889,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
-	override protected function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -966,7 +966,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #customHeaderName
 	 */
-	protected function createHeader():void
+	private function createHeader():void
 	{
 		if(this.header)
 		{
@@ -998,7 +998,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #customFooterName
 	 */
-	protected function createFooter():void
+	private function createFooter():void
 	{
 		if(this.footer)
 		{
@@ -1025,7 +1025,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function refreshHeaderStyles():void
+	private function refreshHeaderStyles():void
 	{
 		for(var propertyName:String in this._headerProperties)
 		{
@@ -1037,7 +1037,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function refreshFooterStyles():void
+	private function refreshFooterStyles():void
 	{
 		for(var propertyName:String in this._footerProperties)
 		{
@@ -1049,7 +1049,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override protected function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
+	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
 	{
 		super.calculateViewPortOffsets(forceScrollBars);
 
@@ -1103,7 +1103,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override protected function layoutChildren():void
+	override private function layoutChildren():void
 	{
 		super.layoutChildren();
 
@@ -1132,7 +1132,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function header_resizeHandler(event:Event):void
+	private function header_resizeHandler(event:Event):void
 	{
 		if(this._ignoreHeaderResizing)
 		{
@@ -1144,7 +1144,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function footer_resizeHandler(event:Event):void
+	private function footer_resizeHandler(event:Event):void
 	{
 		if(this._ignoreFooterResizing)
 		{
