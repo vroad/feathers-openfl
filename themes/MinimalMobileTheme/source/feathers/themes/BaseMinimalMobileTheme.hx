@@ -127,10 +127,10 @@ package feathers.themes
 		protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(25, 21, 1, 1);
 		protected static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 5, 3, 1);
 		protected static const LIST_ITEM_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-		protected static const BACK_BUTTON_SCALE_REGION1:int = 30;
-		protected static const BACK_BUTTON_SCALE_REGION2:int = 1;
-		protected static const FORWARD_BUTTON_SCALE_REGION1:int = 9;
-		protected static const FORWARD_BUTTON_SCALE_REGION2:int = 1;
+		protected static const BACK_BUTTON_SCALE_REGION1:Int = 30;
+		protected static const BACK_BUTTON_SCALE_REGION2:Int = 1;
+		protected static const FORWARD_BUTTON_SCALE_REGION1:Int = 9;
+		protected static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
 		protected static const BACKGROUND_COLOR:uint = 0xf3f3f3;
 		protected static const LIST_BACKGROUND_COLOR:uint = 0xf8f8f8;
@@ -145,14 +145,14 @@ package feathers.themes
 		 * used by this theme are designed for this density and scale for other
 		 * densities.
 		 */
-		protected static const ORIGINAL_DPI_IPHONE_RETINA:int = 326;
+		protected static const ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
 
 		/**
 		 * The screen density of an iPad with Retina display. The textures used
 		 * by this theme are designed for this density and scale for other
 		 * densities.
 		 */
-		protected static const ORIGINAL_DPI_IPAD_RETINA:int = 264;
+		protected static const ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
 		/**
 		 * The default global text renderer factory for this theme creates a
@@ -235,12 +235,12 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected var _originalDPI:int;
+		protected var _originalDPI:Int;
 
 		/**
 		 * The original screen density used for scaling.
 		 */
-		public function get originalDPI():int
+		public function get originalDPI():Int
 		{
 			return this._originalDPI;
 		}
@@ -268,22 +268,22 @@ package feathers.themes
 		/**
 		 * A normal font size.
 		 */
-		protected var fontSize:int;
+		protected var fontSize:Int;
 
 		/**
 		 * A larger font size for headers.
 		 */
-		protected var largeFontSize:int;
+		protected var largeFontSize:Int;
 
 		/**
 		 * A smaller font size for details.
 		 */
-		protected var smallFontSize:int;
+		protected var smallFontSize:Int;
 
 		/**
 		 * A special font size for text editing.
 		 */
-		protected var inputFontSize:int;
+		protected var inputFontSize:Int;
 
 		/**
 		 * The texture atlas that contains skins for this theme. This base class
@@ -355,44 +355,44 @@ package feathers.themes
 		 * The size, in pixels, of major regions in the grid. Used for sizing
 		 * containers and larger UI controls.
 		 */
-		protected var gridSize:int;
+		protected var gridSize:Int;
 
 		/**
 		 * The size, in pixels, of minor regions in the grid. Used for larger
 		 * padding and gaps.
 		 */
-		protected var gutterSize:int;
+		protected var gutterSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller padding and gaps within the major
 		 * regions in the grid.
 		 */
-		protected var smallGutterSize:int;
+		protected var smallGutterSize:Int;
 
 		/**
 		 * The width, in pixels, of UI controls that span across multiple grid regions.
 		 */
-		protected var wideControlSize:int;
+		protected var wideControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a typical UI control.
 		 */
-		protected var controlSize:int;
+		protected var controlSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller UI controls.
 		 */
-		protected var smallControlSize:int;
+		protected var smallControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a UI control's border.
 		 */
-		protected var borderSize:int;
+		protected var borderSize:Int;
 
-		protected var simpleScrollBarThumbSize:int;
-		protected var calloutBorderPaddingSize:int;
-		protected var calloutBackgroundMinSize:int;
-		protected var popUpFillSize:int;
+		protected var simpleScrollBarThumbSize:Int;
+		protected var calloutBorderPaddingSize:Int;
+		protected var calloutBackgroundMinSize:Int;
+		protected var popUpFillSize:Int;
 
 		protected var primaryTextFormat:BitmapFontTextFormat;
 		protected var disabledTextFormat:BitmapFontTextFormat;
@@ -463,7 +463,7 @@ package feathers.themes
 		 */
 		protected function initializeScale():void
 		{
-			var scaledDPI:int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
+			var scaledDPI:Int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
 			if(this._scaleToDPI)
 			{
 				if(DeviceCapabilities.isTablet(Starling.current.nativeStage))

@@ -141,8 +141,8 @@ package feathers.themes
 		protected static const FORWARD_BUTTON_SCALE3_REGION2:Number = 1;
 		protected static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
 		protected static const TAB_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 11);
-		protected static const SCROLL_BAR_THUMB_REGION1:int = 5;
-		protected static const SCROLL_BAR_THUMB_REGION2:int = 14;
+		protected static const SCROLL_BAR_THUMB_REGION1:Int = 5;
+		protected static const SCROLL_BAR_THUMB_REGION2:Int = 14;
 
 		/**
 		 * @private
@@ -308,76 +308,76 @@ package feathers.themes
 		/**
 		 * A smaller font size for details.
 		 */
-		protected var smallFontSize:int;
+		protected var smallFontSize:Int;
 
 		/**
 		 * A normal font size.
 		 */
-		protected var regularFontSize:int;
+		protected var regularFontSize:Int;
 
 		/**
 		 * A larger font size for headers.
 		 */
-		protected var largeFontSize:int;
+		protected var largeFontSize:Int;
 
 		/**
 		 * The size, in pixels, of major regions in the grid. Used for sizing
 		 * containers and larger UI controls.
 		 */
-		protected var gridSize:int;
+		protected var gridSize:Int;
 
 		/**
 		 * The size, in pixels, of minor regions in the grid. Used for larger
 		 * padding and gaps.
 		 */
-		protected var gutterSize:int;
+		protected var gutterSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller padding and gaps within the major
 		 * regions in the grid.
 		 */
-		protected var smallGutterSize:int;
+		protected var smallGutterSize:Int;
 
 		/**
 		 * The size, in pixels, of very smaller padding and gaps.
 		 */
-		protected var extraSmallGutterSize:int;
+		protected var extraSmallGutterSize:Int;
 
 		/**
 		 * The minimum width, in pixels, of some types of buttons.
 		 */
-		protected var buttonMinWidth:int;
+		protected var buttonMinWidth:Int;
 
 		/**
 		 * The width, in pixels, of UI controls that span across multiple grid regions.
 		 */
-		protected var wideControlSize:int;
+		protected var wideControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a typical UI control.
 		 */
-		protected var controlSize:int;
+		protected var controlSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller UI controls.
 		 */
-		protected var smallControlSize:int;
+		protected var smallControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a border around any control.
 		 */
-		protected var borderSize:int;
+		protected var borderSize:Int;
 
 		/**
 		 * The size, in pixels, of the focus indicator skin's padding.
 		 */
-		protected var focusPaddingSize:int;
+		protected var focusPaddingSize:Int;
 
-		protected var calloutArrowOverlapGap:int;
-		protected var calloutBackgroundMinSize:int;
-		protected var progressBarFillMinSize:int;
-		protected var scrollBarGutterSize:int;
-		protected var popUpSize:int;
+		protected var calloutArrowOverlapGap:Int;
+		protected var calloutBackgroundMinSize:Int;
+		protected var progressBarFillMinSize:Int;
+		protected var scrollBarGutterSize:Int;
+		protected var popUpSize:Int;
 
 		/**
 		 * The FTE FontDescription used for text of a normal weight.

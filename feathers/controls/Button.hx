@@ -2754,7 +2754,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			return;
 		}
-		this.touchPointID = int.MAX_VALUE;
+		this.touchPointID = Int.MAX_VALUE;
 		this.currentState = STATE_DOWN;
 	}
 
@@ -2763,7 +2763,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function stage_keyUpHandler(event:KeyboardEvent):Void
 	{
-		if(this.touchPointID != int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
+		if(this.touchPointID != Int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
 		{
 			return;
 		}

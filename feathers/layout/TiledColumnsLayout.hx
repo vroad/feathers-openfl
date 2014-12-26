@@ -1517,7 +1517,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int> = null):Array<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
 		if(result)
 		{
@@ -1645,7 +1645,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else
 		{
-			result.x = this._paddingLeft + ((tileWidth + this._horizontalGap) * int(index / verticalTileCount)) - Math.round((width - tileWidth) / 2);
+			result.x = this._paddingLeft + ((tileWidth + this._horizontalGap) * Int(index / verticalTileCount)) - Math.round((width - tileWidth) / 2);
 			result.y = 0;
 		}
 		return result;
@@ -1739,7 +1739,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithHorizontalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -1855,7 +1855,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithVerticalPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -1969,7 +1969,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		{
 			var columnIndex:Int = 0;
 			var rowIndex:Int = (verticalTileCount + rowOffset) % verticalTileCount;
-			var pageStart:Int = int(minimum / perPage) * perPage;
+			var pageStart:Int = Int(minimum / perPage) * perPage;
 			i = minimum;
 			var resultLength:Int = 0;
 			do
@@ -2000,7 +2000,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int>):Void
+	private function getVisibleIndicesAtScrollPositionWithoutPaging(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int>):Void
 	{
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;

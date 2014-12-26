@@ -943,7 +943,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfIndex(index);
-		cursorX = int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 

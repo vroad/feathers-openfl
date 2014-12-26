@@ -1526,13 +1526,13 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
-		var maxCharactersBeforeDecimal:Float = Math.max(int(this._minimum).toString().length, int(this._maximum).toString().length, int(this._step).toString().length);
+		var maxCharactersBeforeDecimal:Float = Math.max(Int(this._minimum).toString().length, Int(this._maximum).toString().length, Int(this._step).toString().length);
 
 		//roundToPrecision() helps us to avoid numbers like 1.00000000000000001
 		//caused by the inaccuracies of floating point math.
-		var maxCharactersAfterDecimal:Float = Math.max(roundToPrecision(this._minimum - int(this._minimum), 10).toString().length,
-			roundToPrecision(this._maximum - int(this._maximum), 10).toString().length,
-			roundToPrecision(this._step - int(this._step), 10).toString().length) - 2;
+		var maxCharactersAfterDecimal:Float = Math.max(roundToPrecision(this._minimum - Int(this._minimum), 10).toString().length,
+			roundToPrecision(this._maximum - Int(this._maximum), 10).toString().length,
+			roundToPrecision(this._step - Int(this._step), 10).toString().length) - 2;
 		if(maxCharactersAfterDecimal < 0)
 		{
 			maxCharactersAfterDecimal = 0;

@@ -70,12 +70,12 @@ class ProgressBarScreen extends PanelScreen
 
 		this._horizontalProgressTween = new Tween(this._horizontalProgress, 5);
 		this._horizontalProgressTween.animate("value", 1);
-		this._horizontalProgressTween.repeatCount = int.MAX_VALUE;
+		this._horizontalProgressTween.repeatCount = Int.MAX_VALUE;
 		Starling.juggler.add(this._horizontalProgressTween);
 
 		this._verticalProgressTween = new Tween(this._verticalProgress, 8);
 		this._verticalProgressTween.animate("value", 100);
-		this._verticalProgressTween.repeatCount = int.MAX_VALUE;
+		this._verticalProgressTween.repeatCount = Int.MAX_VALUE;
 		Starling.juggler.add(this._verticalProgressTween);
 	}
 

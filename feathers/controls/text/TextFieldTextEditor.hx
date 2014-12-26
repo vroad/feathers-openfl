@@ -889,7 +889,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
+							var lineIndex:Int = Int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
 							try
 							{
 								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex) + this.textField.getLineLength(lineIndex);

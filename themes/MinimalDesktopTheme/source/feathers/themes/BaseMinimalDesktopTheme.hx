@@ -146,10 +146,10 @@ package feathers.themes
 		protected static const SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
 		protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(8, 5, 1, 1);
 		protected static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 2, 3, 1);
-		protected static const BACK_BUTTON_SCALE_REGION1:int = 10;
-		protected static const BACK_BUTTON_SCALE_REGION2:int = 1;
-		protected static const FORWARD_BUTTON_SCALE_REGION1:int = 4;
-		protected static const FORWARD_BUTTON_SCALE_REGION2:int = 1;
+		protected static const BACK_BUTTON_SCALE_REGION1:Int = 10;
+		protected static const BACK_BUTTON_SCALE_REGION2:Int = 1;
+		protected static const FORWARD_BUTTON_SCALE_REGION1:Int = 4;
+		protected static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
 		protected static const BACKGROUND_COLOR:uint = 0xf3f3f3;
 		protected static const LIST_BACKGROUND_COLOR:uint = 0xffffff;
@@ -227,67 +227,67 @@ package feathers.themes
 		/**
 		 * A normal font size.
 		 */
-		protected var fontSize:int;
+		protected var fontSize:Int;
 
 		/**
 		 * A larger font size for headers.
 		 */
-		protected var largeFontSize:int;
+		protected var largeFontSize:Int;
 
 		/**
 		 * The size, in pixels, of major regions in the grid. Used for sizing
 		 * containers and larger UI controls.
 		 */
-		protected var gridSize:int;
+		protected var gridSize:Int;
 
 		/**
 		 * The size, in pixels, of minor regions in the grid. Used for larger
 		 * padding and gaps.
 		 */
-		protected var gutterSize:int;
+		protected var gutterSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller padding and gaps within the major
 		 * regions in the grid.
 		 */
-		protected var smallGutterSize:int;
+		protected var smallGutterSize:Int;
 
 		/**
 		 * The size, in pixels, of very smaller padding and gaps.
 		 */
-		protected var extraSmallGutterSize:int;
+		protected var extraSmallGutterSize:Int;
 
 		/**
 		 * The width, in pixels, of UI controls that span across multiple grid regions.
 		 */
-		protected var wideControlSize:int;
+		protected var wideControlSize:Int;
 
 		/**
 		 * The minimum width, in pixels, of some types of buttons.
 		 */
-		protected var buttonMinWidth:int;
+		protected var buttonMinWidth:Int;
 
 		/**
 		 * The size, in pixels, of a typical UI control.
 		 */
-		protected var controlSize:int;
+		protected var controlSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller UI controls.
 		 */
-		protected var smallControlSize:int;
+		protected var smallControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a border around any control.
 		 */
-		protected var borderSize:int;
+		protected var borderSize:Int;
 
-		protected var calloutBackgroundMinSize:int;
-		protected var calloutArrowOverlapGapSize:int;
-		protected var progressBarFillMinSize:int;
-		protected var popUpSize:int;
-		protected var dropDownGapSize:int;
-		protected var focusPaddingSize:int;
+		protected var calloutBackgroundMinSize:Int;
+		protected var calloutArrowOverlapGapSize:Int;
+		protected var progressBarFillMinSize:Int;
+		protected var popUpSize:Int;
+		protected var dropDownGapSize:Int;
+		protected var focusPaddingSize:Int;
 
 		/**
 		 * The texture atlas that contains skins for this theme. This base class

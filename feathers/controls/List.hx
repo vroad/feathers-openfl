@@ -502,7 +502,7 @@ class List extends Scroller implements IFocusDisplayObject
 		}
 		if(value >= 0)
 		{
-			this._selectedIndices.data = new <int>[value];
+			this._selectedIndices.data = new <Int>[value];
 		}
 		else
 		{
@@ -613,14 +613,14 @@ class List extends Scroller implements IFocusDisplayObject
 	private var _selectedIndices:ListCollection = new ListCollection(new Array());
 
 	/**
-	 * The indices of the currently selected items. Returns an empty <code>Vector.&lt;int&gt;</code>
+	 * The indices of the currently selected items. Returns an empty <code>Vector.&lt;Int&gt;</code>
 	 * if no items are selected. If <code>allowMultipleSelection</code> is
 	 * <code>false</code>, only one item may be selected at a time.
 	 *
 	 * <p>The following example selects two items by their indices:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.selectedIndices = new &lt;int&gt;[ 2, 3 ];</listing>
+	 * list.selectedIndices = new &lt;Int&gt;[ 2, 3 ];</listing>
 	 *
 	 * <p>The following example clears the selected indices:</p>
 	 *
@@ -634,7 +634,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:List = List( event.currentTarget );
-	 *     var indices:Vector.&lt;int&gt; = list.selectedIndices;
+	 *     var indices:Vector.&lt;Int&gt; = list.selectedIndices;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -644,17 +644,17 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public function get_selectedIndices():Array<int>
+	public function get_selectedIndices():Array<Int>
 	{
-		return this._selectedIndices.data as Array<int>;
+		return this._selectedIndices.data as Array<Int>;
 	}
 
 	/**
 	 * @private
 	 */
-	public function set_selectedIndices(value:Array<int>):Void
+	public function set_selectedIndices(value:Array<Int>):Void
 	{
-		var oldValue:Array<int> = this._selectedIndices.data as Array<int>;
+		var oldValue:Array<Int> = this._selectedIndices.data as Array<Int>;
 		if(oldValue == value)
 		{
 			return;
@@ -727,7 +727,7 @@ class List extends Scroller implements IFocusDisplayObject
 			this.selectedIndex = -1;
 			return;
 		}
-		var indices:Array<int> = new Array();
+		var indices:Array<Int> = new Array();
 		var itemCount:Int = value.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
@@ -766,7 +766,7 @@ class List extends Scroller implements IFocusDisplayObject
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var index:Int = this._selectedIndices.getItemAt(i) as int;
+			var index:Int = this._selectedIndices.getItemAt(i) as Int;
 			var item:Object = this._dataProvider.getItemAt(index);
 			result[i] = item;
 		}
@@ -1279,7 +1279,7 @@ class List extends Scroller implements IFocusDisplayObject
 	{
 		if(this._selectedIndices.length > 0)
 		{
-			this._selectedIndex = this._selectedIndices.getItemAt(0) as int;
+			this._selectedIndex = this._selectedIndices.getItemAt(0) as Int;
 		}
 		else
 		{

@@ -57,7 +57,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var indexCount:Int = rest.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var index:Int = rest[i] as int;
+			var index:Int = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
 		}
 
@@ -74,10 +74,10 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var indexCount:Int = rest.length - 1;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			index = rest[i] as int;
+			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
 		}
-		var lastIndex:Int = rest[indexCount] as int;
+		var lastIndex:Int = rest[indexCount] as Int;
 		return branch[lastIndex];
 	}
 
@@ -91,7 +91,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var indexCount:Int = rest.length - 1;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			index = rest[i] as int;
+			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
 		}
 		var lastIndex:Int = rest[indexCount];
@@ -108,7 +108,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var indexCount:Int = rest.length - 1;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			index = rest[i] as int;
+			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
 		}
 		var lastIndex:Int = rest[indexCount];
@@ -125,7 +125,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var indexCount:Int = rest.length - 1;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			index = rest[i] as int;
+			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
 		}
 		var lastIndex:Int = rest[indexCount];
@@ -137,7 +137,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemLocation(data:Object, item:Object, result:Array<int> = null, ...rest:Array):Array<int>
+	public function getItemLocation(data:Object, item:Object, result:Array<Int> = null, ...rest:Array):Array<Int>
 	{
 		if(!result)
 		{
@@ -151,7 +151,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var restCount:Int = rest.length;
 		for(var i:Int = 0; i < restCount; i++)
 		{
-			var index:Int = rest[i] as int;
+			var index:Int = rest[i] as Int;
 			result[i] = index;
 			branch = branch[index][childrenField] as Array;
 		}
@@ -175,7 +175,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @private
 	 */
-	private function findItemInBranch(branch:Array, item:Object, result:Array<int>):Bool
+	private function findItemInBranch(branch:Array, item:Object, result:Array<Int>):Bool
 	{
 		var index:Int = branch.indexOf(item);
 		if(index >= 0)

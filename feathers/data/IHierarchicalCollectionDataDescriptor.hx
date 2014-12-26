@@ -59,10 +59,10 @@ interface IHierarchicalCollectionDataDescriptor
 
 	/**
 	 * Determines which location the item appears at within the data source.
-	 * If the item isn't in the data source, returns an empty <code>Vector.&lt;int&gt;</code>.
+	 * If the item isn't in the data source, returns an empty <code>Vector.&lt;Int&gt;</code>.
 	 *
 	 * <p>The <code>rest</code> arguments are optional indices to narrow
 	 * the search.</p>
 	 */
-	function getItemLocation(data:Object, item:Object, result:Array<int> = null, ...rest:Array):Array<int>;
+	function getItemLocation(data:Object, item:Object, result:Array<Int> = null, ...rest:Array):Array<Int>;
 }

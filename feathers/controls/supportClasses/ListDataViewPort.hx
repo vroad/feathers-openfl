@@ -42,7 +42,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
 	inline private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_VECTOR:Array<int> = new Array();
+	inline private static var HELPER_VECTOR:Array<Int> = new Array();
 
 	public function ListDataViewPort()
 	{
@@ -1094,11 +1094,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Bool = false;
-		var newIndices:Array<int> = new Array();
+		var newIndices:Array<Int> = new Array();
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:Int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
 			if(currentIndex >= index)
 			{
 				currentIndex++;
@@ -1122,11 +1122,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Bool = false;
-		var newIndices:Array<int> = new Array();
+		var newIndices:Array<Int> = new Array();
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:Int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
 			if(currentIndex == index)
 			{
 				selectionChanged = true;
@@ -1250,7 +1250,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		else if(isSelected)
 		{
-			this._selectedIndices.data = new <int>[index];
+			this._selectedIndices.data = new <Int>[index];
 		}
 		else
 		{

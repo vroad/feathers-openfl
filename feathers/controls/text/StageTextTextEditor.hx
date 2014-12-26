@@ -1154,7 +1154,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = int(positionY / this._measureTextField.getLineMetrics(0).height);
+							var lineIndex:Int = Int(positionY / this._measureTextField.getLineMetrics(0).height);
 							try
 							{
 								this._pendingSelectionBeginIndex = this._measureTextField.getLineOffset(lineIndex) + this._measureTextField.getLineLength(lineIndex);

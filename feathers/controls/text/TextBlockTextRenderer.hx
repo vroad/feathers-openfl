@@ -1279,7 +1279,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions);
+					this._snapshotWidth = Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions);
 				}
 				else
 				{
@@ -1290,7 +1290,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotWidth % this._maxTextureDimensions);
+					this._snapshotWidth = Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotWidth % this._maxTextureDimensions);
 				}
 				else
 				{
@@ -1302,7 +1302,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions);
+					this._snapshotHeight = Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions);
 				}
 				else
 				{
@@ -1313,7 +1313,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotHeight % this._maxTextureDimensions);
+					this._snapshotHeight = Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotHeight % this._maxTextureDimensions);
 				}
 				else
 				{
@@ -1651,7 +1651,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		//can reuse them
 		for(; i < lineCount; i++)
 		{
-			HELPER_TEXT_LINES[int(i - cacheIndex)] = textLines[i];
+			HELPER_TEXT_LINES[Int(i - cacheIndex)] = textLines[i];
 		}
 		textLines.length = cacheIndex;
 

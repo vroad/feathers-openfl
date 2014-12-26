@@ -150,8 +150,8 @@ package feathers.themes
 			{
 				assetsBasePath += "/";
 			}
-			var assetCount:int = this.assetPaths.length;
-			for(var i:int = 0; i < assetCount; i++)
+			var assetCount:Int = this.assetPaths.length;
+			for(var i:Int = 0; i < assetCount; i++)
 			{
 				var asset:String = this.assetPaths[i];
 				this.assetManager.enqueue(assetsBasePath + asset);

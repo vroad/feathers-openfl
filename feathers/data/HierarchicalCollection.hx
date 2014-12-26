@@ -70,7 +70,7 @@ import starling.events.EventDispatcher;
  *   myButton is the value of the <code>currentTarget</code>.</td></tr>
  * <tr><td><code>data</code></td><td>The index path of the item that has
  * been added. It is of type <code>Array</code> and contains objects of
- * type <code>int</code>.</td></tr>
+ * type <code>Int</code>.</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object
@@ -94,7 +94,7 @@ import starling.events.EventDispatcher;
  *   myButton is the value of the <code>currentTarget</code>.</td></tr>
  * <tr><td><code>data</code></td><td>The index path of the item that has
  * been removed. It is of type <code>Array</code> and contains objects of
- * type <code>int</code>.</td></tr>
+ * type <code>Int</code>.</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object
@@ -118,7 +118,7 @@ import starling.events.EventDispatcher;
  *   myButton is the value of the <code>currentTarget</code>.</td></tr>
  * <tr><td><code>data</code></td><td>The index path of the item that has
  * been re[;aced. It is of type <code>Array</code> and contains objects of
- * type <code>int</code>.</td></tr>
+ * type <code>Int</code>.</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object
@@ -148,7 +148,7 @@ import starling.events.EventDispatcher;
  *   myButton is the value of the <code>currentTarget</code>.</td></tr>
  * <tr><td><code>data</code></td><td>The index path of the item that has
  * been updated. It is of type <code>Array</code> and contains objects of
- * type <code>int</code>.</td></tr>
+ * type <code>Int</code>.</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object

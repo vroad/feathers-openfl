@@ -2426,7 +2426,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			return;
 		}
-		this._touchPointID = int.MAX_VALUE;
+		this._touchPointID = Int.MAX_VALUE;
 	}
 
 	/**
@@ -2434,7 +2434,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function stage_keyUpHandler(event:KeyboardEvent):Void
 	{
-		if(this._touchPointID != int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
+		if(this._touchPointID != Int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
 		{
 			return;
 		}

@@ -106,7 +106,7 @@ class HelloWorld extends Sprite
 			this._starling.addEventListener("rootCreated", starling_rootCreatedHandler);
 		}
 
-		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, int.MAX_VALUE, true);
+		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Int.MAX_VALUE, true);
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
