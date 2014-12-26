@@ -471,7 +471,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _color:uint = 0xffffff;
+	private var _color:UInt = 0xffffff;
 
 	/**
 	 * The tint value to use on the internal <code>Image</code>.
@@ -486,7 +486,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html#color starling.display.Image.color
 	 */
-	public function get color():uint
+	public function get color():UInt
 	{
 		return this._color;
 	}
@@ -494,7 +494,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):Void
+	public function set color(value:UInt):Void
 	{
 		if(this._color == value)
 		{

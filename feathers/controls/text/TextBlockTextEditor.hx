@@ -1051,7 +1051,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			return;
 		}
 		//ignore cut, copy, and paste
-		var charCode:uint = event.charCode;
+		var charCode:UInt = event.charCode;
 		if(event.ctrlKey && (charCode == 99 || charCode == 118 || charCode == 120)) //c, p, and x
 		{
 			return;

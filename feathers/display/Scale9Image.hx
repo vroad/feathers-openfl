@@ -280,7 +280,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _color:uint = 0xffffff;
+	private var _color:UInt = 0xffffff;
 
 	/**
 	 * The color value to pass to the images.
@@ -292,7 +292,7 @@ class Scale9Image extends Sprite implements IValidating
 	 *
 	 * @default 0xffffff
 	 */
-	public function get color():uint
+	public function get color():UInt
 	{
 		return this._color;
 	}
@@ -300,7 +300,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):Void
+	public function set color(value:UInt):Void
 	{
 		if(this._color == value)
 		{

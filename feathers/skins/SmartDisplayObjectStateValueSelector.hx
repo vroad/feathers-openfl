@@ -101,7 +101,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Quad.html starling.display.Quad
 	 */
-	public static function uintValueTypeHandler(value:uint, oldDisplayObject:DisplayObject = null):DisplayObject
+	public static function uintValueTypeHandler(value:UInt, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:Quad;
 		if(oldDisplayObject && Object(oldDisplayObject).constructor === Quad)

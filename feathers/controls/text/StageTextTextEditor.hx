@@ -467,7 +467,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _color:uint = 0x000000;
+	private var _color:UInt = 0x000000;
 
 	/**
 	 * Specifies text color as a number containing three 8-bit RGB
@@ -483,7 +483,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see #disabledColor
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of flash.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
-	public function get color():uint
+	public function get color():UInt
 	{
 		return this._color;
 	}
@@ -491,7 +491,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):Void
+	public function set color(value:UInt):Void
 	{
 		if(this._color == value)
 		{
@@ -504,7 +504,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _disabledColor:uint = 0x999999;
+	private var _disabledColor:UInt = 0x999999;
 
 	/**
 	 * Specifies text color when the component is disabled as a number
@@ -521,7 +521,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see #disabledColor
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of flash.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
-	public function get disabledColor():uint
+	public function get disabledColor():UInt
 	{
 		return this._disabledColor;
 	}
@@ -529,7 +529,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set disabledColor(value:uint):Void
+	public function set disabledColor(value:UInt):Void
 	{
 		if(this._disabledColor == value)
 		{

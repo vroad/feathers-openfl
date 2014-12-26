@@ -10,8 +10,8 @@ import starling.display.Quad;
 
 class DropTarget extends LayoutGroup implements IDropTarget
 {
-	inline private static var DEFAULT_COLOR:uint = 0x36322e;
-	inline private static var HOVER_COLOR:uint = 0x26221e;
+	inline private static var DEFAULT_COLOR:UInt = 0x36322e;
+	inline private static var HOVER_COLOR:UInt = 0x26221e;
 
 	public function DropTarget(dragFormat:String)
 	{

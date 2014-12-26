@@ -535,7 +535,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _backgroundColor:uint = 0xffffff;
+	private var _backgroundColor:UInt = 0xffffff;
 
 	/**
 	 * The color of the text field background that is displayed if the
@@ -552,7 +552,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
-	public function get backgroundColor():uint
+	public function get backgroundColor():UInt
 	{
 		return this._backgroundColor;
 	}
@@ -560,7 +560,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:uint):Void
+	public function set backgroundColor(value:UInt):Void
 	{
 		if(this._backgroundColor == value)
 		{
@@ -611,7 +611,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _borderColor:uint = 0x000000;
+	private var _borderColor:UInt = 0x000000;
 
 	/**
 	 * The color of the text field border that is displayed if the
@@ -628,7 +628,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
-	public function get borderColor():uint
+	public function get borderColor():UInt
 	{
 		return this._borderColor;
 	}
@@ -636,7 +636,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:uint):Void
+	public function set borderColor(value:UInt):Void
 	{
 		if(this._borderColor == value)
 		{

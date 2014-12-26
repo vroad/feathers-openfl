@@ -65,8 +65,8 @@ class TrainTimesTheme extends DisplayListWatcher
 	inline private static var SCROLL_BAR_THUMB_REGION1:Int = 5;
 	inline private static var SCROLL_BAR_THUMB_REGION2:Int = 14;
 
-	inline private static var PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
-	inline private static var DETAIL_TEXT_COLOR:uint = 0x64908a;
+	inline private static var PRIMARY_TEXT_COLOR:UInt = 0xe8caa4;
+	inline private static var DETAIL_TEXT_COLOR:UInt = 0x64908a;
 
 	private static function textRendererFactory():ITextRenderer
 	{
