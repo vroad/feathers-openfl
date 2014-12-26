@@ -156,7 +156,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set text(value:String):void;
+	function set text(value:String):Void;
 
 	/**
 	 * Determines if the entered text will be masked so that it cannot be
@@ -167,7 +167,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set displayAsPassword(value:Boolean):void;
+	function set displayAsPassword(value:Boolean):Void;
 
 	/**
 	 * The maximum number of characters that may be entered.
@@ -177,7 +177,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set maxChars(value:int):void;
+	function set maxChars(value:int):Void;
 
 	/**
 	 * Limits the set of characters that may be entered.
@@ -187,7 +187,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set restrict(value:String):void;
+	function set restrict(value:String):Void;
 
 	/**
 	 * Determines if the text is editable.
@@ -197,7 +197,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set isEditable(value:Boolean):void;
+	function set isEditable(value:Boolean):Void;
 
 	/**
 	 * Determines if the owner should call <code>setFocus()</code> on
@@ -227,18 +227,18 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 * may be used by the text editor to determine the cursor position. The
 	 * position may be outside of the editors bounds.
 	 */
-	function setFocus(position:Point = null):void;
+	function setFocus(position:Point = null):Void;
 
 	/**
 	 * Removes focus from the text editor.
 	 */
-	function clearFocus():void;
+	function clearFocus():Void;
 
 	/**
 	 * Sets the range of selected characters. If both values are the same,
 	 * the text insertion position is changed and nothing is selected.
 	 */
-	function selectRange(startIndex:int, endIndex:int):void;
+	function selectRange(startIndex:int, endIndex:int):Void;
 
 	/**
 	 * Measures the text's bounds (without a full validation, if

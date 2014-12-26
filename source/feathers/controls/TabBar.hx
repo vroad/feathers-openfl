@@ -340,7 +340,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):void
+	public function set dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -430,7 +430,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):void
+	public function set direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -470,7 +470,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -510,7 +510,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -549,7 +549,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeTabSizes(value:Boolean):void
+	public function set distributeTabSizes(value:Boolean):Void
 	{
 		if(this._distributeTabSizes == value)
 		{
@@ -582,7 +582,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -621,7 +621,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Number):void
+	public function set firstGap(value:Number):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -660,7 +660,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Number):void
+	public function set lastGap(value:Number):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -697,7 +697,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -730,7 +730,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -765,7 +765,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -800,7 +800,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -835,7 +835,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -888,7 +888,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabFactory(value:Function):void
+	public function set tabFactory(value:Function):Void
 	{
 		if(this._tabFactory == value)
 		{
@@ -943,7 +943,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstTabFactory(value:Function):void
+	public function set firstTabFactory(value:Function):Void
 	{
 		if(this._firstTabFactory == value)
 		{
@@ -998,7 +998,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastTabFactory(value:Function):void
+	public function set lastTabFactory(value:Function):Void
 	{
 		if(this._lastTabFactory == value)
 		{
@@ -1020,13 +1020,13 @@ class TabBar extends FeathersControl
 	 * properties or to use different field names in the data provider.
 	 *
 	 * <p>This function is expected to have the following signature:</p>
-	 * <pre>function( tab:ToggleButton, item:Object ):void</pre>
+	 * <pre>function( tab:ToggleButton, item:Object ):Void</pre>
 	 *
 	 * <p>In the following example, a custom tab initializer is passed to the
 	 * tab bar:</p>
 	 *
 	 * <listing version="3.0">
-	 * tabs.tabInitializer = function( tab:ToggleButton, item:Object ):void
+	 * tabs.tabInitializer = function( tab:ToggleButton, item:Object ):Void
 	 * {
 	 *     tab.label = item.text;
 	 *     tab.defaultIcon = item.icon;
@@ -1042,7 +1042,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabInitializer(value:Function):void
+	public function set tabInitializer(value:Function):Void
 	{
 		if(this._tabInitializer == value)
 		{
@@ -1075,7 +1075,7 @@ class TabBar extends FeathersControl
 	 * requests the selected index:</p>
 	 *
 	 * <listing version="3.0">
-	 * function tabs_changeHandler( event:Event ):void
+	 * function tabs_changeHandler( event:Event ):Void
 	 * {
 	 *     var tabs:TabBar = TabBar( event.currentTarget );
 	 *     var index:int = tabs.selectedIndex;
@@ -1103,7 +1103,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):void
+	public function set selectedIndex(value:int):Void
 	{
 		if(this._pendingSelectedIndex == value ||
 			(this._pendingSelectedIndex == NOT_PENDING_INDEX && this.toggleGroup && this.toggleGroup.selectedIndex == value))
@@ -1127,7 +1127,7 @@ class TabBar extends FeathersControl
 	 * requests the selected item:</p>
 	 *
 	 * <listing version="3.0">
-	 * function tabs_changeHandler( event:Event ):void
+	 * function tabs_changeHandler( event:Event ):Void
 	 * {
 	 *     var tabs:TabBar = TabBar( event.currentTarget );
 	 *     var item:Object = tabs.selectedItem;
@@ -1152,7 +1152,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):void
+	public function set selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -1196,7 +1196,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customTabName(value:String):void
+	public function set customTabName(value:String):Void
 	{
 		if(this._customTabName == value)
 		{
@@ -1239,7 +1239,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstTabName(value:String):void
+	public function set customFirstTabName(value:String):Void
 	{
 		if(this._customFirstTabName == value)
 		{
@@ -1282,7 +1282,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastTabName(value:String):void
+	public function set customLastTabName(value:String):Void
 	{
 		if(this._customLastTabName == value)
 		{
@@ -1338,7 +1338,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabProperties(value:Object):void
+	public function set tabProperties(value:Object):Void
 	{
 		if(this._tabProperties == value)
 		{
@@ -1372,7 +1372,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.dataProvider = null;
 		super.dispose();
@@ -1381,7 +1381,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.toggleGroup = new ToggleGroup();
 		this.toggleGroup.isSelectionRequired = true;
@@ -1391,7 +1391,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1431,7 +1431,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitSelection():void
+	private function commitSelection():Void
 	{
 		if(this._pendingSelectedIndex == NOT_PENDING_INDEX || !this.toggleGroup)
 		{
@@ -1451,7 +1451,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitEnabled():void
+	private function commitEnabled():Void
 	{
 		for each(var tab:ToggleButton in this.activeTabs)
 		{
@@ -1462,7 +1462,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTabStyles():void
+	private function refreshTabStyles():Void
 	{
 		for(var propertyName:String in this._tabProperties)
 		{
@@ -1477,7 +1477,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshLayoutStyles():void
+	private function refreshLayoutStyles():Void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1528,7 +1528,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultTabInitializer(tab:ToggleButton, item:Object):void
+	private function defaultTabInitializer(tab:ToggleButton, item:Object):Void
 	{
 		if(item is Object)
 		{
@@ -1558,7 +1558,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTabs(isFactoryInvalid:Boolean):void
+	private function refreshTabs(isFactoryInvalid:Boolean):Void
 	{
 		var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
 		this._ignoreSelectionChanges = true;
@@ -1637,7 +1637,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function clearInactiveTabs():void
+	private function clearInactiveTabs():Void
 	{
 		var itemCount:int = this.inactiveTabs.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1755,7 +1755,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function destroyTab(tab:ToggleButton):void
+	private function destroyTab(tab:ToggleButton):Void
 	{
 		this.toggleGroup.removeItem(tab);
 		this.removeChild(tab, true);
@@ -1764,7 +1764,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutTabs():void
+	private function layoutTabs():Void
 	{
 		this._viewPortBounds.x = 0;
 		this._viewPortBounds.y = 0;
@@ -1790,7 +1790,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1798,7 +1798,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function toggleGroup_changeHandler(event:Event):void
+	private function toggleGroup_changeHandler(event:Event):Void
 	{
 		if(this._ignoreSelectionChanges || this._pendingSelectedIndex != NOT_PENDING_INDEX)
 		{
@@ -1810,7 +1810,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):Void
 	{
 		if(this.toggleGroup && this.toggleGroup.selectedIndex >= index)
 		{
@@ -1824,7 +1824,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):Void
 	{
 		if(this.toggleGroup && this.toggleGroup.selectedIndex > index)
 		{
@@ -1838,7 +1838,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):Void
 	{
 		if(this.toggleGroup && this._dataProvider.length > 0)
 		{
@@ -1853,7 +1853,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -1861,7 +1861,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_updateItemHandler(event:Event, index:int):void
+	private function dataProvider_updateItemHandler(event:Event, index:int):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}

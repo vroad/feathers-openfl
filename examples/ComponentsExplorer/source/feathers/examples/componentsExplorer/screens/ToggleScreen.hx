@@ -50,7 +50,7 @@ class ToggleScreen extends PanelScreen
 		return this._innerLayout;
 	}
 
-	public function set innerLayout(value:ILayout):void
+	public function set innerLayout(value:ILayout):Void
 	{
 		if(this._innerLayout == value)
 		{
@@ -60,7 +60,7 @@ class ToggleScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -130,7 +130,7 @@ class ToggleScreen extends PanelScreen
 		}
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
@@ -144,22 +144,22 @@ class ToggleScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 	
-	private function toggleSwitch_changeHandler(event:Event):void
+	private function toggleSwitch_changeHandler(event:Event):Void
 	{
 		trace("toggle switch isSelected:", this._toggleSwitch.isSelected);
 	}
 
-	private function radioGroup_changeHandler(event:Event):void
+	private function radioGroup_changeHandler(event:Event):Void
 	{
 		trace("radio group change:", this._radioGroup.selectedIndex);
 	}
 	
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

@@ -159,7 +159,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * The default transition function.
 	 */
-	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
+	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
 		//in short, do nothing
 		completeCallback();
@@ -244,7 +244,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):void
+	public function set clipContent(value:Boolean):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -261,7 +261,7 @@ class ScreenNavigator extends FeathersControl
 	 * finished.
 	 *
 	 * <p>The function should have the following signature:</p>
-	 * <pre>function(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void</pre>
+	 * <pre>function(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void</pre>
 	 *
 	 * <p>Either of the <code>oldScreen</code> and <code>newScreen</code>
 	 * arguments may be <code>null</code>, but never both. The
@@ -274,7 +274,7 @@ class ScreenNavigator extends FeathersControl
 	 * when the transition effect finishes. It takes zero arguments and
 	 * returns nothing. In other words, it has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the future, it may be possible for a transition to cancel
 	 * itself. If this happens, the <code>completeCallback</code> may begin
@@ -351,7 +351,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):void
+	public function set autoSizeMode(value:String):Void
 	{
 		if(this._autoSizeMode == value)
 		{
@@ -479,7 +479,7 @@ class ScreenNavigator extends FeathersControl
 	 * Removes the current screen, leaving the <code>ScreenNavigator</code>
 	 * empty.
 	 */
-	public function clearScreen():void
+	public function clearScreen():Void
 	{
 		if(this._transitionIsActive)
 		{
@@ -495,7 +495,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function clearScreenInternal(displayTransition:Boolean):void
+	private function clearScreenInternal(displayTransition:Boolean):Void
 	{
 		if(!this._activeScreen)
 		{
@@ -554,7 +554,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Registers a new screen by its identifier.
 	 */
-	public function addScreen(id:String, item:ScreenNavigatorItem):void
+	public function addScreen(id:String, item:ScreenNavigatorItem):Void
 	{
 		if(this._screens.hasOwnProperty(id))
 		{
@@ -567,7 +567,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Removes an existing screen using its identifier.
 	 */
-	public function removeScreen(id:String):void
+	public function removeScreen(id:String):Void
 	{
 		if(!this._screens.hasOwnProperty(id))
 		{
@@ -583,7 +583,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Removes all screens.
 	 */
-	public function removeAllScreens():void
+	public function removeAllScreens():Void
 	{
 		this.clearScreen();
 		for(var id:String in this._screens)
@@ -633,7 +633,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.clearScreenInternal(false);
 		super.dispose();
@@ -642,7 +642,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -748,7 +748,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function transitionComplete():void
+	private function transitionComplete():Void
 	{
 		this._transitionIsActive = false;
 		this.dispatchEventWith(FeathersEventType.TRANSITION_COMPLETE);
@@ -787,7 +787,7 @@ class ScreenNavigator extends FeathersControl
 	private function createScreenEventListener(screenID:String):Function
 	{
 		var self:ScreenNavigator = this;
-		var eventListener:Function = function(event:Event):void
+		var eventListener:Function = function(event:Event):Void
 		{
 			self.showScreen(screenID);
 		};
@@ -804,14 +804,14 @@ class ScreenNavigator extends FeathersControl
 		if(signal.valueClasses.length == 1)
 		{
 			//shortcut to avoid the allocation of the rest array
-			var signalListener:Function = function(arg0:Object):void
+			var signalListener:Function = function(arg0:Object):Void
 			{
 				self.showScreen(screenID);
 			};
 		}
 		else
 		{
-			signalListener = function(...rest:Array):void
+			signalListener = function(...rest:Array):Void
 			{
 				self.showScreen(screenID);
 			};
@@ -823,7 +823,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function screenNavigator_addedToStageHandler(event:Event):void
+	private function screenNavigator_addedToStageHandler(event:Event):Void
 	{
 		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 	}
@@ -831,7 +831,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function screenNavigator_removedFromStageHandler(event:Event):void
+	private function screenNavigator_removedFromStageHandler(event:Event):Void
 	{
 		this.stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 	}
@@ -839,7 +839,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function activeScreen_resizeHandler(event:Event):void
+	private function activeScreen_resizeHandler(event:Event):Void
 	{
 		if(this._isValidating || this._autoSizeMode != AUTO_SIZE_MODE_CONTENT)
 		{
@@ -851,7 +851,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

@@ -24,20 +24,20 @@ class DropTarget extends LayoutGroup implements IDropTarget
 	private var _background:Quad;
 	private var _dragFormat:String;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._background = new Quad(1, 1, DEFAULT_COLOR);
 		this.addChildAt(this._background, 0);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		super.draw();
 		this._background.width = this.actualWidth;
 		this._background.height = this.actualHeight;
 	}
 
-	private function dragEnterHandler(event:DragDropEvent, dragData:DragData):void
+	private function dragEnterHandler(event:DragDropEvent, dragData:DragData):Void
 	{
 		if(!dragData.hasDataForFormat(this._dragFormat))
 		{
@@ -47,12 +47,12 @@ class DropTarget extends LayoutGroup implements IDropTarget
 		this._background.color = HOVER_COLOR;
 	}
 
-	private function dragExitHandler(event:DragDropEvent, dragData:DragData):void
+	private function dragExitHandler(event:DragDropEvent, dragData:DragData):Void
 	{
 		this._background.color = DEFAULT_COLOR;
 	}
 
-	private function dragDropHandler(event:DragDropEvent, dragData:DragData):void
+	private function dragDropHandler(event:DragDropEvent, dragData:DragData):Void
 	{
 		var droppedObject:DisplayObject = DisplayObject(dragData.getDataForFormat(this._dragFormat))
 		droppedObject.x = event.localX - droppedObject.width / 2;

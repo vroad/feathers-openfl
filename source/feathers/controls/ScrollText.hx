@@ -43,7 +43,7 @@ import starling.events.KeyboardEvent;
  * <p>The following example shows a listener for <code>Event.TRIGGERED</code>:</p>
  *
  * <listing version="3.0">
- * function scrollText_triggeredHandler(event:Event):void
+ * function scrollText_triggeredHandler(event:Event):Void
  * {
  *     trace( event.data ); //hello
  * }</listing>
@@ -244,7 +244,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set text(value:String):void
+	public function set text(value:String):Void
 	{
 		if(!value)
 		{
@@ -285,7 +285,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):void
+	public function set isHTML(value:Boolean):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -321,7 +321,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:TextFormat):void
+	public function set textFormat(value:TextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -358,7 +358,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:TextFormat):void
+	public function set disabledTextFormat(value:TextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -408,7 +408,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set styleSheet(value:StyleSheet):void
+	public function set styleSheet(value:StyleSheet):Void
 	{
 		if(this._styleSheet == value)
 		{
@@ -446,7 +446,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):void
+	public function set embedFonts(value:Boolean):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -483,7 +483,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set antiAliasType(value:String):void
+	public function set antiAliasType(value:String):Void
 	{
 		if(this._antiAliasType == value)
 		{
@@ -522,7 +522,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set background(value:Boolean):void
+	public function set background(value:Boolean):Void
 	{
 		if(this._background == value)
 		{
@@ -560,7 +560,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:uint):void
+	public function set backgroundColor(value:uint):Void
 	{
 		if(this._backgroundColor == value)
 		{
@@ -598,7 +598,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set border(value:Boolean):void
+	public function set border(value:Boolean):Void
 	{
 		if(this._border == value)
 		{
@@ -636,7 +636,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:uint):void
+	public function set borderColor(value:uint):Void
 	{
 		if(this._borderColor == value)
 		{
@@ -673,7 +673,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Boolean):void
+	public function set condenseWhite(value:Boolean):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -710,7 +710,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):void
+	public function set displayAsPassword(value:Boolean):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -751,7 +751,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set gridFitType(value:String):void
+	public function set gridFitType(value:String):Void
 	{
 		if(this._gridFitType == value)
 		{
@@ -791,7 +791,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):void
+	public function set sharpness(value:Number):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -831,7 +831,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):void
+	public function set thickness(value:Number):Void
 	{
 		if(this._thickness == value)
 		{
@@ -875,7 +875,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingTop(value:Number):void
+	override public function set paddingTop(value:Number):Void
 	{
 		if(this._textPaddingTop == value)
 		{
@@ -907,7 +907,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingRight(value:Number):void
+	override public function set paddingRight(value:Number):Void
 	{
 		if(this._textPaddingRight == value)
 		{
@@ -939,7 +939,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingBottom(value:Number):void
+	override public function set paddingBottom(value:Number):Void
 	{
 		if(this._textPaddingBottom == value)
 		{
@@ -971,7 +971,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set paddingLeft(value:Number):void
+	override public function set paddingLeft(value:Number):Void
 	{
 		if(this._textPaddingLeft == value)
 		{
@@ -997,7 +997,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set visible(value:Boolean):void
+	override public function set visible(value:Boolean):Void
 	{
 		if(this._visible == value)
 		{
@@ -1023,7 +1023,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set alpha(value:Number):void
+	override public function set alpha(value:Number):Void
 	{
 		if(this._alpha == value)
 		{
@@ -1044,7 +1044,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1088,7 +1088,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function textViewPort_triggeredHandler(event:Event, link:String):void
+	private function textViewPort_triggeredHandler(event:Event, link:String):Void
 	{
 		this.dispatchEventWith(Event.TRIGGERED, false, link);
 	}
@@ -1096,7 +1096,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1105,7 +1105,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -1114,7 +1114,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{

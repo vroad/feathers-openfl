@@ -277,7 +277,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set text(value:String):void
+	public function set text(value:String):Void
 	{
 		if(!value)
 		{
@@ -341,7 +341,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:TextFormat):void
+	public function set textFormat(value:TextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -382,7 +382,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:TextFormat):void
+	public function set disabledTextFormat(value:TextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -418,7 +418,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):void
+	public function set embedFonts(value:Boolean):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -453,7 +453,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):void
+	public function set wordWrap(value:Boolean):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -488,7 +488,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set multiline(value:Boolean):void
+	public function set multiline(value:Boolean):Void
 	{
 		if(this._multiline == value)
 		{
@@ -524,7 +524,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):void
+	public function set isHTML(value:Boolean):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -562,7 +562,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set alwaysShowSelection(value:Boolean):void
+	public function set alwaysShowSelection(value:Boolean):Void
 	{
 		if(this._alwaysShowSelection == value)
 		{
@@ -599,7 +599,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):void
+	public function set displayAsPassword(value:Boolean):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -637,7 +637,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):void
+	public function set maxChars(value:int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -674,7 +674,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):void
+	public function set restrict(value:String):Void
 	{
 		if(this._restrict == value)
 		{
@@ -708,7 +708,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):void
+	public function set isEditable(value:Boolean):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -744,7 +744,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set useGutter(value:Boolean):void
+	public function set useGutter(value:Boolean):Void
 	{
 		if(this._useGutter == value)
 		{
@@ -822,7 +822,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.textSnapshot)
 		{
@@ -849,7 +849,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		//theoretically, this will ensure that the TextField is set visible
 		//or invisible immediately after the snapshot changes visibility in
@@ -867,7 +867,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function setFocus(position:Point = null):void
+	public function setFocus(position:Point = null):Void
 	{
 		if(this.textField)
 		{
@@ -964,7 +964,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function clearFocus():void
+	public function clearFocus():Void
 	{
 		if(!this._textFieldHasFocus || this._focusManager)
 		{
@@ -976,7 +976,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):void
+	public function selectRange(beginIndex:int, endIndex:int):Void
 	{
 		if(this.textField)
 		{
@@ -1030,7 +1030,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.textField = new TextField();
 		this.textField.needsSoftKeyboard = true;
@@ -1051,7 +1051,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1065,7 +1065,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function commit():void
+	private function commit():Void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1178,7 +1178,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function commitStylesAndData(textField:TextField):void
+	private function commitStylesAndData(textField:TextField):Void
 	{
 		textField.maxChars = this._maxChars;
 		textField.restrict = this._restrict;
@@ -1238,7 +1238,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):Void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1266,7 +1266,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function refreshTextFieldSize():void
+	private function refreshTextFieldSize():Void
 	{
 		var gutterDimensionsOffset:Number = 4;
 		if(this._useGutter)
@@ -1280,7 +1280,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function refreshSnapshotParameters():void
+	private function refreshSnapshotParameters():Void
 	{
 		this._textFieldOffsetX = 0;
 		this._textFieldOffsetY = 0;
@@ -1305,7 +1305,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function transformTextField():void
+	private function transformTextField():Void
 	{
 		if(!this.textField.visible)
 		{
@@ -1336,7 +1336,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionSnapshot():void
+	private function positionSnapshot():Void
 	{
 		if(!this.textSnapshot)
 		{
@@ -1350,7 +1350,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function checkIfNewSnapshotIsNeeded():void
+	private function checkIfNewSnapshotIsNeeded():Void
 	{
 		var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 		if(canUseRectangleTexture)
@@ -1370,7 +1370,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function doPendingActions():void
+	private function doPendingActions():Void
 	{
 		if(this._isWaitingToSetFocus)
 		{
@@ -1391,7 +1391,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function texture_onRestore():void
+	private function texture_onRestore():Void
 	{
 		this.refreshSnapshot();
 	}
@@ -1399,7 +1399,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function refreshSnapshot():void
+	private function refreshSnapshot():Void
 	{
 		if(this._snapshotWidth <= 0 || this._snapshotHeight <= 0)
 		{
@@ -1455,7 +1455,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textEditor_addedToStageHandler(event:Event):void
+	private function textEditor_addedToStageHandler(event:Event):Void
 	{
 		if(!this.textField.parent)
 		{
@@ -1467,7 +1467,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textEditor_removedFromStageHandler(event:Event):void
+	private function textEditor_removedFromStageHandler(event:Event):Void
 	{
 		if(this.textField.parent)
 		{
@@ -1480,7 +1480,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textEditor_enterFrameHandler(event:Event):void
+	private function textEditor_enterFrameHandler(event:Event):Void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, textEditor_enterFrameHandler);
 		this.refreshSnapshot();
@@ -1494,7 +1494,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_changeHandler(event:flash.events.Event):void
+	private function textField_changeHandler(event:flash.events.Event):Void
 	{
 		this.text = this.textField.text;
 	}
@@ -1502,7 +1502,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_focusInHandler(event:FocusEvent):void
+	private function textField_focusInHandler(event:FocusEvent):Void
 	{
 		this._textFieldHasFocus = true;
 		if(this.textSnapshot)
@@ -1516,7 +1516,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_focusOutHandler(event:FocusEvent):void
+	private function textField_focusOutHandler(event:FocusEvent):Void
 	{
 		this._textFieldHasFocus = false;
 
@@ -1533,7 +1533,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_keyDownHandler(event:KeyboardEvent):void
+	private function textField_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.ENTER)
 		{
@@ -1544,7 +1544,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):void
+	private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
 	}
@@ -1552,7 +1552,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):void
+	private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}

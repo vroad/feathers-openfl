@@ -19,7 +19,7 @@ class Main extends ScreenNavigator
 
 	private var _transitionManager:OldFadeNewSlideTransitionManager;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

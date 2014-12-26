@@ -17,7 +17,7 @@ class Main extends Sprite
 
 	private var _drawers:Drawers;
 
-	private function changeDockMode(drawer:DrawerView, dockMode:String):void
+	private function changeDockMode(drawer:DrawerView, dockMode:String):Void
 	{
 		switch(drawer)
 		{
@@ -44,7 +44,7 @@ class Main extends Sprite
 		}
 	}
 	
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		new DrawersExplorerTheme();
 
@@ -100,13 +100,13 @@ class Main extends Sprite
 		this.addChild(this._drawers);
 	}
 
-	private function drawer_dockNoneHandler(event:Event):void
+	private function drawer_dockNoneHandler(event:Event):Void
 	{
 		var drawer:DrawerView = DrawerView(event.currentTarget);
 		this.changeDockMode(drawer, Drawers.DOCK_MODE_NONE);
 	}
 
-	private function drawer_dockBothHandler(event:Event):void
+	private function drawer_dockBothHandler(event:Event):Void
 	{
 		var drawer:DrawerView = DrawerView(event.currentTarget);
 		this.changeDockMode(drawer, Drawers.DOCK_MODE_BOTH);

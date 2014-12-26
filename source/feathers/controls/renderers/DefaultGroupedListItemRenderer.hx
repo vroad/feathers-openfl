@@ -205,7 +205,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:int):void
+	public function set groupIndex(value:int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -226,7 +226,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set itemIndex(value:int):void
+	public function set itemIndex(value:int):Void
 	{
 		this._itemIndex = value;
 	}
@@ -247,7 +247,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:int):void
+	public function set layoutIndex(value:int):Void
 	{
 		this._layoutIndex = value;
 	}
@@ -263,7 +263,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set owner(value:GroupedList):void
+	public function set owner(value:GroupedList):Void
 	{
 		if(this._owner == value)
 		{
@@ -288,7 +288,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.owner = null;
 		super.dispose();

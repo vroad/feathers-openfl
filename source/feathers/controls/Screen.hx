@@ -32,13 +32,13 @@ import starling.events.Event;
  *         {
  *         }
  *
- *         override private function initialize():void
+ *         override private function initialize():Void
  *         {
  *             //runs once when screen is first added to the stage.
  *             //a good place to add children and set a layout.
  *         }
  *
- *         override private function draw():void
+ *         override private function draw():Void
  *         {
  *             //override only if you want to do manual measurement and layout.
  *         }
@@ -92,7 +92,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	public function set screenID(value:String):void
+	public function set screenID(value:String):Void
 	{
 		this._screenID = value;
 	}
@@ -113,7 +113,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	public function set owner(value:ScreenNavigator):void
+	public function set owner(value:ScreenNavigator):Void
 	{
 		this._owner = value;
 	}
@@ -124,7 +124,7 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will dispatch <code>Event.COMPLETE</code>
 	 * when the back button is pressed:</p>
@@ -132,7 +132,7 @@ class Screen extends LayoutGroup implements IScreen
 	 * <listing version="3.0">
 	 * this.backButtonHandler = onBackButton;
 	 *
-	 * private function onBackButton():void
+	 * private function onBackButton():Void
 	 * {
 	 *     this.dispatchEvent( Event.COMPLETE );
 	 * };</listing>
@@ -147,7 +147,7 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will be called when the menu
 	 * button is pressed:</p>
@@ -155,7 +155,7 @@ class Screen extends LayoutGroup implements IScreen
 	 * <listing version="3.0">
 	 * this.menuButtonHandler = onMenuButton;
 	 *
-	 * private function onMenuButton():void
+	 * private function onMenuButton():Void
 	 * {
 	 *     //do something with the menu button
 	 * };</listing>
@@ -170,7 +170,7 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will be called when the search
 	 * button is pressed:</p>
@@ -178,7 +178,7 @@ class Screen extends LayoutGroup implements IScreen
 	 * <listing version="3.0">
 	 * this.searchButtonHandler = onSearchButton;
 	 *
-	 * private function onSearchButton():void
+	 * private function onSearchButton():Void
 	 * {
 	 *     //do something with the search button
 	 * };</listing>
@@ -190,7 +190,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	private function screen_addedToStageHandler(event:Event):void
+	private function screen_addedToStageHandler(event:Event):Void
 	{
 		if(event.target != this)
 		{
@@ -206,7 +206,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	private function screen_removedFromStageHandler(event:Event):void
+	private function screen_removedFromStageHandler(event:Event):Void
 	{
 		if(event.target != this)
 		{
@@ -219,7 +219,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	private function screen_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function screen_nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.isDefaultPrevented())
 		{

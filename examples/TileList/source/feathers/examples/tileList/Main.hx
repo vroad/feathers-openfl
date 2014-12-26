@@ -38,7 +38,7 @@ class Main extends LayoutGroup
 	private var _list:List;
 	private var _pageIndicator:PageIndicator;
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//don't forget to clean up textures and things!
 		if(this._iconAtlas)
@@ -54,7 +54,7 @@ class Main extends LayoutGroup
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//we want this container to fill the whole stage
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
@@ -173,18 +173,18 @@ class Main extends LayoutGroup
 		return renderer;
 	}
 
-	private function list_scrollHandler(event:Event):void
+	private function list_scrollHandler(event:Event):Void
 	{
 		this._pageIndicator.pageCount = this._list.horizontalPageCount;
 		this._pageIndicator.selectedIndex = this._list.horizontalPageIndex;
 	}
 
-	private function pageIndicator_changeHandler(event:Event):void
+	private function pageIndicator_changeHandler(event:Event):Void
 	{
 		this._list.scrollToPageIndex(this._pageIndicator.selectedIndex, 0, this._list.pageThrowDuration);
 	}
 
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}

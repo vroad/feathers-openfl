@@ -16,7 +16,7 @@ import feathers.core.IFeathersControl;
  * <listing version="3.0">
  * var button:Button = new Button();
  * button.label = "Click Me";
- * function setExtraStyles( target:Button ):void
+ * function setExtraStyles( target:Button ):Void
  * {
  *     target.defaultIcon = new Image( texture );
  *     // set other styles, if desired...
@@ -52,7 +52,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set originalStyleProvider(value:IStyleProvider):void
+	public function set originalStyleProvider(value:IStyleProvider):Void
 	{
 		this._originalStyleProvider = value;
 	}
@@ -67,7 +67,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 * styles.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:IFeathersControl ):void</pre>
+	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 */
 	public function get addOnFunction():Function
 	{
@@ -77,7 +77,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set addOnFunction(value:Function):void
+	public function set addOnFunction(value:Function):Void
 	{
 		this._addOnFunction = value;
 	}
@@ -85,7 +85,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @inheritDoc
 	 */
-	public function applyStyles(target:IFeathersControl):void
+	public function applyStyles(target:IFeathersControl):Void
 	{
 		if(this._originalStyleProvider)
 		{

@@ -60,7 +60,7 @@ class Check extends ToggleButton
 	/**
 	 * @private
 	 */
-	override public function set isToggle(value:Boolean):void
+	override public function set isToggle(value:Boolean):Void
 	{
 		throw IllegalOperationError("CheckBox isToggle must always be true.");
 	}

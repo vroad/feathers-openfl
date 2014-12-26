@@ -19,5 +19,5 @@ public interface IStyleProvider
 	 *
 	 * @see #exclude()
 	 */
-	function applyStyles(target:IFeathersControl):void;
+	function applyStyles(target:IFeathersControl):Void;
 }

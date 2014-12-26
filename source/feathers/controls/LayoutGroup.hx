@@ -140,7 +140,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):void
+	public function set layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -186,7 +186,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set mxmlContent(value:Array):void
+	public function set mxmlContent(value:Array):Void
 	{
 		if(this._mxmlContent == value)
 		{
@@ -234,7 +234,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):void
+	public function set clipContent(value:Boolean):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -284,7 +284,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):void
+	public function set backgroundSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -319,7 +319,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):void
+	public function set backgroundDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -392,7 +392,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function setChildIndex(child:DisplayObject, index:int):void
+	override public function setChildIndex(child:DisplayObject, index:int):Void
 	{
 		super.setChildIndex(child, index);
 		var oldIndex:int = this.items.indexOf(child);
@@ -412,7 +412,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function swapChildrenAt(index1:int, index2:int):void
+	override public function swapChildrenAt(index1:int, index2:int):Void
 	{
 		super.swapChildrenAt(index1, index2)
 		var child1:DisplayObject = this.items[index1];
@@ -425,7 +425,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function sortChildren(compareFunction:Function):void
+	override public function sortChildren(compareFunction:Function):Void
 	{
 		super.sortChildren(compareFunction);
 		this.items.sort(compareFunction);
@@ -458,7 +458,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		if(this.currentBackgroundSkin && this.currentBackgroundSkin.hasVisibleArea)
 		{
@@ -476,7 +476,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.layout = null;
 		super.dispose();
@@ -490,7 +490,7 @@ class LayoutGroup extends FeathersControl
 	 * values change, but standard Starling display objects like
 	 * <code>Sprite</code> and <code>Image</code> do not.
 	 */
-	public function readjustLayout():void
+	public function readjustLayout():Void
 	{
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
@@ -498,7 +498,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.refreshMXMLContent();
 	}
@@ -506,7 +506,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -573,7 +573,7 @@ class LayoutGroup extends FeathersControl
 	 * Choose the appropriate background skin based on the control's current
 	 * state.
 	 */
-	private function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():Void
 	{
 		if(!this._isEnabled && this._backgroundDisabledSkin)
 		{
@@ -602,7 +602,7 @@ class LayoutGroup extends FeathersControl
 	 * Refreshes the values in the <code>viewPortBounds</code> variable that
 	 * is passed to the layout.
 	 */
-	private function refreshViewPortBounds():void
+	private function refreshViewPortBounds():Void
 	{
 		this.viewPortBounds.x = 0;
 		this.viewPortBounds.y = 0;
@@ -619,7 +619,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function handleManualLayout():void
+	private function handleManualLayout():Void
 	{
 		var maxX:Number = this.viewPortBounds.explicitWidth;
 		if(maxX !== maxX) //isNaN
@@ -669,7 +669,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function validateChildren():void
+	private function validateChildren():Void
 	{
 		if(this.currentBackgroundSkin is IValidating)
 		{
@@ -689,7 +689,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshMXMLContent():void
+	private function refreshMXMLContent():Void
 	{
 		if(!this._mxmlContent || this._mxmlContentIsReady)
 		{
@@ -707,7 +707,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshClipRect():void
+	private function refreshClipRect():Void
 	{
 		if(this._clipContent)
 		{
@@ -732,7 +732,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layout_changeHandler(event:Event):void
+	private function layout_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
@@ -740,7 +740,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function child_resizeHandler(event:Event):void
+	private function child_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -752,7 +752,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function child_layoutDataChangeHandler(event:Event):void
+	private function child_layoutDataChangeHandler(event:Event):Void
 	{
 		if(this._ignoreChildChanges)
 		{

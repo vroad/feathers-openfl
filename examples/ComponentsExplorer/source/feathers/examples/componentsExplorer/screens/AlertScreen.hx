@@ -21,7 +21,7 @@ class AlertScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _showAlertButton:Button;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -55,17 +55,17 @@ class AlertScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function showAlertButton_triggeredHandler(event:Event):void
+	private function showAlertButton_triggeredHandler(event:Event):Void
 	{
 		var alert:Alert = Alert.show("I just wanted you to know that I have a very important message to share with you.", "Alert", new ListCollection(
 		[
@@ -75,7 +75,7 @@ class AlertScreen extends PanelScreen
 		alert.addEventListener(Event.CLOSE, alert_closeHandler);
 	}
 
-	private function alert_closeHandler(event:Event, data:Object):void
+	private function alert_closeHandler(event:Event, data:Object):Void
 	{
 		if(data)
 		{

@@ -32,7 +32,7 @@ class LabelScreen extends PanelScreen
 		return LabelScreen.globalStyleProvider;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -74,12 +74,12 @@ class LabelScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

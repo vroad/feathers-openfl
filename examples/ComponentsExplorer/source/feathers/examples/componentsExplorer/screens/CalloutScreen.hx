@@ -44,7 +44,7 @@ class CalloutScreen extends PanelScreen
 		return this._layoutPadding;
 	}
 
-	public function set layoutPadding(value:Number):void
+	public function set layoutPadding(value:Number):Void
 	{
 		if(this._layoutPadding == value)
 		{
@@ -59,7 +59,7 @@ class CalloutScreen extends PanelScreen
 		return CalloutScreen.globalStyleProvider;
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//the message won't be on the display list when the screen is
 		//disposed, so dispose it manually
@@ -71,7 +71,7 @@ class CalloutScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -124,7 +124,7 @@ class CalloutScreen extends PanelScreen
 		}
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
@@ -144,7 +144,7 @@ class CalloutScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function showCallout(origin:DisplayObject, direction:String):void
+	private function showCallout(origin:DisplayObject, direction:String):Void
 	{
 		if(!this._message)
 		{
@@ -158,32 +158,32 @@ class CalloutScreen extends PanelScreen
 		callout.disposeContent = false;
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function rightButton_triggeredHandler(event:Event):void
+	private function rightButton_triggeredHandler(event:Event):Void
 	{
 		this.showCallout(this._rightButton, Callout.DIRECTION_RIGHT);
 	}
 
-	private function downButton_triggeredHandler(event:Event):void
+	private function downButton_triggeredHandler(event:Event):Void
 	{
 		this.showCallout(this._downButton, Callout.DIRECTION_DOWN);
 	}
 
-	private function upButton_triggeredHandler(event:Event):void
+	private function upButton_triggeredHandler(event:Event):Void
 	{
 		this.showCallout(this._upButton, Callout.DIRECTION_UP);
 	}
 
-	private function leftButton_triggeredHandler(event:Event):void
+	private function leftButton_triggeredHandler(event:Event):Void
 	{
 		this.showCallout(this._leftButton, Callout.DIRECTION_LEFT)
 	}

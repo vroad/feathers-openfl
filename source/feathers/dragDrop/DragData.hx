@@ -48,7 +48,7 @@ class DragData
 	/**
 	 * Saves data for the specified format.
 	 */
-	public function setDataForFormat(format:String, data:*):void
+	public function setDataForFormat(format:String, data:*):Void
 	{
 		this._data[format] = data;
 	}

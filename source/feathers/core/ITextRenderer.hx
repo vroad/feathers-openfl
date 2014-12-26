@@ -23,7 +23,7 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set text(value:String):void;
+	function set text(value:String):Void;
 
 	/**
 	 * Determines if the text wraps to the next line when it reaches the
@@ -34,7 +34,7 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set wordWrap(value:Boolean):void;
+	function set wordWrap(value:Boolean):Void;
 
 	/**
 	 * Measures the text's bounds (without a full validation, if

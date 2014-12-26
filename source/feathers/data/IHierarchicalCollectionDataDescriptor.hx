@@ -40,14 +40,14 @@ public interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function setItemAt(data:Object, item:Object, index:int, ...rest:Array):void;
+	function setItemAt(data:Object, item:Object, index:int, ...rest:Array):Void;
 
 	/**
 	 * Adds an item to the data source, at the specified location.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function addItemAt(data:Object, item:Object, index:int, ...rest:Array):void;
+	function addItemAt(data:Object, item:Object, index:int, ...rest:Array):Void;
 
 	/**
 	 * Removes the item at the specified location from the data source and

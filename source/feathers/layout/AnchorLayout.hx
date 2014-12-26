@@ -244,7 +244,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function measureItem(item:DisplayObject, result:Point):void
+	private function measureItem(item:DisplayObject, result:Point):Void
 	{
 		var maxX:Number = result.x;
 		var maxY:Number = result.y;
@@ -345,7 +345,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 * This function is here to work around a bug in the Flex 4.6 SDK
 	 * compiler. For explanation, see the places where it gets called.
 	 */
-	private function doNothing():void {}
+	private function doNothing():Void {}
 
 	/**
 	 * @private
@@ -590,7 +590,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function layoutWithBounds(items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):void
+	private function layoutWithBounds(items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Void
 	{
 		this._helperVector1.length = 0;
 		this._helperVector2.length = 0;
@@ -627,7 +627,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):Void
 	{
 		unpositionedItems.length = 0;
 		var itemCount:int = items.length;
@@ -661,7 +661,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function positionHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function positionHorizontally(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):Void
 	{
 		var uiItem:IFeathersControl = item as IFeathersControl;
 		var percentWidth:Number = layoutData.percentWidth;
@@ -805,7 +805,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function positionVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):void
+	private function positionVertically(item:ILayoutDisplayObject, layoutData:AnchorLayoutData, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):Void
 	{
 		var uiItem:IFeathersControl = item as IFeathersControl;
 		var percentHeight:Number = layoutData.percentHeight;
@@ -1035,7 +1035,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, force:Boolean):void
+	private function validateItems(items:Vector.<DisplayObject>, force:Boolean):Void
 	{
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)

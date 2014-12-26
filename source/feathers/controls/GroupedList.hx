@@ -448,7 +448,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):void
+	public function set layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -553,7 +553,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:HierarchicalCollection):void
+	public function set dataProvider(value:HierarchicalCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -605,7 +605,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isSelectable(value:Boolean):void
+	public function set isSelectable(value:Boolean):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -636,7 +636,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * requests the selected group index and selected item index:</p>
 	 *
 	 * <listing version="3.0">
-	 * function list_changeHandler( event:Event ):void
+	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:List = GroupedList(event.currentTarget);
 	 *     var groupIndex:int = list.selectedGroupIndex;
@@ -672,7 +672,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * requests the selected group index and selected item index:</p>
 	 *
 	 * <listing version="3.0">
-	 * function list_changeHandler( event:Event ):void
+	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:GroupedList = GroupedList( event.currentTarget );
 	 *     var groupIndex:int = list.selectedGroupIndex;
@@ -699,7 +699,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * requests the selected item:</p>
 	 *
 	 * <listing version="3.0">
-	 * function list_changeHandler( event:Event ):void
+	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:GroupedList = GroupedList( event.currentTarget );
 	 *     var item:Object = list.selectedItem;
@@ -721,7 +721,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):void
+	public function set selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -779,7 +779,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererType(value:Class):void
+	public function set itemRendererType(value:Class):Void
 	{
 		if(this._itemRendererType == value)
 		{
@@ -838,7 +838,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererFactory(value:Function):void
+	public function set itemRendererFactory(value:Function):Void
 	{
 		if(this._itemRendererFactory === value)
 		{
@@ -878,7 +878,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:Object):void
+	public function set typicalItem(value:Object):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -923,7 +923,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererName(value:String):void
+	public function set itemRendererName(value:String):Void
 	{
 		if(this._itemRendererName == value)
 		{
@@ -984,7 +984,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererProperties(value:Object):void
+	public function set itemRendererProperties(value:Object):Void
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -1045,7 +1045,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererType(value:Class):void
+	public function set firstItemRendererType(value:Class):Void
 	{
 		if(this._firstItemRendererType == value)
 		{
@@ -1100,7 +1100,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererFactory(value:Function):void
+	public function set firstItemRendererFactory(value:Function):Void
 	{
 		if(this._firstItemRendererFactory === value)
 		{
@@ -1150,7 +1150,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererName(value:String):void
+	public function set firstItemRendererName(value:String):Void
 	{
 		if(this._firstItemRendererName == value)
 		{
@@ -1191,7 +1191,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererType(value:Class):void
+	public function set lastItemRendererType(value:Class):Void
 	{
 		if(this._lastItemRendererType == value)
 		{
@@ -1246,7 +1246,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererFactory(value:Function):void
+	public function set lastItemRendererFactory(value:Function):Void
 	{
 		if(this._lastItemRendererFactory === value)
 		{
@@ -1296,7 +1296,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererName(value:String):void
+	public function set lastItemRendererName(value:String):Void
 	{
 		if(this._lastItemRendererName == value)
 		{
@@ -1337,7 +1337,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererType(value:Class):void
+	public function set singleItemRendererType(value:Class):Void
 	{
 		if(this._singleItemRendererType == value)
 		{
@@ -1392,7 +1392,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererFactory(value:Function):void
+	public function set singleItemRendererFactory(value:Function):Void
 	{
 		if(this._singleItemRendererFactory === value)
 		{
@@ -1443,7 +1443,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererName(value:String):void
+	public function set singleItemRendererName(value:String):Void
 	{
 		if(this._singleItemRendererName == value)
 		{
@@ -1480,7 +1480,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererType(value:Class):void
+	public function set headerRendererType(value:Class):Void
 	{
 		if(this._headerRendererType == value)
 		{
@@ -1531,7 +1531,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererFactory(value:Function):void
+	public function set headerRendererFactory(value:Function):Void
 	{
 		if(this._headerRendererFactory === value)
 		{
@@ -1574,7 +1574,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererName(value:String):void
+	public function set headerRendererName(value:String):Void
 	{
 		if(this._headerRendererName == value)
 		{
@@ -1634,7 +1634,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererProperties(value:Object):void
+	public function set headerRendererProperties(value:Object):Void
 	{
 		if(this._headerRendererProperties == value)
 		{
@@ -1692,7 +1692,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererType(value:Class):void
+	public function set footerRendererType(value:Class):Void
 	{
 		if(this._footerRendererType == value)
 		{
@@ -1743,7 +1743,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererFactory(value:Function):void
+	public function set footerRendererFactory(value:Function):Void
 	{
 		if(this._footerRendererFactory === value)
 		{
@@ -1786,7 +1786,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererName(value:String):void
+	public function set footerRendererName(value:String):Void
 	{
 		if(this._footerRendererName == value)
 		{
@@ -1846,7 +1846,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererProperties(value:Object):void
+	public function set footerRendererProperties(value:Object):Void
 	{
 		if(this._footerRendererProperties == value)
 		{
@@ -1911,7 +1911,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerField(value:String):void
+	public function set headerField(value:String):Void
 	{
 		if(this._headerField == value)
 		{
@@ -1960,7 +1960,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerFunction(value:Function):void
+	public function set headerFunction(value:Function):Void
 	{
 		if(this._headerFunction == value)
 		{
@@ -2004,7 +2004,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerField(value:String):void
+	public function set footerField(value:String):Void
 	{
 		if(this._footerField == value)
 		{
@@ -2053,7 +2053,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerFunction(value:Function):void
+	public function set footerFunction(value:Function):Void
 	{
 		if(this._footerFunction == value)
 		{
@@ -2080,7 +2080,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//clearing selection now so that the data provider setter won't
 		//cause a selection change that triggers events.
@@ -2093,7 +2093,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPosition(horizontalScrollPosition:Number, verticalScrollPosition:Number, animationDuration:Number = NaN):void
+	override public function scrollToPosition(horizontalScrollPosition:Number, verticalScrollPosition:Number, animationDuration:Number = NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPosition(horizontalScrollPosition, verticalScrollPosition, animationDuration);
@@ -2102,7 +2102,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:int, verticalPageIndex:int, animationDuration:Number = NaN):void
+	override public function scrollToPageIndex(horizontalPageIndex:int, verticalPageIndex:int, animationDuration:Number = NaN):Void
 	{
 		this.pendingGroupIndex = -1;
 		this.pendingItemIndex = -1;
@@ -2120,7 +2120,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * list.scrollToDisplayIndex( 1, 2 );</listing>
 	 */
-	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int, animationDuration:Number = 0):void
+	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int, animationDuration:Number = 0):Void
 	{
 		this.pendingHorizontalPageIndex = -1;
 		this.pendingVerticalPageIndex = -1;
@@ -2156,7 +2156,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItemIndex
 	 * @see #selectedItem
 	 */
-	public function setSelectedLocation(groupIndex:int, itemIndex:int):void
+	public function setSelectedLocation(groupIndex:int, itemIndex:int):Void
 	{
 		if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex == itemIndex)
 		{
@@ -2210,7 +2210,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		var hasLayout:Boolean = this._layout != null;
 
@@ -2249,7 +2249,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		this.refreshDataViewPortProperties();
 		super.draw();
@@ -2259,7 +2259,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function refreshDataViewPortProperties():void
+	private function refreshDataViewPortProperties():Void
 	{
 		this.dataViewPort.isSelectable = this._isSelectable;
 		this.dataViewPort.setSelectedLocation(this._selectedGroupIndex, this._selectedItemIndex);
@@ -2299,7 +2299,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function handlePendingScroll():void
+	override private function handlePendingScroll():Void
 	{
 		if(this.pendingGroupIndex >= 0 && this.pendingItemIndex >= 0)
 		{
@@ -2337,7 +2337,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2346,7 +2346,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2355,7 +2355,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -2445,7 +2445,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -2453,7 +2453,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):Void
 	{
 		this.horizontalScrollPosition = 0;
 		this.verticalScrollPosition = 0;
@@ -2462,7 +2462,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function dataViewPort_changeHandler(event:Event):void
+	private function dataViewPort_changeHandler(event:Event):Void
 	{
 		this.setSelectedLocation(this.dataViewPort.selectedGroupIndex, this.dataViewPort.selectedItemIndex);
 	}

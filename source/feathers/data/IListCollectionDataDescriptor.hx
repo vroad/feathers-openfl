@@ -27,12 +27,12 @@ public interface IListCollectionDataDescriptor
 	/**
 	 * Replaces the item at the specified index with a new item.
 	 */
-	function setItemAt(data:Object, item:Object, index:int):void;
+	function setItemAt(data:Object, item:Object, index:int):Void;
 	
 	/**
 	 * Adds an item to the data source, at the specified index.
 	 */
-	function addItemAt(data:Object, item:Object, index:int):void;
+	function addItemAt(data:Object, item:Object, index:int):Void;
 	
 	/**
 	 * Removes the item at the specified index from the data source and
@@ -49,5 +49,5 @@ public interface IListCollectionDataDescriptor
 	/**
 	 * Removes all items from the data source.
 	 */
-	function removeAll(data:Object):void;
+	function removeAll(data:Object):Void;
 }

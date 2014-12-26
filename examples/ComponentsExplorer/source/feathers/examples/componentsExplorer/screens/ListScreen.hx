@@ -33,7 +33,7 @@ class ListScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _settingsButton:Button;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -104,28 +104,28 @@ class ListScreen extends PanelScreen
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 	
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 	
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function settingsButton_triggeredHandler(event:Event):void
+	private function settingsButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}
 
-	private function list_changeHandler(event:Event):void
+	private function list_changeHandler(event:Event):Void
 	{
 		var selectedIndices:Vector.<int> = this._list.selectedIndices;
 		trace("List onChange:", selectedIndices.length > 0 ? selectedIndices : this._list.selectedIndex);
 	}
 
-	private function owner_transitionCompleteHandler(event:Event):void
+	private function owner_transitionCompleteHandler(event:Event):Void
 	{
 		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 		this._list.revealScrollBars();

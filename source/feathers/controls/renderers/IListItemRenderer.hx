@@ -26,7 +26,7 @@ public interface IListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set data(value:Object):void;
+	function set data(value:Object):Void;
 	
 	/**
 	 * The index (numeric position, starting from zero) of the item within
@@ -41,7 +41,7 @@ public interface IListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set index(value:int):void;
+	function set index(value:int):Void;
 	
 	/**
 	 * The list that contains this item renderer.
@@ -53,5 +53,5 @@ public interface IListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set owner(value:List):void;
+	function set owner(value:List):Void;
 }

@@ -25,7 +25,7 @@ class TabBarScreen extends PanelScreen
 	private var _tabBar:TabBar;
 	private var _label:Label;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -69,17 +69,17 @@ class TabBarScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function tabBar_changeHandler(event:Event):void
+	private function tabBar_changeHandler(event:Event):Void
 	{
 		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex.toString();
 	}

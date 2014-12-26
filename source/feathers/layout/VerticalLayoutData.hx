@@ -54,7 +54,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentWidth(value:Number):void
+	public function set percentWidth(value:Number):Void
 	{
 		if(this._percentWidth == value)
 		{
@@ -90,7 +90,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentHeight(value:Number):void
+	public function set percentHeight(value:Number):Void
 	{
 		if(this._percentHeight == value)
 		{

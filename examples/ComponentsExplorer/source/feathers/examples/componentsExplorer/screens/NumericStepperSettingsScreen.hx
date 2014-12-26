@@ -26,7 +26,7 @@ class NumericStepperSettingsScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _stepStepper:NumericStepper;
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//icon and accessory display objects in the list's data provider
 		//won't be automatically disposed because feathers cannot know if
@@ -39,7 +39,7 @@ class NumericStepperSettingsScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -78,22 +78,22 @@ class NumericStepperSettingsScreen extends PanelScreen
 		this.backButtonHandler = this.onBackButton;
 	}
 
-	private function disposeItemAccessory(item:Object):void
+	private function disposeItemAccessory(item:Object):Void
 	{
 		DisplayObject(item.accessory).dispose();
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function stepStepper_changeHandler(event:Event):void
+	private function stepStepper_changeHandler(event:Event):Void
 	{
 		this.settings.step = this._stepStepper.value;
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

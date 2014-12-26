@@ -26,20 +26,20 @@ class DragSource extends LayoutGroup implements IDragSource
 	private var _draggedObject:DisplayObject;
 	private var _dragFormat:String;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._background = new Quad(1, 1, 0x36322e);
 		this.addChildAt(this._background, 0);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		super.draw();
 		this._background.width = this.actualWidth;
 		this._background.height = this.actualHeight;
 	}
 
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		if(DragDropManager.isDragging)
 		{
@@ -77,12 +77,12 @@ class DragSource extends LayoutGroup implements IDragSource
 		}
 	}
 
-	private function dragStartHandler(event:DragDropEvent, dragData:DragData):void
+	private function dragStartHandler(event:DragDropEvent, dragData:DragData):Void
 	{
 		//the drag was started with the call to DragDropManager.startDrag()
 	}
 
-	private function dragCompleteHandler(event:DragDropEvent, dragData:DragData):void
+	private function dragCompleteHandler(event:DragDropEvent, dragData:DragData):Void
 	{
 		if(event.isDropped)
 		{

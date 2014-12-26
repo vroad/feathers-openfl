@@ -72,7 +72,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set minVisibleWidth(value:Number):void
+	public function set minVisibleWidth(value:Number):Void
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -102,7 +102,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set maxVisibleWidth(value:Number):void
+	public function set maxVisibleWidth(value:Number):Void
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -132,7 +132,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set visibleWidth(value:Number):void
+	public function set visibleWidth(value:Number):Void
 	{
 		if(this._visibleWidth == value ||
 			(value !== value && this._visibleWidth !== this._visibleWidth)) //isNaN
@@ -159,7 +159,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set minVisibleHeight(value:Number):void
+	public function set minVisibleHeight(value:Number):Void
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -189,7 +189,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set maxVisibleHeight(value:Number):void
+	public function set maxVisibleHeight(value:Number):Void
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -219,7 +219,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set visibleHeight(value:Number):void
+	public function set visibleHeight(value:Number):Void
 	{
 		if(this._visibleHeight == value ||
 			(value !== value && this._visibleHeight !== this._visibleHeight)) //isNaN
@@ -277,7 +277,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set horizontalScrollPosition(value:Number):void
+	public function set horizontalScrollPosition(value:Number):Void
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -305,7 +305,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set verticalScrollPosition(value:Number):void
+	public function set verticalScrollPosition(value:Number):Void
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -366,7 +366,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function refreshSnapshotParameters():void
+	override private function refreshSnapshotParameters():Void
 	{
 		var textFieldWidth:Number = this._visibleWidth;
 		if(textFieldWidth !== textFieldWidth) //isNaN
@@ -416,7 +416,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function refreshTextFieldSize():void
+	override private function refreshTextFieldSize():Void
 	{
 		var oldIgnoreScrolling:Boolean = this._ignoreScrolling;
 		var gutterDimensionsOffset:Number = 4;
@@ -439,7 +439,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function commitStylesAndData(textField:TextField):void
+	override private function commitStylesAndData(textField:TextField):Void
 	{
 		super.commitStylesAndData(textField);
 		if(textField == this.textField)
@@ -451,7 +451,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function transformTextField():void
+	override private function transformTextField():Void
 	{
 		if(!this.textField.visible)
 		{
@@ -486,7 +486,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function positionSnapshot():void
+	override private function positionSnapshot():Void
 	{
 		if(!this.textSnapshot)
 		{
@@ -500,7 +500,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function checkIfNewSnapshotIsNeeded():void
+	override private function checkIfNewSnapshotIsNeeded():Void
 	{
 		super.checkIfNewSnapshotIsNeeded();
 		this._needsNewTexture ||= this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -509,7 +509,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function textField_focusInHandler(event:FocusEvent):void
+	override private function textField_focusInHandler(event:FocusEvent):Void
 	{
 		this.textField.addEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusInHandler(event);
@@ -519,7 +519,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function textField_focusOutHandler(event:FocusEvent):void
+	override private function textField_focusOutHandler(event:FocusEvent):Void
 	{
 		this.textField.removeEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusOutHandler(event);
@@ -529,7 +529,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private function textField_scrollHandler(event:Event):void
+	private function textField_scrollHandler(event:Event):Void
 	{
 		//for some reason, the text field's scroll positions don't work
 		//properly unless we access the values here. weird.

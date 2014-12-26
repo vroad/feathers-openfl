@@ -54,7 +54,7 @@ class Main extends Drawers
 	private var _menu:MainMenuScreen;
 	private var _transitionManager:ScreenSlidingStackTransitionManager;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -163,7 +163,7 @@ class Main extends Drawers
 		}
 	}
 
-	private function mainMenuEventHandler(event:Event):void
+	private function mainMenuEventHandler(event:Event):Void
 	{
 		var screenName:String = MAIN_MENU_EVENTS[event.type];
 		//because we're controlling the navigation externally, it doesn't

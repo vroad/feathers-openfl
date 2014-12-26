@@ -89,7 +89,7 @@ class ScreenFadeTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 	{
 		if(!oldScreen && !newScreen)
 		{
@@ -150,7 +150,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransition_onUpdate():void
+	private function activeTransition_onUpdate():Void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -162,7 +162,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransition_onComplete():void
+	private function activeTransition_onComplete():Void
 	{
 		this._savedOtherTarget = null;
 		this._activeTransition = null;

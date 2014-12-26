@@ -236,7 +236,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set pageCount(value:int):void
+	public function set pageCount(value:int):Void
 	{
 		if(this._pageCount == value)
 		{
@@ -264,7 +264,7 @@ class PageIndicator extends FeathersControl
 	 * requests the selected index:</p>
 	 *
 	 * <listing version="3.0">
-	 * function pages_changeHandler( event:Event ):void
+	 * function pages_changeHandler( event:Event ):Void
 	 * {
 	 *     var pages:PageIndicator = PageIndicator( event.currentTarget );
 	 *     var index:int = pages.selectedIndex;
@@ -282,7 +282,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):void
+	public function set selectedIndex(value:int):Void
 	{
 		value = Math.max(0, Math.min(value, this._pageCount - 1));
 		if(this._selectedIndex == value)
@@ -321,7 +321,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set interactionMode(value:String):void
+	public function set interactionMode(value:String):Void
 	{
 		this._interactionMode = value;
 	}
@@ -358,7 +358,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):void
+	public function set direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -397,7 +397,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -436,7 +436,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -469,7 +469,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -505,7 +505,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -537,7 +537,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -571,7 +571,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -605,7 +605,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -639,7 +639,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -681,7 +681,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set normalSymbolFactory(value:Function):void
+	public function set normalSymbolFactory(value:Function):Void
 	{
 		if(this._normalSymbolFactory == value)
 		{
@@ -723,7 +723,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedSymbolFactory(value:Function):void
+	public function set selectedSymbolFactory(value:Function):Void
 	{
 		if(this._selectedSymbolFactory == value)
 		{
@@ -736,7 +736,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -754,7 +754,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshSymbols(symbolsInvalid:Boolean):void
+	private function refreshSymbols(symbolsInvalid:Boolean):Void
 	{
 		this.symbols.length = 0;
 		var temp:Vector.<DisplayObject> = this.cache;
@@ -821,7 +821,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutSymbols(layoutInvalid:Boolean):void
+	private function layoutSymbols(layoutInvalid:Boolean):Void
 	{
 		if(layoutInvalid)
 		{
@@ -873,7 +873,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled || this._pageCount < 2)
 		{

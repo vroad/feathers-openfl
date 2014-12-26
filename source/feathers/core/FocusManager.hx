@@ -111,7 +111,7 @@ class FocusManager
 	 * @see #isEnabledForStage()
 	 * @see #getFocusManagerForStage()
 	 */
-	public static function setEnabledForStage(stage:Stage, isEnabled:Boolean):void
+	public static function setEnabledForStage(stage:Stage, isEnabled:Boolean):Void
 	{
 		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
 		if((isEnabled && stack) || (!isEnabled && !stack))
@@ -138,7 +138,7 @@ class FocusManager
 	 * Disables focus management on all stages where it has previously been
 	 * enabled.
 	 */
-	public function disableAll():void
+	public function disableAll():Void
 	{
 		for(var key:Object in STAGE_TO_STACK)
 		{
@@ -181,7 +181,7 @@ class FocusManager
 	/**
 	 * @private
 	 */
-	public static function set focus(value:IFocusDisplayObject):void
+	public static function set focus(value:IFocusDisplayObject):Void
 	{
 		var manager:IFocusManager = getFocusManagerForStage(Starling.current.stage);
 		if(!manager)
@@ -225,7 +225,7 @@ class FocusManager
 	 * the top-most focus manager, the next top-most focus manager is
 	 * enabled.
 	 */
-	public static function removeFocusManager(manager:IFocusManager):void
+	public static function removeFocusManager(manager:IFocusManager):Void
 	{
 		var stage:Stage = manager.root.stage;
 		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage] as Vector.<IFocusManager>;

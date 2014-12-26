@@ -135,7 +135,7 @@ class DragDropManager
 	 * immediately cancelled. Includes an optional "avatar", a visual
 	 * representation of the data that is being dragged.
 	 */
-	public static function startDrag(source:IDragSource, touch:Touch, data:DragData, dragAvatar:DisplayObject = null, dragAvatarOffsetX:Number = 0, dragAvatarOffsetY:Number = 0):void
+	public static function startDrag(source:IDragSource, touch:Touch, data:DragData, dragAvatar:DisplayObject = null, dragAvatarOffsetX:Number = 0, dragAvatarOffsetY:Number = 0):Void
 	{
 		if(isDragging)
 		{
@@ -176,7 +176,7 @@ class DragDropManager
 	 * drop. Meant to be called in a listener for the target's
 	 * <code>DragDropEvent.DRAG_ENTER</code> event.
 	 */
-	public static function acceptDrag(target:IDropTarget):void
+	public static function acceptDrag(target:IDropTarget):Void
 	{
 		if(dropTarget != target)
 		{
@@ -188,7 +188,7 @@ class DragDropManager
 	/**
 	 * Immediately cancels the current drag.
 	 */
-	public static function cancelDrag():void
+	public static function cancelDrag():Void
 	{
 		if(!isDragging)
 		{
@@ -200,7 +200,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function completeDrag(isDropped:Boolean):void
+	private static function completeDrag(isDropped:Boolean):Void
 	{
 		if(!isDragging)
 		{
@@ -220,7 +220,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function cleanup():void
+	private static function cleanup():Void
 	{
 		if(avatar)
 		{
@@ -241,7 +241,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function updateDropTarget(location:Point):void
+	private static function updateDropTarget(location:Point):Void
 	{
 		var target:DisplayObject = Starling.current.stage.hitTest(location, true);
 		while(target && !(target is IDropTarget))
@@ -279,7 +279,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private static function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.ESCAPE || event.keyCode == Keyboard.BACK)
 		{
@@ -291,7 +291,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function stage_touchHandler(event:TouchEvent):void
+	private static function stage_touchHandler(event:TouchEvent):Void
 	{
 		var stage:Stage = Starling.current.stage;
 		var touch:Touch = event.getTouch(stage, null, _touchPointID);

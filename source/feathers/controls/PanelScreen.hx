@@ -37,7 +37,7 @@ import starling.events.Event;
  *             this.addEventListener( FeathersEventType.INITIALIZE, initializeHandler );
  *         }
  *
- *         private function initializeHandler( event:Event ):void
+ *         private function initializeHandler( event:Event ):Void
  *         {
  *             //runs once when screen is first added to the stage.
  *             //a good place to add children and customize the layout
@@ -197,7 +197,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	public function set screenID(value:String):void
+	public function set screenID(value:String):Void
 	{
 		this._screenID = value;
 	}
@@ -218,7 +218,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	public function set owner(value:ScreenNavigator):void
+	public function set owner(value:ScreenNavigator):Void
 	{
 		this._owner = value;
 	}
@@ -229,7 +229,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will dispatch <code>Event.COMPLETE</code>
 	 * when the back button is pressed:</p>
@@ -237,7 +237,7 @@ class PanelScreen extends Panel implements IScreen
 	 * <listing version="3.0">
 	 * this.backButtonHandler = onBackButton;
 	 *
-	 * private function onBackButton():void
+	 * private function onBackButton():Void
 	 * {
 	 *     this.dispatchEvent( Event.COMPLETE );
 	 * };</listing>
@@ -252,7 +252,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will be called when the menu
 	 * button is pressed:</p>
@@ -260,7 +260,7 @@ class PanelScreen extends Panel implements IScreen
 	 * <listing version="3.0">
 	 * this.menuButtonHandler = onMenuButton;
 	 *
-	 * private function onMenuButton():void
+	 * private function onMenuButton():Void
 	 * {
 	 *     //do something with the menu button
 	 * };</listing>
@@ -275,7 +275,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * <p>This function has the following signature:</p>
 	 *
-	 * <pre>function():void</pre>
+	 * <pre>function():Void</pre>
 	 *
 	 * <p>In the following example, a function will be called when the search
 	 * button is pressed:</p>
@@ -283,7 +283,7 @@ class PanelScreen extends Panel implements IScreen
 	 * <listing version="3.0">
 	 * this.searchButtonHandler = onSearchButton;
 	 *
-	 * private function onSearchButton():void
+	 * private function onSearchButton():Void
 	 * {
 	 *     //do something with the search button
 	 * };</listing>
@@ -295,7 +295,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	private function panelScreen_addedToStageHandler(event:Event):void
+	private function panelScreen_addedToStageHandler(event:Event):Void
 	{
 		this.addEventListener(Event.REMOVED_FROM_STAGE, panelScreen_removedFromStageHandler);
 		//using priority here is a hack so that objects higher up in the
@@ -307,7 +307,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	private function panelScreen_removedFromStageHandler(event:Event):void
+	private function panelScreen_removedFromStageHandler(event:Event):Void
 	{
 		this.removeEventListener(Event.REMOVED_FROM_STAGE, panelScreen_removedFromStageHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, panelScreen_nativeStage_keyDownHandler);
@@ -316,7 +316,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	private function panelScreen_nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function panelScreen_nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.isDefaultPrevented())
 		{

@@ -343,7 +343,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -381,7 +381,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -415,7 +415,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set showLabels(value:Boolean):void
+	public function set showLabels(value:Boolean):Void
 	{
 		if(this._showLabels == value)
 		{
@@ -449,7 +449,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set showThumb(value:Boolean):void
+	public function set showThumb(value:Boolean):Void
 	{
 		if(this._showThumb == value)
 		{
@@ -487,7 +487,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set trackLayoutMode(value:String):void
+	public function set trackLayoutMode(value:String):Void
 	{
 		if(this._trackLayoutMode == value)
 		{
@@ -542,7 +542,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set defaultLabelProperties(value:Object):void
+	public function set defaultLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -602,7 +602,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set disabledLabelProperties(value:Object):void
+	public function set disabledLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -663,7 +663,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set onLabelProperties(value:Object):void
+	public function set onLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -724,7 +724,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set offLabelProperties(value:Object):void
+	public function set offLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -770,7 +770,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set labelAlign(value:String):void
+	public function set labelAlign(value:String):Void
 	{
 		if(this._labelAlign == value)
 		{
@@ -822,7 +822,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set labelFactory(value:Function):void
+	public function set labelFactory(value:Function):Void
 	{
 		if(this._labelFactory == value)
 		{
@@ -876,7 +876,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set onLabelFactory(value:Function):void
+	public function set onLabelFactory(value:Function):Void
 	{
 		if(this._onLabelFactory == value)
 		{
@@ -930,7 +930,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set offLabelFactory(value:Function):void
+	public function set offLabelFactory(value:Function):Void
 	{
 		if(this._offLabelFactory == value)
 		{
@@ -985,7 +985,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):void
+	public function set isSelected(value:Boolean):Void
 	{
 		this._animateSelectionChange = false;
 		if(this._isSelected == value)
@@ -1028,7 +1028,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set toggleThumbSelection(value:Boolean):void
+	public function set toggleThumbSelection(value:Boolean):Void
 	{
 		if(this._toggleThumbSelection == value)
 		{
@@ -1063,7 +1063,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set toggleDuration(value:Number):void
+	public function set toggleDuration(value:Number):Void
 	{
 		this._toggleDuration = value;
 	}
@@ -1094,7 +1094,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set toggleEase(value:Object):void
+	public function set toggleEase(value:Object):Void
 	{
 		this._toggleEase = value;
 	}
@@ -1123,7 +1123,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set onText(value:String):void
+	public function set onText(value:String):Void
 	{
 		if(value === null)
 		{
@@ -1161,7 +1161,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set offText(value:String):void
+	public function set offText(value:String):Void
 	{
 		if(value === null)
 		{
@@ -1245,7 +1245,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set onTrackFactory(value:Function):void
+	public function set onTrackFactory(value:Function):Void
 	{
 		if(this._onTrackFactory == value)
 		{
@@ -1291,7 +1291,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set customOnTrackName(value:String):void
+	public function set customOnTrackName(value:String):Void
 	{
 		if(this._customOnTrackName == value)
 		{
@@ -1344,7 +1344,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set onTrackProperties(value:Object):void
+	public function set onTrackProperties(value:Object):Void
 	{
 		if(this._onTrackProperties == value)
 		{
@@ -1415,7 +1415,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set offTrackFactory(value:Function):void
+	public function set offTrackFactory(value:Function):Void
 	{
 		if(this._offTrackFactory == value)
 		{
@@ -1461,7 +1461,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set customOffTrackName(value:String):void
+	public function set customOffTrackName(value:String):Void
 	{
 		if(this._customOffTrackName == value)
 		{
@@ -1514,7 +1514,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set offTrackProperties(value:Object):void
+	public function set offTrackProperties(value:Object):Void
 	{
 		if(this._offTrackProperties == value)
 		{
@@ -1583,7 +1583,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set thumbFactory(value:Function):void
+	public function set thumbFactory(value:Function):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1629,7 +1629,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):void
+	public function set customThumbName(value:String):Void
 	{
 		if(this._customThumbName == value)
 		{
@@ -1682,7 +1682,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set thumbProperties(value:Object):void
+	public function set thumbProperties(value:Object):Void
 	{
 		if(this._thumbProperties == value)
 		{
@@ -1719,7 +1719,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #isSelected
 	 */
-	public function setSelectionWithAnimation(isSelected:Boolean):void
+	public function setSelectionWithAnimation(isSelected:Boolean):Void
 	{
 		if(this._isSelected == isSelected)
 		{
@@ -1732,7 +1732,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1898,7 +1898,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #thumbFactory
 	 * @see #customThumbName
 	 */
-	private function createThumb():void
+	private function createThumb():Void
 	{
 		if(this.thumb)
 		{
@@ -1926,7 +1926,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #onTrackFactory
 	 * @see #customOnTrackName
 	 */
-	private function createOnTrack():void
+	private function createOnTrack():Void
 	{
 		if(this.onTrack)
 		{
@@ -1954,7 +1954,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #offTrackFactory
 	 * @see #customOffTrackName
 	 */
-	private function createOffTrack():void
+	private function createOffTrack():Void
 	{
 		if(this._trackLayoutMode == TRACK_LAYOUT_MODE_ON_OFF)
 		{
@@ -1980,7 +1980,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function createLabels():void
+	private function createLabels():Void
 	{
 		if(this.offTextRenderer)
 		{
@@ -2026,7 +2026,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function layoutChildren():void
+	private function layoutChildren():Void
 	{
 		this.thumb.validate();
 		this.thumb.y = (this.actualHeight - this.thumb.height) / 2;
@@ -2063,7 +2063,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function layoutTracks():void
+	private function layoutTracks():Void
 	{
 		var maxLabelWidth:Number = Math.max(0, this.actualWidth - this.thumb.width - this._paddingLeft - this._paddingRight);
 		var thumbOffset:Number = this.thumb.x - this._paddingLeft;
@@ -2093,7 +2093,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function updateSelection():void
+	private function updateSelection():Void
 	{
 		if(this.thumb is IToggle)
 		{
@@ -2140,7 +2140,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function refreshOnLabelStyles():void
+	private function refreshOnLabelStyles():Void
 	{
 		//no need to style the label field if there's no text to display
 		if(!this._showLabels || !this._showThumb)
@@ -2180,7 +2180,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function refreshOffLabelStyles():void
+	private function refreshOffLabelStyles():Void
 	{
 		//no need to style the label field if there's no text to display
 		if(!this._showLabels || !this._showThumb)
@@ -2220,7 +2220,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function refreshThumbStyles():void
+	private function refreshThumbStyles():Void
 	{
 		for(var propertyName:String in this._thumbProperties)
 		{
@@ -2233,7 +2233,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function refreshOnTrackStyles():void
+	private function refreshOnTrackStyles():Void
 	{
 		for(var propertyName:String in this._onTrackProperties)
 		{
@@ -2245,7 +2245,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function refreshOffTrackStyles():void
+	private function refreshOffTrackStyles():Void
 	{
 		if(!this.offTrack)
 		{
@@ -2261,7 +2261,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function layoutTrackWithOnOff():void
+	private function layoutTrackWithOnOff():Void
 	{
 		this.onTrack.x = 0;
 		this.onTrack.y = 0;
@@ -2281,7 +2281,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function layoutTrackWithSingle():void
+	private function layoutTrackWithSingle():Void
 	{
 		this.onTrack.x = 0;
 		this.onTrack.y = 0;
@@ -2295,7 +2295,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -2303,7 +2303,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function toggleSwitch_removedFromStageHandler(event:Event):void
+	private function toggleSwitch_removedFromStageHandler(event:Event):Void
 	{
 		this._touchPointID = -1;
 	}
@@ -2311,7 +2311,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2321,7 +2321,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2331,7 +2331,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function toggleSwitch_touchHandler(event:TouchEvent):void
+	private function toggleSwitch_touchHandler(event:TouchEvent):Void
 	{
 		if(this._ignoreTapHandler)
 		{
@@ -2361,7 +2361,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function thumb_touchHandler(event:TouchEvent):void
+	private function thumb_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -2417,7 +2417,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.ESCAPE)
 		{
@@ -2433,7 +2433,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function stage_keyUpHandler(event:KeyboardEvent):void
+	private function stage_keyUpHandler(event:KeyboardEvent):Void
 	{
 		if(this._touchPointID != int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
 		{
@@ -2446,7 +2446,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function selectionTween_onUpdate():void
+	private function selectionTween_onUpdate():Void
 	{
 		this.layoutTracks();
 	}
@@ -2454,7 +2454,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function selectionTween_onComplete():void
+	private function selectionTween_onComplete():Void
 	{
 		this._toggleTween = null;
 	}

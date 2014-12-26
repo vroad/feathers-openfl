@@ -135,7 +135,7 @@ class TabBarSlideTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 	{
 		this._oldScreen = oldScreen;
 		this._newScreen = newScreen;
@@ -154,7 +154,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private function transitionNow():void
+	private function transitionNow():Void
 	{
 		this._activeIndex = this._pendingIndex;
 		if(this._activeTransition)
@@ -214,7 +214,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransitionFromRight_onUpdate():void
+	private function activeTransitionFromRight_onUpdate():Void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -226,7 +226,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransitionFromLeft_onUpdate():void
+	private function activeTransitionFromLeft_onUpdate():Void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -238,7 +238,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransition_onComplete():void
+	private function activeTransition_onComplete():Void
 	{
 		this._savedOtherTarget = null;
 		this._activeTransition = null;
@@ -251,7 +251,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private function tabBar_changeHandler(event:Event):void
+	private function tabBar_changeHandler(event:Event):Void
 	{
 		this._pendingIndex = this.tabBar.selectedIndex;
 		if(this._pendingIndex == this._activeIndex)

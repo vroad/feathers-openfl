@@ -76,7 +76,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set index(value:int):void
+	public function set index(value:int):Void
 	{
 		if(this._index == value)
 		{
@@ -102,7 +102,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set owner(value:List):void
+	public function set owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -142,7 +142,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):void
+	public function set data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -169,7 +169,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):void
+	public function set isSelected(value:Boolean):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -182,7 +182,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.image = new ImageLoader();
 		this.image.textureQueueDuration = 0.25;
@@ -194,7 +194,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -305,7 +305,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function fadeTween_onComplete():void
+	private function fadeTween_onComplete():Void
 	{
 		this.fadeTween = null;
 	}
@@ -313,7 +313,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):Void
 	{
 		this.touchPointID = -1;
 	}
@@ -321,7 +321,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		var touches:Vector.<Touch> = event.getTouches(this, null, HELPER_TOUCHES_VECTOR);
 		if(touches.length == 0)
@@ -372,7 +372,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function owner_scrollStartHandler(event:Event):void
+	private function owner_scrollStartHandler(event:Event):Void
 	{
 		this.touchPointID = -1;
 		this.image.delayTextureCreation = true;
@@ -381,7 +381,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function owner_scrollCompleteHandler(event:Event):void
+	private function owner_scrollCompleteHandler(event:Event):Void
 	{
 		this.image.delayTextureCreation = false;
 	}
@@ -389,7 +389,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function image_completeHandler(event:Event):void
+	private function image_completeHandler(event:Event):Void
 	{
 		this.image.alpha = 0;
 		this.image.visible = true;
@@ -400,7 +400,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private function image_errorHandler(event:Event):void
+	private function image_errorHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

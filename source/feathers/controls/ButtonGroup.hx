@@ -33,7 +33,7 @@ import starling.events.Event;
  *     { label: "No" },
  *     { label: "Cancel" },
  * ]);
- * group.addEventListener( Event.TRIGGERED, function( event:Event, data:Object ):void
+ * group.addEventListener( Event.TRIGGERED, function( event:Event, data:Object ):Void
  * {
  *    trace( "The button with label \"" + data.label + "\" was triggered." );
  * }</listing>
@@ -378,7 +378,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):void
+	public function set dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -444,7 +444,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):void
+	public function set direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -484,7 +484,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -524,7 +524,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -562,7 +562,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeButtonSizes(value:Boolean):void
+	public function set distributeButtonSizes(value:Boolean):Void
 	{
 		if(this._distributeButtonSizes == value)
 		{
@@ -596,7 +596,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -635,7 +635,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Number):void
+	public function set firstGap(value:Number):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -674,7 +674,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Number):void
+	public function set lastGap(value:Number):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -711,7 +711,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -744,7 +744,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -779,7 +779,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -814,7 +814,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -849,7 +849,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -900,7 +900,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonFactory(value:Function):void
+	public function set buttonFactory(value:Function):Void
 	{
 		if(this._buttonFactory == value)
 		{
@@ -953,7 +953,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstButtonFactory(value:Function):void
+	public function set firstButtonFactory(value:Function):Void
 	{
 		if(this._firstButtonFactory == value)
 		{
@@ -1006,7 +1006,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastButtonFactory(value:Function):void
+	public function set lastButtonFactory(value:Function):Void
 	{
 		if(this._lastButtonFactory == value)
 		{
@@ -1032,12 +1032,12 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * <p>This function is expected to have the following signature:</p>
 	 *
-	 * <pre>function( button:Button, item:Object ):void</pre>
+	 * <pre>function( button:Button, item:Object ):Void</pre>
 	 *
 	 * <p>The following example provides a custom button initializer:</p>
 	 *
 	 * <listing version="3.0">
-	 * group.buttonInitializer = function( button:Button, item:Object ):void
+	 * group.buttonInitializer = function( button:Button, item:Object ):Void
 	 * {
 	 *     button.label = item.label;
 	 * };</listing>
@@ -1052,7 +1052,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonInitializer(value:Function):void
+	public function set buttonInitializer(value:Function):Void
 	{
 		if(this._buttonInitializer == value)
 		{
@@ -1095,7 +1095,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customButtonName(value:String):void
+	public function set customButtonName(value:String):Void
 	{
 		if(this._customButtonName == value)
 		{
@@ -1137,7 +1137,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstButtonName(value:String):void
+	public function set customFirstButtonName(value:String):Void
 	{
 		if(this._customFirstButtonName == value)
 		{
@@ -1179,7 +1179,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastButtonName(value:String):void
+	public function set customLastButtonName(value:String):Void
 	{
 		if(this._customLastButtonName == value)
 		{
@@ -1237,7 +1237,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonProperties(value:Object):void
+	public function set buttonProperties(value:Object):Void
 	{
 		if(this._buttonProperties == value)
 		{
@@ -1271,7 +1271,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.dataProvider = null;
 		super.dispose();
@@ -1280,7 +1280,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1314,7 +1314,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitEnabled():void
+	private function commitEnabled():Void
 	{
 		var buttonCount:int = this.activeButtons.length;
 		for(var i:int = 0; i < buttonCount; i++)
@@ -1327,7 +1327,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshButtonStyles():void
+	private function refreshButtonStyles():Void
 	{
 		for(var propertyName:String in this._buttonProperties)
 		{
@@ -1342,7 +1342,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshLayoutStyles():void
+	private function refreshLayoutStyles():Void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1393,7 +1393,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultButtonInitializer(button:Button, item:Object):void
+	private function defaultButtonInitializer(button:Button, item:Object):Void
 	{
 		if(item is Object)
 		{
@@ -1453,7 +1453,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshButtons(isFactoryInvalid:Boolean):void
+	private function refreshButtons(isFactoryInvalid:Boolean):Void
 	{
 		var temp:Vector.<Button> = this.inactiveButtons;
 		this.inactiveButtons = this.activeButtons;
@@ -1510,7 +1510,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function clearInactiveButtons():void
+	private function clearInactiveButtons():Void
 	{
 		var itemCount:int = this.inactiveButtons.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1652,7 +1652,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function destroyButton(button:Button):void
+	private function destroyButton(button:Button):Void
 	{
 		button.removeEventListener(Event.TRIGGERED, button_triggeredHandler);
 		this.removeChild(button, true);
@@ -1661,7 +1661,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutButtons():void
+	private function layoutButtons():Void
 	{
 		this._viewPortBounds.x = 0;
 		this._viewPortBounds.y = 0;
@@ -1687,7 +1687,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1695,7 +1695,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
@@ -1703,7 +1703,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function button_triggeredHandler(event:Event):void
+	private function button_triggeredHandler(event:Event):Void
 	{
 		//if this was called after dispose, ignore it
 		if(!this._dataProvider || !this.activeButtons)
@@ -1719,7 +1719,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultButtonEventsListener(event:Event):void
+	private function defaultButtonEventsListener(event:Event):Void
 	{
 		var button:Button = Button(event.currentTarget);
 		var index:int = this.activeButtons.indexOf(button);

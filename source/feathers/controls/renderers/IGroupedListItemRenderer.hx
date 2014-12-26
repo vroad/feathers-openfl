@@ -26,7 +26,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set data(value:Object):void;
+	function set data(value:Object):Void;
 	
 	/**
 	 * The index of the item's parent group within the data provider of the
@@ -39,7 +39,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set groupIndex(value:int):void;
+	function set groupIndex(value:int):Void;
 
 	/**
 	 * The index of the item within its parent group.
@@ -51,7 +51,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set itemIndex(value:int):void;
+	function set itemIndex(value:int):Void;
 
 	/**
 	 * The index of the item within the layout.
@@ -63,7 +63,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set layoutIndex(value:int):void;
+	function set layoutIndex(value:int):Void;
 	
 	/**
 	 * The grouped list that contains this item renderer.
@@ -75,5 +75,5 @@ public interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set owner(value:GroupedList):void;
+	function set owner(value:GroupedList):Void;
 }

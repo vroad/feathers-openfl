@@ -66,7 +66,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * Disposes the exclusive touch manager for the specified stage.
 	 */
-	public static function disposeForStage(stage:Stage):void
+	public static function disposeForStage(stage:Stage):Void
 	{
 		delete stageToObject[stage];
 	}
@@ -136,7 +136,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * Removes a claim to the touch with the specified ID.
 	 */
-	public function removeClaim(touchID:int):void
+	public function removeClaim(touchID:int):Void
 	{
 		var existingTarget:DisplayObject = DisplayObject(this._claims[touchID]);
 		if(!existingTarget)
@@ -164,7 +164,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		for(var key:Object in this._claims)
 		{

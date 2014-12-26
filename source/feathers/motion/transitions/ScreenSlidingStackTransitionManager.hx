@@ -124,7 +124,7 @@ class ScreenSlidingStackTransitionManager
 	 * which side of the <code>ScreenNavigator</code> the new screen will
 	 * slide in from.
 	 */
-	public function clearStack():void
+	public function clearStack():Void
 	{
 		this._stack.length = 0;
 	}
@@ -133,7 +133,7 @@ class ScreenSlidingStackTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 	{
 		if(this._activeTransition)
 		{
@@ -201,7 +201,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransitionPush_onUpdate():void
+	private function activeTransitionPush_onUpdate():Void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -213,7 +213,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransitionPop_onUpdate():void
+	private function activeTransitionPop_onUpdate():Void
 	{
 		if(this._savedOtherTarget)
 		{
@@ -225,7 +225,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	private function activeTransition_onComplete():void
+	private function activeTransition_onComplete():Void
 	{
 		this._activeTransition = null;
 		this._savedOtherTarget = null;

@@ -293,7 +293,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set headerFactory(value:Function):void
+	public function set headerFactory(value:Function):Void
 	{
 		if(this._headerFactory == value)
 		{
@@ -344,7 +344,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customHeaderName(value:String):void
+	public function set customHeaderName(value:String):Void
 	{
 		if(this._customHeaderName == value)
 		{
@@ -402,7 +402,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set headerProperties(value:Object):void
+	public function set headerProperties(value:Object):Void
 	{
 		if(this._headerProperties == value)
 		{
@@ -471,7 +471,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set footerFactory(value:Function):void
+	public function set footerFactory(value:Function):Void
 	{
 		if(this._footerFactory == value)
 		{
@@ -522,7 +522,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customFooterName(value:String):void
+	public function set customFooterName(value:String):Void
 	{
 		if(this._customFooterName == value)
 		{
@@ -578,7 +578,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set footerProperties(value:Object):void
+	public function set footerProperties(value:Object):Void
 	{
 		if(this._footerProperties == value)
 		{
@@ -662,7 +662,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPadding(value:Number):void
+	public function set outerPadding(value:Number):Void
 	{
 		this.outerPaddingTop = value;
 		this.outerPaddingRight = value;
@@ -703,7 +703,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingTop(value:Number):void
+	public function set outerPaddingTop(value:Number):Void
 	{
 		if(this._outerPaddingTop == value)
 		{
@@ -747,7 +747,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingRight(value:Number):void
+	public function set outerPaddingRight(value:Number):Void
 	{
 		if(this._outerPaddingRight == value)
 		{
@@ -790,7 +790,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingBottom(value:Number):void
+	public function set outerPaddingBottom(value:Number):Void
 	{
 		if(this._outerPaddingBottom == value)
 		{
@@ -834,7 +834,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingLeft(value:Number):void
+	public function set outerPaddingLeft(value:Number):Void
 	{
 		if(this._outerPaddingLeft == value)
 		{
@@ -857,7 +857,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var headerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_HEADER_FACTORY);
 		var footerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOOTER_FACTORY);
@@ -966,7 +966,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #customHeaderName
 	 */
-	private function createHeader():void
+	private function createHeader():Void
 	{
 		if(this.header)
 		{
@@ -998,7 +998,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #customFooterName
 	 */
-	private function createFooter():void
+	private function createFooter():Void
 	{
 		if(this.footer)
 		{
@@ -1025,7 +1025,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function refreshHeaderStyles():void
+	private function refreshHeaderStyles():Void
 	{
 		for(var propertyName:String in this._headerProperties)
 		{
@@ -1037,7 +1037,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function refreshFooterStyles():void
+	private function refreshFooterStyles():Void
 	{
 		for(var propertyName:String in this._footerProperties)
 		{
@@ -1049,7 +1049,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
+	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
 	{
 		super.calculateViewPortOffsets(forceScrollBars);
 
@@ -1103,7 +1103,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override private function layoutChildren():void
+	override private function layoutChildren():Void
 	{
 		super.layoutChildren();
 
@@ -1132,7 +1132,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function header_resizeHandler(event:Event):void
+	private function header_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreHeaderResizing)
 		{
@@ -1144,7 +1144,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function footer_resizeHandler(event:Event):void
+	private function footer_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreFooterResizing)
 		{

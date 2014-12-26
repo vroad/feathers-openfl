@@ -63,7 +63,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._data;
 	}
 
-	public function set data(value:Object):void
+	public function set data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -81,7 +81,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._index;
 	}
 
-	public function set index(value:int):void
+	public function set index(value:int):Void
 	{
 		this._index = value;
 		if(this._owner && this._owner.dataProvider)
@@ -98,7 +98,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isFirstItem;
 	}
 
-	public function set isFirstItem(value:Boolean):void
+	public function set isFirstItem(value:Boolean):Void
 	{
 		if(this._isFirstItem == value)
 		{
@@ -115,7 +115,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isLastItem;
 	}
 
-	public function set isLastItem(value:Boolean):void
+	public function set isLastItem(value:Boolean):Void
 	{
 		if(this._isLastItem == value)
 		{
@@ -132,7 +132,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isInDestinationPhase;
 	}
 
-	public function set isInDestinationPhase(value:Boolean):void
+	public function set isInDestinationPhase(value:Boolean):Void
 	{
 		if(this._isInDestinationPhase == value)
 		{
@@ -149,7 +149,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._owner;
 	}
 
-	public function set owner(value:List):void
+	public function set owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -180,7 +180,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isSelected;
 	}
 
-	public function set isSelected(value:Boolean):void
+	public function set isSelected(value:Boolean):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -204,7 +204,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._normalIconTexture;
 	}
 
-	public function set normalIconTexture(value:Texture):void
+	public function set normalIconTexture(value:Texture):Void
 	{
 		if(this._normalIconTexture == value)
 		{
@@ -221,7 +221,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._firstNormalIconTexture;
 	}
 
-	public function set firstNormalIconTexture(value:Texture):void
+	public function set firstNormalIconTexture(value:Texture):Void
 	{
 		if(this._firstNormalIconTexture == value)
 		{
@@ -238,7 +238,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._lastNormalIconTexture;
 	}
 
-	public function set lastNormalIconTexture(value:Texture):void
+	public function set lastNormalIconTexture(value:Texture):Void
 	{
 		if(this._lastNormalIconTexture == value)
 		{
@@ -255,7 +255,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._selectedIconTexture;
 	}
 
-	public function set selectedIconTexture(value:Texture):void
+	public function set selectedIconTexture(value:Texture):Void
 	{
 		if(this._selectedIconTexture == value)
 		{
@@ -272,7 +272,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._firstSelectedIconTexture;
 	}
 
-	public function set firstSelectedIconTexture(value:Texture):void
+	public function set firstSelectedIconTexture(value:Texture):Void
 	{
 		if(this._firstSelectedIconTexture == value)
 		{
@@ -289,7 +289,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._lastSelectedIconTexture;
 	}
 
-	public function set lastSelectedIconTexture(value:Texture):void
+	public function set lastSelectedIconTexture(value:Texture):Void
 	{
 		if(this._lastSelectedIconTexture == value)
 		{
@@ -306,7 +306,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._iconLoaderFactory;
 	}
 
-	public function set iconLoaderFactory(value:Function):void
+	public function set iconLoaderFactory(value:Function):Void
 	{
 		if(this._iconLoaderFactory == value)
 		{
@@ -323,7 +323,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingTop;
 	}
 
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -340,7 +340,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingRight;
 	}
 
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -357,7 +357,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingBottom;
 	}
 
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -374,7 +374,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingLeft;
 	}
 
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -391,7 +391,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._gap;
 	}
 
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -405,7 +405,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var selectionTween:Tween;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.background = new Quad(10, 10, 0x3b2a41);
 		this.background.alpha = 0;
@@ -437,7 +437,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.addChild(this.cancelButton);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -485,7 +485,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this.setSizeInternal(newWidth, newHeight, false);
 	}
 
-	private function refreshIcon():void
+	private function refreshIcon():Void
 	{
 		if(this.icon)
 		{
@@ -496,7 +496,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addChild(this.icon);
 	}
 
-	private function commitData():void
+	private function commitData():Void
 	{
 		if(this._owner)
 		{
@@ -560,7 +560,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 	}
 
-	private function layout():void
+	private function layout():Void
 	{
 		this.background.width = this.actualWidth;
 		this.background.height = this.actualHeight;
@@ -622,7 +622,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.y = this.actualHeight - this.actionContainer.height;
 	}
 
-	private function selectionTween_onUpdate():void
+	private function selectionTween_onUpdate():Void
 	{
 		var ratio:Number = this.selectionTween.transitionFunc(this.selectionTween.currentTime / this.selectionTween.totalTime);
 		if(!this._isSelected)
@@ -633,30 +633,30 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.actionContainer.x = this.actualWidth - this.actionContainer.width * ratio;
 	}
 
-	private function selectionTween_onSelectComplete():void
+	private function selectionTween_onSelectComplete():Void
 	{
 		this.selectionTween = null;
 	}
 
-	private function selectionTween_onDeselectComplete():void
+	private function selectionTween_onDeselectComplete():Void
 	{
 		this.detailsLabel.visible = false;
 		this.actionContainer.visible = false;
 		this.selectionTween = null;
 	}
 
-	private function selectionTween_onConfirmComplete():void
+	private function selectionTween_onConfirmComplete():Void
 	{
 		this.actionContainer.visible = false;
 		this.selectionTween = null;
 	}
 
-	private function selectionTween_onUnconfirmComplete():void
+	private function selectionTween_onUnconfirmComplete():Void
 	{
 		this.selectionTween = null;
 	}
 
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -716,12 +716,12 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		HELPER_TOUCHES_VECTOR.length = 0;
 	}
 
-	private function owner_scrollHandler(event:Event):void
+	private function owner_scrollHandler(event:Event):Void
 	{
 		this._touchPointID = -1;
 	}
 
-	private function confirmButton_triggeredHandler(event:Event):void
+	private function confirmButton_triggeredHandler(event:Event):Void
 	{
 		if(this.confirmCallback == null)
 		{
@@ -730,7 +730,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.confirmCallback();
 	}
 
-	private function cancelButton_triggeredHandler(event:Event):void
+	private function cancelButton_triggeredHandler(event:Event):Void
 	{
 		this._owner.selectedIndex = -1;
 	}

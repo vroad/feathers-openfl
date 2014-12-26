@@ -28,7 +28,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._minVisibleWidth;
 	}
 
-	public function set minVisibleWidth(value:Number):void
+	public function set minVisibleWidth(value:Number):Void
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -49,7 +49,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._maxVisibleWidth;
 	}
 
-	public function set maxVisibleWidth(value:Number):void
+	public function set maxVisibleWidth(value:Number):Void
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -76,7 +76,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._explicitVisibleWidth;
 	}
 
-	public function set visibleWidth(value:Number):void
+	public function set visibleWidth(value:Number):Void
 	{
 		if(this._explicitVisibleWidth == value ||
 			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
@@ -94,7 +94,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._minVisibleHeight;
 	}
 
-	public function set minVisibleHeight(value:Number):void
+	public function set minVisibleHeight(value:Number):Void
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -115,7 +115,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._maxVisibleHeight;
 	}
 
-	public function set maxVisibleHeight(value:Number):void
+	public function set maxVisibleHeight(value:Number):Void
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -142,7 +142,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._explicitVisibleHeight;
 	}
 
-	public function set visibleHeight(value:Number):void
+	public function set visibleHeight(value:Number):Void
 	{
 		if(this._explicitVisibleHeight == value ||
 			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
@@ -192,7 +192,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._horizontalScrollPosition;
 	}
 
-	public function set horizontalScrollPosition(value:Number):void
+	public function set horizontalScrollPosition(value:Number):Void
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -209,7 +209,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._verticalScrollPosition;
 	}
 
-	public function set verticalScrollPosition(value:Number):void
+	public function set verticalScrollPosition(value:Number):Void
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -219,13 +219,13 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.layout = null;
 		super.dispose();
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -245,7 +245,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 	}
 
-	override private function refreshViewPortBounds():void
+	override private function refreshViewPortBounds():Void
 	{
 		this.viewPortBounds.x = 0;
 		this.viewPortBounds.y = 0;
@@ -259,7 +259,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	override private function handleManualLayout():void
+	override private function handleManualLayout():Void
 	{
 		var minX:Number = 0;
 		var minY:Number = 0;

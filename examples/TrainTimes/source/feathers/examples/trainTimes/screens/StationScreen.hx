@@ -37,7 +37,7 @@ class StationScreen extends Screen
 
 	private var _headerTween:Tween;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._stationList = new List();
 		this._stationList.styleNameList.add(CHILD_NAME_STATION_LIST);
@@ -72,7 +72,7 @@ class StationScreen extends Screen
 		this.addChild(this._destinationHeader);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		this._departureHeader.width = this.actualWidth;
 		this._destinationHeader.width = this.actualWidth;
@@ -101,7 +101,7 @@ class StationScreen extends Screen
 		this._stationList.height = this.actualHeight - this._stationList.y;
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.selectedDepartureStation.isDepartingFromHere = false;
 		var index:int = this._stationList.dataProvider.getItemIndex(this.selectedDepartureStation);
@@ -125,7 +125,7 @@ class StationScreen extends Screen
 		Starling.juggler.add(this._headerTween);
 	}
 
-	private function stationList_onConfirm():void
+	private function stationList_onConfirm():Void
 	{
 		if(this.selectedDepartureStation)
 		{
@@ -155,39 +155,39 @@ class StationScreen extends Screen
 		Starling.juggler.add(this._headerTween);
 	}
 
-	private function headerTween_onUpdate():void
+	private function headerTween_onUpdate():Void
 	{
 		this._destinationHeader.x = this._departureHeader.x - this.actualWidth;
 	}
 
-	private function headerTween_onDestinationShowComplete():void
+	private function headerTween_onDestinationShowComplete():Void
 	{
 		this._departureHeader.visible = false;
 		this._headerTween = null;
 	}
 
-	private function headerTween_onDestinationHideComplete():void
+	private function headerTween_onDestinationHideComplete():Void
 	{
 		this._destinationHeader.visible = false;
 		this._headerTween = null;
 	}
 
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler, false, 0, true);
 	}
 
-	private function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.BACK && this.selectedDepartureStation)
 		{

@@ -65,7 +65,7 @@ import starling.events.Event;
  * <listing version="3.0">
  * button.addEventListener( Event.TRIGGERED, button_triggeredHandler );
  *
- * function button_triggeredHandler( event:Event ):void
+ * function button_triggeredHandler( event:Event ):Void
  * {
  *     var alert:Alert = Alert.show( "This is an alert!", "Hello World", new ListCollection(
  *     [
@@ -181,7 +181,7 @@ class Alert extends Panel
 	 * <listing version="3.0">
 	 * button.addEventListener( Event.TRIGGERED, button_triggeredHandler );
 	 *
-	 * function button_triggeredHandler( event:Event ):void
+	 * function button_triggeredHandler( event:Event ):Void
 	 * {
 	 *     var alert:Alert = Alert.show( "This is an alert!", "Hello World", new ListCollection(
 	 *     [
@@ -287,7 +287,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set title(value:String):void
+	public function set title(value:String):Void
 	{
 		if(this._title == value)
 		{
@@ -313,7 +313,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set message(value:String):void
+	public function set message(value:String):Void
 	{
 		if(this._message == value)
 		{
@@ -339,7 +339,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set icon(value:DisplayObject):void
+	public function set icon(value:DisplayObject):Void
 	{
 		if(this._icon == value)
 		{
@@ -384,7 +384,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -410,7 +410,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonsDataProvider(value:ListCollection):void
+	public function set buttonsDataProvider(value:ListCollection):Void
 	{
 		if(this._buttonsDataProvider == value)
 		{
@@ -469,7 +469,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set messageFactory(value:Function):void
+	public function set messageFactory(value:Function):Void
 	{
 		if(this._messageFactory == value)
 		{
@@ -529,7 +529,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set messageProperties(value:Object):void
+	public function set messageProperties(value:Object):Void
 	{
 		if(this._messageProperties == value)
 		{
@@ -584,7 +584,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonGroupFactory(value:Function):void
+	public function set buttonGroupFactory(value:Function):Void
 	{
 		super.footerFactory = value;
 	}
@@ -620,7 +620,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set customButtonGroupName(value:String):void
+	public function set customButtonGroupName(value:String):Void
 	{
 		super.customFooterName = value;
 	}
@@ -658,7 +658,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonGroupProperties(value:Object):void
+	public function set buttonGroupProperties(value:Object):Void
 	{
 		super.footerProperties = value;
 	}
@@ -666,7 +666,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this.layout)
 		{
@@ -680,7 +680,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES)
@@ -811,7 +811,7 @@ class Alert extends Panel
 	 * @see #headerFactory
 	 * @see #customHeaderName
 	 */
-	override private function createHeader():void
+	override private function createHeader():Void
 	{
 		super.createHeader();
 		this.headerHeader = Header(this.header);
@@ -828,7 +828,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #customButtonGroupName
 	 */
-	private function createButtonGroup():void
+	private function createButtonGroup():Void
 	{
 		if(this.buttonGroupFooter)
 		{
@@ -842,7 +842,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function createFooter():void
+	override private function createFooter():Void
 	{
 		this.createButtonGroup();
 	}
@@ -858,7 +858,7 @@ class Alert extends Panel
 	 * @see #messageTextRenderer
 	 * @see #messageFactory
 	 */
-	private function createMessage():void
+	private function createMessage():Void
 	{
 		if(this.messageTextRenderer)
 		{
@@ -877,7 +877,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function refreshHeaderStyles():void
+	override private function refreshHeaderStyles():Void
 	{
 		super.refreshHeaderStyles();
 		this.headerHeader.title = this._title;
@@ -886,7 +886,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function refreshFooterStyles():void
+	override private function refreshFooterStyles():Void
 	{
 		super.refreshFooterStyles();
 		this.buttonGroupFooter.dataProvider = this._buttonsDataProvider;
@@ -895,7 +895,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private function refreshMessageStyles():void
+	private function refreshMessageStyles():Void
 	{
 		for(var propertyName:String in this._messageProperties)
 		{
@@ -907,7 +907,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):void
+	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
 	{
 		super.calculateViewPortOffsets(forceScrollBars, useActualBounds);
 		if(this._icon)
@@ -927,7 +927,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private function buttonsFooter_triggeredHandler(event:Event, data:Object):void
+	private function buttonsFooter_triggeredHandler(event:Event, data:Object):Void
 	{
 		this.removeFromParent();
 		this.dispatchEventWith(Event.CLOSE, false, data);

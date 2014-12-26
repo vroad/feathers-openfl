@@ -118,7 +118,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -148,7 +148,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Number):void
+	public function set firstGap(value:Number):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -178,7 +178,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Number):void
+	public function set lastGap(value:Number):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -209,7 +209,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -235,7 +235,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -263,7 +263,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -291,7 +291,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -320,7 +320,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -355,7 +355,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -389,7 +389,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -417,7 +417,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set useVirtualLayout(value:Boolean):void
+	public function set useVirtualLayout(value:Boolean):Void
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -447,7 +447,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set hasVariableItemDimensions(value:Boolean):void
+	public function set hasVariableItemDimensions(value:Boolean):Void
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
@@ -478,7 +478,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set distributeWidths(value:Boolean):void
+	public function set distributeWidths(value:Boolean):Void
 	{
 		if(this._distributeWidths == value)
 		{
@@ -518,7 +518,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set manageVisibility(value:Boolean):void
+	public function set manageVisibility(value:Boolean):Void
 	{
 		if(this._manageVisibility == value)
 		{
@@ -544,7 +544,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set beforeVirtualizedItemCount(value:int):void
+	public function set beforeVirtualizedItemCount(value:int):Void
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
@@ -570,7 +570,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set afterVirtualizedItemCount(value:int):void
+	public function set afterVirtualizedItemCount(value:int):Void
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
@@ -600,7 +600,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:DisplayObject):void
+	public function set typicalItem(value:DisplayObject):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -638,7 +638,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set resetTypicalItemDimensionsOnMeasure(value:Boolean):void
+	public function set resetTypicalItemDimensionsOnMeasure(value:Boolean):Void
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -685,7 +685,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set typicalItemWidth(value:Number):void
+	public function set typicalItemWidth(value:Number):Void
 	{
 		if(this._typicalItemWidth == value)
 		{
@@ -732,7 +732,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set typicalItemHeight(value:Number):void
+	public function set typicalItemHeight(value:Number):Void
 	{
 		if(this._typicalItemHeight == value)
 		{
@@ -766,7 +766,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set scrollPositionHorizontalAlign(value:String):void
+	public function set scrollPositionHorizontalAlign(value:String):Void
 	{
 		this._scrollPositionHorizontalAlign = value;
 	}
@@ -1183,7 +1183,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCache():void
+	public function resetVariableVirtualCache():Void
 	{
 		this._widthCache.length = 0;
 	}
@@ -1191,7 +1191,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		delete this._widthCache[index];
 		if(item)
@@ -1204,7 +1204,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		var widthValue:* = item ? item.width : undefined;
 		this._widthCache.splice(index, 0, widthValue);
@@ -1213,7 +1213,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):void
+	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
 	{
 		this._widthCache.splice(index, 1);
 	}
@@ -1494,7 +1494,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, justifyHeight:Number, distributedWidth:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, justifyHeight:Number, distributedWidth:Number):Void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
@@ -1529,7 +1529,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function prepareTypicalItem(justifyHeight:Number):void
+	private function prepareTypicalItem(justifyHeight:Number):Void
 	{
 		if(!this._typicalItem)
 		{
@@ -1604,7 +1604,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function applyPercentWidths(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):void
+	private function applyPercentWidths(items:Vector.<DisplayObject>, explicitWidth:Number, minWidth:Number, maxWidth:Number):Void
 	{
 		var remainingWidth:Number = explicitWidth;
 		this._discoveredItemsCache.length = 0;

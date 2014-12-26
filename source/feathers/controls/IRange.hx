@@ -55,7 +55,7 @@ public interface IRange extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set minimum(value:Number):void;
+	function set minimum(value:Number):Void;
 
 	/**
 	 * The maximum numeric value of the range.
@@ -74,7 +74,7 @@ public interface IRange extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set maximum(value:Number):void;
+	function set maximum(value:Number):Void;
 
 	/**
 	 * The current numeric value.
@@ -93,7 +93,7 @@ public interface IRange extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set value(value:Number):void;
+	function set value(value:Number):Void;
 
 	/**
 	 * The amount the value must change to increment or decrement.
@@ -112,5 +112,5 @@ public interface IRange extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set step(value:Number):void;
+	function set step(value:Number):Void;
 }

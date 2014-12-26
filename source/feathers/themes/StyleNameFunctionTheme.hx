@@ -35,7 +35,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	/**
 	 * Disposes the theme.
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		if(this._registry)
 		{

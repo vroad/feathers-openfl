@@ -23,7 +23,7 @@ class ButtonGroupScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _buttonGroup:ButtonGroup;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -62,17 +62,17 @@ class ButtonGroupScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function button_triggeredHandler(event:Event):void
+	private function button_triggeredHandler(event:Event):Void
 	{
 		var button:Button = Button(event.currentTarget);
 		trace(button.label + " triggered.");

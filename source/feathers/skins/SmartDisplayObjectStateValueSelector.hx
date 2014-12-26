@@ -152,7 +152,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set displayObjectProperties(value:Object):void
+	public function set displayObjectProperties(value:Object):Void
 	{
 		this._displayObjectProperties = value;
 	}
@@ -165,7 +165,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function setValueForState(value:Object, state:Object, isSelected:Boolean = false):void
+	override public function setValueForState(value:Object, state:Object, isSelected:Boolean = false):Void
 	{
 		if(value !== null)
 		{
@@ -219,7 +219,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 * types do not match, the function should create a new object instead
 	 * of reusing the old display object.</p>
 	 */
-	public function setValueTypeHandler(type:Class, handler:Function):void
+	public function setValueTypeHandler(type:Class, handler:Function):Void
 	{
 		this._handlers[type] = handler;
 	}
@@ -235,7 +235,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Clears a value type handler.
 	 */
-	public function clearValueTypeHandler(type:Class):void
+	public function clearValueTypeHandler(type:Class):Void
 	{
 		delete this._handlers[type];
 	}

@@ -42,7 +42,7 @@ class ButtonScreen extends PanelScreen
 		return ButtonScreen.globalStyleProvider;
 	}
 	
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -116,22 +116,22 @@ class ButtonScreen extends PanelScreen
 		}
 	}
 	
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function normalButton_triggeredHandler(event:Event):void
+	private function normalButton_triggeredHandler(event:Event):Void
 	{
 		trace("normal button triggered.")
 	}
 
-	private function toggleButton_changeHandler(event:Event):void
+	private function toggleButton_changeHandler(event:Event):Void
 	{
 		trace("toggle button changed:", this._toggleButton.isSelected);
 	}
 	
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

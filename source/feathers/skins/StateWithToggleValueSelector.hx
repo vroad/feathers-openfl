@@ -54,7 +54,7 @@ class StateWithToggleValueSelector
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Object, state:Object, isSelected:Boolean = false):void
+	public function setValueForState(value:Object, state:Object, isSelected:Boolean = false):Void
 	{
 		if(isSelected)
 		{

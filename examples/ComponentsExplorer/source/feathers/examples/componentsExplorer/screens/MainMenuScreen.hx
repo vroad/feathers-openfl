@@ -63,7 +63,7 @@ class MainMenuScreen extends PanelScreen
 	public var savedVerticalScrollPosition:Number = 0;
 	public var savedSelectedIndex:int = -1;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -137,7 +137,7 @@ class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 	
-	private function owner_transitionCompleteHandler(event:Event):void
+	private function owner_transitionCompleteHandler(event:Event):Void
 	{
 		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 
@@ -149,7 +149,7 @@ class MainMenuScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 	
-	private function list_changeHandler(event:Event):void
+	private function list_changeHandler(event:Event):Void
 	{
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{

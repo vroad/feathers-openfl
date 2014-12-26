@@ -269,7 +269,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set source(value:Object):void
+	public function set source(value:Object):Void
 	{
 		if(this._source == value)
 		{
@@ -325,7 +325,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set loadingTexture(value:Texture):void
+	public function set loadingTexture(value:Texture):Void
 	{
 		if(this._loadingTexture == value)
 		{
@@ -363,7 +363,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set errorTexture(value:Texture):void
+	public function set errorTexture(value:Texture):Void
 	{
 		if(this._errorTexture == value)
 		{
@@ -421,7 +421,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):void
+	public function set textureScale(value:Number):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -458,7 +458,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set smoothing(value:String):void
+	public function set smoothing(value:String):Void
 	{
 		if(this._smoothing == value)
 		{
@@ -494,7 +494,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):void
+	public function set color(value:uint):Void
 	{
 		if(this._color == value)
 		{
@@ -530,7 +530,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureFormat(value:String):void
+	public function set textureFormat(value:String):Void
 	{
 		if(this._textureFormat == value)
 		{
@@ -566,7 +566,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):void
+	public function set snapToPixels(value:Boolean):Void
 	{
 		if(this._snapToPixels == value)
 		{
@@ -600,7 +600,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set maintainAspectRatio(value:Boolean):void
+	public function set maintainAspectRatio(value:Boolean):Void
 	{
 		if(this._maintainAspectRatio == value)
 		{
@@ -693,7 +693,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set delayTextureCreation(value:Boolean):void
+	public function set delayTextureCreation(value:Boolean):Void
 	{
 		if(this._delayTextureCreation == value)
 		{
@@ -763,7 +763,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureQueueDuration(value:Number):void
+	public function set textureQueueDuration(value:Number):Void
 	{
 		if(this._textureQueueDuration == value)
 		{
@@ -812,7 +812,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -846,7 +846,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -882,7 +882,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -918,7 +918,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -954,7 +954,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -967,7 +967,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		if(this._snapToPixels)
 		{
@@ -984,7 +984,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.loader)
 		{
@@ -1008,7 +1008,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
@@ -1102,7 +1102,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitData():void
+	private function commitData():Void
 	{
 		if(this._source is Texture)
 		{
@@ -1191,7 +1191,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitStyles():void
+	private function commitStyles():Void
 	{
 		if(!this.image)
 		{
@@ -1204,7 +1204,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layout():void
+	private function layout():Void
 	{
 		if(!this.image || !this._currentTexture)
 		{
@@ -1238,7 +1238,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshCurrentTexture():void
+	private function refreshCurrentTexture():Void
 	{
 		var newTexture:Texture = this._texture;
 		if(!newTexture)
@@ -1298,7 +1298,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function cleanupTexture():void
+	private function cleanupTexture():Void
 	{
 		if(this._isTextureOwner)
 		{
@@ -1337,7 +1337,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function verifyCurrentStarling():void
+	private function verifyCurrentStarling():Void
 	{
 		if(!this.stage || Starling.current.stage === this.stage)
 		{
@@ -1356,7 +1356,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function replaceBitmapDataTexture(bitmapData:BitmapData):void
+	private function replaceBitmapDataTexture(bitmapData:BitmapData):Void
 	{
 		if(Starling.handleLostContext && !Starling.current.contextValid)
 		{
@@ -1394,7 +1394,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function replaceRawTextureData(rawData:ByteArray):void
+	private function replaceRawTextureData(rawData:ByteArray):Void
 	{
 		if(Starling.handleLostContext && !Starling.current.contextValid)
 		{
@@ -1432,7 +1432,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function addToTextureQueue():void
+	private function addToTextureQueue():Void
 	{
 		if(!this._delayTextureCreation)
 		{
@@ -1465,7 +1465,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function removeFromTextureQueue():void
+	private function removeFromTextureQueue():Void
 	{
 		if(!this._isInTextureQueue)
 		{
@@ -1513,7 +1513,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function preparePendingTexture():void
+	private function preparePendingTexture():Void
 	{
 		if(this._textureQueueDuration > 0)
 		{
@@ -1529,7 +1529,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function processPendingTexture():void
+	private function processPendingTexture():Void
 	{
 		if(this._pendingBitmapDataTexture)
 		{
@@ -1552,7 +1552,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function processTextureQueue_enterFrameHandler(event:EnterFrameEvent):void
+	private function processTextureQueue_enterFrameHandler(event:EnterFrameEvent):Void
 	{
 		this._accumulatedPrepareTextureTime += event.passedTime;
 		if(this._accumulatedPrepareTextureTime >= this._textureQueueDuration)
@@ -1565,7 +1565,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function imageLoader_removedFromStageHandler(event:starling.events.Event):void
+	private function imageLoader_removedFromStageHandler(event:starling.events.Event):Void
 	{
 		if(this._isInTextureQueue)
 		{
@@ -1576,7 +1576,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		var bitmap:Bitmap = Bitmap(this.loader.content);
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
@@ -1603,7 +1603,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):Void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
@@ -1618,7 +1618,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_completeHandler(event:flash.events.Event):void
+	private function rawDataLoader_completeHandler(event:flash.events.Event):Void
 	{
 		var rawData:ByteArray = ByteArray(this.urlLoader.data);
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
@@ -1644,7 +1644,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_errorHandler(event:ErrorEvent):void
+	private function rawDataLoader_errorHandler(event:ErrorEvent):Void
 	{
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);

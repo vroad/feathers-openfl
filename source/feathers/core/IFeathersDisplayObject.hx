@@ -39,7 +39,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set x(value:Number):void;
+	function set x(value:Number):Void;
 
 	/**
 	 * The y, or vertical, position of the display object in the parent's
@@ -52,7 +52,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set y(value:Number):void;
+	function set y(value:Number):Void;
 
 	/**
 	 * The width of the display object in the parent's coordinate space.
@@ -64,7 +64,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set width(value:Number):void;
+	function set width(value:Number):Void;
 
 	/**
 	 * The height of the display object in the parent's coordinate space.
@@ -76,7 +76,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set height(value:Number):void;
+	function set height(value:Number):Void;
 
 	/**
 	 * The x coordinate of the display object's origin in its own coordinate
@@ -89,7 +89,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set pivotX(value:Number):void;
+	function set pivotX(value:Number):Void;
 
 	/**
 	 * The y coordinate of the display object's origin in its own coordinate
@@ -102,7 +102,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set pivotY(value:Number):void;
+	function set pivotY(value:Number):Void;
 
 	/**
 	 * This horizontal scale factor.
@@ -113,7 +113,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set scaleX(value:Number):void;
+	function set scaleX(value:Number):Void;
 
 	/**
 	 * The vertical scale factor.
@@ -125,7 +125,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set scaleY(value:Number):void;
+	function set scaleY(value:Number):Void;
 
 	/**
 	 * The horizontal skew, in radians.
@@ -137,7 +137,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set skewX(value:Number):void;
+	function set skewX(value:Number):Void;
 
 	/**
 	 * The vertical skew, in radians.
@@ -149,7 +149,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set skewY(value:Number):void;
+	function set skewY(value:Number):Void;
 
 	/**
 	 * The blend mode used when rendering the display object.
@@ -161,7 +161,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set blendMode(value:String):void;
+	function set blendMode(value:String):Void;
 
 	/**
 	 * The name of the display object.
@@ -173,7 +173,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set name(value:String):void;
+	function set name(value:String):Void;
 
 	/**
 	 * Determines if the display object may be touched.
@@ -185,7 +185,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set touchable(value:Boolean):void;
+	function set touchable(value:Boolean):Void;
 
 	/**
 	 * Determines the visibility of the display object.
@@ -197,7 +197,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set visible(value:Boolean):void;
+	function set visible(value:Boolean):Void;
 
 	/**
 	 * The opacity of the display object.
@@ -209,7 +209,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set alpha(value:Number):void;
+	function set alpha(value:Number):Void;
 
 	/**
 	 * The rotation of the display object, in radians.
@@ -221,7 +221,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set rotation(value:Number):void;
+	function set rotation(value:Number):Void;
 
 	/**
 	 * The display object's parent, or <code>null</code> if it doesn't have
@@ -279,7 +279,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set useHandCursor(value:Boolean):void;
+	function set useHandCursor(value:Boolean):Void;
 
 	/**
 	 * The bounds of the display object in its local coordinate space.
@@ -298,14 +298,14 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set filter(value:FragmentFilter):void;
+	function set filter(value:FragmentFilter):Void;
 
 	/**
 	 * Removes a display object from its parent.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#removeFromParent() Full description of starling.display.DisplayObject.removeFromParent() in Gamua's Starling Framework API Reference
 	 */
-	function removeFromParent(dispose:Boolean = false):void;
+	function removeFromParent(dispose:Boolean = false):Void;
 
 	/**
 	 * Determines if a point exists within the display object's bounds.
@@ -350,12 +350,12 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#render() Full description of starling.display.DisplayObject.render() in Gamua's Starling Framework API Reference
 	 */
-	function render(support:RenderSupport, parentAlpha:Number):void;
+	function render(support:RenderSupport, parentAlpha:Number):Void;
 
 	/**
 	 * Disposes the display object.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#dispose() Full description of starling.display.DisplayObject.dispose() in Gamua's Starling Framework API Reference
 	 */
-	function dispose():void;
+	function dispose():Void;
 }

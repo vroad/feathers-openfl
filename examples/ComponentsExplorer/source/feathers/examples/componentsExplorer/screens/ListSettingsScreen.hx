@@ -29,7 +29,7 @@ class ListSettingsScreen extends PanelScreen
 	private var _allowMultipleSelectionToggle:ToggleSwitch;
 	private var _hasElasticEdgesToggle:ToggleSwitch;
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//icon and accessory display objects in the list's data provider
 		//won't be automatically disposed because feathers cannot know if
@@ -42,7 +42,7 @@ class ListSettingsScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -88,32 +88,32 @@ class ListSettingsScreen extends PanelScreen
 		this.backButtonHandler = this.onBackButton;
 	}
 
-	private function disposeItemAccessory(item:Object):void
+	private function disposeItemAccessory(item:Object):Void
 	{
 		DisplayObject(item.accessory).dispose();
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function isSelectableToggle_changeHandler(event:Event):void
+	private function isSelectableToggle_changeHandler(event:Event):Void
 	{
 		this.settings.isSelectable = this._isSelectableToggle.isSelected;
 	}
 
-	private function allowMultipleSelectionToggle_changeHandler(event:Event):void
+	private function allowMultipleSelectionToggle_changeHandler(event:Event):Void
 	{
 		this.settings.allowMultipleSelection = this._allowMultipleSelectionToggle.isSelected;
 	}
 
-	private function hasElasticEdgesToggle_changeHandler(event:Event):void
+	private function hasElasticEdgesToggle_changeHandler(event:Event):Void
 	{
 		this.settings.hasElasticEdges = this._hasElasticEdgesToggle.isSelected;
 	}

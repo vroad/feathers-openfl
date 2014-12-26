@@ -61,7 +61,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentWidth(value:Number):void
+	public function set percentWidth(value:Number):Void
 	{
 		if(this._percentWidth == value)
 		{
@@ -92,7 +92,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentHeight(value:Number):void
+	public function set percentHeight(value:Number):Void
 	{
 		if(this._percentHeight == value)
 		{
@@ -124,7 +124,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set topAnchorDisplayObject(value:DisplayObject):void
+	public function set topAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._topAnchorDisplayObject == value)
 		{
@@ -157,7 +157,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set top(value:Number):void
+	public function set top(value:Number):Void
 	{
 		if(this._top == value)
 		{
@@ -189,7 +189,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set rightAnchorDisplayObject(value:DisplayObject):void
+	public function set rightAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._rightAnchorDisplayObject == value)
 		{
@@ -222,7 +222,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set right(value:Number):void
+	public function set right(value:Number):Void
 	{
 		if(this._right == value)
 		{
@@ -254,7 +254,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set bottomAnchorDisplayObject(value:DisplayObject):void
+	public function set bottomAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._bottomAnchorDisplayObject == value)
 		{
@@ -287,7 +287,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set bottom(value:Number):void
+	public function set bottom(value:Number):Void
 	{
 		if(this._bottom == value)
 		{
@@ -319,7 +319,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set leftAnchorDisplayObject(value:DisplayObject):void
+	public function set leftAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._leftAnchorDisplayObject == value)
 		{
@@ -352,7 +352,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set left(value:Number):void
+	public function set left(value:Number):Void
 	{
 		if(this._left == value)
 		{
@@ -384,7 +384,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set horizontalCenterAnchorDisplayObject(value:DisplayObject):void
+	public function set horizontalCenterAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._horizontalCenterAnchorDisplayObject == value)
 		{
@@ -418,7 +418,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set horizontalCenter(value:Number):void
+	public function set horizontalCenter(value:Number):Void
 	{
 		if(this._horizontalCenter == value)
 		{
@@ -450,7 +450,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set verticalCenterAnchorDisplayObject(value:DisplayObject):void
+	public function set verticalCenterAnchorDisplayObject(value:DisplayObject):Void
 	{
 		if(this._verticalCenterAnchorDisplayObject == value)
 		{
@@ -484,7 +484,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set verticalCenter(value:Number):void
+	public function set verticalCenter(value:Number):Void
 	{
 		if(this._verticalCenter == value)
 		{

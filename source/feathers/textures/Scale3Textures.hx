@@ -181,7 +181,7 @@ public final class Scale3Textures
 	/**
 	 * @private
 	 */
-	private function initialize():void
+	private function initialize():Void
 	{
 		var textureFrame:Rectangle = this._texture.frame;
 		if(!textureFrame)

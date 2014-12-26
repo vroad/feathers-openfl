@@ -289,7 +289,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):void
+	public function set value(newValue:Number):Void
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -337,7 +337,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):void
+	public function set minimum(value:Number):Void
 	{
 		if(this._minimum == value)
 		{
@@ -377,7 +377,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):void
+	public function set maximum(value:Number):Void
 	{
 		if(this._maximum == value)
 		{
@@ -418,7 +418,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set step(value:Number):void
+	public function set step(value:Number):Void
 	{
 		if(this._step == value)
 		{
@@ -463,7 +463,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Number):void
+	public function set repeatDelay(value:Number):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -503,7 +503,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set buttonLayoutMode(value:String):void
+	public function set buttonLayoutMode(value:String):Void
 	{
 		if(this._buttonLayoutMode == value)
 		{
@@ -542,7 +542,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set buttonGap(value:Number):void
+	public function set buttonGap(value:Number):Void
 	{
 		if(this._buttonGap == value)
 		{
@@ -581,7 +581,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set textInputGap(value:Number):void
+	public function set textInputGap(value:Number):Void
 	{
 		if(this._textInputGap == value)
 		{
@@ -632,7 +632,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set decrementButtonFactory(value:Function):void
+	public function set decrementButtonFactory(value:Function):Void
 	{
 		if(this._decrementButtonFactory == value)
 		{
@@ -679,7 +679,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set customDecrementButtonName(value:String):void
+	public function set customDecrementButtonName(value:String):Void
 	{
 		if(this._customDecrementButtonName == value)
 		{
@@ -734,7 +734,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set decrementButtonProperties(value:Object):void
+	public function set decrementButtonProperties(value:Object):Void
 	{
 		if(this._decrementButtonProperties == value)
 		{
@@ -789,7 +789,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set decrementButtonLabel(value:String):void
+	public function set decrementButtonLabel(value:String):Void
 	{
 		if(this._decrementButtonLabel == value)
 		{
@@ -840,7 +840,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set incrementButtonFactory(value:Function):void
+	public function set incrementButtonFactory(value:Function):Void
 	{
 		if(this._incrementButtonFactory == value)
 		{
@@ -887,7 +887,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set customIncrementButtonName(value:String):void
+	public function set customIncrementButtonName(value:String):Void
 	{
 		if(this._customIncrementButtonName == value)
 		{
@@ -942,7 +942,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set incrementButtonProperties(value:Object):void
+	public function set incrementButtonProperties(value:Object):Void
 	{
 		if(this._incrementButtonProperties == value)
 		{
@@ -997,7 +997,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set incrementButtonLabel(value:String):void
+	public function set incrementButtonLabel(value:String):Void
 	{
 		if(this._incrementButtonLabel == value)
 		{
@@ -1047,7 +1047,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set textInputFactory(value:Function):void
+	public function set textInputFactory(value:Function):Void
 	{
 		if(this._textInputFactory == value)
 		{
@@ -1094,7 +1094,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set customTextInputName(value:String):void
+	public function set customTextInputName(value:String):Void
 	{
 		if(this._customTextInputName == value)
 		{
@@ -1148,7 +1148,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set textInputProperties(value:Object):void
+	public function set textInputProperties(value:Object):Void
 	{
 		if(this._textInputProperties == value)
 		{
@@ -1182,7 +1182,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1351,7 +1351,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function decrement():void
+	private function decrement():Void
 	{
 		this.value = this._value - this._step;
 		if(this.textInput.isEditable)
@@ -1364,7 +1364,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function increment():void
+	private function increment():Void
 	{
 		this.value = this._value + this._step;
 		if(this.textInput.isEditable)
@@ -1377,7 +1377,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function toMinimum():void
+	private function toMinimum():Void
 	{
 		this.value = this._minimum;
 		if(this.textInput.isEditable)
@@ -1390,7 +1390,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function toMaximum():void
+	private function toMaximum():Void
 	{
 		this.value = this._maximum;
 		if(this.textInput.isEditable)
@@ -1411,7 +1411,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #decrementButtonFactory
 	 * @see #customDecrementButtonName
 	 */
-	private function createDecrementButton():void
+	private function createDecrementButton():Void
 	{
 		if(this.decrementButton)
 		{
@@ -1438,7 +1438,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #incrementButtonFactory
 	 * @see #customIncrementButtonName
 	 */
-	private function createIncrementButton():void
+	private function createIncrementButton():Void
 	{
 		if(this.incrementButton)
 		{
@@ -1465,7 +1465,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #textInputFactory
 	 * @see #customTextInputName
 	 */
-	private function createTextInput():void
+	private function createTextInput():Void
 	{
 		if(this.textInput)
 		{
@@ -1486,7 +1486,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function refreshDecrementButtonStyles():void
+	private function refreshDecrementButtonStyles():Void
 	{
 		for(var propertyName:String in this._decrementButtonProperties)
 		{
@@ -1499,7 +1499,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function refreshIncrementButtonStyles():void
+	private function refreshIncrementButtonStyles():Void
 	{
 		for(var propertyName:String in this._incrementButtonProperties)
 		{
@@ -1512,7 +1512,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function refreshTextInputStyles():void
+	private function refreshTextInputStyles():Void
 	{
 		for(var propertyName:String in this._textInputProperties)
 		{
@@ -1524,7 +1524,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function refreshTypicalText():void
+	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
 		var maxCharactersBeforeDecimal:Number = Math.max(int(this._minimum).toString().length, int(this._maximum).toString().length, int(this._step).toString().length);
@@ -1553,7 +1553,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function layoutChildren():void
+	private function layoutChildren():Void
 	{
 		if(this._buttonLayoutMode == BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL)
 		{
@@ -1617,7 +1617,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function startRepeatTimer(action:Function):void
+	private function startRepeatTimer(action:Function):Void
 	{
 		if(this.touchPointID >= 0)
 		{
@@ -1656,7 +1656,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function parseTextInputValue():void
+	private function parseTextInputValue():Void
 	{
 		var newValue:Number = parseFloat(this.textInput.text);
 		if(newValue === newValue) //!isNaN
@@ -1676,7 +1676,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1684,7 +1684,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function numericStepper_removedFromStageHandler(event:Event):void
+	private function numericStepper_removedFromStageHandler(event:Event):Void
 	{
 		this.touchPointID = -1;
 	}
@@ -1692,7 +1692,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		if(this.textInput.isEditable)
@@ -1706,7 +1706,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.textInput.clearFocus();
@@ -1716,7 +1716,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function textInput_enterHandler(event:Event):void
+	private function textInput_enterHandler(event:Event):Void
 	{
 		this.parseTextInputValue();
 	}
@@ -1724,7 +1724,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function textInput_focusOutHandler(event:Event):void
+	private function textInput_focusOutHandler(event:Event):Void
 	{
 		this.parseTextInputValue();
 	}
@@ -1732,7 +1732,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function decrementButton_touchHandler(event:TouchEvent):void
+	private function decrementButton_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1768,7 +1768,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function incrementButton_touchHandler(event:TouchEvent):void
+	private function incrementButton_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1804,7 +1804,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{
@@ -1827,7 +1827,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function repeatTimer_timerHandler(event:TimerEvent):void
+	private function repeatTimer_timerHandler(event:TimerEvent):Void
 	{
 		if(this._repeatTimer.currentCount < 5)
 		{

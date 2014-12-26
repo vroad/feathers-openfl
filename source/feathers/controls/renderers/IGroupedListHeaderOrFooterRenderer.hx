@@ -26,7 +26,7 @@ public interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set data(value:Object):void;
+	function set data(value:Object):Void;
 
 	/**
 	 * The index of the group within the data provider of the grouped list.
@@ -38,7 +38,7 @@ public interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set groupIndex(value:int):void;
+	function set groupIndex(value:int):Void;
 
 	/**
 	 * The index of the item within the layout.
@@ -50,7 +50,7 @@ public interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set layoutIndex(value:int):void;
+	function set layoutIndex(value:int):Void;
 
 	/**
 	 * The grouped list that contains this header or footer renderer.
@@ -62,5 +62,5 @@ public interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set owner(value:GroupedList):void;
+	function set owner(value:GroupedList):Void;
 }

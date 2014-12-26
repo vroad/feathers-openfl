@@ -36,7 +36,7 @@ class DrawersExplorer extends Sprite
 	private var _launchImage:Loader;
 	private var _savedAutoOrients:Boolean;
 
-	private function showLaunchImage():void
+	private function showLaunchImage():Void
 	{
 		var filePath:String;
 		var isPortraitOnly:Boolean = false;
@@ -94,7 +94,7 @@ class DrawersExplorer extends Sprite
 		}
 	}
 
-	private function loaderInfo_completeHandler(event:Event):void
+	private function loaderInfo_completeHandler(event:Event):Void
 	{
 		Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
@@ -112,7 +112,7 @@ class DrawersExplorer extends Sprite
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
-	private function starling_rootCreatedHandler(event:Object):void
+	private function starling_rootCreatedHandler(event:Object):Void
 	{
 		if(this._launchImage)
 		{
@@ -123,7 +123,7 @@ class DrawersExplorer extends Sprite
 		}
 	}
 
-	private function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):Void
 	{
 		this._starling.stage.stageWidth = this.stage.stageWidth;
 		this._starling.stage.stageHeight = this.stage.stageHeight;
@@ -139,13 +139,13 @@ class DrawersExplorer extends Sprite
 		//this._starling.showStatsAt(HAlign.LEFT, VAlign.BOTTOM);
 	}
 
-	private function stage_deactivateHandler(event:Event):void
+	private function stage_deactivateHandler(event:Event):Void
 	{
 		this._starling.stop();
 		this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
 	}
 
-	private function stage_activateHandler(event:Event):void
+	private function stage_activateHandler(event:Event):Void
 	{
 		this.stage.removeEventListener(Event.ACTIVATE, stage_activateHandler);
 		this._starling.start();

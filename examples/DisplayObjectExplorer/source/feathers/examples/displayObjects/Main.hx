@@ -29,7 +29,7 @@ class Main extends LayoutGroup
 	private var _tabBar:TabBar;
 	private var _transitionManager:TabBarSlideTransitionManager;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		super.initialize();
 
@@ -78,7 +78,7 @@ class Main extends LayoutGroup
 		this._transitionManager.duration = 0.4;
 	}
 
-	private function navigator_changeHandler(event:Event):void
+	private function navigator_changeHandler(event:Event):Void
 	{
 		var dataProvider:ListCollection = this._tabBar.dataProvider;
 		var itemCount:int = dataProvider.length;
@@ -93,12 +93,12 @@ class Main extends LayoutGroup
 		}
 	}
 
-	private function tabBar_changeHandler(event:Event):void
+	private function tabBar_changeHandler(event:Event):Void
 	{
 		this._navigator.showScreen(this._tabBar.selectedItem.action);
 	}
 
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}

@@ -144,7 +144,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set initializeOnce(value:Boolean):void
+	public function set initializeOnce(value:Boolean):Void
 	{
 		if(this._initializeOnce == value)
 		{
@@ -196,7 +196,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * be disposed. If a <code>DisplayListWatcher</code> is extended for a
 	 * theme, it should also dispose textures and other assets.
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		if(this.root)
 		{
@@ -231,7 +231,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * Excludes a display object, and all if its children (if any) from
 	 * being watched.
 	 */
-	public function exclude(target:DisplayObject):void
+	public function exclude(target:DisplayObject):Void
 	{
 		if(!this._excludedObjects)
 		{
@@ -280,7 +280,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * Sets the initializer for a specific class.
 	 */
-	public function setInitializerForClass(type:Class, initializer:Function, withName:String = null):void
+	public function setInitializerForClass(type:Class, initializer:Function, withName:String = null):Void
 	{
 		if(!withName)
 		{
@@ -299,7 +299,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * Sets an initializer for a specific class and any subclasses. This
 	 * option can potentially hurt performance, so use sparingly.
 	 */
-	public function setInitializerForClassAndSubclasses(type:Class, initializer:Function):void
+	public function setInitializerForClassAndSubclasses(type:Class, initializer:Function):Void
 	{
 		var index:int = this._initializerSuperTypes.indexOf(type);
 		if(index < 0)
@@ -338,7 +338,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * If an initializer exists for a specific class, it will be removed
 	 * completely.
 	 */
-	public function clearInitializerForClass(type:Class, withName:String = null):void
+	public function clearInitializerForClass(type:Class, withName:String = null):Void
 	{
 		if(!withName)
 		{
@@ -359,7 +359,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * If an initializer exists for a specific class and its subclasses, the
 	 * initializer will be removed completely.
 	 */
-	public function clearInitializerForClassAndSubclasses(type:Class):void
+	public function clearInitializerForClassAndSubclasses(type:Class):Void
 	{
 		delete this._initializerSuperTypeMap[type];
 		var index:int = this._initializerSuperTypes.indexOf(type);
@@ -378,7 +378,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * initialized again. However, it's children may be initialized, if they
 	 * haven't been initialized yet.</p>
 	 */
-	public function initializeObject(target:DisplayObject):void
+	public function initializeObject(target:DisplayObject):Void
 	{
 		var targetAsRequiredBaseClass:DisplayObject = DisplayObject(target as requiredBaseClass);
 		if(targetAsRequiredBaseClass)
@@ -417,7 +417,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function processAllInitializers(target:DisplayObject):void
+	private function processAllInitializers(target:DisplayObject):Void
 	{
 		var superTypeCount:int = this._initializerSuperTypes.length;
 		for(var i:int = 0; i < superTypeCount; i++)
@@ -435,7 +435,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):void
+	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):Void
 	{
 		var initializer:Function;
 		var hasNameInitializer:Boolean = false;
@@ -474,7 +474,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function addedHandler(event:Event):void
+	private function addedHandler(event:Event):Void
 	{
 		this.initializeObject(event.target as DisplayObject);
 	}

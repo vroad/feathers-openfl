@@ -25,7 +25,7 @@ public interface IScreen extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set screenID(value:String):void;
+	function set screenID(value:String):Void;
 
 	/**
 	 * The ScreenNavigator that is displaying this screen.
@@ -35,5 +35,5 @@ public interface IScreen extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set owner(value:ScreenNavigator):void;
+	function set owner(value:ScreenNavigator):Void;
 }

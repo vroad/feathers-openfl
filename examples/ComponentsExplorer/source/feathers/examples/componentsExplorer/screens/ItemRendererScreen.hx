@@ -41,7 +41,7 @@ class ItemRendererScreen extends PanelScreen
 		return this._itemRendererGap;
 	}
 
-	public function set itemRendererGap(value:Number):void
+	public function set itemRendererGap(value:Number):Void
 	{
 		if(this._itemRendererGap == value)
 		{
@@ -58,7 +58,7 @@ class ItemRendererScreen extends PanelScreen
 		return this._settings;
 	}
 
-	public function set settings(value:ItemRendererSettings):void
+	public function set settings(value:ItemRendererSettings):Void
 	{
 		if(this._settings == value)
 		{
@@ -73,7 +73,7 @@ class ItemRendererScreen extends PanelScreen
 		return ItemRendererScreen.globalStyleProvider;
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//icon and accessory display objects in the list's data provider
 		//won't be automatically disposed because feathers cannot know if
@@ -86,7 +86,7 @@ class ItemRendererScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()!
 		super.initialize();
@@ -131,7 +131,7 @@ class ItemRendererScreen extends PanelScreen
 		];
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{if(this.settings.hasIcon)
 	{
 		switch(this.settings.iconType)
@@ -231,7 +231,7 @@ class ItemRendererScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function disposeItemIconOrAccessory(item:Object):void
+	private function disposeItemIconOrAccessory(item:Object):Void
 	{
 		if(item.hasOwnProperty("icon"))
 		{
@@ -243,17 +243,17 @@ class ItemRendererScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function settingsButton_triggeredHandler(event:Event):void
+	private function settingsButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}

@@ -26,7 +26,7 @@ class DragAndDrop extends Sprite
 
 	private var _starling:Starling;
 
-	private function loaderInfo_completeHandler(event:Event):void
+	private function loaderInfo_completeHandler(event:Event):Void
 	{
 		Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
@@ -39,7 +39,7 @@ class DragAndDrop extends Sprite
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
-	private function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):Void
 	{
 		this._starling.stage.stageWidth = this.stage.stageWidth;
 		this._starling.stage.stageHeight = this.stage.stageHeight;
@@ -55,13 +55,13 @@ class DragAndDrop extends Sprite
 		//this._starling.showStatsAt(HAlign.LEFT, VAlign.BOTTOM);
 	}
 
-	private function stage_deactivateHandler(event:Event):void
+	private function stage_deactivateHandler(event:Event):Void
 	{
 		this._starling.stop();
 		this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
 	}
 
-	private function stage_activateHandler(event:Event):void
+	private function stage_activateHandler(event:Event):Void
 	{
 		this.stage.removeEventListener(Event.ACTIVATE, stage_activateHandler);
 		this._starling.start();

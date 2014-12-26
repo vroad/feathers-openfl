@@ -23,14 +23,14 @@ class Main extends Sprite implements IDragSource, IDropTarget
 	private var _dropTarget:DropTarget;
 	private var _resetButton:Button;
 
-	private function reset():void
+	private function reset():Void
 	{
 		this._draggableQuad.x = 40;
 		this._draggableQuad.y = 40;
 		this._dragSource.addChild(this._draggableQuad);
 	}
 
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		new MetalWorksDesktopTheme();
 
@@ -70,7 +70,7 @@ class Main extends Sprite implements IDragSource, IDropTarget
 		this.reset();
 	}
 
-	private function resetButton_triggeredHandler(event:Event):void
+	private function resetButton_triggeredHandler(event:Event):Void
 	{
 		this.reset();
 	}

@@ -46,7 +46,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):void
+	public function setItemAt(data:Object, item:Object, index:int):Void
 	{
 		this.checkForCorrectDataType(data);
 		data[index] = XML(item);
@@ -55,7 +55,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):void
+	public function addItemAt(data:Object, item:Object, index:int):Void
 	{
 		this.checkForCorrectDataType(data);
 		
@@ -84,7 +84,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):void
+	public function removeAll(data:Object):Void
 	{
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
@@ -117,7 +117,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @private
 	 */
-	private function checkForCorrectDataType(data:Object):void
+	private function checkForCorrectDataType(data:Object):Void
 	{
 		if(!(data is XMLList))
 		{

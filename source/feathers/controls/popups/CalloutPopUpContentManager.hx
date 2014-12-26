@@ -112,7 +112,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @inheritDoc
 	 */
-	public function open(content:DisplayObject, source:DisplayObject):void
+	public function open(content:DisplayObject, source:DisplayObject):Void
 	{
 		if(this.isOpen)
 		{
@@ -128,7 +128,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @inheritDoc
 	 */
-	public function close():void
+	public function close():Void
 	{
 		if(!this.isOpen)
 		{
@@ -140,7 +140,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @inheritDoc
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		this.close();
 	}
@@ -148,7 +148,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	private function cleanup():void
+	private function cleanup():Void
 	{
 		this.content = null;
 		this.callout.content = null;
@@ -159,7 +159,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	private function callout_closeHandler(event:Event):void
+	private function callout_closeHandler(event:Event):Void
 	{
 		this.cleanup();
 		this.dispatchEventWith(Event.CLOSE);

@@ -37,7 +37,7 @@ class StateValueSelector
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Object, state:Object):void
+	public function setValueForState(value:Object, state:Object):Void
 	{
 		this.stateToValue[state] = value;
 	}

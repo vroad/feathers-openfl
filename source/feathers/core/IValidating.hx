@@ -32,5 +32,5 @@ public interface IValidating extends IFeathersDisplayObject
 	 * <p>A display object cannot validate if it does not have access to the
 	 * stage.</p>
 	 */
-	function validate():void;
+	function validate():Void;
 }

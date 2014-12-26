@@ -195,7 +195,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):void
+	public function set data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -222,7 +222,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set dataDescriptor(value:IHierarchicalCollectionDataDescriptor):void
+	public function set dataDescriptor(value:IHierarchicalCollectionDataDescriptor):Void
 	{
 		if(this._dataDescriptor == value)
 		{
@@ -256,7 +256,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * and the collection will dispatch the <code>CollectionEventType.UPDATE_ITEM</code>
 	 * event to manually notify the component that renders the data.
 	 */
-	public function updateItemAt(index:int, ...rest:Array):void
+	public function updateItemAt(index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, rest);
@@ -284,7 +284,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified location.
 	 */
-	public function addItemAt(item:Object, index:int, ...rest:Array):void
+	public function addItemAt(item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -314,7 +314,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Removes a specific item from the collection.
 	 */
-	public function removeItem(item:Object):void
+	public function removeItem(item:Object):Void
 	{
 		var location:Vector.<int> = this.getItemLocation(item);
 		if(location)
@@ -333,7 +333,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 */
-	public function setItemAt(item:Object, index:int, ...rest:Array):void
+	public function setItemAt(item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -354,20 +354,20 @@ class HierarchicalCollection extends EventDispatcher
 	 * anything to dispose in one or the other.
 	 *
 	 * <p>The function to dispose a group is expected to have the following signature:</p>
-	 * <pre>function( group:Object ):void</pre>
+	 * <pre>function( group:Object ):Void</pre>
 	 *
 	 * <p>The function to dispose an item is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):void</pre>
+	 * <pre>function( item:Object ):Void</pre>
 	 *
 	 * <p>In the following example, the items in the collection are disposed:</p>
 	 *
 	 * <listing version="3.0">
-	 * collection.dispose( function( group:Object ):void
+	 * collection.dispose( function( group:Object ):Void
 	 * {
 	 *     var content:DisplayObject = DisplayObject(group.content);
 	 *     content.dispose();
 	 * },
-	 * function( item:Object ):void
+	 * function( item:Object ):Void
 	 * {
 	 *     var accessory:DisplayObject = DisplayObject(item.accessory);
 	 *     accessory.dispose();
@@ -376,7 +376,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#dispose() starling.display.DisplayObject.dispose()
 	 * @see http://doc.starling-framework.org/core/starling/textures/Texture.html#dispose() starling.textures.Texture.dispose()
 	 */
-	public function dispose(disposeGroup:Function, disposeItem:Function):void
+	public function dispose(disposeGroup:Function, disposeItem:Function):Void
 	{
 		var groupCount:int = this.getLength();
 		var path:Array = [];
@@ -392,7 +392,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Function, disposeItem:Function):void
+	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Function, disposeItem:Function):Void
 	{
 		if(disposeGroup != null)
 		{

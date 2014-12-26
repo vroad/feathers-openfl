@@ -42,7 +42,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 	private var _horizontalAlignPicker:PickerList;
 	private var _verticalAlignPicker:PickerList;
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//icon and accessory display objects in the list's data provider
 		//won't be automatically disposed because feathers cannot know if
@@ -55,7 +55,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -235,72 +235,72 @@ class ItemRendererSettingsScreen extends PanelScreen
 		this.backButtonHandler = this.onBackButton;
 	}
 
-	private function disposeItemAccessory(item:Object):void
+	private function disposeItemAccessory(item:Object):Void
 	{
 		DisplayObject(item.accessory).dispose();
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function hasIconToggle_changeHandler(event:Event):void
+	private function hasIconToggle_changeHandler(event:Event):Void
 	{
 		this.settings.hasIcon = this._hasIconToggle.isSelected
 	}
 
-	private function iconTypePicker_changeHandler(event:Event):void
+	private function iconTypePicker_changeHandler(event:Event):Void
 	{
 		this.settings.iconType = this._iconTypePicker.selectedItem as String;
 	}
 
-	private function iconPositionPicker_changeHandler(event:Event):void
+	private function iconPositionPicker_changeHandler(event:Event):Void
 	{
 		this.settings.iconPosition = this._iconPositionPicker.selectedItem as String;
 	}
 
-	private function gapPicker_changeHandler(event:Event):void
+	private function gapPicker_changeHandler(event:Event):Void
 	{
 		this.settings.useInfiniteGap = this._gapPicker.selectedIndex == 0;
 	}
 
-	private function hasAccessoryToggle_changeHandler(event:Event):void
+	private function hasAccessoryToggle_changeHandler(event:Event):Void
 	{
 		this.settings.hasAccessory = this._hasAccessoryToggle.isSelected
 	}
 
-	private function accessoryTypePicker_changeHandler(event:Event):void
+	private function accessoryTypePicker_changeHandler(event:Event):Void
 	{
 		this.settings.accessoryType = this._accessoryTypePicker.selectedItem as String;
 	}
 
-	private function accessoryPositionPicker_changeHandler(event:Event):void
+	private function accessoryPositionPicker_changeHandler(event:Event):Void
 	{
 		this.settings.accessoryPosition = this._accessoryPositionPicker.selectedItem as String;
 	}
 
-	private function accessoryGapPicker_changeHandler(event:Event):void
+	private function accessoryGapPicker_changeHandler(event:Event):Void
 	{
 		this.settings.useInfiniteAccessoryGap = this._accessoryGapPicker.selectedIndex == 0;
 	}
 
-	private function layoutOrderPicker_changeHandler(event:Event):void
+	private function layoutOrderPicker_changeHandler(event:Event):Void
 	{
 		this.settings.layoutOrder = this._layoutOrderPicker.selectedItem as String;
 	}
 
-	private function horizontalAlignPicker_changeHandler(event:Event):void
+	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
 		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
 	}
 
-	private function verticalAlignPicker_changeHandler(event:Event):void
+	private function verticalAlignPicker_changeHandler(event:Event):Void
 	{
 		this.settings.verticalAlign = this._verticalAlignPicker.selectedItem as String;
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

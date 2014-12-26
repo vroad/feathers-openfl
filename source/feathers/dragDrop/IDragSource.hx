@@ -70,6 +70,6 @@ import starling.events.Event;
  */
 public interface IDragSource
 {
-	function dispatchEvent(event:Event):void;
-	function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):void;
+	function dispatchEvent(event:Event):Void;
+	function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):Void;
 }

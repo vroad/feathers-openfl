@@ -84,7 +84,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	public function set margin(value:Number):void
+	public function set margin(value:Number):Void
 	{
 		this.marginTop = 0;
 		this.marginRight = 0;
@@ -177,7 +177,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public function open(content:DisplayObject, source:DisplayObject):void
+	public function open(content:DisplayObject, source:DisplayObject):Void
 	{
 		if(this.isOpen)
 		{
@@ -205,7 +205,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public function close():void
+	public function close():Void
 	{
 		if(!this.isOpen)
 		{
@@ -227,7 +227,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		this.close();
 	}
@@ -235,7 +235,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function layout():void
+	private function layout():Void
 	{
 		var stage:Stage = Starling.current.stage;
 		var maxWidth:Number = stage.stageWidth;
@@ -282,7 +282,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function content_resizeHandler(event:Event):void
+	private function content_resizeHandler(event:Event):Void
 	{
 		this.layout();
 	}
@@ -290,7 +290,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.isDefaultPrevented())
 		{
@@ -310,7 +310,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		this.layout();
 	}
@@ -318,7 +318,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		if(!PopUpManager.isTopLevelPopUp(this.content))
 		{

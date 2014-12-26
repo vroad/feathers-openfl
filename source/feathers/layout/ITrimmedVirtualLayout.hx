@@ -30,7 +30,7 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	/**
 	 * @private
 	 */
-	function set beforeVirtualizedItemCount(value:int):void;
+	function set beforeVirtualizedItemCount(value:int):Void;
 
 	/**
 	 * Used internally by a component, such as <code>List</code>, to set the
@@ -50,5 +50,5 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	/**
 	 * @private
 	 */
-	function set afterVirtualizedItemCount(value:int):void;
+	function set afterVirtualizedItemCount(value:int):Void;
 }

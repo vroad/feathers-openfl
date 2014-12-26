@@ -28,7 +28,7 @@ class DrawerView extends ScrollContainer
 		return DrawerView.globalStyleProvider;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -45,7 +45,7 @@ class DrawerView extends ScrollContainer
 		this.addChild(this._dockCheck);
 	}
 
-	private function dockCheck_changeHandler(event:Event):void
+	private function dockCheck_changeHandler(event:Event):Void
 	{
 		if(this._dockCheck.isSelected)
 		{

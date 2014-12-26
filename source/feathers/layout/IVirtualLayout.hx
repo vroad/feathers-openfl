@@ -29,7 +29,7 @@ public interface IVirtualLayout extends ILayout
 	/**
 	 * @private
 	 */
-	function set useVirtualLayout(value:Boolean):void;
+	function set useVirtualLayout(value:Boolean):Void;
 
 	/**
 	 * Used internally by a component that supports layout virtualization,
@@ -46,7 +46,7 @@ public interface IVirtualLayout extends ILayout
 	/**
 	 * @private
 	 */
-	function set typicalItem(value:DisplayObject):void;
+	function set typicalItem(value:DisplayObject):Void;
 
 	/**
 	 * Used internally by a component, such as <code>List</code>, to measure

@@ -204,7 +204,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):void
+	public function set data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -263,7 +263,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set dataDescriptor(value:IListCollectionDataDescriptor):void
+	public function set dataDescriptor(value:IListCollectionDataDescriptor):Void
 	{
 		if(this._dataDescriptor == value)
 		{
@@ -288,7 +288,7 @@ class ListCollection extends EventDispatcher
 	 * and the collection will dispatch the <code>CollectionEventType.UPDATE_ITEM</code>
 	 * event to manually notify the component that renders the data.
 	 */
-	public function updateItemAt(index:int):void
+	public function updateItemAt(index:int):Void
 	{
 		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, index);
 	}
@@ -313,7 +313,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified index.
 	 */
-	public function addItemAt(item:Object, index:int):void
+	public function addItemAt(item:Object, index:int):Void
 	{
 		this._dataDescriptor.addItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -335,7 +335,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Removes a specific item from the collection.
 	 */
-	public function removeItem(item:Object):void
+	public function removeItem(item:Object):Void
 	{
 		var index:int = this.getItemIndex(item);
 		if(index >= 0)
@@ -347,7 +347,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Removes all items from the collection.
 	 */
-	public function removeAll():void
+	public function removeAll():Void
 	{
 		if(this.length == 0)
 		{
@@ -361,7 +361,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified index with a new item.
 	 */
-	public function setItemAt(item:Object, index:int):void
+	public function setItemAt(item:Object, index:int):Void
 	{
 		this._dataDescriptor.setItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -371,7 +371,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the end of the collection.
 	 */
-	public function addItem(item:Object):void
+	public function addItem(item:Object):Void
 	{
 		this.addItemAt(item, this.length);
 	}
@@ -379,7 +379,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the end of the collection.
 	 */
-	public function push(item:Object):void
+	public function push(item:Object):Void
 	{
 		this.addItemAt(item, this.length);
 	}
@@ -387,7 +387,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds all items from another collection.
 	 */
-	public function addAll(collection:ListCollection):void
+	public function addAll(collection:ListCollection):Void
 	{
 		var otherCollectionLength:int = collection.length;
 		for(var i:int = 0; i < otherCollectionLength; i++)
@@ -401,7 +401,7 @@ class ListCollection extends EventDispatcher
 	 * Adds all items from another collection, placing the items at a
 	 * specific index in this collection.
 	 */
-	public function addAllAt(collection:ListCollection, index:int):void
+	public function addAllAt(collection:ListCollection, index:int):Void
 	{
 		var otherCollectionLength:int = collection.length;
 		var currentIndex:int = index;
@@ -424,7 +424,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the beginning of the collection.
 	 */
-	public function unshift(item:Object):void
+	public function unshift(item:Object):Void
 	{
 		this.addItemAt(item, 0);
 	}
@@ -451,12 +451,12 @@ class ListCollection extends EventDispatcher
 	 * or textures may need to be disposed.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):void</pre>
+	 * <pre>function( item:Object ):Void</pre>
 	 *
 	 * <p>In the following example, the items in the collection are disposed:</p>
 	 *
 	 * <listing version="3.0">
-	 * collection.dispose( function( item:Object ):void
+	 * collection.dispose( function( item:Object ):Void
 	 * {
 	 *     var accessory:DisplayObject = DisplayObject(item.accessory);
 	 *     accessory.dispose();
@@ -465,7 +465,7 @@ class ListCollection extends EventDispatcher
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#dispose() starling.display.DisplayObject.dispose()
 	 * @see http://doc.starling-framework.org/core/starling/textures/Texture.html#dispose() starling.textures.Texture.dispose()
 	 */
-	public function dispose(disposeItem:Function):void
+	public function dispose(disposeItem:Function):Void
 	{
 		var itemCount:int = this.length;
 		for(var i:int = 0; i < itemCount; i++)

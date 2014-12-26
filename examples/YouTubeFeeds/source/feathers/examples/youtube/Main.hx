@@ -26,7 +26,7 @@ class Main extends ScreenNavigator
 	private var _transitionManager:ScreenSlidingStackTransitionManager;
 	private var _model:YouTubeModel;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -63,13 +63,13 @@ class Main extends ScreenNavigator
 		this._transitionManager.duration = 0.4;
 	}
 
-	private function mainMenuScreen_listVideosHandler(event:Event, selectedItem:VideoFeed):void
+	private function mainMenuScreen_listVideosHandler(event:Event, selectedItem:VideoFeed):Void
 	{
 		this._model.selectedList = selectedItem;
 		this.showScreen(LIST_VIDEOS);
 	}
 
-	private function listVideos_showVideoDetails(event:Event, selectedItem:VideoDetails):void
+	private function listVideos_showVideoDetails(event:Event, selectedItem:VideoDetails):Void
 	{
 		this._model.selectedVideo = selectedItem;
 		this.showScreen(VIDEO_DETAILS);

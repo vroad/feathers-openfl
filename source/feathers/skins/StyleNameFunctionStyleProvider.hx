@@ -34,12 +34,12 @@ import feathers.core.TokenList;
  * created with a default style function (passed to the constructor) and
  * an alternate style function:</p>
  * <listing version="3.0">
- * var styleProvider:StyleNameFunctionStyleProvider = new StyleNameFunctionStyleProvider( function( target:Button ):void
+ * var styleProvider:StyleNameFunctionStyleProvider = new StyleNameFunctionStyleProvider( function( target:Button ):Void
  * {
  *     target.defaultSkin = new Image( defaultTexture );
  *     // set other styles...
  * });
- * styleProvider.setFunctionForStyleName( "alternate-button", function( target:Button ):void
+ * styleProvider.setFunctionForStyleName( "alternate-button", function( target:Button ):Void
  * {
  *     target.defaultSkin = new Image( alternateTexture );
  *     // set other styles...
@@ -78,7 +78,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 * set with <code>setFunctionForStyleName()</code>.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:IFeathersControl ):void</pre>
+	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 *
 	 * @see #setFunctionForStyleName()
 	 */
@@ -90,7 +90,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set defaultStyleFunction(value:Function):void
+	public function set defaultStyleFunction(value:Function):Void
 	{
 		this._defaultStyleFunction = value;
 	}
@@ -106,11 +106,11 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 * <code>styleNameList</code> contains the specified style name.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:IFeathersControl ):void</pre>
+	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 *
 	 * @see #defaultStyleFunction
 	 */
-	public function setFunctionForStyleName(styleName:String, styleFunction:Function):void
+	public function setFunctionForStyleName(styleName:String, styleFunction:Function):Void
 	{
 		if(!this._styleNameMap)
 		{
@@ -122,7 +122,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @inheritDoc
 	 */
-	public function applyStyles(target:IFeathersControl):void
+	public function applyStyles(target:IFeathersControl):Void
 	{
 		if(this._styleNameMap)
 		{

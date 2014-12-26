@@ -50,7 +50,7 @@ class ListVideosScreen extends PanelScreen
 		return this._model;
 	}
 
-	public function set model(value:YouTubeModel):void
+	public function set model(value:YouTubeModel):Void
 	{
 		if(this._model == value)
 		{
@@ -67,7 +67,7 @@ class ListVideosScreen extends PanelScreen
 	private var _loader:URLLoader;
 	private var _savedLoaderData:*;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -118,7 +118,7 @@ class ListVideosScreen extends PanelScreen
 		this._owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 
@@ -156,7 +156,7 @@ class ListVideosScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function cleanUpLoader():void
+	private function cleanUpLoader():Void
 	{
 		if(!this._loader)
 		{
@@ -168,7 +168,7 @@ class ListVideosScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseFeed(feed:XML):void
+	private function parseFeed(feed:XML):Void
 	{
 		this._message.visible = false;
 
@@ -196,7 +196,7 @@ class ListVideosScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function onBackButton(event:starling.events.Event = null):void
+	private function onBackButton(event:starling.events.Event = null):Void
 	{
 		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
 		if(screenItem.properties)
@@ -212,7 +212,7 @@ class ListVideosScreen extends PanelScreen
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}
 
-	private function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		if(this._list.selectedIndex < 0)
 		{
@@ -238,12 +238,12 @@ class ListVideosScreen extends PanelScreen
 		this.dispatchEventWith(SHOW_VIDEO_DETAILS, false, VideoDetails(this._list.selectedItem));
 	}
 
-	private function removedFromStageHandler(event:starling.events.Event):void
+	private function removedFromStageHandler(event:starling.events.Event):Void
 	{
 		this.cleanUpLoader();
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		var loaderData:* = this._loader.data;
 		this.cleanUpLoader();
@@ -257,7 +257,7 @@ class ListVideosScreen extends PanelScreen
 		this.parseFeed(new XML(loaderData));
 	}
 
-	private function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):Void
 	{
 		this.cleanUpLoader();
 		this._message.text = "Unable to load data. Please try again later.";
@@ -266,7 +266,7 @@ class ListVideosScreen extends PanelScreen
 		trace(event.toString());
 	}
 
-	private function owner_transitionCompleteHandler(event:starling.events.Event):void
+	private function owner_transitionCompleteHandler(event:starling.events.Event):Void
 	{
 		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 

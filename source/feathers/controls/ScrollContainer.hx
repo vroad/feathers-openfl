@@ -253,7 +253,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):void
+	public function set layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -285,7 +285,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function set mxmlContent(value:Array):void
+	public function set mxmlContent(value:Array):Void
 	{
 		if(this._mxmlContent == value)
 		{
@@ -486,7 +486,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function setChildIndex(child:DisplayObject, index:int):void
+	override public function setChildIndex(child:DisplayObject, index:int):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -499,7 +499,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function setRawChildIndex(child:DisplayObject, index:int):void
+	public function setRawChildIndex(child:DisplayObject, index:int):Void
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -510,7 +510,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function swapRawChildren(child1:DisplayObject, child2:DisplayObject):void
+	public function swapRawChildren(child1:DisplayObject, child2:DisplayObject):Void
 	{
 		var index1:int = this.getRawChildIndex(child1);
 		var index2:int = this.getRawChildIndex(child2);
@@ -527,7 +527,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function swapChildrenAt(index1:int, index2:int):void
+	override public function swapChildrenAt(index1:int, index2:int):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -540,7 +540,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function swapRawChildrenAt(index1:int, index2:int):void
+	public function swapRawChildrenAt(index1:int, index2:int):Void
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -551,7 +551,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function sortChildren(compareFunction:Function):void
+	override public function sortChildren(compareFunction:Function):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -564,7 +564,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function sortRawChildren(compareFunction:Function):void
+	public function sortRawChildren(compareFunction:Function):Void
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -580,7 +580,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 * width and height values change, but standard Starling display objects
 	 * like <code>Sprite</code> and <code>Image</code> do not.
 	 */
-	public function readjustLayout():void
+	public function readjustLayout():Void
 	{
 		this.layoutViewPort.readjustLayout();
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -589,7 +589,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		super.initialize();
 		this.refreshMXMLContent();
@@ -598,7 +598,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -626,7 +626,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	private function refreshMXMLContent():void
+	private function refreshMXMLContent():Void
 	{
 		if(!this._mxmlContent || this._mxmlContentIsReady)
 		{

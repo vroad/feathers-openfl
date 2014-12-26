@@ -106,7 +106,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):void
+	override public function set width(value:Number):Void
 	{
 		if(this._width == value)
 		{
@@ -133,7 +133,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):void
+	override public function set height(value:Number):Void
 	{
 		if(this._height == value)
 		{
@@ -165,7 +165,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set texture(value:Texture):void
+	public function set texture(value:Texture):Void
 	{
 		if(value == null)
 		{
@@ -226,7 +226,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set smoothing(value:String):void
+	public function set smoothing(value:String):Void
 	{
 		if(TextureSmoothing.isValid(value))
 		{
@@ -263,7 +263,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):void
+	public function set color(value:uint):Void
 	{
 		if(this._color == value)
 		{
@@ -298,7 +298,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set useSeparateBatch(value:Boolean):void
+	public function set useSeparateBatch(value:Boolean):Void
 	{
 		if(this._useSeparateBatch == value)
 		{
@@ -333,7 +333,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):void
+	public function set textureScale(value:Number):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -444,7 +444,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * Set both the width and height in one call.
 	 */
-	public function setSize(width:Number, height:Number):void
+	public function setSize(width:Number, height:Number):Void
 	{
 		this.width = width;
 		this.height = height;
@@ -453,7 +453,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		if(this._isInvalid)
 		{
@@ -465,7 +465,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @copy feathers.core.IValidating#validate()
 	 */
-	public function validate():void
+	public function validate():Void
 	{
 		if(!this._isInvalid)
 		{
@@ -548,7 +548,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function invalidate():void
+	private function invalidate():Void
 	{
 		if(this._isInvalid)
 		{
@@ -565,7 +565,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function initializeWidthAndHeight():void
+	private function initializeWidthAndHeight():Void
 	{
 		this.width = this._originalImageWidth * this._textureScale;
 		this.height = this._originalImageHeight * this._textureScale;
@@ -574,7 +574,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function flattenHandler(event:Event):void
+	private function flattenHandler(event:Event):Void
 	{
 		this.validate();
 	}
@@ -582,7 +582,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		this._depth = getDisplayObjectDepthFromStage(this);
 		this._validationQueue = ValidationQueue.forStarling(Starling.current);

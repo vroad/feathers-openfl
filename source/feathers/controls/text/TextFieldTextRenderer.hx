@@ -172,7 +172,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set text(value:String):void
+	public function set text(value:String):Void
 	{
 		if(this._text == value)
 		{
@@ -214,7 +214,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):void
+	public function set isHTML(value:Boolean):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -250,7 +250,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:TextFormat):void
+	public function set textFormat(value:TextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -287,7 +287,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:TextFormat):void
+	public function set disabledTextFormat(value:TextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -337,7 +337,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set styleSheet(value:StyleSheet):void
+	public function set styleSheet(value:StyleSheet):Void
 	{
 		if(this._styleSheet == value)
 		{
@@ -373,7 +373,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):void
+	public function set embedFonts(value:Boolean):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -425,7 +425,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):void
+	public function set wordWrap(value:Boolean):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -461,7 +461,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):void
+	public function set snapToPixels(value:Boolean):Void
 	{
 		this._snapToPixels = value;
 	}
@@ -493,7 +493,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set antiAliasType(value:String):void
+	public function set antiAliasType(value:String):Void
 	{
 		if(this._antiAliasType == value)
 		{
@@ -532,7 +532,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set background(value:Boolean):void
+	public function set background(value:Boolean):Void
 	{
 		if(this._background == value)
 		{
@@ -570,7 +570,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:uint):void
+	public function set backgroundColor(value:uint):Void
 	{
 		if(this._backgroundColor == value)
 		{
@@ -611,7 +611,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set border(value:Boolean):void
+	public function set border(value:Boolean):Void
 	{
 		if(this._border == value)
 		{
@@ -649,7 +649,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:uint):void
+	public function set borderColor(value:uint):Void
 	{
 		if(this._borderColor == value)
 		{
@@ -686,7 +686,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Boolean):void
+	public function set condenseWhite(value:Boolean):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -723,7 +723,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):void
+	public function set displayAsPassword(value:Boolean):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -764,7 +764,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set gridFitType(value:String):void
+	public function set gridFitType(value:String):Void
 	{
 		if(this._gridFitType == value)
 		{
@@ -804,7 +804,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):void
+	public function set sharpness(value:Number):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -844,7 +844,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):void
+	public function set thickness(value:Number):Void
 	{
 		if(this._thickness == value)
 		{
@@ -881,7 +881,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set maxTextureDimensions(value:int):void
+	public function set maxTextureDimensions(value:int):Void
 	{
 		//check if we can use rectangle textures or not
 		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)
@@ -923,7 +923,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set nativeFilters(value:Array):void
+	public function set nativeFilters(value:Array):Void
 	{
 		if(this._nativeFilters == value)
 		{
@@ -959,7 +959,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set useGutter(value:Boolean):void
+	public function set useGutter(value:Boolean):Void
 	{
 		if(this._useGutter == value)
 		{
@@ -972,7 +972,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.textSnapshot)
 		{
@@ -1009,7 +1009,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		if(this.textSnapshot)
 		{
@@ -1065,7 +1065,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this.textField)
 		{
@@ -1082,7 +1082,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1097,7 +1097,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function commit():void
+	private function commit():Void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1231,7 +1231,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):void
+	private function layout(sizeInvalid:Boolean):Void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1410,7 +1410,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function texture_onRestore():void
+	private function texture_onRestore():Void
 	{
 		this.refreshSnapshot();
 	}
@@ -1418,7 +1418,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function refreshSnapshot():void
+	private function refreshSnapshot():Void
 	{
 		if(this._snapshotWidth <= 0 || this._snapshotHeight <= 0)
 		{
@@ -1587,7 +1587,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function enterFrameHandler(event:Event):void
+	private function enterFrameHandler(event:Event):Void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		this.refreshSnapshot();

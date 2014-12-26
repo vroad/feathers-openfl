@@ -203,7 +203,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set selectionSkin(value:DisplayObject):void
+	public function set selectionSkin(value:DisplayObject):Void
 	{
 		if(this._selectionSkin == value)
 		{
@@ -238,7 +238,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set cursorSkin(value:DisplayObject):void
+	public function set cursorSkin(value:DisplayObject):Void
 	{
 		if(this._cursorSkin == value)
 		{
@@ -288,7 +288,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):void
+	public function set displayAsPassword(value:Boolean):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -335,7 +335,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set passwordCharCode(value:int):void
+	public function set passwordCharCode(value:int):Void
 	{
 		if(this._passwordCharCode == value)
 		{
@@ -373,7 +373,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):void
+	public function set isEditable(value:Boolean):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -408,7 +408,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function set text(value:String):void
+	override public function set text(value:String):Void
 	{
 		if(value === null)
 		{
@@ -462,7 +462,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):void
+	public function set maxChars(value:int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -501,7 +501,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):void
+	public function set restrict(value:String):Void
 	{
 		if(this._restrict && this._restrict.restrict === value)
 		{
@@ -582,7 +582,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function set nativeFocus(value:InteractiveObject):void
+	private function set nativeFocus(value:InteractiveObject):Void
 	{
 		if(this._nativeFocus == value)
 		{
@@ -611,7 +611,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function setFocus(position:Point = null):void
+	public function setFocus(position:Point = null):Void
 	{
 		//we already have focus, so there's no reason to change
 		if(this._hasFocus && !position)
@@ -640,7 +640,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function clearFocus():void
+	public function clearFocus():Void
 	{
 		if(!this._hasFocus)
 		{
@@ -658,7 +658,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):void
+	public function selectRange(beginIndex:int, endIndex:int):Void
 	{
 		if(endIndex < beginIndex)
 		{
@@ -698,7 +698,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var oldSnapshotX:Number = this._textSnapshotOffsetX;
 		var oldCursorX:Number = this._cursorSkin.x;
@@ -711,7 +711,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this._cursorSkin)
 		{
@@ -727,7 +727,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):void
+	override private function refreshTextLines(textLines:Vector.<TextLine>, textLineParent:DisplayObjectContainer, width:Number, height:Number):Void
 	{
 		super.refreshTextLines(textLines, textLineParent, width, height);
 		if(textLineParent.width > width)
@@ -739,7 +739,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function refreshMaskedText():void
+	private function refreshMaskedText():Void
 	{
 		var newText:String = "";
 		var textLength:int = this._unmaskedText.length;
@@ -754,7 +754,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function focusIn():void
+	private function focusIn():Void
 	{
 		var showCursor:Boolean = this._selectionBeginIndex >= 0 && this._selectionBeginIndex == this._selectionEndIndex;
 		this._cursorSkin.visible = showCursor;
@@ -856,7 +856,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionCursorAtCharIndex(index:int):void
+	private function positionCursorAtCharIndex(index:int):Void
 	{
 		if(index < 0)
 		{
@@ -897,7 +897,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionSelectionBackground():void
+	private function positionSelectionBackground():Void
 	{
 		var startX:Number = this.getXPositionOfCharIndex(this._selectionBeginIndex) - this._textSnapshotScrollX;
 		if(startX < 0)
@@ -933,7 +933,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function deleteSelectedText():void
+	private function deleteSelectedText():Void
 	{
 		var currentValue:String = this._text;
 		if(this._displayAsPassword)
@@ -948,7 +948,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function replaceSelectedText(text:String):void
+	private function replaceSelectedText(text:String):Void
 	{
 		var currentValue:String = this._text;
 		if(this._displayAsPassword)
@@ -969,7 +969,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textEditor_touchHandler(event:TouchEvent):void
+	private function textEditor_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled || !this._isEditable)
 		{
@@ -1024,7 +1024,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
 		if(!touch) //we only care about began touches
@@ -1044,7 +1044,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(!this._isEnabled || !this._isEditable || this.touchPointID >= 0)
 		{
@@ -1231,7 +1231,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_cutHandler(event:flash.events.Event):void
+	private function nativeStage_cutHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1244,7 +1244,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_copyHandler(event:flash.events.Event):void
+	private function nativeStage_copyHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1256,7 +1256,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_pasteHandler(event:flash.events.Event):void
+	private function nativeStage_pasteHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{

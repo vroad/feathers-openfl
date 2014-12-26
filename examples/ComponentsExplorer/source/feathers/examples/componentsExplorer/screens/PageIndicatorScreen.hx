@@ -22,7 +22,7 @@ class PageIndicatorScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _pageIndicator:PageIndicator;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -57,17 +57,17 @@ class PageIndicatorScreen extends PanelScreen
 		}
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function pageIndicator_changeHandler(event:Event):void
+	private function pageIndicator_changeHandler(event:Event):Void
 	{
 		trace("page indicator change:", this._pageIndicator.selectedIndex);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

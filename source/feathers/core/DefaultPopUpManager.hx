@@ -78,7 +78,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	public function set overlayFactory(value:Function):void
+	public function set overlayFactory(value:Function):Void
 	{
 		this._overlayFactory = value;
 	}
@@ -104,7 +104,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	public function set root(value:DisplayObjectContainer):void
+	public function set root(value:DisplayObjectContainer):Void
 	{
 		if(this._root == value)
 		{
@@ -237,7 +237,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#centerPopUp()
 	 */
-	public function centerPopUp(popUp:DisplayObject):void
+	public function centerPopUp(popUp:DisplayObject):Void
 	{
 		var stage:Stage = this._root.stage;
 		if(popUp is IValidating)
@@ -251,7 +251,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private function popUp_resizeHandler(event:Event):void
+	private function popUp_resizeHandler(event:Event):Void
 	{
 		var popUp:DisplayObject = DisplayObject(event.currentTarget);
 		var index:int = this._centeredPopUps.indexOf(popUp);
@@ -265,7 +265,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private function popUp_removedFromStageHandler(event:Event):void
+	private function popUp_removedFromStageHandler(event:Event):Void
 	{
 		if(this._ignoreRemoval)
 		{
@@ -306,7 +306,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		var stage:Stage = this._root.stage;
 		var popUpCount:int = this._popUps.length;

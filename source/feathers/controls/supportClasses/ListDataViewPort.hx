@@ -64,7 +64,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleWidth;
 	}
 
-	public function set minVisibleWidth(value:Number):void
+	public function set minVisibleWidth(value:Number):Void
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -85,7 +85,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleWidth;
 	}
 
-	public function set maxVisibleWidth(value:Number):void
+	public function set maxVisibleWidth(value:Number):Void
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -108,7 +108,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this.actualVisibleWidth;
 	}
 
-	public function set visibleWidth(value:Number):void
+	public function set visibleWidth(value:Number):Void
 	{
 		if(this.explicitVisibleWidth == value ||
 			(value !== value && this.explicitVisibleWidth !== this.explicitVisibleWidth)) //isNaN
@@ -126,7 +126,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleHeight;
 	}
 
-	public function set minVisibleHeight(value:Number):void
+	public function set minVisibleHeight(value:Number):Void
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -147,7 +147,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleHeight;
 	}
 
-	public function set maxVisibleHeight(value:Number):void
+	public function set maxVisibleHeight(value:Number):Void
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -170,7 +170,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this.actualVisibleHeight;
 	}
 
-	public function set visibleHeight(value:Number):void
+	public function set visibleHeight(value:Number):Void
 	{
 		if(this.explicitVisibleHeight == value ||
 			(value !== value && this.explicitVisibleHeight !== this.explicitVisibleHeight)) //isNaN
@@ -214,7 +214,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._owner;
 	}
 
-	public function set owner(value:List):void
+	public function set owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -240,7 +240,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._dataProvider;
 	}
 
-	public function set dataProvider(value:ListCollection):void
+	public function set dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -280,7 +280,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererType;
 	}
 
-	public function set itemRendererType(value:Class):void
+	public function set itemRendererType(value:Class):Void
 	{
 		if(this._itemRendererType == value)
 		{
@@ -298,7 +298,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererFactory;
 	}
 
-	public function set itemRendererFactory(value:Function):void
+	public function set itemRendererFactory(value:Function):Void
 	{
 		if(this._itemRendererFactory === value)
 		{
@@ -316,7 +316,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererName;
 	}
 
-	public function set itemRendererName(value:String):void
+	public function set itemRendererName(value:String):Void
 	{
 		if(this._itemRendererName == value)
 		{
@@ -333,7 +333,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._typicalItem;
 	}
 
-	public function set typicalItem(value:Object):void
+	public function set typicalItem(value:Object):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -350,7 +350,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererProperties;
 	}
 
-	public function set itemRendererProperties(value:PropertyProxy):void
+	public function set itemRendererProperties(value:PropertyProxy):Void
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -378,7 +378,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._layout;
 	}
 
-	public function set layout(value:ILayout):void
+	public function set layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -439,7 +439,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._horizontalScrollPosition;
 	}
 
-	public function set horizontalScrollPosition(value:Number):void
+	public function set horizontalScrollPosition(value:Number):Void
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -456,7 +456,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._verticalScrollPosition;
 	}
 
-	public function set verticalScrollPosition(value:Number):void
+	public function set verticalScrollPosition(value:Number):Void
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -475,7 +475,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._isSelectable;
 	}
 
-	public function set isSelectable(value:Boolean):void
+	public function set isSelectable(value:Boolean):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -495,7 +495,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._allowMultipleSelection;
 	}
 
-	public function set allowMultipleSelection(value:Boolean):void
+	public function set allowMultipleSelection(value:Boolean):Void
 	{
 		this._allowMultipleSelection = value;
 	}
@@ -507,7 +507,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._selectedIndices;
 	}
 
-	public function set selectedIndices(value:ListCollection):void
+	public function set selectedIndices(value:ListCollection):Void
 	{
 		if(this._selectedIndices == value)
 		{
@@ -534,7 +534,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._layout.getScrollPositionForIndex(index, this._layoutItems, 0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.owner = null;
 		this.layout = null;
@@ -542,7 +542,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		super.dispose();
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -620,12 +620,12 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.validateItemRenderers();
 	}
 
-	private function invalidateParent(flag:String = INVALIDATION_FLAG_ALL):void
+	private function invalidateParent(flag:String = INVALIDATION_FLAG_ALL):Void
 	{
 		Scroller(this.parent).invalidate(flag);
 	}
 
-	private function validateItemRenderers():void
+	private function validateItemRenderers():Void
 	{
 		var rendererCount:int = this._activeRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -635,7 +635,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function refreshLayoutTypicalItem():void
+	private function refreshLayoutTypicalItem():Void
 	{
 		var virtualLayout:IVirtualLayout = this._layout as IVirtualLayout;
 		if(!virtualLayout || !virtualLayout.useVirtualLayout)
@@ -727,7 +727,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this._typicalItemIsInDataProvider = newTypicalItemIsInDataProvider;
 	}
 
-	private function refreshItemRendererStyles():void
+	private function refreshItemRendererStyles():Void
 	{
 		for each(var renderer:IListItemRenderer in this._activeRenderers)
 		{
@@ -735,7 +735,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function refreshOneItemRendererStyles(renderer:IListItemRenderer):void
+	private function refreshOneItemRendererStyles(renderer:IListItemRenderer):Void
 	{
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._itemRendererProperties)
@@ -745,7 +745,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function refreshSelection():void
+	private function refreshSelection():Void
 	{
 		var rendererCount:int = this._activeRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -755,7 +755,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function refreshEnabled():void
+	private function refreshEnabled():Void
 	{
 		var rendererCount:int = this._activeRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -765,7 +765,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function refreshViewPortBounds():void
+	private function refreshViewPortBounds():Void
 	{
 		this._viewPortBounds.x = this._viewPortBounds.y = 0;
 		this._viewPortBounds.scrollX = this._horizontalScrollPosition;
@@ -778,7 +778,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this._viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Boolean):void
+	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Boolean):Void
 	{
 		var temp:Vector.<IListItemRenderer> = this._inactiveRenderers;
 		this._inactiveRenderers = this._activeRenderers;
@@ -806,7 +806,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this._layoutItems.length = 0;
 	}
 
-	private function refreshRenderers():void
+	private function refreshRenderers():Void
 	{
 		if(this._typicalItemRenderer)
 		{
@@ -841,7 +841,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this._updateForDataReset = false;
 	}
 
-	private function findUnrenderedData():void
+	private function findUnrenderedData():Void
 	{
 		var itemCount:int = this._dataProvider ? this._dataProvider.length : 0;
 		var virtualLayout:IVirtualLayout = this._layout as IVirtualLayout;
@@ -977,7 +977,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		HELPER_VECTOR.length = 0;
 	}
 
-	private function renderUnrenderedData():void
+	private function renderUnrenderedData():Void
 	{
 		var itemCount:int = this._unrenderedData.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -990,7 +990,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function recoverInactiveRenderers():void
+	private function recoverInactiveRenderers():Void
 	{
 		var itemCount:int = this._inactiveRenderers.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1005,7 +1005,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function freeInactiveRenderers():void
+	private function freeInactiveRenderers():Void
 	{
 		var itemCount:int = this._inactiveRenderers.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1067,7 +1067,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return renderer;
 	}
 
-	private function destroyRenderer(renderer:IListItemRenderer):void
+	private function destroyRenderer(renderer:IListItemRenderer):Void
 	{
 		renderer.removeEventListener(Event.CHANGE, renderer_changeHandler);
 		renderer.removeEventListener(FeathersEventType.RESIZE, renderer_resizeHandler);
@@ -1076,22 +1076,22 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.removeChild(DisplayObject(renderer), true);
 	}
 
-	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private function owner_scrollStartHandler(event:Event):void
+	private function owner_scrollStartHandler(event:Event):Void
 	{
 		this._isScrolling = true;
 	}
 
-	private function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):Void
 	{
 		var selectionChanged:Boolean = false;
 		var newIndices:Vector.<int> = new <int>[];
@@ -1119,7 +1119,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.addToVariableVirtualCacheAtIndex(index);
 	}
 
-	private function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):Void
 	{
 		var selectionChanged:Boolean = false;
 		var newIndices:Vector.<int> = new <int>[];
@@ -1154,7 +1154,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.removeFromVariableVirtualCacheAtIndex(index);
 	}
 
-	private function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
 	{
 		var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
 		if(indexOfIndex >= 0)
@@ -1170,7 +1170,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.resetVariableVirtualCacheAtIndex(index);
 	}
 
-	private function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):Void
 	{
 		this._selectedIndices.removeAll();
 		this._updateForDataReset = true;
@@ -1183,7 +1183,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.resetVariableVirtualCache();
 	}
 
-	private function dataProvider_updateItemHandler(event:Event, index:int):void
+	private function dataProvider_updateItemHandler(event:Event, index:int):Void
 	{
 		var item:Object = this._dataProvider.getItemAt(index);
 		var renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
@@ -1195,7 +1195,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		renderer.data = item;
 	}
 
-	private function layout_changeHandler(event:Event):void
+	private function layout_changeHandler(event:Event):Void
 	{
 		if(this._ignoreLayoutChanges)
 		{
@@ -1205,7 +1205,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	private function renderer_resizeHandler(event:Event):void
+	private function renderer_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreRendererResizing)
 		{
@@ -1222,7 +1222,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	private function renderer_changeHandler(event:Event):void
+	private function renderer_changeHandler(event:Event):Void
 	{
 		if(this._ignoreSelectionChanges)
 		{
@@ -1258,17 +1258,17 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function selectedIndices_changeHandler(event:Event):void
+	private function selectedIndices_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	private function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):Void
 	{
 		this.touchPointID = -1;
 	}
 
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{

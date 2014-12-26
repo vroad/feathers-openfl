@@ -33,5 +33,5 @@ public interface IGroupedToggle extends IToggle
 	/**
 	 * @private
 	 */
-	function set toggleGroup(value:ToggleGroup):void;
+	function set toggleGroup(value:ToggleGroup):Void;
 }

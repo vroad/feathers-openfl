@@ -13,7 +13,7 @@ class EmbeddedAssets
 
 	public static var SKULL_ICON_LIGHT:Texture;
 	
-	public static function initialize():void
+	public static function initialize():Void
 	{
 		//we can't create these textures until Starling is ready
 		SKULL_ICON_DARK = Texture.fromBitmap(new SKULL_ICON_DARK_EMBEDDED());

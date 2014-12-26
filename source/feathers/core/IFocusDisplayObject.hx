@@ -65,7 +65,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set focusManager(value:IFocusManager):void;
+	function set focusManager(value:IFocusManager):Void;
 
 	/**
 	 * Determines if this component can receive focus.
@@ -80,7 +80,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set isFocusEnabled(value:Boolean):void;
+	function set isFocusEnabled(value:Boolean):Void;
 
 	/**
 	 * The next object that will receive focus when the tab key is pressed.
@@ -96,7 +96,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set nextTabFocus(value:IFocusDisplayObject):void;
+	function set nextTabFocus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * The previous object that will receive focus when the tab key is
@@ -113,7 +113,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set previousTabFocus(value:IFocusDisplayObject):void;
+	function set previousTabFocus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * Used for associating focusable display objects that are not direct
@@ -130,7 +130,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set focusOwner(value:IFocusDisplayObject):void;
+	function set focusOwner(value:IFocusDisplayObject):Void;
 
 	/**
 	 * If the object has focus, an additional visual indicator may
@@ -148,7 +148,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * @see #hideFocus()
 	 * @see feathers.core.IFocusManager#focus
 	 */
-	function showFocus():void;
+	function showFocus():Void;
 
 	/**
 	 * If the visual indicator of focus has been displayed by
@@ -162,5 +162,5 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * @see #showFocus()
 	 * @see feathers.core.IFocusManager#focus
 	 */
-	function hideFocus():void;
+	function hideFocus():Void;
 }

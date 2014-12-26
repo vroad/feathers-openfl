@@ -97,7 +97,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	public function set isEnabled(value:Boolean):void
+	public function set isEnabled(value:Boolean):Void
 	{
 		if(this._isEnabled == value)
 		{
@@ -167,7 +167,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	public function set focus(value:IFocusDisplayObject):void
+	public function set focus(value:IFocusDisplayObject):Void
 	{
 		if(this._focus == value)
 		{
@@ -215,7 +215,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function setFocusManager(target:DisplayObject):void
+	private function setFocusManager(target:DisplayObject):Void
 	{
 		if(target is IFocusDisplayObject)
 		{
@@ -261,7 +261,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function clearFocusManager(target:DisplayObject):void
+	private function clearFocusManager(target:DisplayObject):Void
 	{
 		if(target is IFocusDisplayObject)
 		{
@@ -579,7 +579,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function stage_mouseFocusChangeHandler(event:FocusEvent):void
+	private function stage_mouseFocusChangeHandler(event:FocusEvent):Void
 	{
 		event.preventDefault();
 	}
@@ -587,7 +587,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function stage_keyFocusChangeHandler(event:FocusEvent):void
+	private function stage_keyFocusChangeHandler(event:FocusEvent):Void
 	{
 		//keyCode 0 is sent by IE, for some reason
 		if(event.keyCode != Keyboard.TAB && event.keyCode != 0)
@@ -652,7 +652,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function topLevelContainer_addedHandler(event:Event):void
+	private function topLevelContainer_addedHandler(event:Event):Void
 	{
 		this.setFocusManager(DisplayObject(event.target));
 
@@ -661,7 +661,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function topLevelContainer_removedHandler(event:Event):void
+	private function topLevelContainer_removedHandler(event:Event):Void
 	{
 		this.clearFocusManager(DisplayObject(event.target));
 	}
@@ -669,7 +669,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function topLevelContainer_touchHandler(event:TouchEvent):void
+	private function topLevelContainer_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._root, TouchPhase.BEGAN);
 		if(!touch)
@@ -698,7 +698,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function nativeFocus_focusOutHandler(event:FocusEvent):void
+	private function nativeFocus_focusOutHandler(event:FocusEvent):Void
 	{
 		var nativeFocus:InteractiveObject = InteractiveObject(event.currentTarget);
 		var nativeStage:Stage = this._starling.nativeStage;

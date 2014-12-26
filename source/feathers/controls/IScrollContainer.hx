@@ -45,7 +45,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * Sets the index of a direct child of the <code>Scroller</code> rather
 	 * than delegating the call to the view port.
 	 */
-	function setRawChildIndex(child:DisplayObject, index:int):void;
+	function setRawChildIndex(child:DisplayObject, index:int):Void;
 
 	/**
 	 * Adds a child to the <code>Scroller</code> rather than delegating the
@@ -75,17 +75,17 @@ public interface IScrollContainer extends IFeathersControl
 	 * Swaps the children of the <code>Scroller</code> rather than
 	 * delegating the call to the view port.
 	 */
-	function swapRawChildren(child1:DisplayObject, child2:DisplayObject):void;
+	function swapRawChildren(child1:DisplayObject, child2:DisplayObject):Void;
 
 	/**
 	 * Swaps the children of the <code>Scroller</code> rather than
 	 * delegating the call to the view port.
 	 */
-	function swapRawChildrenAt(index1:int, index2:int):void;
+	function swapRawChildrenAt(index1:int, index2:int):Void;
 
 	/**
 	 * Sorts the children of the <code>Scroller</code> rather than
 	 * delegating the call to the view port.
 	 */
-	function sortRawChildren(compareFunction:Function):void;
+	function sortRawChildren(compareFunction:Function):Void;
 }

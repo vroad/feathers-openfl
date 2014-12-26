@@ -17,7 +17,7 @@ import feathers.core.IFeathersControl;
  * <listing version="3.0">
  * var button:Button = new Button();
  * button.label = "Click Me";
- * button.styleProvider = new FunctionStyleProvider( function( target:Button ):void
+ * button.styleProvider = new FunctionStyleProvider( function( target:Button ):Void
  * {
  *     target.defaultSkin = new Image( texture );
  *     // set other styles...
@@ -44,7 +44,7 @@ class FunctionStyleProvider implements IStyleProvider
 	 * <code>applyStyles()</code> is called.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:IFeathersControl ):void</pre>
+	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 */
 	public function get styleFunction():Function
 	{
@@ -54,7 +54,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set styleFunction(value:Function):void
+	public function set styleFunction(value:Function):Void
 	{
 		this._styleFunction = value;
 	}
@@ -62,7 +62,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @inheritDoc
 	 */
-	public function applyStyles(target:IFeathersControl):void
+	public function applyStyles(target:IFeathersControl):Void
 	{
 		if(this._styleFunction == null)
 		{

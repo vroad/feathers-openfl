@@ -45,7 +45,7 @@ class Main extends Sprite
 	private var originalImageWidth:Number;
 	private var originalImageHeight:Number;
 
-	private function layout():void
+	private function layout():Void
 	{
 		this.list.width = this.stage.stageWidth;
 		this.list.height = 100;
@@ -67,7 +67,7 @@ class Main extends Sprite
 		this.message.y = (availableHeight - this.message.height) / 2;
 	}
 
-	private function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		var item:GalleryItem = GalleryItem(this.list.selectedItem);
 		if(!item)
@@ -103,7 +103,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	private function addedToStageHandler(event:starling.events.Event):void
+	private function addedToStageHandler(event:starling.events.Event):Void
 	{
 		//this is an *extended* version of MetalWorksMobileTheme
 		new GalleryTheme();
@@ -136,12 +136,12 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	private function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		this.layout();
 	}
 
-	private function apiLoader_completeListener(event:flash.events.Event):void
+	private function apiLoader_completeListener(event:flash.events.Event):Void
 	{
 		var result:XML = XML(this.apiLoader.data);
 		if(result.attribute("stat") == "fail")
@@ -172,13 +172,13 @@ class Main extends Sprite
 		this.list.selectedIndex = 0;
 	}
 
-	private function apiLoader_errorListener(event:flash.events.Event):void
+	private function apiLoader_errorListener(event:flash.events.Event):Void
 	{
 		this.message.text = "Error loading images.";
 		this.layout();
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		var texture:Texture = Texture.fromBitmap(Bitmap(this.loader.content));
 		if(this.selectedImage)
@@ -207,7 +207,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	private function loader_errorHandler(event:flash.events.Event):void
+	private function loader_errorHandler(event:flash.events.Event):Void
 	{
 		this.message.text = "Error loading image.";
 		this.layout();

@@ -259,7 +259,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set title(value:String):void
+	public function set title(value:String):Void
 	{
 		if(value === null)
 		{
@@ -322,7 +322,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleFactory(value:Function):void
+	public function set titleFactory(value:Function):Void
 	{
 		if(this._titleFactory == value)
 		{
@@ -367,7 +367,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set disposeItems(value:Boolean):void
+	public function set disposeItems(value:Boolean):Void
 	{
 		this._disposeItems = value;
 	}
@@ -400,7 +400,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftItems(value:Vector.<DisplayObject>):void
+	public function set leftItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._leftItems == value)
 		{
@@ -462,7 +462,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set centerItems(value:Vector.<DisplayObject>):void
+	public function set centerItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._centerItems == value)
 		{
@@ -521,7 +521,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightItems(value:Vector.<DisplayObject>):void
+	public function set rightItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._rightItems == value)
 		{
@@ -579,7 +579,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -612,7 +612,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set paddingTop(value:Number):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -647,7 +647,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set paddingRight(value:Number):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -682,7 +682,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set paddingBottom(value:Number):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -717,7 +717,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set paddingLeft(value:Number):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -759,7 +759,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set gap(value:Number):Void
 	{
 		if(this._gap == value)
 		{
@@ -797,7 +797,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleGap(value:Number):void
+	public function set titleGap(value:Number):Void
 	{
 		if(this._titleGap == value)
 		{
@@ -839,7 +839,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set useExtraPaddingForOSStatusBar(value:Boolean):void
+	public function set useExtraPaddingForOSStatusBar(value:Boolean):Void
 	{
 		if(this._useExtraPaddingForOSStatusBar == value)
 		{
@@ -878,7 +878,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -927,7 +927,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):void
+	public function set backgroundSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -971,7 +971,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):void
+	public function set backgroundDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -1041,7 +1041,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleProperties(value:Object):void
+	public function set titleProperties(value:Object):Void
 	{
 		if(this._titleProperties == value)
 		{
@@ -1096,7 +1096,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleAlign(value:String):void
+	public function set titleAlign(value:String):Void
 	{
 		if(this._titleAlign == value)
 		{
@@ -1109,7 +1109,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._disposeItems)
 		{
@@ -1135,7 +1135,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this._layout)
 		{
@@ -1148,7 +1148,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
@@ -1459,7 +1459,7 @@ class Header extends FeathersControl
 	 * @see #titleTextRenderer
 	 * @see #titleFactory
 	 */
-	private function createTitle():void
+	private function createTitle():Void
 	{
 		if(this.titleTextRenderer)
 		{
@@ -1477,7 +1477,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshBackground():void
+	private function refreshBackground():Void
 	{
 		this.currentBackgroundSkin = this._backgroundSkin;
 		if(!this._isEnabled && this._backgroundDisabledSkin)
@@ -1510,7 +1510,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshLayout():void
+	private function refreshLayout():Void
 	{
 		this._layout.gap = this._gap;
 		this._layout.paddingTop = this._paddingTop + this.calculateExtraOSStatusBarPadding();
@@ -1521,7 +1521,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshEnabled():void
+	private function refreshEnabled():Void
 	{
 		this.titleTextRenderer.isEnabled = this._isEnabled;
 	}
@@ -1529,7 +1529,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTitleStyles():void
+	private function refreshTitleStyles():Void
 	{
 		for(var propertyName:String in this._titleProperties)
 		{
@@ -1567,7 +1567,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutBackground():void
+	private function layoutBackground():Void
 	{
 		if(!this.currentBackgroundSkin)
 		{
@@ -1580,7 +1580,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutLeftItems():void
+	private function layoutLeftItems():Void
 	{
 		for each(var item:DisplayObject in this._leftItems)
 		{
@@ -1608,7 +1608,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutRightItems():void
+	private function layoutRightItems():Void
 	{
 		for each(var item:DisplayObject in this._rightItems)
 		{
@@ -1635,7 +1635,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutCenterItems():void
+	private function layoutCenterItems():Void
 	{
 		for each(var item:DisplayObject in this._centerItems)
 		{
@@ -1657,7 +1657,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutTitle():void
+	private function layoutTitle():Void
 	{
 		if((this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems) || this._title.length == 0)
 		{
@@ -1720,7 +1720,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function header_addedToStageHandler(event:Event):void
+	private function header_addedToStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.addEventListener("fullScreen", nativeStage_fullScreenHandler);
 	}
@@ -1728,7 +1728,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function header_removedFromStageHandler(event:Event):void
+	private function header_removedFromStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.removeEventListener("fullScreen", nativeStage_fullScreenHandler);
 	}
@@ -1736,7 +1736,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function nativeStage_fullScreenHandler(event:FullScreenEvent):void
+	private function nativeStage_fullScreenHandler(event:FullScreenEvent):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
@@ -1744,7 +1744,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function titleProperties_onChange(proxy:PropertyProxy, propertyName:String):void
+	private function titleProperties_onChange(proxy:PropertyProxy, propertyName:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1752,7 +1752,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function item_resizeHandler(event:Event):void
+	private function item_resizeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

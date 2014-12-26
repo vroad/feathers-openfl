@@ -176,7 +176,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set selectionSkin(value:DisplayObject):void
+	public function set selectionSkin(value:DisplayObject):Void
 	{
 		if(this._selectionSkin == value)
 		{
@@ -211,7 +211,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set cursorSkin(value:DisplayObject):void
+	public function set cursorSkin(value:DisplayObject):Void
 	{
 		if(this._cursorSkin == value)
 		{
@@ -261,7 +261,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):void
+	public function set displayAsPassword(value:Boolean):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -308,7 +308,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set passwordCharCode(value:int):void
+	public function set passwordCharCode(value:int):Void
 	{
 		if(this._passwordCharCode == value)
 		{
@@ -346,7 +346,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):void
+	public function set isEditable(value:Boolean):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -381,7 +381,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function set text(value:String):void
+	override public function set text(value:String):Void
 	{
 		if(value === null)
 		{
@@ -436,7 +436,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):void
+	public function set maxChars(value:int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -475,7 +475,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):void
+	public function set restrict(value:String):Void
 	{
 		if(this._restrict && this._restrict.restrict === value)
 		{
@@ -561,7 +561,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function set nativeFocus(value:InteractiveObject):void
+	private function set nativeFocus(value:InteractiveObject):Void
 	{
 		if(this._nativeFocus == value)
 		{
@@ -590,7 +590,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function setFocus(position:Point = null):void
+	public function setFocus(position:Point = null):Void
 	{
 		//we already have focus, so there's no reason to change
 		if(this._hasFocus && !position)
@@ -619,7 +619,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function clearFocus():void
+	public function clearFocus():Void
 	{
 		if(!this._hasFocus)
 		{
@@ -637,7 +637,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):void
+	public function selectRange(beginIndex:int, endIndex:int):Void
 	{
 		if(endIndex < beginIndex)
 		{
@@ -677,7 +677,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var oldBatchX:Number = this._batchX;
 		var oldCursorX:Number = this._cursorSkin.x;
@@ -691,7 +691,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this._cursorSkin)
 		{
@@ -707,7 +707,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		super.draw();
 
@@ -743,7 +743,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override private function refreshTextFormat():void
+	override private function refreshTextFormat():Void
 	{
 		super.refreshTextFormat();
 		if(this._cursorSkin)
@@ -762,7 +762,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function refreshMaskedText():void
+	private function refreshMaskedText():Void
 	{
 		this._text = "";
 		var textLength:int = this._unmaskedText.length;
@@ -776,7 +776,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function focusIn():void
+	private function focusIn():Void
 	{
 		var showCursor:Boolean = this._selectionBeginIndex >= 0 && this._selectionBeginIndex == this._selectionEndIndex;
 		this._cursorSkin.visible = showCursor;
@@ -940,7 +940,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionCursorAtIndex(index:int):void
+	private function positionCursorAtIndex(index:int):Void
 	{
 		if(index < 0)
 		{
@@ -975,7 +975,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionSelectionBackground():void
+	private function positionSelectionBackground():Void
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Number = this.currentTextFormat.size;
@@ -1016,7 +1016,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function deleteSelectedText():void
+	private function deleteSelectedText():Void
 	{
 		var currentValue:String = this._text;
 		if(this._displayAsPassword)
@@ -1030,7 +1030,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function replaceSelectedText(text:String):void
+	private function replaceSelectedText(text:String):Void
 	{
 		var currentValue:String = this._text;
 		if(this._displayAsPassword)
@@ -1050,7 +1050,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textEditor_touchHandler(event:TouchEvent):void
+	private function textEditor_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled || !this._isEditable)
 		{
@@ -1105,7 +1105,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
 		if(!touch) //we only care about began touches
@@ -1125,7 +1125,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(!this._isEnabled || !this._isEditable || this.touchPointID >= 0)
 		{
@@ -1311,7 +1311,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_cutHandler(event:flash.events.Event):void
+	private function nativeStage_cutHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1324,7 +1324,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_copyHandler(event:flash.events.Event):void
+	private function nativeStage_copyHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1336,7 +1336,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_pasteHandler(event:flash.events.Event):void
+	private function nativeStage_pasteHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{

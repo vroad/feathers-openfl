@@ -72,7 +72,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * Disposes the validation queue.
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		if(this._starling)
 		{
@@ -84,7 +84,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * Adds a validating component to the queue.
 	 */
-	public function addControl(control:IValidating, delayIfValidating:Boolean):void
+	public function addControl(control:IValidating, delayIfValidating:Boolean):Void
 	{
 		//if the juggler was purged, we need to add the queue back in.
 		if(!this._starling.juggler.contains(this))
@@ -140,7 +140,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	public function advanceTime(time:Number):void
+	public function advanceTime(time:Number):Void
 	{
 		if(this._isValidating)
 		{

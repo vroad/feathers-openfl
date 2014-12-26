@@ -29,7 +29,7 @@ class NumericStepperScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _settingsButton:Button;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -75,22 +75,22 @@ class NumericStepperScreen extends PanelScreen
 		];
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function slider_changeHandler(event:Event):void
+	private function slider_changeHandler(event:Event):Void
 	{
 		trace("numeric stepper change:", this._stepper.value);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function settingsButton_triggeredHandler(event:Event):void
+	private function settingsButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}

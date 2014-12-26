@@ -205,7 +205,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	public function set index(value:int):void
+	public function set index(value:int):Void
 	{
 		this._index = value;
 	}
@@ -221,7 +221,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	public function set owner(value:List):void
+	public function set owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -251,7 +251,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.owner = null;
 		super.dispose();

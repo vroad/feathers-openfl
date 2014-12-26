@@ -27,14 +27,14 @@ class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 	private var _rightGripTexture:Texture;
 	private var _bottomGripTexture:Texture;
 
-	override private function initializeTextures():void
+	override private function initializeTextures():Void
 	{
 		super.initializeTextures();
 		this._rightGripTexture = Texture.fromEmbeddedAsset(VERTICAL_GRIP, false);
 		this._bottomGripTexture = Texture.fromEmbeddedAsset(HORIZONTAL_GRIP, false);
 	}
 
-	override private function initializeStyleProviders():void
+	override private function initializeStyleProviders():Void
 	{
 		super.initializeStyleProviders();
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_RIGHT_GRIP, setRightGripStyles);
@@ -44,31 +44,31 @@ class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 		this.getStyleProviderForClass(TiledImageScreen).defaultStyleFunction = setTiledImageScreenStyles;
 	}
 
-	private function setRightGripStyles(button:Button):void
+	private function setRightGripStyles(button:Button):Void
 	{
 		var rightSkin:Image = new Image(this._rightGripTexture);
 		rightSkin.scaleX = rightSkin.scaleY = this.scale;
 		button.defaultSkin = rightSkin;
 	}
 
-	private function setBottomGripStyles(button:Button):void
+	private function setBottomGripStyles(button:Button):Void
 	{
 		var bottomSkin:Image = new Image(this._bottomGripTexture);
 		bottomSkin.scaleX = bottomSkin.scaleY = this.scale;
 		button.defaultSkin = bottomSkin;
 	}
 
-	private function setScale9ImageScreenStyles(screen:Scale9ImageScreen):void
+	private function setScale9ImageScreenStyles(screen:Scale9ImageScreen):Void
 	{
 		screen.padding = 30 * this.scale;
 	}
 
-	private function setScale3ImageScreenStyles(screen:Scale3ImageScreen):void
+	private function setScale3ImageScreenStyles(screen:Scale3ImageScreen):Void
 	{
 		screen.padding = 30 * this.scale;
 	}
 
-	private function setTiledImageScreenStyles(screen:TiledImageScreen):void
+	private function setTiledImageScreenStyles(screen:TiledImageScreen):Void
 	{
 		screen.padding = 30 * this.scale;
 	}

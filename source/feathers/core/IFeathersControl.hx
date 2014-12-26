@@ -94,7 +94,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set minWidth(value:Number):void;
+	function set minWidth(value:Number):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#minHeight
@@ -104,7 +104,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set minHeight(value:Number):void;
+	function set minHeight(value:Number):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxWidth
@@ -114,7 +114,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set maxWidth(value:Number):void;
+	function set maxWidth(value:Number):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxHeight
@@ -124,7 +124,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set maxHeight(value:Number):void;
+	function set maxHeight(value:Number):Void;
 
 	/**
 	 * @private
@@ -134,7 +134,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set clipRect(value:Rectangle):void;
+	function set clipRect(value:Rectangle):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isEnabled
@@ -144,7 +144,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set isEnabled(value:Boolean):void;
+	function set isEnabled(value:Boolean):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isInitialized
@@ -174,7 +174,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set styleName(value:String):void
+	function set styleName(value:String):Void
 
 	/**
 	 * @copy feathers.core.FeathersControl#styleProvider
@@ -184,10 +184,10 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set styleProvider(value:IStyleProvider):void
+	function set styleProvider(value:IStyleProvider):Void
 
 	/**
 	 * @copy feathers.core.FeathersControl#setSize()
 	 */
-	function setSize(width:Number, height:Number):void;
+	function setSize(width:Number, height:Number):Void;
 }

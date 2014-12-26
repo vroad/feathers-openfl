@@ -130,7 +130,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set text(value:String):void
+	public function set text(value:String):Void
 	{
 		if(this._text == value)
 		{
@@ -164,7 +164,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):void
+	public function set wordWrap(value:Boolean):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -226,7 +226,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set textRendererFactory(value:Function):void
+	public function set textRendererFactory(value:Function):Void
 	{
 		if(this._textRendererFactory == value)
 		{
@@ -286,7 +286,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set textRendererProperties(value:Object):void
+	public function set textRendererProperties(value:Object):Void
 	{
 		if(this._textRendererProperties == value)
 		{
@@ -311,7 +311,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -414,7 +414,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see #textRenderer
 	 * @see #textRendererFactory
 	 */
-	private function createTextRenderer():void
+	private function createTextRenderer():Void
 	{
 		if(this.textRenderer)
 		{
@@ -430,7 +430,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private function refreshEnabled():void
+	private function refreshEnabled():Void
 	{
 		this.textRenderer.isEnabled = this._isEnabled;
 	}
@@ -438,7 +438,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private function refreshTextRendererData():void
+	private function refreshTextRendererData():Void
 	{
 		this.textRenderer.text = this._text;
 		this.textRenderer.visible = this._text && this._text.length > 0;
@@ -447,7 +447,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private function refreshTextRendererStyles():void
+	private function refreshTextRendererStyles():Void
 	{
 		this.textRenderer.wordWrap = this._wordWrap;
 		for(var propertyName:String in this._textRendererProperties)
@@ -460,7 +460,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private function layout():void
+	private function layout():Void
 	{
 		this.textRenderer.width = this.actualWidth;
 		this.textRenderer.height = this.actualHeight;
@@ -470,7 +470,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private function textRendererProperties_onChange(proxy:PropertyProxy, propertyName:String):void
+	private function textRendererProperties_onChange(proxy:PropertyProxy, propertyName:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

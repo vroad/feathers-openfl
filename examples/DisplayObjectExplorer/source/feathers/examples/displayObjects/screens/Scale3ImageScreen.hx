@@ -48,7 +48,7 @@ class Scale3ImageScreen extends Screen
 		return this._padding;
 	}
 
-	public function set padding(value:Number):void
+	public function set padding(value:Number):Void
 	{
 		if(this._padding == value)
 		{
@@ -63,7 +63,7 @@ class Scale3ImageScreen extends Screen
 		return Scale3ImageScreen.globalStyleProvider;
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._texture)
 		{
@@ -73,7 +73,7 @@ class Scale3ImageScreen extends Screen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._header = new Header();
 		this._header.title = "Scale 3 Image";
@@ -99,7 +99,7 @@ class Scale3ImageScreen extends Screen
 		this.addChild(this._bottomButton);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		this._header.width = this.actualWidth;
 		this._header.validate();
@@ -119,7 +119,7 @@ class Scale3ImageScreen extends Screen
 		this.layoutButtons();
 	}
 
-	private function layoutButtons():void
+	private function layoutButtons():Void
 	{
 		this._rightButton.x = this._image.x + this._image.width;
 		this._rightButton.y = this._image.y + (this._image.height - this._rightButton.height) / 2;
@@ -128,7 +128,7 @@ class Scale3ImageScreen extends Screen
 		this._bottomButton.y = this._image.y + this._image.height;
 	}
 
-	private function rightButton_touchHandler(event:TouchEvent):void
+	private function rightButton_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._rightButton);
 		if(!touch || (this._rightTouchPointID >= 0 && touch.id != this._rightTouchPointID))
@@ -153,7 +153,7 @@ class Scale3ImageScreen extends Screen
 		}
 	}
 
-	private function bottomButton_touchHandler(event:TouchEvent):void
+	private function bottomButton_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._bottomButton);
 		if(!touch || (this._bottomTouchPointID >= 0 && touch.id != this._bottomTouchPointID))

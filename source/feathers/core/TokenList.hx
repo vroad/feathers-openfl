@@ -64,7 +64,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set value(value:String):void
+	public function set value(value:String):Void
 	{
 		if(this.value == value)
 		{
@@ -100,7 +100,7 @@ class TokenList extends EventDispatcher
 	 * Adds a token to the list. If the token already appears in the list,
 	 * it will not be added again.
 	 */
-	public function add(name:String):void
+	public function add(name:String):Void
 	{
 		var index:int = this.names.indexOf(name);
 		if(index >= 0)
@@ -115,7 +115,7 @@ class TokenList extends EventDispatcher
 	 * Removes a token from the list, if the token is in the list. If the
 	 * token doesn't appear in the list, this call does nothing.
 	 */
-	public function remove(name:String):void
+	public function remove(name:String):Void
 	{
 		var index:int = this.names.indexOf(name);
 		this.removeAt(index);
@@ -125,7 +125,7 @@ class TokenList extends EventDispatcher
 	 * The token is added to the list if it doesn't appear in the list, or
 	 * it is removed from the list if it is already in the list.
 	 */
-	public function toggle(name:String):void
+	public function toggle(name:String):Void
 	{
 		var index:int = this.names.indexOf(name);
 		if(index < 0)
@@ -150,7 +150,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function removeAt(index:int):void
+	private function removeAt(index:int):Void
 	{
 		if(index < 0)
 		{

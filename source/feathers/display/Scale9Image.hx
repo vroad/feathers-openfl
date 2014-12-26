@@ -130,7 +130,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textures(value:Scale9Textures):void
+	public function set textures(value:Scale9Textures):Void
 	{
 		if(!value)
 		{
@@ -168,7 +168,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set width(value:Number):void
+	override public function set width(value:Number):Void
 	{
 		if(this._width == value)
 		{
@@ -195,7 +195,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function set height(value:Number):void
+	override public function set height(value:Number):Void
 	{
 		if(this._height == value)
 		{
@@ -230,7 +230,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Number):void
+	public function set textureScale(value:Number):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -266,7 +266,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set smoothing(value:String):void
+	public function set smoothing(value:String):Void
 	{
 		if(this._smoothing == value)
 		{
@@ -300,7 +300,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):void
+	public function set color(value:uint):Void
 	{
 		if(this._color == value)
 		{
@@ -335,7 +335,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set useSeparateBatch(value:Boolean):void
+	public function set useSeparateBatch(value:Boolean):Void
 	{
 		if(this._useSeparateBatch == value)
 		{
@@ -456,7 +456,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		if(this._isInvalid)
 		{
@@ -468,7 +468,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @copy feathers.core.IValidating#validate()
 	 */
-	public function validate():void
+	public function validate():Void
 	{
 		if(!this._isInvalid)
 		{
@@ -645,7 +645,7 @@ class Scale9Image extends Sprite implements IValidating
 	 * textures. Call this method to synchronize image and texture size
 	 * after assigning textures with a different size.
 	 */
-	public function readjustSize():void
+	public function readjustSize():Void
 	{
 		this.width = this._frame.width * this._textureScale;
 		this.height = this._frame.height * this._textureScale;
@@ -654,7 +654,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function invalidate():void
+	private function invalidate():Void
 	{
 		if(this._isInvalid)
 		{
@@ -671,7 +671,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function flattenHandler(event:Event):void
+	private function flattenHandler(event:Event):Void
 	{
 		this.validate();
 	}
@@ -679,7 +679,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		this._depth = getDisplayObjectDepthFromStage(this);
 		this._validationQueue = ValidationQueue.forStarling(Starling.current);

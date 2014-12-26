@@ -32,7 +32,7 @@ class ContentView extends ScrollContainer
 		return ContentView.globalStyleProvider;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		var openControlsPanel:Panel = new Panel();
 		openControlsPanel.headerProperties.title = "Open Drawers";
@@ -82,22 +82,22 @@ class ContentView extends ScrollContainer
 		leftLayoutData.horizontalCenter = -horizontalOffset;
 	}
 
-	private function topButton_triggeredHandler(event:Event):void
+	private function topButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(TOGGLE_TOP_DRAWER);
 	}
 
-	private function rightButton_triggeredHandler(event:Event):void
+	private function rightButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(TOGGLE_RIGHT_DRAWER);
 	}
 
-	private function bottomButton_triggeredHandler(event:Event):void
+	private function bottomButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(TOGGLE_BOTTOM_DRAWER);
 	}
 
-	private function leftButton_triggeredHandler(event:Event):void
+	private function leftButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(TOGGLE_LEFT_DRAWER);
 	}

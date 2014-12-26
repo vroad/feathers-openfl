@@ -46,7 +46,7 @@ class MainMenuScreen extends PanelScreen
 	public var savedSelectedIndex:int = -1;
 	public var savedDataProvider:ListCollection;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		super.initialize();
 
@@ -88,7 +88,7 @@ class MainMenuScreen extends PanelScreen
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 
@@ -112,7 +112,7 @@ class MainMenuScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function cleanUpLoader():void
+	private function cleanUpLoader():Void
 	{
 		if(!this._loader)
 		{
@@ -124,7 +124,7 @@ class MainMenuScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseFeed(feed:XML):void
+	private function parseFeed(feed:XML):Void
 	{
 		this._message.visible = false;
 
@@ -171,7 +171,7 @@ class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 
-	private function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
 		if(!screenItem.properties)
@@ -192,7 +192,7 @@ class MainMenuScreen extends PanelScreen
 		this.dispatchEventWith(LIST_VIDEOS, false, VideoFeed(this._list.selectedItem));
 	}
 
-	private function owner_transitionCompleteHandler(event:starling.events.Event):void
+	private function owner_transitionCompleteHandler(event:starling.events.Event):Void
 	{
 		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 
@@ -202,12 +202,12 @@ class MainMenuScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function removedFromStageHandler(event:starling.events.Event):void
+	private function removedFromStageHandler(event:starling.events.Event):Void
 	{
 		this.cleanUpLoader();
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		try
 		{
@@ -224,7 +224,7 @@ class MainMenuScreen extends PanelScreen
 		this.cleanUpLoader();
 	}
 
-	private function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):Void
 	{
 		this.cleanUpLoader();
 		this._message.text = "Unable to load data. Please try again later.";

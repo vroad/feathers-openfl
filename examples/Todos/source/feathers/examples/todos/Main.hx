@@ -77,7 +77,7 @@ class Main extends PanelScreen
 		return this._toolbar;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -103,17 +103,17 @@ class Main extends PanelScreen
 		this.addChild(this._list);
 	}
 
-	private function addedToStageHandler():void
+	private function addedToStageHandler():Void
 	{
 		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler);
 	}
 
-	private function removedFromStageHandler():void
+	private function removedFromStageHandler():Void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
 
-	private function input_enterHandler():void
+	private function input_enterHandler():Void
 	{
 		if(!this._input.text)
 		{
@@ -124,14 +124,14 @@ class Main extends PanelScreen
 		this._input.text = "";
 	}
 
-	private function editButton_changeHandler(event:Event):void
+	private function editButton_changeHandler(event:Event):Void
 	{
 		var isEditing:Boolean = this._editButton.isSelected;
 		this._list.itemRendererProperties.isEditable = isEditing;
 		this._input.visible = !isEditing;
 	}
 
-	private function stage_resizeHandler():void
+	private function stage_resizeHandler():Void
 	{
 		this.width = this.stage.stageWidth;
 		this.height = this.stage.stageHeight;

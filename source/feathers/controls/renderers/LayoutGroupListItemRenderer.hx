@@ -73,7 +73,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set index(value:int):void
+	public function set index(value:int):Void
 	{
 		this._index = value;
 	}
@@ -94,7 +94,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set owner(value:List):void
+	public function set owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -120,7 +120,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):void
+	public function set data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -146,7 +146,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):void
+	public function set isSelected(value:Boolean):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -160,7 +160,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.owner = null;
 		super.dispose();
@@ -169,7 +169,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -218,7 +218,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * @see #postLayout()
 	 */
-	private function preLayout():void
+	private function preLayout():Void
 	{
 
 	}
@@ -240,7 +240,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * @see #preLayout()
 	 */
-	private function postLayout():void
+	private function postLayout():Void
 	{
 
 	}
@@ -251,7 +251,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	 *
 	 * <p>Don't forget to handle the case where the data is <code>null</code>.</p>
 	 */
-	private function commitData():void
+	private function commitData():Void
 	{
 
 	}

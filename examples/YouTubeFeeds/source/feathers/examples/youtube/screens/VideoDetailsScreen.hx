@@ -33,7 +33,7 @@ class VideoDetailsScreen extends PanelScreen
 		return this._model;
 	}
 
-	public function set model(value:YouTubeModel):void
+	public function set model(value:YouTubeModel):Void
 	{
 		if(this._model == value)
 		{
@@ -43,7 +43,7 @@ class VideoDetailsScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -78,7 +78,7 @@ class VideoDetailsScreen extends PanelScreen
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		if(dataInvalid)
@@ -102,17 +102,17 @@ class VideoDetailsScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function onBackButton(event:Event = null):void
+	private function onBackButton(event:Event = null):Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function watchButton_triggeredHandler(event:Event):void
+	private function watchButton_triggeredHandler(event:Event):Void
 	{
 		navigateToURL(new URLRequest(this._model.selectedVideo.url), "_blank");
 	}
 
-	private function owner_transitionCompleteHandler(event:Event):void
+	private function owner_transitionCompleteHandler(event:Event):Void
 	{
 		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 		this.revealScrollBars();

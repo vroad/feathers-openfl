@@ -155,7 +155,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:BitmapFontTextFormat):void
+	public function set textFormat(value:BitmapFontTextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -188,7 +188,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:BitmapFontTextFormat):void
+	public function set disabledTextFormat(value:BitmapFontTextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -221,7 +221,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set text(value:String):void
+	public function set text(value:String):Void
 	{
 		if(this._text == value)
 		{
@@ -257,7 +257,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set smoothing(value:String):void
+	public function set smoothing(value:String):Void
 	{
 		if(this._smoothing == value)
 		{
@@ -291,7 +291,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):void
+	public function set wordWrap(value:Boolean):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -327,7 +327,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):void
+	public function set snapToPixels(value:Boolean):Void
 	{
 		if(this._snapToPixels == value)
 		{
@@ -368,7 +368,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set truncateToFit(value:Boolean):void
+	public function set truncateToFit(value:Boolean):Void
 	{
 		if(this._truncateToFit == value)
 		{
@@ -401,7 +401,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set truncationText(value:String):void
+	public function set truncationText(value:String):Void
 	{
 		if(this._truncationText == value)
 		{
@@ -437,7 +437,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set useSeparateBatch(value:Boolean):void
+	public function set useSeparateBatch(value:Boolean):Void
 	{
 		if(this._useSeparateBatch == value)
 		{
@@ -474,7 +474,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var offsetX:Number = 0;
 		var offsetY:Number = 0;
@@ -641,7 +641,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this._characterBatch)
 		{
@@ -654,7 +654,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -885,7 +885,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function trimBuffer(skipCount:int):void
+	private function trimBuffer(skipCount:int):Void
 	{
 		var countToRemove:int = 0;
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
@@ -912,7 +912,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:int):void
+	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:int):Void
 	{
 		var align:String = this.currentTextFormat.align;
 		if(align == TextFormatAlign.CENTER)
@@ -928,7 +928,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function addBufferToBatch(skipCount:int):void
+	private function addBufferToBatch(skipCount:int):Void
 	{
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
 		var pushIndex:int = CHAR_LOCATION_POOL.length;
@@ -945,7 +945,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:int):void
+	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:int):Void
 	{
 		var charCount:int = CHARACTER_BUFFER.length - skipCount;
 		for(var i:int = 0; i < charCount; i++)
@@ -959,7 +959,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function addCharacterToBatch(charData:BitmapChar, x:Number, y:Number, scale:Number, support:RenderSupport = null, parentAlpha:Number = 1):void
+	private function addCharacterToBatch(charData:BitmapChar, x:Number, y:Number, scale:Number, support:RenderSupport = null, parentAlpha:Number = 1):Void
 	{
 		if(!HELPER_IMAGE)
 		{
@@ -992,7 +992,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function refreshTextFormat():void
+	private function refreshTextFormat():Void
 	{
 		if(!this._isEnabled && this._disabledTextFormat)
 		{

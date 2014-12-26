@@ -84,7 +84,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int, ...rest:Array):void
+	public function setItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -101,7 +101,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int, ...rest:Array):void
+	public function addItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;

@@ -33,7 +33,7 @@ class ProgressBarScreen extends PanelScreen
 		return ProgressBarScreen.globalStyleProvider;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -80,7 +80,7 @@ class ProgressBarScreen extends PanelScreen
 		Starling.juggler.add(this._verticalProgressTween);
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		if(this._horizontalProgressTween)
 		{
@@ -95,7 +95,7 @@ class ProgressBarScreen extends PanelScreen
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

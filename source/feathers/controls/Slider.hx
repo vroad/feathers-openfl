@@ -408,7 +408,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):void
+	public function set direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -453,7 +453,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Number):void
+	public function set value(newValue:Number):Void
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -502,7 +502,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Number):void
+	public function set minimum(value:Number):Void
 	{
 		if(this._minimum == value)
 		{
@@ -544,7 +544,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Number):void
+	public function set maximum(value:Number):Void
 	{
 		if(this._maximum == value)
 		{
@@ -587,7 +587,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set step(value:Number):void
+	public function set step(value:Number):Void
 	{
 		if(this._step == value)
 		{
@@ -634,7 +634,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set page(value:Number):void
+	public function set page(value:Number):Void
 	{
 		if(this._page == value)
 		{
@@ -684,7 +684,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set showThumb(value:Boolean):void
+	public function set showThumb(value:Boolean):Void
 	{
 		if(this._showThumb == value)
 		{
@@ -719,7 +719,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumPadding(value:Number):void
+	public function set minimumPadding(value:Number):Void
 	{
 		if(this._minimumPadding == value)
 		{
@@ -754,7 +754,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumPadding(value:Number):void
+	public function set maximumPadding(value:Number):Void
 	{
 		if(this._maximumPadding == value)
 		{
@@ -792,7 +792,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackLayoutMode(value:String):void
+	public function set trackLayoutMode(value:String):Void
 	{
 		if(this._trackLayoutMode == value)
 		{
@@ -831,7 +831,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackScaleMode(value:String):void
+	public function set trackScaleMode(value:String):Void
 	{
 		if(this._trackScaleMode == value)
 		{
@@ -875,7 +875,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackInteractionMode(value:String):void
+	public function set trackInteractionMode(value:String):Void
 	{
 		this._trackInteractionMode = value;
 	}
@@ -916,7 +916,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Number):void
+	public function set repeatDelay(value:Number):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -967,7 +967,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumTrackFactory(value:Function):void
+	public function set minimumTrackFactory(value:Function):Void
 	{
 		if(this._minimumTrackFactory == value)
 		{
@@ -1013,7 +1013,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customMinimumTrackName(value:String):void
+	public function set customMinimumTrackName(value:String):Void
 	{
 		if(this._customMinimumTrackName == value)
 		{
@@ -1068,7 +1068,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumTrackProperties(value:Object):void
+	public function set minimumTrackProperties(value:Object):Void
 	{
 		if(this._minimumTrackProperties == value)
 		{
@@ -1140,7 +1140,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumTrackFactory(value:Function):void
+	public function set maximumTrackFactory(value:Function):Void
 	{
 		if(this._maximumTrackFactory == value)
 		{
@@ -1186,7 +1186,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customMaximumTrackName(value:String):void
+	public function set customMaximumTrackName(value:String):Void
 	{
 		if(this._customMaximumTrackName == value)
 		{
@@ -1241,7 +1241,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumTrackProperties(value:Object):void
+	public function set maximumTrackProperties(value:Object):Void
 	{
 		if(this._maximumTrackProperties == value)
 		{
@@ -1313,7 +1313,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set thumbFactory(value:Function):void
+	public function set thumbFactory(value:Function):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1359,7 +1359,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):void
+	public function set customThumbName(value:String):Void
 	{
 		if(this._customThumbName == value)
 		{
@@ -1413,7 +1413,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set thumbProperties(value:Object):void
+	public function set thumbProperties(value:Object):Void
 	{
 		if(this._thumbProperties == value)
 		{
@@ -1477,7 +1477,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -1650,7 +1650,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #thumbFactory
 	 * @see #customThumbName
 	 */
-	private function createThumb():void
+	private function createThumb():Void
 	{
 		if(this.thumb)
 		{
@@ -1678,7 +1678,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see #customMinimumTrackName
 	 */
-	private function createMinimumTrack():void
+	private function createMinimumTrack():Void
 	{
 		if(this.minimumTrack)
 		{
@@ -1707,7 +1707,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see #customMaximumTrackName
 	 */
-	private function createMaximumTrack():void
+	private function createMaximumTrack():Void
 	{
 		if(this._trackLayoutMode == TRACK_LAYOUT_MODE_MIN_MAX)
 		{
@@ -1734,7 +1734,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function refreshThumbStyles():void
+	private function refreshThumbStyles():Void
 	{
 		for(var propertyName:String in this._thumbProperties)
 		{
@@ -1747,7 +1747,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function refreshMinimumTrackStyles():void
+	private function refreshMinimumTrackStyles():Void
 	{
 		for(var propertyName:String in this._minimumTrackProperties)
 		{
@@ -1759,7 +1759,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function refreshMaximumTrackStyles():void
+	private function refreshMaximumTrackStyles():Void
 	{
 		if(!this.maximumTrack)
 		{
@@ -1775,7 +1775,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function layoutChildren():void
+	private function layoutChildren():Void
 	{
 		this.layoutThumb();
 
@@ -1792,7 +1792,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function layoutThumb():void
+	private function layoutThumb():Void
 	{
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
@@ -1814,7 +1814,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function layoutTrackWithMinMax():void
+	private function layoutTrackWithMinMax():Void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1877,7 +1877,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function layoutTrackWithSingle():void
+	private function layoutTrackWithSingle():Void
 	{
 		if(this._trackScaleMode == TRACK_SCALE_MODE_DIRECTIONAL)
 		{
@@ -1937,7 +1937,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function startRepeatTimer(action:Function):void
+	private function startRepeatTimer(action:Function):Void
 	{
 		this.currentRepeatAction = action;
 		if(this._repeatDelay > 0)
@@ -1959,7 +1959,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function adjustPage():void
+	private function adjustPage():Void
 	{
 		var page:Number = this._page;
 		if(page !== page) //isNaN
@@ -1979,7 +1979,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1987,7 +1987,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function slider_removedFromStageHandler(event:Event):void
+	private function slider_removedFromStageHandler(event:Event):Void
 	{
 		this._touchPointID = -1;
 		var wasDragging:Boolean = this.isDragging;
@@ -2001,7 +2001,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2010,7 +2010,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -2019,7 +2019,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function track_touchHandler(event:TouchEvent):void
+	private function track_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -2094,7 +2094,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function thumb_touchHandler(event:TouchEvent):void
+	private function thumb_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -2160,7 +2160,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{
@@ -2232,7 +2232,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function repeatTimer_timerHandler(event:TimerEvent):void
+	private function repeatTimer_timerHandler(event:TimerEvent):Void
 	{
 		var exclusiveTouch:ExclusiveTouch = ExclusiveTouch.forStage(this.stage);
 		var claim:DisplayObject = exclusiveTouch.getClaim(this._touchPointID);

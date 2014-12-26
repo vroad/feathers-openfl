@@ -89,7 +89,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set isSelectionRequired(value:Boolean):void
+	public function set isSelectionRequired(value:Boolean):Void
 	{
 		if(this._isSelectionRequired == value)
 		{
@@ -124,7 +124,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:IToggle):void
+	public function set selectedItem(value:IToggle):Void
 	{
 		this.selectedIndex = this._items.indexOf(value);
 	}
@@ -152,7 +152,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):void
+	public function set selectedIndex(value:int):Void
 	{
 		var itemCount:int = this._items.length;
 		if(value < -1 || value >= itemCount)
@@ -190,7 +190,7 @@ class ToggleGroup extends EventDispatcher
 	 * <listing version="3.0">
 	 * group.addItem( radio );</listing>
 	 */
-	public function addItem(item:IToggle):void
+	public function addItem(item:IToggle):Void
 	{
 		if(!item)
 		{
@@ -230,7 +230,7 @@ class ToggleGroup extends EventDispatcher
 	 * <listing version="3.0">
 	 * group.removeItem( radio );</listing>
 	 */
-	public function removeItem(item:IToggle):void
+	public function removeItem(item:IToggle):Void
 	{
 		var index:int = this._items.indexOf(item);
 		if(index < 0)
@@ -264,7 +264,7 @@ class ToggleGroup extends EventDispatcher
 	 * <listing version="3.0">
 	 * group.removeAllItems();</listing>
 	 */
-	public function removeAllItems():void
+	public function removeAllItems():Void
 	{
 		var itemCount:int = this._items.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -319,7 +319,7 @@ class ToggleGroup extends EventDispatcher
 	 * <listing version="3.0">
 	 * group.setItemIndex( radio, 2 );</listing>
 	 */
-	public function setItemIndex(item:IToggle, index:int):void
+	public function setItemIndex(item:IToggle, index:int):Void
 	{
 		var oldIndex:int = this._items.indexOf(item);
 		if(oldIndex < 0)
@@ -353,7 +353,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function item_changeHandler(event:Event):void
+	private function item_changeHandler(event:Event):Void
 	{
 		if(this._ignoreChanges)
 		{

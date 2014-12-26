@@ -73,7 +73,7 @@ class StyleProviderRegistry
 	/**
 	 * Disposes the theme.
 	 */
-	public function dispose():void
+	public function dispose():Void
 	{
 		//clear the global style providers, but only if they still match the
 		//ones that the theme created. a developer could replace the global
@@ -121,7 +121,7 @@ class StyleProviderRegistry
 	 *
 	 * @param forClass		The style provider is registered for this class.
 	 */
-	public function clearStyleProvider(forClass:Class):void
+	public function clearStyleProvider(forClass:Class):Void
 	{
 		this.validateComponentClass(forClass);
 		if(forClass in this._classToStyleProvider)
@@ -142,7 +142,7 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	private function validateComponentClass(type:Class):void
+	private function validateComponentClass(type:Class):Void
 	{
 		if(!this._registerGlobally || Object(type).hasOwnProperty(GLOBAL_STYLE_PROVIDER_PROPERTY_NAME))
 		{
