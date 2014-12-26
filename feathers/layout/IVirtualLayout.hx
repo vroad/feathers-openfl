@@ -62,7 +62,7 @@ public interface IVirtualLayout extends ILayout
 	 * @see #typicalItemWidth
 	 * @see #typicalItemHeight
 	 */
-	function measureViewPort(itemCount:int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point;
+	function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point;
 
 	/**
 	 * Used internally by a component, such as <code>List</code>, to
@@ -77,5 +77,5 @@ public interface IVirtualLayout extends ILayout
 	 * not call this function. It is meant for developers creating custom
 	 * components only.</p>
 	 */
-	function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>;
+	function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int> = null):Vector.<int>;
 }

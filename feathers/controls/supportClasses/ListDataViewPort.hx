@@ -51,7 +51,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	private var _viewPortBounds:ViewPortBounds = new ViewPortBounds();
 
@@ -203,7 +203,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private var _activeRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _rendererMap:Dictionary = new Dictionary(true);
 
-	private var _layoutIndexOffset:int = 0;
+	private var _layoutIndexOffset:Int = 0;
 
 	private var _isScrolling:Boolean = false;
 
@@ -525,7 +525,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	public function getScrollPositionForIndex(index:int, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -627,8 +627,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function validateItemRenderers():Void
 	{
-		var rendererCount:int = this._activeRenderers.length;
-		for(var i:int = 0; i < rendererCount; i++)
+		var rendererCount:Int = this._activeRenderers.length;
+		for(var i:Int = 0; i < rendererCount; i++)
 		{
 			var renderer:IListItemRenderer = this._activeRenderers[i];
 			renderer.validate();
@@ -649,7 +649,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			}
 			return;
 		}
-		var typicalItemIndex:int = 0;
+		var typicalItemIndex:Int = 0;
 		var newTypicalItemIsInDataProvider:Boolean = false;
 		var typicalItem:Object = this._typicalItem;
 		if(typicalItem)
@@ -747,8 +747,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function refreshSelection():Void
 	{
-		var rendererCount:int = this._activeRenderers.length;
-		for(var i:int = 0; i < rendererCount; i++)
+		var rendererCount:Int = this._activeRenderers.length;
+		for(var i:Int = 0; i < rendererCount; i++)
 		{
 			var renderer:IListItemRenderer = this._activeRenderers[i];
 			renderer.isSelected = this._selectedIndices.getItemIndex(renderer.index) >= 0;
@@ -757,8 +757,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function refreshEnabled():Void
 	{
-		var rendererCount:int = this._activeRenderers.length;
-		for(var i:int = 0; i < rendererCount; i++)
+		var rendererCount:Int = this._activeRenderers.length;
+		for(var i:Int = 0; i < rendererCount; i++)
 		{
 			var itemRenderer:IFeathersControl = IFeathersControl(this._activeRenderers[i]);
 			itemRenderer.isEnabled = this._isEnabled;
@@ -814,7 +814,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			{
 				//this renderer is already is use by the typical item, so we
 				//don't want to allow it to be used by other items.
-				var inactiveIndex:int = this._inactiveRenderers.indexOf(this._typicalItemRenderer);
+				var inactiveIndex:Int = this._inactiveRenderers.indexOf(this._typicalItemRenderer);
 				if(inactiveIndex >= 0)
 				{
 					this._inactiveRenderers[inactiveIndex] = null;
@@ -822,7 +822,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 				//if refreshLayoutTypicalItem() was called, it will have already
 				//added the typical item renderer to the active renderers. if
 				//not, we need to do it here.
-				var activeRendererCount:int = this._activeRenderers.length;
+				var activeRendererCount:Int = this._activeRenderers.length;
 				if(activeRendererCount == 0)
 				{
 					this._activeRenderers[activeRendererCount] = this._typicalItemRenderer;
@@ -843,7 +843,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function findUnrenderedData():Void
 	{
-		var itemCount:int = this._dataProvider ? this._dataProvider.length : 0;
+		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
 		var virtualLayout:IVirtualLayout = this._layout as IVirtualLayout;
 		var useVirtualLayout:Boolean = virtualLayout && virtualLayout.useVirtualLayout;
 		if(useVirtualLayout)
@@ -852,17 +852,17 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			virtualLayout.getVisibleIndicesAtScrollPosition(this._horizontalScrollPosition, this._verticalScrollPosition, HELPER_POINT.x, HELPER_POINT.y, itemCount, HELPER_VECTOR);
 		}
 
-		var unrenderedItemCount:int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
+		var unrenderedItemCount:Int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
 		var canUseBeforeAndAfter:Boolean = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
 			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		if(canUseBeforeAndAfter)
 		{
-			var minIndex:int = HELPER_VECTOR[0];
-			var maxIndex:int = minIndex;
-			for(var i:int = 1; i < unrenderedItemCount; i++)
+			var minIndex:Int = HELPER_VECTOR[0];
+			var maxIndex:Int = minIndex;
+			for(var i:Int = 1; i < unrenderedItemCount; i++)
 			{
-				var index:int = HELPER_VECTOR[i];
+				var index:Int = HELPER_VECTOR[i];
 				if(index < minIndex)
 				{
 					minIndex = index;
@@ -872,12 +872,12 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 					maxIndex = index;
 				}
 			}
-			var beforeItemCount:int = minIndex - 1;
+			var beforeItemCount:Int = minIndex - 1;
 			if(beforeItemCount < 0)
 			{
 				beforeItemCount = 0;
 			}
-			var afterItemCount:int = itemCount - 1 - maxIndex;
+			var afterItemCount:Int = itemCount - 1 - maxIndex;
 			var sequentialVirtualLayout:ITrimmedVirtualLayout = ITrimmedVirtualLayout(this._layout);
 			sequentialVirtualLayout.beforeVirtualizedItemCount = beforeItemCount;
 			sequentialVirtualLayout.afterVirtualizedItemCount = afterItemCount;
@@ -890,8 +890,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			this._layoutItems.length = itemCount;
 		}
 
-		var activeRenderersLastIndex:int = this._activeRenderers.length;
-		var unrenderedDataLastIndex:int = this._unrenderedData.length;
+		var activeRenderersLastIndex:Int = this._activeRenderers.length;
+		var unrenderedDataLastIndex:Int = this._unrenderedData.length;
 		for(i = 0; i < unrenderedItemCount; i++)
 		{
 			index = useVirtualLayout ? HELPER_VECTOR[i] : i;
@@ -930,7 +930,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 				{
 					this._activeRenderers[activeRenderersLastIndex] = renderer;
 					activeRenderersLastIndex++;
-					var inactiveIndex:int = this._inactiveRenderers.indexOf(renderer);
+					var inactiveIndex:Int = this._inactiveRenderers.indexOf(renderer);
 					if(inactiveIndex >= 0)
 					{
 						this._inactiveRenderers[inactiveIndex] = null;
@@ -979,11 +979,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function renderUnrenderedData():Void
 	{
-		var itemCount:int = this._unrenderedData.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this._unrenderedData.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = this._unrenderedData.shift();
-			var index:int = this._dataProvider.getItemIndex(item);
+			var index:Int = this._dataProvider.getItemIndex(item);
 			var renderer:IListItemRenderer = this.createRenderer(item, index, true, false);
 			renderer.visible = true;
 			this._layoutItems[index + this._layoutIndexOffset] = DisplayObject(renderer);
@@ -992,8 +992,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function recoverInactiveRenderers():Void
 	{
-		var itemCount:int = this._inactiveRenderers.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this._inactiveRenderers.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var renderer:IListItemRenderer = this._inactiveRenderers[i];
 			if(!renderer)
@@ -1007,8 +1007,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function freeInactiveRenderers():Void
 	{
-		var itemCount:int = this._inactiveRenderers.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this._inactiveRenderers.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var renderer:IListItemRenderer = this._inactiveRenderers.shift();
 			if(!renderer)
@@ -1019,7 +1019,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function createRenderer(item:Object, index:int, useCache:Boolean, isTemporary:Boolean):IListItemRenderer
+	private function createRenderer(item:Object, index:Int, useCache:Boolean, isTemporary:Boolean):IListItemRenderer
 	{
 		var renderer:IListItemRenderer;
 		do
@@ -1091,14 +1091,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private function dataProvider_addItemHandler(event:Event, index:int):Void
+	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Boolean = false;
 		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = this._selectedIndices.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as int;
 			if(currentIndex >= index)
 			{
 				currentIndex++;
@@ -1119,14 +1119,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.addToVariableVirtualCacheAtIndex(index);
 	}
 
-	private function dataProvider_removeItemHandler(event:Event, index:int):Void
+	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Boolean = false;
 		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = this._selectedIndices.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as int;
 			if(currentIndex == index)
 			{
 				selectionChanged = true;
@@ -1154,9 +1154,9 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.removeFromVariableVirtualCacheAtIndex(index);
 	}
 
-	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
+	private function dataProvider_replaceItemHandler(event:Event, index:Int):Void
 	{
-		var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
+		var indexOfIndex:Int = this._selectedIndices.getItemIndex(index);
 		if(indexOfIndex >= 0)
 		{
 			this._selectedIndices.removeItemAt(indexOfIndex);
@@ -1183,7 +1183,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.resetVariableVirtualCache();
 	}
 
-	private function dataProvider_updateItemHandler(event:Event, index:int):Void
+	private function dataProvider_updateItemHandler(event:Event, index:Int):Void
 	{
 		var item:Object = this._dataProvider.getItemAt(index);
 		var renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
@@ -1235,10 +1235,10 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		var isSelected:Boolean = renderer.isSelected;
-		var index:int = renderer.index;
+		var index:Int = renderer.index;
 		if(this._allowMultipleSelection)
 		{
-			var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
+			var indexOfIndex:Int = this._selectedIndices.getItemIndex(index);
 			if(isSelected && indexOfIndex < 0)
 			{
 				this._selectedIndices.addItem(index);

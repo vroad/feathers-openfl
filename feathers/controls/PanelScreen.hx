@@ -300,7 +300,7 @@ class PanelScreen extends Panel implements IScreen
 		this.addEventListener(Event.REMOVED_FROM_STAGE, panelScreen_removedFromStageHandler);
 		//using priority here is a hack so that objects higher up in the
 		//display list have a chance to cancel the event first.
-		var priority:int = -getDisplayObjectDepthFromStage(this);
+		var priority:Int = -getDisplayObjectDepthFromStage(this);
 		Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, panelScreen_nativeStage_keyDownHandler, false, priority, true);
 	}
 

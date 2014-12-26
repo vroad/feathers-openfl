@@ -27,7 +27,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * <code>Scroller</code> rather than delegating the call to the view
 	 * port.
 	 */
-	function get numRawChildren():int;
+	function get numRawChildren():Int;
 
 	/**
 	 * Gets the name of a direct child of the <code>Scroller</code> rather
@@ -39,13 +39,13 @@ public interface IScrollContainer extends IFeathersControl
 	 * Gets the index of a direct child of the <code>Scroller</code> rather
 	 * than delegating the call to the view port.
 	 */
-	function getRawChildIndex(child:DisplayObject):int;
+	function getRawChildIndex(child:DisplayObject):Int;
 
 	/**
 	 * Sets the index of a direct child of the <code>Scroller</code> rather
 	 * than delegating the call to the view port.
 	 */
-	function setRawChildIndex(child:DisplayObject, index:int):Void;
+	function setRawChildIndex(child:DisplayObject, index:Int):Void;
 
 	/**
 	 * Adds a child to the <code>Scroller</code> rather than delegating the
@@ -57,7 +57,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * Adds a child to the <code>Scroller</code> at a specific index rather
 	 * than delegating the call to the view port.
 	 */
-	function addRawChildAt(child:DisplayObject, index:int):DisplayObject;
+	function addRawChildAt(child:DisplayObject, index:Int):DisplayObject;
 
 	/**
 	 * Removes a child from the <code>Scroller</code> rather than delegating
@@ -69,7 +69,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * Removes a child from the <code>Scroller</code> at a specific index
 	 * rather than delegating the call to the view port.
 	 */
-	function removeRawChildAt(index:int, dispose:Boolean = false):DisplayObject;
+	function removeRawChildAt(index:Int, dispose:Boolean = false):DisplayObject;
 
 	/**
 	 * Swaps the children of the <code>Scroller</code> rather than
@@ -81,7 +81,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * Swaps the children of the <code>Scroller</code> rather than
 	 * delegating the call to the view port.
 	 */
-	function swapRawChildrenAt(index1:int, index2:int):Void;
+	function swapRawChildrenAt(index1:Int, index2:Int):Void;
 
 	/**
 	 * Sorts the children of the <code>Scroller</code> rather than

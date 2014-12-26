@@ -152,8 +152,8 @@ class Main extends Sprite
 		}
 		var items:Vector.<GalleryItem> = new <GalleryItem>[];
 		var photosList:XMLList = result.photos.photo;
-		var photoCount:int = photosList.length();
-		for(var i:int = 0; i < photoCount; i++)
+		var photoCount:Int = photosList.length();
+		for(var i:Int = 0; i < photoCount; i++)
 		{
 			var photoXML:XML = photosList[i];
 			var url:String = FLICKR_PHOTO_URL.replace("{farm-id}", photoXML.@farm.toString());

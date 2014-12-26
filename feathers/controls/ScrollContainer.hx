@@ -293,8 +293,8 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		}
 		if(this._mxmlContent && this._mxmlContentIsReady)
 		{
-			var childCount:int = this._mxmlContent.length;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = this._mxmlContent.length;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 				this.removeChild(child, true);
@@ -308,7 +308,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function get numChildren():int
+	override public function get numChildren():Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -320,11 +320,11 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function get numRawChildren():int
+	public function get numRawChildren():Int
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
-		var result:int = super.numChildren;
+		var result:Int = super.numChildren;
 		this.displayListBypassEnabled = oldBypass;
 		return result;
 	}
@@ -356,7 +356,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function getChildAt(index:int):DisplayObject
+	override public function getChildAt(index:Int):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -368,7 +368,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function getRawChildAt(index:int):DisplayObject
+	public function getRawChildAt(index:Int):DisplayObject
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -399,7 +399,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function addChildAt(child:DisplayObject, index:int):DisplayObject
+	override public function addChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -411,7 +411,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function addRawChildAt(child:DisplayObject, index:int):DisplayObject
+	public function addRawChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -427,7 +427,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
-		var index:int = super.getChildIndex(child);
+		var index:Int = super.getChildIndex(child);
 		if(index >= 0)
 		{
 			super.removeChildAt(index, dispose);
@@ -439,7 +439,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function removeChildAt(index:int, dispose:Boolean = false):DisplayObject
+	override public function removeChildAt(index:Int, dispose:Boolean = false):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -451,7 +451,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function removeRawChildAt(index:int, dispose:Boolean = false):DisplayObject
+	public function removeRawChildAt(index:Int, dispose:Boolean = false):DisplayObject
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -463,7 +463,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function getChildIndex(child:DisplayObject):int
+	override public function getChildIndex(child:DisplayObject):Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -475,7 +475,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function getRawChildIndex(child:DisplayObject):int
+	public function getRawChildIndex(child:DisplayObject):Int
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -486,7 +486,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function setChildIndex(child:DisplayObject, index:int):Void
+	override public function setChildIndex(child:DisplayObject, index:Int):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -499,7 +499,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function setRawChildIndex(child:DisplayObject, index:int):Void
+	public function setRawChildIndex(child:DisplayObject, index:Int):Void
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -512,8 +512,8 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function swapRawChildren(child1:DisplayObject, child2:DisplayObject):Void
 	{
-		var index1:int = this.getRawChildIndex(child1);
-		var index2:int = this.getRawChildIndex(child2);
+		var index1:Int = this.getRawChildIndex(child1);
+		var index2:Int = this.getRawChildIndex(child2);
 		if(index1 < 0 || index2 < 0)
 		{
 			throw new ArgumentError("Not a child of this container");
@@ -527,7 +527,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function swapChildrenAt(index1:int, index2:int):Void
+	override public function swapChildrenAt(index1:Int, index2:Int):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -540,7 +540,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function swapRawChildrenAt(index1:int, index2:int):Void
+	public function swapRawChildrenAt(index1:Int, index2:Int):Void
 	{
 		var oldBypass:Boolean = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
@@ -632,8 +632,8 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		{
 			return;
 		}
-		var childCount:int = this._mxmlContent.length;
-		for(var i:int = 0; i < childCount; i++)
+		var childCount:Int = this._mxmlContent.length;
+		for(var i:Int = 0; i < childCount; i++)
 		{
 			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 			this.addChild(child);

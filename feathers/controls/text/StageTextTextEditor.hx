@@ -333,12 +333,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionBeginIndex():int
+	public function get selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
@@ -354,12 +354,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionEndIndex():int
+	public function get selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{
@@ -695,7 +695,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _fontSize:int = 12;
+	private var _fontSize:Int = 12;
 
 	/**
 	 * The size in pixels for the current font family.
@@ -709,7 +709,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontSize Full description of flash.text.StageText.fontSize in Adobe's Flash Platform API Reference
 	 */
-	public function get fontSize():int
+	public function get fontSize():Int
 	{
 		return this._fontSize;
 	}
@@ -717,7 +717,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set fontSize(value:int):Void
+	public function set fontSize(value:Int):Void
 	{
 		if(this._fontSize == value)
 		{
@@ -804,7 +804,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _maxChars:int = 0;
+	private var _maxChars:Int = 0;
 
 	/**
 	 * Indicates the maximum number of characters that a user can enter into
@@ -821,7 +821,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#maxChars Full description of flash.text.StageText.maxChars in Adobe's Flash Platform API Reference
 	 */
-	public function get maxChars():int
+	public function get maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -829,7 +829,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):Void
+	public function set maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -1154,7 +1154,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					{
 						if(this._multiline)
 						{
-							var lineIndex:int = int(positionY / this._measureTextField.getLineMetrics(0).height);
+							var lineIndex:Int = int(positionY / this._measureTextField.getLineMetrics(0).height);
 							try
 							{
 								this._pendingSelectionBeginIndex = this._measureTextField.getLineOffset(lineIndex) + this._measureTextField.getLineLength(lineIndex);
@@ -1219,7 +1219,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):Void
+	public function selectRange(beginIndex:Int, endIndex:Int):Void
 	{
 		if(this._stageTextIsComplete && this.stageText)
 		{
@@ -1590,8 +1590,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		}
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
-			var startIndex:int = this._pendingSelectionBeginIndex;
-			var endIndex:int = (this._pendingSelectionEndIndex < 0) ? this._pendingSelectionBeginIndex : this._pendingSelectionEndIndex;
+			var startIndex:Int = this._pendingSelectionBeginIndex;
+			var endIndex:Int = (this._pendingSelectionEndIndex < 0) ? this._pendingSelectionBeginIndex : this._pendingSelectionEndIndex;
 			this._pendingSelectionBeginIndex = -1;
 			this._pendingSelectionEndIndex = -1;
 			if(this.stageText.selectionAnchorIndex != startIndex || this.stageText.selectionActiveIndex != endIndex)

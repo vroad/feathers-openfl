@@ -81,8 +81,8 @@ class Main extends LayoutGroup
 	private function navigator_changeHandler(event:Event):Void
 	{
 		var dataProvider:ListCollection = this._tabBar.dataProvider;
-		var itemCount:int = dataProvider.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = dataProvider.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = dataProvider.getItemAt(i);
 			if(this._navigator.activeScreenID == item.action)

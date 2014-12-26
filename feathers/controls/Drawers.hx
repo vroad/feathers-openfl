@@ -304,7 +304,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
+	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:Int = 4;
 
 	/**
 	 * @private
@@ -1801,7 +1801,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -1851,7 +1851,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousTouchTime:int;
+	private var _previousTouchTime:Int;
 
 	/**
 	 * @private
@@ -2933,8 +2933,8 @@ class Drawers extends FeathersControl
 		touch.getLocation(this, HELPER_POINT);
 		this._currentTouchX = HELPER_POINT.x;
 		this._currentTouchY = HELPER_POINT.y;
-		var now:int = getTimer();
-		var timeOffset:int = now - this._previousTouchTime;
+		var now:Int = getTimer();
+		var timeOffset:Int = now - this._previousTouchTime;
 		if(timeOffset > 0)
 		{
 			//we're keeping previous velocity updates to improve accuracy
@@ -2963,9 +2963,9 @@ class Drawers extends FeathersControl
 	{
 		//take the average for more accuracy
 		var sum:Number = this._velocityX * CURRENT_VELOCITY_WEIGHT;
-		var velocityCount:int = this._previousVelocityX.length;
+		var velocityCount:Int = this._previousVelocityX.length;
 		var totalWeight:Number = CURRENT_VELOCITY_WEIGHT;
-		for(var i:int = 0; i < velocityCount; i++)
+		for(var i:Int = 0; i < velocityCount; i++)
 		{
 			var weight:Number = VELOCITY_WEIGHTS[i];
 			sum += this._previousVelocityX.shift() * weight;
@@ -3592,7 +3592,7 @@ class Drawers extends FeathersControl
 		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 		//using priority here is a hack so that objects higher up in the
 		//display list have a chance to cancel the event first.
-		var priority:int = -getDisplayObjectDepthFromStage(this);
+		var priority:Int = -getDisplayObjectDepthFromStage(this);
 		Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, drawers_nativeStage_keyDownHandler, false, priority, true);
 	}
 
@@ -3688,7 +3688,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function exclusiveTouch_changeHandler(event:Event, touchID:int):Void
+	private function exclusiveTouch_changeHandler(event:Event, touchID:Int):Void
 	{
 		if(this.touchPointID < 0 || this.touchPointID != touchID || this._isDragging)
 		{

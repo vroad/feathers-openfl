@@ -1467,12 +1467,12 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _depth:int = -1;
+	private var _depth:Int = -1;
 
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public function get depth():int
+	public function get depth():Int
 	{
 		return this._depth;
 	}
@@ -1480,7 +1480,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _invalidateCount:int = 0;
+	private var _invalidateCount:Int = 0;
 
 	/**
 	 * @private

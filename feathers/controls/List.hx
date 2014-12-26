@@ -451,7 +451,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _selectedIndex:int = -1;
+	private var _selectedIndex:Int = -1;
 	
 	/**
 	 * The index of the currently selected item. Returns <code>-1</code> if
@@ -474,7 +474,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:List = List( event.currentTarget );
-	 *     var index:int = list.selectedIndex;
+	 *     var index:Int = list.selectedIndex;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -486,7 +486,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
-	public function get selectedIndex():int
+	public function get selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -494,7 +494,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):Void
+	public function set selectedIndex(value:Int):Void
 	{
 		if(this._selectedIndex == value)
 		{
@@ -728,11 +728,11 @@ class List extends Scroller implements IFocusDisplayObject
 			return;
 		}
 		var indices:Vector.<int> = new <int>[];
-		var itemCount:int = value.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = value.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = value[i];
-			var index:int = this._dataProvider.getItemIndex(item);
+			var index:Int = this._dataProvider.getItemIndex(item);
 			if(index >= 0)
 			{
 				indices.push(index);
@@ -763,10 +763,10 @@ class List extends Scroller implements IFocusDisplayObject
 		{
 			return result;
 		}
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = this._selectedIndices.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var index:int = this._selectedIndices.getItemAt(i) as int;
+			var index:Int = this._selectedIndices.getItemAt(i) as int;
 			var item:Object = this._dataProvider.getItemAt(index);
 			result[i] = item;
 		}
@@ -1032,7 +1032,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * <code>-1</code> means that the scroller won't scroll to an item after
 	 * validating.
 	 */
-	private var pendingItemIndex:int = -1;
+	private var pendingItemIndex:Int = -1;
 
 	/**
 	 * @private
@@ -1046,7 +1046,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:int, verticalPageIndex:int, animationDuration:Number = NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Number = NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPageIndex(horizontalPageIndex, verticalPageIndex, animationDuration);
@@ -1076,7 +1076,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPosition()
 	 */
-	public function scrollToDisplayIndex(index:int, animationDuration:Number = 0):Void
+	public function scrollToDisplayIndex(index:Int, animationDuration:Number = 0):Void
 	{
 		this.pendingHorizontalPageIndex = -1;
 		this.pendingVerticalPageIndex = -1;

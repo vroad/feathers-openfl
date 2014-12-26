@@ -1788,7 +1788,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private

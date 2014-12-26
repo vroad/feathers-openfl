@@ -1217,7 +1217,7 @@ class Callout extends FeathersControl
 		if(this._bottomArrowSkin)
 		{
 			this._bottomArrowSkin.visible = false;
-			var index:int = this.getChildIndex(this._content);
+			var index:Int = this.getChildIndex(this._content);
 			if(index < 0)
 			{
 				this.addChild(this._bottomArrowSkin);
@@ -1271,7 +1271,7 @@ class Callout extends FeathersControl
 		if(this._topArrowSkin)
 		{
 			this._topArrowSkin.visible = false;
-			var index:int = this.getChildIndex(this._content);
+			var index:Int = this.getChildIndex(this._content);
 			if(index < 0)
 			{
 				this.addChild(this._topArrowSkin);
@@ -1325,7 +1325,7 @@ class Callout extends FeathersControl
 		if(this._leftArrowSkin)
 		{
 			this._leftArrowSkin.visible = false;
-			var index:int = this.getChildIndex(this._content);
+			var index:Int = this.getChildIndex(this._content);
 			if(index < 0)
 			{
 				this.addChild(this._leftArrowSkin);
@@ -1379,7 +1379,7 @@ class Callout extends FeathersControl
 		if(this._rightArrowSkin)
 		{
 			this._rightArrowSkin.visible = false;
-			var index:int = this.getChildIndex(this._content);
+			var index:Int = this.getChildIndex(this._content);
 			if(index < 0)
 			{
 				this.addChild(this._rightArrowSkin);
@@ -1941,7 +1941,7 @@ class Callout extends FeathersControl
 	{
 		//using priority here is a hack so that objects higher up in the
 		//display list have a chance to cancel the event first.
-		var priority:int = -getDisplayObjectDepthFromStage(this);
+		var priority:Int = -getDisplayObjectDepthFromStage(this);
 		Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, callout_nativeStage_keyDownHandler, false, priority, true);
 
 		this.stage.addEventListener(TouchEvent.TOUCH, stage_touchHandler);

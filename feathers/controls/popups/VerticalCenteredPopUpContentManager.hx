@@ -164,7 +164,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @inheritDoc
@@ -197,7 +197,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 
 		//using priority here is a hack so that objects higher up in the
 		//display list have a chance to cancel the event first.
-		var priority:int = -getDisplayObjectDepthFromStage(this.content);
+		var priority:Int = -getDisplayObjectDepthFromStage(this.content);
 		Starling.current.nativeStage.addEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler, false, priority, true);
 		this.dispatchEventWith(Event.OPEN);
 	}

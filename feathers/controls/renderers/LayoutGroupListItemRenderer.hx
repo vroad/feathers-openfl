@@ -60,12 +60,12 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	private var _index:int = -1;
+	private var _index:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get index():int
+	public function get index():Int
 	{
 		return this._index;
 	}
@@ -73,7 +73,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set index(value:int):Void
+	public function set index(value:Int):Void
 	{
 		this._index = value;
 	}

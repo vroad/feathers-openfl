@@ -243,7 +243,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _scrollStep:int = 0;
+	private var _scrollStep:Int = 0;
 
 	/**
 	 * @inheritDoc

@@ -38,7 +38,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static var _touchPointID:int = -1;
+	private static var _touchPointID:Int = -1;
 
 	/**
 	 * The ID of the touch that initiated the current drag. Returns <code>-1</code>
@@ -46,7 +46,7 @@ class DragDropManager
 	 * knowing the touch ID is useful if additional actions need to happen
 	 * using the same touch.
 	 */
-	public static function get touchPointID():int
+	public static function get touchPointID():Int
 	{
 		return _touchPointID;
 	}

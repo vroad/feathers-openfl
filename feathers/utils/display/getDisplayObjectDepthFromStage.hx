@@ -16,13 +16,13 @@ import starling.display.DisplayObject;
  * object does not have a reference to the stage, the depth will always be
  * <code>-1</code>, even if the object has a parent.
  */
-public function getDisplayObjectDepthFromStage(target:DisplayObject):int
+public function getDisplayObjectDepthFromStage(target:DisplayObject):Int
 {
 	if(!target.stage)
 	{
 		return -1;
 	}
-	var count:int = 0;
+	var count:Int = 0;
 	while(target.parent)
 	{
 		target = target.parent;

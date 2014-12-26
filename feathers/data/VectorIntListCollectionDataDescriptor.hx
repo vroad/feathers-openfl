@@ -26,7 +26,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):int
+	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<int>).length;
@@ -35,7 +35,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int):Object
+	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<int>)[index];
@@ -44,7 +44,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):Void
+	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<int>)[index] = item as int;
@@ -53,7 +53,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):Void
+	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<int>).splice(index, 0, item);
@@ -62,7 +62,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int):Object
+	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<int>).splice(index, 1)[0];
@@ -80,7 +80,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):int
+	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<int>).indexOf(item as int);

@@ -194,8 +194,8 @@ class LayoutGroup extends FeathersControl
 		}
 		if(this._mxmlContent && this._mxmlContentIsReady)
 		{
-			var childCount:int = this._mxmlContent.length;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = this._mxmlContent.length;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 				this.removeChild(child, true);
@@ -337,7 +337,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function addChildAt(child:DisplayObject, index:int):DisplayObject
+	override public function addChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
 		if(child is IFeathersControl)
 		{
@@ -347,7 +347,7 @@ class LayoutGroup extends FeathersControl
 		{
 			child.addEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
-		var oldIndex:int = this.items.indexOf(child);
+		var oldIndex:Int = this.items.indexOf(child);
 		if(oldIndex == index)
 		{
 			return child;
@@ -356,7 +356,7 @@ class LayoutGroup extends FeathersControl
 		{
 			this.items.splice(oldIndex, 1);
 		}
-		var itemCount:int = this.items.length;
+		var itemCount:Int = this.items.length;
 		if(index == itemCount)
 		{
 			//faster than splice because it avoids gc
@@ -373,7 +373,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function removeChildAt(index:int, dispose:Boolean = false):DisplayObject
+	override public function removeChildAt(index:Int, dispose:Boolean = false):DisplayObject
 	{
 		var child:DisplayObject = super.removeChildAt(index, dispose);
 		if(child is IFeathersControl)
@@ -392,10 +392,10 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function setChildIndex(child:DisplayObject, index:int):Void
+	override public function setChildIndex(child:DisplayObject, index:Int):Void
 	{
 		super.setChildIndex(child, index);
-		var oldIndex:int = this.items.indexOf(child);
+		var oldIndex:Int = this.items.indexOf(child);
 		if(oldIndex == index)
 		{
 			return;
@@ -412,7 +412,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function swapChildrenAt(index1:int, index2:int):Void
+	override public function swapChildrenAt(index1:Int, index2:Int):Void
 	{
 		super.swapChildrenAt(index1, index2)
 		var child1:DisplayObject = this.items[index1];
@@ -632,8 +632,8 @@ class LayoutGroup extends FeathersControl
 			maxY = 0;
 		}
 		this._ignoreChildChanges = true;
-		var itemCount:int = this.items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = this.items[i];
 			if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
@@ -675,8 +675,8 @@ class LayoutGroup extends FeathersControl
 		{
 			IValidating(this.currentBackgroundSkin).validate();
 		}
-		var itemCount:int = this.items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = this.items[i];
 			if(item is IValidating)
@@ -695,8 +695,8 @@ class LayoutGroup extends FeathersControl
 		{
 			return;
 		}
-		var childCount:int = this._mxmlContent.length;
-		for(var i:int = 0; i < childCount; i++)
+		var childCount:Int = this._mxmlContent.length;
+		for(var i:Int = 0; i < childCount; i++)
 		{
 			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 			this.addChild(child);

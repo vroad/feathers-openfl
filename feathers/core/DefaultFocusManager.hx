@@ -225,8 +225,8 @@ class DefaultFocusManager implements IFocusManager
 		else if(target is DisplayObjectContainer)
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
-			var childCount:int = container.numChildren;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = container.numChildren;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				var child:DisplayObject = container.getChildAt(i);
 				this.setFocusManager(child);
@@ -279,8 +279,8 @@ class DefaultFocusManager implements IFocusManager
 		if(target is DisplayObjectContainer)
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
-			var childCount:int = container.numChildren;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = container.numChildren;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				var child:DisplayObject = container.getChildAt(i);
 				this.clearFocusManager(child);
@@ -331,7 +331,7 @@ class DefaultFocusManager implements IFocusManager
 				var skip:Boolean = false;
 				if(beforeChild)
 				{
-					var startIndex:int = extras.indexOf(beforeChild) - 1;
+					var startIndex:Int = extras.indexOf(beforeChild) - 1;
 					hasProcessedBeforeChild = startIndex >= -1;
 					skip = !hasProcessedBeforeChild;
 				}
@@ -341,7 +341,7 @@ class DefaultFocusManager implements IFocusManager
 				}
 				if(!skip)
 				{
-					for(var i:int = startIndex; i >= 0; i--)
+					for(var i:Int = startIndex; i >= 0; i--)
 					{
 						var child:DisplayObject = extras[i];
 						var foundChild:IFocusDisplayObject = this.findPreviousChildFocus(child);
@@ -428,7 +428,7 @@ class DefaultFocusManager implements IFocusManager
 				var skip:Boolean = false;
 				if(afterChild)
 				{
-					var startIndex:int = extras.indexOf(afterChild) + 1;
+					var startIndex:Int = extras.indexOf(afterChild) + 1;
 					hasProcessedAfterChild = startIndex > 0;
 					skip = !hasProcessedAfterChild;
 				}
@@ -438,8 +438,8 @@ class DefaultFocusManager implements IFocusManager
 				}
 				if(!skip)
 				{
-					var childCount:int = extras.length;
-					for(var i:int = startIndex; i < childCount; i++)
+					var childCount:Int = extras.length;
+					for(var i:Int = startIndex; i < childCount; i++)
 					{
 						var child:DisplayObject = extras[i];
 						var foundChild:IFocusDisplayObject = this.findNextChildFocus(child);
@@ -730,5 +730,5 @@ public function NativeFocusTarget()
 	this.alpha = 0;
 }
 
-public var referenceCount:int = 1;
+public var referenceCount:Int = 1;
 }

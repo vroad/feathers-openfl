@@ -357,7 +357,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
+	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:Int = 4;
 
 	/**
 	 * The default deceleration rate per millisecond.
@@ -489,17 +489,17 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollBarTouchPointID:int = -1;
+	private var _horizontalScrollBarTouchPointID:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _verticalScrollBarTouchPointID:int = -1;
+	private var _verticalScrollBarTouchPointID:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -534,7 +534,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousTouchTime:int;
+	private var _previousTouchTime:Int;
 
 	/**
 	 * @private
@@ -1238,13 +1238,13 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalPageIndex:int = 0;
+	private var _horizontalPageIndex:Int = 0;
 
 	/**
 	 * The index of the horizontal page, if snapping is enabled. If snapping
 	 * is disabled, the index will always be <code>0</code>.
 	 */
-	public function get horizontalPageIndex():int
+	public function get horizontalPageIndex():Int
 	{
 		if(this.pendingHorizontalPageIndex >= 0)
 		{
@@ -1256,13 +1256,13 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalPageCount:int = 1;
+	private var _horizontalPageCount:Int = 1;
 
 	/**
 	 * The number of horizontal pages, if snapping is enabled. If snapping
 	 * is disabled, the page count will always be <code>1</code>.
 	 */
-	public function get horizontalPageCount():int
+	public function get horizontalPageCount():Int
 	{
 		return this._horizontalPageCount;
 	}
@@ -1474,13 +1474,13 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _verticalPageIndex:int = 0;
+	private var _verticalPageIndex:Int = 0;
 
 	/**
 	 * The index of the vertical page, if snapping is enabled. If snapping
 	 * is disabled, the index will always be <code>0</code>.
 	 */
-	public function get verticalPageIndex():int
+	public function get verticalPageIndex():Int
 	{
 		if(this.pendingVerticalPageIndex >= 0)
 		{
@@ -1492,13 +1492,13 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _verticalPageCount:int = 1;
+	private var _verticalPageCount:Int = 1;
 
 	/**
 	 * The number of vertical pages, if snapping is enabled. If snapping
 	 * is disabled, the page count will always be <code>1</code>.
 	 */
-	public function get verticalPageCount():int
+	public function get verticalPageCount():Int
 	{
 		return this._verticalPageCount;
 	}
@@ -2605,14 +2605,14 @@ class Scroller extends FeathersControl
 	 * value of <code>-1</code> means that the scroller won't scroll to a
 	 * horizontal page after validating.
 	 */
-	private var pendingHorizontalPageIndex:int = -1;
+	private var pendingHorizontalPageIndex:Int = -1;
 
 	/**
 	 * The pending vertical page index to scroll to after validating. A
 	 * value of <code>-1</code> means that the scroller won't scroll to a
 	 * vertical page after validating.
 	 */
-	private var pendingVerticalPageIndex:int = -1;
+	private var pendingVerticalPageIndex:Int = -1;
 
 	/**
 	 * The duration of the pending scroll action.
@@ -2778,7 +2778,7 @@ class Scroller extends FeathersControl
 	 * @see #pageThrowDuration
 	 * @see #throwEase
 	 */
-	public function scrollToPageIndex(horizontalPageIndex:int, verticalPageIndex:int, animationDuration:Number = NaN):Void
+	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Number = NaN):Void
 	{
 		if(animationDuration !== animationDuration) //isNaN
 		{
@@ -2891,7 +2891,7 @@ class Scroller extends FeathersControl
 			this.explicitHeight !== this.explicitHeight; //isNaN
 		var oldMaxHorizontalScrollPosition:Number = this._maxHorizontalScrollPosition;
 		var oldMaxVerticalScrollPosition:Number = this._maxVerticalScrollPosition;
-		var loopCount:int = 0;
+		var loopCount:Int = 0;
 		do
 		{
 			this._hasViewPortBoundsChanged = false;
@@ -3484,7 +3484,7 @@ class Scroller extends FeathersControl
 			{
 				this._horizontalPageIndex = 0;
 			}
-			var maxPageIndex:int = this._horizontalPageCount - 1;
+			var maxPageIndex:Int = this._horizontalPageCount - 1;
 			if(this._horizontalPageIndex > maxPageIndex)
 			{
 				this._horizontalPageIndex = maxPageIndex;
@@ -3550,7 +3550,7 @@ class Scroller extends FeathersControl
 	private function showOrHideChildren():Void
 	{
 		var isFixed:Boolean = this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FIXED;
-		var childCount:int = this.numRawChildrenInternal;
+		var childCount:Int = this.numRawChildrenInternal;
 		if(this.verticalScrollBar)
 		{
 			this.verticalScrollBar.visible = !isFixed || this._hasVerticalScrollBar;
@@ -3850,7 +3850,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function get numRawChildrenInternal():int
+	private function get numRawChildrenInternal():Int
 	{
 		if(this is IScrollContainer)
 		{
@@ -3874,7 +3874,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function addRawChildAtInternal(child:DisplayObject, index:int):DisplayObject
+	private function addRawChildAtInternal(child:DisplayObject, index:Int):DisplayObject
 	{
 		if(this is IScrollContainer)
 		{
@@ -3898,7 +3898,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function removeRawChildAtInternal(index:int, dispose:Boolean = false):DisplayObject
+	private function removeRawChildAtInternal(index:Int, dispose:Boolean = false):DisplayObject
 	{
 		if(this is IScrollContainer)
 		{
@@ -3910,7 +3910,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function setRawChildIndexInternal(child:DisplayObject, index:int):Void
+	private function setRawChildIndexInternal(child:DisplayObject, index:Int):Void
 	{
 		if(this is IScrollContainer)
 		{
@@ -4076,7 +4076,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	private function throwToPage(targetHorizontalPageIndex:int = -1, targetVerticalPageIndex:int = -1, duration:Number = 0.5):Void
+	private function throwToPage(targetHorizontalPageIndex:Int = -1, targetVerticalPageIndex:Int = -1, duration:Number = 0.5):Void
 	{
 		var targetHorizontalScrollPosition:Number = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= 0)
@@ -4242,7 +4242,7 @@ class Scroller extends FeathersControl
 			}
 			if(snappedPageHorizontalScrollPosition == this._maxHorizontalScrollPosition)
 			{
-				var targetHorizontalPageIndex:int = this._horizontalPageCount - 1;
+				var targetHorizontalPageIndex:Int = this._horizontalPageCount - 1;
 			}
 			else
 			{
@@ -4319,7 +4319,7 @@ class Scroller extends FeathersControl
 			}
 			if(snappedPageVerticalScrollPosition == this._maxVerticalScrollPosition)
 			{
-				var targetVerticalPageIndex:int = this._verticalPageCount - 1;
+				var targetVerticalPageIndex:Int = this._verticalPageCount - 1;
 			}
 			else
 			{
@@ -4872,8 +4872,8 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		var now:int = getTimer();
-		var timeOffset:int = now - this._previousTouchTime;
+		var now:Int = getTimer();
+		var timeOffset:Int = now - this._previousTouchTime;
 		if(timeOffset > 0)
 		{
 			//we're keeping previous velocity updates to improve accuracy
@@ -4997,9 +4997,9 @@ class Scroller extends FeathersControl
 			{
 				//take the average for more accuracy
 				var sum:Number = this._velocityX * CURRENT_VELOCITY_WEIGHT;
-				var velocityCount:int = this._previousVelocityX.length;
+				var velocityCount:Int = this._previousVelocityX.length;
 				var totalWeight:Number = CURRENT_VELOCITY_WEIGHT;
-				for(var i:int = 0; i < velocityCount; i++)
+				for(var i:Int = 0; i < velocityCount; i++)
 				{
 					var weight:Number = VELOCITY_WEIGHTS[i];
 					sum += this._previousVelocityX.shift() * weight;
@@ -5035,7 +5035,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function exclusiveTouch_changeHandler(event:Event, touchID:int):Void
+	private function exclusiveTouch_changeHandler(event:Event, touchID:Int):Void
 	{
 		if(this._touchPointID < 0 || this._touchPointID != touchID || this._isDraggingHorizontally || this._isDraggingVertically)
 		{

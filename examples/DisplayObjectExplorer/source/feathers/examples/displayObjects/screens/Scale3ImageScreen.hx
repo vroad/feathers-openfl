@@ -36,8 +36,8 @@ class Scale3ImageScreen extends Screen
 	private var _startY:Number;
 	private var _startWidth:Number;
 	private var _startHeight:Number;
-	private var _rightTouchPointID:int = -1;
-	private var _bottomTouchPointID:int = -1;
+	private var _rightTouchPointID:Int = -1;
+	private var _bottomTouchPointID:Int = -1;
 
 	private var _texture:Texture;
 

@@ -51,7 +51,7 @@ class VerticalLayoutScreen extends PanelScreen
 		this.snapScrollPositionsToPixels = true;
 
 		var minQuadSize:Number = Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 15;
-		for(var i:int = 0; i < this.settings.itemCount; i++)
+		for(var i:Int = 0; i < this.settings.itemCount; i++)
 		{
 			var size:Number = (minQuadSize + minQuadSize * 2 * Math.random());
 			var quad:Quad = new Quad(size, size, 0xff8800);

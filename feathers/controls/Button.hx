@@ -423,7 +423,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -1915,7 +1915,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @private
 	 * Used for determining the duration of a long press.
 	 */
-	private var _touchBeginTime:int;
+	private var _touchBeginTime:Int;
 
 	/**
 	 * @private
@@ -2281,7 +2281,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			if(this.currentIcon)
 			{
 				//we want the icon to appear below the label text renderer
-				var index:int = this.numChildren;
+				var index:Int = this.numChildren;
 				if(this.labelTextRenderer)
 				{
 					index = this.getChildIndex(DisplayObject(this.labelTextRenderer));

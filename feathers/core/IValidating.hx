@@ -20,7 +20,7 @@ public interface IValidating extends IFeathersDisplayObject
 	 * <p>Used by the validation system to validate components from the
 	 * top down</p>.
 	 */
-	function get depth():int;
+	function get depth():Int;
 
 	/**
 	 * Immediately validates the display object, if it is invalid. The

@@ -1447,7 +1447,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private

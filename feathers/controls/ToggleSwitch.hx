@@ -1188,7 +1188,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -1993,7 +1993,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			this.onTextRenderer = null;
 		}
 
-		var index:int = this.getChildIndex(this.thumb);
+		var index:Int = this.getChildIndex(this.thumb);
 		var offLabelFactory:Function = this._offLabelFactory;
 		if(offLabelFactory == null)
 		{

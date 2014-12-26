@@ -72,7 +72,7 @@ class TimesScreen extends PanelScreen
 	{
 		var departureTime:Date = item.departureTime;
 		var arrivalTime:Date = item.arrivalTime;
-		var duration:int = (arrivalTime.getTime() - departureTime.getTime()) / 1000 / 60;
+		var duration:Int = (arrivalTime.getTime() - departureTime.getTime()) / 1000 / 60;
 		return this.formatTimeAsString(departureTime) + "\t" + this.formatTimeAsString(arrivalTime) + "\t" +
 			item.trainNumber + "\t" + duration + "mins";
 	}

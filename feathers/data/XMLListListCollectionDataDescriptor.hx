@@ -28,7 +28,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):int
+	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as XMLList).length();
@@ -37,7 +37,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int):Object
+	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return data[index];
@@ -46,7 +46,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):Void
+	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		data[index] = XML(item);
@@ -55,7 +55,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):Void
+	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		
@@ -63,8 +63,8 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 		//other way to insert an element into an XMLList at a specific index.
 		var dataClone:XMLList = (data as XMLList).copy();
 		data[index] = item;
-		var listLength:int = dataClone.length();
-		for(var i:int = index; i < listLength; i++)
+		var listLength:Int = dataClone.length();
+		for(var i:Int = index; i < listLength; i++)
 		{
 			data[i + 1] = dataClone[i];
 		}
@@ -73,7 +73,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int):Object
+	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		var item:XML = data[index];
@@ -88,8 +88,8 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	{
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
-		var listLength:int = list.length();
-		for(var i:int = 0; i < listLength; i++)
+		var listLength:Int = list.length();
+		for(var i:Int = 0; i < listLength; i++)
 		{
 			delete data[0];
 		}
@@ -98,12 +98,12 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):int
+	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
-		var listLength:int = list.length();
-		for(var i:int = 0; i < listLength; i++)
+		var listLength:Int = list.length();
+		for(var i:Int = 0; i < listLength; i++)
 		{
 			var currentItem:XML = list[i];
 			if(currentItem == item)

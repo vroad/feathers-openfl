@@ -172,12 +172,12 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * The maximum number of characters that may be entered.
 	 */
-	function get maxChars():int;
+	function get maxChars():Int;
 
 	/**
 	 * @private
 	 */
-	function set maxChars(value:int):Void;
+	function set maxChars(value:Int):Void;
 
 	/**
 	 * Limits the set of characters that may be entered.
@@ -214,13 +214,13 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 * The index of the first character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get selectionBeginIndex():int;
+	function get selectionBeginIndex():Int;
 
 	/**
 	 * The index of the last character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get selectionEndIndex():int;
+	function get selectionEndIndex():Int;
 
 	/**
 	 * Gives focus to the text editor. Includes an optional position which
@@ -238,7 +238,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 * Sets the range of selected characters. If both values are the same,
 	 * the text insertion position is changed and nothing is selected.
 	 */
-	function selectRange(startIndex:int, endIndex:int):Void;
+	function selectRange(startIndex:Int, endIndex:Int):Void;
 
 	/**
 	 * Measures the text's bounds (without a full validation, if

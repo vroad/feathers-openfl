@@ -113,14 +113,14 @@ public final dynamic class PropertyProxy extends Proxy
 	override flash_proxy function deleteProperty(name:*):Boolean
 	{
 		var nameAsString:String = name is QName ? QName(name).localName : name.toString();
-		var index:int = this._names.indexOf(nameAsString);
+		var index:Int = this._names.indexOf(nameAsString);
 		if(index == 0)
 		{
 			this._names.shift();
 		}
 		else
 		{
-			var lastIndex:int = this._names.length - 1;
+			var lastIndex:Int = this._names.length - 1;
 			if(index == lastIndex)
 			{
 				this._names.pop();
@@ -141,7 +141,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextNameIndex(index:int):int
+	override flash_proxy function nextNameIndex(index:Int):Int
 	{
 		if(index < this._names.length)
 		{
@@ -153,7 +153,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextName(index:int):String
+	override flash_proxy function nextName(index:Int):String
 	{
 		return this._names[index - 1];
 	}
@@ -161,7 +161,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextValue(index:int):*
+	override flash_proxy function nextValue(index:Int):*
 	{
 		var name:* = this._names[index - 1];
 		return this._storage[name];
@@ -180,7 +180,7 @@ public final dynamic class PropertyProxy extends Proxy
 	 */
 	public function removeOnChangeCallback(callback:Function):Void
 	{
-		var index:int = this._onChangeCallbacks.indexOf(callback);
+		var index:Int = this._onChangeCallbacks.indexOf(callback);
 		if(index < 0)
 		{
 			return;
@@ -190,7 +190,7 @@ public final dynamic class PropertyProxy extends Proxy
 			this._onChangeCallbacks.shift();
 			return;
 		}
-		var lastIndex:int = this._onChangeCallbacks.length - 1;
+		var lastIndex:Int = this._onChangeCallbacks.length - 1;
 		if(index == lastIndex)
 		{
 			this._onChangeCallbacks.pop();
@@ -217,8 +217,8 @@ public final dynamic class PropertyProxy extends Proxy
 	 */
 	private function fireOnChangeCallback(forName:String):Void
 	{
-		var callbackCount:int = this._onChangeCallbacks.length;
-		for(var i:int = 0; i < callbackCount; i++)
+		var callbackCount:Int = this._onChangeCallbacks.length;
+		for(var i:Int = 0; i < callbackCount; i++)
 		{
 			var callback:Function = this._onChangeCallbacks[i] as Function;
 			callback(this, forName);

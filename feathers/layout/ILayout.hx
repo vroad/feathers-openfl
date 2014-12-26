@@ -58,8 +58,8 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * controls:</p>
 	 *
 	 * <listing version="3.0">
-	 * const itemCount:int = items.length;
-	 * for(var i:int = 0; i &lt; itemCount; i++)
+	 * const itemCount:Int = items.length;
+	 * for(var i:Int = 0; i &lt; itemCount; i++)
 	 * {
 	 *     var item:IFeathersControl = items[i] as IFeathersControl;
 	 *     if(item)
@@ -82,5 +82,5 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * <code>layout()</code> function. The width and height arguments are
 	 * the final bounds of the view port.</p>
 	 */
-	function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
+	function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
 }

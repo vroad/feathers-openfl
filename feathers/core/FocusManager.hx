@@ -233,7 +233,7 @@ class FocusManager
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);
 		}
-		var index:int = stack.indexOf(manager);
+		var index:Int = stack.indexOf(manager);
 		if(index < 0)
 		{
 			return;

@@ -168,7 +168,7 @@ class ScreenSlidingStackTransitionManager
 		{
 			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
 		}
-		var stackIndex:int = this._stack.indexOf(newScreenClassAndID);
+		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
 		var activeTransition_onUpdate:Function;
 		if(stackIndex < 0)
 		{

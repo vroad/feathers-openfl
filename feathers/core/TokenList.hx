@@ -78,7 +78,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * The number of tokens in the list.
 	 */
-	public function get length():int
+	public function get length():Int
 	{
 		return this.names.length;
 	}
@@ -87,7 +87,7 @@ class TokenList extends EventDispatcher
 	 * Returns the token at the specified index, or null, if there is no
 	 * token at that index.
 	 */
-	public function item(index:int):String
+	public function item(index:Int):String
 	{
 		if(index < 0 || index >= this.names.length)
 		{
@@ -102,7 +102,7 @@ class TokenList extends EventDispatcher
 	 */
 	public function add(name:String):Void
 	{
-		var index:int = this.names.indexOf(name);
+		var index:Int = this.names.indexOf(name);
 		if(index >= 0)
 		{
 			return;
@@ -117,7 +117,7 @@ class TokenList extends EventDispatcher
 	 */
 	public function remove(name:String):Void
 	{
-		var index:int = this.names.indexOf(name);
+		var index:Int = this.names.indexOf(name);
 		this.removeAt(index);
 	}
 
@@ -127,7 +127,7 @@ class TokenList extends EventDispatcher
 	 */
 	public function toggle(name:String):Void
 	{
-		var index:int = this.names.indexOf(name);
+		var index:Int = this.names.indexOf(name);
 		if(index < 0)
 		{
 			this.names[this.names.length] = name;
@@ -150,7 +150,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function removeAt(index:int):Void
+	private function removeAt(index:Int):Void
 	{
 		if(index < 0)
 		{
@@ -162,7 +162,7 @@ class TokenList extends EventDispatcher
 			this.dispatchEventWith(Event.CHANGE);
 			return;
 		}
-		var lastIndex:int = this.names.length - 1;
+		var lastIndex:Int = this.names.length - 1;
 		if(index == lastIndex)
 		{
 			this.names.pop();

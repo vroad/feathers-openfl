@@ -546,12 +546,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _beforeVirtualizedItemCount:int = 0;
+	private var _beforeVirtualizedItemCount:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get beforeVirtualizedItemCount():int
+	public function get beforeVirtualizedItemCount():Int
 	{
 		return this._beforeVirtualizedItemCount;
 	}
@@ -559,7 +559,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set beforeVirtualizedItemCount(value:int):Void
+	public function set beforeVirtualizedItemCount(value:Int):Void
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
@@ -572,12 +572,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _afterVirtualizedItemCount:int = 0;
+	private var _afterVirtualizedItemCount:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get afterVirtualizedItemCount():int
+	public function get afterVirtualizedItemCount():Int
 	{
 		return this._afterVirtualizedItemCount;
 	}
@@ -585,7 +585,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set afterVirtualizedItemCount(value:int):Void
+	public function set afterVirtualizedItemCount(value:Int):Void
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
@@ -841,9 +841,9 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
 		var maxItemWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Number = boundsY + this._paddingTop;
-		var indexOffset:int = 0;
-		var itemCount:int = items.length;
-		var totalItemCount:int = itemCount;
+		var indexOffset:Int = 0;
+		var itemCount:Int = items.length;
+		var totalItemCount:Int = itemCount;
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
 			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
@@ -854,12 +854,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				positionY = positionY - this._gap + this._firstGap;
 			}
 		}
-		var secondToLastIndex:int = totalItemCount - 2;
-		var discoveredItemsCacheLastIndex:int = 0;
-		for(var i:int = 0; i < itemCount; i++)
+		var secondToLastIndex:Int = totalItemCount - 2;
+		var discoveredItemsCacheLastIndex:Int = 0;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
-			var iNormalized:int = i + indexOffset;
+			var iNormalized:Int = i + indexOffset;
 			var gap:Number = this._gap;
 			if(hasFirstGap && iNormalized == 0)
 			{
@@ -953,7 +953,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				availableWidth = maxWidth;
 			}
 		}
-		var discoveredItemCount:int = discoveredItems.length;
+		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalHeight:Number = positionY - this._gap + this._paddingBottom - boundsY;
 		var availableHeight:Number = explicitHeight;
@@ -1087,7 +1087,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function measureViewPort(itemCount:int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
+	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1134,7 +1134,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			}
 			else
 			{
-				for(var i:int = 0; i < itemCount; i++)
+				for(var i:Int = 0; i < itemCount; i++)
 				{
 					var cachedHeight:Number = this._heightCache[i];
 					if(cachedHeight !== cachedHeight) //isNaN
@@ -1208,7 +1208,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		delete this._heightCache[index];
 		if(item)
@@ -1221,7 +1221,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		var heightValue:* = item ? item.height : undefined;
 		this._heightCache.splice(index, 0, heightValue);
@@ -1230,7 +1230,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
+	public function removeFromVariableVirtualCacheAtIndex(index:Int):Void
 	{
 		this._heightCache.splice(index, 1);
 	}
@@ -1238,7 +1238,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<int> = null):Vector.<int>
 	{
 		if(result)
 		{
@@ -1259,13 +1259,13 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 
 		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
 		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
-		var resultLastIndex:int = 0;
-		var visibleTypicalItemCount:int = Math.ceil(height / (calculatedTypicalItemHeight + this._gap));
+		var resultLastIndex:Int = 0;
+		var visibleTypicalItemCount:Int = Math.ceil(height / (calculatedTypicalItemHeight + this._gap));
 		if(!this._hasVariableItemDimensions)
 		{
 			//this case can be optimized because we know that every item has
 			//the same height
-			var indexOffset:int = 0;
+			var indexOffset:Int = 0;
 			var totalItemHeight:Number = itemCount * (calculatedTypicalItemHeight + this._gap) - this._gap;
 			if(hasFirstGap && itemCount > 1)
 			{
@@ -1286,7 +1286,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 					indexOffset = Math.ceil(((height - totalItemHeight) / (calculatedTypicalItemHeight + this._gap)) / 2);
 				}
 			}
-			var minimum:int = (scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._gap);
+			var minimum:Int = (scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._gap);
 			if(minimum < 0)
 			{
 				minimum = 0;
@@ -1295,7 +1295,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			//if we're scrolling beyond the final item, we should keep the
 			//indices consistent so that items aren't destroyed and
 			//recreated unnecessarily
-			var maximum:int = minimum + visibleTypicalItemCount;
+			var maximum:Int = minimum + visibleTypicalItemCount;
 			if(maximum >= itemCount)
 			{
 				maximum = itemCount - 1;
@@ -1305,14 +1305,14 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			{
 				minimum = 0;
 			}
-			for(var i:int = minimum; i <= maximum; i++)
+			for(var i:Int = minimum; i <= maximum; i++)
 			{
 				result[resultLastIndex] = i;
 				resultLastIndex++;
 			}
 			return result;
 		}
-		var secondToLastIndex:int = itemCount - 2;
+		var secondToLastIndex:Int = itemCount - 2;
 		var maxPositionY:Number = scrollY + height;
 		var positionY:Number = this._paddingTop;
 		for(i = 0; i < itemCount; i++)
@@ -1352,13 +1352,13 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		//similar to above, in order to avoid costly destruction and
 		//creation of item renderers, we're going to fill in some extra
 		//indices
-		var resultLength:int = result.length;
-		var visibleItemCountDifference:int = visibleTypicalItemCount - resultLength;
+		var resultLength:Int = result.length;
+		var visibleItemCountDifference:Int = visibleTypicalItemCount - resultLength;
 		if(visibleItemCountDifference > 0 && resultLength > 0)
 		{
 			//add extra items before the first index
-			var firstExistingIndex:int = result[0];
-			var lastIndexToAdd:int = firstExistingIndex - visibleItemCountDifference;
+			var firstExistingIndex:Int = result[0];
+			var lastIndexToAdd:Int = firstExistingIndex - visibleItemCountDifference;
 			if(lastIndexToAdd < 0)
 			{
 				lastIndexToAdd = 0;
@@ -1374,8 +1374,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		if(visibleItemCountDifference > 0)
 		{
 			//add extra items after the last index
-			var startIndex:int = (resultLength > 0) ? (result[resultLength - 1] + 1) : 0;
-			var endIndex:int = startIndex + visibleItemCountDifference;
+			var startIndex:Int = (resultLength > 0) ? (result[resultLength - 1] + 1) : 0;
+			var endIndex:Int = startIndex + visibleItemCountDifference;
 			if(endIndex > itemCount)
 			{
 				endIndex = itemCount;
@@ -1392,7 +1392,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -1411,10 +1411,10 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var positionY:Number = y + this._paddingTop;
 		var lastHeight:Number = 0;
 		var gap:Number = this._gap;
-		var startIndexOffset:int = 0;
+		var startIndexOffset:Int = 0;
 		var endIndexOffset:Number = 0;
-		var itemCount:int = items.length;
-		var totalItemCount:int = itemCount;
+		var itemCount:Int = items.length;
+		var totalItemCount:Int = itemCount;
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
 			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
@@ -1438,11 +1438,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			positionY += (startIndexOffset * (calculatedTypicalItemHeight + this._gap));
 		}
 		index -= (startIndexOffset + endIndexOffset);
-		var secondToLastIndex:int = totalItemCount - 2;
-		for(var i:int = 0; i <= index; i++)
+		var secondToLastIndex:Int = totalItemCount - 2;
+		for(var i:Int = 0; i <= index; i++)
 		{
 			var item:DisplayObject = items[i];
-			var iNormalized:int = i + startIndexOffset;
+			var iNormalized:Int = i + startIndexOffset;
 			if(hasFirstGap && iNormalized == 0)
 			{
 				gap = this._firstGap;
@@ -1519,8 +1519,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		//layout if it happens after validation, causing more invalidation
 		var mustSetJustifyWidth:Boolean = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY &&
 			justifyWidth === justifyWidth; //!isNaN
-		var itemCount:int = items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			if(!item || (item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout))
@@ -1575,11 +1575,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 */
 	private function calculateDistributedHeight(items:Vector.<DisplayObject>, explicitHeight:Number, minHeight:Number, maxHeight:Number):Number
 	{
-		var itemCount:int = items.length;
+		var itemCount:Int = items.length;
 		if(explicitHeight !== explicitHeight) //isNaN
 		{
 			var maxItemHeight:Number = 0;
-			for(var i:int = 0; i < itemCount; i++)
+			for(var i:Int = 0; i < itemCount; i++)
 			{
 				var item:DisplayObject = items[i];
 				var itemHeight:Number = item.height;
@@ -1627,9 +1627,9 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var totalExplicitHeight:Number = 0;
 		var totalMinHeight:Number = 0;
 		var totalPercentHeight:Number = 0;
-		var itemCount:int = items.length;
-		var pushIndex:int = 0;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		var pushIndex:Int = 0;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			if(item is ILayoutDisplayObject)

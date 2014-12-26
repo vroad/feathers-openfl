@@ -54,7 +54,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	private var detailsLabel:Label;
 	private var icon:ImageLoader;
 
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	private var _data:StationData;
 
@@ -74,14 +74,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private var _index:int = -1;
+	private var _index:Int = -1;
 
-	public function get index():int
+	public function get index():Int
 	{
 		return this._index;
 	}
 
-	public function set index(value:int):Void
+	public function set index(value:Int):Void
 	{
 		this._index = value;
 		if(this._owner && this._owner.dataProvider)

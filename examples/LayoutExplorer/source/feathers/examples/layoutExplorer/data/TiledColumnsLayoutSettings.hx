@@ -7,7 +7,7 @@ class TiledColumnsLayoutSettings
 	{
 	}
 
-	public var itemCount:int = 75;
+	public var itemCount:Int = 75;
 	public var paging:String = TiledColumnsLayout.PAGING_NONE;
 	public var horizontalAlign:String = TiledColumnsLayout.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = TiledColumnsLayout.VERTICAL_ALIGN_TOP;

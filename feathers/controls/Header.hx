@@ -92,7 +92,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var STATUS_BAR_MIN_IOS_VERSION:int = 7;
+	inline private static var STATUS_BAR_MIN_IOS_VERSION:Int = 7;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Header</code>
@@ -1293,8 +1293,8 @@ class Header extends FeathersControl
 		var newHeight:Number = needsHeight ? 0 : this.explicitHeight;
 
 		var totalItemWidth:Number = 0;
-		var leftItemCount:int = this._leftItems ? this._leftItems.length : 0;
-		for(var i:int = 0; i < leftItemCount; i++)
+		var leftItemCount:Int = this._leftItems ? this._leftItems.length : 0;
+		for(var i:Int = 0; i < leftItemCount; i++)
 		{
 			var item:DisplayObject = this._leftItems[i];
 			if(item is IValidating)
@@ -1319,7 +1319,7 @@ class Header extends FeathersControl
 				newHeight = itemHeight;
 			}
 		}
-		var centerItemCount:int = this._centerItems ? this._centerItems.length : 0;
+		var centerItemCount:Int = this._centerItems ? this._centerItems.length : 0;
 		for(i = 0; i < centerItemCount; i++)
 		{
 			item = this._centerItems[i];
@@ -1345,7 +1345,7 @@ class Header extends FeathersControl
 				newHeight = itemHeight;
 			}
 		}
-		var rightItemCount:int = this._rightItems ? this._rightItems.length : 0;
+		var rightItemCount:Int = this._rightItems ? this._rightItems.length : 0;
 		for(i = 0; i < rightItemCount; i++)
 		{
 			item = this._rightItems[i];

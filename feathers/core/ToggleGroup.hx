@@ -132,7 +132,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _selectedIndex:int = -1;
+	private var _selectedIndex:Int = -1;
 	
 	/**
 	 * The index of the currently selected toggle.
@@ -144,7 +144,7 @@ class ToggleGroup extends EventDispatcher
 	 *
 	 * @default -1
 	 */
-	public function get selectedIndex():int
+	public function get selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -152,9 +152,9 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):Void
+	public function set selectedIndex(value:Int):Void
 	{
-		var itemCount:int = this._items.length;
+		var itemCount:Int = this._items.length;
 		if(value < -1 || value >= itemCount)
 		{
 			throw new RangeError("Index " + value + " is out of range " + itemCount + " for ToggleGroup.");
@@ -164,7 +164,7 @@ class ToggleGroup extends EventDispatcher
 
 		//refresh all the items
 		this._ignoreChanges = true;
-		for(var i:int = 0; i < itemCount; i++)
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:IToggle = this._items[i];
 			item.isSelected = i == value;
@@ -197,7 +197,7 @@ class ToggleGroup extends EventDispatcher
 			throw new ArgumentError("IToggle passed to ToggleGroup addItem() must not be null.");
 		}
 		
-		var index:int = this._items.indexOf(item);
+		var index:Int = this._items.indexOf(item);
 		if(index >= 0)
 		{
 			throw new IllegalOperationError("Cannot add an item to a ToggleGroup more than once.");
@@ -232,7 +232,7 @@ class ToggleGroup extends EventDispatcher
 	 */
 	public function removeItem(item:IToggle):Void
 	{
-		var index:int = this._items.indexOf(item);
+		var index:Int = this._items.indexOf(item);
 		if(index < 0)
 		{
 			return;
@@ -266,8 +266,8 @@ class ToggleGroup extends EventDispatcher
 	 */
 	public function removeAllItems():Void
 	{
-		var itemCount:int = this._items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this._items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:IToggle = this._items.shift();
 			item.removeEventListener(Event.CHANGE, item_changeHandler);
@@ -292,7 +292,7 @@ class ToggleGroup extends EventDispatcher
 	 */
 	public function hasItem(item:IToggle):Boolean
 	{
-		var index:int = this._items.indexOf(item);
+		var index:Int = this._items.indexOf(item);
 		return index >= 0;
 	}
 
@@ -303,9 +303,9 @@ class ToggleGroup extends EventDispatcher
 	 * <p>In the following example, an item's index is calculated:</p>
 	 *
 	 * <listing version="3.0">
-	 * var index:int = group.getItemIndex( radio );</listing>
+	 * var index:Int = group.getItemIndex( radio );</listing>
 	 */
-	public function getItemIndex(item:IToggle):int
+	public function getItemIndex(item:IToggle):Int
 	{
 		return this._items.indexOf(item);
 	}
@@ -319,9 +319,9 @@ class ToggleGroup extends EventDispatcher
 	 * <listing version="3.0">
 	 * group.setItemIndex( radio, 2 );</listing>
 	 */
-	public function setItemIndex(item:IToggle, index:int):Void
+	public function setItemIndex(item:IToggle, index:Int):Void
 	{
-		var oldIndex:int = this._items.indexOf(item);
+		var oldIndex:Int = this._items.indexOf(item);
 		if(oldIndex < 0)
 		{
 			throw new ArgumentError("Attempting to set index of an item that has not been added to this ToggleGroup.");
@@ -361,7 +361,7 @@ class ToggleGroup extends EventDispatcher
 		}
 
 		var item:IToggle = IToggle(event.currentTarget);
-		var index:int = this._items.indexOf(item);
+		var index:Int = this._items.indexOf(item);
 		if(item.isSelected || (this._isSelectionRequired && this._selectedIndex == index))
 		{
 			//don't let it deselect the item

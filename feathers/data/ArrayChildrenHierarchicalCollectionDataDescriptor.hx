@@ -51,13 +51,13 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object, ...rest:Array):int
+	public function getLength(data:Object, ...rest:Array):Int
 	{
 		var branch:Array = data as Array;
-		var indexCount:int = rest.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = rest.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var index:int = rest[i] as int;
+			var index:Int = rest[i] as int;
 			branch = branch[index][childrenField] as Array;
 		}
 
@@ -67,68 +67,68 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int, ...rest:Array):Object
+	public function getItemAt(data:Object, index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
-		var indexCount:int = rest.length - 1;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = rest.length - 1;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
 			index = rest[i] as int;
 			branch = branch[index][childrenField] as Array;
 		}
-		var lastIndex:int = rest[indexCount] as int;
+		var lastIndex:Int = rest[indexCount] as int;
 		return branch[lastIndex];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
+	public function setItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
-		var indexCount:int = rest.length - 1;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = rest.length - 1;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
 			index = rest[i] as int;
 			branch = branch[index][childrenField] as Array;
 		}
-		var lastIndex:int = rest[indexCount];
+		var lastIndex:Int = rest[indexCount];
 		branch[lastIndex] = item;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
+	public function addItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
-		var indexCount:int = rest.length - 1;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = rest.length - 1;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
 			index = rest[i] as int;
 			branch = branch[index][childrenField] as Array;
 		}
-		var lastIndex:int = rest[indexCount];
+		var lastIndex:Int = rest[indexCount];
 		branch.splice(lastIndex, 0, item);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int, ...rest:Array):Object
+	public function removeItemAt(data:Object, index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
-		var indexCount:int = rest.length - 1;
-		for(var i:int = 0; i < indexCount; i++)
+		var indexCount:Int = rest.length - 1;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
 			index = rest[i] as int;
 			branch = branch[index][childrenField] as Array;
 		}
-		var lastIndex:int = rest[indexCount];
+		var lastIndex:Int = rest[indexCount];
 		var item:Object = branch[lastIndex];
 		branch.splice(lastIndex, 1);
 		return item;
@@ -148,10 +148,10 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 			result.length = 0;
 		}
 		var branch:Array = data as Array;
-		var restCount:int = rest.length;
-		for(var i:int = 0; i < restCount; i++)
+		var restCount:Int = rest.length;
+		for(var i:Int = 0; i < restCount; i++)
 		{
-			var index:int = rest[i] as int;
+			var index:Int = rest[i] as int;
 			result[i] = index;
 			branch = branch[index][childrenField] as Array;
 		}
@@ -177,15 +177,15 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	 */
 	private function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Boolean
 	{
-		var index:int = branch.indexOf(item);
+		var index:Int = branch.indexOf(item);
 		if(index >= 0)
 		{
 			result.push(index);
 			return true;
 		}
 
-		var branchLength:int = branch.length;
-		for(var i:int = 0; i < branchLength; i++)
+		var branchLength:Int = branch.length;
+		for(var i:Int = 0; i < branchLength; i++)
 		{
 			var branchItem:Object = branch[i];
 			if(this.isBranch(branchItem))

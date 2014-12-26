@@ -36,12 +36,12 @@ public interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get index():int;
+	function get index():Int;
 	
 	/**
 	 * @private
 	 */
-	function set index(value:int):Void;
+	function set index(value:Int):Void;
 	
 	/**
 	 * The list that contains this item renderer.

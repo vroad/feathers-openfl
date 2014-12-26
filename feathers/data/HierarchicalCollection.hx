@@ -244,7 +244,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * The number of items at the specified location in the collection.
 	 */
-	public function getLength(...rest:Array):int
+	public function getLength(...rest:Array):Int
 	{
 		rest.unshift(this._data);
 		return this._dataDescriptor.getLength.apply(null, rest);
@@ -256,7 +256,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * and the collection will dispatch the <code>CollectionEventType.UPDATE_ITEM</code>
 	 * event to manually notify the component that renders the data.
 	 */
-	public function updateItemAt(index:int, ...rest:Array):Void
+	public function updateItemAt(index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, rest);
@@ -265,7 +265,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Returns the item at the specified location in the collection.
 	 */
-	public function getItemAt(index:int, ...rest:Array):Object
+	public function getItemAt(index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		rest.unshift(this._data);
@@ -284,7 +284,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified location.
 	 */
-	public function addItemAt(item:Object, index:int, ...rest:Array):Void
+	public function addItemAt(item:Object, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -300,7 +300,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * Removes the item at the specified location from the collection and
 	 * returns it.
 	 */
-	public function removeItemAt(index:int, ...rest:Array):Object
+	public function removeItemAt(index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		rest.unshift(this._data);
@@ -321,8 +321,8 @@ class HierarchicalCollection extends EventDispatcher
 		{
 			//this is hacky. a future version probably won't use rest args.
 			var locationAsArray:Array = [];
-			var indexCount:int = location.length;
-			for(var i:int = 0; i < indexCount; i++)
+			var indexCount:Int = location.length;
+			for(var i:Int = 0; i < indexCount; i++)
 			{
 				locationAsArray.push(location[i]);
 			}
@@ -333,7 +333,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 */
-	public function setItemAt(item:Object, index:int, ...rest:Array):Void
+	public function setItemAt(item:Object, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -378,9 +378,9 @@ class HierarchicalCollection extends EventDispatcher
 	 */
 	public function dispose(disposeGroup:Function, disposeItem:Function):Void
 	{
-		var groupCount:int = this.getLength();
+		var groupCount:Int = this.getLength();
 		var path:Array = [];
-		for(var i:int = 0; i < groupCount; i++)
+		for(var i:Int = 0; i < groupCount; i++)
 		{
 			var group:Object = this.getItemAt(i);
 			path[0] = i;
@@ -399,8 +399,8 @@ class HierarchicalCollection extends EventDispatcher
 			disposeGroup(group);
 		}
 
-		var itemCount:int = this.getLength.apply(this, path);
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.getLength.apply(this, path);
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			path[path.length] = i;
 			var item:Object = this.getItemAt.apply(this, path);

@@ -334,7 +334,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -561,7 +561,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _maxChars:int = 0;
+	private var _maxChars:Int = 0;
 
 	/**
 	 * The maximum number of characters that may be entered. If <code>0</code>,
@@ -575,7 +575,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
-	public function get maxChars():int
+	public function get maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -583,7 +583,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):Void
+	public function set maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -1484,12 +1484,12 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:Int = -1;
 
 	/**
 	 * @private
@@ -1575,7 +1575,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @copy feathers.core.ITextEditor#selectionBeginIndex
 	 */
-	public function get selectionBeginIndex():int
+	public function get selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
@@ -1591,7 +1591,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @copy feathers.core.ITextEditor#selectionEndIndex
 	 */
-	public function get selectionEndIndex():int
+	public function get selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{
@@ -1692,7 +1692,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * or the end index is <code>-1</code>, the text insertion position is
 	 * changed and nothing is selected.
 	 */
-	public function selectRange(beginIndex:int, endIndex:int = -1):Void
+	public function selectRange(beginIndex:Int, endIndex:Int = -1):Void
 	{
 		if(endIndex < 0)
 		{
@@ -1954,13 +1954,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		}
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
-			var startIndex:int = this._pendingSelectionBeginIndex;
-			var endIndex:int = this._pendingSelectionEndIndex;
+			var startIndex:Int = this._pendingSelectionBeginIndex;
+			var endIndex:Int = this._pendingSelectionEndIndex;
 			this._pendingSelectionBeginIndex = -1;
 			this._pendingSelectionEndIndex = -1;
 			if(endIndex >= 0)
 			{
-				var textLength:int = this._text.length;
+				var textLength:Int = this._text.length;
 				if(endIndex > textLength)
 				{
 					endIndex = textLength;
@@ -2073,7 +2073,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			if(this.currentIcon)
 			{
 				//we want the icon to appear below the text editor
-				var index:int = this.getChildIndex(DisplayObject(this.textEditor));
+				var index:Int = this.getChildIndex(DisplayObject(this.textEditor));
 				this.addChildAt(this.currentIcon, index);
 			}
 		}

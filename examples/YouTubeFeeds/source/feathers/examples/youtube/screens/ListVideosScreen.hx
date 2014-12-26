@@ -61,7 +61,7 @@ class ListVideosScreen extends PanelScreen
 	}
 
 	public var savedVerticalScrollPosition:Number = 0;
-	public var savedSelectedIndex:int = -1;
+	public var savedSelectedIndex:Int = -1;
 	public var savedDataProvider:ListCollection;
 
 	private var _loader:URLLoader;
@@ -177,8 +177,8 @@ class ListVideosScreen extends PanelScreen
 
 		var items:Vector.<VideoDetails> = new <VideoDetails>[];
 		var entries:XMLList = feed.atom::entry;
-		var entryCount:int = entries.length();
-		for(var i:int = 0; i < entryCount; i++)
+		var entryCount:Int = entries.length();
+		for(var i:Int = 0; i < entryCount; i++)
 		{
 			var entry:XML = entries[i];
 			var item:VideoDetails = new VideoDetails();

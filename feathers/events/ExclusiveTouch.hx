@@ -87,7 +87,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _stageListenerCount:int = 0;
+	private var _stageListenerCount:Int = 0;
 
 	/**
 	 * @private
@@ -104,7 +104,7 @@ class ExclusiveTouch extends EventDispatcher
 	 * <code>true</code> if the touch is claimed. Returns <code>false</code>
 	 * if the touch was previously claimed by another display object.
 	 */
-	public function claimTouch(touchID:int, target:DisplayObject):Boolean
+	public function claimTouch(touchID:Int, target:DisplayObject):Boolean
 	{
 		if(!target)
 		{
@@ -136,7 +136,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * Removes a claim to the touch with the specified ID.
 	 */
-	public function removeClaim(touchID:int):Void
+	public function removeClaim(touchID:Int):Void
 	{
 		var existingTarget:DisplayObject = DisplayObject(this._claims[touchID]);
 		if(!existingTarget)
@@ -152,7 +152,7 @@ class ExclusiveTouch extends EventDispatcher
 	 * ID. If no touch claims the touch with the specified ID, returns
 	 * <code>null</code>.
 	 */
-	public function getClaim(touchID:int):DisplayObject
+	public function getClaim(touchID:Int):DisplayObject
 	{
 		if(touchID < 0)
 		{
@@ -168,7 +168,7 @@ class ExclusiveTouch extends EventDispatcher
 	{
 		for(var key:Object in this._claims)
 		{
-			var touchID:int = key as int;
+			var touchID:Int = key as int;
 			var touch:Touch = event.getTouch(this._stage, TouchPhase.ENDED, touchID);
 			if(!touch)
 			{

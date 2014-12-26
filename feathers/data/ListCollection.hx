@@ -277,7 +277,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * The number of items in the collection.
 	 */
-	public function get length():int
+	public function get length():Int
 	{
 		return this._dataDescriptor.getLength(this._data);
 	}
@@ -288,7 +288,7 @@ class ListCollection extends EventDispatcher
 	 * and the collection will dispatch the <code>CollectionEventType.UPDATE_ITEM</code>
 	 * event to manually notify the component that renders the data.
 	 */
-	public function updateItemAt(index:int):Void
+	public function updateItemAt(index:Int):Void
 	{
 		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, index);
 	}
@@ -296,7 +296,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Returns the item at the specified index in the collection.
 	 */
-	public function getItemAt(index:int):Object
+	public function getItemAt(index:Int):Object
 	{
 		return this._dataDescriptor.getItemAt(this._data, index);
 	}
@@ -305,7 +305,7 @@ class ListCollection extends EventDispatcher
 	 * Determines which index the item appears at within the collection. If
 	 * the item isn't in the collection, returns <code>-1</code>.
 	 */
-	public function getItemIndex(item:Object):int
+	public function getItemIndex(item:Object):Int
 	{
 		return this._dataDescriptor.getItemIndex(this._data, item);
 	}
@@ -313,7 +313,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified index.
 	 */
-	public function addItemAt(item:Object, index:int):Void
+	public function addItemAt(item:Object, index:Int):Void
 	{
 		this._dataDescriptor.addItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -324,7 +324,7 @@ class ListCollection extends EventDispatcher
 	 * Removes the item at the specified index from the collection and
 	 * returns it.
 	 */
-	public function removeItemAt(index:int):Object
+	public function removeItemAt(index:Int):Object
 	{
 		var item:Object = this._dataDescriptor.removeItemAt(this._data, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -337,7 +337,7 @@ class ListCollection extends EventDispatcher
 	 */
 	public function removeItem(item:Object):Void
 	{
-		var index:int = this.getItemIndex(item);
+		var index:Int = this.getItemIndex(item);
 		if(index >= 0)
 		{
 			this.removeItemAt(index);
@@ -361,7 +361,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified index with a new item.
 	 */
-	public function setItemAt(item:Object, index:int):Void
+	public function setItemAt(item:Object, index:Int):Void
 	{
 		this._dataDescriptor.setItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -389,8 +389,8 @@ class ListCollection extends EventDispatcher
 	 */
 	public function addAll(collection:ListCollection):Void
 	{
-		var otherCollectionLength:int = collection.length;
-		for(var i:int = 0; i < otherCollectionLength; i++)
+		var otherCollectionLength:Int = collection.length;
+		for(var i:Int = 0; i < otherCollectionLength; i++)
 		{
 			var item:Object = collection.getItemAt(i);
 			this.addItem(item);
@@ -401,11 +401,11 @@ class ListCollection extends EventDispatcher
 	 * Adds all items from another collection, placing the items at a
 	 * specific index in this collection.
 	 */
-	public function addAllAt(collection:ListCollection, index:int):Void
+	public function addAllAt(collection:ListCollection, index:Int):Void
 	{
-		var otherCollectionLength:int = collection.length;
-		var currentIndex:int = index;
-		for(var i:int = 0; i < otherCollectionLength; i++)
+		var otherCollectionLength:Int = collection.length;
+		var currentIndex:Int = index;
+		for(var i:Int = 0; i < otherCollectionLength; i++)
 		{
 			var item:Object = collection.getItemAt(i);
 			this.addItemAt(item, currentIndex);
@@ -467,8 +467,8 @@ class ListCollection extends EventDispatcher
 	 */
 	public function dispose(disposeItem:Function):Void
 	{
-		var itemCount:int = this.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = this.getItemAt(i);
 			disposeItem(item);

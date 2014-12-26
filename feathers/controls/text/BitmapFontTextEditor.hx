@@ -284,7 +284,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _passwordCharCode:int = 42; //asterisk
+	private var _passwordCharCode:Int = 42; //asterisk
 
 	/**
 	 * The character code of the character used to display a password.
@@ -300,7 +300,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @see #displayAsPassword
 	 */
-	public function get passwordCharCode():int
+	public function get passwordCharCode():Int
 	{
 		return this._passwordCharCode;
 	}
@@ -308,7 +308,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set passwordCharCode(value:int):Void
+	public function set passwordCharCode(value:Int):Void
 	{
 		if(this._passwordCharCode == value)
 		{
@@ -413,7 +413,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _maxChars:int = 0;
+	private var _maxChars:Int = 0;
 
 	/**
 	 * Indicates the maximum number of characters that a user can enter into
@@ -428,7 +428,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default 0
 	 */
-	public function get maxChars():int
+	public function get maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -436,7 +436,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):Void
+	public function set maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -507,12 +507,12 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _selectionBeginIndex:int = 0;
+	private var _selectionBeginIndex:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionBeginIndex():int
+	public function get selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
 	}
@@ -520,12 +520,12 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _selectionEndIndex:int = 0;
+	private var _selectionEndIndex:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionEndIndex():int
+	public function get selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;
 	}
@@ -533,7 +533,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _selectionAnchorIndex:int = -1;
+	private var _selectionAnchorIndex:Int = -1;
 
 	/**
 	 * @private
@@ -543,7 +543,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -599,7 +599,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		}
 		if(this.isCreated)
 		{
-			var newIndex:int = -1;
+			var newIndex:Int = -1;
 			if(position)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
@@ -637,11 +637,11 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):Void
+	public function selectRange(beginIndex:Int, endIndex:Int):Void
 	{
 		if(endIndex < beginIndex)
 		{
-			var temp:int = endIndex;
+			var temp:Int = endIndex;
 			endIndex = beginIndex;
 			beginIndex = temp;
 		}
@@ -664,7 +664,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			this._cursorSkin.visible = false;
 			this._selectionSkin.visible = true;
 		}
-		var cursorIndex:int = endIndex;
+		var cursorIndex:Int = endIndex;
 		if(this.touchPointID >= 0 && this._selectionAnchorIndex >= 0 && this._selectionAnchorIndex == endIndex)
 		{
 			cursorIndex = beginIndex;
@@ -765,9 +765,9 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	private function refreshMaskedText():Void
 	{
 		this._text = "";
-		var textLength:int = this._unmaskedText.length;
+		var textLength:Int = this._unmaskedText.length;
 		var maskChar:String = String.fromCharCode(this._passwordCharCode);
-		for(var i:int = 0; i < textLength; i++)
+		for(var i:Int = 0; i < textLength; i++)
 		{
 			this._text += maskChar;
 		}
@@ -808,7 +808,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
+	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
 	{
 		if(!this._text || pointX <= 0)
 		{
@@ -843,10 +843,10 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		}
 		var currentX:Number = 0;
 		var previousCharID:Number = NaN;
-		var charCount:int = this._text.length;
-		for(var i:int = 0; i < charCount; i++)
+		var charCount:Int = this._text.length;
+		for(var i:Int = 0; i < charCount; i++)
 		{
-			var charID:int = this._text.charCodeAt(i);
+			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
 			if(!charData)
 			{
@@ -880,7 +880,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function getXPositionOfIndex(index:int):Number
+	private function getXPositionOfIndex(index:Int):Number
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Number = this.currentTextFormat.size;
@@ -912,14 +912,14 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		}
 		var currentX:Number = 0;
 		var previousCharID:Number = NaN;
-		var charCount:int = this._text.length;
+		var charCount:Int = this._text.length;
 		if(index < charCount)
 		{
 			charCount = index;
 		}
-		for(var i:int = 0; i < charCount; i++)
+		for(var i:Int = 0; i < charCount; i++)
 		{
-			var charID:int = this._text.charCodeAt(i);
+			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
 			if(!charData)
 			{
@@ -940,7 +940,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function positionCursorAtIndex(index:int):Void
+	private function positionCursorAtIndex(index:Int):Void
 	{
 		if(index < 0)
 		{
@@ -1043,7 +1043,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			return;
 		}
 		this.text = newText;
-		var selectionIndex:int = this._selectionBeginIndex + text.length;
+		var selectionIndex:Int = this._selectionBeginIndex + text.length;
 		this.selectRange(selectionIndex, selectionIndex);
 	}
 
@@ -1137,7 +1137,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			return;
 		}
-		var newIndex:int = -1;
+		var newIndex:Int = -1;
 		if(!FocusManager.isEnabledForStage(this.stage) && event.keyCode == Keyboard.TAB)
 		{
 			this.clearFocus();
@@ -1257,7 +1257,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			{
 				if(event.altKey || event.ctrlKey)
 				{
-					var nextWordStartIndex:int = TextInputNavigation.findNextWordStartIndex(this._text, this._selectionEndIndex);
+					var nextWordStartIndex:Int = TextInputNavigation.findNextWordStartIndex(this._text, this._selectionEndIndex);
 					this.text = currentValue.substr(0, this._selectionBeginIndex) + currentValue.substr(nextWordStartIndex);
 				}
 				else if(this._selectionBeginIndex != this._selectionEndIndex)

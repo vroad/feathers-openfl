@@ -374,12 +374,12 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _depth:int = -1;
+	private var _depth:Int = -1;
 
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public function get depth():int
+	public function get depth():Int
 	{
 		return this._depth;
 	}

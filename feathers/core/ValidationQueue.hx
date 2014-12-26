@@ -97,20 +97,20 @@ public final class ValidationQueue implements IAnimatable
 			//already queued
 			return;
 		}
-		var queueLength:int = currentQueue.length;
+		var queueLength:Int = currentQueue.length;
 		if(this._isValidating && currentQueue == this._queue)
 		{
 			//special case: we need to keep it sorted
-			var depth:int = control.depth;
+			var depth:Int = control.depth;
 
 			//we're traversing the queue backwards because it's
 			//significantly more likely that we're going to push than that
 			//we're going to splice, so there's no point to iterating over
 			//the whole queue
-			for(var i:int = queueLength - 1; i >= 0; i--)
+			for(var i:Int = queueLength - 1; i >= 0; i--)
 			{
 				var otherControl:IValidating = IValidating(currentQueue[i]);
-				var otherDepth:int = otherControl.depth;
+				var otherDepth:Int = otherControl.depth;
 				//we can skip the overhead of calling queueSortFunction and
 				//of looking up the value we've already stored in the depth
 				//local variable.
@@ -146,7 +146,7 @@ public final class ValidationQueue implements IAnimatable
 		{
 			return;
 		}
-		var queueLength:int = this._queue.length;
+		var queueLength:Int = this._queue.length;
 		if(queueLength == 0)
 		{
 			return;
@@ -167,9 +167,9 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	private function queueSortFunction(first:IValidating, second:IValidating):int
+	private function queueSortFunction(first:IValidating, second:IValidating):Int
 	{
-		var difference:int = second.depth - first.depth;
+		var difference:Int = second.depth - first.depth;
 		if(difference > 0)
 		{
 			return -1;

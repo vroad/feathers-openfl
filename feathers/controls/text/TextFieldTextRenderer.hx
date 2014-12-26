@@ -122,12 +122,12 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapshotWidth:int = 0;
+	private var _snapshotWidth:Int = 0;
 
 	/**
 	 * @private
 	 */
-	private var _snapshotHeight:int = 0;
+	private var _snapshotHeight:Int = 0;
 
 	/**
 	 * @private
@@ -857,7 +857,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _maxTextureDimensions:int = 2048;
+	private var _maxTextureDimensions:Int = 2048;
 
 	/**
 	 * The maximum size of individual textures that are managed by this text
@@ -873,7 +873,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 2048
 	 */
-	public function get maxTextureDimensions():int
+	public function get maxTextureDimensions():Int
 	{
 		return this._maxTextureDimensions;
 	}
@@ -881,7 +881,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set maxTextureDimensions(value:int):Void
+	public function set maxTextureDimensions(value:Int):Void
 	{
 		//check if we can use rectangle textures or not
 		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)
@@ -982,8 +982,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		if(this.textSnapshots)
 		{
-			var snapshotCount:int = this.textSnapshots.length;
-			for(var i:int = 0; i < snapshotCount; i++)
+			var snapshotCount:Int = this.textSnapshots.length;
+			for(var i:Int = 0; i < snapshotCount; i++)
 			{
 				var snapshot:Image = this.textSnapshots[i];
 				snapshot.texture.dispose();
@@ -1377,8 +1377,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var resultY:Number = 0;
 		var resultWidth:Number = 0;
 		var resultHeight:Number = 0;
-		var filterCount:int = this._nativeFilters.length;
-		for(var i:int = 0; i < filterCount; i++)
+		var filterCount:Int = this._nativeFilters.length;
+		for(var i:Int = 0; i < filterCount; i++)
 		{
 			var filter:BitmapFilter = this._nativeFilters[i];
 			var filterRect:Rectangle = bitmapData.generateFilterRect(bitmapData.rect, filter);
@@ -1432,7 +1432,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var xPosition:Number = 0;
 		var yPosition:Number = 0;
 		var bitmapData:BitmapData;
-		var snapshotIndex:int = -1;
+		var snapshotIndex:Int = -1;
 		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		var gutterPositionOffset:Number = 2 * scaleFactor;
@@ -1565,8 +1565,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		bitmapData.dispose();
 		if(this.textSnapshots)
 		{
-			var snapshotCount:int = this.textSnapshots.length;
-			for(var i:int = snapshotIndex; i < snapshotCount; i++)
+			var snapshotCount:Int = this.textSnapshots.length;
+			for(var i:Int = snapshotIndex; i < snapshotCount; i++)
 			{
 				snapshot = this.textSnapshots[i];
 				snapshot.texture.dispose();

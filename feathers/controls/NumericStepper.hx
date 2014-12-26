@@ -248,7 +248,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -1538,8 +1538,8 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			maxCharactersAfterDecimal = 0;
 		}
-		var characterCount:int = maxCharactersBeforeDecimal + maxCharactersAfterDecimal;
-		for(var i:int = 0; i < characterCount; i++)
+		var characterCount:Int = maxCharactersBeforeDecimal + maxCharactersAfterDecimal;
+		for(var i:Int = 0; i < characterCount; i++)
 		{
 			typicalText += "0";
 		}

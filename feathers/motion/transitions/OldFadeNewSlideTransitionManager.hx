@@ -174,7 +174,7 @@ class OldFadeNewSlideTransitionManager
 		{
 			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
 		}
-		var stackIndex:int = this._stack.indexOf(newScreenClassAndID);
+		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
 		if(stackIndex < 0)
 		{
 			var oldScreenClassAndID:String = getQualifiedClassName(oldScreen);

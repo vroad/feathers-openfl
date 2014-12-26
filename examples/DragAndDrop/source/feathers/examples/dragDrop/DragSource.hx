@@ -22,7 +22,7 @@ class DragSource extends LayoutGroup implements IDragSource
 	}
 
 	private var _background:Quad;
-	private var _touchID:int = -1;
+	private var _touchID:Int = -1;
 	private var _draggedObject:DisplayObject;
 	private var _dragFormat:String;
 

@@ -60,12 +60,12 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	private var _groupIndex:int = -1;
+	private var _groupIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():int
+	public function get groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -73,7 +73,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:int):Void
+	public function set groupIndex(value:Int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -81,12 +81,12 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	private var _itemIndex:int = -1;
+	private var _itemIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get itemIndex():int
+	public function get itemIndex():Int
 	{
 		return this._itemIndex;
 	}
@@ -94,7 +94,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set itemIndex(value:int):Void
+	public function set itemIndex(value:Int):Void
 	{
 		this._itemIndex = value;
 	}
@@ -102,12 +102,12 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	private var _layoutIndex:int = -1;
+	private var _layoutIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():int
+	public function get layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -115,7 +115,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:int):Void
+	public function set layoutIndex(value:Int):Void
 	{
 		this._layoutIndex = value;
 	}

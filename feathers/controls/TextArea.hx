@@ -270,17 +270,17 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionStartIndex:int = -1;
+	private var _pendingSelectionStartIndex:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _textAreaTouchPointID:int = -1;
+	private var _textAreaTouchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -436,7 +436,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _maxChars:int = 0;
+	private var _maxChars:Int = 0;
 
 	/**
 	 * The maximum number of characters that may be entered.
@@ -449,7 +449,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get maxChars():int
+	public function get maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -457,7 +457,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):Void
+	public function set maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -792,7 +792,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * or the end index is <code>-1</code>, the text insertion position is
 	 * changed and nothing is selected.
 	 */
-	public function selectRange(startIndex:int, endIndex:int = -1):Void
+	public function selectRange(startIndex:Int, endIndex:Int = -1):Void
 	{
 		if(endIndex < 0)
 		{
@@ -922,8 +922,8 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		}
 		if(this._pendingSelectionStartIndex >= 0)
 		{
-			var startIndex:int = this._pendingSelectionStartIndex;
-			var endIndex:int = this._pendingSelectionEndIndex;
+			var startIndex:Int = this._pendingSelectionStartIndex;
+			var endIndex:Int = this._pendingSelectionEndIndex;
 			this._pendingSelectionStartIndex = -1;
 			this._pendingSelectionEndIndex = -1;
 			this.selectRange(startIndex, endIndex);

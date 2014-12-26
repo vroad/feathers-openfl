@@ -145,7 +145,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -212,9 +212,9 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		}
 
 		unpositionedItems.length = 0;
-		var itemCount:int = items.length;
-		var pushIndex:int = 0;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		var pushIndex:Int = 0;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			var layoutData:AnchorLayoutData;
@@ -630,9 +630,9 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	private function layoutVector(items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>, boundsX:Number, boundsY:Number, viewPortWidth:Number, viewPortHeight:Number):Void
 	{
 		unpositionedItems.length = 0;
-		var itemCount:int = items.length;
-		var pushIndex:int = 0;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		var pushIndex:Int = 0;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			var layoutItem:ILayoutDisplayObject = item as ILayoutDisplayObject;
@@ -953,8 +953,8 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	{
 		var maxX:Number = viewPortWidth;
 		var maxY:Number = viewPortHeight;
-		var itemCount:int = items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			var itemMaxX:Number = item.x - item.pivotX + item.width;
@@ -978,9 +978,9 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private function isReadyForLayout(layoutData:AnchorLayoutData, index:int, items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>):Boolean
+	private function isReadyForLayout(layoutData:AnchorLayoutData, index:Int, items:Vector.<DisplayObject>, unpositionedItems:Vector.<DisplayObject>):Boolean
 	{
-		var nextIndex:int = index + 1;
+		var nextIndex:Int = index + 1;
 		var leftAnchorDisplayObject:DisplayObject = layoutData.leftAnchorDisplayObject;
 		if(leftAnchorDisplayObject && (items.indexOf(leftAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(leftAnchorDisplayObject) >= 0))
 		{
@@ -1009,8 +1009,8 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function isReferenced(item:DisplayObject, items:Vector.<DisplayObject>):Boolean
 	{
-		var itemCount:int = items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var otherItem:ILayoutDisplayObject = items[i] as ILayoutDisplayObject;
 			if(!otherItem || otherItem == item)
@@ -1037,8 +1037,8 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	 */
 	private function validateItems(items:Vector.<DisplayObject>, force:Boolean):Void
 	{
-		var itemCount:int = items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var control:IFeathersControl = items[i] as IFeathersControl;
 			if(control)

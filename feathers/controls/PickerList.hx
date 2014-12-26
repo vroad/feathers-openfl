@@ -244,7 +244,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			return;
 		}
-		var oldSelectedIndex:int = this.selectedIndex;
+		var oldSelectedIndex:Int = this.selectedIndex;
 		var oldSelectedItem:Object = this.selectedItem;
 		this._dataProvider = value;
 		if(!this._dataProvider || this._dataProvider.length == 0)
@@ -272,7 +272,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _selectedIndex:int = -1;
+	private var _selectedIndex:Int = -1;
 	
 	/**
 	 * The index of the currently selected item. Returns <code>-1</code> if
@@ -295,7 +295,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:PickerList = PickerList( event.currentTarget );
-	 *     var index:int = list.selectedIndex;
+	 *     var index:Int = list.selectedIndex;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -304,7 +304,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedItem
 	 */
-	public function get selectedIndex():int
+	public function get selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -312,7 +312,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):Void
+	public function set selectedIndex(value:Int):Void
 	{
 		if(this._selectedIndex == value)
 		{
@@ -1052,7 +1052,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _buttonTouchPointID:int = -1;
+	private var _buttonTouchPointID:Int = -1;
 
 	/**
 	 * @private

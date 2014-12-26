@@ -203,7 +203,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -216,7 +216,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _pageCount:int = 1;
+	private var _pageCount:Int = 1;
 
 	/**
 	 * The number of available pages.
@@ -228,7 +228,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 1
 	 */
-	public function get pageCount():int
+	public function get pageCount():Int
 	{
 		return this._pageCount;
 	}
@@ -236,7 +236,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set pageCount(value:int):Void
+	public function set pageCount(value:Int):Void
 	{
 		if(this._pageCount == value)
 		{
@@ -249,7 +249,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _selectedIndex:int = 0;
+	private var _selectedIndex:Int = 0;
 
 	/**
 	 * The currently selected index.
@@ -267,14 +267,14 @@ class PageIndicator extends FeathersControl
 	 * function pages_changeHandler( event:Event ):Void
 	 * {
 	 *     var pages:PageIndicator = PageIndicator( event.currentTarget );
-	 *     var index:int = pages.selectedIndex;
+	 *     var index:Int = pages.selectedIndex;
 	 *
 	 * }
 	 * pages.addEventListener( Event.CHANGE, pages_changeHandler );</listing>
 	 *
 	 * @default 0
 	 */
-	public function get selectedIndex():int
+	public function get selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -282,7 +282,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):Void
+	public function set selectedIndex(value:Int):Void
 	{
 		value = Math.max(0, Math.min(value, this._pageCount - 1));
 		if(this._selectedIndex == value)
@@ -760,8 +760,8 @@ class PageIndicator extends FeathersControl
 		var temp:Vector.<DisplayObject> = this.cache;
 		if(symbolsInvalid)
 		{
-			var symbolCount:int = this.unselectedSymbols.length;
-			for(var i:int = 0; i < symbolCount; i++)
+			var symbolCount:Int = this.unselectedSymbols.length;
+			for(var i:Int = 0; i < symbolCount; i++)
 			{
 				var symbol:DisplayObject = this.unselectedSymbols.shift();
 				this.removeChild(symbol, true);
@@ -893,14 +893,14 @@ class PageIndicator extends FeathersControl
 			var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
 			if(isInBounds)
 			{
-				var lastPageIndex:int = this._pageCount - 1;
+				var lastPageIndex:Int = this._pageCount - 1;
 				this.globalToLocal(HELPER_POINT, HELPER_POINT);
 				if(this._direction == DIRECTION_VERTICAL)
 				{
 					if(this._interactionMode == INTERACTION_MODE_PRECISE)
 					{
 						var symbolHeight:Number = this.selectedSymbol.height + (this.unselectedSymbols[0].height + this._gap) * lastPageIndex;
-						var newIndex:int = Math.round(lastPageIndex * (HELPER_POINT.y - this.symbols[0].y) / symbolHeight);
+						var newIndex:Int = Math.round(lastPageIndex * (HELPER_POINT.y - this.symbols[0].y) / symbolHeight);
 						if(newIndex < 0)
 						{
 							newIndex = 0;

@@ -25,12 +25,12 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	 * this property. It is meant for developers creating custom components
 	 * only.</p>
 	 */
-	function get beforeVirtualizedItemCount():int;
+	function get beforeVirtualizedItemCount():Int;
 
 	/**
 	 * @private
 	 */
-	function set beforeVirtualizedItemCount(value:int):Void;
+	function set beforeVirtualizedItemCount(value:Int):Void;
 
 	/**
 	 * Used internally by a component, such as <code>List</code>, to set the
@@ -45,10 +45,10 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	 * this property. It is meant for developers creating custom components
 	 * only.</p>
 	 */
-	function get afterVirtualizedItemCount():int;
+	function get afterVirtualizedItemCount():Int;
 
 	/**
 	 * @private
 	 */
-	function set afterVirtualizedItemCount(value:int):Void;
+	function set afterVirtualizedItemCount(value:Int):Void;
 }

@@ -49,22 +49,22 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	inline private static var CHARACTER_ID_SPACE:int = 32;
+	inline private static var CHARACTER_ID_SPACE:Int = 32;
 
 	/**
 	 * @private
 	 */
-	inline private static var CHARACTER_ID_TAB:int = 9;
+	inline private static var CHARACTER_ID_TAB:Int = 9;
 
 	/**
 	 * @private
 	 */
-	inline private static var CHARACTER_ID_LINE_FEED:int = 10;
+	inline private static var CHARACTER_ID_LINE_FEED:Int = 10;
 
 	/**
 	 * @private
 	 */
-	inline private static var CHARACTER_ID_CARRIAGE_RETURN:int = 13;
+	inline private static var CHARACTER_ID_CARRIAGE_RETURN:Int = 13;
 
 	/**
 	 * @private
@@ -539,15 +539,15 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var currentX:Number = 0;
 		var currentY:Number = 0;
 		var previousCharID:Number = NaN;
-		var charCount:int = this._text.length;
+		var charCount:Int = this._text.length;
 		var startXOfPreviousWord:Number = 0;
 		var widthOfWhitespaceAfterWord:Number = 0;
-		var wordCountForLine:int = 0;
+		var wordCountForLine:Int = 0;
 		var line:String = "";
 		var word:String = "";
-		for(var i:int = 0; i < charCount; i++)
+		for(var i:Int = 0; i < charCount; i++)
 		{
-			var charID:int = this._text.charCodeAt(i);
+			var charID:Int = this._text.charCodeAt(i);
 			if(charID == CHARACTER_ID_LINE_FEED || charID == CHARACTER_ID_CARRIAGE_RETURN) //new line \n or \r
 			{
 				currentX = currentX - customLetterSpacing;
@@ -725,13 +725,13 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var isWordComplete:Boolean = false;
 		var startXOfPreviousWord:Number = 0;
 		var widthOfWhitespaceAfterWord:Number = 0;
-		var wordLength:int = 0;
-		var wordCountForLine:int = 0;
-		var charCount:int = textToDraw ? textToDraw.length : 0;
-		for(var i:int = 0; i < charCount; i++)
+		var wordLength:Int = 0;
+		var wordCountForLine:Int = 0;
+		var charCount:Int = textToDraw ? textToDraw.length : 0;
+		for(var i:Int = 0; i < charCount; i++)
 		{
 			isWordComplete = false;
-			var charID:int = textToDraw.charCodeAt(i);
+			var charID:Int = textToDraw.charCodeAt(i);
 			if(charID == CHARACTER_ID_LINE_FEED || charID == CHARACTER_ID_CARRIAGE_RETURN) //new line \n or \r
 			{
 				currentX = currentX - customLetterSpacing;
@@ -885,15 +885,15 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function trimBuffer(skipCount:int):Void
+	private function trimBuffer(skipCount:Int):Void
 	{
-		var countToRemove:int = 0;
-		var charCount:int = CHARACTER_BUFFER.length - skipCount;
-		for(var i:int = charCount - 1; i >= 0; i--)
+		var countToRemove:Int = 0;
+		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
+		for(var i:Int = charCount - 1; i >= 0; i--)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER[i];
 			var charData:BitmapChar = charLocation.char;
-			var charID:int = charData.charID;
+			var charID:Int = charData.charID;
 			if(charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB)
 			{
 				countToRemove++;
@@ -912,7 +912,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:int):Void
+	private function alignBuffer(maxLineWidth:Number, currentLineWidth:Number, skipCount:Int):Void
 	{
 		var align:String = this.currentTextFormat.align;
 		if(align == TextFormatAlign.CENTER)
@@ -928,11 +928,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function addBufferToBatch(skipCount:int):Void
+	private function addBufferToBatch(skipCount:Int):Void
 	{
-		var charCount:int = CHARACTER_BUFFER.length - skipCount;
-		var pushIndex:int = CHAR_LOCATION_POOL.length;
-		for(var i:int = 0; i < charCount; i++)
+		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
+		var pushIndex:Int = CHAR_LOCATION_POOL.length;
+		for(var i:Int = 0; i < charCount; i++)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER.shift();
 			this.addCharacterToBatch(charLocation.char, charLocation.x, charLocation.y, charLocation.scale);
@@ -945,10 +945,10 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:int):Void
+	private function moveBufferedCharacters(xOffset:Number, yOffset:Number, skipCount:Int):Void
 	{
-		var charCount:int = CHARACTER_BUFFER.length - skipCount;
-		for(var i:int = 0; i < charCount; i++)
+		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
+		for(var i:Int = 0; i < charCount; i++)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER[i];
 			charLocation.x += xOffset;
@@ -1043,11 +1043,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		var currentX:Number = 0;
 		var previousCharID:Number = NaN;
-		var charCount:int = this._text.length;
-		var truncationIndex:int = -1;
-		for(var i:int = 0; i < charCount; i++)
+		var charCount:Int = this._text.length;
+		var truncationIndex:Int = -1;
+		for(var i:Int = 0; i < charCount; i++)
 		{
-			var charID:int = this._text.charCodeAt(i);
+			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
 			if(!charData)
 			{

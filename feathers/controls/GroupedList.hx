@@ -622,7 +622,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _selectedGroupIndex:int = -1;
+	private var _selectedGroupIndex:Int = -1;
 
 	/**
 	 * The group index of the currently selected item. Returns <code>-1</code>
@@ -639,8 +639,8 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:List = GroupedList(event.currentTarget);
-	 *     var groupIndex:int = list.selectedGroupIndex;
-	 *     var itemIndex:int = list.selectedItemIndex;
+	 *     var groupIndex:Int = list.selectedGroupIndex;
+	 *     var itemIndex:Int = list.selectedItemIndex;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -650,7 +650,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItemIndex
 	 * @see #setSelectedLocation()
 	 */
-	public function get selectedGroupIndex():int
+	public function get selectedGroupIndex():Int
 	{
 		return this._selectedGroupIndex;
 	}
@@ -658,7 +658,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _selectedItemIndex:int = -1;
+	private var _selectedItemIndex:Int = -1;
 
 	/**
 	 * The item index of the currently selected item. Returns <code>-1</code>
@@ -675,8 +675,8 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:GroupedList = GroupedList( event.currentTarget );
-	 *     var groupIndex:int = list.selectedGroupIndex;
-	 *     var itemIndex:int = list.selectedItemIndex;
+	 *     var groupIndex:Int = list.selectedGroupIndex;
+	 *     var itemIndex:Int = list.selectedItemIndex;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -686,7 +686,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #selectedGroupIndex
 	 * @see #setSelectedLocation()
 	 */
-	public function get selectedItemIndex():int
+	public function get selectedItemIndex():Int
 	{
 		return this._selectedItemIndex;
 	}
@@ -2068,14 +2068,14 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <code>-1</code> means that the scroller won't scroll to a group after
 	 * validating.
 	 */
-	private var pendingGroupIndex:int = -1;
+	private var pendingGroupIndex:Int = -1;
 
 	/**
 	 * The pending item index to scroll to after validating. A value of
 	 * <code>-1</code> means that the scroller won't scroll to an item after
 	 * validating.
 	 */
-	private var pendingItemIndex:int = -1;
+	private var pendingItemIndex:Int = -1;
 
 	/**
 	 * @private
@@ -2102,7 +2102,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:int, verticalPageIndex:int, animationDuration:Number = NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Number = NaN):Void
 	{
 		this.pendingGroupIndex = -1;
 		this.pendingItemIndex = -1;
@@ -2120,7 +2120,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * list.scrollToDisplayIndex( 1, 2 );</listing>
 	 */
-	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int, animationDuration:Number = 0):Void
+	public function scrollToDisplayIndex(groupIndex:Int, itemIndex:Int, animationDuration:Number = 0):Void
 	{
 		this.pendingHorizontalPageIndex = -1;
 		this.pendingVerticalPageIndex = -1;
@@ -2156,7 +2156,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItemIndex
 	 * @see #selectedItem
 	 */
-	public function setSelectedLocation(groupIndex:int, itemIndex:int):Void
+	public function setSelectedLocation(groupIndex:Int, itemIndex:Int):Void
 	{
 		if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex == itemIndex)
 		{
@@ -2370,8 +2370,8 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 		}
 		if(event.keyCode == Keyboard.END)
 		{
-			var groupIndex:int = this._dataProvider.getLength();
-			var itemIndex:int = -1;
+			var groupIndex:Int = this._dataProvider.getLength();
+			var itemIndex:Int = -1;
 			do
 			{
 				groupIndex--;
@@ -2422,7 +2422,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 			{
 				itemIndex = -1;
 				groupIndex++;
-				var groupCount:int = this._dataProvider.getLength();
+				var groupCount:Int = this._dataProvider.getLength();
 				while(groupIndex < groupCount && itemIndex < 0)
 				{
 					if(this._dataProvider.getLength(groupIndex) > 0)

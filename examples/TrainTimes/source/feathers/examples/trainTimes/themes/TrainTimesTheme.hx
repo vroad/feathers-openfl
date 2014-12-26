@@ -58,12 +58,12 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	inline private static var TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 
-	inline private static var ORIGINAL_DPI_IPHONE_RETINA:int = 326;
-	inline private static var ORIGINAL_DPI_IPAD_RETINA:int = 264;
+	inline private static var ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
+	inline private static var ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
 	inline private static var HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
-	inline private static var SCROLL_BAR_THUMB_REGION1:int = 5;
-	inline private static var SCROLL_BAR_THUMB_REGION2:int = 14;
+	inline private static var SCROLL_BAR_THUMB_REGION1:Int = 5;
+	inline private static var SCROLL_BAR_THUMB_REGION2:Int = 14;
 
 	inline private static var PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
 	inline private static var DETAIL_TEXT_COLOR:uint = 0x64908a;
@@ -98,9 +98,9 @@ class TrainTimesTheme extends DisplayListWatcher
 		this.initialize();
 	}
 
-	private var _originalDPI:int;
+	private var _originalDPI:Int;
 
-	public function get originalDPI():int
+	public function get originalDPI():Int
 	{
 		return this._originalDPI;
 	}
@@ -176,7 +176,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private function initialize():Void
 	{
-		var scaledDPI:int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
+		var scaledDPI:Int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
 		this._originalDPI = scaledDPI;
 		if(this._scaleToDPI)
 		{

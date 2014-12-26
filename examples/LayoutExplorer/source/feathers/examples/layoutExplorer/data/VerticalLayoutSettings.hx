@@ -7,7 +7,7 @@ class VerticalLayoutSettings
 	{
 	}
 
-	public var itemCount:int = 75;
+	public var itemCount:Int = 75;
 	public var horizontalAlign:String = VerticalLayout.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = VerticalLayout.VERTICAL_ALIGN_TOP;
 	public var gap:Number = 2;

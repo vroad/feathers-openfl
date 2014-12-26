@@ -34,36 +34,36 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get groupIndex():int;
+	function get groupIndex():Int;
 	
 	/**
 	 * @private
 	 */
-	function set groupIndex(value:int):Void;
+	function set groupIndex(value:Int):Void;
 
 	/**
 	 * The index of the item within its parent group.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get itemIndex():int;
+	function get itemIndex():Int;
 
 	/**
 	 * @private
 	 */
-	function set itemIndex(value:int):Void;
+	function set itemIndex(value:Int):Void;
 
 	/**
 	 * The index of the item within the layout.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get layoutIndex():int;
+	function get layoutIndex():Int;
 
 	/**
 	 * @private
 	 */
-	function set layoutIndex(value:int):Void;
+	function set layoutIndex(value:Int):Void;
 	
 	/**
 	 * The grouped list that contains this item renderer.

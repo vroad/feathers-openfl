@@ -104,7 +104,7 @@ class StationScreen extends Screen
 	private function onBackButton():Void
 	{
 		this.selectedDepartureStation.isDepartingFromHere = false;
-		var index:int = this._stationList.dataProvider.getItemIndex(this.selectedDepartureStation);
+		var index:Int = this._stationList.dataProvider.getItemIndex(this.selectedDepartureStation);
 		this._stationList.dataProvider.updateItemAt(index);
 		this._stationList.selectedItem = this.selectedDepartureStation;
 		this.selectedDepartureStation = null;

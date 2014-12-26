@@ -227,12 +227,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _snapshotWidth:int = 0;
+	private var _snapshotWidth:Int = 0;
 
 	/**
 	 * @private
 	 */
-	private var _snapshotHeight:int = 0;
+	private var _snapshotHeight:Int = 0;
 
 	/**
 	 * @private
@@ -612,7 +612,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _maxChars:int = 0;
+	private var _maxChars:Int = 0;
 
 	/**
 	 * The maximum number of characters that the text field can contain, as
@@ -629,7 +629,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#maxChars Full description of flash.text.TextField.maxChars in Adobe's Flash Platform API Reference
 	 */
-	public function get maxChars():int
+	public function get maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -637,7 +637,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:int):Void
+	public function set maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -775,12 +775,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionBeginIndex:int = -1;
+	private var _pendingSelectionBeginIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionBeginIndex():int
+	public function get selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
@@ -796,12 +796,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _pendingSelectionEndIndex:int = -1;
+	private var _pendingSelectionEndIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionEndIndex():int
+	public function get selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{
@@ -895,7 +895,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 					{
 						if(this._multiline)
 						{
-							var lineIndex:int = int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
+							var lineIndex:Int = int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
 							try
 							{
 								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex) + this.textField.getLineLength(lineIndex);
@@ -976,7 +976,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function selectRange(beginIndex:int, endIndex:int):Void
+	public function selectRange(beginIndex:Int, endIndex:Int):Void
 	{
 		if(this.textField)
 		{
@@ -1380,8 +1380,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
-			var startIndex:int = this._pendingSelectionBeginIndex;
-			var endIndex:int = this._pendingSelectionEndIndex;
+			var startIndex:Int = this._pendingSelectionBeginIndex;
+			var endIndex:Int = this._pendingSelectionEndIndex;
 			this._pendingSelectionBeginIndex = -1;
 			this._pendingSelectionEndIndex = -1;
 			this.selectRange(startIndex, endIndex);

@@ -78,12 +78,12 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _pendingIndex:int;
+	private var _pendingIndex:Int;
 
 	/**
 	 * @private
 	 */
-	private var _activeIndex:int;
+	private var _activeIndex:Int;
 
 	/**
 	 * @private

@@ -34,18 +34,18 @@ public interface IVariableVirtualLayout extends IVirtualLayout
 	/**
 	 * Clears the cached dimensions for one specific virtualized index.
 	 */
-	function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void;
+	function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void;
 
 	/**
 	 * Inserts an item in to the cache at the specified index, pushing the
 	 * old cached value at that index, and all following values, up one
 	 * index.
 	 */
-	function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void;
+	function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void;
 
 	/**
 	 * Removes an item in to the cache at the specified index, moving the
 	 * values at following indexes down by one.
 	 */
-	function removeFromVariableVirtualCacheAtIndex(index:int):Void;
+	function removeFromVariableVirtualCacheAtIndex(index:Int):Void;
 }

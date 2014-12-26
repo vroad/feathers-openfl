@@ -362,12 +362,12 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _depth:int = -1;
+	private var _depth:Int = -1;
 
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public function get depth():int
+	public function get depth():Int
 	{
 		return this._depth;
 	}
@@ -494,14 +494,14 @@ class TiledImage extends Sprite implements IValidating
 			this._image.scaleX = this._image.scaleY = this._textureScale;
 			var scaledTextureWidth:Number = this._originalImageWidth * this._textureScale;
 			var scaledTextureHeight:Number = this._originalImageHeight * this._textureScale;
-			var xImageCount:int = Math.ceil(this._width / scaledTextureWidth);
-			var yImageCount:int = Math.ceil(this._height / scaledTextureHeight);
-			var imageCount:int = xImageCount * yImageCount;
+			var xImageCount:Int = Math.ceil(this._width / scaledTextureWidth);
+			var yImageCount:Int = Math.ceil(this._height / scaledTextureHeight);
+			var imageCount:Int = xImageCount * yImageCount;
 			var xPosition:Number = 0;
 			var yPosition:Number = 0;
 			var nextXPosition:Number = xPosition + scaledTextureWidth;
 			var nextYPosition:Number = yPosition + scaledTextureHeight;
-			for(var i:int = 0; i < imageCount; i++)
+			for(var i:Int = 0; i < imageCount; i++)
 			{
 				this._image.x = xPosition;
 				this._image.y = yPosition;

@@ -210,7 +210,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private static var DOWN_STATE_DELAY_MS:int = 250;
+	private static var DOWN_STATE_DELAY_MS:Int = 250;
 
 	/**
 	 * @private
@@ -898,7 +898,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var accessoryTouchPointID:int = -1;
+	private var accessoryTouchPointID:Int = -1;
 
 	/**
 	 * @private

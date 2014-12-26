@@ -8,7 +8,7 @@ class TiledRowsLayoutSettings
 	}
 
 	public var paging:String = TiledRowsLayout.PAGING_NONE;
-	public var itemCount:int = 75;
+	public var itemCount:Int = 75;
 	public var horizontalAlign:String = TiledRowsLayout.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = TiledRowsLayout.VERTICAL_ALIGN_TOP;
 	public var tileHorizontalAlign:String = TiledRowsLayout.TILE_HORIZONTAL_ALIGN_LEFT;

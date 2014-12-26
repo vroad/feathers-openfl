@@ -110,10 +110,10 @@ class DefaultPopUpManager implements IPopUpManager
 		{
 			return;
 		}
-		var popUpCount:int = this._popUps.length;
+		var popUpCount:Int = this._popUps.length;
 		var oldIgnoreRemoval:Boolean = this._ignoreRemoval; //just in case
 		this._ignoreRemoval = true;
-		for(var i:int = 0; i < popUpCount; i++)
+		for(var i:Int = 0; i < popUpCount; i++)
 		{
 			var popUp:DisplayObject = this._popUps[i];
 			var overlay:DisplayObject = DisplayObject(_popUpToOverlay[popUp]);
@@ -191,7 +191,7 @@ class DefaultPopUpManager implements IPopUpManager
 	 */
 	public function removePopUp(popUp:DisplayObject, dispose:Boolean = false):DisplayObject
 	{
-		var index:int = this._popUps.indexOf(popUp);
+		var index:Int = this._popUps.indexOf(popUp);
 		if(index < 0)
 		{
 			throw new ArgumentError("Display object is not a pop-up.");
@@ -213,8 +213,8 @@ class DefaultPopUpManager implements IPopUpManager
 	 */
 	public function isTopLevelPopUp(popUp:DisplayObject):Boolean
 	{
-		var lastIndex:int = this._popUps.length - 1;
-		for(var i:int = lastIndex; i >= 0; i--)
+		var lastIndex:Int = this._popUps.length - 1;
+		for(var i:Int = lastIndex; i >= 0; i--)
 		{
 			var otherPopUp:DisplayObject = this._popUps[i];
 			if(otherPopUp == popUp)
@@ -254,7 +254,7 @@ class DefaultPopUpManager implements IPopUpManager
 	private function popUp_resizeHandler(event:Event):Void
 	{
 		var popUp:DisplayObject = DisplayObject(event.currentTarget);
-		var index:int = this._centeredPopUps.indexOf(popUp);
+		var index:Int = this._centeredPopUps.indexOf(popUp);
 		if(index < 0)
 		{
 			return;
@@ -273,7 +273,7 @@ class DefaultPopUpManager implements IPopUpManager
 		}
 		var popUp:DisplayObject = DisplayObject(event.currentTarget);
 		popUp.removeEventListener(Event.REMOVED_FROM_STAGE, popUp_removedFromStageHandler);
-		var index:int = this._popUps.indexOf(popUp);
+		var index:Int = this._popUps.indexOf(popUp);
 		this._popUps.splice(index, 1);
 		var overlay:DisplayObject = DisplayObject(this._popUpToOverlay[popUp]);
 		if(overlay)
@@ -309,8 +309,8 @@ class DefaultPopUpManager implements IPopUpManager
 	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
 		var stage:Stage = this._root.stage;
-		var popUpCount:int = this._popUps.length;
-		for(var i:int = 0; i < popUpCount; i++)
+		var popUpCount:Int = this._popUps.length;
+		for(var i:Int = 0; i < popUpCount; i++)
 		{
 			var popUp:DisplayObject = this._popUps[i];
 			var overlay:DisplayObject = DisplayObject(this._popUpToOverlay[popUp]);

@@ -26,28 +26,28 @@ public interface IHierarchicalCollectionDataDescriptor
 	 * a location is omitted, the length returned will be for the root level
 	 * of the collection.</p>
 	 */
-	function getLength(data:Object, ...rest:Array):int;
+	function getLength(data:Object, ...rest:Array):Int;
 
 	/**
 	 * Returns the item at the specified location in the data source.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function getItemAt(data:Object, index:int, ...rest:Array):Object;
+	function getItemAt(data:Object, index:Int, ...rest:Array):Object;
 
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function setItemAt(data:Object, item:Object, index:int, ...rest:Array):Void;
+	function setItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void;
 
 	/**
 	 * Adds an item to the data source, at the specified location.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function addItemAt(data:Object, item:Object, index:int, ...rest:Array):Void;
+	function addItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void;
 
 	/**
 	 * Removes the item at the specified location from the data source and
@@ -55,7 +55,7 @@ public interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function removeItemAt(data:Object, index:int, ...rest:Array):Object;
+	function removeItemAt(data:Object, index:Int, ...rest:Array):Object;
 
 	/**
 	 * Determines which location the item appears at within the data source.

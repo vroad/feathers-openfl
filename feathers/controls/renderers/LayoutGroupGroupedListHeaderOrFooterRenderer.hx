@@ -60,12 +60,12 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	private var _groupIndex:int = -1;
+	private var _groupIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():int
+	public function get groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -73,7 +73,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:int):Void
+	public function set groupIndex(value:Int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -81,12 +81,12 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	private var _layoutIndex:int = -1;
+	private var _layoutIndex:Int = -1;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():int
+	public function get layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -94,7 +94,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:int):Void
+	public function set layoutIndex(value:Int):Void
 	{
 		this._layoutIndex = value;
 	}

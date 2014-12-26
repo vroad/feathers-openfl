@@ -1316,8 +1316,8 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function commitEnabled():Void
 	{
-		var buttonCount:int = this.activeButtons.length;
-		for(var i:int = 0; i < buttonCount; i++)
+		var buttonCount:Int = this.activeButtons.length;
+		for(var i:Int = 0; i < buttonCount; i++)
 		{
 			var button:Button = this.activeButtons[i];
 			button.isEnabled &&= this._isEnabled;
@@ -1482,10 +1482,10 @@ class ButtonGroup extends FeathersControl
 		this.activeFirstButton = null;
 		this.activeLastButton = null;
 
-		var pushIndex:int = 0;
-		var itemCount:int = this._dataProvider ? this._dataProvider.length : 0;
-		var lastItemIndex:int = itemCount - 1;
-		for(var i:int = 0; i < itemCount; i++)
+		var pushIndex:Int = 0;
+		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
+		var lastItemIndex:Int = itemCount - 1;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = this._dataProvider.getItemAt(i);
 			if(i == 0)
@@ -1512,8 +1512,8 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function clearInactiveButtons():Void
 	{
-		var itemCount:int = this.inactiveButtons.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.inactiveButtons.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var button:Button = this.inactiveButtons.shift();
 			this.destroyButton(button);
@@ -1711,7 +1711,7 @@ class ButtonGroup extends FeathersControl
 			return;
 		}
 		var button:Button = Button(event.currentTarget);
-		var index:int = this.activeButtons.indexOf(button);
+		var index:Int = this.activeButtons.indexOf(button);
 		var item:Object = this._dataProvider.getItemAt(index);
 		this.dispatchEventWith(Event.TRIGGERED, false, item);
 	}
@@ -1722,7 +1722,7 @@ class ButtonGroup extends FeathersControl
 	private function defaultButtonEventsListener(event:Event):Void
 	{
 		var button:Button = Button(event.currentTarget);
-		var index:int = this.activeButtons.indexOf(button);
+		var index:Int = this.activeButtons.indexOf(button);
 		var item:Object = this._dataProvider.getItemAt(index);
 		var field:String = event.type;
 		if(item.hasOwnProperty(field))
@@ -1732,7 +1732,7 @@ class ButtonGroup extends FeathersControl
 			{
 				return;
 			}
-			var argCount:int = listener.length;
+			var argCount:Int = listener.length;
 			if(argCount == 1)
 			{
 				listener(event);

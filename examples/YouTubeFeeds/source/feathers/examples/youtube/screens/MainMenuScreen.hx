@@ -43,7 +43,7 @@ class MainMenuScreen extends PanelScreen
 	private var _message:Label;
 
 	public var savedVerticalScrollPosition:Number = 0;
-	public var savedSelectedIndex:int = -1;
+	public var savedSelectedIndex:Int = -1;
 	public var savedDataProvider:ListCollection;
 
 	override private function initialize():Void
@@ -135,8 +135,8 @@ class MainMenuScreen extends PanelScreen
 
 		var items:Vector.<VideoFeed> = new <VideoFeed>[];
 		var categories:XMLList = feed.atom::category;
-		var categoryCount:int = categories.length();
-		for(var i:int = 0; i < categoryCount; i++)
+		var categoryCount:Int = categories.length();
+		for(var i:Int = 0; i < categoryCount; i++)
 		{
 			var category:XML = categories[i];
 			var item:VideoFeed = new VideoFeed();

@@ -207,12 +207,12 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapshotWidth:int = 0;
+	private var _snapshotWidth:Int = 0;
 
 	/**
 	 * @private
 	 */
-	private var _snapshotHeight:int = 0;
+	private var _snapshotHeight:Int = 0;
 
 	/**
 	 * @private
@@ -222,7 +222,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _truncationOffset:int = 0;
+	private var _truncationOffset:Int = 0;
 
 	/**
 	 * @private
@@ -671,7 +671,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _bidiLevel:int = 0;
+	private var _bidiLevel:Int = 0;
 
 	/**
 	 * Specifies the bidirectional paragraph embedding level of the text
@@ -686,7 +686,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#bidiLevel Full description of flash.text.engine.TextBlock.bidiLevel in Adobe's Flash Platform API Reference
 	 */
-	public function get bidiLevel():int
+	public function get bidiLevel():Int
 	{
 		return this._bidiLevel;
 	}
@@ -694,7 +694,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set bidiLevel(value:int):Void
+	public function set bidiLevel(value:Int):Void
 	{
 		if(this._bidiLevel == value)
 		{
@@ -877,7 +877,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _maxTextureDimensions:int = 2048;
+	private var _maxTextureDimensions:Int = 2048;
 
 	/**
 	 * The maximum size of individual textures that are managed by this text
@@ -893,7 +893,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 2048
 	 */
-	public function get maxTextureDimensions():int
+	public function get maxTextureDimensions():Int
 	{
 		return this._maxTextureDimensions;
 	}
@@ -901,7 +901,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set maxTextureDimensions(value:int):Void
+	public function set maxTextureDimensions(value:Int):Void
 	{
 		//check if we can use rectangle textures or not
 		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)
@@ -1046,8 +1046,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		if(this.textSnapshots)
 		{
-			var snapshotCount:int = this.textSnapshots.length;
-			for(var i:int = 0; i < snapshotCount; i++)
+			var snapshotCount:Int = this.textSnapshots.length;
+			for(var i:Int = 0; i < snapshotCount; i++)
 			{
 				var snapshot:Image = this.textSnapshots[i];
 				snapshot.texture.dispose();
@@ -1387,8 +1387,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var resultY:Number = 0;
 		var resultWidth:Number = 0;
 		var resultHeight:Number = 0;
-		var filterCount:int = this._nativeFilters.length;
-		for(var i:int = 0; i < filterCount; i++)
+		var filterCount:Int = this._nativeFilters.length;
+		for(var i:Int = 0; i < filterCount; i++)
 		{
 			var filter:BitmapFilter = this._nativeFilters[i];
 			var filterRect:Rectangle = bitmapData.generateFilterRect(bitmapData.rect, filter);
@@ -1444,7 +1444,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var xPosition:Number = 0;
 		var yPosition:Number = 0;
 		var bitmapData:BitmapData;
-		var snapshotIndex:int = -1;
+		var snapshotIndex:Int = -1;
 		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		do
@@ -1575,8 +1575,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		bitmapData.dispose();
 		if(this.textSnapshots)
 		{
-			var snapshotCount:int = this.textSnapshots.length;
-			for(var i:int = snapshotIndex; i < snapshotCount; i++)
+			var snapshotCount:Int = this.textSnapshots.length;
+			for(var i:Int = snapshotIndex; i < snapshotCount; i++)
 			{
 				snapshot = this.textSnapshots[i];
 				snapshot.texture.dispose();
@@ -1621,10 +1621,10 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		HELPER_TEXT_LINES.length = 0;
 		var yPosition:Number = 0;
-		var lineCount:int = textLines.length;
+		var lineCount:Int = textLines.length;
 		var lastLine:TextLine;
-		var cacheIndex:int = lineCount;
-		for(var i:int = 0; i < lineCount; i++)
+		var cacheIndex:Int = lineCount;
+		for(var i:Int = 0; i < lineCount; i++)
 		{
 			var line:TextLine = textLines[i];
 			if(line.validity === TextLineValidity.VALID)
@@ -1657,10 +1657,10 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 
 		if(width >= 0)
 		{
-			var lineStartIndex:int = 0;
+			var lineStartIndex:Int = 0;
 			var canTruncate:Boolean = this._truncateToFit && this._textElement && !this._wordWrap;
-			var pushIndex:int = textLines.length;
-			var inactiveTextLineCount:int = HELPER_TEXT_LINES.length;
+			var pushIndex:Int = textLines.length;
+			var inactiveTextLineCount:Int = HELPER_TEXT_LINES.length;
 			while(true)
 			{
 				this._truncationOffset = 0;
@@ -1693,7 +1693,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 					//end of text
 					break;
 				}
-				var lineLength:int = line.rawTextLength;
+				var lineLength:Int = line.rawTextLength;
 				var isTruncated:Boolean = false;
 				var difference:Number = 0;
 				while(canTruncate && (difference = line.width - width) > FUZZY_TRUNCATION_DIFFERENCE)
@@ -1704,18 +1704,18 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 						//this will quickly skip all of the characters after
 						//the maximum width of the line, instead of going
 						//one by one.
-						var endIndex:int = line.getAtomIndexAtPoint(width, 0);
+						var endIndex:Int = line.getAtomIndexAtPoint(width, 0);
 						if(endIndex >= 0)
 						{
 							this._truncationOffset = line.rawTextLength - endIndex;
 						}
 					}
 					this._truncationOffset++;
-					var truncatedTextLength:int = lineLength - this._truncationOffset;
+					var truncatedTextLength:Int = lineLength - this._truncationOffset;
 					//we want to start at this line so that the previous
 					//lines don't become invalid.
 					this._textElement.text = this._text.substr(lineStartIndex, truncatedTextLength) + this._truncationText;
-					var lineBreakIndex:int = this._text.indexOf(LINE_FEED, lineStartIndex);
+					var lineBreakIndex:Int = this._text.indexOf(LINE_FEED, lineStartIndex);
 					if(lineBreakIndex < 0)
 					{
 						lineBreakIndex = this._text.indexOf(CARRIAGE_RETURN, lineStartIndex);
@@ -1760,8 +1760,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function alignTextLines(textLines:Vector.<TextLine>, width:Number, textAlign:String):Void
 	{
-		var lineCount:int = textLines.length;
-		for(var i:int = 0; i < lineCount; i++)
+		var lineCount:Int = textLines.length;
+		for(var i:Int = 0; i < lineCount; i++)
 		{
 			var line:TextLine = textLines[i];
 			if(textAlign == TEXT_ALIGN_CENTER)

@@ -17,34 +17,34 @@ public interface IListCollectionDataDescriptor
 	/**
 	 * The number of items in the data source.
 	 */
-	function getLength(data:Object):int;
+	function getLength(data:Object):Int;
 	
 	/**
 	 * Returns the item at the specified index in the data source.
 	 */
-	function getItemAt(data:Object, index:int):Object;
+	function getItemAt(data:Object, index:Int):Object;
 	
 	/**
 	 * Replaces the item at the specified index with a new item.
 	 */
-	function setItemAt(data:Object, item:Object, index:int):Void;
+	function setItemAt(data:Object, item:Object, index:Int):Void;
 	
 	/**
 	 * Adds an item to the data source, at the specified index.
 	 */
-	function addItemAt(data:Object, item:Object, index:int):Void;
+	function addItemAt(data:Object, item:Object, index:Int):Void;
 	
 	/**
 	 * Removes the item at the specified index from the data source and
 	 * returns it.
 	 */
-	function removeItemAt(data:Object, index:int):Object;
+	function removeItemAt(data:Object, index:Int):Object;
 	
 	/**
 	 * Determines which index the item appears at within the data source. If
 	 * the item isn't in the data source, returns <code>-1</code>.
 	 */
-	function getItemIndex(data:Object, item:Object):int;
+	function getItemIndex(data:Object, item:Object):Int;
 
 	/**
 	 * Removes all items from the data source.
