@@ -52,7 +52,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/header
  */
-public class Header extends FeathersControl
+class Header extends FeathersControl
 {
 	/**
 	 * @private

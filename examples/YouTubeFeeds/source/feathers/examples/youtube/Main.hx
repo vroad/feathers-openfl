@@ -12,7 +12,7 @@ import feathers.themes.MetalWorksMobileTheme;
 
 import starling.events.Event;
 
-public class Main extends ScreenNavigator
+class Main extends ScreenNavigator
 {
 	private static const MAIN_MENU:String = "mainMenu";
 	private static const LIST_VIDEOS:String = "listVideos";

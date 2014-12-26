@@ -11,7 +11,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class LabelScreen extends PanelScreen
+class LabelScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

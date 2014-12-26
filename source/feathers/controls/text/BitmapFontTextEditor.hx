@@ -141,7 +141,7 @@ import starling.text.BitmapFont;
  * @see http://wiki.starling-framework.org/feathers/text-editors
  * @see http://doc.starling-framework.org/core/starling/text/BitmapFont.html starling.text.BitmapFont
  */
-public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
+class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 {
 	/**
 	 * @private

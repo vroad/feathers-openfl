@@ -1,5 +1,5 @@
 package feathers.examples.youtube.models;
-public class VideoDetails
+class VideoDetails
 {
 	public function VideoDetails(title:String = null, author:String = null, url:String = null, description:String = null)
 	{

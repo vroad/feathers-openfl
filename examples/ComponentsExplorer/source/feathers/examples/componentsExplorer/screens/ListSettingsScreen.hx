@@ -13,7 +13,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class ListSettingsScreen extends PanelScreen
+class ListSettingsScreen extends PanelScreen
 {
 	public function ListSettingsScreen()
 	{

@@ -192,7 +192,7 @@ import starling.events.TouchPhase;
  * @see http://wiki.starling-framework.org/feathers/text-editors
  * @see feathers.core.ITextEditor
  */
-public class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl
+class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl
 {
 	/**
 	 * @private

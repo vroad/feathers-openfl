@@ -29,7 +29,7 @@ import flash.errors.IllegalOperationError;
  * @see http://wiki.starling-framework.org/feathers/check
  * @see ToggleSwitch
  */
-public class Check extends ToggleButton
+class Check extends ToggleButton
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Check</code>

@@ -36,7 +36,7 @@ import starling.events.EventDispatcher;
  * A list of space-delimited tokens. Obviously, since they are delimited by
  * spaces, tokens cannot contain spaces.
  */
-public class TokenList extends EventDispatcher
+class TokenList extends EventDispatcher
 {
 	/**
 	 * Constructor.

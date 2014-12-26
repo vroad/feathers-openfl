@@ -14,7 +14,7 @@ import feathers.textures.Scale9Textures;
  * attempts to reuse the existing Scale9Image instance that is passed in to
  * getValueForState() as the old value by swapping the textures.
  */
-public class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
+class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 {
 	/**
 	 * Constructor.

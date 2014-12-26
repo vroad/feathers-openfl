@@ -164,7 +164,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/drawers
  */
-public class Drawers extends FeathersControl
+class Drawers extends FeathersControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Drawers</code>

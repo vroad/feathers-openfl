@@ -1,5 +1,5 @@
 package feathers.examples.trainTimes.model;
-public class StationData
+class StationData
 {
 	public function StationData(name:String)
 	{

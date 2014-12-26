@@ -22,7 +22,7 @@ import starling.events.EventDispatcher;
  * @see HorizontalLayout
  * @see ILayoutDisplayObject
  */
-public class HorizontalLayoutData extends EventDispatcher implements ILayoutData
+class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 {
 	/**
 	 * Constructor.

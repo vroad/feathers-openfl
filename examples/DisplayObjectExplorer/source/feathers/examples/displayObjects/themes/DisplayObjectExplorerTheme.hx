@@ -8,7 +8,7 @@ import feathers.themes.MetalWorksMobileTheme;
 import starling.display.Image;
 import starling.textures.Texture;
 
-public class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
+class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 {
 	[Embed(source="/../assets/images/horizontal-grip.png")]
 	private static const HORIZONTAL_GRIP:Class;

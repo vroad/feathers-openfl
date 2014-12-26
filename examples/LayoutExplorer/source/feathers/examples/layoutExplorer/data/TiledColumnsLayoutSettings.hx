@@ -1,7 +1,7 @@
 package feathers.examples.layoutExplorer.data;
 import feathers.layout.TiledColumnsLayout;
 
-public class TiledColumnsLayoutSettings
+class TiledColumnsLayoutSettings
 {
 	public function TiledColumnsLayoutSettings()
 	{

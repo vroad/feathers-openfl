@@ -53,7 +53,7 @@ import starling.utils.MatrixUtil;
  * aspect ratio, and the middle region stretches to fill the remaining
  * space.
  */
-public class Scale3Image extends Sprite implements IValidating
+class Scale3Image extends Sprite implements IValidating
 {
 	/**
 	 * @private

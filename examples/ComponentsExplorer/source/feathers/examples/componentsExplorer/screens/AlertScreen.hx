@@ -11,7 +11,7 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-public class AlertScreen extends PanelScreen
+class AlertScreen extends PanelScreen
 {
 	public function AlertScreen()
 	{

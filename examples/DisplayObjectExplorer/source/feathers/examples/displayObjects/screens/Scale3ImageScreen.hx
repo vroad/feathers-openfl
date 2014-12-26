@@ -12,7 +12,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-public class Scale3ImageScreen extends Screen
+class Scale3ImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/scale3.png")]
 	private static const SCALE_3_TEXTURE:Class;

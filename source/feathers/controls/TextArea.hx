@@ -116,7 +116,7 @@ import starling.events.TouchPhase;
  * @see feathers.controls.TextInput
  * @see http://wiki.starling-framework.org/feathers/text-editors
  */
-public class TextArea extends Scroller implements IFocusDisplayObject
+class TextArea extends Scroller implements IFocusDisplayObject
 {
 	/**
 	 * @private

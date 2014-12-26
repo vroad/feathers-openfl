@@ -15,7 +15,7 @@ import feathers.themes.MetalWorksMobileTheme;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-public class Main extends PanelScreen
+class Main extends PanelScreen
 {
 	public function Main()
 	{

@@ -18,7 +18,7 @@ import flash.utils.ByteArray;
 import starling.core.Starling;
 
 [SWF(width="960",height="640",frameRate="60",backgroundColor="#ffffff")]
-public class TileList extends Sprite
+class TileList extends Sprite
 {
 	public function TileList()
 	{

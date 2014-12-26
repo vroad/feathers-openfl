@@ -23,7 +23,7 @@ import starling.events.EventDispatcher;
  * @see AnchorLayout
  * @see ILayoutDisplayObject
  */
-public class AnchorLayoutData extends EventDispatcher implements ILayoutData
+class AnchorLayoutData extends EventDispatcher implements ILayoutData
 {
 	/**
 	 * Constructor.

@@ -15,7 +15,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class VerticalLayoutSettingsScreen extends PanelScreen
+class VerticalLayoutSettingsScreen extends PanelScreen
 {
 	public function VerticalLayoutSettingsScreen()
 	{

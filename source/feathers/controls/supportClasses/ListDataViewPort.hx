@@ -37,7 +37,7 @@ import starling.events.TouchPhase;
  * @private
  * Used internally by List. Not meant to be used on its own.
  */
-public class ListDataViewPort extends FeathersControl implements IViewPort
+class ListDataViewPort extends FeathersControl implements IViewPort
 {
 	private static const INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 

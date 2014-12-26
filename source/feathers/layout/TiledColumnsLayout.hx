@@ -46,7 +46,7 @@ import starling.events.EventDispatcher;
  *
  * @see http://wiki.starling-framework.org/feathers/tiled-columns-layout
  */
-public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
+class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 {
 	/**
 	 * If the total item height is smaller than the height of the bounds,

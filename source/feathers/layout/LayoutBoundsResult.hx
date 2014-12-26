@@ -9,7 +9,7 @@ package feathers.layout;
 /**
  * Calculated bounds for layout.
  */
-public class LayoutBoundsResult
+class LayoutBoundsResult
 {
 	/**
 	 * Constructor.

@@ -1,7 +1,7 @@
 package feathers.examples.layoutExplorer.data;
 import feathers.layout.TiledRowsLayout;
 
-public class TiledRowsLayoutSettings
+class TiledRowsLayoutSettings
 {
 	public function TiledRowsLayoutSettings()
 	{

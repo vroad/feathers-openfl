@@ -164,7 +164,7 @@ import starling.events.EventDispatcher;
  * Wraps a two-dimensional data source with a common API for use with UI
  * controls that support this type of data.
  */
-public class HierarchicalCollection extends EventDispatcher
+class HierarchicalCollection extends EventDispatcher
 {
 	public function HierarchicalCollection(data:Object = null)
 	{

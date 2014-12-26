@@ -14,7 +14,7 @@ import flash.errors.IllegalOperationError;
  * @see ListCollection
  * @see IListCollectionDataDescriptor
  */
-public class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
+class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 {
 	/**
 	 * Constructor.

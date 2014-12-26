@@ -2,7 +2,7 @@ package feathers.examples.componentsExplorer.data;
 import feathers.controls.Button;
 import feathers.controls.renderers.BaseDefaultItemRenderer;
 
-public class ItemRendererSettings
+class ItemRendererSettings
 {
 	public static const ICON_ACCESSORY_TYPE_DISPLAY_OBJECT:String = "Display Object";
 	public static const ICON_ACCESSORY_TYPE_TEXTURE:String = "Texture";

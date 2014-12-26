@@ -1,5 +1,5 @@
 package feathers.examples.trainTimes.model;
-public class TimeData
+class TimeData
 {
 	public function TimeData(trainNumber:int, departureTime:Date, arrivalTime:Date)
 	{

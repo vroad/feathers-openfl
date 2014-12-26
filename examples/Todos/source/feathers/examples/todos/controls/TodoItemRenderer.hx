@@ -7,7 +7,7 @@ import feathers.examples.todos.TodoItem;
 
 import starling.events.Event;
 
-public class TodoItemRenderer extends DefaultListItemRenderer
+class TodoItemRenderer extends DefaultListItemRenderer
 {
 	public function TodoItemRenderer()
 	{

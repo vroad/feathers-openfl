@@ -13,7 +13,7 @@ import starling.textures.Texture;
  * the standard icons are not populated by a theme, the icons will be
  * <code>null</code>.
  */
-public class StandardIcons
+class StandardIcons
 {
 	/**
 	 * An arrow pointing to the right that appears as an accessory in a list

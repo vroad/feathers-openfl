@@ -51,7 +51,7 @@ import starling.events.Event;
  * @see http://wiki.starling-framework.org/feathers/layout-group
  * @see feathers.controls.ScrollContainer
  */
-public class LayoutGroup extends FeathersControl
+class LayoutGroup extends FeathersControl
 {
 	/**
 	 * @private

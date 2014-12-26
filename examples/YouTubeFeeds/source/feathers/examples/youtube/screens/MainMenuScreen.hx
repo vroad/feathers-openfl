@@ -24,7 +24,7 @@ import starling.textures.Texture;
 
 [Event(name="listVideos",type="starling.events.Event")]
 
-public class MainMenuScreen extends PanelScreen
+class MainMenuScreen extends PanelScreen
 {
 	public static const LIST_VIDEOS:String = "listVideos";
 

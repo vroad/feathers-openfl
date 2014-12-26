@@ -56,7 +56,7 @@ import feathers.core.TokenList;
  * alternateButton.styleNameList.add( "alternate-button" );
  * this.addChild( alternateButton );</listing>
  */
-public class StyleNameFunctionStyleProvider implements IStyleProvider
+class StyleNameFunctionStyleProvider implements IStyleProvider
 {
 	/**
 	 * Constructor.

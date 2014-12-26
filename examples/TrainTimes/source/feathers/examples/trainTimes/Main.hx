@@ -7,7 +7,7 @@ import feathers.examples.trainTimes.screens.TimesScreen;
 import feathers.examples.trainTimes.themes.TrainTimesTheme;
 import feathers.motion.transitions.OldFadeNewSlideTransitionManager;
 
-public class Main extends ScreenNavigator
+class Main extends ScreenNavigator
 {
 	private static const STATION_SCREEN:String = "stationScreen";
 	private static const TIMES_SCREEN:String = "timesScreen";

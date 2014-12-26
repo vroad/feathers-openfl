@@ -37,7 +37,7 @@ import starling.events.TouchPhase;
  * However, from a usability perspective, this is generally the expected
  * behavior, so this restriction isn't expected to cause any issues.</p>
  */
-public class ExclusiveTouch extends EventDispatcher
+class ExclusiveTouch extends EventDispatcher
 {
 	/**
 	 * @private

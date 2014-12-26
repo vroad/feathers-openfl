@@ -42,7 +42,7 @@ import starling.events.TouchPhase;
 /**
  * Displays pop-up content as a desktop-style drop-down.
  */
-public class DropDownPopUpContentManager extends EventDispatcher implements IPopUpContentManager
+class DropDownPopUpContentManager extends EventDispatcher implements IPopUpContentManager
 {
 	/**
 	 * Constructor.

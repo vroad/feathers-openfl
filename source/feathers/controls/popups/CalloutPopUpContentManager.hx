@@ -30,7 +30,7 @@ import starling.events.EventDispatcher;
  * @see feathers.controls.PickerList
  * @see feathers.controls.Callout
  */
-public class CalloutPopUpContentManager extends EventDispatcher implements IPopUpContentManager
+class CalloutPopUpContentManager extends EventDispatcher implements IPopUpContentManager
 {
 	/**
 	 * Constructor.

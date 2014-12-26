@@ -1,7 +1,7 @@
 package feathers.examples.componentsExplorer.data;
 import starling.textures.Texture;
 
-public class EmbeddedAssets
+class EmbeddedAssets
 {
 	[Embed(source="/../assets/images/skull.png")]
 	private static const SKULL_ICON_DARK_EMBEDDED:Class;

@@ -16,7 +16,7 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
-public class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
+class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 {
 	/**
 	 * @private

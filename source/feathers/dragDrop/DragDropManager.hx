@@ -28,7 +28,7 @@ import starling.events.TouchPhase;
  * @see IDropTarget
  * @see DragData
  */
-public class DragDropManager
+class DragDropManager
 {
 	/**
 	 * @private

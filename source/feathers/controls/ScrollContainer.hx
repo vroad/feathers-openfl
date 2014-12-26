@@ -64,7 +64,7 @@ import starling.display.DisplayObjectContainer;
  * @see http://wiki.starling-framework.org/feathers/scroll-container
  * @see feathers.controls.LayoutGroup
  */
-public class ScrollContainer extends Scroller implements IScrollContainer
+class ScrollContainer extends Scroller implements IScrollContainer
 {
 	/**
 	 * @private

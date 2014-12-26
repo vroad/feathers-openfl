@@ -1,5 +1,5 @@
 package feathers.examples.componentsExplorer.data;
-public class GroupedListSettings
+class GroupedListSettings
 {
 	public static const STYLE_NORMAL:String = "normal";
 	public static const STYLE_INSET:String = "inset";

@@ -44,7 +44,7 @@ import starling.events.EventDispatcher;
  *
  * @see http://wiki.starling-framework.org/feathers/vertical-layout
  */
-public class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
+class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
 {
 	/**
 	 * If the total item height is smaller than the height of the bounds,

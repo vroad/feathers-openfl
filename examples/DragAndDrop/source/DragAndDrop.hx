@@ -11,7 +11,7 @@ import flash.geom.Rectangle;
 import starling.core.Starling;
 
 [SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
-public class DragAndDrop extends Sprite
+class DragAndDrop extends Sprite
 {
 	public function DragAndDrop()
 	{

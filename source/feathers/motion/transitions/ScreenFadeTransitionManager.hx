@@ -19,7 +19,7 @@ import starling.display.DisplayObject;
  *
  * @see feathers.controls.ScreenNavigator
  */
-public class ScreenFadeTransitionManager
+class ScreenFadeTransitionManager
 {
 	/**
 	 * Constructor.

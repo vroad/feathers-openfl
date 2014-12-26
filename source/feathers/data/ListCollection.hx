@@ -166,7 +166,7 @@ import starling.events.EventDispatcher;
  * @see VectorListCollectionDataDescriptor
  * @see XMLListListCollectionDataDescriptor
  */
-public class ListCollection extends EventDispatcher
+class ListCollection extends EventDispatcher
 {
 	/**
 	 * Constructor

@@ -28,7 +28,7 @@ import starling.events.TouchPhase;
  *
  * @see FocusManager
  */
-public class DefaultFocusManager implements IFocusManager
+class DefaultFocusManager implements IFocusManager
 {
 	/**
 	 * @private

@@ -7,7 +7,7 @@ import feathers.themes.MetalWorksMobileTheme;
 
 import starling.display.Quad;
 
-public class DrawersExplorerTheme extends MetalWorksMobileTheme
+class DrawersExplorerTheme extends MetalWorksMobileTheme
 {
 	public static const THEME_NAME_TOP_AND_BOTTOM_DRAWER:String = "drawers-explorer-top-and-bottom-drawer";
 	public static const THEME_NAME_LEFT_AND_RIGHT_DRAWER:String = "drawers-explorer-left-and-right-drawer";

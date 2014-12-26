@@ -113,7 +113,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/slider
  */
-public class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDisplayObject
+class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDisplayObject
 {
 	/**
 	 * @private

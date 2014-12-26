@@ -30,7 +30,7 @@ import starling.events.Event;
  *
  * @see feathers.controls.GroupedList
  */
-public class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implements IGroupedListHeaderOrFooterRenderer
+class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implements IGroupedListHeaderOrFooterRenderer
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>LayoutGroupGroupedListHeaderOrFooterRenderer</code>

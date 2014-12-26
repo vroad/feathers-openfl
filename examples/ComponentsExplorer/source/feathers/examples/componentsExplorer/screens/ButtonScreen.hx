@@ -12,7 +12,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class ButtonScreen extends PanelScreen
+class ButtonScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

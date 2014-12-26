@@ -56,7 +56,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/toggle-button
  */
-public class ToggleButton extends Button implements IToggle
+class ToggleButton extends Button implements IToggle
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ToggleButton</code>

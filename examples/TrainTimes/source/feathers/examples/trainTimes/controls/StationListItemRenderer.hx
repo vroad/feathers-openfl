@@ -20,7 +20,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-public class StationListItemRenderer extends FeathersControl implements IListItemRenderer
+class StationListItemRenderer extends FeathersControl implements IListItemRenderer
 {
 	public static const CHILD_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
 	public static const CHILD_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";

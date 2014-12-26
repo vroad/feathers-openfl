@@ -206,7 +206,7 @@ import starling.events.TouchPhase;
  * @see ScrollContainer
  * @see ScrollText
  */
-public class Scroller extends FeathersControl
+class Scroller extends FeathersControl
 {
 	/**
 	 * @private

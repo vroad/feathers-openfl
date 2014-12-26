@@ -22,7 +22,7 @@ import starling.events.Event;
 import starling.events.ResizeEvent;
 import starling.textures.Texture;
 
-public class Main extends Sprite
+class Main extends Sprite
 {
 	//used by the extended theme
 	public static const THUMBNAIL_LIST_NAME:String = "thumbnailList";

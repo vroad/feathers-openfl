@@ -6,7 +6,7 @@ import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
 
-public class DrawerView extends ScrollContainer
+class DrawerView extends ScrollContainer
 {
 	public static var globalStyleProvider:IStyleProvider;
 

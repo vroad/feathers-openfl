@@ -189,7 +189,7 @@ import starling.utils.MatrixUtil;
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html flash.text.StageText
  * @see feathers.text.StageTextField
  */
-public class StageTextTextEditor extends FeathersControl implements IMultilineTextEditor
+class StageTextTextEditor extends FeathersControl implements IMultilineTextEditor
 {
 	/**
 	 * @private

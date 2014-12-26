@@ -18,7 +18,7 @@ import feathers.skins.IStyleProvider;
  * 
  * @see feathers.controls.GroupedList
  */
-public class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements IGroupedListItemRenderer
+class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements IGroupedListItemRenderer
 {
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_TOP

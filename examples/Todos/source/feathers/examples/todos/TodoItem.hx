@@ -1,5 +1,5 @@
 package feathers.examples.todos;
-public class TodoItem
+class TodoItem
 {
 	public function TodoItem(description:String, isCompleted:Boolean = false)
 	{

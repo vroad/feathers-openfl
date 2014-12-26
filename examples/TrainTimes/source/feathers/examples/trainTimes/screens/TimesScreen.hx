@@ -12,7 +12,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class TimesScreen extends PanelScreen
+class TimesScreen extends PanelScreen
 {
 	public static const CHILD_NAME_TIMES_LIST:String = "timesList";
 

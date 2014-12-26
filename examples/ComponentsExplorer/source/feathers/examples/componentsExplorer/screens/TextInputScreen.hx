@@ -11,7 +11,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class TextInputScreen extends PanelScreen
+class TextInputScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

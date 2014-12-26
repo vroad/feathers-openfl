@@ -126,7 +126,7 @@ import starling.events.ResizeEvent;
  * @see http://wiki.starling-framework.org/feathers/transitions
  * @see feathers.controls.ScreenNavigatorItem
  */
-public class ScreenNavigator extends FeathersControl
+class ScreenNavigator extends FeathersControl
 {
 	/**
 	 * @private

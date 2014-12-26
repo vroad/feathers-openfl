@@ -15,7 +15,7 @@ import feathers.motion.transitions.TabBarSlideTransitionManager;
 import starling.events.Event;
 import starling.events.ResizeEvent;
 
-public class Main extends LayoutGroup
+class Main extends LayoutGroup
 {
 	private static const SCALE_9_IMAGE:String = "scale9Image";
 	private static const SCALE_3_IMAGE:String = "scale3Image";

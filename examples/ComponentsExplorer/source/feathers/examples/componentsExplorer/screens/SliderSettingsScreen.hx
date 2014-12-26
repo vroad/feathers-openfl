@@ -14,7 +14,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class SliderSettingsScreen extends PanelScreen
+class SliderSettingsScreen extends PanelScreen
 {
 	public function SliderSettingsScreen()
 	{

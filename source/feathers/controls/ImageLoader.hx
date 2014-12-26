@@ -108,7 +108,7 @@ import starling.utils.SystemUtil;
  * loader.source = Texture.fromBitmap( bitmap );
  * this.addChild( loader );</listing>
  */
-public class ImageLoader extends FeathersControl
+class ImageLoader extends FeathersControl
 {
 	/**
 	 * @private

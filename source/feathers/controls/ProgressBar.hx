@@ -26,7 +26,7 @@ import starling.display.DisplayObject;
  *
  * @see http://wiki.starling-framework.org/feathers/progress-bar
  */
-public class ProgressBar extends FeathersControl
+class ProgressBar extends FeathersControl
 {
 	/**
 	 * The progress bar fills horizontally (on the x-axis).

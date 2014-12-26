@@ -22,7 +22,7 @@ import starling.display.DisplayObject;
  * @see http://wiki.starling-framework.org/feathers/label
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  */
-public class Label extends FeathersControl implements ITextBaselineControl
+class Label extends FeathersControl implements ITextBaselineControl
 {
 	/**
 	 * @private

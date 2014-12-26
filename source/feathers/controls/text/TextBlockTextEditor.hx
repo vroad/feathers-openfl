@@ -145,7 +145,7 @@ import starling.events.TouchPhase;
  * @see http://wiki.starling-framework.org/feathers/text-editors
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html flash.text.engine.TextBlock
  */
-public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
+class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 {
 	/**
 	 * @private

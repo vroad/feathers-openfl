@@ -116,7 +116,7 @@ import starling.events.TouchPhase;
  * @see http://wiki.starling-framework.org/feathers/simple-scroll-bar
  * @see ScrollBar
  */
-public class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
+class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 {
 	/**
 	 * @private

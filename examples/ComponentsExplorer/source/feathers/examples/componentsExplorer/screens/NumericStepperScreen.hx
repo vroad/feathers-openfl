@@ -14,7 +14,7 @@ import starling.events.Event;
 [Event(name="complete",type="starling.events.Event")]
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class NumericStepperScreen extends PanelScreen
+class NumericStepperScreen extends PanelScreen
 {
 	public static const SHOW_SETTINGS:String = "showSettings";
 

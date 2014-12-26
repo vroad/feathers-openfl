@@ -13,7 +13,7 @@ package feathers.events;
  * take advantage of the Starling's event object pooling. The object passed
  * to an event listener will be of type <code>starling.events.Event</code>.
  */
-public class FeathersEventType
+class FeathersEventType
 {
 	/**
 	 * The <code>FeathersEventType.INITIALIZE</code> event type is meant to

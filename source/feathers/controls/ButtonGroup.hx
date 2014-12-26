@@ -76,7 +76,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/button-group
  */
-public class ButtonGroup extends FeathersControl
+class ButtonGroup extends FeathersControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ButtonGroup</code>

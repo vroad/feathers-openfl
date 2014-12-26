@@ -13,7 +13,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class NumericStepperSettingsScreen extends PanelScreen
+class NumericStepperSettingsScreen extends PanelScreen
 {
 	public function NumericStepperSettingsScreen()
 	{

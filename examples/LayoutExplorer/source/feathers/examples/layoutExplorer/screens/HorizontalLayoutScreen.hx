@@ -16,7 +16,7 @@ import starling.events.Event;
 
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class HorizontalLayoutScreen extends PanelScreen
+class HorizontalLayoutScreen extends PanelScreen
 {
 	public static const SHOW_SETTINGS:String = "showSettings";
 

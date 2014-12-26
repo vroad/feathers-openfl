@@ -101,7 +101,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/button
  */
-public class Button extends FeathersControl implements IFocusDisplayObject
+class Button extends FeathersControl implements IFocusDisplayObject
 {
 	/**
 	 * @private

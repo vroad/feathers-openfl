@@ -46,7 +46,7 @@ import starling.utils.getNextPowerOfTwo;
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html flash.text.TextField
  */
-public class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
+class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 {
 	/**
 	 * @private

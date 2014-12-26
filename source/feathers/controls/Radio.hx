@@ -45,7 +45,7 @@ import starling.events.Event;
  * @see http://wiki.starling-framework.org/feathers/radio
  * @see feathers.core.ToggleGroup
  */
-public class Radio extends ToggleButton implements IGroupedToggle
+class Radio extends ToggleButton implements IGroupedToggle
 {
 	/**
 	 * If a <code>Radio</code> has not been added to a <code>ToggleGroup</code>,

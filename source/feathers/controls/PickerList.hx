@@ -84,7 +84,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/picker-list
  */
-public class PickerList extends FeathersControl implements IFocusDisplayObject
+class PickerList extends FeathersControl implements IFocusDisplayObject
 {
 	/**
 	 * @private

@@ -12,7 +12,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class ProgressBarScreen extends PanelScreen
+class ProgressBarScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

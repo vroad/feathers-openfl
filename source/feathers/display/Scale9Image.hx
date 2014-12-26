@@ -53,7 +53,7 @@ import starling.utils.MatrixUtil;
  * left and right regions scale vertically. The center region stretches in
  * both directions to fill the remaining space.
  */
-public class Scale9Image extends Sprite implements IValidating
+class Scale9Image extends Sprite implements IValidating
 {
 	/**
 	 * @private

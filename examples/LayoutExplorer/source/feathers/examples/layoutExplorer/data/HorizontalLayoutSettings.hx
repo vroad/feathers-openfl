@@ -1,7 +1,7 @@
 package feathers.examples.layoutExplorer.data;
 import feathers.layout.HorizontalLayout;
 
-public class HorizontalLayoutSettings
+class HorizontalLayoutSettings
 {
 	public function HorizontalLayoutSettings()
 	{

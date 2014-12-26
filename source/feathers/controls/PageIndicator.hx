@@ -53,7 +53,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/page-indicator
  */
-public class PageIndicator extends FeathersControl
+class PageIndicator extends FeathersControl
 {
 	/**
 	 * @private

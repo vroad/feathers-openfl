@@ -17,7 +17,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class StationScreen extends Screen
+class StationScreen extends Screen
 {
 	public static const CHILD_NAME_STATION_LIST:String = "stationList";
 

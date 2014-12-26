@@ -31,7 +31,7 @@ import starling.events.TouchPhase;
 /**
  * An abstract class for item renderer implementations.
  */
-public class BaseDefaultItemRenderer extends ToggleButton
+class BaseDefaultItemRenderer extends ToggleButton
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the icon

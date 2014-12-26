@@ -11,7 +11,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-public class TiledImageScreen extends Screen
+class TiledImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/tile-pattern.png")]
 	private static const TILE_TEXTURE:Class;

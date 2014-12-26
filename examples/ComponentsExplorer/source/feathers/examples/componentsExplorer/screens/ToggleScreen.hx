@@ -16,7 +16,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class ToggleScreen extends PanelScreen
+class ToggleScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

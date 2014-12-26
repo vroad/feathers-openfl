@@ -80,7 +80,7 @@ import starling.events.KeyboardEvent;
  * @see feathers.controls.text.TextFieldTextRenderer
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html flash.text.TextField
  */
-public class ScrollText extends Scroller implements IFocusDisplayObject
+class ScrollText extends Scroller implements IFocusDisplayObject
 {
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO

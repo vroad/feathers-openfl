@@ -18,7 +18,7 @@ import starling.text.BitmapFont;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
 
-public class Main extends LayoutGroup
+class Main extends LayoutGroup
 {
 	[Embed(source="/../assets/images/atlas.png")]
 	private static const ICONS_IMAGE:Class;

@@ -18,7 +18,7 @@ import starling.events.Event;
 [Event(name="complete",type="starling.events.Event")]
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class ItemRendererScreen extends PanelScreen
+class ItemRendererScreen extends PanelScreen
 {
 	public static const SHOW_SETTINGS:String = "showSettings";
 

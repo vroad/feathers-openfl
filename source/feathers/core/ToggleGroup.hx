@@ -39,7 +39,7 @@ import starling.events.EventDispatcher;
  * 
  * @see IToggle
  */
-public class ToggleGroup extends EventDispatcher
+class ToggleGroup extends EventDispatcher
 {
 	/**
 	 * Constructor.

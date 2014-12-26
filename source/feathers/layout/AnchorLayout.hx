@@ -53,7 +53,7 @@ import starling.events.EventDispatcher;
  * @see http://wiki.starling-framework.org/feathers/anchor-layout
  * @see AnchorLayoutData
  */
-public class AnchorLayout extends EventDispatcher implements ILayout
+class AnchorLayout extends EventDispatcher implements ILayout
 {
 	/**
 	 * @private

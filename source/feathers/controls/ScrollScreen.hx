@@ -30,7 +30,7 @@ import starling.events.Event;
  * {
  *     import feathers.controls.ScrollScreen;
  *
- *     public class CustomScreen extends ScrollScreen
+ *     class CustomScreen extends ScrollScreen
  *     {
  *         public function CustomScreen()
  *         {
@@ -51,7 +51,7 @@ import starling.events.Event;
  * @see ScrollContainer
  * @see http://wiki.starling-framework.org/feathers/scroll-screen
  */
-public class ScrollScreen extends ScrollContainer implements IScreen
+class ScrollScreen extends ScrollContainer implements IScreen
 {
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO

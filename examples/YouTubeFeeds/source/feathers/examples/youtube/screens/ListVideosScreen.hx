@@ -27,7 +27,7 @@ import starling.events.Event;
 
 [Event(name="showVideoDetails",type="starling.events.Event")]
 
-public class ListVideosScreen extends PanelScreen
+class ListVideosScreen extends PanelScreen
 {
 	public static const SHOW_VIDEO_DETAILS:String = "showVideoDetails";
 

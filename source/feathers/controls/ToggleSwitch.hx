@@ -50,7 +50,7 @@ import starling.utils.SystemUtil;
  * @see http://wiki.starling-framework.org/feathers/toggle-switch
  * @see Check
  */
-public class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObject
+class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObject
 {
 	/**
 	 * @private

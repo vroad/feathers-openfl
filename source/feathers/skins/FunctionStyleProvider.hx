@@ -24,7 +24,7 @@ import feathers.core.IFeathersControl;
  * });
  * this.addChild( button );</listing>
  */
-public class FunctionStyleProvider implements IStyleProvider
+class FunctionStyleProvider implements IStyleProvider
 {
 	/**
 	 * Constructor.

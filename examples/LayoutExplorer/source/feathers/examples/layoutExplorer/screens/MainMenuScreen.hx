@@ -25,7 +25,7 @@ import starling.textures.Texture;
 
 [Event(name="showTiledColumns",type="starling.events.Event")]
 
-public class MainMenuScreen extends PanelScreen
+class MainMenuScreen extends PanelScreen
 {
 	public static const SHOW_ANCHOR:String = "showAnchor";
 	public static const SHOW_HORIZONTAL:String = "showHorizontal";

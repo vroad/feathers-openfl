@@ -9,7 +9,7 @@ package feathers.utils.text;
 /**
  * Functions for navigating text inputs with the keyboard.
  */
-public class TextInputNavigation
+class TextInputNavigation
 {
 	/**
 	 * @private

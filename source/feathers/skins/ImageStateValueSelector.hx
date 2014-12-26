@@ -14,7 +14,7 @@ import starling.textures.Texture;
  * reuse the existing Image instance that is passed in to getValueForState()
  * as the old value by swapping the texture.
  */
-public class ImageStateValueSelector extends StateWithToggleValueSelector
+class ImageStateValueSelector extends StateWithToggleValueSelector
 {
 	/**
 	 * Constructor.

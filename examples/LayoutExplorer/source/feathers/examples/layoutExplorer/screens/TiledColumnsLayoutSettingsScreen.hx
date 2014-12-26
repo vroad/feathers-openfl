@@ -15,7 +15,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class TiledColumnsLayoutSettingsScreen extends PanelScreen
+class TiledColumnsLayoutSettingsScreen extends PanelScreen
 {
 	public function TiledColumnsLayoutSettingsScreen()
 	{

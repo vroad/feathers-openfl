@@ -1,7 +1,7 @@
 package feathers.examples.layoutExplorer.data;
 import feathers.layout.VerticalLayout;
 
-public class VerticalLayoutSettings
+class VerticalLayoutSettings
 {
 	public function VerticalLayoutSettings()
 	{

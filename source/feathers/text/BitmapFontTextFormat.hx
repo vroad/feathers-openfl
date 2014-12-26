@@ -16,7 +16,7 @@ import starling.text.TextField;
  * 
  * @see feathers.controls.text.BitmapFontTextRenderer
  */
-public class BitmapFontTextFormat
+class BitmapFontTextFormat
 {
 	/**
 	 * Constructor.

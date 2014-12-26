@@ -14,7 +14,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-public class Scale9ImageScreen extends Screen
+class Scale9ImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/scale9.png")]
 	private static const SCALE_9_TEXTURE:Class;

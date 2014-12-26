@@ -18,7 +18,7 @@ import feathers.skins.IStyleProvider;
  * 
  * @see feathers.controls.List
  */
-public class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListItemRenderer
+class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListItemRenderer
 {
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_TOP

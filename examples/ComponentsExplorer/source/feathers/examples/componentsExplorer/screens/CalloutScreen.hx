@@ -14,7 +14,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class CalloutScreen extends PanelScreen
+class CalloutScreen extends PanelScreen
 {
 	private static const CONTENT_TEXT:String = "Thank you for trying Feathers.\nHappy coding.";
 

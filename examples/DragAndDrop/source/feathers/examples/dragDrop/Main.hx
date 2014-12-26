@@ -9,7 +9,7 @@ import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Event;
 
-public class Main extends Sprite implements IDragSource, IDropTarget
+class Main extends Sprite implements IDragSource, IDropTarget
 {
 	private static const DRAG_FORMAT:String = "draggableQuad";
 

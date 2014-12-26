@@ -135,7 +135,7 @@ import starling.events.KeyboardEvent;
  * @see http://wiki.starling-framework.org/feathers/list
  * @see GroupedList
  */
-public class List extends Scroller implements IFocusDisplayObject
+class List extends Scroller implements IFocusDisplayObject
 {
 	/**
 	 * @private

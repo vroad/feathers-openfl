@@ -35,7 +35,7 @@ import starling.display.DisplayObject;
  *
  * @see feathers.controls.ScreenNavigator
  */
-public class ScreenSlidingStackTransitionManager
+class ScreenSlidingStackTransitionManager
 {
 	/**
 	 * Constructor.

@@ -43,7 +43,7 @@ import starling.events.TouchPhase;
  * The content will be sized horizontally so that it is no larger than the
  * the width or height of the stage (whichever is smaller).
  */
-public class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPopUpContentManager
+class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPopUpContentManager
 {
 	/**
 	 * @private

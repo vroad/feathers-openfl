@@ -15,7 +15,7 @@ import starling.events.Event;
  *
  * @see feathers.dragDrop.DragDropManager
  */
-public class DragDropEvent extends Event
+class DragDropEvent extends Event
 {
 	/**
 	 * Dispatched by the <code>IDragSource</code> when a drag starts.

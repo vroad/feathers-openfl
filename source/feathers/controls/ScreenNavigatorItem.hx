@@ -31,7 +31,7 @@ import starling.display.DisplayObject;
  * @see http://wiki.starling-framework.org/feathers/screen-navigator
  * @see feathers.controls.ScreenNavigator
  */
-public class ScreenNavigatorItem
+class ScreenNavigatorItem
 {
 	/**
 	 * Constructor.

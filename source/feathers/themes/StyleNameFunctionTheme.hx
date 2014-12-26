@@ -17,7 +17,7 @@ import starling.events.EventDispatcher;
  *
  * @see feathers.skins.StyleNameFunctionStyleProvider
  */
-public class StyleNameFunctionTheme extends EventDispatcher
+class StyleNameFunctionTheme extends EventDispatcher
 {
 	/**
 	 * Constructor.

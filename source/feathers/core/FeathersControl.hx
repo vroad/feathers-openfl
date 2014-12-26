@@ -103,7 +103,7 @@ import starling.utils.MatrixUtil;
  *
  * @see feathers.controls.LayoutGroup
  */
-public class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplayObject
+class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplayObject
 {
 	/**
 	 * @private

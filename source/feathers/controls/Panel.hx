@@ -43,7 +43,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/panel
  */
-public class Panel extends ScrollContainer implements IFocusExtras
+class Panel extends ScrollContainer implements IFocusExtras
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header.

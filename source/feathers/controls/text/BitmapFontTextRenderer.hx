@@ -29,7 +29,7 @@ import starling.textures.TextureSmoothing;
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  * @see http://doc.starling-framework.org/core/starling/text/BitmapFont.html starling.text.BitmapFont
  */
-public class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
+class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 {
 	/**
 	 * @private

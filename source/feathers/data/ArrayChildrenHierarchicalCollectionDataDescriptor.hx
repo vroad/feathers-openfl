@@ -34,7 +34,7 @@ package feathers.data;
  *     }
  * ]</pre>
  */
-public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchicalCollectionDataDescriptor
+class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchicalCollectionDataDescriptor
 {
 	/**
 	 * Constructor.

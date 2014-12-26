@@ -22,7 +22,7 @@ import starling.events.ResizeEvent;
  *
  * @see PopUpManager
  */
-public class DefaultPopUpManager implements IPopUpManager
+class DefaultPopUpManager implements IPopUpManager
 {
 	/**
 	 * @copy PopUpManager#defaultOverlayFactory()

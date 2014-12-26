@@ -13,7 +13,7 @@ import flash.system.Capabilities;
  * Using values from the Stage and Capabilities classes, makes educated
  * guesses about the physical size of the device this code is running on.
  */
-public class DeviceCapabilities
+class DeviceCapabilities
 {
 	/**
 	 * The minimum physical size, in inches, of the device's larger side to

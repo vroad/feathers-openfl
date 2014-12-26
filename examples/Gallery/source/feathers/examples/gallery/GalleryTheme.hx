@@ -5,7 +5,7 @@ import feathers.themes.MetalWorksMobileTheme;
 /**
  * Extends MetalWorksMobileTheme to make some app-specific styling tweaks
  */
-public class GalleryTheme extends MetalWorksMobileTheme
+class GalleryTheme extends MetalWorksMobileTheme
 {
 	public function GalleryTheme()
 	{

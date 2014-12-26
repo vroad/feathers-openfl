@@ -38,7 +38,7 @@ import feathers.system.DeviceCapabilities;
 import starling.core.Starling;
 import starling.events.Event;
 
-public class Main extends Drawers
+class Main extends Drawers
 {
 	private static const MAIN_MENU:String = "mainMenu";
 	private static const ALERT:String = "alert";

@@ -75,7 +75,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/callout
  */
-public class Callout extends FeathersControl
+class Callout extends FeathersControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Callout</code>

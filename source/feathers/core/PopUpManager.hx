@@ -15,7 +15,7 @@ import starling.display.DisplayObjectContainer;
 /**
  * Adds a display object as a pop-up above all content.
  */
-public class PopUpManager
+class PopUpManager
 {
 	/**
 	 * @private

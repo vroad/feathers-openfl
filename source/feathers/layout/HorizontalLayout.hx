@@ -29,7 +29,7 @@ import starling.events.EventDispatcher;
  *
  * @see http://wiki.starling-framework.org/feathers/horizontal-layout
  */
-public class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
+class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
 {
 	/**
 	 * The items will be aligned to the top of the bounds.

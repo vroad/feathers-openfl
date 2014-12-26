@@ -39,7 +39,7 @@ import starling.events.ResizeEvent;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
 
-public class TrainTimesTheme extends DisplayListWatcher
+class TrainTimesTheme extends DisplayListWatcher
 {
 	[Embed(source="/../assets/images/traintimes.png")]
 	protected static const ATLAS_IMAGE:Class;

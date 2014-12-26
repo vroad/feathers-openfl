@@ -22,7 +22,7 @@ import starling.events.Event;
  * @see feathers.controls.ScreenNavigator
  * @see feathers.controls.TabBar
  */
-public class TabBarSlideTransitionManager
+class TabBarSlideTransitionManager
 {
 	/**
 	 * Constructor.

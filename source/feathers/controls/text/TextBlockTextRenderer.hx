@@ -54,7 +54,7 @@ import starling.utils.getNextPowerOfTwo;
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html flash.text.engine.TextBlock
  */
-public class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
+class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 {
 	/**
 	 * @private

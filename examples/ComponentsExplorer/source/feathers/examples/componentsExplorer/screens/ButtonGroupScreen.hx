@@ -13,7 +13,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class ButtonGroupScreen extends PanelScreen
+class ButtonGroupScreen extends PanelScreen
 {
 	public function ButtonGroupScreen()
 	{

@@ -14,7 +14,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class TabBarScreen extends PanelScreen
+class TabBarScreen extends PanelScreen
 {
 	public function TabBarScreen()
 	{

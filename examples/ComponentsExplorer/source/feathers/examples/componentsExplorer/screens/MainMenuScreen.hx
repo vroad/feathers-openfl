@@ -33,7 +33,7 @@ import starling.textures.Texture;
 [Event(name="showTextInput",type="starling.events.Event")]
 [Event(name="showToggles",type="starling.events.Event")]
 
-public class MainMenuScreen extends PanelScreen
+class MainMenuScreen extends PanelScreen
 {
 	public static const SHOW_ALERT:String = "showAlert";
 	public static const SHOW_BUTTON:String = "showButton";

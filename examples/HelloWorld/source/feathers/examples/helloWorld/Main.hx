@@ -16,7 +16,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/getting-started
  */
-public class Main extends Sprite
+class Main extends Sprite
 {
 	/**
 	 * Constructor.

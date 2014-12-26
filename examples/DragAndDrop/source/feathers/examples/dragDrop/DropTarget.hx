@@ -8,7 +8,7 @@ import feathers.events.DragDropEvent;
 import starling.display.DisplayObject;
 import starling.display.Quad;
 
-public class DropTarget extends LayoutGroup implements IDropTarget
+class DropTarget extends LayoutGroup implements IDropTarget
 {
 	private static const DEFAULT_COLOR:uint = 0x36322e;
 	private static const HOVER_COLOR:uint = 0x26221e;

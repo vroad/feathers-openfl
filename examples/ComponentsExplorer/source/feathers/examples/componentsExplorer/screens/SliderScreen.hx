@@ -13,7 +13,7 @@ import starling.events.Event;
 [Event(name="complete",type="starling.events.Event")]
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class SliderScreen extends PanelScreen
+class SliderScreen extends PanelScreen
 {
 	public static const SHOW_SETTINGS:String = "showSettings";
 

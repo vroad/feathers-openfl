@@ -75,7 +75,7 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/alert
  */
-public class Alert extends Panel
+class Alert extends Panel
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header.

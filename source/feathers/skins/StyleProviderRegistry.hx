@@ -11,7 +11,7 @@ import flash.utils.Dictionary;
 /**
  * Used by themes to create and manage style providers for component classes.
  */
-public class StyleProviderRegistry
+class StyleProviderRegistry
 {
 	/**
 	 * @private

@@ -30,7 +30,7 @@ import starling.events.Event;
  * {
  *     import feathers.controls.PanelScreen;
  *
- *     public class CustomScreen extends PanelScreen
+ *     class CustomScreen extends PanelScreen
  *     {
  *         public function CustomScreen()
  *         {
@@ -51,7 +51,7 @@ import starling.events.Event;
  * @see Panel
  * @see http://wiki.starling-framework.org/feathers/panel-screen
  */
-public class PanelScreen extends Panel implements IScreen
+class PanelScreen extends Panel implements IScreen
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header.

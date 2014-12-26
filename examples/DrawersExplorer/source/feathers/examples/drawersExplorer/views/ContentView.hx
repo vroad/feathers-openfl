@@ -8,7 +8,7 @@ import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
 
-public class ContentView extends ScrollContainer
+class ContentView extends ScrollContainer
 {
 	public static var globalStyleProvider:IStyleProvider;
 

@@ -73,7 +73,7 @@ import starling.events.EventDispatcher;
  * that you create yourself) will trigger the <code>buttonInitializer()</code>
  * function.</p>
  */
-public class DisplayListWatcher extends EventDispatcher
+class DisplayListWatcher extends EventDispatcher
 {
 	/**
 	 * Constructor.

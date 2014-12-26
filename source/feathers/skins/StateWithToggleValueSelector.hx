@@ -14,7 +14,7 @@ import flash.utils.Dictionary;
  * Maps a component's states to values, perhaps for one of the component's
  * properties such as a skin or text format.
  */
-public class StateWithToggleValueSelector
+class StateWithToggleValueSelector
 {
 	/**
 	 * Constructor.

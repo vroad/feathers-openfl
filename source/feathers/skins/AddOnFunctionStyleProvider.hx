@@ -24,7 +24,7 @@ import feathers.core.IFeathersControl;
  * button.styleProvider = new AddOnFunctionStyleProvider( button.styleProvider, setExtraStyles );
  * this.addChild( button );</listing>
  */
-public class AddOnFunctionStyleProvider implements IStyleProvider
+class AddOnFunctionStyleProvider implements IStyleProvider
 {
 	/**
 	 * Constructor.

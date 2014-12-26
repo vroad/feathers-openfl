@@ -15,7 +15,7 @@ import starling.events.Event;
 
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class TiledRowsLayoutScreen extends PanelScreen
+class TiledRowsLayoutScreen extends PanelScreen
 {
 	public static const SHOW_SETTINGS:String = "showSettings";
 

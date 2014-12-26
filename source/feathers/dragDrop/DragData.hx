@@ -11,7 +11,7 @@ package feathers.dragDrop;
  *
  * @see DragDropManager
  */
-public class DragData
+class DragData
 {
 	/**
 	 * Constructor.

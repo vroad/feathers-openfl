@@ -26,7 +26,7 @@ import starling.events.Event;
  * {
  *     import feathers.controls.Screen;
  *
- *     public class CustomScreen extends Screen
+ *     class CustomScreen extends Screen
  *     {
  *         public function CustomScreen()
  *         {
@@ -48,7 +48,7 @@ import starling.events.Event;
  * @see http://wiki.starling-framework.org/feathers/screen
  * @see ScreenNavigator
  */
-public class Screen extends LayoutGroup implements IScreen
+class Screen extends LayoutGroup implements IScreen
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Screen</code>

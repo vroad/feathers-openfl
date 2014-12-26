@@ -18,7 +18,7 @@ import flash.utils.ByteArray;
 import starling.core.Starling;
 
 [SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
-public class LayoutExplorer extends Sprite
+class LayoutExplorer extends Sprite
 {
 	public function LayoutExplorer()
 	{

@@ -20,7 +20,7 @@ import starling.display.Stage;
  * components. <code>StageTextTextEditor</code> is not compatible with the
  * focus manager.</p>
  */
-public class FocusManager
+class FocusManager
 {
 	/**
 	 * @private

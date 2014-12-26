@@ -48,7 +48,7 @@ import starling.utils.MatrixUtil;
 /**
  * Tiles a texture to fill the specified bounds.
  */
-public class TiledImage extends Sprite implements IValidating
+class TiledImage extends Sprite implements IValidating
 {
 	/**
 	 * @private

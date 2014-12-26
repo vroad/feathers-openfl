@@ -15,7 +15,7 @@ import feathers.layout.HorizontalLayout;
 import feathers.layout.VerticalLayout;
 import feathers.themes.MetalWorksMobileTheme;
 
-public class ComponentsExplorerTheme extends MetalWorksMobileTheme
+class ComponentsExplorerTheme extends MetalWorksMobileTheme
 {
 	public function ComponentsExplorerTheme()
 	{

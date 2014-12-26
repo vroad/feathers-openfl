@@ -30,7 +30,7 @@ import starling.textures.Texture;
  * <p>Additional value type handlers may be added, or the default type
  * handlers may be replaced.</p>
  */
-public class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
+class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 {
 	/**
 	 * The value type handler for type <code>starling.textures.Texture</code>.
