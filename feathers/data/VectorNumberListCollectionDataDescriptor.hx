@@ -83,7 +83,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array<Number>).indexOf(item as Number);
+		return (data as Array<Number>).indexOfcast(item, Number);
 	}
 	
 	/**

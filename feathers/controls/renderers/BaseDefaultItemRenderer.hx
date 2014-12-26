@@ -2906,7 +2906,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			var labelResult:Object = this._iconLabelFunction(item);
 			if(labelResult is String)
 			{
-				this.refreshIconLabel(labelResult as String);
+				this.refreshIconLabelcast(labelResult, String);
 			}
 			else
 			{
@@ -2919,7 +2919,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			labelResult = item[this._iconLabelField];
 			if(labelResult is String)
 			{
-				this.refreshIconLabel(labelResult as String);
+				this.refreshIconLabelcast(labelResult, String);
 			}
 			else
 			{
@@ -2972,7 +2972,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			var labelResult:Object = this._accessoryLabelFunction(item);
 			if(labelResult is String)
 			{
-				this.refreshAccessoryLabel(labelResult as String);
+				this.refreshAccessoryLabelcast(labelResult, String);
 			}
 			else
 			{
@@ -2985,7 +2985,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			labelResult = item[this._accessoryLabelField];
 			if(labelResult is String)
 			{
-				this.refreshAccessoryLabel(labelResult as String);
+				this.refreshAccessoryLabelcast(labelResult, String);
 			}
 			else
 			{

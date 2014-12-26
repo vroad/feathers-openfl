@@ -29,7 +29,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).length;
+		return cast(data, Array).length;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array)[index];
+		return cast(data, Array)[index];
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array)[index] = item;
+		cast(data, Array)[index] = item;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array).splice(index, 0, item);
+		cast(data, Array).splice(index, 0, item);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).splice(index, 1)[0];
+		return cast(data, Array).splice(index, 1)[0];
 	}
 
 	/**
@@ -74,7 +74,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeAll(data:Object):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array).length = 0;
+		cast(data, Array).length = 0;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).indexOf(item);
+		return cast(data, Array).indexOf(item);
 	}
 	
 	/**

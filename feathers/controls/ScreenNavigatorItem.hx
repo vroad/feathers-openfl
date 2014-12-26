@@ -85,7 +85,7 @@ class ScreenNavigatorItem
 		}
 		else if(this.screen is Function)
 		{
-			screenInstance = DisplayObject((this.screen as Function)());
+			screenInstance = DisplayObject(cast(this.screen, Function)());
 		}
 		else if(this.screen is DisplayObject)
 		{

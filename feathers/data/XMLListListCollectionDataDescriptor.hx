@@ -31,7 +31,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as XMLList).length();
+		return cast(data, XMLList).length();
 	}
 	
 	/**
@@ -61,7 +61,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 		
 		//wow, this is weird. unless I have failed epicly, I can find no 
 		//other way to insert an element into an XMLList at a specific index.
-		var dataClone:XMLList = (data as XMLList).copy();
+		var dataClone:XMLList = cast(data, XMLList).copy();
 		data[index] = item;
 		var listLength:Int = dataClone.length();
 		for(i in index ... listLength)

@@ -380,7 +380,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function initializeObject(target:DisplayObject):Void
 	{
-		var targetAsRequiredBaseClass:DisplayObject = DisplayObject(target as requiredBaseClass);
+		var targetAsRequiredBaseClass:DisplayObject = DisplayObjectcast(target, requiredBaseClass);
 		if(targetAsRequiredBaseClass)
 		{
 			var isInitialized:Bool = this._initializeOnce && this.initializedObjects[targetAsRequiredBaseClass];
@@ -476,6 +476,6 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	private function addedHandler(event:Event):Void
 	{
-		this.initializeObject(event.target as DisplayObject);
+		this.initializeObjectcast(event.target, DisplayObject);
 	}
 }

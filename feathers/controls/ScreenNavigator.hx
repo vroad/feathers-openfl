@@ -421,7 +421,7 @@ class ScreenNavigator extends FeathersControl
 			{
 				if(signal)
 				{
-					signal.add(eventAction as Function);
+					signal.addcast(eventAction, Function);
 				}
 				else
 				{
@@ -437,7 +437,7 @@ class ScreenNavigator extends FeathersControl
 				}
 				else
 				{
-					eventListener = this.createScreenEventListener(eventAction as String);
+					eventListener = this.createScreenEventListenercast(eventAction, String);
 					this._activeScreen.addEventListener(eventName, eventListener);
 				}
 				savedScreenEvents[eventName] = eventListener;
@@ -510,7 +510,7 @@ class ScreenNavigator extends FeathersControl
 			{
 				if(signal)
 				{
-					signal.remove(eventAction as Function);
+					signal.removecast(eventAction, Function);
 				}
 				else
 				{
