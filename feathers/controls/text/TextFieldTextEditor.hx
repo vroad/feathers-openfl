@@ -1003,8 +1003,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1095,8 +1095,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1116,8 +1116,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 
 		if(!needsWidth && !needsHeight)
 		{

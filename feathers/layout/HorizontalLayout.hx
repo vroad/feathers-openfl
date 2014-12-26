@@ -804,7 +804,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		if(!this._useVirtualLayout || this._hasVariableItemDimensions || this._distributeWidths ||
 			this._verticalAlign != VERTICAL_ALIGN_JUSTIFY ||
-			explicitHeight !== explicitHeight) //isNaN
+			explicitHeight != explicitHeight) //isNaN
 		{
 			this.validateItems(items, explicitHeight - this._paddingTop - this._paddingBottom, explicitWidth);
 		}
@@ -859,7 +859,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedWidth !== cachedWidth) //isNaN
+					cachedWidth != cachedWidth) //isNaN
 				{
 					positionX += calculatedTypicalItemWidth + gap;
 				}
@@ -926,7 +926,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		var totalHeight:Float = maxItemHeight + this._paddingTop + this._paddingBottom;
 		var availableHeight:Float = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -940,7 +940,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		var totalWidth:Float = positionX - this._gap + this._paddingRight - boundsX;
 		var availableWidth:Float = explicitWidth;
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			availableWidth = totalWidth;
 			if(availableWidth < minWidth)
@@ -1083,8 +1083,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -1120,7 +1120,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				for(var i:Int = 0; i < itemCount; i++)
 				{
 					var cachedWidth:Float = this._widthCache[i];
-					if(cachedWidth !== cachedWidth) //isNaN
+					if(cachedWidth != cachedWidth) //isNaN
 					{
 						positionX += calculatedTypicalItemWidth + this._gap;
 					}
@@ -1310,7 +1310,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				gap = this._lastGap;
 			}
 			var cachedWidth:Float = this._widthCache[i];
-			if(cachedWidth !== cachedWidth) //isNaN
+			if(cachedWidth != cachedWidth) //isNaN
 			{
 				var itemWidth:Float = calculatedTypicalItemWidth;
 			}
@@ -1445,7 +1445,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedWidth !== cachedWidth) //isNaN
+					cachedWidth != cachedWidth) //isNaN
 				{
 					lastWidth = calculatedTypicalItemWidth;
 				}
@@ -1560,7 +1560,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	private function calculateDistributedWidth(items:Array<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Float
 	{
 		var itemCount:Int = items.length;
-		if(explicitWidth !== explicitWidth) //isNaN
+		if(explicitWidth != explicitWidth) //isNaN
 		{
 			var maxItemWidth:Float = 0;
 			for(var i:Int = 0; i < itemCount; i++)
@@ -1657,7 +1657,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			totalPercentWidth = 100;
 		}
-		if(remainingWidth !== remainingWidth) //isNaN
+		if(remainingWidth != remainingWidth) //isNaN
 		{
 			remainingWidth = totalExplicitWidth + totalMinWidth;
 			if(remainingWidth < minWidth)

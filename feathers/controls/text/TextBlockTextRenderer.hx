@@ -1108,8 +1108,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1222,8 +1222,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		var newWidth:Float = this.explicitWidth;
 		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
@@ -1340,7 +1340,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			}
 			if(this.textSnapshot)
 			{
-				this.textSnapshot.visible = this._content !== null;
+				this.textSnapshot.visible = this._content != null;
 			}
 		}
 	}
@@ -1363,8 +1363,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1604,7 +1604,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			if(this._text)
 			{
 				this._textElement.text = this._text;
-				if(this._text !== null && this._text.charAt(this._text.length - 1) == " ")
+				if(this._text != null && this._text.charAt(this._text.length - 1) == " ")
 				{
 					//add an invisible control character because FTE apparently
 					//doesn't think that it's important to include trailing

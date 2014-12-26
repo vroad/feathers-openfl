@@ -167,7 +167,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
 	{
-		if(value !== null)
+		if(value != null)
 		{
 			var type:Class = Class(value.constructor);
 			if(this._handlers[type] == null)

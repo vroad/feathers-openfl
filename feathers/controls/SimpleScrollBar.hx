@@ -931,16 +931,16 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		if(this.thumbOriginalWidth !== this.thumbOriginalWidth ||
-			this.thumbOriginalHeight !== this.thumbOriginalHeight) //isNaN
+		if(this.thumbOriginalWidth != this.thumbOriginalWidth ||
+			this.thumbOriginalHeight != this.thumbOriginalHeight) //isNaN
 		{
 			this.thumb.validate();
 			this.thumbOriginalWidth = this.thumb.width;
 			this.thumbOriginalHeight = this.thumb.height;
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

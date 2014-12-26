@@ -1297,8 +1297,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1372,11 +1372,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		}
 		if(this.currentBackgroundSkin)
 		{
-			if(this.originalBackgroundWidth !== this.originalBackgroundWidth) //isNaN
+			if(this.originalBackgroundWidth != this.originalBackgroundWidth) //isNaN
 			{
 				this.originalBackgroundWidth = this.currentBackgroundSkin.width;
 			}
-			if(this.originalBackgroundHeight !== this.originalBackgroundHeight) //isNaN
+			if(this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
 				this.originalBackgroundHeight = this.currentBackgroundSkin.height;
 			}
@@ -1432,7 +1432,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function refreshContentLabel(label:String):Void
 	{
-		if(label !== null)
+		if(label != null)
 		{
 			if(!this.contentLabel)
 			{

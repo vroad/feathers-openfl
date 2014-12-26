@@ -1283,8 +1283,8 @@ class Header extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1376,7 +1376,7 @@ class Header extends FeathersControl
 		if(this._title && !(this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems))
 		{
 			var calculatedTitleGap:Float = this._titleGap;
-			if(calculatedTitleGap !== calculatedTitleGap) //isNaN
+			if(calculatedTitleGap != calculatedTitleGap) //isNaN
 			{
 				calculatedTitleGap = this._gap;
 			}
@@ -1496,11 +1496,11 @@ class Header extends FeathersControl
 		{
 			this.currentBackgroundSkin.visible = true;
 
-			if(this.originalBackgroundWidth !== this.originalBackgroundWidth) //isNaN
+			if(this.originalBackgroundWidth != this.originalBackgroundWidth) //isNaN
 			{
 				this.originalBackgroundWidth = this.currentBackgroundSkin.width;
 			}
-			if(this.originalBackgroundHeight !== this.originalBackgroundHeight) //isNaN
+			if(this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
 				this.originalBackgroundHeight = this.currentBackgroundSkin.height;
 			}
@@ -1598,7 +1598,7 @@ class Header extends FeathersControl
 		this._layout.paddingLeft = this._paddingLeft;
 		this._layout.layout(this._leftItems, HELPER_BOUNDS, HELPER_LAYOUT_RESULT);
 		this.leftItemsWidth = HELPER_LAYOUT_RESULT.contentWidth;
-		if(this.leftItemsWidth !== this.leftItemsWidth) //isNaN
+		if(this.leftItemsWidth != this.leftItemsWidth) //isNaN
 		{
 			this.leftItemsWidth = 0;
 		}
@@ -1626,7 +1626,7 @@ class Header extends FeathersControl
 		this._layout.paddingLeft = 0;
 		this._layout.layout(this._rightItems, HELPER_BOUNDS, HELPER_LAYOUT_RESULT);
 		this.rightItemsWidth = HELPER_LAYOUT_RESULT.contentWidth;
-		if(this.rightItemsWidth !== this.rightItemsWidth) //isNaN
+		if(this.rightItemsWidth != this.rightItemsWidth) //isNaN
 		{
 			this.rightItemsWidth = 0;
 		}
@@ -1666,7 +1666,7 @@ class Header extends FeathersControl
 		}
 		this.titleTextRenderer.visible = true;
 		var calculatedTitleGap:Float = this._titleGap;
-		if(calculatedTitleGap !== calculatedTitleGap) //isNaN
+		if(calculatedTitleGap != calculatedTitleGap) //isNaN
 		{
 			calculatedTitleGap = this._gap;
 		}

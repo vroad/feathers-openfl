@@ -70,7 +70,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -91,7 +91,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -111,7 +111,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	public function set_visibleWidth(value:Float):Void
 	{
 		if(this.explicitVisibleWidth == value ||
-			(value !== value && this.explicitVisibleWidth !== this.explicitVisibleWidth)) //isNaN
+			(value != value && this.explicitVisibleWidth != this.explicitVisibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -132,7 +132,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -153,7 +153,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -173,7 +173,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	public function set_visibleHeight(value:Float):Void
 	{
 		if(this.explicitVisibleHeight == value ||
-			(value !== value && this.explicitVisibleHeight !== this.explicitVisibleHeight)) //isNaN
+			(value != value && this.explicitVisibleHeight != this.explicitVisibleHeight)) //isNaN
 		{
 			return;
 		}

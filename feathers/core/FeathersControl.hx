@@ -570,8 +570,8 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		var valueIsNaN:Bool = value !== value; //isNaN
-		if(valueIsNaN && this.explicitWidth !== this.explicitWidth)
+		var valueIsNaN:Bool = value != value; //isNaN
+		if(valueIsNaN && this.explicitWidth != this.explicitWidth)
 		{
 			return;
 		}
@@ -654,8 +654,8 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		var valueIsNaN:Bool = value !== value; //isNaN
-		if(valueIsNaN && this.explicitHeight !== this.explicitHeight)
+		var valueIsNaN:Bool = value != value; //isNaN
+		if(valueIsNaN && this.explicitHeight != this.explicitHeight)
 		{
 			return;
 		}
@@ -775,7 +775,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minWidth cannot be NaN");
 		}
@@ -817,7 +817,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minHeight cannot be NaN");
 		}
@@ -859,7 +859,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxWidth cannot be NaN");
 		}
@@ -901,7 +901,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxHeight cannot be NaN");
 		}
@@ -1843,11 +1843,11 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 				height = this._maxHeight;
 			}
 		}
-		if(width !== width) //isNaN
+		if(width != width) //isNaN
 		{
 			throw new ArgumentError(ILLEGAL_WIDTH_ERROR);
 		}
-		if(height !== height) //isNaN
+		if(height != height) //isNaN
 		{
 			throw new ArgumentError(ILLEGAL_HEIGHT_ERROR);
 		}
@@ -1981,7 +1981,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			this._hitArea.width = this.actualWidth;
 		}
 		var hitAreaX:Float = (this.actualWidth - this._hitArea.width) / 2;
-		if(hitAreaX !== hitAreaX) //isNaN
+		if(hitAreaX != hitAreaX) //isNaN
 		{
 			this._hitArea.x = 0;
 		}
@@ -2005,7 +2005,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			this._hitArea.height = this.actualHeight;
 		}
 		var hitAreaY:Float = (this.actualHeight - this._hitArea.height) / 2;
-		if(hitAreaY !== hitAreaY) //isNaN
+		if(hitAreaY != hitAreaY) //isNaN
 		{
 			this._hitArea.y = 0;
 		}

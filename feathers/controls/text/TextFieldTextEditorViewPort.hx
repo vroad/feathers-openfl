@@ -78,7 +78,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -108,7 +108,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -135,7 +135,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	public function set_visibleWidth(value:Float):Void
 	{
 		if(this._visibleWidth == value ||
-			(value !== value && this._visibleWidth !== this._visibleWidth)) //isNaN
+			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -165,7 +165,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -195,7 +195,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -222,7 +222,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	public function set_visibleHeight(value:Float):Void
 	{
 		if(this._visibleHeight == value ||
-			(value !== value && this._visibleHeight !== this._visibleHeight)) //isNaN
+			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN
 		{
 			return;
 		}
@@ -327,7 +327,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this._visibleWidth !== this._visibleWidth; //isNaN
+		var needsWidth:Bool = this._visibleWidth != this._visibleWidth; //isNaN
 
 		this.commitStylesAndData(this.measureTextField);
 
@@ -369,7 +369,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	override private function refreshSnapshotParameters():Void
 	{
 		var textFieldWidth:Float = this._visibleWidth;
-		if(textFieldWidth !== textFieldWidth) //isNaN
+		if(textFieldWidth != textFieldWidth) //isNaN
 		{
 			if(this._maxVisibleWidth < Number.POSITIVE_INFINITY)
 			{
@@ -381,7 +381,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 			}
 		}
 		var textFieldHeight:Float = this._visibleHeight;
-		if(textFieldHeight !== textFieldHeight) //isNaN
+		if(textFieldHeight != textFieldHeight) //isNaN
 		{
 			if(this._maxVisibleHeight < Number.POSITIVE_INFINITY)
 			{

@@ -171,7 +171,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 */
 	public function get_isOpen():Bool
 	{
-		return this.content !== null;
+		return this.content != null;
 	}
 
 	/**

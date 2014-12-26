@@ -1244,8 +1244,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1364,8 +1364,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 
 		this._measureTextField.autoSize = TextFieldAutoSize.LEFT;
 
@@ -1474,8 +1474,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1740,13 +1740,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		stageTextViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
 		var viewPortWidth:Float = Math.round((this.actualWidth + desktopGutterDimensionsOffset) * scaleFactor * globalScaleX);
 		if(viewPortWidth < 1 ||
-			viewPortWidth !== viewPortWidth) //isNaN
+			viewPortWidth != viewPortWidth) //isNaN
 		{
 			viewPortWidth = 1;
 		}
 		var viewPortHeight:Float = Math.round((this.actualHeight + desktopGutterDimensionsOffset) * scaleFactor * globalScaleY);
 		if(viewPortHeight < 1 ||
-			viewPortHeight !== viewPortHeight) //isNaN
+			viewPortHeight != viewPortHeight) //isNaN
 		{
 			viewPortHeight = 1;
 		}

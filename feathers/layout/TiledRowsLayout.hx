@@ -1050,7 +1050,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else if(this._requestedColumnCount > 0)
 		{
-			if(availableWidth !== availableWidth) //isNaN
+			if(availableWidth != availableWidth) //isNaN
 			{
 				horizontalTileCount = this._requestedColumnCount;
 				availableWidth = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap - this._paddingLeft - this._paddingRight;
@@ -1085,7 +1085,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else if(this._requestedRowCount > 0)
 		{
-			if(availableHeight !== availableHeight) //isNaN
+			if(availableHeight != availableHeight) //isNaN
 			{
 				verticalTileCount = this._requestedRowCount;
 				availableHeight = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap - this._paddingTop - this._paddingBottom;
@@ -1099,12 +1099,12 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		var totalPageWidth:Float = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap + this._paddingLeft + this._paddingRight;
 		var totalPageHeight:Float = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap + this._paddingTop + this._paddingBottom;
 		var availablePageWidth:Float = availableWidth;
-		if(availablePageWidth !== availablePageWidth) //isNaN
+		if(availablePageWidth != availablePageWidth) //isNaN
 		{
 			availablePageWidth = totalPageWidth;
 		}
 		var availablePageHeight:Float = availableHeight;
-		if(availablePageHeight !== availablePageHeight) //isNaN
+		if(availablePageHeight != availablePageHeight) //isNaN
 		{
 			availablePageHeight = totalPageHeight;
 		}
@@ -1257,11 +1257,11 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				totalHeight = Math.ceil(itemCount / perPage) * availableHeight;
 			}
 		}
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			availableWidth = totalWidth;
 		}
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 		}
@@ -1314,8 +1314,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN;
-		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN;
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -1380,7 +1380,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else if(this._requestedColumnCount > 0)
 		{
-			if(availableWidth !== availableWidth) //isNaN
+			if(availableWidth != availableWidth) //isNaN
 			{
 				horizontalTileCount = this._requestedColumnCount;
 				availableWidth = horizontalTileCount * (tileWidth + this._horizontalGap) - this._horizontalGap - this._paddingLeft - this._paddingRight;
@@ -1412,7 +1412,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else if(this._requestedRowCount > 0)
 		{
-			if(availableHeight !== availableHeight) //isNaN
+			if(availableHeight != availableHeight) //isNaN
 			{
 				verticalTileCount = this._requestedRowCount;
 				availableHeight = verticalTileCount * (tileHeight + this._verticalGap) - this._verticalGap - this._paddingTop - this._paddingBottom;

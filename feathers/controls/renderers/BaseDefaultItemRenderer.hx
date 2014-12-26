@@ -3115,8 +3115,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	override private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -3150,10 +3150,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 				newWidth = this.addAccessoryWidth(newWidth);
 			}
 			newWidth += this._paddingLeft + this._paddingRight;
-			if(newWidth !== newWidth) //isNaN
+			if(newWidth != newWidth) //isNaN
 			{
 				newWidth = this._originalSkinWidth;
-				if(newWidth !== newWidth) //isNaN
+				if(newWidth != newWidth) //isNaN
 				{
 					newWidth = 0;
 				}
@@ -3185,10 +3185,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 				newHeight = this.addAccessoryHeight(newHeight);
 			}
 			newHeight += this._paddingTop + this._paddingBottom;
-			if(newHeight !== newHeight) //isNaN
+			if(newHeight != newHeight) //isNaN
 			{
 				newHeight = this._originalSkinHeight;
-				if(newHeight !== newHeight) //isNaN
+				if(newHeight != newHeight) //isNaN
 				{
 					newHeight = 0;
 				}
@@ -3216,7 +3216,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return width;
 		}
 		var iconWidth:Float = this.currentIcon.width;
-		if(iconWidth !== iconWidth) //isNaN
+		if(iconWidth != iconWidth) //isNaN
 		{
 			return width;
 		}
@@ -3257,7 +3257,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return width;
 		}
 		var accessoryWidth:Float = this.accessory.width;
-		if(accessoryWidth !== accessoryWidth) //isNaN
+		if(accessoryWidth != accessoryWidth) //isNaN
 		{
 			return width;
 		}
@@ -3276,17 +3276,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 				//for some reason, if we don't call a function right here,
 				//compiling with the flex 4.6 SDK will throw a VerifyError
 				//for a stack overflow.
-				//we could change the !== check back to isNaN() instead, but
+				//we could change the != check back to isNaN() instead, but
 				//isNaN() can allocate an object, so we should call a different
 				//function without allocation.
 				this.doNothing();
-				if(adjustedAccessoryGap !== adjustedAccessoryGap) //isNaN
+				if(adjustedAccessoryGap != adjustedAccessoryGap) //isNaN
 				{
 					adjustedAccessoryGap = this._gap;
 				}
 				if(adjustedAccessoryGap == Number.POSITIVE_INFINITY)
 				{
-					if(this._minAccessoryGap !== this._minAccessoryGap) //isNaN
+					if(this._minAccessoryGap != this._minAccessoryGap) //isNaN
 					{
 						adjustedAccessoryGap = this._minGap;
 					}
@@ -3317,7 +3317,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return height;
 		}
 		var iconHeight:Float = this.currentIcon.height;
-		if(iconHeight !== iconHeight) //isNaN
+		if(iconHeight != iconHeight) //isNaN
 		{
 			return height;
 		}
@@ -3358,7 +3358,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return height;
 		}
 		var accessoryHeight:Float = this.accessory.height;
-		if(accessoryHeight !== accessoryHeight) //isNaN
+		if(accessoryHeight != accessoryHeight) //isNaN
 		{
 			return height;
 		}
@@ -3377,11 +3377,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 				//for some reason, if we don't call a function right here,
 				//compiling with the flex 4.6 SDK will throw a VerifyError
 				//for a stack overflow.
-				//we could change the !== check back to isNaN() instead, but
+				//we could change the != check back to isNaN() instead, but
 				//isNaN() can allocate an object, so we should call a different
 				//function without allocation.
 				this.doNothing();
-				if(adjustedAccessoryGap !== adjustedAccessoryGap) //isNaN
+				if(adjustedAccessoryGap != adjustedAccessoryGap) //isNaN
 				{
 					adjustedAccessoryGap =  this._gap;
 				}
@@ -3827,7 +3827,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var iconIsInLayout:Bool = this.currentIcon && this._iconPosition != ICON_POSITION_MANUAL;
 		var accessoryIsInLayout:Bool = this.accessory && this._accessoryPosition != ACCESSORY_POSITION_MANUAL;
 		var accessoryGap:Float = this._accessoryGap;
-		if(accessoryGap !== accessoryGap) //isNaN
+		if(accessoryGap != accessoryGap) //isNaN
 		{
 			accessoryGap = this._gap;
 		}
@@ -3918,7 +3918,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(forMeasurement)
 		{
 			calculatedWidth = this.explicitWidth;
-			if(calculatedWidth !== calculatedWidth) //isNaN
+			if(calculatedWidth != calculatedWidth) //isNaN
 			{
 				calculatedWidth = this._maxWidth;
 			}
@@ -3931,14 +3931,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 			adjustedGap = this._minGap;
 		}
 		var adjustedAccessoryGap:Float = this._accessoryGap;
-		if(adjustedAccessoryGap !== adjustedAccessoryGap) //isNaN
+		if(adjustedAccessoryGap != adjustedAccessoryGap) //isNaN
 		{
 			adjustedAccessoryGap = this._gap;
 		}
 		if(adjustedAccessoryGap == Number.POSITIVE_INFINITY)
 		{
 			adjustedAccessoryGap = this._minAccessoryGap;
-			if(adjustedAccessoryGap !== adjustedAccessoryGap) //isNaN
+			if(adjustedAccessoryGap != adjustedAccessoryGap) //isNaN
 			{
 				adjustedAccessoryGap = this._minGap;
 			}

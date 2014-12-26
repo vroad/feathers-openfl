@@ -1557,8 +1557,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		if(this.minimumTrackOriginalWidth !== this.minimumTrackOriginalWidth || //isNaN
-			this.minimumTrackOriginalHeight !== this.minimumTrackOriginalHeight) //isNaN
+		if(this.minimumTrackOriginalWidth != this.minimumTrackOriginalWidth || //isNaN
+			this.minimumTrackOriginalHeight != this.minimumTrackOriginalHeight) //isNaN
 		{
 			this.minimumTrack.validate();
 			this.minimumTrackOriginalWidth = this.minimumTrack.width;
@@ -1566,8 +1566,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		}
 		if(this.maximumTrack)
 		{
-			if(this.maximumTrackOriginalWidth !== this.maximumTrackOriginalWidth || //isNaN
-				this.maximumTrackOriginalHeight !== this.maximumTrackOriginalHeight) //isNaN
+			if(this.maximumTrackOriginalWidth != this.maximumTrackOriginalWidth || //isNaN
+				this.maximumTrackOriginalHeight != this.maximumTrackOriginalHeight) //isNaN
 			{
 				this.maximumTrack.validate();
 				this.maximumTrackOriginalWidth = this.maximumTrack.width;
@@ -1575,8 +1575,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			}
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1962,7 +1962,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	private function adjustPage():Void
 	{
 		var page:Float = this._page;
-		if(page !== page) //isNaN
+		if(page != page) //isNaN
 		{
 			page = this._step;
 		}
@@ -2173,7 +2173,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		var page:Float = this._page;
-		if(page !== page) //isNaN
+		if(page != page) //isNaN
 		{
 			page = this._step;
 		}

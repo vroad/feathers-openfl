@@ -2062,8 +2062,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2106,7 +2106,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				newWidth = HELPER_POINT.x;
 			}
 			newWidth += this._paddingLeft + this._paddingRight;
-			if(newWidth !== newWidth) //isNaN
+			if(newWidth != newWidth) //isNaN
 			{
 				newWidth = this._originalSkinWidth;
 				if(newWidth != newWidth)
@@ -2208,7 +2208,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this.labelTextRenderer.text = this._label;
-		this.labelTextRenderer.visible = this._label !== null && this._label.length > 0;
+		this.labelTextRenderer.visible = this._label != null && this._label.length > 0;
 		this.labelTextRenderer.isEnabled = this._isEnabled;
 	}
 
@@ -2240,8 +2240,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			}
 		}
 		if(this.currentSkin &&
-			(this._originalSkinWidth !== this._originalSkinWidth || //isNaN
-			this._originalSkinHeight !== this._originalSkinHeight))
+			(this._originalSkinWidth != this._originalSkinWidth || //isNaN
+			this._originalSkinHeight != this._originalSkinHeight))
 		{
 			if(this.currentSkin is IValidating)
 			{
@@ -2398,7 +2398,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		if(forMeasurement)
 		{
 			calculatedWidth = this.explicitWidth;
-			if(calculatedWidth !== calculatedWidth) //isNaN
+			if(calculatedWidth != calculatedWidth) //isNaN
 			{
 				calculatedWidth = this._maxWidth;
 			}

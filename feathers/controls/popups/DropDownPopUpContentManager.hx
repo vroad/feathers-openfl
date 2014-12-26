@@ -66,7 +66,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	public function get_isOpen():Bool
 	{
-		return this.content !== null;
+		return this.content != null;
 	}
 
 	/**

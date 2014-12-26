@@ -585,8 +585,8 @@ class LayoutGroup extends FeathersControl
 		}
 		if(this.currentBackgroundSkin)
 		{
-			if(this.originalBackgroundWidth !== this.originalBackgroundWidth ||
-				this.originalBackgroundHeight !== this.originalBackgroundHeight) //isNaN
+			if(this.originalBackgroundWidth != this.originalBackgroundWidth ||
+				this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
 				if(this.currentBackgroundSkin is IValidating)
 				{
@@ -622,12 +622,12 @@ class LayoutGroup extends FeathersControl
 	private function handleManualLayout():Void
 	{
 		var maxX:Float = this.viewPortBounds.explicitWidth;
-		if(maxX !== maxX) //isNaN
+		if(maxX != maxX) //isNaN
 		{
 			maxX = 0;
 		}
 		var maxY:Float = this.viewPortBounds.explicitHeight;
-		if(maxY !== maxY) //isNaN
+		if(maxY != maxY) //isNaN
 		{
 			maxY = 0;
 		}

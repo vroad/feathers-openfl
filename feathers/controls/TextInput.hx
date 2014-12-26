@@ -1742,7 +1742,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.createTextEditor();
 		}
 
-		if(promptFactoryInvalid || (this._prompt !== null && !this.promptTextRenderer))
+		if(promptFactoryInvalid || (this._prompt != null && !this.promptTextRenderer))
 		{
 			this.createPrompt();
 		}
@@ -1827,8 +1827,8 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1850,7 +1850,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			typicalTextWidth = HELPER_POINT.x;
 			typicalTextHeight = HELPER_POINT.y;
 		}
-		if(this._prompt !== null)
+		if(this._prompt != null)
 		{
 			this.promptTextRenderer.setSize(NaN, NaN);
 			this.promptTextRenderer.measureText(HELPER_POINT);
@@ -1863,7 +1863,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		if(needsWidth)
 		{
 			newWidth = Math.max(this._originalSkinWidth, typicalTextWidth + this._paddingLeft + this._paddingRight);
-			if(newWidth !== newWidth) //isNaN
+			if(newWidth != newWidth) //isNaN
 			{
 				newWidth = 0;
 			}
@@ -1871,7 +1871,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		if(needsHeight)
 		{
 			newHeight = Math.max(this._originalSkinHeight, typicalTextHeight + this._paddingTop + this._paddingBottom);
-			if(newHeight !== newHeight) //isNaN
+			if(newHeight != newHeight) //isNaN
 			{
 				newHeight = 0;
 			}
@@ -2032,8 +2032,8 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			}
 		}
 		if(this.currentBackground &&
-			(this._originalSkinWidth !== this._originalSkinWidth || //isNaN
-				this._originalSkinHeight !== this._originalSkinHeight)) //isNaN
+			(this._originalSkinWidth != this._originalSkinWidth || //isNaN
+				this._originalSkinHeight != this._originalSkinHeight)) //isNaN
 		{
 			if(this.currentBackground is IValidating)
 			{

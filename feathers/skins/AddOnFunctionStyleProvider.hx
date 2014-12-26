@@ -91,7 +91,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 		{
 			this._originalStyleProvider.applyStyles(target);
 		}
-		if(this._addOnFunction !== null)
+		if(this._addOnFunction != null)
 		{
 			this._addOnFunction(target);
 		}

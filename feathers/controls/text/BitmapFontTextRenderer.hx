@@ -459,12 +459,12 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var font:BitmapFont = this._textFormat.font;
 		var formatSize:Float = this._textFormat.size;
 		var fontSizeScale:Float = formatSize / font.size;
-		if(fontSizeScale !== fontSizeScale) //isNaN
+		if(fontSizeScale != fontSizeScale) //isNaN
 		{
 			fontSizeScale = 1;
 		}
 		var baseline:Float = font.baseline;
-		if(baseline !== baseline) //isNaN
+		if(baseline != baseline) //isNaN
 		{
 			return font.lineHeight * fontSizeScale;
 		}
@@ -499,8 +499,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -524,13 +524,13 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}
 		var lineHeight:Float = font.lineHeight * scale;
 		var maxLineWidth:Float = this.explicitWidth;
-		if(maxLineWidth !== maxLineWidth) //isNaN
+		if(maxLineWidth != maxLineWidth) //isNaN
 		{
 			maxLineWidth = this._maxWidth;
 		}
@@ -695,7 +695,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}
@@ -1037,7 +1037,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}

@@ -819,7 +819,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 
 		if(!this._useVirtualLayout || this._hasVariableItemDimensions || this._distributeHeights ||
 			this._horizontalAlign != HORIZONTAL_ALIGN_JUSTIFY ||
-			explicitWidth !== explicitWidth) //isNaN
+			explicitWidth != explicitWidth) //isNaN
 		{
 			this.validateItems(items, explicitWidth - this._paddingLeft - this._paddingRight, explicitHeight);
 		}
@@ -876,7 +876,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedHeight !== cachedHeight) //isNaN
+					cachedHeight != cachedHeight) //isNaN
 				{
 					positionY += calculatedTypicalItemHeight + gap;
 				}
@@ -941,7 +941,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 		var totalWidth:Float = maxItemWidth + this._paddingLeft + this._paddingRight;
 		var availableWidth:Float = explicitWidth;
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			availableWidth = totalWidth;
 			if(availableWidth < minWidth)
@@ -957,7 +957,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 
 		var totalHeight:Float = positionY - this._gap + this._paddingBottom - boundsY;
 		var availableHeight:Float = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -1100,8 +1100,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -1137,7 +1137,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				for(var i:Int = 0; i < itemCount; i++)
 				{
 					var cachedHeight:Float = this._heightCache[i];
-					if(cachedHeight !== cachedHeight) //isNaN
+					if(cachedHeight != cachedHeight) //isNaN
 					{
 						positionY += calculatedTypicalItemHeight + this._gap;
 					}
@@ -1327,7 +1327,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				gap = this._lastGap;
 			}
 			var cachedHeight:Float = this._heightCache[i];
-			if(cachedHeight !== cachedHeight) //isNaN
+			if(cachedHeight != cachedHeight) //isNaN
 			{
 				var itemHeight:Float = calculatedTypicalItemHeight;
 			}
@@ -1462,7 +1462,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedHeight !== cachedHeight) //isNaN
+					cachedHeight != cachedHeight) //isNaN
 				{
 					lastHeight = calculatedTypicalItemHeight;
 				}
@@ -1576,7 +1576,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	private function calculateDistributedHeight(items:Array<DisplayObject>, explicitHeight:Float, minHeight:Float, maxHeight:Float):Float
 	{
 		var itemCount:Int = items.length;
-		if(explicitHeight !== explicitHeight) //isNaN
+		if(explicitHeight != explicitHeight) //isNaN
 		{
 			var maxItemHeight:Float = 0;
 			for(var i:Int = 0; i < itemCount; i++)
@@ -1673,7 +1673,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		{
 			totalPercentHeight = 100;
 		}
-		if(remainingHeight !== remainingHeight) //isNaN
+		if(remainingHeight != remainingHeight) //isNaN
 		{
 			remainingHeight = totalExplicitHeight + totalMinHeight;
 			if(remainingHeight < minHeight)

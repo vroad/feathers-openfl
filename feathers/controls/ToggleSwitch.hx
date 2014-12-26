@@ -1835,8 +1835,8 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		if(this.onTrackSkinOriginalWidth !== this.onTrackSkinOriginalWidth || //isNaN
-			this.onTrackSkinOriginalHeight !== this.onTrackSkinOriginalHeight) //isNaN
+		if(this.onTrackSkinOriginalWidth != this.onTrackSkinOriginalWidth || //isNaN
+			this.onTrackSkinOriginalHeight != this.onTrackSkinOriginalHeight) //isNaN
 		{
 			this.onTrack.validate();
 			this.onTrackSkinOriginalWidth = this.onTrack.width;
@@ -1844,8 +1844,8 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		}
 		if(this.offTrack)
 		{
-			if(this.offTrackSkinOriginalWidth !== this.offTrackSkinOriginalWidth || //isNaN
-				this.offTrackSkinOriginalHeight !== this.offTrackSkinOriginalHeight) //isNaN
+			if(this.offTrackSkinOriginalWidth != this.offTrackSkinOriginalWidth || //isNaN
+				this.offTrackSkinOriginalHeight != this.offTrackSkinOriginalHeight) //isNaN
 			{
 				this.offTrack.validate();
 				this.offTrackSkinOriginalWidth = this.offTrack.width;
@@ -1853,8 +1853,8 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			}
 		}
 
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

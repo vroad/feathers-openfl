@@ -676,8 +676,8 @@ class ProgressBar extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -710,11 +710,11 @@ class ProgressBar extends FeathersControl
 		}
 		if(this.currentBackground)
 		{
-			if(this._originalBackgroundWidth !== this._originalBackgroundWidth) //isNaN
+			if(this._originalBackgroundWidth != this._originalBackgroundWidth) //isNaN
 			{
 				this._originalBackgroundWidth = this.currentBackground.width;
 			}
-			if(this._originalBackgroundHeight !== this._originalBackgroundHeight) //isNaN
+			if(this._originalBackgroundHeight != this._originalBackgroundHeight) //isNaN
 			{
 				this._originalBackgroundHeight = this.currentBackground.height;
 			}
@@ -745,11 +745,11 @@ class ProgressBar extends FeathersControl
 		}
 		if(this.currentFill)
 		{
-			if(this._originalFillWidth !== this._originalFillWidth) //isNaN
+			if(this._originalFillWidth != this._originalFillWidth) //isNaN
 			{
 				this._originalFillWidth = this.currentFill.width;
 			}
-			if(this._originalFillHeight !== this._originalFillHeight) //isNaN
+			if(this._originalFillHeight != this._originalFillHeight) //isNaN
 			{
 				this._originalFillHeight = this.currentFill.height;
 			}

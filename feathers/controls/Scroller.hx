@@ -1184,7 +1184,7 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			//there isn't any recovery from this, so stop it early
 			throw new ArgumentError("horizontalScrollPosition cannot be NaN.");
@@ -1420,7 +1420,7 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			//there isn't any recovery from this, so stop it early
 			throw new ArgumentError("verticalScrollPosition cannot be NaN.");
@@ -1617,8 +1617,8 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		var valueIsNaN:Bool = value !== value; //isNaN
-		if(valueIsNaN && this.explicitPageWidth !== this.explicitPageWidth)
+		var valueIsNaN:Bool = value != value; //isNaN
+		if(valueIsNaN && this.explicitPageWidth != this.explicitPageWidth)
 		{
 			return;
 		}
@@ -1669,8 +1669,8 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		var valueIsNaN:Bool = value !== value; //isNaN
-		if(valueIsNaN && this.explicitPageHeight !== this.explicitPageHeight)
+		var valueIsNaN:Bool = value != value; //isNaN
+		if(valueIsNaN && this.explicitPageHeight != this.explicitPageHeight)
 		{
 			return;
 		}
@@ -2732,7 +2732,7 @@ class Scroller extends FeathersControl
 	 */
 	public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = NaN):Void
 	{
-		if(animationDuration !== animationDuration) //isNaN
+		if(animationDuration != animationDuration) //isNaN
 		{
 			if(this._useFixedThrowDuration)
 			{
@@ -2780,7 +2780,7 @@ class Scroller extends FeathersControl
 	 */
 	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = NaN):Void
 	{
-		if(animationDuration !== animationDuration) //isNaN
+		if(animationDuration != animationDuration) //isNaN
 		{
 			animationDuration = this._pageThrowDuration;
 		}
@@ -2887,8 +2887,8 @@ class Scroller extends FeathersControl
 			this.verticalScrollBar.validate();
 		}
 
-		var needsWidthOrHeight:Bool = this.explicitWidth !== this.explicitWidth ||
-			this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidthOrHeight:Bool = this.explicitWidth != this.explicitWidth ||
+			this.explicitHeight != this.explicitHeight; //isNaN
 		var oldMaxHorizontalScrollPosition:Float = this._maxHorizontalScrollPosition;
 		var oldMaxVerticalScrollPosition:Float = this._maxVerticalScrollPosition;
 		var loopCount:Int = 0;
@@ -2993,8 +2993,8 @@ class Scroller extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -3007,7 +3007,7 @@ class Scroller extends FeathersControl
 			if(this._measureViewPort)
 			{
 				newWidth = this._viewPort.visibleWidth;
-				if(newWidth !== newWidth) //isNaN
+				if(newWidth != newWidth) //isNaN
 				{
 					newWidth = this._viewPort.width;
 				}
@@ -3027,7 +3027,7 @@ class Scroller extends FeathersControl
 			if(this._measureViewPort)
 			{
 				newHeight = this._viewPort.visibleHeight;
-				if(newHeight !== newHeight) //isNaN
+				if(newHeight != newHeight) //isNaN
 				{
 					newHeight = this._viewPort.height;
 				}
@@ -3137,11 +3137,11 @@ class Scroller extends FeathersControl
 			//force it to the bottom
 			this.setRawChildIndexInternal(this.currentBackgroundSkin, 0);
 
-			if(this.originalBackgroundWidth !== this.originalBackgroundWidth) //isNaN
+			if(this.originalBackgroundWidth != this.originalBackgroundWidth) //isNaN
 			{
 				this.originalBackgroundWidth = this.currentBackgroundSkin.width;
 			}
-			if(this.originalBackgroundHeight !== this.originalBackgroundHeight) //isNaN
+			if(this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
 				this.originalBackgroundHeight = this.currentBackgroundSkin.height;
 			}
@@ -3251,7 +3251,7 @@ class Scroller extends FeathersControl
 		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
 		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
 		var needsWidthOrHeight:Bool = this.explicitWidth != this.explicitWidth ||
-			this.explicitHeight !== this.explicitHeight; //isNaN
+			this.explicitHeight != this.explicitHeight; //isNaN
 		if(!(this._measureViewPort && needsWidthOrHeight))
 		{
 			//if we didn't need to do any measurement, we would have skipped
@@ -3360,7 +3360,7 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshScrollSteps():Void
 	{
-		if(this.explicitHorizontalScrollStep !== this.explicitHorizontalScrollStep) //isNaN
+		if(this.explicitHorizontalScrollStep != this.explicitHorizontalScrollStep) //isNaN
 		{
 			if(this._viewPort)
 			{
@@ -3375,7 +3375,7 @@ class Scroller extends FeathersControl
 		{
 			this.actualHorizontalScrollStep = this.explicitHorizontalScrollStep;
 		}
-		if(this.explicitVerticalScrollStep !== this.explicitVerticalScrollStep) //isNaN
+		if(this.explicitVerticalScrollStep != this.explicitVerticalScrollStep) //isNaN
 		{
 			if(this._viewPort)
 			{
@@ -3399,11 +3399,11 @@ class Scroller extends FeathersControl
 	{
 		var visibleViewPortWidth:Float = this.actualWidth - (this._leftViewPortOffset + this._rightViewPortOffset);
 		var visibleViewPortHeight:Float = this.actualHeight - (this._topViewPortOffset + this._bottomViewPortOffset);
-		if(this.explicitPageWidth !== this.explicitPageWidth) //isNaN
+		if(this.explicitPageWidth != this.explicitPageWidth) //isNaN
 		{
 			this.actualPageWidth = visibleViewPortWidth;
 		}
-		if(this.explicitPageHeight !== this.explicitPageHeight) //isNaN
+		if(this.explicitPageHeight != this.explicitPageHeight) //isNaN
 		{
 			this.actualPageHeight = visibleViewPortHeight;
 		}
@@ -4155,7 +4155,7 @@ class Scroller extends FeathersControl
 		}
 
 		this._isDraggingHorizontally = false;
-		if(targetHorizontalScrollPosition !== targetHorizontalScrollPosition) //isNaN
+		if(targetHorizontalScrollPosition != targetHorizontalScrollPosition) //isNaN
 		{
 			this.completeScroll();
 		}
@@ -4181,7 +4181,7 @@ class Scroller extends FeathersControl
 		}
 
 		this._isDraggingVertically = false;
-		if(targetVerticalScrollPosition !== targetVerticalScrollPosition) //isNaN
+		if(targetVerticalScrollPosition != targetVerticalScrollPosition) //isNaN
 		{
 			this.completeScroll();
 		}
@@ -5090,7 +5090,7 @@ class Scroller extends FeathersControl
 				return;
 			}
 			var scrollStep:Float = this._verticalMouseWheelScrollStep;
-			if(scrollStep !== scrollStep) //isNaN
+			if(scrollStep != scrollStep) //isNaN
 			{
 				scrollStep = this.actualVerticalScrollStep;
 			}

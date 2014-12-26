@@ -107,8 +107,8 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var viewPortWidth:Float = explicitWidth;
 		var viewPortHeight:Float = explicitHeight;
 
-		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(needsWidth || needsHeight)
 		{
 			this.validateItems(items, true);

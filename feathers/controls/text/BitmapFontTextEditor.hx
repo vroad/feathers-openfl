@@ -751,7 +751,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			var font:BitmapFont = this.currentTextFormat.font;
 			var customSize:Float = this.currentTextFormat.size;
 			var scale:Float = customSize / font.size;
-			if(scale !== scale) //isNaN
+			if(scale != scale) //isNaN
 			{
 				scale = 1;
 			}
@@ -819,7 +819,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}
@@ -887,7 +887,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
 		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}
@@ -980,7 +980,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var scale:Float = customSize / font.size;
-		if(scale !== scale) //isNaN
+		if(scale != scale) //isNaN
 		{
 			scale = 1;
 		}

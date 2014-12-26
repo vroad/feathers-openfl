@@ -1201,11 +1201,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			//explicit dimensions aren't set.
 			//set this before buttonProperties is used because it might
 			//contain width or height changes.
-			if(this.explicitWidth !== this.explicitWidth) //isNaN
+			if(this.explicitWidth != this.explicitWidth) //isNaN
 			{
 				this.button.width = NaN;
 			}
-			if(this.explicitHeight !== this.explicitHeight) //isNaN
+			if(this.explicitHeight != this.explicitHeight) //isNaN
 			{
 				this.button.height = NaN;
 			}
@@ -1277,8 +1277,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1288,8 +1288,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		var buttonHeight:Float;
 		if(this._typicalItem)
 		{
-			if(this._typicalItemWidth !== this._typicalItemWidth || //isNaN
-				this._typicalItemHeight !== this._typicalItemHeight) //isNaN
+			if(this._typicalItemWidth != this._typicalItemWidth || //isNaN
+				this._typicalItemHeight != this._typicalItemHeight) //isNaN
 			{
 				var oldWidth:Float = this.button.width;
 				var oldHeight:Float = this.button.height;

@@ -81,12 +81,12 @@ class DeviceCapabilities
 	public static function isTablet(stage:Stage):Bool
 	{
 		var screenWidth:Float = screenPixelWidth;
-		if(screenWidth !== screenWidth) //isNaN
+		if(screenWidth != screenWidth) //isNaN
 		{
 			screenWidth = stage.fullScreenWidth;
 		}
 		var screenHeight:Float = screenPixelHeight;
-		if(screenHeight !== screenHeight) //isNaN
+		if(screenHeight != screenHeight) //isNaN
 		{
 			screenHeight = stage.fullScreenHeight;
 		}
@@ -118,7 +118,7 @@ class DeviceCapabilities
 	public static function screenInchesX(stage:Stage):Float
 	{
 		var screenWidth:Float = screenPixelWidth;
-		if(screenWidth !== screenWidth) //isNaN
+		if(screenWidth != screenWidth) //isNaN
 		{
 			screenWidth = stage.fullScreenWidth;
 		}
@@ -134,7 +134,7 @@ class DeviceCapabilities
 	public static function screenInchesY(stage:Stage):Float
 	{
 		var screenHeight:Float = screenPixelHeight;
-		if(screenHeight !== screenHeight) //isNaN
+		if(screenHeight != screenHeight) //isNaN
 		{
 			screenHeight = stage.fullScreenHeight;
 		}

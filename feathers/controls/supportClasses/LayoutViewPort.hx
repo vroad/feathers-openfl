@@ -34,7 +34,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -55,7 +55,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -69,7 +69,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	public function get_visibleWidth():Float
 	{
-		if(this._explicitVisibleWidth !== this._explicitVisibleWidth) //isNaN
+		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
 		{
 			return this._actualVisibleWidth;
 		}
@@ -79,7 +79,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	public function set_visibleWidth(value:Float):Void
 	{
 		if(this._explicitVisibleWidth == value ||
-			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
+			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -100,7 +100,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -121,7 +121,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -135,7 +135,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	public function get_visibleHeight():Float
 	{
-		if(this._explicitVisibleHeight !== this._explicitVisibleHeight) //isNaN
+		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
 		{
 			return this._actualVisibleHeight;
 		}
@@ -145,7 +145,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	public function set_visibleHeight(value:Float):Void
 	{
 		if(this._explicitVisibleHeight == value ||
-			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
+			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
 		{
 			return;
 		}
@@ -265,13 +265,13 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		var minY:Float = 0;
 		var explicitViewPortWidth:Float = this.viewPortBounds.explicitWidth;
 		var maxX:Float = explicitViewPortWidth;
-		if(maxX !== maxX) //isNaN
+		if(maxX != maxX) //isNaN
 		{
 			maxX = 0;
 		}
 		var explicitViewPortHeight:Float = this.viewPortBounds.explicitHeight;
 		var maxY:Float = explicitViewPortHeight;
-		if(maxY !== maxY) //isNaN
+		if(maxY != maxY) //isNaN
 		{
 			maxY = 0;
 		}
@@ -334,7 +334,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			calculatedHeight = maxHeight;
 		}
 		this._ignoreChildChanges = false;
-		if(explicitViewPortWidth !== explicitViewPortWidth) //isNaN
+		if(explicitViewPortWidth != explicitViewPortWidth) //isNaN
 		{
 			this._actualVisibleWidth = calculatedWidth;
 		}
@@ -342,7 +342,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			this._actualVisibleWidth = explicitViewPortWidth;
 		}
-		if(explicitViewPortHeight !== explicitViewPortHeight) //isNaN
+		if(explicitViewPortHeight != explicitViewPortHeight) //isNaN
 		{
 			this._actualVisibleHeight = calculatedHeight;
 		}

@@ -2097,8 +2097,8 @@ class Drawers extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2464,7 +2464,7 @@ class Drawers extends FeathersControl
 		this._topDrawer.visible = true;
 		var targetPosition:Float = this._isTopDrawerOpen ? this._topDrawer.height : 0;
 		var duration:Float = this.pendingToggleDuration;
-		if(duration !== duration) //isNaN
+		if(duration != duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
 		}
@@ -2515,7 +2515,7 @@ class Drawers extends FeathersControl
 			targetPosition += this._leftDrawer.width;
 		}
 		var duration:Float = this.pendingToggleDuration;
-		if(duration !== duration) //isNaN
+		if(duration != duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
 		}
@@ -2566,7 +2566,7 @@ class Drawers extends FeathersControl
 			targetPosition += this._topDrawer.height;
 		}
 		var duration:Float = this.pendingToggleDuration;
-		if(duration !== duration) //isNaN
+		if(duration != duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
 		}
@@ -2609,7 +2609,7 @@ class Drawers extends FeathersControl
 		this._leftDrawer.visible = true;
 		var targetPosition:Float = this._isLeftDrawerOpen ? this._leftDrawer.width : 0;
 		var duration:Float = this.pendingToggleDuration;
-		if(duration !== duration) //isNaN
+		if(duration != duration) //isNaN
 		{
 			duration = this._openOrCloseDuration;
 		}
