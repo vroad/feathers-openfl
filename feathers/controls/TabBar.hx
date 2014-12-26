@@ -274,17 +274,17 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var activeTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var activeTabs:Array<ToggleButton> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var inactiveTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var inactiveTabs:Array<ToggleButton> = new Array();
 
 	/**
 	 * @private

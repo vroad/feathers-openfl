@@ -41,7 +41,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
 	inline private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_VECTOR:Vector.<int> = new <int>[];
+	inline private static var HELPER_VECTOR:Array<int> = new Array();
 
 	public function GroupedListDataViewPort()
 	{
@@ -252,14 +252,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return itemRendererHeight;
 	}
 
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Array<DisplayObject> = new Array();
 
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IGroupedListItemRenderer;
 
-	private var _unrenderedItems:Vector.<int> = new <int>[];
-	private var _inactiveItemRenderers:Vector.<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
-	private var _activeItemRenderers:Vector.<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
+	private var _unrenderedItems:Array<int> = new Array();
+	private var _inactiveItemRenderers:Array<IGroupedListItemRenderer> = new Array();
+	private var _activeItemRenderers:Array<IGroupedListItemRenderer> = new Array();
 	private var _itemRendererMap:Dictionary = new Dictionary(true);
 
 	private var _unrenderedFirstItems:Vector.<int>;
@@ -277,18 +277,18 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	private var _activeSingleItemRenderers:Vector.<IGroupedListItemRenderer>;
 	private var _singleItemRendererMap:Dictionary;
 
-	private var _unrenderedHeaders:Vector.<int> = new <int>[];
-	private var _inactiveHeaderRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
-	private var _activeHeaderRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _unrenderedHeaders:Array<int> = new Array();
+	private var _inactiveHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
+	private var _activeHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _headerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedFooters:Vector.<int> = new <int>[];
-	private var _inactiveFooterRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
-	private var _activeFooterRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _unrenderedFooters:Array<int> = new Array();
+	private var _inactiveFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
+	private var _activeFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _footerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _headerIndices:Vector.<int> = new <int>[];
-	private var _footerIndices:Vector.<int> = new <int>[];
+	private var _headerIndices:Array<int> = new Array();
+	private var _footerIndices:Array<int> = new Array();
 
 	private var _isScrolling:Bool = false;
 

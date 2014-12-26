@@ -71,7 +71,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	private var _stack:Vector.<String> = new <String>[];
+	private var _stack:Array<String> = new Array();
 
 	/**
 	 * @private

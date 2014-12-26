@@ -727,7 +727,7 @@ class List extends Scroller implements IFocusDisplayObject
 			this.selectedIndex = -1;
 			return;
 		}
-		var indices:Vector.<int> = new <int>[];
+		var indices:Array<int> = new Array();
 		var itemCount:Int = value.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{

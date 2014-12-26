@@ -184,7 +184,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _initializerSuperTypes:Vector.<Class> = new <Class>[];
+	private var _initializerSuperTypes:Array<Class> = new Array();
 
 	/**
 	 * @private

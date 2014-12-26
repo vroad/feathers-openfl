@@ -292,17 +292,17 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var activeButtons:Vector.<Button> = new <Button>[];
+	private var activeButtons:Array<Button> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var inactiveButtons:Vector.<Button> = new <Button>[];
+	private var inactiveButtons:Array<Button> = new Array();
 
 	/**
 	 * @private

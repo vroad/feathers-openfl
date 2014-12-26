@@ -150,7 +150,7 @@ class Main extends Sprite
 			this.layout();
 			return;
 		}
-		var items:Vector.<GalleryItem> = new <GalleryItem>[];
+		var items:Array<GalleryItem> = new Array();
 		var photosList:XMLList = result.photos.photo;
 		var photoCount:Int = photosList.length();
 		for(var i:Int = 0; i < photoCount; i++)

@@ -52,7 +52,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	private var _onChangeCallbacks:Vector.<Function> = new <Function>[];
+	private var _onChangeCallbacks:Array<Function> = new Array();
 
 	/**
 	 * @private

@@ -42,7 +42,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
 	inline private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_VECTOR:Vector.<int> = new <int>[];
+	inline private static var HELPER_VECTOR:Array<int> = new Array();
 
 	public function ListDataViewPort()
 	{
@@ -198,9 +198,9 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IListItemRenderer;
 	private var _unrenderedData:Array = [];
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
-	private var _inactiveRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
-	private var _activeRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
+	private var _layoutItems:Array<DisplayObject> = new Array();
+	private var _inactiveRenderers:Array<IListItemRenderer> = new Array();
+	private var _activeRenderers:Array<IListItemRenderer> = new Array();
 	private var _rendererMap:Dictionary = new Dictionary(true);
 
 	private var _layoutIndexOffset:Int = 0;
@@ -1094,7 +1094,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<int> = new <int>[];
+		var newIndices:Array<int> = new Array();
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
@@ -1122,7 +1122,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<int> = new <int>[];
+		var newIndices:Array<int> = new Array();
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{

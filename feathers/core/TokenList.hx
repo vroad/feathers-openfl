@@ -49,7 +49,7 @@ class TokenList extends EventDispatcher
 	 * @private
 	 * Storage for the tokens.
 	 */
-	private var names:Vector.<String> = new <String>[];
+	private var names:Array<String> = new Array();
 
 	/**
 	 * The tokens formatted with space delimiters.

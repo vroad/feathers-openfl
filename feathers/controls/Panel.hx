@@ -612,7 +612,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _focusExtrasBefore:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _focusExtrasBefore:Array<DisplayObject> = new Array();
 
 	/**
 	 * @inheritDoc
@@ -625,7 +625,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _focusExtrasAfter:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _focusExtrasAfter:Array<DisplayObject> = new Array();
 
 	/**
 	 * @inheritDoc

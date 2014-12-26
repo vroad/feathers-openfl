@@ -66,8 +66,8 @@ public final class ValidationQueue implements IAnimatable
 		return this._isValidating;
 	}
 
-	private var _delayedQueue:Vector.<IValidating> = new <IValidating>[];
-	private var _queue:Vector.<IValidating> = new <IValidating>[];
+	private var _delayedQueue:Array<IValidating> = new Array();
+	private var _queue:Array<IValidating> = new Array();
 
 	/**
 	 * Disposes the validation queue.

@@ -26,7 +26,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_TOUCHES_VECTOR:Vector.<Touch> = new <Touch>[];
+	inline private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
 
 	/**
 	 * @private

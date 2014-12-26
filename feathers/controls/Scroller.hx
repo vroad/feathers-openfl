@@ -559,12 +559,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousVelocityX:Vector.<Number> = new <Number>[];
+	private var _previousVelocityX:Array<Number> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var _previousVelocityY:Vector.<Number> = new <Number>[];
+	private var _previousVelocityY:Array<Number> = new Array();
 
 	/**
 	 * @private

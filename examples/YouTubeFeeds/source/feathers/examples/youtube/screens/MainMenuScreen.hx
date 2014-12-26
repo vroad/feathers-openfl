@@ -133,7 +133,7 @@ class MainMenuScreen extends PanelScreen
 		var deprecatedElement:QName = new QName(yt, "deprecated");
 		var browsableElement:QName = new QName(yt, "browsable");
 
-		var items:Vector.<VideoFeed> = new <VideoFeed>[];
+		var items:Array<VideoFeed> = new Array();
 		var categories:XMLList = feed.atom::category;
 		var categoryCount:Int = categories.length();
 		for(var i:Int = 0; i < categoryCount; i++)

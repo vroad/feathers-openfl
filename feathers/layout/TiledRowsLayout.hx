@@ -190,7 +190,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Array<DisplayObject> = new Array();
 
 	/**
 	 * Quickly sets both <code>horizontalGap</code> and <code>verticalGap</code>

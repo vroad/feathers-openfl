@@ -98,7 +98,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private

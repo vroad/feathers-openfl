@@ -45,7 +45,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private var _popUps:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _popUps:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
@@ -60,7 +60,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private var _centeredPopUps:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _centeredPopUps:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private

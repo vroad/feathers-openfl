@@ -74,7 +74,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static var HELPER_TEXT_LINES:Vector.<TextLine> = new <TextLine>[];
+	private static var HELPER_TEXT_LINES:Array<TextLine> = new Array();
 
 	/**
 	 * @private
@@ -182,7 +182,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _textLines:Vector.<TextLine> = new <TextLine>[];
+	private var _textLines:Array<TextLine> = new Array();
 
 	/**
 	 * @private
@@ -192,7 +192,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _measurementTextLines:Vector.<TextLine> = new <TextLine>[];
+	private var _measurementTextLines:Array<TextLine> = new Array();
 
 	/**
 	 * @private

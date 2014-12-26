@@ -93,7 +93,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * The items added to the group.
 	 */
-	private var items:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var items:Array<DisplayObject> = new Array();
 
 	/**
 	 * The view port bounds result object passed to the layout. Its values

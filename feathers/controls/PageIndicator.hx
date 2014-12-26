@@ -188,17 +188,17 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var cache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var cache:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var unselectedSymbols:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var unselectedSymbols:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var symbols:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var symbols:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private

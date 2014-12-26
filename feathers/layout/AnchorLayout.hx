@@ -75,12 +75,12 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	private var _helperVector1:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _helperVector1:Array<DisplayObject> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var _helperVector2:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _helperVector2:Array<DisplayObject> = new Array();
 
 	/**
 	 * @inheritDoc

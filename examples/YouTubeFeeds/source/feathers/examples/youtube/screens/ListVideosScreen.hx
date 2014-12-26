@@ -175,7 +175,7 @@ class ListVideosScreen extends PanelScreen
 		var atom:Namespace = feed.namespace();
 		var media:Namespace = feed.namespace("media");
 
-		var items:Vector.<VideoDetails> = new <VideoDetails>[];
+		var items:Array<VideoDetails> = new Array();
 		var entries:XMLList = feed.atom::entry;
 		var entryCount:Int = entries.length();
 		for(var i:Int = 0; i < entryCount; i++)
