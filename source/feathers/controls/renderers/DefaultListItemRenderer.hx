@@ -257,4 +257,3 @@ public class DefaultListItemRenderer extends BaseDefaultItemRenderer implements 
 		super.dispose();
 	}
 }
-}

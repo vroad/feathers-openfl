@@ -233,4 +233,3 @@ public final dynamic class PropertyProxy extends Proxy
 		this.fireOnChangeCallback(proxy._subProxyName);
 	}
 }
-}

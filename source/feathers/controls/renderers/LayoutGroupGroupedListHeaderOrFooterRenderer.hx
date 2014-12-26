@@ -278,4 +278,3 @@ public class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup im
 	}
 
 }
-}

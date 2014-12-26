@@ -84,4 +84,3 @@ public class TabBarScreen extends PanelScreen
 		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex.toString();
 	}
 }
-}

@@ -1593,4 +1593,3 @@ public class TextFieldTextRenderer extends FeathersControl implements ITextRende
 		this.refreshSnapshot();
 	}
 }
-}

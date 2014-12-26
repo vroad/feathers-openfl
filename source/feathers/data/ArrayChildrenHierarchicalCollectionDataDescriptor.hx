@@ -202,4 +202,3 @@ public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHiera
 		return false;
 	}
 }
-}

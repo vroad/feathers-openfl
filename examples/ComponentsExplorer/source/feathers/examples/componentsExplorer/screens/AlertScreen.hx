@@ -87,4 +87,3 @@ public class AlertScreen extends PanelScreen
 		}
 	}
 }
-}

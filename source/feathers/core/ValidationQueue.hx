@@ -181,4 +181,3 @@ public final class ValidationQueue implements IAnimatable
 		return 0;
 	}
 }
-}

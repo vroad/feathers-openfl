@@ -12,4 +12,3 @@ public class GroupedListSettings
 	public var hasElasticEdges:Boolean = true;
 	public var style:String = STYLE_NORMAL;
 }
-}

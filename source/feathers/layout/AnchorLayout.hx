@@ -1092,4 +1092,3 @@ public class AnchorLayout extends EventDispatcher implements ILayout
 		}
 	}
 }
-}

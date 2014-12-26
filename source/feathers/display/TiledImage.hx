@@ -593,4 +593,3 @@ public class TiledImage extends Sprite implements IValidating
 	}
 
 }
-}

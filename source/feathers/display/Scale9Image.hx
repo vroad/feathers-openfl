@@ -689,4 +689,3 @@ public class Scale9Image extends Sprite implements IValidating
 		}
 	}
 }
-}

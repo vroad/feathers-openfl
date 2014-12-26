@@ -125,4 +125,3 @@ public class XMLListListCollectionDataDescriptor implements IListCollectionDataD
 		}
 	}
 }
-}

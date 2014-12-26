@@ -33,4 +33,3 @@ public function clamp(value:Number, minimum:Number, maximum:Number):Number
 	}
 	return value;
 }
-}

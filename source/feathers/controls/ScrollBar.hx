@@ -2760,4 +2760,3 @@ public class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		this.currentRepeatAction();
 	}
 }
-}

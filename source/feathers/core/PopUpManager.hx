@@ -237,4 +237,3 @@ public class PopUpManager
 		PopUpManager.forStarling(Starling.current).centerPopUp(popUp);
 	}
 }
-}

@@ -93,4 +93,3 @@ public class ImageStateValueSelector extends StateWithToggleValueSelector
 		return image;
 	}
 }
-}

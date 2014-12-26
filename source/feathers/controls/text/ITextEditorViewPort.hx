@@ -18,4 +18,3 @@ import feathers.core.ITextEditor;
 public interface ITextEditorViewPort extends ITextEditor, IViewPort
 {
 }
-}

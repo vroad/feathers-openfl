@@ -62,4 +62,3 @@ public class DropTarget extends LayoutGroup implements IDropTarget
 		this._background.color = DEFAULT_COLOR;
 	}
 }
-}

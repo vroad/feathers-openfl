@@ -61,4 +61,3 @@ public interface IPopUpManager
 	 */
 	function centerPopUp(popUp:DisplayObject):void;
 }
-}

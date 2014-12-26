@@ -249,4 +249,3 @@ public class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSe
 		return this._handlers[type] as Function;
 	}
 }
-}

@@ -293,4 +293,3 @@ public class Main extends Drawers
 		this._navigator.showScreen(screenName);
 	}
 }
-}

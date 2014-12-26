@@ -19,4 +19,3 @@ public function matrixToScaleY(matrix:Matrix):Number
 	var d:Number = matrix.d;
 	return Math.sqrt(c * c + d * d);
 }
-}

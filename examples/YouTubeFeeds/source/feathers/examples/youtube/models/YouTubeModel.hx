@@ -5,4 +5,3 @@ public class YouTubeModel
 	public var selectedVideo:VideoDetails;
 	public var cachedLists:Object = {};
 }
-}

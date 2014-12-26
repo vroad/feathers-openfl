@@ -49,4 +49,3 @@ public interface IVariableVirtualLayout extends IVirtualLayout
 	 */
 	function removeFromVariableVirtualCacheAtIndex(index:int):void;
 }
-}

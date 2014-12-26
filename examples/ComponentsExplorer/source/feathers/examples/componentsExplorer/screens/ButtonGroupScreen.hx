@@ -78,4 +78,3 @@ public class ButtonGroupScreen extends PanelScreen
 		trace(button.label + " triggered.");
 	}
 }
-}

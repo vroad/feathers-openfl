@@ -305,4 +305,3 @@ public class ItemRendererSettingsScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

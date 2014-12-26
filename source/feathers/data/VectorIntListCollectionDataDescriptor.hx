@@ -97,4 +97,3 @@ public class VectorIntListCollectionDataDescriptor implements IListCollectionDat
 		}
 	}
 }
-}

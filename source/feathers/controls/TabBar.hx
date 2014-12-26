@@ -1866,4 +1866,3 @@ public class TabBar extends FeathersControl
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 }
-}

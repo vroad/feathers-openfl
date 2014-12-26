@@ -124,4 +124,3 @@ public class SliderSettingsScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

@@ -90,4 +90,3 @@ public class AnchorLayoutScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

@@ -100,4 +100,3 @@ public class ProgressBarScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

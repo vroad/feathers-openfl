@@ -105,4 +105,3 @@ public class DragDropEvent extends Event
 	 */
 	public var localY:Number;
 }
-}

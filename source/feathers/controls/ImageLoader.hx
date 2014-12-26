@@ -1656,4 +1656,3 @@ public class ImageLoader extends FeathersControl
 		this.dispatchEventWith(FeathersEventType.ERROR, false, event);
 	}
 }
-}

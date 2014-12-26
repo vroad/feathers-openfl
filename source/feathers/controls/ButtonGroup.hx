@@ -1748,4 +1748,3 @@ public class ButtonGroup extends FeathersControl
 		}
 	}
 }
-}

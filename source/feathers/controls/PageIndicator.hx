@@ -965,4 +965,3 @@ public class PageIndicator extends FeathersControl
 	}
 
 }
-}

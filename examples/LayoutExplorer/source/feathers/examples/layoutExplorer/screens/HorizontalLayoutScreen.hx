@@ -108,4 +108,3 @@ public class HorizontalLayoutScreen extends PanelScreen
 		this.revealScrollBars();
 	}
 }
-}

@@ -24,4 +24,3 @@ public class ItemRendererSettings
 	public var horizontalAlign:String = Button.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = Button.VERTICAL_ALIGN_MIDDLE;
 }
-}

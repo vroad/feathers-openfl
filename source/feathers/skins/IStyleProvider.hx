@@ -21,4 +21,3 @@ public interface IStyleProvider
 	 */
 	function applyStyles(target:IFeathersControl):void;
 }
-}

@@ -99,4 +99,3 @@ public class TodoItemRenderer extends DefaultListItemRenderer
 		List(this._owner).dataProvider.removeItemAt(this._index);
 	}
 }
-}

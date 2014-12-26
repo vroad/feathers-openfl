@@ -64,4 +64,3 @@ public interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	 */
 	function set owner(value:GroupedList):void;
 }
-}

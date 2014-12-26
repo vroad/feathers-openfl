@@ -1927,4 +1927,3 @@ public class StageTextTextEditor extends FeathersControl implements IMultilineTe
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}
 }
-}

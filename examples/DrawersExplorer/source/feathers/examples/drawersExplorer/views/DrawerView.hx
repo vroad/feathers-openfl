@@ -58,4 +58,3 @@ public class DrawerView extends ScrollContainer
 	}
 
 }
-}

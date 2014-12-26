@@ -131,4 +131,3 @@ public class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		screen.innerLayout = innerLayout;
 	}
 }
-}

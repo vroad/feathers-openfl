@@ -21,4 +21,3 @@ public function roundToPrecision(number:Number, precision:int = 0):Number
 	var decimalPlaces:Number = Math.pow(10, precision);
 	return Math.round(decimalPlaces * number) / decimalPlaces;
 }
-}

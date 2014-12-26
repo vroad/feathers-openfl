@@ -299,4 +299,3 @@ public class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements I
 	}
 
 }
-}

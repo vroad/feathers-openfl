@@ -10,4 +10,3 @@ public class TodoItem
 	public var description:String;
 	public var isCompleted:Boolean;
 }
-}

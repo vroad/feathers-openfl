@@ -150,4 +150,3 @@ public class Gallery extends Sprite
 	}
 
 }
-}

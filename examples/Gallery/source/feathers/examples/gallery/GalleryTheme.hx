@@ -28,4 +28,3 @@ public class GalleryTheme extends MetalWorksMobileTheme
 		list.scrollBarDisplayMode = List.SCROLL_BAR_DISPLAY_MODE_NONE;
 	}
 }
-}

@@ -761,4 +761,3 @@ public class LayoutGroup extends FeathersControl
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 }
-}

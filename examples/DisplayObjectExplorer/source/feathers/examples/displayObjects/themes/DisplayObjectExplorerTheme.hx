@@ -73,4 +73,3 @@ public class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 		screen.padding = 30 * this.scale;
 	}
 }
-}

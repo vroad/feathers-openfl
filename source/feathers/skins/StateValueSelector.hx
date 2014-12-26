@@ -78,4 +78,3 @@ public class StateValueSelector
 		return value;
 	}
 }
-}

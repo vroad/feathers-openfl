@@ -102,4 +102,3 @@ public class ContentView extends ScrollContainer
 		this.dispatchEventWith(TOGGLE_LEFT_DRAWER);
 	}
 }
-}

@@ -109,4 +109,3 @@ public class TiledColumnsLayoutScreen extends PanelScreen
 		this.revealScrollBars();
 	}
 }
-}

@@ -735,4 +735,3 @@ public class StationListItemRenderer extends FeathersControl implements IListIte
 		this._owner.selectedIndex = -1;
 	}
 }
-}

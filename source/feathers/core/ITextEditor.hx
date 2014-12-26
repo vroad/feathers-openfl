@@ -246,4 +246,3 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 */
 	function measureText(result:Point = null):Point;
 }
-}

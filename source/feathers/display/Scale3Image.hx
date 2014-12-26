@@ -662,4 +662,3 @@ public class Scale3Image extends Sprite implements IValidating
 		}
 	}
 }
-}

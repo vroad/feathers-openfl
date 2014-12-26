@@ -84,4 +84,3 @@ public interface ILayout extends IFeathersEventDispatcher
 	 */
 	function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
 }
-}

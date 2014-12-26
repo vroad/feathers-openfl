@@ -2418,4 +2418,3 @@ public class TextInput extends FeathersControl implements IFocusDisplayObject, I
 		}
 	}
 }
-}

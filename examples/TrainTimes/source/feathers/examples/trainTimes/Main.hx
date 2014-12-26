@@ -41,4 +41,3 @@ public class Main extends ScreenNavigator
 		this.showScreen(STATION_SCREEN);
 	}
 }
-}

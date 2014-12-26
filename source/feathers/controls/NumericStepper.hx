@@ -1836,4 +1836,3 @@ public class NumericStepper extends FeathersControl implements IRange, IFocusDis
 		this.currentRepeatAction();
 	}
 }
-}

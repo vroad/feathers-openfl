@@ -328,4 +328,3 @@ public class DefaultPopUpManager implements IPopUpManager
 		}
 	}
 }
-}

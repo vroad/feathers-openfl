@@ -213,4 +213,3 @@ public class Main extends Sprite
 		this.layout();
 	}
 }
-}

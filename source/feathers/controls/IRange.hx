@@ -114,4 +114,3 @@ public interface IRange extends IFeathersControl
 	 */
 	function set step(value:Number):void;
 }
-}

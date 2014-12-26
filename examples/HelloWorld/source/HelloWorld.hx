@@ -149,4 +149,3 @@ public class HelloWorld extends Sprite
 	}
 
 }
-}

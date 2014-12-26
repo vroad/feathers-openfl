@@ -12,4 +12,3 @@ public class GalleryItem
 	public var url:String;
 	public var thumbURL:String;
 }
-}

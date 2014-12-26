@@ -406,4 +406,3 @@ public class GalleryItemRenderer extends FeathersControl implements IListItemRen
 	}
 
 }
-}

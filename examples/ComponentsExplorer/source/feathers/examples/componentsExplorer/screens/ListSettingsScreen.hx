@@ -118,4 +118,3 @@ public class ListSettingsScreen extends PanelScreen
 		this.settings.hasElasticEdges = this._hasElasticEdgesToggle.isSelected;
 	}
 }
-}

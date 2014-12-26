@@ -277,4 +277,3 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this.settings.paddingLeft = this._paddingLeftStepper.value;
 	}
 }
-}

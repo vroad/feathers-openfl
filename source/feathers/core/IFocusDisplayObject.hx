@@ -164,4 +164,3 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 */
 	function hideFocus():void;
 }
-}

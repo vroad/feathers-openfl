@@ -16,4 +16,3 @@ public class HorizontalLayoutSettings
 	public var paddingBottom:Number = 0;
 	public var paddingLeft:Number = 0;
 }
-}

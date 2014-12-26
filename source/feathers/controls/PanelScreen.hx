@@ -345,4 +345,3 @@ public class PanelScreen extends Panel implements IScreen
 		}
 	}
 }
-}

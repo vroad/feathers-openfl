@@ -2459,4 +2459,3 @@ public class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisp
 		this._toggleTween = null;
 	}
 }
-}

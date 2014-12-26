@@ -151,4 +151,3 @@ public class StyleProviderRegistry
 		throw ArgumentError("Class " + type + " must have a " + GLOBAL_STYLE_PROVIDER_PROPERTY_NAME + " static property to support themes.");
 	}
 }
-}

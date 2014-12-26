@@ -20,4 +20,3 @@ public function calculateScaleRatioToFill(originalWidth:Number, originalHeight:N
 	}
 	return heightRatio;
 }
-}

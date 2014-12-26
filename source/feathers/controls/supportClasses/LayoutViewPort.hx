@@ -358,4 +358,3 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this._layoutResult.viewPortHeight = this._actualVisibleHeight;
 	}
 }
-}

@@ -152,4 +152,3 @@ public class DrawersExplorer extends Sprite
 	}
 
 }
-}

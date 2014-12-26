@@ -66,4 +66,3 @@ public interface IHierarchicalCollectionDataDescriptor
 	 */
 	function getItemLocation(data:Object, item:Object, result:Vector.<int> = null, ...rest:Array):Vector.<int>;
 }
-}

@@ -1548,4 +1548,3 @@ public class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl im
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 }
-}

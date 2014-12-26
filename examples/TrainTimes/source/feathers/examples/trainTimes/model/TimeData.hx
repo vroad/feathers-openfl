@@ -12,4 +12,3 @@ public class TimeData
 	public var departureTime:Date;
 	public var arrivalTime:Date;
 }
-}

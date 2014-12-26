@@ -20,4 +20,3 @@ public class EmbeddedAssets
 		SKULL_ICON_LIGHT = Texture.fromBitmap(new SKULL_ICON_LIGHT_EMBEDDED());
 	}
 }
-}

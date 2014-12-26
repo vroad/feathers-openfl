@@ -1350,4 +1350,3 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 		this.replaceSelectedText(pastedText);
 	}
 }
-}

@@ -25,4 +25,3 @@ public function roundToNearest(number:Number, nearest:Number = 1):Number
 	var roundedNumber:Number = Math.round(roundToPrecision(number / nearest, 10)) * nearest;
 	return roundToPrecision(roundedNumber, 10);
 }
-}

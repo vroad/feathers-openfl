@@ -248,4 +248,3 @@ public class Screen extends LayoutGroup implements IScreen
 		}
 	}
 }
-}

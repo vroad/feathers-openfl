@@ -2247,4 +2247,3 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 		this.currentRepeatAction();
 	}
 }
-}

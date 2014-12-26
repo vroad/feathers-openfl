@@ -2467,4 +2467,3 @@ public class GroupedList extends Scroller implements IFocusDisplayObject
 		this.setSelectedLocation(this.dataViewPort.selectedGroupIndex, this.dataViewPort.selectedItemIndex);
 	}
 }
-}

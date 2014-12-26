@@ -93,4 +93,3 @@ public class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 		return image;
 	}
 }
-}

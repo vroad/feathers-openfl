@@ -89,4 +89,3 @@ public interface IScrollContainer extends IFeathersControl
 	 */
 	function sortRawChildren(compareFunction:Function):void;
 }
-}

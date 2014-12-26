@@ -34,4 +34,3 @@ import feathers.core.IFeathersEventDispatcher;
 public interface ILayoutData extends IFeathersEventDispatcher
 {
 }
-}

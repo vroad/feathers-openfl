@@ -107,4 +107,3 @@ public class PickerListScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

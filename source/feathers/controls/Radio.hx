@@ -156,4 +156,3 @@ public class Radio extends ToggleButton implements IGroupedToggle
 		}
 	}
 }
-}

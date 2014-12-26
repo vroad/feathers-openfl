@@ -494,4 +494,3 @@ public class AnchorLayoutData extends EventDispatcher implements ILayoutData
 		this.dispatchEventWith(Event.CHANGE);
 	}
 }
-}

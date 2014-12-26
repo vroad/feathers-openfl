@@ -40,4 +40,3 @@ public interface IFocusExtras
 	 */
 	function get focusExtrasAfter():Vector.<DisplayObject>;
 }
-}

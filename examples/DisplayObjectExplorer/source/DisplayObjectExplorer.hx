@@ -149,4 +149,3 @@ public class DisplayObjectExplorer extends Sprite
 		this._starling.start();
 	}
 }
-}

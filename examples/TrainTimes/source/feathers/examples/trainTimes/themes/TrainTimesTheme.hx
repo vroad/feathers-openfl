@@ -430,4 +430,3 @@ public class TrainTimesTheme extends DisplayListWatcher
 		this.primaryBackground = null;
 	}
 }
-}

@@ -1364,4 +1364,3 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		this.currentRepeatAction();
 	}
 }
-}

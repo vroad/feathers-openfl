@@ -63,4 +63,3 @@ public interface IFeathersEventDispatcher
 	 */
 	function hasEventListener(type:String):Boolean;
 }
-}

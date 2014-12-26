@@ -95,4 +95,3 @@ public class NumericStepperScreen extends PanelScreen
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}
 }
-}

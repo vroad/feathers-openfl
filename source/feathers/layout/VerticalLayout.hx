@@ -1736,4 +1736,3 @@ public class VerticalLayout extends EventDispatcher implements IVariableVirtualL
 		this._discoveredItemsCache.length = 0;
 	}
 }
-}

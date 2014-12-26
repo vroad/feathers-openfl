@@ -1779,4 +1779,3 @@ public class TextBlockTextRenderer extends FeathersControl implements ITextRende
 		}
 	}
 }
-}

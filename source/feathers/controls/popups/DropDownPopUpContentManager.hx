@@ -331,4 +331,3 @@ public class DropDownPopUpContentManager extends EventDispatcher implements IPop
 		this.close();
 	}
 }
-}

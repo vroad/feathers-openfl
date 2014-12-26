@@ -1153,4 +1153,3 @@ public class Panel extends ScrollContainer implements IFocusExtras
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 }
-}

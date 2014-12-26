@@ -4411,4 +4411,3 @@ public class BaseDefaultItemRenderer extends ToggleButton
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 }
-}

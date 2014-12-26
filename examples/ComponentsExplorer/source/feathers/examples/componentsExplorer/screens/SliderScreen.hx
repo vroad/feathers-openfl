@@ -110,4 +110,3 @@ public class SliderScreen extends PanelScreen
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}
 }
-}

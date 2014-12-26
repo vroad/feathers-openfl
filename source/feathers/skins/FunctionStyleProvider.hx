@@ -71,4 +71,3 @@ public class FunctionStyleProvider implements IStyleProvider
 		this._styleFunction(target);
 	}
 }
-}

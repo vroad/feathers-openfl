@@ -184,4 +184,3 @@ public class GroupedListScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 }
-}

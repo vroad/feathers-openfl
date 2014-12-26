@@ -101,4 +101,3 @@ public class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 		this.dispatchEventWith(Event.CHANGE);
 	}
 }
-}

@@ -79,4 +79,3 @@ public interface IVirtualLayout extends ILayout
 	 */
 	function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>;
 }
-}

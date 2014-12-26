@@ -221,4 +221,3 @@ public class TextInputRestrict
 		return new RegExp("[" + restrict + "]");
 	}
 }
-}

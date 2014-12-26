@@ -42,4 +42,3 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	 */
 	function measureText(result:Point = null):Point;
 }
-}

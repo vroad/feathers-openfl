@@ -257,4 +257,3 @@ public class LayoutGroupListItemRenderer extends LayoutGroup implements IListIte
 	}
 
 }
-}

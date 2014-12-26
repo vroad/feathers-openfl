@@ -416,4 +416,3 @@ public class HierarchicalCollection extends EventDispatcher
 		}
 	}
 }
-}

@@ -9,4 +9,3 @@ public class SliderSettings
 	public var page:Number = 10;
 	public var liveDragging:Boolean = true;
 }
-}

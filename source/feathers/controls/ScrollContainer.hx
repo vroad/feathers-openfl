@@ -641,4 +641,3 @@ public class ScrollContainer extends Scroller implements IScrollContainer
 		this._mxmlContentIsReady = true;
 	}
 }
-}

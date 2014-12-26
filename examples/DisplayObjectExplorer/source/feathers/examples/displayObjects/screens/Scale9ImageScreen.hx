@@ -178,4 +178,3 @@ public class Scale9ImageScreen extends Screen
 		}
 	}
 }
-}

@@ -359,4 +359,3 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 */
 	function dispose():void;
 }
-}

@@ -141,4 +141,3 @@ public class DeviceCapabilities
 		return screenHeight / dpi;
 	}
 }
-}

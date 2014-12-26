@@ -1557,4 +1557,3 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}
 }
-}

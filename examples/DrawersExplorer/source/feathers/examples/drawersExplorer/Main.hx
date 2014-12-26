@@ -112,4 +112,3 @@ public class Main extends Sprite
 		this.changeDockMode(drawer, Drawers.DOCK_MODE_BOTH);
 	}
 }
-}

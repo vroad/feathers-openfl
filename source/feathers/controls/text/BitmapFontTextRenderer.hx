@@ -1126,7 +1126,6 @@ public class BitmapFontTextRenderer extends FeathersControl implements ITextRend
 		return this._text;
 	}
 }
-}
 
 import starling.text.BitmapChar;
 

@@ -72,4 +72,3 @@ public class PageIndicatorScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

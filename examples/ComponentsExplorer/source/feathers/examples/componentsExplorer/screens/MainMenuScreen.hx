@@ -171,4 +171,3 @@ public class MainMenuScreen extends PanelScreen
 		this.dispatchEventWith(eventType);
 	}
 }
-}

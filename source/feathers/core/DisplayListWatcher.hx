@@ -479,4 +479,3 @@ public class DisplayListWatcher extends EventDispatcher
 		this.initializeObject(event.target as DisplayObject);
 	}
 }
-}

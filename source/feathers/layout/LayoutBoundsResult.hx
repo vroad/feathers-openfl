@@ -56,4 +56,3 @@ public class LayoutBoundsResult
 	 */
 	public var contentHeight:Number;
 }
-}

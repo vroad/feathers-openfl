@@ -235,4 +235,3 @@ public class ScreenSlidingStackTransitionManager
 		}
 	}
 }
-}

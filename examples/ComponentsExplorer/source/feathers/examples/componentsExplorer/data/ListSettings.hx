@@ -9,4 +9,3 @@ public class ListSettings
 	public var hasElasticEdges:Boolean = true;
 	public var allowMultipleSelection:Boolean = false;
 }
-}

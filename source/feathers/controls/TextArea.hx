@@ -1178,4 +1178,3 @@ public class TextArea extends Scroller implements IFocusDisplayObject
 		this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 	}
 }
-}

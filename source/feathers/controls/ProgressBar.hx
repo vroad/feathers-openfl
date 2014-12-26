@@ -759,4 +759,3 @@ public class ProgressBar extends FeathersControl
 
 
 }
-}

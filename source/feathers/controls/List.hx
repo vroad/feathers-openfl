@@ -1293,4 +1293,3 @@ public class List extends Scroller implements IFocusDisplayObject
 		this.dispatchEventWith(Event.CHANGE);
 	}
 }
-}

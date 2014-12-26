@@ -82,4 +82,3 @@ public class Main extends Sprite
 		Callout.show(label, this.button);
 	}
 }
-}

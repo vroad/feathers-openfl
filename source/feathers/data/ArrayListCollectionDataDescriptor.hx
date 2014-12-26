@@ -97,4 +97,3 @@ public class ArrayListCollectionDataDescriptor implements IListCollectionDataDes
 		}
 	}
 }
-}

@@ -100,4 +100,3 @@ public class VerticalLayoutData extends EventDispatcher implements ILayoutData
 		this.dispatchEventWith(Event.CHANGE);
 	}
 }
-}

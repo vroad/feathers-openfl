@@ -131,4 +131,3 @@ public class ListScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 }
-}

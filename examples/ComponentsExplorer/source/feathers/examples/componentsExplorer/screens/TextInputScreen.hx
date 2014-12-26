@@ -88,4 +88,3 @@ public class TextInputScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

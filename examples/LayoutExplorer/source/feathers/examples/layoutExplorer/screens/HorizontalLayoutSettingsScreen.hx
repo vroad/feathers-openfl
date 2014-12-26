@@ -208,4 +208,3 @@ public class HorizontalLayoutSettingsScreen extends PanelScreen
 		this.settings.paddingLeft = this._paddingLeftStepper.value;
 	}
 }
-}

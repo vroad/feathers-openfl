@@ -34,4 +34,3 @@ public interface IViewPort extends IFeathersControl
 	function get horizontalScrollStep():Number;
 	function get verticalScrollStep():Number;
 }
-}

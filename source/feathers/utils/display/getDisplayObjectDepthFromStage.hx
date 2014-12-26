@@ -30,4 +30,3 @@ public function getDisplayObjectDepthFromStage(target:DisplayObject):int
 	}
 	return count;
 }
-}

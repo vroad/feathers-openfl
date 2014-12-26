@@ -41,4 +41,3 @@ public class CollectionEventType
 	 */
 	public static const UPDATE_ITEM:String = "updateItem";
 }
-}

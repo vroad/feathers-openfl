@@ -55,4 +55,3 @@ public interface IListItemRenderer extends IToggle
 	 */
 	function set owner(value:List):void;
 }
-}

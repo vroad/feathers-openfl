@@ -233,4 +233,3 @@ public class MainMenuScreen extends PanelScreen
 		trace(event.toString());
 	}
 }
-}

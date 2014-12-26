@@ -475,4 +475,3 @@ public class Label extends FeathersControl implements ITextBaselineControl
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 }
-}

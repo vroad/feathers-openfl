@@ -75,4 +75,3 @@ public class Main extends Sprite implements IDragSource, IDropTarget
 		this.reset();
 	}
 }
-}

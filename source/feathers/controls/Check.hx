@@ -65,4 +65,3 @@ public class Check extends ToggleButton
 		throw IllegalOperationError("CheckBox isToggle must always be true.");
 	}
 }
-}

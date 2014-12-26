@@ -76,4 +76,3 @@ public class ViewPortBounds
 	 */
 	public var maxHeight:Number = Number.POSITIVE_INFINITY;
 }
-}

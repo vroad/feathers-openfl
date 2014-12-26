@@ -183,4 +183,3 @@ public class ExclusiveTouch extends EventDispatcher
 		}
 	}
 }
-}

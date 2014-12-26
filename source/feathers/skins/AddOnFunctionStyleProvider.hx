@@ -99,4 +99,3 @@ public class AddOnFunctionStyleProvider implements IStyleProvider
 
 
 }
-}

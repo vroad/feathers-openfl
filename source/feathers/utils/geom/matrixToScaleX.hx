@@ -19,4 +19,3 @@ public function matrixToScaleX(matrix:Matrix):Number
 	var b:Number = matrix.b;
 	return Math.sqrt(a * a + b * b);
 }
-}

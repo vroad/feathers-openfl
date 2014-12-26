@@ -89,4 +89,3 @@ public class BitmapFontTextFormat
 	 */
 	public var isKerningEnabled:Boolean = true;
 }
-}

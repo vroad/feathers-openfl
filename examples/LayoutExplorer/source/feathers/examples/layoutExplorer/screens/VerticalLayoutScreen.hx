@@ -108,4 +108,3 @@ public class VerticalLayoutScreen extends PanelScreen
 		this.revealScrollBars();
 	}
 }
-}

@@ -97,4 +97,3 @@ public class TimesScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

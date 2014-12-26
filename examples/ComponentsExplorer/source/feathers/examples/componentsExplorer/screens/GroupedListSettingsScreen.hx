@@ -126,4 +126,3 @@ public class GroupedListSettingsScreen extends PanelScreen
 		this.settings.hasElasticEdges = this._hasElasticEdgesToggle.isSelected;
 	}
 }
-}

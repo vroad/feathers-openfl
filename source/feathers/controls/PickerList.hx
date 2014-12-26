@@ -1655,4 +1655,3 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 		}
 	}
 }
-}

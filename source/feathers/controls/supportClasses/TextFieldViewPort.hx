@@ -914,4 +914,3 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.dispatchEventWith(Event.TRIGGERED, false, event.text);
 	}
 }
-}

@@ -51,4 +51,3 @@ public interface IListCollectionDataDescriptor
 	 */
 	function removeAll(data:Object):void;
 }
-}

@@ -118,4 +118,3 @@ public class VideoDetailsScreen extends PanelScreen
 		this.revealScrollBars();
 	}
 }
-}

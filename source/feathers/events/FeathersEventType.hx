@@ -167,4 +167,3 @@ public class FeathersEventType
 	 */
 	public static const SOFT_KEYBOARD_DEACTIVATE:String = "softKeyboardDeactivate";
 }
-}

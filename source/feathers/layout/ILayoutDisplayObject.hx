@@ -48,4 +48,3 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 */
 	function set includeInLayout(value:Boolean):void;
 }
-}

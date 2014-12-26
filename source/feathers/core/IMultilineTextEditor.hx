@@ -28,4 +28,3 @@ public interface IMultilineTextEditor extends ITextEditor
 	 */
 	function set multiline(value:Boolean):void;
 }
-}

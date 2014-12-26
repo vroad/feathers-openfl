@@ -37,4 +37,3 @@ public interface IScreen extends IFeathersControl
 	 */
 	function set owner(value:ScreenNavigator):void;
 }
-}

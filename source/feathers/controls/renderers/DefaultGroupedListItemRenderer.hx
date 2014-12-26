@@ -294,4 +294,3 @@ public class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer impl
 		super.dispose();
 	}
 }
-}

@@ -1142,4 +1142,3 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 		}
 	}
 }
-}

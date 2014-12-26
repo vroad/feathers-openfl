@@ -208,4 +208,3 @@ public class VerticalLayoutSettingsScreen extends PanelScreen
 		this.settings.paddingLeft = this._paddingLeftStepper.value;
 	}
 }
-}

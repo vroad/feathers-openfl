@@ -396,4 +396,3 @@ public final class StageTextField extends EventDispatcher
 		this.dispatchEvent(event);
 	}
 }
-}

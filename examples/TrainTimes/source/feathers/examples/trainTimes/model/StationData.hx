@@ -9,4 +9,3 @@ public class StationData
 	public var name:String;
 	public var isDepartingFromHere:Boolean = false;
 }
-}

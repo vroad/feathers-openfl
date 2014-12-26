@@ -77,4 +77,3 @@ public interface IGroupedListItemRenderer extends IToggle
 	 */
 	function set owner(value:GroupedList):void;
 }
-}

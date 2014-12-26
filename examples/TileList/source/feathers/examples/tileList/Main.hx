@@ -189,4 +189,3 @@ public class Main extends LayoutGroup
 		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}
 }
-}

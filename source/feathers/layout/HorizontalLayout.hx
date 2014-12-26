@@ -1720,4 +1720,3 @@ public class HorizontalLayout extends EventDispatcher implements IVariableVirtua
 		this._discoveredItemsCache.length = 0;
 	}
 }
-}

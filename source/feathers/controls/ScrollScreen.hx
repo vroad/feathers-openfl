@@ -337,4 +337,3 @@ public class ScrollScreen extends ScrollContainer implements IScreen
 		}
 	}
 }
-}

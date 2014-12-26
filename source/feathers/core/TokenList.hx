@@ -174,4 +174,3 @@ public class TokenList extends EventDispatcher
 	}
 
 }
-}

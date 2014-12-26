@@ -62,4 +62,3 @@ public class ScrollTextScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

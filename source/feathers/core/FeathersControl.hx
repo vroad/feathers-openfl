@@ -2109,4 +2109,3 @@ public class FeathersControl extends Sprite implements IFeathersControl, ILayout
 		this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
 	}
 }
-}

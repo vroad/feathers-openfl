@@ -24,4 +24,3 @@ public function roundUpToNearest(number:Number, nearest:Number = 1):Number
 	}
 	return Math.ceil(roundToPrecision(number / nearest, 10)) * nearest;
 }
-}

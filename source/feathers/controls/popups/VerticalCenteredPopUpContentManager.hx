@@ -377,4 +377,3 @@ public class VerticalCenteredPopUpContentManager extends EventDispatcher impleme
 
 
 }
-}

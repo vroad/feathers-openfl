@@ -19,4 +19,3 @@ public function matrixToRotation(matrix:Matrix):Number
 	var d:Number = matrix.d;
 	return -Math.atan(c / d);
 }
-}

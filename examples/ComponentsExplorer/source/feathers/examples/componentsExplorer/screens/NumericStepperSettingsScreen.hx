@@ -98,4 +98,3 @@ public class NumericStepperSettingsScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

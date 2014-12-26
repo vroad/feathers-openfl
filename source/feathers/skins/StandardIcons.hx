@@ -22,4 +22,3 @@ public class StandardIcons
 	 */
 	public static var listDrillDownAccessoryTexture:Texture;
 }
-}

@@ -137,4 +137,3 @@ public class Main extends PanelScreen
 		this.height = this.stage.stageHeight;
 	}
 }
-}

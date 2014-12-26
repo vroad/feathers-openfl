@@ -828,4 +828,3 @@ public class ToggleButton extends Button implements IToggle
 		}
 	}
 }
-}

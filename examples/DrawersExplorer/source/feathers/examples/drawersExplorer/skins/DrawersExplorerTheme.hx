@@ -57,4 +57,3 @@ public class DrawersExplorerTheme extends MetalWorksMobileTheme
 		view.layout = layout;
 	}
 }
-}

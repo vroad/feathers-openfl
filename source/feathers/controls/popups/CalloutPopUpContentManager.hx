@@ -165,4 +165,3 @@ public class CalloutPopUpContentManager extends EventDispatcher implements IPopU
 		this.dispatchEventWith(Event.CLOSE);
 	}
 }
-}

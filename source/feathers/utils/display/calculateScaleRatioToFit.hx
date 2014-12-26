@@ -21,4 +21,3 @@ public function calculateScaleRatioToFit(originalWidth:Number, originalHeight:Nu
 	}
 	return heightRatio;
 }
-}

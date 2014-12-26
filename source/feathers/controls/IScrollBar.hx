@@ -57,4 +57,3 @@ public interface IScrollBar extends IRange
 	 */
 	function set page(value:Number):void;
 }
-}

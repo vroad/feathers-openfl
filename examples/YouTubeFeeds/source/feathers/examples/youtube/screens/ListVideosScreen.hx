@@ -283,4 +283,3 @@ public class ListVideosScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 }
-}

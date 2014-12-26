@@ -5288,4 +5288,3 @@ public class Scroller extends FeathersControl
 		}
 	}
 }
-}

@@ -94,4 +94,3 @@ public class DragSource extends LayoutGroup implements IDragSource
 		}
 	}
 }
-}

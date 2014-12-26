@@ -717,7 +717,6 @@ public class DefaultFocusManager implements IFocusManager
 		}
 	}
 }
-}
 
 import flash.display.Sprite;
 

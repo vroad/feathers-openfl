@@ -14,4 +14,3 @@ public class VideoDetails
 	public var url:String;
 	public var description:String;
 }
-}

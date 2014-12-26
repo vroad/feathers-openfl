@@ -2771,4 +2771,3 @@ public class Button extends FeathersControl implements IFocusDisplayObject
 		this.trigger();
 	}
 }
-}

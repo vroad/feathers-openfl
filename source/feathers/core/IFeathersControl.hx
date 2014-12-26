@@ -191,4 +191,3 @@ public interface IFeathersControl extends IValidating
 	 */
 	function setSize(width:Number, height:Number):void;
 }
-}

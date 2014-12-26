@@ -935,4 +935,3 @@ public class Alert extends Panel
 	}
 
 }
-}

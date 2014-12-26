@@ -20,4 +20,3 @@ public class TiledColumnsLayoutSettings
 	public var paddingBottom:Number = 0;
 	public var paddingLeft:Number = 0;
 }
-}

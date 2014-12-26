@@ -548,4 +548,3 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	}
 
 }
-}

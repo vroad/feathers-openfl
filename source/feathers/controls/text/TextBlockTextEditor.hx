@@ -1270,4 +1270,3 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		this.replaceSelectedText(pastedText);
 	}
 }
-}

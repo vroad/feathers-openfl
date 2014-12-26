@@ -80,4 +80,3 @@ public interface IPopUpContentManager
 	 */
 	function dispose():void;
 }
-}

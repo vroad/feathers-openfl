@@ -164,4 +164,3 @@ public class ToggleScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

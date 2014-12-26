@@ -258,4 +258,3 @@ public class ItemRendererScreen extends PanelScreen
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}
 }
-}

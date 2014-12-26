@@ -7,4 +7,3 @@ public class NumericStepperSettings
 
 	public var step:Number = 1;
 }
-}

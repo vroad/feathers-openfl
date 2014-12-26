@@ -292,4 +292,3 @@ public final class Scale9Textures
 		this._bottomRight = Texture.fromTexture(this._texture, bottomRightRegion, bottomRightFrame);
 	}
 }
-}

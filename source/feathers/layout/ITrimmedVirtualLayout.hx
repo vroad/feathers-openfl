@@ -52,4 +52,3 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	 */
 	function set afterVirtualizedItemCount(value:int):void;
 }
-}

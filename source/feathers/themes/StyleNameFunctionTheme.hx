@@ -53,4 +53,3 @@ public class StyleNameFunctionTheme extends EventDispatcher
 		return StyleNameFunctionStyleProvider(this._registry.getStyleProvider(type));
 	}
 }
-}

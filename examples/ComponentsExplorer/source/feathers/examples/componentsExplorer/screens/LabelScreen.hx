@@ -84,4 +84,3 @@ public class LabelScreen extends PanelScreen
 		this.onBackButton();
 	}
 }
-}

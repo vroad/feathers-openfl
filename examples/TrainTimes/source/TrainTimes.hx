@@ -66,4 +66,3 @@ public class TrainTimes extends Sprite
 	}
 
 }
-}

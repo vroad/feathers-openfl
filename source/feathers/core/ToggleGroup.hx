@@ -374,4 +374,3 @@ public class ToggleGroup extends EventDispatcher
 	}
 	
 }
-}

@@ -142,4 +142,3 @@ public interface IDropTarget
 	function dispatchEvent(event:Event):void;
 	function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):void;
 }
-}

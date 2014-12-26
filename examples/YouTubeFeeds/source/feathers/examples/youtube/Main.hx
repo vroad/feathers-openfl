@@ -75,4 +75,3 @@ public class Main extends ScreenNavigator
 		this.showScreen(VIDEO_DETAILS);
 	}
 }
-}

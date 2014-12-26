@@ -188,4 +188,3 @@ public class CalloutScreen extends PanelScreen
 		this.showCallout(this._leftButton, Callout.DIRECTION_LEFT)
 	}
 }
-}
