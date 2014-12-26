@@ -817,7 +817,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1045,7 +1045,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function refreshThumbStyles():Void
 	{
-		for(var propertyName:String in this._thumbProperties)
+		for (propertyName in this._thumbProperties)
 		{
 			var propertyValue:Object = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;

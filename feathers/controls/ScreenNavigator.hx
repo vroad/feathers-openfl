@@ -413,7 +413,7 @@ class ScreenNavigator extends FeathersControl
 
 		var events:Object = item.events;
 		var savedScreenEvents:Object = {};
-		for(var eventName:String in events)
+		for (eventName in events)
 		{
 			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
 			var eventAction:Object = events[eventName];
@@ -502,7 +502,7 @@ class ScreenNavigator extends FeathersControl
 		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Object = item.events;
 		var savedScreenEvents:Object = this._screenEvents[this._activeScreenID];
-		for(var eventName:String in events)
+		for (eventName in events)
 		{
 			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
 			var eventAction:Object = events[eventName];
@@ -582,7 +582,7 @@ class ScreenNavigator extends FeathersControl
 	public function removeAllScreens():Void
 	{
 		this.clearScreen();
-		for(var id:String in this._screens)
+		for (id in this._screens)
 		{
 			delete this._screens[id];
 		}
@@ -619,7 +619,7 @@ class ScreenNavigator extends FeathersControl
 			result = new Array();
 		}
 
-		for(var id:String in this._screens)
+		for (id in this._screens)
 		{
 			result.push(id);
 		}

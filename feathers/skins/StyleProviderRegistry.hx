@@ -78,7 +78,7 @@ class StyleProviderRegistry
 		//clear the global style providers, but only if they still match the
 		//ones that the theme created. a developer could replace the global
 		//style providers with different ones.
-		for(var untypedType:Object in this._classToStyleProvider)
+		for (untypedType in this._classToStyleProvider)
 		{
 			var type:Class = Class(untypedType);
 			this.clearStyleProvider(type);

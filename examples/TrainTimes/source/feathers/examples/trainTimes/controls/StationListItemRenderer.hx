@@ -672,7 +672,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		if(this._touchPointID >= 0)
 		{
 			var touch:Touch;
-			for each(var currentTouch:Touch in touches)
+			for (currentTouch in touches)
 			{
 				if(currentTouch.id == this._touchPointID)
 				{

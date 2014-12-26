@@ -415,7 +415,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -591,7 +591,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1027,7 +1027,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function refreshHeaderStyles():Void
 	{
-		for(var propertyName:String in this._headerProperties)
+		for (propertyName in this._headerProperties)
 		{
 			var propertyValue:Object = this._headerProperties[propertyName];
 			this.header[propertyName] = propertyValue;
@@ -1039,7 +1039,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function refreshFooterStyles():Void
 	{
-		for(var propertyName:String in this._footerProperties)
+		for (propertyName in this._footerProperties)
 		{
 			var propertyValue:Object = this._footerProperties[propertyName];
 			this.footer[propertyName] = propertyValue;

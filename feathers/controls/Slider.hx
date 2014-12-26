@@ -1078,7 +1078,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1251,7 +1251,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1423,7 +1423,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1733,7 +1733,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function refreshThumbStyles():Void
 	{
-		for(var propertyName:String in this._thumbProperties)
+		for (propertyName in this._thumbProperties)
 		{
 			var propertyValue:Object = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
@@ -1746,7 +1746,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function refreshMinimumTrackStyles():Void
 	{
-		for(var propertyName:String in this._minimumTrackProperties)
+		for (propertyName in this._minimumTrackProperties)
 		{
 			var propertyValue:Object = this._minimumTrackProperties[propertyName];
 			this.minimumTrack[propertyName] = propertyValue;
@@ -1762,7 +1762,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			return;
 		}
-		for(var propertyName:String in this._maximumTrackProperties)
+		for (propertyName in this._maximumTrackProperties)
 		{
 			var propertyValue:Object = this._maximumTrackProperties[propertyName];
 			this.maximumTrack[propertyName] = propertyValue;

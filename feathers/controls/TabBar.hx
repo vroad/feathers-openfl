@@ -1350,7 +1350,7 @@ class TabBar extends FeathersControl
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1452,7 +1452,7 @@ class TabBar extends FeathersControl
 	 */
 	private function commitEnabled():Void
 	{
-		for each(var tab:ToggleButton in this.activeTabs)
+		for (tab in this.activeTabs)
 		{
 			tab.isEnabled = this._isEnabled;
 		}
@@ -1463,10 +1463,10 @@ class TabBar extends FeathersControl
 	 */
 	private function refreshTabStyles():Void
 	{
-		for(var propertyName:String in this._tabProperties)
+		for (propertyName in this._tabProperties)
 		{
 			var propertyValue:Object = this._tabProperties[propertyName];
-			for each(var tab:ToggleButton in this.activeTabs)
+			for (tab in this.activeTabs)
 			{
 				tab[propertyName] = propertyValue;
 			}
@@ -1539,7 +1539,7 @@ class TabBar extends FeathersControl
 			{
 				tab.label = item.toString();
 			}
-			for each(var field:String in DEFAULT_TAB_FIELDS)
+			for (field in DEFAULT_TAB_FIELDS)
 			{
 				if(item.hasOwnProperty(field))
 				{

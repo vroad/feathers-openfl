@@ -859,7 +859,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1548,7 +1548,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1973,7 +1973,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		this.textEditor.maxChars = this._maxChars;
 		this.textEditor.restrict = this._restrict;
 		this.textEditor.isEditable = this._isEditable;
-		for(var propertyName:String in this._textEditorProperties)
+		for (propertyName in this._textEditorProperties)
 		{
 			var propertyValue:Object = this._textEditorProperties[propertyName];
 			this.textEditor[propertyName] = propertyValue;
@@ -1991,7 +1991,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		}
 		this.promptTextRenderer.text = this._prompt;
 		var displayPrompt:DisplayObject = DisplayObject(this.promptTextRenderer);
-		for(var propertyName:String in this._promptProperties)
+		for (propertyName in this._promptProperties)
 		{
 			var propertyValue:Object = this._promptProperties[propertyName];
 			this.promptTextRenderer[propertyName] = propertyValue;

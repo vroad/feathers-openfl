@@ -140,7 +140,7 @@ class FocusManager
 	 */
 	public function disableAll():Void
 	{
-		for(var key:Object in STAGE_TO_STACK)
+		for (key in STAGE_TO_STACK)
 		{
 			var stage:Stage = Stage(key);
 			var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];

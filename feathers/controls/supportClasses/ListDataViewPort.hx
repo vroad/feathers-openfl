@@ -729,7 +729,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function refreshItemRendererStyles():Void
 	{
-		for each(var renderer:IListItemRenderer in this._activeRenderers)
+		for (renderer in this._activeRenderers)
 		{
 			this.refreshOneItemRendererStyles(renderer);
 		}

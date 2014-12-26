@@ -331,7 +331,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		if(this.touchPointID >= 0)
 		{
 			var touch:Touch;
-			for each(var currentTouch:Touch in touches)
+			for (currentTouch in touches)
 			{
 				if(currentTouch.id == this.touchPointID)
 				{

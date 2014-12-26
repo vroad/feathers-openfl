@@ -1356,7 +1356,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1526,7 +1526,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1694,7 +1694,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -2166,7 +2166,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		if(properties)
 		{
 			var displayRenderer:DisplayObject = DisplayObject(this.onTextRenderer);
-			for(var propertyName:String in properties)
+			for (propertyName in properties)
 			{
 				var propertyValue:Object = properties[propertyName];
 				displayRenderer[propertyName] = propertyValue;
@@ -2206,7 +2206,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		if(properties)
 		{
 			var displayRenderer:DisplayObject = DisplayObject(this.offTextRenderer);
-			for(var propertyName:String in properties)
+			for (propertyName in properties)
 			{
 				var propertyValue:Object = properties[propertyName];
 				displayRenderer[propertyName] = propertyValue;
@@ -2221,7 +2221,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function refreshThumbStyles():Void
 	{
-		for(var propertyName:String in this._thumbProperties)
+		for (propertyName in this._thumbProperties)
 		{
 			var propertyValue:Object = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
@@ -2234,7 +2234,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function refreshOnTrackStyles():Void
 	{
-		for(var propertyName:String in this._onTrackProperties)
+		for (propertyName in this._onTrackProperties)
 		{
 			var propertyValue:Object = this._onTrackProperties[propertyName];
 			this.onTrack[propertyName] = propertyValue;
@@ -2250,7 +2250,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			return;
 		}
-		for(var propertyName:String in this._offTrackProperties)
+		for (propertyName in this._offTrackProperties)
 		{
 			var propertyValue:Object = this._offTrackProperties[propertyName];
 			this.offTrack[propertyName] = propertyValue;

@@ -2550,7 +2550,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -2729,7 +2729,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -3713,7 +3713,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(this.iconLabel)
 		{
 			var displayIconLabel:DisplayObject = DisplayObject(this.iconLabel);
-			for(var propertyName:String in this._iconLabelProperties)
+			for (propertyName in this._iconLabelProperties)
 			{
 				var propertyValue:Object = this._iconLabelProperties[propertyName];
 				displayIconLabel[propertyName] = propertyValue;
@@ -3733,7 +3733,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(this.accessoryLabel)
 		{
 			var displayAccessoryLabel:DisplayObject = DisplayObject(this.accessoryLabel);
-			for(var propertyName:String in this._accessoryLabelProperties)
+			for (propertyName in this._accessoryLabelProperties)
 			{
 				var propertyValue:Object = this._accessoryLabelProperties[propertyName];
 				displayAccessoryLabel[propertyName] = propertyValue;

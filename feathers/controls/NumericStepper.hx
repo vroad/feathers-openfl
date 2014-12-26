@@ -746,7 +746,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -954,7 +954,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1160,7 +1160,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1487,7 +1487,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private function refreshDecrementButtonStyles():Void
 	{
-		for(var propertyName:String in this._decrementButtonProperties)
+		for (propertyName in this._decrementButtonProperties)
 		{
 			var propertyValue:Object = this._decrementButtonProperties[propertyName];
 			this.decrementButton[propertyName] = propertyValue;
@@ -1500,7 +1500,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private function refreshIncrementButtonStyles():Void
 	{
-		for(var propertyName:String in this._incrementButtonProperties)
+		for (propertyName in this._incrementButtonProperties)
 		{
 			var propertyValue:Object = this._incrementButtonProperties[propertyName];
 			this.incrementButton[propertyName] = propertyValue;
@@ -1513,7 +1513,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private function refreshTextInputStyles():Void
 	{
-		for(var propertyName:String in this._textInputProperties)
+		for (propertyName in this._textInputProperties)
 		{
 			var propertyValue:Object = this._textInputProperties[propertyName];
 			this.textInput[propertyName] = propertyValue;

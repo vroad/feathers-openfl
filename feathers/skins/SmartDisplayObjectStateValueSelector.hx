@@ -199,7 +199,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 			throw new ArgumentError("Invalid value: ", value);
 		}
 
-		for(var propertyName:String in this._displayObjectProperties)
+		for (propertyName in this._displayObjectProperties)
 		{
 			var propertyValue:Object = this._displayObjectProperties[propertyName];
 			displayObject[propertyName] = propertyValue;

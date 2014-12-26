@@ -84,7 +84,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 			image = new Scale9Image(textures);
 		}
 
-		for(var propertyName:String in this._imageProperties)
+		for (propertyName in this._imageProperties)
 		{
 			var propertyValue:Object = this._imageProperties[propertyName];
 			image[propertyName] = propertyValue;

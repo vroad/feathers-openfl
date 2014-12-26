@@ -753,7 +753,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -924,7 +924,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1428,7 +1428,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshButtonProperties():Void
 	{
-		for(var propertyName:String in this._buttonProperties)
+		for (propertyName in this._buttonProperties)
 		{
 			var propertyValue:Object = this._buttonProperties[propertyName];
 			this.button[propertyName] = propertyValue;
@@ -1440,7 +1440,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshListProperties():Void
 	{
-		for(var propertyName:String in this._listProperties)
+		for (propertyName in this._listProperties)
 		{
 			var propertyValue:Object = this._listProperties[propertyName];
 			this.list[propertyName] = propertyValue;

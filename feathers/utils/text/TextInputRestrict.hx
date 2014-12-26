@@ -212,7 +212,7 @@ class TextInputRestrict
 		}
 		//we need to do backslash first. otherwise, we'll get duplicates
 		restrict = restrict.replace(/\\/g, "\\\\");
-		for(var key:Object in REQUIRES_ESCAPE)
+		for (key in REQUIRES_ESCAPE)
 		{
 			var keyRegExp:RegExp = key as RegExp;
 			var value:String = REQUIRES_ESCAPE[keyRegExp] as String;

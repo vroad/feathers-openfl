@@ -268,7 +268,7 @@ class Main extends Drawers
 			//enable clipping.
 			this._navigator.clipContent = true;
 			this._menu = new MainMenuScreen();
-			for(var eventType:String in MAIN_MENU_EVENTS)
+			for (eventType in MAIN_MENU_EVENTS)
 			{
 				this._menu.addEventListener(eventType, mainMenuEventHandler);
 			}

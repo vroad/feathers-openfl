@@ -719,7 +719,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -935,7 +935,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		this.textEditorViewPort.maxChars = this._maxChars;
 		this.textEditorViewPort.restrict = this._restrict;
 		this.textEditorViewPort.isEditable = this._isEditable;
-		for(var propertyName:String in this._textEditorProperties)
+		for (propertyName in this._textEditorProperties)
 		{
 			var propertyValue:Object = this._textEditorProperties[propertyName];
 			this.textEditorViewPort[propertyName] = propertyValue;

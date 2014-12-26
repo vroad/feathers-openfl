@@ -1073,7 +1073,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1246,7 +1246,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1418,7 +1418,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1591,7 +1591,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -1764,7 +1764,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(!(value is PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for (propertyName in value)
 			{
 				newValue[propertyName] = value[propertyName];
 			}
@@ -2162,7 +2162,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function refreshThumbStyles():Void
 	{
-		for(var propertyName:String in this._thumbProperties)
+		for (propertyName in this._thumbProperties)
 		{
 			var propertyValue:Object = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
@@ -2174,7 +2174,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function refreshMinimumTrackStyles():Void
 	{
-		for(var propertyName:String in this._minimumTrackProperties)
+		for (propertyName in this._minimumTrackProperties)
 		{
 			var propertyValue:Object = this._minimumTrackProperties[propertyName];
 			this.minimumTrack[propertyName] = propertyValue;
@@ -2190,7 +2190,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			return;
 		}
-		for(var propertyName:String in this._maximumTrackProperties)
+		for (propertyName in this._maximumTrackProperties)
 		{
 			var propertyValue:Object = this._maximumTrackProperties[propertyName];
 			this.maximumTrack[propertyName] = propertyValue;
@@ -2202,7 +2202,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function refreshDecrementButtonStyles():Void
 	{
-		for(var propertyName:String in this._decrementButtonProperties)
+		for (propertyName in this._decrementButtonProperties)
 		{
 			var propertyValue:Object = this._decrementButtonProperties[propertyName];
 			this.decrementButton[propertyName] = propertyValue;
@@ -2214,7 +2214,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function refreshIncrementButtonStyles():Void
 	{
-		for(var propertyName:String in this._incrementButtonProperties)
+		for (propertyName in this._incrementButtonProperties)
 		{
 			var propertyValue:Object = this._incrementButtonProperties[propertyName];
 			this.incrementButton[propertyName] = propertyValue;

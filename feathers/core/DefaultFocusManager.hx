@@ -45,7 +45,7 @@ class DefaultFocusManager implements IFocusManager
 			throw new ArgumentError("Focus manager root must be added to the stage.");
 		}
 		this._root = root;
-		for each(var starling:Starling in Starling.all)
+		for (starling in Starling.all)
 		{
 			if(starling.stage == root.stage)
 			{

@@ -98,7 +98,7 @@ class ScreenNavigatorItem
 		
 		if(this.properties)
 		{
-			for(var property:String in this.properties)
+			for (property in this.properties)
 			{
 				screenInstance[property] = this.properties[property];
 			}

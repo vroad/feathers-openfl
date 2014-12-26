@@ -84,7 +84,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 			image = new Image(texture);
 		}
 
-		for(var propertyName:String in this._imageProperties)
+		for (propertyName in this._imageProperties)
 		{
 			var propertyValue:Object = this._imageProperties[propertyName];
 			image[propertyName] = propertyValue;

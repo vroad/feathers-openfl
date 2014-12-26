@@ -208,7 +208,7 @@ class DisplayListWatcher extends EventDispatcher
 			this._excludedObjects.length = 0;
 			this._excludedObjects = null;
 		}
-		for(var key:Object in this.initializedObjects)
+		for (key in this.initializedObjects)
 		{
 			delete this.initializedObjects[key];
 		}
