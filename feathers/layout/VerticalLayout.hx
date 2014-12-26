@@ -417,14 +417,14 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Boolean
+	public function get useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -432,7 +432,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set useVirtualLayout(value:Boolean):Void
+	public function set useVirtualLayout(value:Bool):Void
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -445,7 +445,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _hasVariableItemDimensions:Boolean = false;
+	private var _hasVariableItemDimensions:Bool = false;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -454,7 +454,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get hasVariableItemDimensions():Boolean
+	public function get hasVariableItemDimensions():Bool
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -462,7 +462,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set hasVariableItemDimensions(value:Boolean):Void
+	public function set hasVariableItemDimensions(value:Bool):Void
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
@@ -475,7 +475,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _distributeHeights:Boolean = false;
+	private var _distributeHeights:Bool = false;
 
 	/**
 	 * Distributes the height of the view port equally to each item. If the
@@ -485,7 +485,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get distributeHeights():Boolean
+	public function get distributeHeights():Bool
 	{
 		return this._distributeHeights;
 	}
@@ -493,7 +493,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set distributeHeights(value:Boolean):Void
+	public function set distributeHeights(value:Bool):Void
 	{
 		if(this._distributeHeights == value)
 		{
@@ -506,7 +506,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _manageVisibility:Boolean = false;
+	private var _manageVisibility:Bool = false;
 
 	/**
 	 * Determines if items will be set invisible if they are outside the
@@ -525,7 +525,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get manageVisibility():Boolean
+	public function get manageVisibility():Bool
 	{
 		return this._manageVisibility;
 	}
@@ -533,7 +533,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set manageVisibility(value:Boolean):Void
+	public function set manageVisibility(value:Bool):Void
 	{
 		if(this._manageVisibility == value)
 		{
@@ -628,7 +628,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Bool = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -645,7 +645,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get resetTypicalItemDimensionsOnMeasure():Boolean
+	public function get resetTypicalItemDimensionsOnMeasure():Bool
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
 	}
@@ -653,7 +653,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set resetTypicalItemDimensionsOnMeasure(value:Boolean):Void
+	public function set resetTypicalItemDimensionsOnMeasure(value:Bool):Void
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -789,7 +789,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Boolean
+	public function get requiresLayoutOnScroll():Bool
 	{
 		return this._manageVisibility || this._useVirtualLayout;
 	}
@@ -834,11 +834,11 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		{
 			distributedHeight = this.calculateDistributedHeight(items, explicitHeight, minHeight, maxHeight);
 		}
-		var hasDistributedHeight:Boolean = distributedHeight === distributedHeight; //!isNaN
+		var hasDistributedHeight:Bool = distributedHeight === distributedHeight; //!isNaN
 
 		this._discoveredItemsCache.length = 0;
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var maxItemWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Float = boundsY + this._paddingTop;
 		var indexOffset:Int = 0;
@@ -1100,8 +1100,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -1117,8 +1117,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var positionY:Float;
 		if(this._distributeHeights)
 		{
@@ -1257,8 +1257,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var resultLastIndex:Int = 0;
 		var visibleTypicalItemCount:Int = Math.ceil(height / (calculatedTypicalItemHeight + this._gap));
 		if(!this._hasVariableItemDimensions)
@@ -1406,8 +1406,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var positionY:Float = y + this._paddingTop;
 		var lastHeight:Float = 0;
 		var gap:Float = this._gap;
@@ -1517,7 +1517,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		//each item before validating because setting one dimension may
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
-		var mustSetJustifyWidth:Boolean = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY &&
+		var mustSetJustifyWidth:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY &&
 			justifyWidth === justifyWidth; //!isNaN
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)
@@ -1589,7 +1589,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 				}
 			}
 			explicitHeight = maxItemHeight * itemCount + this._paddingTop + this._paddingBottom + this._gap * (itemCount - 1);
-			var needsRecalculation:Boolean = false;
+			var needsRecalculation:Bool = false;
 			if(explicitHeight > maxHeight)
 			{
 				explicitHeight = maxHeight;
@@ -1692,7 +1692,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		}
 		do
 		{
-			var needsAnotherPass:Boolean = false;
+			var needsAnotherPass:Bool = false;
 			var percentToPixels:Float = remainingHeight / totalPercentHeight;
 			for(i = 0; i < pushIndex; i++)
 			{

@@ -80,7 +80,7 @@ class TimesScreen extends PanelScreen
 	private function formatTimeAsString(time:Date):String
 	{
 		var hours:Float = time.hours;
-		var isAM:Boolean = hours < 12;
+		var isAM:Bool = hours < 12;
 		var hoursAsString:String = ((isAM ? hours : (hours - 12)) + 1).toString();
 		var minutes:Float = time.minutes;
 		var minutesAsString:String = minutes < 10 ? "0" + minutes : minutes.toString();

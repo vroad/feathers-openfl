@@ -48,7 +48,7 @@ public final class ValidationQueue implements IAnimatable
 
 	private var _starling:Starling;
 
-	private var _isValidating:Boolean = false;
+	private var _isValidating:Bool = false;
 
 	/**
 	 * If true, the queue is currently validating.
@@ -61,7 +61,7 @@ public final class ValidationQueue implements IAnimatable
 	 *     // do something
 	 * }</listing>
 	 */
-	public function get isValidating():Boolean
+	public function get isValidating():Bool
 	{
 		return this._isValidating;
 	}
@@ -84,7 +84,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * Adds a validating component to the queue.
 	 */
-	public function addControl(control:IValidating, delayIfValidating:Boolean):Void
+	public function addControl(control:IValidating, delayIfValidating:Bool):Void
 	{
 		//if the juggler was purged, we need to add the queue back in.
 		if(!this._starling.juggler.contains(this))

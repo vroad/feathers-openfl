@@ -7,5 +7,5 @@ class SliderSettings
 
 	public var step:Float = 1;
 	public var page:Float = 10;
-	public var liveDragging:Boolean = true;
+	public var liveDragging:Bool = true;
 }

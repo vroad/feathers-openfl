@@ -91,7 +91,7 @@ class FocusManager
 	 * @see #setEnabledForStage()
 	 * @see #getFocusManagerForStage()
 	 */
-	public static function isEnabledForStage(stage:Stage):Boolean
+	public static function isEnabledForStage(stage:Stage):Bool
 	{
 		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
 		return stack != null;
@@ -111,7 +111,7 @@ class FocusManager
 	 * @see #isEnabledForStage()
 	 * @see #getFocusManagerForStage()
 	 */
-	public static function setEnabledForStage(stage:Stage, isEnabled:Boolean):Void
+	public static function setEnabledForStage(stage:Stage, isEnabled:Bool):Void
 	{
 		var stack:Vector.<IFocusManager> = STAGE_TO_STACK[stage];
 		if((isEnabled && stack) || (!isEnabled && !stack))

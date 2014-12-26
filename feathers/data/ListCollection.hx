@@ -440,7 +440,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Determines if the specified item is in the collection.
 	 */
-	public function contains(item:Object):Boolean
+	public function contains(item:Object):Bool
 	{
 		return this.getItemIndex(item) >= 0;
 	}

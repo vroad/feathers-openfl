@@ -414,7 +414,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -585,7 +585,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isSelectable:Boolean = true;
+	private var _isSelectable:Bool = true;
 
 	/**
 	 * Determines if an item in the list may be selected.
@@ -597,7 +597,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
-	public function get isSelectable():Boolean
+	public function get isSelectable():Bool
 	{
 		return this._isSelectable;
 	}
@@ -605,7 +605,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isSelectable(value:Boolean):Void
+	public function set isSelectable(value:Bool):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -2212,7 +2212,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 */
 	override private function initialize():Void
 	{
-		var hasLayout:Boolean = this._layout != null;
+		var hasLayout:Bool = this._layout != null;
 
 		super.initialize();
 

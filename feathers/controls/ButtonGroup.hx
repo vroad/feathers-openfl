@@ -537,7 +537,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _distributeButtonSizes:Boolean = true;
+	private var _distributeButtonSizes:Bool = true;
 
 	/**
 	 * If <code>true</code>, the buttons will be equally sized in the
@@ -554,7 +554,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get distributeButtonSizes():Boolean
+	public function get distributeButtonSizes():Bool
 	{
 		return this._distributeButtonSizes;
 	}
@@ -562,7 +562,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeButtonSizes(value:Boolean):Void
+	public function set distributeButtonSizes(value:Bool):Void
 	{
 		if(this._distributeButtonSizes == value)
 		{
@@ -1282,11 +1282,11 @@ class ButtonGroup extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var buttonFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var buttonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid || stateInvalid || buttonFactoryInvalid)
 		{
@@ -1422,7 +1422,7 @@ class ButtonGroup extends FeathersControl
 			}
 			for each(field in DEFAULT_BUTTON_EVENTS)
 			{
-				var removeListener:Boolean = true;
+				var removeListener:Bool = true;
 				if(item.hasOwnProperty(field))
 				{
 					var listener:Function = item[field] as Function;
@@ -1453,7 +1453,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshButtons(isFactoryInvalid:Boolean):Void
+	private function refreshButtons(isFactoryInvalid:Bool):Void
 	{
 		var temp:Vector.<Button> = this.inactiveButtons;
 		this.inactiveButtons = this.activeButtons;
@@ -1537,7 +1537,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function createFirstButton(item:Object):Button
 	{
-		var isNewInstance:Boolean = false;
+		var isNewInstance:Bool = false;
 		if(this.inactiveFirstButton)
 		{
 			var button:Button = this.inactiveFirstButton;
@@ -1578,7 +1578,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function createLastButton(item:Object):Button
 	{
-		var isNewInstance:Boolean = false;
+		var isNewInstance:Bool = false;
 		if(this.inactiveLastButton)
 		{
 			var button:Button = this.inactiveLastButton;
@@ -1619,7 +1619,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function createButton(item:Object):Button
 	{
-		var isNewInstance:Boolean = false;
+		var isNewInstance:Bool = false;
 		if(this.inactiveButtons.length == 0)
 		{
 			isNewInstance = true;

@@ -54,12 +54,12 @@ public interface IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/events/EventDispatcher.html#dispatchEventWith() Full description of starling.events.EventDispatcher.dispatchEventWith() in Gamua's Starling Framework API Reference
 	 */
-	function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):Void;
+	function dispatchEventWith(type:String, bubbles:Bool = false, data:Object = null):Void;
 
 	/**
 	 * Checks if a listener has been added for the specified event type.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/events/EventDispatcher.html#hasEventListener() Full description of starling.events.EventDispatcher.hasEventListener() in Gamua's Starling Framework API Reference
 	 */
-	function hasEventListener(type:String):Boolean;
+	function hasEventListener(type:String):Bool;
 }

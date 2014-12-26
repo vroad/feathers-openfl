@@ -88,17 +88,17 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _isFromRight:Boolean = true;
+	private var _isFromRight:Bool = true;
 
 	/**
 	 * @private
 	 */
-	private var _isWaitingOnTabBarChange:Boolean = true;
+	private var _isWaitingOnTabBarChange:Bool = true;
 
 	/**
 	 * @private
 	 */
-	private var _isWaitingOnTransitionChange:Boolean = true;
+	private var _isWaitingOnTransitionChange:Bool = true;
 
 	/**
 	 * The duration of the transition, measured in seconds.
@@ -129,7 +129,7 @@ class TabBarSlideTransitionManager
 	 *
 	 * @default false
 	 */
-	public var skipNextTransition:Boolean = false;
+	public var skipNextTransition:Bool = false;
 
 	/**
 	 * The function passed to the <code>transition</code> property of the

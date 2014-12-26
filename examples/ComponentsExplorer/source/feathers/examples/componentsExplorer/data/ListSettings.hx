@@ -5,7 +5,7 @@ class ListSettings
 	{
 	}
 
-	public var isSelectable:Boolean = true;
-	public var hasElasticEdges:Boolean = true;
-	public var allowMultipleSelection:Boolean = false;
+	public var isSelectable:Bool = true;
+	public var hasElasticEdges:Bool = true;
+	public var allowMultipleSelection:Bool = false;
 }

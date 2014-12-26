@@ -78,7 +78,7 @@ class DeviceCapabilities
 	 * @see #screenPixelHeight
 	 * @see #isPhone()
 	 */
-	public static function isTablet(stage:Stage):Boolean
+	public static function isTablet(stage:Stage):Bool
 	{
 		var screenWidth:Float = screenPixelWidth;
 		if(screenWidth !== screenWidth) //isNaN
@@ -104,7 +104,7 @@ class DeviceCapabilities
 	 *
 	 * @see #isTablet()
 	 */
-	public static function isPhone(stage:Stage):Boolean
+	public static function isPhone(stage:Stage):Bool
 	{
 		return !isTablet(stage);
 	}

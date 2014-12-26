@@ -167,7 +167,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _mxmlContentIsReady:Boolean = false;
+	private var _mxmlContentIsReady:Bool = false;
 
 	/**
 	 * @private
@@ -209,7 +209,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _clipContent:Boolean = false;
+	private var _clipContent:Bool = false;
 
 	/**
 	 * If true, the group will be clipped to its bounds. In other words,
@@ -226,7 +226,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get clipContent():Boolean
+	public function get clipContent():Bool
 	{
 		return this._clipContent;
 	}
@@ -234,7 +234,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):Void
+	public function set clipContent(value:Bool):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -332,7 +332,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Bool = false;
 
 	/**
 	 * @private
@@ -373,7 +373,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function removeChildAt(index:Int, dispose:Boolean = false):DisplayObject
+	override public function removeChildAt(index:Int, dispose:Bool = false):DisplayObject
 	{
 		var child:DisplayObject = super.removeChildAt(index, dispose);
 		if(child is IFeathersControl)
@@ -435,7 +435,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean = false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool = false):DisplayObject
 	{
 		var localX:Float = localPoint.x;
 		var localY:Float = localPoint.y;
@@ -508,13 +508,13 @@ class LayoutGroup extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var clippingInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		//we don't have scrolling, but a subclass might
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var skinInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SKIN);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
 		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)

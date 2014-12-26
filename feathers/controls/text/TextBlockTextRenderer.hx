@@ -217,7 +217,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
@@ -480,7 +480,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _wordWrap:Boolean = false;
+	private var _wordWrap:Bool = false;
 
 	/**
 	 * Determines if the text wraps to the next line when it reaches the
@@ -493,7 +493,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get wordWrap():Boolean
+	public function get wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -501,7 +501,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):Void
+	public function set wordWrap(value:Bool):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -526,7 +526,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _applyNonLinearFontScaling:Boolean = true;
+	private var _applyNonLinearFontScaling:Bool = true;
 
 	/**
 	 * Specifies that you want to enhance screen appearance at the expense
@@ -541,7 +541,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#applyNonLinearFontScaling Full description of flash.text.engine.TextBlock.applyNonLinearFontScaling in Adobe's Flash Platform API Reference
 	 */
-	public function get applyNonLinearFontScaling():Boolean
+	public function get applyNonLinearFontScaling():Bool
 	{
 		return this._applyNonLinearFontScaling;
 	}
@@ -549,7 +549,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set applyNonLinearFontScaling(value:Boolean):Void
+	public function set applyNonLinearFontScaling(value:Bool):Void
 	{
 		if(this._applyNonLinearFontScaling == value)
 		{
@@ -846,7 +846,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Bool = true;
 
 	/**
 	 * Determines if the text should be snapped to the nearest whole pixel
@@ -861,7 +861,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
-	public function get snapToPixels():Boolean
+	public function get snapToPixels():Bool
 	{
 		return this._snapToPixels;
 	}
@@ -869,7 +869,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):Void
+	public function set snapToPixels(value:Bool):Void
 	{
 		this._snapToPixels = value;
 	}
@@ -991,7 +991,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _truncateToFit:Boolean = true;
+	private var _truncateToFit:Bool = true;
 
 	/**
 	 * If word wrap is disabled, and the text is longer than the width of
@@ -1015,7 +1015,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #truncationText
 	 */
-	public function get truncateToFit():Boolean
+	public function get truncateToFit():Bool
 	{
 		return _truncateToFit;
 	}
@@ -1023,7 +1023,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set truncateToFit(value:Boolean):Void
+	public function set truncateToFit(value:Bool):Void
 	{
 		if(this._truncateToFit == value)
 		{
@@ -1108,8 +1108,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1156,7 +1156,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		this.commit();
 
@@ -1170,9 +1170,9 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(dataInvalid || stylesInvalid || stateInvalid)
 		{
@@ -1222,8 +1222,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		var newWidth:Float = this.explicitWidth;
 		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
@@ -1265,15 +1265,15 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):Void
+	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(sizeInvalid)
 		{
-			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
+			var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 			var rectangleSnapshotWidth:Float = this.actualWidth * Starling.contentScaleFactor;
 			if(canUseRectangleTexture)
 			{
@@ -1361,10 +1361,10 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1445,7 +1445,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var yPosition:Float = 0;
 		var bitmapData:BitmapData;
 		var snapshotIndex:Int = -1;
-		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
+		var useNativeFilters:Bool = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		do
 		{
@@ -1658,7 +1658,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		if(width >= 0)
 		{
 			var lineStartIndex:Int = 0;
-			var canTruncate:Boolean = this._truncateToFit && this._textElement && !this._wordWrap;
+			var canTruncate:Bool = this._truncateToFit && this._textElement && !this._wordWrap;
 			var pushIndex:Int = textLines.length;
 			var inactiveTextLineCount:Int = HELPER_TEXT_LINES.length;
 			while(true)
@@ -1694,7 +1694,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 					break;
 				}
 				var lineLength:Int = line.rawTextLength;
-				var isTruncated:Boolean = false;
+				var isTruncated:Bool = false;
 				var difference:Float = 0;
 				while(canTruncate && (difference = line.width - width) > FUZZY_TRUNCATION_DIFFERENCE)
 				{

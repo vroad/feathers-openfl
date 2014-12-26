@@ -394,7 +394,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _showLabels:Boolean = true;
+	private var _showLabels:Bool = true;
 
 	/**
 	 * Determines if the labels should be drawn. The onTrackSkin and
@@ -407,7 +407,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default true
 	 */
-	public function get showLabels():Boolean
+	public function get showLabels():Bool
 	{
 		return _showLabels;
 	}
@@ -415,7 +415,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set showLabels(value:Boolean):Void
+	public function set showLabels(value:Bool):Void
 	{
 		if(this._showLabels == value)
 		{
@@ -428,7 +428,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _showThumb:Boolean = true;
+	private var _showThumb:Bool = true;
 
 	/**
 	 * Determines if the thumb should be displayed. This stops interaction
@@ -441,7 +441,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default true
 	 */
-	public function get showThumb():Boolean
+	public function get showThumb():Bool
 	{
 		return this._showThumb;
 	}
@@ -449,7 +449,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set showThumb(value:Boolean):Void
+	public function set showThumb(value:Bool):Void
 	{
 		if(this._showThumb == value)
 		{
@@ -963,7 +963,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _isSelected:Boolean = false;
+	private var _isSelected:Bool = false;
 
 	/**
 	 * Indicates if the toggle switch is selected (ON) or not (OFF).
@@ -977,7 +977,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #setSelectionWithAnimation()
 	 */
-	public function get isSelected():Boolean
+	public function get isSelected():Bool
 	{
 		return this._isSelected;
 	}
@@ -985,7 +985,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):Void
+	public function set isSelected(value:Bool):Void
 	{
 		this._animateSelectionChange = false;
 		if(this._isSelected == value)
@@ -1000,7 +1000,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _toggleThumbSelection:Boolean = false;
+	private var _toggleThumbSelection:Bool = false;
 
 	/**
 	 * Determines if the <code>isSelected</code> property of the thumb
@@ -1020,7 +1020,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.core.IToggle
 	 * @see feathers.controls.ToggleButton
 	 */
-	public function get toggleThumbSelection():Boolean
+	public function get toggleThumbSelection():Bool
 	{
 		return this._toggleThumbSelection;
 	}
@@ -1028,7 +1028,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set toggleThumbSelection(value:Boolean):Void
+	public function set toggleThumbSelection(value:Bool):Void
 	{
 		if(this._toggleThumbSelection == value)
 		{
@@ -1183,7 +1183,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _ignoreTapHandler:Boolean = false;
+	private var _ignoreTapHandler:Bool = false;
 
 	/**
 	 * @private
@@ -1203,7 +1203,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _animateSelectionChange:Boolean = false;
+	private var _animateSelectionChange:Bool = false;
 
 	/**
 	 * @private
@@ -1719,7 +1719,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #isSelected
 	 */
-	public function setSelectionWithAnimation(isSelected:Boolean):Void
+	public function setSelectionWithAnimation(isSelected:Bool):Void
 	{
 		if(this._isSelected == isSelected)
 		{
@@ -1734,16 +1734,16 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	override private function draw():Void
 	{
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var focusInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOCUS);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var textRendererInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
-		var thumbFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
-		var onTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_ON_TRACK_FACTORY);
-		var offTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_OFF_TRACK_FACTORY);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var thumbFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
+		var onTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ON_TRACK_FACTORY);
+		var offTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_OFF_TRACK_FACTORY);
 
 		if(thumbFactoryInvalid)
 		{
@@ -1833,7 +1833,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
 		if(this.onTrackSkinOriginalWidth !== this.onTrackSkinOriginalWidth || //isNaN
 			this.onTrackSkinOriginalHeight !== this.onTrackSkinOriginalHeight) //isNaN
@@ -1853,8 +1853,8 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			}
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2351,7 +2351,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		}
 		this._touchPointID = -1;
 		touch.getLocation(this.stage, HELPER_POINT);
-		var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+		var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 		if(isInBounds)
 		{
 			this.setSelectionWithAnimation(!this._isSelected);

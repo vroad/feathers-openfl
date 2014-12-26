@@ -86,7 +86,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private var _ignoreRemoval:Boolean = false;
+	private var _ignoreRemoval:Bool = false;
 
 	/**
 	 * @private
@@ -111,7 +111,7 @@ class DefaultPopUpManager implements IPopUpManager
 			return;
 		}
 		var popUpCount:Int = this._popUps.length;
-		var oldIgnoreRemoval:Boolean = this._ignoreRemoval; //just in case
+		var oldIgnoreRemoval:Bool = this._ignoreRemoval; //just in case
 		this._ignoreRemoval = true;
 		for(var i:Int = 0; i < popUpCount; i++)
 		{
@@ -140,7 +140,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#addPopUp()
 	 */
-	public function addPopUp(popUp:DisplayObject, isModal:Boolean = true, isCentered:Boolean = true, customOverlayFactory:Function = null):DisplayObject
+	public function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject
 	{
 		if(isModal)
 		{
@@ -189,7 +189,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#removePopUp()
 	 */
-	public function removePopUp(popUp:DisplayObject, dispose:Boolean = false):DisplayObject
+	public function removePopUp(popUp:DisplayObject, dispose:Bool = false):DisplayObject
 	{
 		var index:Int = this._popUps.indexOf(popUp);
 		if(index < 0)
@@ -203,7 +203,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#isPopUp()
 	 */
-	public function isPopUp(popUp:DisplayObject):Boolean
+	public function isPopUp(popUp:DisplayObject):Bool
 	{
 		return this._popUps.indexOf(popUp) >= 0;
 	}
@@ -211,7 +211,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#isTopLevelPopUp()
 	 */
-	public function isTopLevelPopUp(popUp:DisplayObject):Boolean
+	public function isTopLevelPopUp(popUp:DisplayObject):Bool
 	{
 		var lastIndex:Int = this._popUps.length - 1;
 		for(var i:Int = lastIndex; i >= 0; i--)

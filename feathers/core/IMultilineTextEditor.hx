@@ -21,10 +21,10 @@ public interface IMultilineTextEditor extends ITextEditor
 	 * Indicates whether the text editor can display more than one line of
 	 * text.
 	 */
-	function get multiline():Boolean;
+	function get multiline():Bool;
 
 	/**
 	 * @private
 	 */
-	function set multiline(value:Boolean):Void;
+	function set multiline(value:Bool):Void;
 }

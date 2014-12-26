@@ -21,12 +21,12 @@ public interface IFocusManager
 	 * disabled when another focus manager has control, such as when a
 	 * modal pop-up is displayed.
 	 */
-	function get isEnabled():Boolean;
+	function get isEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set isEnabled(value:Boolean):Void;
+	function set isEnabled(value:Bool):Void;
 
 	/**
 	 * The object that currently has focus. May return <code>null</code> if

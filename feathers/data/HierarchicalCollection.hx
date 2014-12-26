@@ -236,7 +236,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Determines if a node from the data source is a branch.
 	 */
-	public function isBranch(node:Object):Boolean
+	public function isBranch(node:Object):Bool
 	{
 		return this._dataDescriptor.isBranch(node);
 	}

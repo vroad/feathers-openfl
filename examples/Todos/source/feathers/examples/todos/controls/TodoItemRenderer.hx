@@ -19,14 +19,14 @@ class TodoItemRenderer extends DefaultListItemRenderer
 	private var check:Check;
 	private var deleteButton:Button;
 
-	private var _isEditable:Boolean = false;
+	private var _isEditable:Bool = false;
 
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
 
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{

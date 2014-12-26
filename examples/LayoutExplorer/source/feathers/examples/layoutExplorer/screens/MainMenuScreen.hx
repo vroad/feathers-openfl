@@ -48,7 +48,7 @@ class MainMenuScreen extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
-		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
+		var isTablet:Bool = DeviceCapabilities.isTablet(Starling.current.nativeStage);
 
 		this.layout = new AnchorLayout();
 

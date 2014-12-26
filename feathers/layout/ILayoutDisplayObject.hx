@@ -41,10 +41,10 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.includeInLayout = false;</listing>
 	 */
-	function get includeInLayout():Boolean;
+	function get includeInLayout():Bool;
 
 	/**
 	 * @private
 	 */
-	function set includeInLayout(value:Boolean):Void;
+	function set includeInLayout(value:Bool):Void;
 }

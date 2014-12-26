@@ -82,14 +82,14 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private var _isEnabled:Boolean = false;
+	private var _isEnabled:Bool = false;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default false
 	 */
-	public function get isEnabled():Boolean
+	public function get isEnabled():Bool
 	{
 		return this._isEnabled;
 	}
@@ -97,7 +97,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	public function set isEnabled(value:Boolean):Void
+	public function set isEnabled(value:Bool):Void
 	{
 		if(this._isEnabled == value)
 		{
@@ -321,14 +321,14 @@ class DefaultFocusManager implements IFocusManager
 		{
 			container = container.parent;
 		}
-		var hasProcessedBeforeChild:Boolean = beforeChild == null;
+		var hasProcessedBeforeChild:Bool = beforeChild == null;
 		if(container is IFocusExtras)
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
 			var extras:Vector.<DisplayObject> = focusContainer.focusExtrasAfter;
 			if(extras)
 			{
-				var skip:Boolean = false;
+				var skip:Bool = false;
 				if(beforeChild)
 				{
 					var startIndex:Int = extras.indexOf(beforeChild) - 1;
@@ -418,14 +418,14 @@ class DefaultFocusManager implements IFocusManager
 		{
 			container = container.parent;
 		}
-		var hasProcessedAfterChild:Boolean = afterChild == null;
+		var hasProcessedAfterChild:Bool = afterChild == null;
 		if(container is IFocusExtras)
 		{
 			var focusContainer:IFocusExtras = IFocusExtras(container);
 			var extras:Vector.<DisplayObject> = focusContainer.focusExtrasBefore;
 			if(extras)
 			{
-				var skip:Boolean = false;
+				var skip:Bool = false;
 				if(afterChild)
 				{
 					var startIndex:Int = extras.indexOf(afterChild) + 1;
@@ -562,7 +562,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function isValidFocus(child:IFocusDisplayObject):Boolean
+	private function isValidFocus(child:IFocusDisplayObject):Bool
 	{
 		if(!child || !child.isFocusEnabled || child.focusManager != this)
 		{

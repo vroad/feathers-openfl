@@ -64,7 +64,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Boolean
+	public function get isOpen():Bool
 	{
 		return this.content !== null;
 	}
@@ -164,7 +164,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		}
 
 		var sourceWidth:Float = this.source.width;
-		var hasSetBounds:Boolean = false;
+		var hasSetBounds:Bool = false;
 		var uiContent:IFeathersControl = this.content as IFeathersControl;
 		if(uiContent && uiContent.minWidth < sourceWidth)
 		{

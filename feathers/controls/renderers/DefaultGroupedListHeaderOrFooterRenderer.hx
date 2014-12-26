@@ -1237,10 +1237,10 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(stylesInvalid || stateInvalid)
 		{
@@ -1295,10 +1295,10 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

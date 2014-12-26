@@ -738,10 +738,10 @@ class PageIndicator extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(dataInvalid || selectionInvalid || stylesInvalid)
 		{
@@ -754,7 +754,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshSymbols(symbolsInvalid:Boolean):Void
+	private function refreshSymbols(symbolsInvalid:Bool):Void
 	{
 		this.symbols.length = 0;
 		var temp:Vector.<DisplayObject> = this.cache;
@@ -821,7 +821,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutSymbols(layoutInvalid:Boolean):Void
+	private function layoutSymbols(layoutInvalid:Bool):Void
 	{
 		if(layoutInvalid)
 		{
@@ -890,7 +890,7 @@ class PageIndicator extends FeathersControl
 			}
 			this.touchPointID = -1;
 			touch.getLocation(this.stage, HELPER_POINT);
-			var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+			var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 			if(isInBounds)
 			{
 				var lastPageIndex:Int = this._pageCount - 1;

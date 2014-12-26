@@ -646,7 +646,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var isDragging:Boolean = false;
+	private var isDragging:Bool = false;
 	
 	/**
 	 * Determines if the slider dispatches the <code>Event.CHANGE</code>
@@ -659,12 +659,12 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default true
 	 */
-	public var liveDragging:Boolean = true;
+	public var liveDragging:Bool = true;
 	
 	/**
 	 * @private
 	 */
-	private var _showThumb:Boolean = true;
+	private var _showThumb:Bool = true;
 	
 	/**
 	 * Determines if the thumb should be displayed.
@@ -676,7 +676,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default true
 	 */
-	public function get showThumb():Boolean
+	public function get showThumb():Bool
 	{
 		return this._showThumb;
 	}
@@ -684,7 +684,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set showThumb(value:Boolean):Void
+	public function set showThumb(value:Bool):Void
 	{
 		if(this._showThumb == value)
 		{
@@ -1479,14 +1479,14 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	override private function draw():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var focusInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOCUS);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var thumbFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
-		var minimumTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
-		var maximumTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var thumbFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
+		var minimumTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+		var maximumTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
 
 		if(thumbFactoryInvalid)
 		{
@@ -1555,7 +1555,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
 		if(this.minimumTrackOriginalWidth !== this.minimumTrackOriginalWidth || //isNaN
 			this.minimumTrackOriginalHeight !== this.minimumTrackOriginalHeight) //isNaN
@@ -1575,8 +1575,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			}
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1990,7 +1990,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	private function slider_removedFromStageHandler(event:Event):Void
 	{
 		this._touchPointID = -1;
-		var wasDragging:Boolean = this.isDragging;
+		var wasDragging:Bool = this.isDragging;
 		this.isDragging = false;
 		if(wasDragging && !this.liveDragging)
 		{

@@ -324,12 +324,12 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _textEditorHasFocus:Boolean = false;
+	private var _textEditorHasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _ignoreTextChanges:Boolean = false;
+	private var _ignoreTextChanges:Bool = false;
 
 	/**
 	 * @private
@@ -347,7 +347,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -357,7 +357,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * can be used instead of <code>FocusManager.focus == textInput</code>
 	 * to determine if the text input has focus.
 	 */
-	public function get hasFocus():Boolean
+	public function get hasFocus():Bool
 	{
 		if(!this._focusManager)
 		{
@@ -369,7 +369,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override public function set isEnabled(value:Boolean):Void
+	override public function set isEnabled(value:Bool):Void
 	{
 		super.isEnabled = value;
 		if(this._isEnabled)
@@ -630,7 +630,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Determines if the entered text will be masked so that it cannot be
@@ -644,7 +644,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default false
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -652,7 +652,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -665,7 +665,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _isEditable:Boolean = true;
+	private var _isEditable:Bool = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -678,7 +678,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -686,7 +686,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -1479,7 +1479,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * Flag indicating that the text editor should get focus after it is
 	 * created.
 	 */
-	private var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Bool = false;
 
 	/**
 	 * @private
@@ -1607,7 +1607,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override public function set visible(value:Boolean):Void
+	override public function set visible(value:Bool):Void
 	{
 		if(!value)
 		{
@@ -1623,7 +1623,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean = false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool = false):DisplayObject
 	{
 		if(forTouch && (!this.visible || !this.touchable))
 		{
@@ -1728,14 +1728,14 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 */
 	override private function draw():Void
 	{
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var skinInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SKIN);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var textEditorInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
-		var promptFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_PROMPT_FACTORY);
-		var focusInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
+		var promptFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PROMPT_FACTORY);
+		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
 
 		if(textEditorInvalid)
 		{
@@ -1759,7 +1759,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 
 		if(textEditorInvalid || dataInvalid)
 		{
-			var oldIgnoreTextChanges:Boolean = this._ignoreTextChanges;
+			var oldIgnoreTextChanges:Bool = this._ignoreTextChanges;
 			this._ignoreTextChanges = true;
 			this.textEditor.text = this._text;
 			this._ignoreTextChanges = oldIgnoreTextChanges;
@@ -1825,10 +1825,10 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1840,7 +1840,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		{
 			var oldTextEditorWidth:Float = this.textEditor.width;
 			var oldTextEditorHeight:Float = this.textEditor.height;
-			var oldIgnoreTextChanges:Boolean = this._ignoreTextChanges;
+			var oldIgnoreTextChanges:Bool = this._ignoreTextChanges;
 			this._ignoreTextChanges = true;
 			this.textEditor.setSize(NaN, NaN);
 			this.textEditor.text = this._typicalText;
@@ -1877,7 +1877,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			}
 		}
 
-		var isMultiline:Boolean = this.textEditor is IMultilineTextEditor && IMultilineTextEditor(this.textEditor).multiline;
+		var isMultiline:Bool = this.textEditor is IMultilineTextEditor && IMultilineTextEditor(this.textEditor).multiline;
 		if(this._typicalText && (this._verticalAlign == VERTICAL_ALIGN_JUSTIFY || isMultiline))
 		{
 			this.textEditor.width = oldTextEditorWidth;
@@ -2122,7 +2122,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.promptTextRenderer.width = this.actualWidth - this._paddingRight - this.promptTextRenderer.x;
 		}
 
-		var isMultiline:Boolean = this.textEditor is IMultilineTextEditor && IMultilineTextEditor(this.textEditor).multiline;
+		var isMultiline:Bool = this.textEditor is IMultilineTextEditor && IMultilineTextEditor(this.textEditor).multiline;
 		if(isMultiline || this._verticalAlign == VERTICAL_ALIGN_JUSTIFY)
 		{
 			//multiline is treated the same as justify
@@ -2238,7 +2238,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			return;
 		}
 		touch.getLocation(this.stage, HELPER_POINT);
-		var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+		var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 		if(isInBounds && !this._textEditorHasFocus)
 		{
 			this.textEditor.globalToLocal(HELPER_POINT, HELPER_POINT);

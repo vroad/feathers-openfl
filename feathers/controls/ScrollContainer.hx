@@ -211,7 +211,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 * and <code>removeChild()</code> will be passed to the internal view
 	 * port.
 	 */
-	private var displayListBypassEnabled:Boolean = true;
+	private var displayListBypassEnabled:Bool = true;
 
 	/**
 	 * @private
@@ -266,7 +266,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	private var _mxmlContentIsReady:Boolean = false;
+	private var _mxmlContentIsReady:Bool = false;
 
 	/**
 	 * @private
@@ -322,7 +322,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function get numRawChildren():Int
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		var result:Int = super.numChildren;
 		this.displayListBypassEnabled = oldBypass;
@@ -346,7 +346,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function getRawChildByName(name:String):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		var child:DisplayObject = super.getChildByName(name);
 		this.displayListBypassEnabled = oldBypass;
@@ -370,7 +370,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function getRawChildAt(index:Int):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		var child:DisplayObject = super.getChildAt(index);
 		this.displayListBypassEnabled = oldBypass;
@@ -382,7 +382,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function addRawChild(child:DisplayObject):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		if(child.parent == this)
 		{
@@ -413,7 +413,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function addRawChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		child = super.addChildAt(child, index);
 		this.displayListBypassEnabled = oldBypass;
@@ -423,9 +423,9 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function removeRawChild(child:DisplayObject, dispose:Boolean = false):DisplayObject
+	public function removeRawChild(child:DisplayObject, dispose:Bool = false):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		var index:Int = super.getChildIndex(child);
 		if(index >= 0)
@@ -439,7 +439,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function removeChildAt(index:Int, dispose:Boolean = false):DisplayObject
+	override public function removeChildAt(index:Int, dispose:Bool = false):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -451,9 +451,9 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function removeRawChildAt(index:Int, dispose:Boolean = false):DisplayObject
+	public function removeRawChildAt(index:Int, dispose:Bool = false):DisplayObject
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		var child:DisplayObject =  super.removeChildAt(index, dispose);
 		this.displayListBypassEnabled = oldBypass;
@@ -477,7 +477,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function getRawChildIndex(child:DisplayObject):Int
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		return super.getChildIndex(child);
 		this.displayListBypassEnabled = oldBypass;
@@ -501,7 +501,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function setRawChildIndex(child:DisplayObject, index:Int):Void
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		super.setChildIndex(child, index);
 		this.displayListBypassEnabled = oldBypass;
@@ -518,7 +518,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		{
 			throw new ArgumentError("Not a child of this container");
 		}
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		this.swapRawChildrenAt(index1, index2);
 		this.displayListBypassEnabled = oldBypass;
@@ -542,7 +542,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function swapRawChildrenAt(index1:Int, index2:Int):Void
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		super.swapChildrenAt(index1, index2);
 		this.displayListBypassEnabled = oldBypass;
@@ -566,7 +566,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	public function sortRawChildren(compareFunction:Function):Void
 	{
-		var oldBypass:Boolean = this.displayListBypassEnabled;
+		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		super.sortChildren(compareFunction);
 		this.displayListBypassEnabled = oldBypass;
@@ -600,11 +600,11 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var mxmlContentInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_MXML_CONTENT);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var mxmlContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MXML_CONTENT);
 
 		if(mxmlContentInvalid)
 		{

@@ -63,13 +63,13 @@ public interface IScrollContainer extends IFeathersControl
 	 * Removes a child from the <code>Scroller</code> rather than delegating
 	 * the call to the view port.
 	 */
-	function removeRawChild(child:DisplayObject, dispose:Boolean = false):DisplayObject;
+	function removeRawChild(child:DisplayObject, dispose:Bool = false):DisplayObject;
 
 	/**
 	 * Removes a child from the <code>Scroller</code> at a specific index
 	 * rather than delegating the call to the view port.
 	 */
-	function removeRawChildAt(index:Int, dispose:Boolean = false):DisplayObject;
+	function removeRawChildAt(index:Int, dispose:Bool = false):DisplayObject;
 
 	/**
 	 * Swaps the children of the <code>Scroller</code> rather than

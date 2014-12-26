@@ -162,12 +162,12 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 * Determines if the entered text will be masked so that it cannot be
 	 * seen, such as for a password input.
 	 */
-	function get displayAsPassword():Boolean;
+	function get displayAsPassword():Bool;
 
 	/**
 	 * @private
 	 */
-	function set displayAsPassword(value:Boolean):Void;
+	function set displayAsPassword(value:Bool):Void;
 
 	/**
 	 * The maximum number of characters that may be entered.
@@ -192,12 +192,12 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * Determines if the text is editable.
 	 */
-	function get isEditable():Boolean;
+	function get isEditable():Bool;
 
 	/**
 	 * @private
 	 */
-	function set isEditable(value:Boolean):Void;
+	function set isEditable(value:Bool):Void;
 
 	/**
 	 * Determines if the owner should call <code>setFocus()</code> on
@@ -208,7 +208,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 *
 	 * @see #setFocus()
 	 */
-	function get setTouchFocusOnEndedPhase():Boolean;
+	function get setTouchFocusOnEndedPhase():Bool;
 
 	/**
 	 * The index of the first character of the selection. If no text is

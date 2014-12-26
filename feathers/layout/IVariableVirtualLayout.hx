@@ -19,12 +19,12 @@ public interface IVariableVirtualLayout extends IVirtualLayout
 	 * same dimensions as the typical item. Performance is better for
 	 * layouts where all items have the same dimensions.
 	 */
-	function get hasVariableItemDimensions():Boolean;
+	function get hasVariableItemDimensions():Bool;
 
 	/**
 	 * @private
 	 */
-	function set hasVariableItemDimensions(value:Boolean):Void;
+	function set hasVariableItemDimensions(value:Bool):Void;
 
 	/**
 	 * Clears the cached dimensions for all virtualized indices.

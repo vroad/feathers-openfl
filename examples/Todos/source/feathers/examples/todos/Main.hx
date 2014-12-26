@@ -126,7 +126,7 @@ class Main extends PanelScreen
 
 	private function editButton_changeHandler(event:Event):Void
 	{
-		var isEditing:Boolean = this._editButton.isSelected;
+		var isEditing:Bool = this._editButton.isSelected;
 		this._list.itemRendererProperties.isEditable = isEditing;
 		this._input.visible = !isEditing;
 	}

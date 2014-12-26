@@ -126,7 +126,7 @@ class CalloutScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(layoutInvalid)
 		{

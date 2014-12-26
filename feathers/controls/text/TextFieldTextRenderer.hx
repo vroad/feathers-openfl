@@ -132,12 +132,12 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _hasMeasured:Boolean = false;
+	private var _hasMeasured:Bool = false;
 
 	/**
 	 * @private
@@ -190,7 +190,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _isHTML:Boolean = false;
+	private var _isHTML:Bool = false;
 
 	/**
 	 * Determines if the TextField should display the text as HTML or not.
@@ -206,7 +206,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 * @see #text
 	 */
-	public function get isHTML():Boolean
+	public function get isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -214,7 +214,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):Void
+	public function set isHTML(value:Bool):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -350,7 +350,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _embedFonts:Boolean = false;
+	private var _embedFonts:Bool = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -365,7 +365,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Boolean
+	public function get embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -373,7 +373,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):Void
+	public function set embedFonts(value:Bool):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -403,7 +403,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _wordWrap:Boolean = false;
+	private var _wordWrap:Bool = false;
 
 	/**
 	 * Determines if the TextField wraps text to the next line.
@@ -417,7 +417,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
-	public function get wordWrap():Boolean
+	public function get wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -425,7 +425,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):Void
+	public function set wordWrap(value:Bool):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -438,7 +438,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Bool = true;
 
 	/**
 	 * Determines if the text should be snapped to the nearest whole pixel
@@ -453,7 +453,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
-	public function get snapToPixels():Boolean
+	public function get snapToPixels():Bool
 	{
 		return this._snapToPixels;
 	}
@@ -461,7 +461,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):Void
+	public function set snapToPixels(value:Bool):Void
 	{
 		this._snapToPixels = value;
 	}
@@ -506,7 +506,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _background:Boolean = false;
+	private var _background:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a background fill. Use the
@@ -524,7 +524,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get background():Boolean
+	public function get background():Bool
 	{
 		return this._background;
 	}
@@ -532,7 +532,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set background(value:Boolean):Void
+	public function set background(value:Bool):Void
 	{
 		if(this._background == value)
 		{
@@ -583,7 +583,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _border:Boolean = false;
+	private var _border:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a border. Use the
@@ -603,7 +603,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get border():Boolean
+	public function get border():Bool
 	{
 		return this._border;
 	}
@@ -611,7 +611,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set border(value:Boolean):Void
+	public function set border(value:Bool):Void
 	{
 		if(this._border == value)
 		{
@@ -662,7 +662,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _condenseWhite:Boolean = false;
+	private var _condenseWhite:Bool = false;
 
 	/**
 	 * A boolean value that specifies whether extra white space (spaces,
@@ -678,7 +678,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of flash.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
 	 * @see #isHTML
 	 */
-	public function get condenseWhite():Boolean
+	public function get condenseWhite():Bool
 	{
 		return this._condenseWhite;
 	}
@@ -686,7 +686,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Boolean):Void
+	public function set condenseWhite(value:Bool):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -699,7 +699,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Specifies whether the text field is a password text field that hides
@@ -715,7 +715,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -723,7 +723,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -936,7 +936,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _useGutter:Boolean = false;
+	private var _useGutter:Bool = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -951,7 +951,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get useGutter():Boolean
+	public function get useGutter():Bool
 	{
 		return this._useGutter;
 	}
@@ -959,7 +959,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set useGutter(value:Boolean):Void
+	public function set useGutter(value:Bool):Void
 	{
 		if(this._useGutter == value)
 		{
@@ -1038,8 +1038,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1084,7 +1084,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		this.commit();
 
@@ -1099,9 +1099,9 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(stylesInvalid)
 		{
@@ -1159,8 +1159,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 
 		this.textField.autoSize = TextFieldAutoSize.LEFT;
 		this.textField.wordWrap = false;
@@ -1231,11 +1231,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):Void
+	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		var scaleFactor:Float = Starling.contentScaleFactor;
 		var gutterDimensionsOffset:Float = 4;
@@ -1261,7 +1261,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			this.textField.width = this.actualWidth + gutterDimensionsOffset;
 			this.textField.height = this.actualHeight + gutterDimensionsOffset;
-			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
+			var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 			var rectangleSnapshotWidth:Float = this.actualWidth * scaleFactor;
 			if(canUseRectangleTexture)
 			{
@@ -1321,7 +1321,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			this._previousActualWidth = this.actualWidth;
 			this._previousActualHeight = this.actualHeight;
-			var hasText:Boolean = this._text.length > 0;
+			var hasText:Bool = this._text.length > 0;
 			if(hasText)
 			{
 				//we need to wait a frame for the TextField to render
@@ -1351,10 +1351,10 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1433,7 +1433,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var yPosition:Float = 0;
 		var bitmapData:BitmapData;
 		var snapshotIndex:Int = -1;
-		var useNativeFilters:Boolean = this._nativeFilters && this._nativeFilters.length > 0 &&
+		var useNativeFilters:Bool = this._nativeFilters && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		var gutterPositionOffset:Float = 2 * scaleFactor;
 		if(this._useGutter)

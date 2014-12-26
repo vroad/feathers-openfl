@@ -8,7 +8,7 @@ class GroupedListSettings
 	{
 	}
 
-	public var isSelectable:Boolean = true;
-	public var hasElasticEdges:Boolean = true;
+	public var isSelectable:Bool = true;
+	public var hasElasticEdges:Bool = true;
 	public var style:String = STYLE_NORMAL;
 }

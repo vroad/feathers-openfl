@@ -41,7 +41,7 @@ class ListVideosScreen extends PanelScreen
 	private var _list:List;
 	private var _message:Label;
 
-	private var _isTransitioning:Boolean = false;
+	private var _isTransitioning:Bool = false;
 
 	private var _model:YouTubeModel;
 
@@ -120,7 +120,7 @@ class ListVideosScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
 		if(!this.savedDataProvider && dataInvalid)

@@ -142,7 +142,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * Determines if the specified token is in the list.
 	 */
-	public function contains(name:String):Boolean
+	public function contains(name:String):Bool
 	{
 		return this.names.indexOf(name) >= 0;
 	}

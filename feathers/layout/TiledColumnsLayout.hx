@@ -672,7 +672,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _useSquareTiles:Boolean = true;
+	private var _useSquareTiles:Bool = true;
 
 	/**
 	 * Determines if the tiles must be square or if their width and height
@@ -680,7 +680,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default true
 	 */
-	public function get useSquareTiles():Boolean
+	public function get useSquareTiles():Bool
 	{
 		return this._useSquareTiles;
 	}
@@ -688,7 +688,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set useSquareTiles(value:Boolean):Void
+	public function set useSquareTiles(value:Bool):Void
 	{
 		if(this._useSquareTiles == value)
 		{
@@ -701,7 +701,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _manageVisibility:Boolean = false;
+	private var _manageVisibility:Bool = false;
 
 	/**
 	 * Determines if items will be set invisible if they are outside the
@@ -720,7 +720,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default false
 	 */
-	public function get manageVisibility():Boolean
+	public function get manageVisibility():Bool
 	{
 		return this._manageVisibility;
 	}
@@ -728,7 +728,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set manageVisibility(value:Boolean):Void
+	public function set manageVisibility(value:Bool):Void
 	{
 		if(this._manageVisibility == value)
 		{
@@ -741,14 +741,14 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Boolean
+	public function get useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -756,7 +756,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set useVirtualLayout(value:Boolean):Void
+	public function set useVirtualLayout(value:Bool):Void
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -794,7 +794,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Bool = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -811,7 +811,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get resetTypicalItemDimensionsOnMeasure():Boolean
+	public function get resetTypicalItemDimensionsOnMeasure():Bool
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
 	}
@@ -819,7 +819,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set resetTypicalItemDimensionsOnMeasure(value:Boolean):Void
+	public function set resetTypicalItemDimensionsOnMeasure(value:Bool):Void
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -926,7 +926,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Boolean
+	public function get requiresLayoutOnScroll():Bool
 	{
 		return this._manageVisibility || this._useVirtualLayout;
 	}
@@ -1318,8 +1318,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth !== explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight !== explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;

@@ -169,7 +169,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Boolean
+	public function get isOpen():Bool
 	{
 		return this.content !== null;
 	}
@@ -245,7 +245,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		}
 		maxWidth -= (this.marginLeft + this.marginRight);
 		var maxHeight:Float = stage.stageHeight - this.marginTop - this.marginBottom;
-		var hasSetBounds:Boolean = false;
+		var hasSetBounds:Bool = false;
 		if(this.content is IFeathersControl)
 		{
 			//if it's a ui control that is able to auto-size, this section
@@ -334,7 +334,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			}
 			touch.getLocation(stage, HELPER_POINT);
 			var hitTestResult:DisplayObject = stage.hitTest(HELPER_POINT, true);
-			var isInBounds:Boolean = false;
+			var isInBounds:Bool = false;
 			if(this.content is DisplayObjectContainer)
 			{
 				isInBounds = DisplayObjectContainer(this.content).contains(hitTestResult);

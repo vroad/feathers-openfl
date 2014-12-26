@@ -34,7 +34,7 @@ public interface ILayout extends IFeathersEventDispatcher
 	 * May also be used by layouts that toggle item visibility as the items
 	 * scroll into and out of the view port.
 	 */
-	function get requiresLayoutOnScroll():Boolean;
+	function get requiresLayoutOnScroll():Bool;
 
 	/**
 	 * Positions (and possibly resizes) the supplied items within the

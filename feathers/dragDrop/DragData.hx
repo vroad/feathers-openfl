@@ -28,7 +28,7 @@ class DragData
 	/**
 	 * Determines if the specified data format is available.
 	 */
-	public function hasDataForFormat(format:String):Boolean
+	public function hasDataForFormat(format:String):Bool
 	{
 		return this._data.hasOwnProperty(format);
 	}

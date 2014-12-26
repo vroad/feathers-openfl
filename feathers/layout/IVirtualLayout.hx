@@ -24,12 +24,12 @@ public interface IVirtualLayout extends ILayout
 	 * <code>false</code>. In those cases, the virtual layout options
 	 * will be ignored.
 	 */
-	function get useVirtualLayout():Boolean;
+	function get useVirtualLayout():Bool;
 
 	/**
 	 * @private
 	 */
-	function set useVirtualLayout(value:Boolean):Void;
+	function set useVirtualLayout(value:Bool):Void;
 
 	/**
 	 * Used internally by a component that supports layout virtualization,

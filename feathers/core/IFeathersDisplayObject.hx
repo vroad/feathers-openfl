@@ -180,24 +180,24 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#touchable Full description of starling.display.DisplayObject.touchable in Gamua's Starling Framework API Reference
 	 */
-	function get touchable():Boolean;
+	function get touchable():Bool;
 
 	/**
 	 * @private
 	 */
-	function set touchable(value:Boolean):Void;
+	function set touchable(value:Bool):Void;
 
 	/**
 	 * Determines the visibility of the display object.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#visible Full description of starling.display.DisplayObject.visible in Gamua's Starling Framework API Reference
 	 */
-	function get visible():Boolean;
+	function get visible():Bool;
 
 	/**
 	 * @private
 	 */
-	function set visible(value:Boolean):Void;
+	function set visible(value:Bool):Void;
 
 	/**
 	 * The opacity of the display object.
@@ -258,7 +258,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#hasVisibleArea Full description of starling.display.DisplayObject.hasVisibleArea in Gamua's Starling Framework API Reference
 	 */
-	function get hasVisibleArea():Boolean;
+	function get hasVisibleArea():Bool;
 
 	/**
 	 * The transformation matrix of the display object, relative to its
@@ -274,12 +274,12 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#useHandCursor Full description of starling.display.DisplayObject.useHandCursor in Gamua's Starling Framework API Reference
 	 */
-	function get useHandCursor():Boolean;
+	function get useHandCursor():Bool;
 
 	/**
 	 * @private
 	 */
-	function set useHandCursor(value:Boolean):Void;
+	function set useHandCursor(value:Bool):Void;
 
 	/**
 	 * The bounds of the display object in its local coordinate space.
@@ -305,14 +305,14 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#removeFromParent() Full description of starling.display.DisplayObject.removeFromParent() in Gamua's Starling Framework API Reference
 	 */
-	function removeFromParent(dispose:Boolean = false):Void;
+	function removeFromParent(dispose:Bool = false):Void;
 
 	/**
 	 * Determines if a point exists within the display object's bounds.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#hitTest() Full description of starling.display.DisplayObject.hitTest() in Gamua's Starling Framework API Reference
 	 */
-	function hitTest(localPoint:Point, forTouch:Boolean=false):DisplayObject;
+	function hitTest(localPoint:Point, forTouch:Bool=false):DisplayObject;
 
 	/**
 	 * Converts a point from the display object's coordinate space to the

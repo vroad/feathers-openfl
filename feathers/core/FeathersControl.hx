@@ -393,7 +393,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _isQuickHitAreaEnabled:Boolean = false;
+	private var _isQuickHitAreaEnabled:Bool = false;
 
 	/**
 	 * Similar to <code>mouseChildren</code> on the classic display list. If
@@ -408,7 +408,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default false
 	 */
-	public function get isQuickHitAreaEnabled():Boolean
+	public function get isQuickHitAreaEnabled():Bool
 	{
 		return this._isQuickHitAreaEnabled;
 	}
@@ -416,7 +416,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isQuickHitAreaEnabled(value:Boolean):Void
+	public function set isQuickHitAreaEnabled(value:Bool):Void
 	{
 		this._isQuickHitAreaEnabled = value;
 	}
@@ -429,7 +429,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _isInitialized:Boolean = false;
+	private var _isInitialized:Bool = false;
 
 	/**
 	 * Determines if the component has been initialized yet. The
@@ -448,7 +448,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #event:initialize
 	 * @see #isCreated
 	 */
-	public function get isInitialized():Boolean
+	public function get isInitialized():Bool
 	{
 		return this._isInitialized;
 	}
@@ -458,7 +458,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * A flag that indicates that everything is invalid. If true, no other
 	 * flags will need to be tracked.
 	 */
-	private var _isAllInvalid:Boolean = false;
+	private var _isAllInvalid:Bool = false;
 
 	/**
 	 * @private
@@ -473,7 +473,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _isEnabled:Boolean = true;
+	private var _isEnabled:Bool = true;
 
 	/**
 	 * Indicates whether the control is interactive or not.
@@ -485,7 +485,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default true
 	 */
-	public function get isEnabled():Boolean
+	public function get isEnabled():Bool
 	{
 		return _isEnabled;
 	}
@@ -493,7 +493,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isEnabled(value:Boolean):Void
+	public function set isEnabled(value:Bool):Void
 	{
 		if(this._isEnabled == value)
 		{
@@ -570,7 +570,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		var valueIsNaN:Boolean = value !== value; //isNaN
+		var valueIsNaN:Bool = value !== value; //isNaN
 		if(valueIsNaN && this.explicitWidth !== this.explicitWidth)
 		{
 			return;
@@ -654,7 +654,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			return;
 		}
-		var valueIsNaN:Boolean = value !== value; //isNaN
+		var valueIsNaN:Bool = value !== value; //isNaN
 		if(valueIsNaN && this.explicitHeight !== this.explicitHeight)
 		{
 			return;
@@ -930,14 +930,14 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _includeInLayout:Boolean = true;
+	private var _includeInLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get includeInLayout():Boolean
+	public function get includeInLayout():Bool
 	{
 		return this._includeInLayout;
 	}
@@ -945,7 +945,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set includeInLayout(value:Boolean):Void
+	public function set includeInLayout(value:Bool):Void
 	{
 		if(this._includeInLayout == value)
 		{
@@ -1066,7 +1066,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _isFocusEnabled:Boolean = true;
+	private var _isFocusEnabled:Bool = true;
 
 	/**
 	 * @copy feathers.core.IFocusDisplayObject#isFocusEnabled
@@ -1077,7 +1077,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default true
 	 */
-	public function get isFocusEnabled():Boolean
+	public function get isFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isFocusEnabled;
 	}
@@ -1085,7 +1085,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isFocusEnabled(value:Boolean):Void
+	public function set isFocusEnabled(value:Bool):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1424,24 +1424,24 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _hasFocus:Boolean = false;
+	private var _hasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _showFocus:Boolean = false;
+	private var _showFocus:Bool = false;
 
 	/**
 	 * @private
 	 * Flag to indicate that the control is currently validating.
 	 */
-	private var _isValidating:Boolean = false;
+	private var _isValidating:Bool = false;
 
 	/**
 	 * @private
 	 * Flag to indicate that the control has validated at least once.
 	 */
-	private var _hasValidated:Boolean = false;
+	private var _hasValidated:Bool = false;
 
 	/**
 	 * Determines if the component has been initialized and validated for
@@ -1459,7 +1459,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #event:creationComplete
 	 * @see #isInitialized
 	 */
-	public function get isCreated():Boolean
+	public function get isCreated():Bool
 	{
 		return this._hasValidated;
 	}
@@ -1542,7 +1542,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean=false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool=false):DisplayObject
 	{
 		if(this._isQuickHitAreaEnabled)
 		{
@@ -1563,7 +1563,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _isDisposed:Boolean = false;
+	private var _isDisposed:Bool = false;
 
 	/**
 	 * @private
@@ -1592,8 +1592,8 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 */
 	public function invalidate(flag:String = INVALIDATION_FLAG_ALL):Void
 	{
-		var isAlreadyInvalid:Boolean = this.isInvalid();
-		var isAlreadyDelayedInvalid:Boolean = false;
+		var isAlreadyInvalid:Bool = this.isInvalid();
+		var isAlreadyDelayedInvalid:Bool = false;
 		if(this._isValidating)
 		{
 			for(var otherFlag:String in this._delayedInvalidationFlags)
@@ -1724,7 +1724,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * specific flag only. If all flags have been marked as invalid, always
 	 * returns <code>true</code>.
 	 */
-	public function isInvalid(flag:String = null):Boolean
+	public function isInvalid(flag:String = null):Bool
 	{
 		if(this._isAllInvalid)
 		{
@@ -1747,13 +1747,13 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	public function setSize(width:Float, height:Float):Void
 	{
 		this.explicitWidth = width;
-		var widthIsNaN:Boolean = width != width;
+		var widthIsNaN:Bool = width != width;
 		if(widthIsNaN)
 		{
 			this.actualWidth = this.scaledActualWidth = 0;
 		}
 		this.explicitHeight = height;
-		var heightIsNaN:Boolean = height != height;
+		var heightIsNaN:Bool = height != height;
 		if(heightIsNaN)
 		{
 			this.actualHeight = this.scaledActualHeight = 0;
@@ -1811,7 +1811,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * and <code>height</code> values have not been set explicitly, and the
 	 * UI control needs to measure itself and choose an "ideal" size.
 	 */
-	private function setSizeInternal(width:Float, height:Float, canInvalidate:Boolean):Boolean
+	private function setSizeInternal(width:Float, height:Float, canInvalidate:Bool):Bool
 	{
 		if(this.explicitWidth === this.explicitWidth) //!isNaN
 		{
@@ -1851,7 +1851,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 		{
 			throw new ArgumentError(ILLEGAL_HEIGHT_ERROR);
 		}
-		var resized:Boolean = false;
+		var resized:Bool = false;
 		if(this.actualWidth != width)
 		{
 			this.actualWidth = width;

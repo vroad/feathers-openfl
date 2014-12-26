@@ -274,7 +274,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default false
 	 */
-	public var clampToRange:Boolean = false;
+	public var clampToRange:Bool = false;
 
 	/**
 	 * @private
@@ -651,7 +651,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var isDragging:Boolean = false;
+	private var isDragging:Bool = false;
 
 	/**
 	 * Determines if the scroll bar dispatches the <code>Event.CHANGE</code>
@@ -664,7 +664,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default true
 	 */
-	public var liveDragging:Boolean = true;
+	public var liveDragging:Bool = true;
 
 	/**
 	 * @private
@@ -887,11 +887,11 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA)
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var thumbFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA)
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var thumbFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
 
 		if(thumbFactoryInvalid)
 		{
@@ -929,7 +929,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
 		if(this.thumbOriginalWidth !== this.thumbOriginalWidth ||
 			this.thumbOriginalHeight !== this.thumbOriginalHeight) //isNaN
@@ -939,8 +939,8 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			this.thumbOriginalHeight = this.thumb.height;
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

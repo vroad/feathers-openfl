@@ -223,7 +223,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isTextureOwner:Boolean = false;
+	private var _isTextureOwner:Bool = false;
 
 	/**
 	 * @private
@@ -376,7 +376,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isLoaded:Boolean = false;
+	private var _isLoaded:Bool = false;
 
 	/**
 	 * Indicates if the source has completed loading, if the source is a
@@ -391,7 +391,7 @@ class ImageLoader extends FeathersControl
 	 *     //do something
 	 * }</listing>
 	 */
-	public function get isLoaded():Boolean
+	public function get isLoaded():Bool
 	{
 		return this._isLoaded;
 	}
@@ -544,7 +544,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _snapToPixels:Boolean = false;
+	private var _snapToPixels:Bool = false;
 
 	/**
 	 * Determines if the image should be snapped to the nearest global whole
@@ -558,7 +558,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get snapToPixels():Boolean
+	public function get snapToPixels():Bool
 	{
 		return this._snapToPixels;
 	}
@@ -566,7 +566,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):Void
+	public function set snapToPixels(value:Bool):Void
 	{
 		if(this._snapToPixels == value)
 		{
@@ -578,7 +578,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _maintainAspectRatio:Boolean = true;
+	private var _maintainAspectRatio:Bool = true;
 
 	/**
 	 * Determines if the aspect ratio of the texture is maintained when the
@@ -592,7 +592,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get maintainAspectRatio():Boolean
+	public function get maintainAspectRatio():Bool
 	{
 		return this._maintainAspectRatio;
 	}
@@ -600,7 +600,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set maintainAspectRatio(value:Boolean):Void
+	public function set maintainAspectRatio(value:Bool):Void
 	{
 		if(this._maintainAspectRatio == value)
 		{
@@ -653,7 +653,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _delayTextureCreation:Boolean = false;
+	private var _delayTextureCreation:Bool = false;
 
 	/**
 	 * Determines if a loaded bitmap may be converted to a texture
@@ -685,7 +685,7 @@ class ImageLoader extends FeathersControl
 	 * @see feathers.controls.Scroller#event:scrollComplete
 	 * @see feathers.controls.Scroller#isScrolling
 	 */
-	public function get delayTextureCreation():Boolean
+	public function get delayTextureCreation():Bool
 	{
 		return this._delayTextureCreation;
 	}
@@ -693,7 +693,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set delayTextureCreation(value:Boolean):Void
+	public function set delayTextureCreation(value:Bool):Void
 	{
 		if(this._delayTextureCreation == value)
 		{
@@ -709,7 +709,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isInTextureQueue:Boolean = false;
+	private var _isInTextureQueue:Bool = false;
 
 	/**
 	 * @private
@@ -1010,10 +1010,10 @@ class ImageLoader extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid)
 		{
@@ -1049,10 +1049,10 @@ class ImageLoader extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1486,8 +1486,8 @@ class ImageLoader extends FeathersControl
 		{
 			next._textureQueuePrevious = previous;
 		}
-		var wasHead:Boolean = textureQueueHead == this;
-		var wasTail:Boolean = textureQueueTail == this;
+		var wasHead:Bool = textureQueueHead == this;
+		var wasTail:Bool = textureQueueTail == this;
 		if(wasTail)
 		{
 			textureQueueTail = previous;

@@ -7,5 +7,5 @@ class StationData
 	}
 
 	public var name:String;
-	public var isDepartingFromHere:Boolean = false;
+	public var isDepartingFromHere:Bool = false;
 }

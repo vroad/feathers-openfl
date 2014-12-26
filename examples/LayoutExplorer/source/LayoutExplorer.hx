@@ -34,17 +34,17 @@ class LayoutExplorer extends Sprite
 
 	private var _starling:Starling;
 	private var _launchImage:Loader;
-	private var _savedAutoOrients:Boolean;
+	private var _savedAutoOrients:Bool;
 
 	private function showLaunchImage():Void
 	{
 		var filePath:String;
-		var isPortraitOnly:Boolean = false;
+		var isPortraitOnly:Bool = false;
 		if(Capabilities.manufacturer.indexOf("iOS") >= 0)
 		{
 			if(Capabilities.screenResolutionX == 1536 && Capabilities.screenResolutionY == 2048)
 			{
-				var isCurrentlyPortrait:Boolean = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				var isCurrentlyPortrait:Bool = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
 				filePath = isCurrentlyPortrait ? "Default-Portrait@2x.png" : "Default-Landscape@2x.png";
 			}
 			else if(Capabilities.screenResolutionX == 768 && Capabilities.screenResolutionY == 1024)

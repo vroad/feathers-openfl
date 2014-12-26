@@ -190,7 +190,7 @@ class Alert extends Panel
 	 * }</listing>
 	 */
 	public static function show(message:String, title:String = null, buttons:ListCollection = null,
-		icon:DisplayObject = null, isModal:Boolean = true, isCentered:Boolean = true,
+		icon:DisplayObject = null, isModal:Bool = true, isCentered:Bool = true,
 		customAlertFactory:Function = null, customOverlayFactory:Function = null):Alert
 	{
 		var factory:Function = customAlertFactory;
@@ -345,7 +345,7 @@ class Alert extends Panel
 		{
 			return;
 		}
-		var oldDisplayListBypassEnabled:Boolean = this.displayListBypassEnabled;
+		var oldDisplayListBypassEnabled:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
 		if(this._icon)
 		{
@@ -682,9 +682,9 @@ class Alert extends Panel
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES)
-		var textRendererInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES)
+		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
 
 		if(textRendererInvalid)
 		{
@@ -717,10 +717,10 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -907,7 +907,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
+	override private function calculateViewPortOffsets(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		super.calculateViewPortOffsets(forceScrollBars, useActualBounds);
 		if(this._icon)

@@ -267,7 +267,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _ignoreSelectionChanges:Boolean = false;
+	private var _ignoreSelectionChanges:Bool = false;
 	
 	/**
 	 * @private
@@ -946,7 +946,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _toggleButtonOnOpenAndClose:Boolean = false;
+	private var _toggleButtonOnOpenAndClose:Bool = false;
 
 	/**
 	 * Determines if the <code>isSelected</code> property of the picker
@@ -966,7 +966,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.core.IToggle
 	 * @see feathers.controls.ToggleButton
 	 */
-	public function get toggleButtonOnOpenAndClose():Boolean
+	public function get toggleButtonOnOpenAndClose():Bool
 	{
 		return this._toggleButtonOnOpenAndClose;
 	}
@@ -974,7 +974,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set toggleButtonOnOpenAndClose(value:Boolean):Void
+	public function set toggleButtonOnOpenAndClose(value:Bool):Void
 	{
 		if(this._toggleButtonOnOpenAndClose == value)
 		{
@@ -997,12 +997,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isOpenListPending:Boolean = false;
+	private var _isOpenListPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isCloseListPending:Boolean = false;
+	private var _isCloseListPending:Bool = false;
 	
 	/**
 	 * Using <code>labelField</code> and <code>labelFunction</code>,
@@ -1047,7 +1047,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _buttonHasFocus:Boolean = false;
+	private var _buttonHasFocus:Bool = false;
 
 	/**
 	 * @private
@@ -1057,7 +1057,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _listIsOpenOnTouchBegan:Boolean = false;
+	private var _listIsOpenOnTouchBegan:Bool = false;
 
 	/**
 	 * Opens the pop-up list, if it isn't already open.
@@ -1177,13 +1177,13 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var buttonFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
-		var listFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var buttonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
+		var listFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);
 
 		if(buttonFactoryInvalid)
 		{
@@ -1225,7 +1225,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		
 		if(listFactoryInvalid || dataInvalid)
 		{
-			var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
+			var oldIgnoreSelectionChanges:Bool = this._ignoreSelectionChanges;
 			this._ignoreSelectionChanges = true;
 			this.list.dataProvider = this._dataProvider;
 			this._ignoreSelectionChanges = oldIgnoreSelectionChanges;
@@ -1275,10 +1275,10 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

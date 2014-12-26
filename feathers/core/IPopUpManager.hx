@@ -39,22 +39,22 @@ public interface IPopUpManager
 	/**
 	 * @copy PopUpManager#addPopUp()
 	 */
-	function addPopUp(popUp:DisplayObject, isModal:Boolean = true, isCentered:Boolean = true, customOverlayFactory:Function = null):DisplayObject;
+	function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject;
 
 	/**
 	 * @copy PopUpManager#removePopUp()
 	 */
-	function removePopUp(popUp:DisplayObject, dispose:Boolean = false):DisplayObject;
+	function removePopUp(popUp:DisplayObject, dispose:Bool = false):DisplayObject;
 
 	/**
 	 * @copy PopUpManager#isPopUp()
 	 */
-	function isPopUp(popUp:DisplayObject):Boolean;
+	function isPopUp(popUp:DisplayObject):Bool;
 
 	/**
 	 * @copy PopUpManager#isTopLevelPopUp()
 	 */
-	function isTopLevelPopUp(popUp:DisplayObject):Boolean;
+	function isTopLevelPopUp(popUp:DisplayObject):Bool;
 
 	/**
 	 * @copy PopUpManager#centerPopUp()

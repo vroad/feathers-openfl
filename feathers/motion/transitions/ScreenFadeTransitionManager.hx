@@ -83,7 +83,7 @@ class ScreenFadeTransitionManager
 	 *
 	 * @default false
 	 */
-	public var skipNextTransition:Boolean = false;
+	public var skipNextTransition:Bool = false;
 	
 	/**
 	 * The function passed to the <code>transition</code> property of the

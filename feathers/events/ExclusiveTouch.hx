@@ -104,7 +104,7 @@ class ExclusiveTouch extends EventDispatcher
 	 * <code>true</code> if the touch is claimed. Returns <code>false</code>
 	 * if the touch was previously claimed by another display object.
 	 */
-	public function claimTouch(touchID:Int, target:DisplayObject):Boolean
+	public function claimTouch(touchID:Int, target:DisplayObject):Bool
 	{
 		if(!target)
 		{

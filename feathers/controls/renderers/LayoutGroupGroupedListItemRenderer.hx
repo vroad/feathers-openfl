@@ -175,12 +175,12 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	private var _isSelected:Boolean;
+	private var _isSelected:Bool;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get isSelected():Boolean
+	public function get isSelected():Bool
 	{
 		return this._isSelected;
 	}
@@ -188,7 +188,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):Void
+	public function set isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -213,10 +213,10 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(dataInvalid)
 		{

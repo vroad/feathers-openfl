@@ -479,12 +479,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _hasHorizontalScrollBar:Boolean = false;
+	private var _hasHorizontalScrollBar:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _hasVerticalScrollBar:Boolean = false;
+	private var _hasVerticalScrollBar:Bool = false;
 
 	/**
 	 * @private
@@ -579,7 +579,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _hasViewPortBoundsChanged:Boolean = false;
+	private var _hasViewPortBoundsChanged:Bool = false;
 
 	/**
 	 * @private
@@ -594,17 +594,17 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isDraggingHorizontally:Boolean = false;
+	private var _isDraggingHorizontally:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isDraggingVertically:Boolean = false;
+	private var _isDraggingVertically:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var ignoreViewPortResizing:Boolean = false;
+	private var ignoreViewPortResizing:Bool = false;
 
 	/**
 	 * @private
@@ -652,7 +652,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _measureViewPort:Boolean = true;
+	private var _measureViewPort:Bool = true;
 
 	/**
 	 * Determines if the dimensions of the view port are used when measuring
@@ -666,7 +666,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get measureViewPort():Boolean
+	public function get measureViewPort():Bool
 	{
 		return this._measureViewPort;
 	}
@@ -674,7 +674,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set measureViewPort(value:Boolean):Void
+	public function set measureViewPort(value:Bool):Void
 	{
 		if(this._measureViewPort == value)
 		{
@@ -687,7 +687,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _snapToPages:Boolean = false;
+	private var _snapToPages:Bool = false;
 
 	/**
 	 * Determines if scrolling will snap to the nearest page.
@@ -699,7 +699,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get snapToPages():Boolean
+	public function get snapToPages():Bool
 	{
 		return this._snapToPages;
 	}
@@ -707,7 +707,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set snapToPages(value:Boolean):Void
+	public function set snapToPages(value:Bool):Void
 	{
 		if(this._snapToPages == value)
 		{
@@ -1546,7 +1546,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _clipContent:Boolean = true;
+	private var _clipContent:Bool = true;
 
 	/**
 	 * If true, the viewport will be clipped to the scroller's bounds. In
@@ -1564,7 +1564,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get clipContent():Boolean
+	public function get clipContent():Bool
 	{
 		return this._clipContent;
 	}
@@ -1572,7 +1572,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):Void
+	public function set clipContent(value:Bool):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -1617,7 +1617,7 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		var valueIsNaN:Boolean = value !== value; //isNaN
+		var valueIsNaN:Bool = value !== value; //isNaN
 		if(valueIsNaN && this.explicitPageWidth !== this.explicitPageWidth)
 		{
 			return;
@@ -1669,7 +1669,7 @@ class Scroller extends FeathersControl
 		{
 			return;
 		}
-		var valueIsNaN:Boolean = value !== value; //isNaN
+		var valueIsNaN:Bool = value !== value; //isNaN
 		if(valueIsNaN && this.explicitPageHeight !== this.explicitPageHeight)
 		{
 			return;
@@ -1689,7 +1689,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _hasElasticEdges:Boolean = true;
+	private var _hasElasticEdges:Bool = true;
 
 	/**
 	 * Determines if the scrolling can go beyond the edges of the viewport.
@@ -1704,7 +1704,7 @@ class Scroller extends FeathersControl
 	 * @see #elasticity
 	 * @see #throwElasticity
 	 */
-	public function get hasElasticEdges():Boolean
+	public function get hasElasticEdges():Bool
 	{
 		return this._hasElasticEdges;
 	}
@@ -1712,7 +1712,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set hasElasticEdges(value:Boolean):Void
+	public function set hasElasticEdges(value:Bool):Void
 	{
 		this._hasElasticEdges = value;
 	}
@@ -1963,7 +1963,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _autoHideBackground:Boolean = false;
+	private var _autoHideBackground:Bool = false;
 
 	/**
 	 * If <code>true</code>, the background's <code>visible</code> property
@@ -1985,7 +1985,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get autoHideBackground():Boolean
+	public function get autoHideBackground():Bool
 	{
 		return this._autoHideBackground;
 	}
@@ -1993,7 +1993,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoHideBackground(value:Boolean):Void
+	public function set autoHideBackground(value:Bool):Void
 	{
 		if(this._autoHideBackground == value)
 		{
@@ -2392,7 +2392,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _useFixedThrowDuration:Boolean = true;
+	private var _useFixedThrowDuration:Bool = true;
 
 	/**
 	 * If <code>true</code>, the duration of a "throw" animation will be the
@@ -2415,7 +2415,7 @@ class Scroller extends FeathersControl
 	 * @see #decelerationRate
 	 * @see #pageThrowDuration
 	 */
-	public function get useFixedThrowDuration():Boolean
+	public function get useFixedThrowDuration():Bool
 	{
 		return this._useFixedThrowDuration;
 	}
@@ -2423,7 +2423,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set useFixedThrowDuration(value:Boolean):Void
+	public function set useFixedThrowDuration(value:Bool):Void
 	{
 		this._useFixedThrowDuration = value;
 	}
@@ -2522,7 +2522,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _snapScrollPositionsToPixels:Boolean = false;
+	private var _snapScrollPositionsToPixels:Bool = false;
 
 	/**
 	 * If enabled, the scroll position will always be adjusted to whole
@@ -2535,7 +2535,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get snapScrollPositionsToPixels():Boolean
+	public function get snapScrollPositionsToPixels():Bool
 	{
 		return this._snapScrollPositionsToPixels;
 	}
@@ -2543,7 +2543,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set snapScrollPositionsToPixels(value:Boolean):Void
+	public function set snapScrollPositionsToPixels(value:Bool):Void
 	{
 		if(this._snapScrollPositionsToPixels == value)
 		{
@@ -2560,23 +2560,23 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollBarIsScrolling:Boolean = false;
+	private var _horizontalScrollBarIsScrolling:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _verticalScrollBarIsScrolling:Boolean = false;
+	private var _verticalScrollBarIsScrolling:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isScrolling:Boolean = false;
+	private var _isScrolling:Bool = false;
 
 	/**
 	 * Determines if the scroller is currently scrolling with user
 	 * interaction or with animation.
 	 */
-	public function get isScrolling():Boolean
+	public function get isScrolling():Bool
 	{
 		return this._isScrolling;
 	}
@@ -2584,7 +2584,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isScrollingStopped:Boolean = false;
+	private var _isScrollingStopped:Bool = false;
 
 	/**
 	 * The pending horizontal scroll position to scroll to after validating.
@@ -2622,7 +2622,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var isScrollBarRevealPending:Boolean = false;
+	private var isScrollBarRevealPending:Bool = false;
 
 	/**
 	 * @private
@@ -2786,11 +2786,11 @@ class Scroller extends FeathersControl
 		}
 		this.pendingHorizontalScrollPosition = NaN;
 		this.pendingVerticalScrollPosition = NaN;
-		var horizontalPageHasChanged:Boolean = (this.pendingHorizontalPageIndex >= 0 && this.pendingHorizontalPageIndex != horizontalPageIndex) ||
+		var horizontalPageHasChanged:Bool = (this.pendingHorizontalPageIndex >= 0 && this.pendingHorizontalPageIndex != horizontalPageIndex) ||
 			(this.pendingHorizontalPageIndex < 0 && this._horizontalPageIndex != horizontalPageIndex);
-		var verticalPageHasChanged:Boolean = (this.pendingVerticalPageIndex >= 0 && this.pendingVerticalPageIndex != verticalPageIndex) ||
+		var verticalPageHasChanged:Bool = (this.pendingVerticalPageIndex >= 0 && this.pendingVerticalPageIndex != verticalPageIndex) ||
 			(this.pendingVerticalPageIndex < 0 && this._verticalPageIndex != verticalPageIndex);
-		var durationHasChanged:Boolean = (this.pendingHorizontalPageIndex >= 0 || this.pendingVerticalPageIndex >= 0) && this.pendingScrollDuration == animationDuration
+		var durationHasChanged:Bool = (this.pendingHorizontalPageIndex >= 0 || this.pendingVerticalPageIndex >= 0) && this.pendingScrollDuration == animationDuration
 		if(!horizontalPageHasChanged && !verticalPageHasChanged &&
 			!durationHasChanged)
 		{
@@ -2819,7 +2819,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean = false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool = false):DisplayObject
 	{
 		//save localX and localY because localPoint could change after the
 		//call to super.hitTest().
@@ -2844,18 +2844,18 @@ class Scroller extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		//we don't use this flag in this class, but subclasses will use it,
 		//and it's better to handle it here instead of having them
 		//invalidate unrelated flags
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var clippingInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var scrollBarInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
-		var pendingScrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_PENDING_SCROLL);
-		var pendingRevealScrollBarsInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var scrollBarInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
+		var pendingScrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_SCROLL);
+		var pendingRevealScrollBarsInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS);
 
 		if(scrollBarInvalid)
 		{
@@ -2887,7 +2887,7 @@ class Scroller extends FeathersControl
 			this.verticalScrollBar.validate();
 		}
 
-		var needsWidthOrHeight:Boolean = this.explicitWidth !== this.explicitWidth ||
+		var needsWidthOrHeight:Bool = this.explicitWidth !== this.explicitWidth ||
 			this.explicitHeight !== this.explicitHeight; //isNaN
 		var oldMaxHorizontalScrollPosition:Float = this._maxHorizontalScrollPosition;
 		var oldMaxVerticalScrollPosition:Float = this._maxVerticalScrollPosition;
@@ -2991,10 +2991,10 @@ class Scroller extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -3234,7 +3234,7 @@ class Scroller extends FeathersControl
 		this._viewPort.horizontalScrollPosition = this._horizontalScrollPosition;
 		this._viewPort.verticalScrollPosition = this._verticalScrollPosition;
 
-		var oldIgnoreViewPortResizing:Boolean = this.ignoreViewPortResizing;
+		var oldIgnoreViewPortResizing:Bool = this.ignoreViewPortResizing;
 		if(this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FIXED)
 		{
 			this.ignoreViewPortResizing = true;
@@ -3250,7 +3250,7 @@ class Scroller extends FeathersControl
 	{
 		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
 		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
-		var needsWidthOrHeight:Boolean = this.explicitWidth != this.explicitWidth ||
+		var needsWidthOrHeight:Bool = this.explicitWidth != this.explicitWidth ||
 			this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!(this._measureViewPort && needsWidthOrHeight))
 		{
@@ -3288,7 +3288,7 @@ class Scroller extends FeathersControl
 		var oldMaxHSP:Float = this._maxHorizontalScrollPosition;
 		var oldMaxVSP:Float = this._maxVerticalScrollPosition;
 		this.refreshMinAndMaxScrollPositions();
-		var maximumPositionsChanged:Boolean = this._maxHorizontalScrollPosition != oldMaxHSP || this._maxVerticalScrollPosition != oldMaxVSP;
+		var maximumPositionsChanged:Bool = this._maxHorizontalScrollPosition != oldMaxHSP || this._maxVerticalScrollPosition != oldMaxVSP;
 		if(maximumPositionsChanged && this._touchPointID < 0)
 		{
 			this.clampScrollPositions();
@@ -3549,7 +3549,7 @@ class Scroller extends FeathersControl
 	 */
 	private function showOrHideChildren():Void
 	{
-		var isFixed:Boolean = this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FIXED;
+		var isFixed:Bool = this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FIXED;
 		var childCount:Int = this.numRawChildrenInternal;
 		if(this.verticalScrollBar)
 		{
@@ -3590,7 +3590,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateViewPortOffsetsForFixedHorizontalScrollBar(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
+	private function calculateViewPortOffsetsForFixedHorizontalScrollBar(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		if(this.horizontalScrollBar && (this._measureViewPort || useActualBounds))
 		{
@@ -3617,7 +3617,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateViewPortOffsetsForFixedVerticalScrollBar(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
+	private function calculateViewPortOffsetsForFixedVerticalScrollBar(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		if(this.verticalScrollBar && (this._measureViewPort || useActualBounds))
 		{
@@ -3651,7 +3651,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
+	private function calculateViewPortOffsets(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		//in fixed mode, if we determine that scrolling is required, we
 		//remember the offsets for later. if scrolling is not needed, then
@@ -3815,8 +3815,8 @@ class Scroller extends FeathersControl
 	 */
 	private function refreshClipRect():Void
 	{
-		var hasElasticEdgesAndTouch:Boolean = this._hasElasticEdges && (this._interactionMode == INTERACTION_MODE_TOUCH || this._interactionMode == INTERACTION_MODE_TOUCH_AND_SCROLL_BARS);
-		var contentIsLargeEnoughToScroll:Boolean = this._maxHorizontalScrollPosition != this._minHorizontalScrollPosition || this._maxVerticalScrollPosition != this._minVerticalScrollPosition;
+		var hasElasticEdgesAndTouch:Bool = this._hasElasticEdges && (this._interactionMode == INTERACTION_MODE_TOUCH || this._interactionMode == INTERACTION_MODE_TOUCH_AND_SCROLL_BARS);
+		var contentIsLargeEnoughToScroll:Bool = this._maxHorizontalScrollPosition != this._minHorizontalScrollPosition || this._maxVerticalScrollPosition != this._minVerticalScrollPosition;
 		if(this._clipContent && (hasElasticEdgesAndTouch || contentIsLargeEnoughToScroll))
 		{
 			if(!this._viewPort.clipRect)
@@ -3886,7 +3886,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function removeRawChildInternal(child:DisplayObject, dispose:Boolean = false):DisplayObject
+	private function removeRawChildInternal(child:DisplayObject, dispose:Bool = false):DisplayObject
 	{
 		if(this is IScrollContainer)
 		{
@@ -3898,7 +3898,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function removeRawChildAtInternal(index:Int, dispose:Boolean = false):DisplayObject
+	private function removeRawChildAtInternal(index:Int, dispose:Bool = false):DisplayObject
 	{
 		if(this is IScrollContainer)
 		{
@@ -3993,7 +3993,7 @@ class Scroller extends FeathersControl
 	 */
 	private function throwTo(targetHorizontalScrollPosition:Float = NaN, targetVerticalScrollPosition:Float = NaN, duration:Float = 0.5):Void
 	{
-		var changedPosition:Boolean = false;
+		var changedPosition:Bool = false;
 		if(targetHorizontalScrollPosition === targetHorizontalScrollPosition) //!isNaN
 		{
 			if(this._horizontalAutoScrollTween)
@@ -4976,8 +4976,8 @@ class Scroller extends FeathersControl
 			this.stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 			this._touchPointID = -1;
 			this.dispatchEventWith(FeathersEventType.END_INTERACTION);
-			var isFinishingHorizontally:Boolean = false;
-			var isFinishingVertically:Boolean = false;
+			var isFinishingHorizontally:Bool = false;
+			var isFinishingVertically:Bool = false;
 			if(this._horizontalScrollPosition < this._minHorizontalScrollPosition || this._horizontalScrollPosition > this._maxHorizontalScrollPosition)
 			{
 				isFinishingHorizontally = true;
@@ -5144,7 +5144,7 @@ class Scroller extends FeathersControl
 
 			this._horizontalScrollBarTouchPointID = -1;
 			touch.getLocation(displayHorizontalScrollBar, HELPER_POINT);
-			var isInBounds:Boolean = this.horizontalScrollBar.hitTest(HELPER_POINT, true) != null;
+			var isInBounds:Bool = this.horizontalScrollBar.hitTest(HELPER_POINT, true) != null;
 			if(!isInBounds)
 			{
 				this.hideHorizontalScrollBar();
@@ -5192,7 +5192,7 @@ class Scroller extends FeathersControl
 
 			this._verticalScrollBarTouchPointID = -1;
 			touch.getLocation(displayVerticalScrollBar, HELPER_POINT);
-			var isInBounds:Boolean = this.verticalScrollBar.hitTest(HELPER_POINT, true) != null;
+			var isInBounds:Bool = this.verticalScrollBar.hitTest(HELPER_POINT, true) != null;
 			if(!isInBounds)
 			{
 				this.hideVerticalScrollBar();

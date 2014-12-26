@@ -260,12 +260,12 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textEditorHasFocus:Boolean = false;
+	private var _textEditorHasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Bool = false;
 
 	/**
 	 * @private
@@ -290,7 +290,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _ignoreTextChanges:Boolean = false;
+	private var _ignoreTextChanges:Bool = false;
 
 	/**
 	 * @private
@@ -303,7 +303,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -313,7 +313,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * can be used instead of <code>FocusManager.focus == textArea</code>
 	 * to determine if the text area has focus.
 	 */
-	public function get hasFocus():Boolean
+	public function get hasFocus():Bool
 	{
 		if(!this._focusManager)
 		{
@@ -325,7 +325,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set isEnabled(value:Boolean):Void
+	override public function set isEnabled(value:Bool):Void
 	{
 		super.isEnabled = value;
 		if(this._isEnabled)
@@ -504,7 +504,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isEditable:Boolean = true;
+	private var _isEditable:Bool = true;
 
 	/**
 	 * Determines if the text area is editable. If the text area is not
@@ -517,7 +517,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -525,7 +525,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -826,10 +826,10 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var textEditorInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(textEditorInvalid)
 		{
@@ -843,7 +843,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 
 		if(textEditorInvalid || dataInvalid)
 		{
-			var oldIgnoreTextChanges:Boolean = this._ignoreTextChanges;
+			var oldIgnoreTextChanges:Bool = this._ignoreTextChanges;
 			this._ignoreTextChanges = true;
 			this.textEditorViewPort.text = this._text;
 			this._ignoreTextChanges = oldIgnoreTextChanges;
@@ -998,7 +998,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 			return;
 		}
 		touch.getLocation(this.stage, HELPER_POINT);
-		var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+		var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 		if(!this._textEditorHasFocus && isInBounds)
 		{
 			this.globalToLocal(HELPER_POINT, HELPER_POINT);

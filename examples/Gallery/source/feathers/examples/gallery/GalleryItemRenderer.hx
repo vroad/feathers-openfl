@@ -156,12 +156,12 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private var _isSelected:Boolean;
+	private var _isSelected:Bool;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get isSelected():Boolean
+	public function get isSelected():Bool
 	{
 		return this._isSelected;
 	}
@@ -169,7 +169,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):Void
+	public function set isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -196,9 +196,9 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid)
 		{
@@ -229,10 +229,10 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = isNaN(this.explicitWidth);
-		var needsHeight:Boolean = isNaN(this.explicitHeight);
+		var needsWidth:Bool = isNaN(this.explicitWidth);
+		var needsHeight:Bool = isNaN(this.explicitHeight);
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

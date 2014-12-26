@@ -53,7 +53,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function setValueForState(value:Object, state:Object, isSelected:Boolean = false):Void
+	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
 	{
 		if(!(value is Scale9Textures))
 		{

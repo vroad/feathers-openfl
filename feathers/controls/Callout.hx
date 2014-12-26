@@ -353,7 +353,7 @@ class Callout extends FeathersControl
 	 * }</listing>
 	 */
 	public static function show(content:DisplayObject, origin:DisplayObject, supportedDirections:String = DIRECTION_ANY,
-		isModal:Boolean = true, customCalloutFactory:Function = null, customOverlayFactory:Function = null):Callout
+		isModal:Bool = true, customCalloutFactory:Function = null, customOverlayFactory:Function = null):Callout
 	{
 		if(!origin.stage)
 		{
@@ -644,7 +644,7 @@ class Callout extends FeathersControl
 	 * @see #closeOnTouchEndedOutside
 	 * @see #closeOnKeys
 	 */
-	public var closeOnTouchBeganOutside:Boolean = false;
+	public var closeOnTouchBeganOutside:Bool = false;
 
 	/**
 	 * Determines if the callout is automatically closed if a touch in the
@@ -661,7 +661,7 @@ class Callout extends FeathersControl
 	 * @see #closeOnTouchBeganOutside
 	 * @see #closeOnKeys
 	 */
-	public var closeOnTouchEndedOutside:Boolean = false;
+	public var closeOnTouchEndedOutside:Bool = false;
 
 	/**
 	 * The callout will be closed if any of these keys are pressed.
@@ -697,7 +697,7 @@ class Callout extends FeathersControl
 	 * @see #closeOnKeys
 	 * @see #close()
 	 */
-	public var disposeOnSelfClose:Boolean = true;
+	public var disposeOnSelfClose:Bool = true;
 
 	/**
 	 * Determines if the callout's content will be disposed when the callout
@@ -710,12 +710,12 @@ class Callout extends FeathersControl
 	 * <listing version="3.0">
 	 * callout.disposeContent = false;</listing>
 	 */
-	public var disposeContent:Boolean = true;
+	public var disposeContent:Bool = true;
 
 	/**
 	 * @private
 	 */
-	private var _isReadyToClose:Boolean = false;
+	private var _isReadyToClose:Bool = false;
 
 	/**
 	 * @private
@@ -1597,7 +1597,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _ignoreContentResize:Boolean = false;
+	private var _ignoreContentResize:Bool = false;
 
 	/**
 	 * @private
@@ -1618,7 +1618,7 @@ class Callout extends FeathersControl
 	/**
 	 * Closes the callout.
 	 */
-	public function close(dispose:Boolean = false):Void
+	public function close(dispose:Bool = false):Void
 	{
 		if(this.parent)
 		{
@@ -1646,11 +1646,11 @@ class Callout extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var originInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_ORIGIN);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var originInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ORIGIN);
 
 		if(sizeInvalid)
 		{
@@ -1700,7 +1700,7 @@ class Callout extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
 		this.measureWithArrowPosition(this._arrowPosition, HELPER_POINT);
 		return this.setSizeInternal(HELPER_POINT.x, HELPER_POINT.y, false);
@@ -1715,8 +1715,8 @@ class Callout extends FeathersControl
 		{
 			result = new Point();
 		}
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1887,7 +1887,7 @@ class Callout extends FeathersControl
 		{
 			this._content.x = xPosition + this._paddingLeft;
 			this._content.y = yPosition + this._paddingTop;
-			var oldIgnoreContentResize:Boolean = this._ignoreContentResize;
+			var oldIgnoreContentResize:Bool = this._ignoreContentResize;
 			this._ignoreContentResize = true;
 			var contentWidth:Float = backgroundWidth - this._paddingLeft - this._paddingRight;
 			var difference:Float = Math.abs(this._content.width - contentWidth);
@@ -1919,7 +1919,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._origin.getBounds(Starling.current.stage, HELPER_RECT);
-		var hasGlobalBounds:Boolean = this._lastGlobalBoundsOfOrigin != null;
+		var hasGlobalBounds:Bool = this._lastGlobalBoundsOfOrigin != null;
 		if(!hasGlobalBounds || !this._lastGlobalBoundsOfOrigin.equals(HELPER_RECT))
 		{
 			if(!hasGlobalBounds)

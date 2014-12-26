@@ -271,7 +271,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -407,7 +407,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isSelectable:Boolean = true;
+	private var _isSelectable:Bool = true;
 	
 	/**
 	 * Determines if items in the list may be selected. By default only a
@@ -426,7 +426,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #allowMultipleSelection
 	 */
-	public function get isSelectable():Boolean
+	public function get isSelectable():Bool
 	{
 		return this._isSelectable;
 	}
@@ -434,7 +434,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isSelectable(value:Boolean):Void
+	public function set isSelectable(value:Bool):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -570,7 +570,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _allowMultipleSelection:Boolean = false;
+	private var _allowMultipleSelection:Bool = false;
 
 	/**
 	 * If <code>true</code> multiple items may be selected at a time. If
@@ -589,7 +589,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndices
 	 * @see #selectedItems
 	 */
-	public function get allowMultipleSelection():Boolean
+	public function get allowMultipleSelection():Bool
 	{
 		return this._allowMultipleSelection;
 	}
@@ -597,7 +597,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set allowMultipleSelection(value:Boolean):Void
+	public function set allowMultipleSelection(value:Bool):Void
 	{
 		if(this._allowMultipleSelection == value)
 		{
@@ -1110,7 +1110,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 */
 	override private function initialize():Void
 	{
-		var hasLayout:Boolean = this._layout != null;
+		var hasLayout:Bool = this._layout != null;
 
 		super.initialize();
 		

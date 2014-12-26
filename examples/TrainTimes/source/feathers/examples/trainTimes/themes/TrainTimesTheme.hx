@@ -87,7 +87,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		return quad;
 	}
 
-	public function TrainTimesTheme(container:DisplayObjectContainer = null, scaleToDPI:Boolean = true)
+	public function TrainTimesTheme(container:DisplayObjectContainer = null, scaleToDPI:Bool = true)
 	{
 		if(!container)
 		{
@@ -105,9 +105,9 @@ class TrainTimesTheme extends DisplayListWatcher
 		return this._originalDPI;
 	}
 
-	private var _scaleToDPI:Boolean;
+	private var _scaleToDPI:Bool;
 
-	public function get scaleToDPI():Boolean
+	public function get scaleToDPI():Bool
 	{
 		return this._scaleToDPI;
 	}

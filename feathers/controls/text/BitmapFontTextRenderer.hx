@@ -270,7 +270,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _wordWrap:Boolean = false;
+	private var _wordWrap:Bool = false;
 
 	/**
 	 * If the width or maxWidth values are set, then the text will continue
@@ -283,7 +283,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get wordWrap():Boolean
+	public function get wordWrap():Bool
 	{
 		return _wordWrap;
 	}
@@ -291,7 +291,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):Void
+	public function set wordWrap(value:Bool):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -304,7 +304,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapToPixels:Boolean = true;
+	private var _snapToPixels:Bool = true;
 
 	/**
 	 * Determines if the position of the text should be snapped to the
@@ -319,7 +319,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
-	public function get snapToPixels():Boolean
+	public function get snapToPixels():Bool
 	{
 		return _snapToPixels;
 	}
@@ -327,7 +327,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Boolean):Void
+	public function set snapToPixels(value:Bool):Void
 	{
 		if(this._snapToPixels == value)
 		{
@@ -340,7 +340,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _truncateToFit:Boolean = true;
+	private var _truncateToFit:Bool = true;
 
 	/**
 	 * If word wrap is disabled, and the text is longer than the width of
@@ -360,7 +360,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #truncationText
 	 */
-	public function get truncateToFit():Boolean
+	public function get truncateToFit():Bool
 	{
 		return _truncateToFit;
 	}
@@ -368,7 +368,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set truncateToFit(value:Boolean):Void
+	public function set truncateToFit(value:Bool):Void
 	{
 		if(this._truncateToFit == value)
 		{
@@ -414,7 +414,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _useSeparateBatch:Boolean = true;
+	private var _useSeparateBatch:Bool = true;
 
 	/**
 	 * Determines if the characters are batched normally by Starling or if
@@ -429,7 +429,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
-	public function get useSeparateBatch():Boolean
+	public function get useSeparateBatch():Bool
 	{
 		return this._useSeparateBatch;
 	}
@@ -437,7 +437,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set useSeparateBatch(value:Boolean):Void
+	public function set useSeparateBatch(value:Bool):Void
 	{
 		if(this._useSeparateBatch == value)
 		{
@@ -499,8 +499,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -522,7 +522,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
-		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
+		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
@@ -584,7 +584,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
-				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
+				var previousCharIsWhitespace:Bool = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
 				if(charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB)
 				{
 					if(!previousCharIsWhitespace)
@@ -656,10 +656,10 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(stylesInvalid || stateInvalid)
 		{
@@ -693,7 +693,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
-		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
+		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
@@ -701,8 +701,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		var lineHeight:Float = font.lineHeight * scale;
 
-		var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
-		var isAligned:Boolean = this.currentTextFormat.align != TextFormatAlign.LEFT;
+		var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
+		var isAligned:Bool = this.currentTextFormat.align != TextFormatAlign.LEFT;
 		var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 		if(isAligned && maxLineWidth == Number.POSITIVE_INFINITY)
 		{
@@ -722,7 +722,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var currentX:Float = 0;
 		var currentY:Float = 0;
 		var previousCharID:Float = NaN;
-		var isWordComplete:Boolean = false;
+		var isWordComplete:Bool = false;
 		var startXOfPreviousWord:Float = 0;
 		var widthOfWhitespaceAfterWord:Float = 0;
 		var wordLength:Int = 0;
@@ -774,7 +774,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
-				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
+				var previousCharIsWhitespace:Bool = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
 				if(charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB)
 				{
 					if(!previousCharIsWhitespace)
@@ -1035,7 +1035,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
-		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
+		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{

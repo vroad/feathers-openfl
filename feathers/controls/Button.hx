@@ -436,7 +436,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set isEnabled(value:Boolean):Void
+	override public function set isEnabled(value:Bool):Void
 	{
 		if(this._isEnabled == value)
 		{
@@ -529,7 +529,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _hasLabelTextRenderer:Boolean = true;
+	private var _hasLabelTextRenderer:Bool = true;
 
 	/**
 	 * Determines if the button's label text renderer is created or not.
@@ -543,7 +543,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
-	public function get hasLabelTextRenderer():Boolean
+	public function get hasLabelTextRenderer():Bool
 	{
 		return this._hasLabelTextRenderer;
 	}
@@ -551,7 +551,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set hasLabelTextRenderer(value:Boolean):Void
+	public function set hasLabelTextRenderer(value:Bool):Void
 	{
 		if(this._hasLabelTextRenderer == value)
 		{
@@ -1114,7 +1114,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * button.keepDownStateOnRollOut = true;</listing>
 	 */
-	public var keepDownStateOnRollOut:Boolean = false;
+	public var keepDownStateOnRollOut:Bool = false;
 
 	/**
 	 * @private
@@ -1920,7 +1920,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _hasLongPressed:Boolean = false;
+	private var _hasLongPressed:Bool = false;
 
 	/**
 	 * @private
@@ -1956,7 +1956,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isLongPressEnabled:Boolean = false;
+	private var _isLongPressEnabled:Bool = false;
 
 	/**
 	 * Determines if <code>FeathersEventType.LONG_PRESS</code> will be
@@ -1976,7 +1976,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #event:longPress
 	 * @see #longPressDuration
 	 */
-	public function get isLongPressEnabled():Boolean
+	public function get isLongPressEnabled():Bool
 	{
 		return this._isLongPressEnabled;
 	}
@@ -1984,7 +1984,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isLongPressEnabled(value:Boolean):Void
+	public function set isLongPressEnabled(value:Bool):Void
 	{
 		this._isLongPressEnabled = value;
 		if(!value)
@@ -1998,12 +1998,12 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var textRendererInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
-		var focusInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
 
 		if(textRendererInvalid)
 		{
@@ -2060,10 +2060,10 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2388,7 +2388,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function refreshMaxLabelWidth(forMeasurement:Boolean):Void
+	private function refreshMaxLabelWidth(forMeasurement:Bool):Void
 	{
 		if(this.currentIcon is IValidating)
 		{
@@ -2675,7 +2675,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			}
 
 			touch.getLocation(this.stage, HELPER_POINT);
-			var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+			var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 			if(touch.phase == TouchPhase.MOVED)
 			{
 				if(isInBounds || this.keepDownStateOnRollOut)

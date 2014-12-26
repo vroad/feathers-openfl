@@ -261,12 +261,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _ignoreStageTextChanges:Boolean = false;
+	private var _ignoreStageTextChanges:Bool = false;
 
 	/**
 	 * @private
@@ -318,17 +318,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * the hood. We want to eliminate that damn TextField gutter to improve
 	 * consistency across platforms.
 	 */
-	private var _stageTextIsTextField:Boolean = false;
+	private var _stageTextIsTextField:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _stageTextHasFocus:Boolean = false;
+	private var _stageTextHasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Bool = false;
 
 	/**
 	 * @private
@@ -375,7 +375,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _stageTextIsComplete:Boolean = false;
+	private var _stageTextIsComplete:Bool = false;
 
 	/**
 	 * @inheritDoc
@@ -429,7 +429,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _autoCorrect:Boolean = false;
+	private var _autoCorrect:Bool = false;
 
 	/**
 	 * Indicates whether a device auto-corrects user input for spelling or
@@ -446,7 +446,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCorrect Full description of flash.text.StageText.autoCorrect in Adobe's Flash Platform API Reference
 	 */
-	public function get autoCorrect():Boolean
+	public function get autoCorrect():Bool
 	{
 		return this._autoCorrect;
 	}
@@ -454,7 +454,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set autoCorrect(value:Boolean):Void
+	public function set autoCorrect(value:Bool):Void
 	{
 		if(this._autoCorrect == value)
 		{
@@ -542,7 +542,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Indicates whether the text field is a password text field that hides
@@ -557,7 +557,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#displayAsPassword Full description of flash.text.StageText.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -565,7 +565,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -578,7 +578,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _isEditable:Boolean = true;
+	private var _isEditable:Bool = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -591,7 +591,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -599,7 +599,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -614,7 +614,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default true
 	 */
-	public function get setTouchFocusOnEndedPhase():Boolean
+	public function get setTouchFocusOnEndedPhase():Bool
 	{
 		return true;
 	}
@@ -842,7 +842,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _multiline:Boolean = false;
+	private var _multiline:Bool = false;
 
 	/**
 	 * Indicates whether the StageText object can display more than one line
@@ -865,7 +865,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#multiline Full description of flash.text.StageText.multiline in Adobe's Flash Platform API Reference
 	 */
-	public function get multiline():Boolean
+	public function get multiline():Bool
 	{
 		return this._multiline;
 	}
@@ -873,7 +873,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set multiline(value:Boolean):Void
+	public function set multiline(value:Bool):Void
 	{
 		if(this._multiline == value)
 		{
@@ -1244,8 +1244,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1261,8 +1261,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			this.initializeInternal();
 		}
 
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		if(stylesInvalid || dataInvalid)
 		{
@@ -1304,7 +1304,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		this.commit();
 
@@ -1318,16 +1318,16 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function commit():Void
 	{
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		if(stylesInvalid || dataInvalid)
 		{
 			this.refreshMeasureProperties();
 		}
 
-		var oldIgnoreStageTextChanges:Boolean = this._ignoreStageTextChanges;
+		var oldIgnoreStageTextChanges:Bool = this._ignoreStageTextChanges;
 		this._ignoreStageTextChanges = true;
 		if(stylesInvalid)
 		{
@@ -1364,8 +1364,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 
 		this._measureTextField.autoSize = TextFieldAutoSize.LEFT;
 
@@ -1422,13 +1422,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):Void
+	private function layout(sizeInvalid:Bool):Void
 	{
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var positionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_POSITION);
-		var skinInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var positionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_POSITION);
+		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
 
 		if(positionInvalid || sizeInvalid || stylesInvalid || skinInvalid || stateInvalid)
 		{
@@ -1440,7 +1440,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 		if(!this._stageTextHasFocus && (stylesInvalid || dataInvalid || sizeInvalid || this._needsNewTexture))
 		{
-			var hasText:Boolean = this._text.length > 0;
+			var hasText:Bool = this._text.length > 0;
 			if(hasText)
 			{
 				this.refreshSnapshot();
@@ -1472,10 +1472,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

@@ -112,7 +112,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *
 	 * @default true
 	 */
-	public var processRecursively:Boolean = true;
+	public var processRecursively:Bool = true;
 
 	/**
 	 * @private
@@ -124,7 +124,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _initializeOnce:Boolean = true;
+	private var _initializeOnce:Bool = true;
 
 	/**
 	 * Determines if objects added to the display list are initialized only
@@ -136,7 +136,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *
 	 * @default true
 	 */
-	public function get initializeOnce():Boolean
+	public function get initializeOnce():Bool
 	{
 		return this._initializeOnce;
 	}
@@ -144,7 +144,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set initializeOnce(value:Boolean):Void
+	public function set initializeOnce(value:Bool):Void
 	{
 		if(this._initializeOnce == value)
 		{
@@ -251,7 +251,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *     // this display object won't be processed by the watcher
 	 * }</listing>
 	 */
-	public function isExcluded(target:DisplayObject):Boolean
+	public function isExcluded(target:DisplayObject):Bool
 	{
 		if(!this._excludedObjects)
 		{
@@ -383,7 +383,7 @@ class DisplayListWatcher extends EventDispatcher
 		var targetAsRequiredBaseClass:DisplayObject = DisplayObject(target as requiredBaseClass);
 		if(targetAsRequiredBaseClass)
 		{
-			var isInitialized:Boolean = this._initializeOnce && this.initializedObjects[targetAsRequiredBaseClass];
+			var isInitialized:Bool = this._initializeOnce && this.initializedObjects[targetAsRequiredBaseClass];
 			if(!isInitialized)
 			{
 				if(this.isExcluded(target))
@@ -438,7 +438,7 @@ class DisplayListWatcher extends EventDispatcher
 	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):Void
 	{
 		var initializer:Function;
-		var hasNameInitializer:Boolean = false;
+		var hasNameInitializer:Bool = false;
 		if(target is IFeathersControl && nameMap)
 		{
 			var nameTable:Object = nameMap[type];

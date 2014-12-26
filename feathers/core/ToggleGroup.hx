@@ -56,12 +56,12 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _ignoreChanges:Boolean = false;
+	private var _ignoreChanges:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isSelectionRequired:Boolean = true;
+	private var _isSelectionRequired:Bool = true;
 
 	/**
 	 * Determines if the user can deselect the currently selected item or
@@ -81,7 +81,7 @@ class ToggleGroup extends EventDispatcher
 	 *
 	 * @default true
 	 */
-	public function get isSelectionRequired():Boolean
+	public function get isSelectionRequired():Bool
 	{
 		return this._isSelectionRequired;
 	}
@@ -89,7 +89,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set isSelectionRequired(value:Boolean):Void
+	public function set isSelectionRequired(value:Bool):Void
 	{
 		if(this._isSelectionRequired == value)
 		{
@@ -159,7 +159,7 @@ class ToggleGroup extends EventDispatcher
 		{
 			throw new RangeError("Index " + value + " is out of range " + itemCount + " for ToggleGroup.");
 		}
-		var hasChanged:Boolean = this._selectedIndex != value;
+		var hasChanged:Bool = this._selectedIndex != value;
 		this._selectedIndex = value;
 
 		//refresh all the items
@@ -290,7 +290,7 @@ class ToggleGroup extends EventDispatcher
 	 *     // do something
 	 * }</listing>
 	 */
-	public function hasItem(item:IToggle):Boolean
+	public function hasItem(item:IToggle):Bool
 	{
 		var index:Int = this._items.indexOf(item);
 		return index >= 0;

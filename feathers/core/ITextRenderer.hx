@@ -29,12 +29,12 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	 * Determines if the text wraps to the next line when it reaches the
 	 * width of the component.
 	 */
-	function get wordWrap():Boolean;
+	function get wordWrap():Bool;
 
 	/**
 	 * @private
 	 */
-	function set wordWrap(value:Boolean):Void;
+	function set wordWrap(value:Bool):Void;
 
 	/**
 	 * Measures the text's bounds (without a full validation, if

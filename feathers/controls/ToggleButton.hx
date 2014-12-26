@@ -92,7 +92,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	private var _isToggle:Boolean = true;
+	private var _isToggle:Bool = true;
 
 	/**
 	 * Determines if the button may be selected or deselected as a result of
@@ -110,7 +110,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #isSelected
 	 * @see #event:triggered Event.TRIGGERED
 	 */
-	public function get isToggle():Boolean
+	public function get isToggle():Bool
 	{
 		return this._isToggle;
 	}
@@ -118,7 +118,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set isToggle(value:Boolean):Void
+	public function set isToggle(value:Bool):Void
 	{
 		this._isToggle = value;
 	}
@@ -126,7 +126,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	private var _isSelected:Boolean = false;
+	private var _isSelected:Bool = false;
 
 	/**
 	 * Indicates if the button is selected or not. The button may be
@@ -148,7 +148,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #event:change Event.CHANGE
 	 * @see #isToggle
 	 */
-	public function get isSelected():Boolean
+	public function get isSelected():Bool
 	{
 		return this._isSelected;
 	}
@@ -156,7 +156,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Boolean):Void
+	public function set isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{

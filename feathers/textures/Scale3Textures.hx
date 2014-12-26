@@ -204,10 +204,10 @@ public final class Scale3Textures
 			var regionTopHeight:Float = this._firstRegionSize + textureFrame.y;
 			var regionBottomHeight:Float = thirdRegionSize - (textureFrame.height - this._texture.height) - textureFrame.y;
 
-			var hasTopFrame:Boolean = regionTopHeight != this._firstRegionSize;
-			var hasRightFrame:Boolean = (textureFrame.width - textureFrame.x) != this._texture.width;
-			var hasBottomFrame:Boolean = regionBottomHeight != thirdRegionSize;
-			var hasLeftFrame:Boolean = textureFrame.x != 0;
+			var hasTopFrame:Bool = regionTopHeight != this._firstRegionSize;
+			var hasRightFrame:Bool = (textureFrame.width - textureFrame.x) != this._texture.width;
+			var hasBottomFrame:Bool = regionBottomHeight != thirdRegionSize;
+			var hasLeftFrame:Bool = textureFrame.x != 0;
 
 			var firstRegion:Rectangle = new Rectangle(0, 0, this._texture.width, regionTopHeight);
 			var firstFrame:Rectangle = (hasLeftFrame || hasRightFrame || hasTopFrame) ? new Rectangle(textureFrame.x, textureFrame.y, textureFrame.width, this._firstRegionSize) : null;

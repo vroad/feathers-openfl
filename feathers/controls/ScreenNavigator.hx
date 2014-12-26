@@ -223,7 +223,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _clipContent:Boolean = false;
+	private var _clipContent:Bool = false;
 
 	/**
 	 * Determines if the navigator's content should be clipped to the width
@@ -236,7 +236,7 @@ class ScreenNavigator extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get clipContent():Boolean
+	public function get clipContent():Bool
 	{
 		return this._clipContent;
 	}
@@ -244,7 +244,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):Void
+	public function set clipContent(value:Bool):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -300,7 +300,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _transitionIsActive:Boolean = false;
+	private var _transitionIsActive:Bool = false;
 
 	/**
 	 * @private
@@ -320,7 +320,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _clearAfterTransition:Boolean = false;
+	private var _clearAfterTransition:Bool = false;
 
 	/**
 	 * @private
@@ -495,7 +495,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function clearScreenInternal(displayTransition:Boolean):Void
+	private function clearScreenInternal(displayTransition:Bool):Void
 	{
 		if(!this._activeScreen)
 		{
@@ -595,7 +595,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Determines if the specified screen identifier has been added.
 	 */
-	public function hasScreen(id:String):Boolean
+	public function hasScreen(id:String):Bool
 	{
 		return this._screens.hasOwnProperty(id);
 	}
@@ -644,9 +644,9 @@ class ScreenNavigator extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 
@@ -701,10 +701,10 @@ class ScreenNavigator extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -755,7 +755,7 @@ class ScreenNavigator extends FeathersControl
 		if(this._previousScreenInTransition)
 		{
 			var item:ScreenNavigatorItem = this._screens[this._previousScreenInTransitionID];
-			var canBeDisposed:Boolean = !(item.screen is DisplayObject);
+			var canBeDisposed:Bool = !(item.screen is DisplayObject);
 			if(this._previousScreenInTransition is IScreen)
 			{
 				var screen:IScreen = IScreen(this._previousScreenInTransition);

@@ -117,7 +117,7 @@ class ScreenSlidingStackTransitionManager
 	 *
 	 * @default false
 	 */
-	public var skipNextTransition:Boolean = false;
+	public var skipNextTransition:Bool = false;
 	
 	/**
 	 * Removes all saved classes from the stack that are used to determine

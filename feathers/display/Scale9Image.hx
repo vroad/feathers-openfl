@@ -92,17 +92,17 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _propertiesChanged:Boolean = true;
+	private var _propertiesChanged:Bool = true;
 
 	/**
 	 * @private
 	 */
-	private var _layoutChanged:Boolean = true;
+	private var _layoutChanged:Bool = true;
 
 	/**
 	 * @private
 	 */
-	private var _renderingChanged:Boolean = true;
+	private var _renderingChanged:Bool = true;
 
 	/**
 	 * @private
@@ -314,7 +314,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _useSeparateBatch:Boolean = true;
+	private var _useSeparateBatch:Bool = true;
 
 	/**
 	 * Determines if the regions are batched normally by Starling or if
@@ -327,7 +327,7 @@ class Scale9Image extends Sprite implements IValidating
 	 *
 	 * @default true
 	 */
-	public function get useSeparateBatch():Boolean
+	public function get useSeparateBatch():Bool
 	{
 		return this._useSeparateBatch;
 	}
@@ -335,7 +335,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set useSeparateBatch(value:Boolean):Void
+	public function set useSeparateBatch(value:Bool):Void
 	{
 		if(this._useSeparateBatch == value)
 		{
@@ -359,12 +359,12 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _isValidating:Boolean = false;
+	private var _isValidating:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isInvalid:Boolean = false;
+	private var _isInvalid:Bool = false;
 
 	/**
 	 * @private
@@ -444,7 +444,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean=false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool=false):DisplayObject
 	{
 		if(forTouch && (!this.visible || !this.touchable))
 		{

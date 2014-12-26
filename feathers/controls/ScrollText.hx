@@ -212,7 +212,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get isFocusEnabled():Bool
 	{
 		return this._maxVerticalScrollPosition != this._minVerticalScrollPosition && this._isEnabled && this._isFocusEnabled;
 	}
@@ -261,7 +261,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _isHTML:Boolean = false;
+	private var _isHTML:Bool = false;
 
 	/**
 	 * Determines if the TextField should display the text as HTML or not.
@@ -277,7 +277,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 * @see #text
 	 */
-	public function get isHTML():Boolean
+	public function get isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -285,7 +285,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):Void
+	public function set isHTML(value:Bool):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -421,7 +421,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _embedFonts:Boolean = false;
+	private var _embedFonts:Bool = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -438,7 +438,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Boolean
+	public function get embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -446,7 +446,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):Void
+	public function set embedFonts(value:Bool):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -496,7 +496,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _background:Boolean = false;
+	private var _background:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a background fill. Use the
@@ -514,7 +514,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get background():Boolean
+	public function get background():Bool
 	{
 		return this._background;
 	}
@@ -522,7 +522,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set background(value:Boolean):Void
+	public function set background(value:Bool):Void
 	{
 		if(this._background == value)
 		{
@@ -573,7 +573,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _border:Boolean = false;
+	private var _border:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a border. Use the
@@ -590,7 +590,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get border():Boolean
+	public function get border():Bool
 	{
 		return this._border;
 	}
@@ -598,7 +598,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set border(value:Boolean):Void
+	public function set border(value:Bool):Void
 	{
 		if(this._border == value)
 		{
@@ -649,7 +649,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _condenseWhite:Boolean = false;
+	private var _condenseWhite:Bool = false;
 
 	/**
 	 * A boolean value that specifies whether extra white space (spaces,
@@ -665,7 +665,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of flash.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
 	 * @see #isHTML
 	 */
-	public function get condenseWhite():Boolean
+	public function get condenseWhite():Bool
 	{
 		return this._condenseWhite;
 	}
@@ -673,7 +673,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Boolean):Void
+	public function set condenseWhite(value:Bool):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -686,7 +686,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Specifies whether the text field is a password text field that hides
@@ -702,7 +702,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -710,7 +710,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -984,12 +984,12 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _visible:Boolean = true;
+	private var _visible:Bool = true;
 
 	/**
 	 * @private
 	 */
-	override public function get visible():Boolean
+	override public function get visible():Bool
 	{
 		return this._visible;
 	}
@@ -997,7 +997,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set visible(value:Boolean):Void
+	override public function set visible(value:Bool):Void
 	{
 		if(this._visible == value)
 		{
@@ -1036,7 +1036,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get hasVisibleArea():Boolean
+	override public function get hasVisibleArea():Bool
 	{
 		return true;
 	}
@@ -1046,10 +1046,10 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
 		if(dataInvalid)
 		{

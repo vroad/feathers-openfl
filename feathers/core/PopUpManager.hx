@@ -182,7 +182,7 @@ class PopUpManager
 	 * Regular Starling display objects do not dispatch a proper resize
 	 * event that the pop-up manager can listen to.</p>
 	 */
-	public static function addPopUp(popUp:DisplayObject, isModal:Boolean = true, isCentered:Boolean = true, customOverlayFactory:Function = null):DisplayObject
+	public static function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject
 	{
 		return PopUpManager.forStarling(Starling.current).addPopUp(popUp, isModal, isCentered, customOverlayFactory);
 	}
@@ -190,7 +190,7 @@ class PopUpManager
 	/**
 	 * Removes a pop-up from the stage.
 	 */
-	public static function removePopUp(popUp:DisplayObject, dispose:Boolean = false):DisplayObject
+	public static function removePopUp(popUp:DisplayObject, dispose:Bool = false):DisplayObject
 	{
 		return PopUpManager.forStarling(Starling.current).removePopUp(popUp, dispose);
 	}
@@ -206,7 +206,7 @@ class PopUpManager
 	 *     // do something
 	 * }</listing>
 	 */
-	public static function isPopUp(popUp:DisplayObject):Boolean
+	public static function isPopUp(popUp:DisplayObject):Bool
 	{
 		return PopUpManager.forStarling(Starling.current).isPopUp(popUp);
 	}
@@ -215,7 +215,7 @@ class PopUpManager
 	 * Determines if a pop-up is above the highest overlay (of if there is
 	 * no overlay).
 	 */
-	public static function isTopLevelPopUp(popUp:DisplayObject):Boolean
+	public static function isTopLevelPopUp(popUp:DisplayObject):Bool
 	{
 		return PopUpManager.forStarling(Starling.current).isTopLevelPopUp(popUp);
 	}

@@ -86,7 +86,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	override public function set isToggle(value:Boolean):Void
+	override public function set isToggle(value:Bool):Void
 	{
 		throw IllegalOperationError("Radio isToggle must always be true.");
 	}

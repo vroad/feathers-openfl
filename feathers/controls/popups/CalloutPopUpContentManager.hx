@@ -89,7 +89,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	 *
 	 * @default true
 	 */
-	public var isModal:Boolean = true;
+	public var isModal:Bool = true;
 
 	/**
 	 * @private
@@ -104,7 +104,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Boolean
+	public function get isOpen():Bool
 	{
 		return this.content !== null;
 	}

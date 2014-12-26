@@ -616,7 +616,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isTopDrawerOpen:Boolean = false;
+	private var _isTopDrawerOpen:Bool = false;
 
 	/**
 	 * Indicates if the top drawer is currently open. If you want to check
@@ -641,7 +641,7 @@ class Drawers extends FeathersControl
 	 * @see #topDrawer
 	 * @see #toggleTopDrawer()
 	 */
-	public function get isTopDrawerOpen():Boolean
+	public function get isTopDrawerOpen():Bool
 	{
 		return this._topDrawer && this._isTopDrawerOpen;
 	}
@@ -649,7 +649,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isTopDrawerOpen(value:Boolean):Void
+	public function set isTopDrawerOpen(value:Bool):Void
 	{
 		if(this.isTopDrawerDocked || this._isTopDrawerOpen == value)
 		{
@@ -669,7 +669,7 @@ class Drawers extends FeathersControl
 	 * @see #topDrawerDockMode
 	 * @see #isTopDrawerOpen
 	 */
-	public function get isTopDrawerDocked():Boolean
+	public function get isTopDrawerDocked():Bool
 	{
 		if(!this._topDrawer)
 		{
@@ -831,7 +831,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isRightDrawerOpen:Boolean = false;
+	private var _isRightDrawerOpen:Bool = false;
 
 	/**
 	 * Indicates if the right drawer is currently open. If you want to check
@@ -856,7 +856,7 @@ class Drawers extends FeathersControl
 	 * @see #rightDrawerDockMode
 	 * @see #toggleRightDrawer()
 	 */
-	public function get isRightDrawerOpen():Boolean
+	public function get isRightDrawerOpen():Bool
 	{
 		return this._rightDrawer && this._isRightDrawerOpen;
 	}
@@ -864,7 +864,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isRightDrawerOpen(value:Boolean):Void
+	public function set isRightDrawerOpen(value:Bool):Void
 	{
 		if(this.isRightDrawerDocked || this._isRightDrawerOpen == value)
 		{
@@ -884,7 +884,7 @@ class Drawers extends FeathersControl
 	 * @see #rightDrawerDockMode
 	 * @see #isRightDrawerOpen
 	 */
-	public function get isRightDrawerDocked():Boolean
+	public function get isRightDrawerDocked():Bool
 	{
 		if(!this._rightDrawer)
 		{
@@ -1046,7 +1046,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isBottomDrawerOpen:Boolean = false;
+	private var _isBottomDrawerOpen:Bool = false;
 
 	/**
 	 * Indicates if the bottom drawer is currently open. If you want to check
@@ -1071,7 +1071,7 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerOpen
 	 * @see #toggleBottomDrawer()
 	 */
-	public function get isBottomDrawerOpen():Boolean
+	public function get isBottomDrawerOpen():Bool
 	{
 		return this._bottomDrawer && this._isBottomDrawerOpen;
 	}
@@ -1079,7 +1079,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isBottomDrawerOpen(value:Boolean):Void
+	public function set isBottomDrawerOpen(value:Bool):Void
 	{
 		if(this.isBottomDrawerDocked || this._isBottomDrawerOpen == value)
 		{
@@ -1099,7 +1099,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerDockMode
 	 * @see #isBottomDrawerOpen
 	 */
-	public function get isBottomDrawerDocked():Boolean
+	public function get isBottomDrawerDocked():Bool
 	{
 		if(!this._bottomDrawer)
 		{
@@ -1261,7 +1261,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isLeftDrawerOpen:Boolean = false;
+	private var _isLeftDrawerOpen:Bool = false;
 
 	/**
 	 * Indicates if the left drawer is currently open. If you want to check
@@ -1286,7 +1286,7 @@ class Drawers extends FeathersControl
 	 * @see #isLeftDrawerDocked
 	 * @see #toggleLeftDrawer()
 	 */
-	public function get isLeftDrawerOpen():Boolean
+	public function get isLeftDrawerOpen():Bool
 	{
 		return this._leftDrawer && this._isLeftDrawerOpen;
 	}
@@ -1294,7 +1294,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isLeftDrawerOpen(value:Boolean):Void
+	public function set isLeftDrawerOpen(value:Bool):Void
 	{
 		if(this.isLeftDrawerDocked || this._isLeftDrawerOpen == value)
 		{
@@ -1314,7 +1314,7 @@ class Drawers extends FeathersControl
 	 * @see #leftDrawerDockMode
 	 * @see #isLeftDrawerOpen
 	 */
-	public function get isLeftDrawerDocked():Boolean
+	public function get isLeftDrawerDocked():Bool
 	{
 		if(!this._leftDrawer)
 		{
@@ -1394,7 +1394,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _clipDrawers:Boolean = true;
+	private var _clipDrawers:Bool = true;
 
 	/**
 	 * Determines if the drawers are clipped while opening or closing. If
@@ -1416,7 +1416,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawer
 	 * @see #leftDrawer
 	 */
-	public function get clipDrawers():Boolean
+	public function get clipDrawers():Bool
 	{
 		return this._clipDrawers;
 	}
@@ -1424,7 +1424,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipDrawers(value:Boolean):Void
+	public function set clipDrawers(value:Bool):Void
 	{
 		if(this._clipDrawers == value)
 		{
@@ -1776,22 +1776,22 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var isToggleTopDrawerPending:Boolean = false;
+	private var isToggleTopDrawerPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var isToggleRightDrawerPending:Boolean = false;
+	private var isToggleRightDrawerPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var isToggleBottomDrawerPending:Boolean = false;
+	private var isToggleBottomDrawerPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var isToggleLeftDrawerPending:Boolean = false;
+	private var isToggleLeftDrawerPending:Bool = false;
 
 	/**
 	 * @private
@@ -1806,27 +1806,27 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _isDragging:Boolean = false;
+	private var _isDragging:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isDraggingTopDrawer:Boolean = false;
+	private var _isDraggingTopDrawer:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isDraggingRightDrawer:Boolean = false;
+	private var _isDraggingRightDrawer:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isDraggingBottomDrawer:Boolean = false;
+	private var _isDraggingBottomDrawer:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isDraggingLeftDrawer:Boolean = false;
+	private var _isDraggingLeftDrawer:Bool = false;
 
 	/**
 	 * @private
@@ -1886,7 +1886,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function hitTest(localPoint:Point, forTouch:Boolean = false):DisplayObject
+	override public function hitTest(localPoint:Point, forTouch:Bool = false):DisplayObject
 	{
 		var result:DisplayObject = super.hitTest(localPoint, forTouch);
 		if(result)
@@ -2058,9 +2058,9 @@ class Drawers extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(dataInvalid)
 		{
@@ -2095,10 +2095,10 @@ class Drawers extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2108,22 +2108,22 @@ class Drawers extends FeathersControl
 			this._content is IValidating)
 		{
 			IValidating(this._content).validate();
-			var isTopDrawerDocked:Boolean = this.isTopDrawerDocked;
+			var isTopDrawerDocked:Bool = this.isTopDrawerDocked;
 			if(isTopDrawerDocked && this._topDrawer is IValidating)
 			{
 				IValidating(this._topDrawer).validate();
 			}
-			var isRightDrawerDocked:Boolean = this.isRightDrawerDocked;
+			var isRightDrawerDocked:Bool = this.isRightDrawerDocked;
 			if(isRightDrawerDocked && this._rightDrawer is IValidating)
 			{
 				IValidating(this._rightDrawer).validate();
 			}
-			var isBottomDrawerDocked:Boolean = this.isBottomDrawerDocked;
+			var isBottomDrawerDocked:Bool = this.isBottomDrawerDocked;
 			if(isBottomDrawerDocked && this._bottomDrawer is IValidating)
 			{
 				IValidating(this._bottomDrawer).validate();
 			}
-			var isLeftDrawerDocked:Boolean = this.isLeftDrawerDocked;
+			var isLeftDrawerDocked:Bool = this.isLeftDrawerDocked;
 			if(isLeftDrawerDocked && this._leftDrawer is IValidating)
 			{
 				IValidating(this._leftDrawer).validate();
@@ -2196,14 +2196,14 @@ class Drawers extends FeathersControl
 		{
 			IValidating(this._leftDrawer).validate();
 		}
-		var isTopDrawerOpen:Boolean = this.isTopDrawerOpen;
-		var isRightDrawerOpen:Boolean = this.isRightDrawerOpen;
-		var isBottomDrawerOpen:Boolean = this.isBottomDrawerOpen;
-		var isLeftDrawerOpen:Boolean = this.isLeftDrawerOpen;
-		var isTopDrawerDocked:Boolean = this.isTopDrawerDocked;
-		var isRightDrawerDocked:Boolean = this.isRightDrawerDocked;
-		var isBottomDrawerDocked:Boolean = this.isBottomDrawerDocked;
-		var isLeftDrawerDocked:Boolean = this.isLeftDrawerDocked;
+		var isTopDrawerOpen:Bool = this.isTopDrawerOpen;
+		var isRightDrawerOpen:Bool = this.isRightDrawerOpen;
+		var isBottomDrawerOpen:Bool = this.isBottomDrawerOpen;
+		var isLeftDrawerOpen:Bool = this.isLeftDrawerOpen;
+		var isTopDrawerDocked:Bool = this.isTopDrawerDocked;
+		var isRightDrawerDocked:Bool = this.isRightDrawerDocked;
+		var isBottomDrawerDocked:Bool = this.isBottomDrawerDocked;
+		var isLeftDrawerDocked:Bool = this.isLeftDrawerDocked;
 		var topDrawerHeight:Float = this._topDrawer ? this._topDrawer.height : 0;
 		var rightDrawerWidth:Float = this._rightDrawer ? this._rightDrawer.width : 0;
 		var bottomDrawerHeight:Float = this._bottomDrawer ? this._bottomDrawer.height : 0;
@@ -2765,7 +2765,7 @@ class Drawers extends FeathersControl
 	 */
 	private function refreshDrawerStates():Void
 	{
-		var needsToHideOverlay:Boolean = false;
+		var needsToHideOverlay:Bool = false;
 		if(this.isTopDrawerDocked && this._isTopDrawerOpen)
 		{
 			this._isTopDrawerOpen = false;
@@ -2849,7 +2849,7 @@ class Drawers extends FeathersControl
 			}
 			if(this._openGesture == OPEN_GESTURE_DRAG_CONTENT_EDGE)
 			{
-				var isNearAnyEdge:Boolean = false;
+				var isNearAnyEdge:Bool = false;
 				if(this._topDrawer && !this.isTopDrawerDocked)
 				{
 					var topInches:Float = localY / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
@@ -3368,10 +3368,10 @@ class Drawers extends FeathersControl
 	{
 		if(this._clipDrawers)
 		{
-			var isTopDrawerDocked:Boolean = this.isTopDrawerDocked;
-			var isRightDrawerDocked:Boolean = this.isRightDrawerDocked;
-			var isBottomDrawerDocked:Boolean = this.isBottomDrawerDocked;
-			var isLeftDrawerDocked:Boolean = this.isLeftDrawerDocked;
+			var isTopDrawerDocked:Bool = this.isTopDrawerDocked;
+			var isRightDrawerDocked:Bool = this.isRightDrawerDocked;
+			var isBottomDrawerDocked:Bool = this.isBottomDrawerDocked;
+			var isLeftDrawerDocked:Bool = this.isLeftDrawerDocked;
 			if(this._topDrawer is Sprite)
 			{
 				var sprite:Sprite = Sprite(this._topDrawer);
@@ -3478,8 +3478,8 @@ class Drawers extends FeathersControl
 		{
 			Sprite(this._topDrawer).clipRect = null;
 		}
-		var isTopDrawerOpen:Boolean = this.isTopDrawerOpen;
-		var isTopDrawerDocked:Boolean = this.isTopDrawerDocked;
+		var isTopDrawerOpen:Bool = this.isTopDrawerOpen;
+		var isTopDrawerDocked:Bool = this.isTopDrawerDocked;
 		this._topDrawer.visible = isTopDrawerOpen || isTopDrawerDocked;
 		if(this._overlaySkin)
 		{
@@ -3505,8 +3505,8 @@ class Drawers extends FeathersControl
 		{
 			Sprite(this._rightDrawer).clipRect = null;
 		}
-		var isRightDrawerOpen:Boolean = this.isRightDrawerOpen;
-		var isRightDrawerDocked:Boolean = this.isRightDrawerDocked;
+		var isRightDrawerOpen:Bool = this.isRightDrawerOpen;
+		var isRightDrawerDocked:Bool = this.isRightDrawerDocked;
 		this._rightDrawer.visible = isRightDrawerOpen || isRightDrawerDocked;
 		if(this._overlaySkin)
 		{
@@ -3532,8 +3532,8 @@ class Drawers extends FeathersControl
 		{
 			Sprite(this._bottomDrawer).clipRect = null;
 		}
-		var isBottomDrawerOpen:Boolean = this.isBottomDrawerOpen;
-		var isBottomDrawerDocked:Boolean = this.isBottomDrawerDocked;
+		var isBottomDrawerOpen:Bool = this.isBottomDrawerOpen;
+		var isBottomDrawerDocked:Bool = this.isBottomDrawerDocked;
 		this._bottomDrawer.visible = isBottomDrawerOpen || isBottomDrawerDocked;
 		if(this._overlaySkin)
 		{
@@ -3559,8 +3559,8 @@ class Drawers extends FeathersControl
 		{
 			Sprite(this._leftDrawer).clipRect = null;
 		}
-		var isLeftDrawerOpen:Boolean = this.isLeftDrawerOpen;
-		var isLeftDrawerDocked:Boolean = this.isLeftDrawerDocked;
+		var isLeftDrawerOpen:Bool = this.isLeftDrawerOpen;
+		var isLeftDrawerDocked:Bool = this.isLeftDrawerDocked;
 		this._leftDrawer.visible = isLeftDrawerOpen || isLeftDrawerDocked;
 		if(this._overlaySkin)
 		{
@@ -3725,7 +3725,7 @@ class Drawers extends FeathersControl
 		}
 		if(event.keyCode == Keyboard.BACK)
 		{
-			var isAnyDrawerOpen:Boolean = false;
+			var isAnyDrawerOpen:Bool = false;
 			if(this.isTopDrawerOpen)
 			{
 				this.toggleTopDrawer();

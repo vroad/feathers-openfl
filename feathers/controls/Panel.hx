@@ -847,21 +847,21 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _ignoreHeaderResizing:Boolean = false;
+	private var _ignoreHeaderResizing:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _ignoreFooterResizing:Boolean = false;
+	private var _ignoreFooterResizing:Bool = false;
 
 	/**
 	 * @private
 	 */
 	override private function draw():Void
 	{
-		var headerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_HEADER_FACTORY);
-		var footerFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_FOOTER_FACTORY);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var headerFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_HEADER_FACTORY);
+		var footerFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOOTER_FACTORY);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
 		if(headerFactoryInvalid)
 		{
@@ -889,18 +889,18 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
-	override private function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
 		}
 
-		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
+		var oldIgnoreHeaderResizing:Bool = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
-		var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
+		var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 		this._ignoreFooterResizing = true;
 
 		var oldHeaderWidth:Float = this.header.width;
@@ -1049,14 +1049,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	override private function calculateViewPortOffsets(forceScrollBars:Boolean = false, useActualBounds:Boolean = false):Void
+	override private function calculateViewPortOffsets(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		super.calculateViewPortOffsets(forceScrollBars);
 
 		this._leftViewPortOffset += this._outerPaddingLeft;
 		this._rightViewPortOffset += this._outerPaddingRight;
 
-		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
+		var oldIgnoreHeaderResizing:Bool = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
 		var oldHeaderWidth:Float = this.header.width;
 		var oldHeaderHeight:Float = this.header.height;
@@ -1078,7 +1078,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 
 		if(this.footer)
 		{
-			var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
+			var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 			this._ignoreFooterResizing = true;
 			var oldFooterWidth:Float = this.footer.width;
 			var oldFooterHeight:Float = this.footer.height;
@@ -1107,7 +1107,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		super.layoutChildren();
 
-		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
+		var oldIgnoreHeaderResizing:Bool = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
 		this.header.x = this._outerPaddingLeft;
 		this.header.y = this._outerPaddingTop;
@@ -1118,7 +1118,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 
 		if(this.footer)
 		{
-			var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
+			var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 			this._ignoreFooterResizing = true;
 			this.footer.x = this._outerPaddingLeft;
 			this.footer.width = this.actualWidth - this._outerPaddingLeft - this._outerPaddingRight;

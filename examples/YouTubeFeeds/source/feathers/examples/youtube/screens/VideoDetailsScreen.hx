@@ -80,7 +80,7 @@ class VideoDetailsScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 		if(dataInvalid)
 		{
 			if(this._model && this._model.selectedVideo)

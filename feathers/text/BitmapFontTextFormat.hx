@@ -87,5 +87,5 @@ class BitmapFontTextFormat
 	 *
 	 * @default true
 	 */
-	public var isKerningEnabled:Boolean = true;
+	public var isKerningEnabled:Bool = true;
 }

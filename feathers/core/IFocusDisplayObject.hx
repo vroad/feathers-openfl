@@ -75,12 +75,12 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.isFocusEnabled = false;</listing>
 	 */
-	function get isFocusEnabled():Boolean;
+	function get isFocusEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set isFocusEnabled(value:Boolean):Void;
+	function set isFocusEnabled(value:Bool):Void;
 
 	/**
 	 * The next object that will receive focus when the tab key is pressed.

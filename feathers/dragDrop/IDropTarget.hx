@@ -140,5 +140,5 @@ import starling.events.Event;
 public interface IDropTarget
 {
 	function dispatchEvent(event:Event):Void;
-	function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):Void;
+	function dispatchEventWith(type:String, bubbles:Bool = false, data:Object = null):Void;
 }

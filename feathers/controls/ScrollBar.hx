@@ -868,7 +868,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var isDragging:Boolean = false;
+	private var isDragging:Bool = false;
 
 	/**
 	 * Determines if the scroll bar dispatches the <code>Event.CHANGE</code>
@@ -881,7 +881,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default true
 	 */
-	public var liveDragging:Boolean = true;
+	public var liveDragging:Bool = true;
 
 	/**
 	 * @private
@@ -1820,16 +1820,16 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
-		var thumbFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
-		var minimumTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
-		var maximumTrackFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
-		var incrementButtonFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY);
-		var decrementButtonFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var thumbFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
+		var minimumTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+		var maximumTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+		var incrementButtonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY);
+		var decrementButtonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY);
 
 		if(thumbFactoryInvalid)
 		{
@@ -1873,7 +1873,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			this.refreshIncrementButtonStyles();
 		}
 
-		var isEnabled:Boolean = this._isEnabled && this._maximum > this._minimum;
+		var isEnabled:Bool = this._isEnabled && this._maximum > this._minimum;
 		if(dataInvalid || stateInvalid || thumbFactoryInvalid)
 		{
 			this.thumb.isEnabled = isEnabled;
@@ -1916,7 +1916,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
 		if(this.minimumTrackOriginalWidth !== this.minimumTrackOriginalWidth || //isNaN
 			this.minimumTrackOriginalHeight !== this.minimumTrackOriginalHeight) //isNaN
@@ -1945,8 +1945,8 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		this.decrementButton.validate();
 		this.incrementButton.validate();
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -2261,7 +2261,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			this.incrementButton.x = this.actualWidth - this.incrementButton.width;
 			this.incrementButton.y = (this.actualHeight - this.incrementButton.height) / 2;
 		}
-		var showButtons:Boolean = this._maximum != this._minimum;
+		var showButtons:Bool = this._maximum != this._minimum;
 		this.decrementButton.visible = showButtons;
 		this.incrementButton.visible = showButtons;
 	}
@@ -2319,7 +2319,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function layoutTrackWithMinMax():Void
 	{
-		var showButtons:Boolean = this._maximum != this._minimum;
+		var showButtons:Bool = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			this.minimumTrack.x = 0;
@@ -2383,7 +2383,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function layoutTrackWithSingle():Void
 	{
-		var showButtons:Boolean = this._maximum != this._minimum;
+		var showButtons:Bool = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			this.minimumTrack.x = 0;

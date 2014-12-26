@@ -251,10 +251,10 @@ public final class Scale9Textures
 		var regionRightWidth:Float = rightWidth - (textureFrame.width - this._texture.width) - textureFrame.x;
 		var regionBottomHeight:Float = bottomHeight - (textureFrame.height - this._texture.height) - textureFrame.y;
 
-		var hasLeftFrame:Boolean = regionLeftWidth != leftWidth;
-		var hasTopFrame:Boolean = regionTopHeight != topHeight;
-		var hasRightFrame:Boolean = regionRightWidth != rightWidth;
-		var hasBottomFrame:Boolean = regionBottomHeight != bottomHeight;
+		var hasLeftFrame:Bool = regionLeftWidth != leftWidth;
+		var hasTopFrame:Bool = regionTopHeight != topHeight;
+		var hasRightFrame:Bool = regionRightWidth != rightWidth;
+		var hasBottomFrame:Bool = regionBottomHeight != bottomHeight;
 
 		var topLeftRegion:Rectangle = new Rectangle(0, 0, regionLeftWidth, regionTopHeight);
 		var topLeftFrame:Rectangle = (hasLeftFrame || hasTopFrame) ? new Rectangle(textureFrame.x, textureFrame.y, leftWidth, topHeight) : null;

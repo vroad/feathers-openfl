@@ -30,10 +30,10 @@ class TextInputNavigation
 		{
 			return 0;
 		}
-		var nextCharIsWord:Boolean = IS_WORD.test(text.charAt(selectionStartIndex - 1));
+		var nextCharIsWord:Bool = IS_WORD.test(text.charAt(selectionStartIndex - 1));
 		for(var i:Int = selectionStartIndex - 2; i >= 0; i--)
 		{
-			var charIsWord:Boolean = IS_WORD.test(text.charAt(i));
+			var charIsWord:Bool = IS_WORD.test(text.charAt(i));
 			if(!charIsWord && nextCharIsWord)
 			{
 				return i + 1;
@@ -56,10 +56,10 @@ class TextInputNavigation
 		}
 		//the first character is a special case. any non-whitespace is
 		//considered part of the word.
-		var prevCharIsWord:Boolean = !IS_WHITESPACE.test(text.charAt(selectionEndIndex));
+		var prevCharIsWord:Bool = !IS_WHITESPACE.test(text.charAt(selectionEndIndex));
 		for(var i:Int = selectionEndIndex + 1; i < textLength; i++)
 		{
-			var charIsWord:Boolean = IS_WORD.test(text.charAt(i));
+			var charIsWord:Bool = IS_WORD.test(text.charAt(i));
 			if(charIsWord && !prevCharIsWord)
 			{
 				return i;

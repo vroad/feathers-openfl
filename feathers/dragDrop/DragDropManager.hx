@@ -73,7 +73,7 @@ class DragDropManager
 	 * Determines if the drag and drop manager is currently handling a drag.
 	 * Only one drag may be active at a time.
 	 */
-	public static function get isDragging():Boolean
+	public static function get isDragging():Bool
 	{
 		return _dragData != null;
 	}
@@ -97,7 +97,7 @@ class DragDropManager
 	 * @private
 	 * Indicates if the current drag has been accepted by the dropTarget.
 	 */
-	private static var isAccepted:Boolean = false;
+	private static var isAccepted:Bool = false;
 
 	/**
 	 * @private
@@ -128,7 +128,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static var avatarOldTouchable:Boolean;
+	private static var avatarOldTouchable:Bool;
 
 	/**
 	 * Starts a new drag. If another drag is currently active, it is
@@ -200,7 +200,7 @@ class DragDropManager
 	/**
 	 * @private
 	 */
-	private static function completeDrag(isDropped:Boolean):Void
+	private static function completeDrag(isDropped:Bool):Void
 	{
 		if(!isDragging)
 		{
@@ -312,7 +312,7 @@ class DragDropManager
 		else if(touch.phase == TouchPhase.ENDED)
 		{
 			_touchPointID = -1;
-			var isDropped:Boolean = false;
+			var isDropped:Bool = false;
 			if(dropTarget && isAccepted)
 			{
 				dropTarget.dispatchEvent(new DragDropEvent(DragDropEvent.DRAG_DROP, _dragData, true, dropTargetLocalX, dropTargetLocalY));

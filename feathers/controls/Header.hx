@@ -346,7 +346,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _disposeItems:Boolean = true;
+	private var _disposeItems:Bool = true;
 
 	/**
 	 * Determines if the <code>leftItems</code>, <code>centerItems</code>,
@@ -359,7 +359,7 @@ class Header extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get disposeItems():Boolean
+	public function get disposeItems():Bool
 	{
 		return this._disposeItems;
 	}
@@ -367,7 +367,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set disposeItems(value:Boolean):Void
+	public function set disposeItems(value:Bool):Void
 	{
 		this._disposeItems = value;
 	}
@@ -810,7 +810,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _useExtraPaddingForOSStatusBar:Boolean = false;
+	private var _useExtraPaddingForOSStatusBar:Bool = false;
 
 	/**
 	 * If enabled, the header's top padding will be increased to account for
@@ -831,7 +831,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #paddingTop
 	 */
-	public function get useExtraPaddingForOSStatusBar():Boolean
+	public function get useExtraPaddingForOSStatusBar():Bool
 	{
 		return this._useExtraPaddingForOSStatusBar;
 	}
@@ -839,7 +839,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set useExtraPaddingForOSStatusBar(value:Boolean):Void
+	public function set useExtraPaddingForOSStatusBar(value:Bool):Void
 	{
 		if(this._useExtraPaddingForOSStatusBar == value)
 		{
@@ -1150,14 +1150,14 @@ class Header extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var leftContentInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LEFT_CONTENT);
-		var rightContentInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_RIGHT_CONTENT);
-		var centerContentInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_CENTER_CONTENT);
-		var textRendererInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var leftContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LEFT_CONTENT);
+		var rightContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_RIGHT_CONTENT);
+		var centerContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CENTER_CONTENT);
+		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
 
 		if(textRendererInvalid)
 		{
@@ -1281,10 +1281,10 @@ class Header extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

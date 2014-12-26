@@ -126,7 +126,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	{
 		if(this._styleNameMap)
 		{
-			var hasNameInitializers:Boolean = false;
+			var hasNameInitializers:Bool = false;
 			var styleNameList:TokenList = target.styleNameList;
 			var styleNameCount:Int = styleNameList.length;
 			for(var i:Int = 0; i < styleNameCount; i++)

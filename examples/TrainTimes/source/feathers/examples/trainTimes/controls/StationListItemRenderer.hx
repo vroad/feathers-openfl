@@ -91,14 +91,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.isFirstItem = this._index == 0;
 	}
 
-	private var _isFirstItem:Boolean = false;
+	private var _isFirstItem:Bool = false;
 
-	public function get isFirstItem():Boolean
+	public function get isFirstItem():Bool
 	{
 		return this._isFirstItem;
 	}
 
-	public function set isFirstItem(value:Boolean):Void
+	public function set isFirstItem(value:Bool):Void
 	{
 		if(this._isFirstItem == value)
 		{
@@ -108,14 +108,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	private var _isLastItem:Boolean = false;
+	private var _isLastItem:Bool = false;
 
-	public function get isLastItem():Boolean
+	public function get isLastItem():Bool
 	{
 		return this._isLastItem;
 	}
 
-	public function set isLastItem(value:Boolean):Void
+	public function set isLastItem(value:Bool):Void
 	{
 		if(this._isLastItem == value)
 		{
@@ -125,14 +125,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 	}
 
-	private var _isInDestinationPhase:Boolean = false;
+	private var _isInDestinationPhase:Bool = false;
 
-	public function get isInDestinationPhase():Boolean
+	public function get isInDestinationPhase():Bool
 	{
 		return this._isInDestinationPhase;
 	}
 
-	public function set isInDestinationPhase(value:Boolean):Void
+	public function set isInDestinationPhase(value:Bool):Void
 	{
 		if(this._isInDestinationPhase == value)
 		{
@@ -171,16 +171,16 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private var isSelectionWaitingToBeAnimated:Boolean = false;
+	private var isSelectionWaitingToBeAnimated:Bool = false;
 
-	private var _isSelected:Boolean = false;
+	private var _isSelected:Bool = false;
 
-	public function get isSelected():Boolean
+	public function get isSelected():Bool
 	{
 		return this._isSelected;
 	}
 
-	public function set isSelected(value:Boolean):Void
+	public function set isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -439,10 +439,10 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(stylesInvalid)
 		{
@@ -462,10 +462,10 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 	}
 
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = isNaN(this.explicitWidth);
-		var needsHeight:Boolean = isNaN(this.explicitHeight);
+		var needsWidth:Bool = isNaN(this.explicitWidth);
+		var needsHeight:Bool = isNaN(this.explicitHeight);
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -507,7 +507,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			}
 			this.nameLabel.text = nameLabelText;
 
-			var displayAsSelected:Boolean = this._isSelected || this._data.isDepartingFromHere;
+			var displayAsSelected:Bool = this._isSelected || this._data.isDepartingFromHere;
 			if(this.isFirstItem)
 			{
 				this.icon.source = displayAsSelected ? this._firstSelectedIconTexture : this._firstNormalIconTexture;
@@ -577,7 +577,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.detailsLabel.validate();
 		this.actionContainer.validate();
 
-		var displayAsSelected:Boolean = this._isSelected || this._data.isDepartingFromHere;
+		var displayAsSelected:Bool = this._isSelected || this._data.isDepartingFromHere;
 		if((displayAsSelected && this.isSelectionWaitingToBeAnimated) ||
 			(!displayAsSelected && !this.isSelectionWaitingToBeAnimated))
 		{
@@ -692,7 +692,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			{
 				this._touchPointID = -1;
 				touch.getLocation(this, HELPER_POINT);
-				var isInBounds:Boolean = this.hitTest(HELPER_POINT, true) != null;
+				var isInBounds:Bool = this.hitTest(HELPER_POINT, true) != null;
 				if(isInBounds)
 				{
 					if(!this._isSelected && !this._data.isDepartingFromHere)

@@ -238,7 +238,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Indicates whether the text field is a password text field that hides
@@ -253,7 +253,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @see #passwordCharCode
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -261,7 +261,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -325,7 +325,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _isEditable:Boolean = true;
+	private var _isEditable:Bool = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -338,7 +338,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -346,7 +346,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -361,7 +361,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public function get setTouchFocusOnEndedPhase():Boolean
+	public function get setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
 	}
@@ -585,7 +585,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Bool = false;
 
 	/**
 	 * @inheritDoc
@@ -778,7 +778,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	private function focusIn():Void
 	{
-		var showCursor:Boolean = this._selectionBeginIndex >= 0 && this._selectionBeginIndex == this._selectionEndIndex;
+		var showCursor:Bool = this._selectionBeginIndex >= 0 && this._selectionBeginIndex == this._selectionEndIndex;
 		this._cursorSkin.visible = showCursor;
 		this._selectionSkin.visible = !showCursor;
 		var nativeStage:Stage = Starling.current.nativeStage;
@@ -817,7 +817,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
-		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
+		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
@@ -827,7 +827,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
-			var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
+			var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
 			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
@@ -885,7 +885,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
 		var customLetterSpacing:Float = this.currentTextFormat.letterSpacing;
-		var isKerningEnabled:Boolean = this.currentTextFormat.isKerningEnabled;
+		var isKerningEnabled:Bool = this.currentTextFormat.isKerningEnabled;
 		var scale:Float = customSize / font.size;
 		if(scale !== scale) //isNaN
 		{
@@ -896,7 +896,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
-			var hasExplicitWidth:Boolean = this.explicitWidth === this.explicitWidth; //!isNaN
+			var hasExplicitWidth:Bool = this.explicitWidth === this.explicitWidth; //!isNaN
 			var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
 			if(maxLineWidth > lineWidth)
 			{
@@ -1113,7 +1113,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			return;
 		}
 		touch.getLocation(this.stage, HELPER_POINT);
-		var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+		var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 		if(isInBounds) //if the touch is in the text editor, it's all good
 		{
 			return;

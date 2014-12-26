@@ -139,22 +139,22 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#isEnabled
 	 */
-	function get isEnabled():Boolean;
+	function get isEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set isEnabled(value:Boolean):Void;
+	function set isEnabled(value:Bool):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isInitialized
 	 */
-	function get isInitialized():Boolean;
+	function get isInitialized():Bool;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isCreated
 	 */
-	function get isCreated():Boolean;
+	function get isCreated():Bool;
 
 	/**
 	 * @copy feathers.core.FeathersControl#nameList

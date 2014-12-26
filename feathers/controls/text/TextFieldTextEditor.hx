@@ -252,7 +252,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
@@ -395,7 +395,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _embedFonts:Boolean = false;
+	private var _embedFonts:Bool = false;
 
 	/**
 	 * Determines if the TextField should use an embedded font or not. If
@@ -410,7 +410,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Boolean
+	public function get embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -418,7 +418,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Boolean):Void
+	public function set embedFonts(value:Bool):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -431,7 +431,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _wordWrap:Boolean = false;
+	private var _wordWrap:Bool = false;
 
 	/**
 	 * Determines if the TextField wraps text to the next line.
@@ -445,7 +445,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
-	public function get wordWrap():Boolean
+	public function get wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -453,7 +453,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Boolean):Void
+	public function set wordWrap(value:Bool):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -466,7 +466,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _multiline:Boolean = false;
+	private var _multiline:Bool = false;
 
 	/**
 	 * Indicates whether field is a multiline text field.
@@ -480,7 +480,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#multiline Full description of flash.text.TextField.multiline in Adobe's Flash Platform API Reference
 	 */
-	public function get multiline():Boolean
+	public function get multiline():Bool
 	{
 		return this._multiline;
 	}
@@ -488,7 +488,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set multiline(value:Boolean):Void
+	public function set multiline(value:Bool):Void
 	{
 		if(this._multiline == value)
 		{
@@ -501,7 +501,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _isHTML:Boolean = false;
+	private var _isHTML:Bool = false;
 
 	/**
 	 * Determines if the TextField should display the value of the
@@ -516,7 +516,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 */
-	public function get isHTML():Boolean
+	public function get isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -524,7 +524,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Boolean):Void
+	public function set isHTML(value:Bool):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -537,7 +537,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _alwaysShowSelection:Boolean = false;
+	private var _alwaysShowSelection:Bool = false;
 
 	/**
 	 * When set to <code>true</code> and the text field is not in focus,
@@ -554,7 +554,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#alwaysShowSelection Full description of flash.text.TextField.alwaysShowSelection in Adobe's Flash Platform API Reference
 	 */
-	public function get alwaysShowSelection():Boolean
+	public function get alwaysShowSelection():Bool
 	{
 		return this._alwaysShowSelection;
 	}
@@ -562,7 +562,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set alwaysShowSelection(value:Boolean):Void
+	public function set alwaysShowSelection(value:Bool):Void
 	{
 		if(this._alwaysShowSelection == value)
 		{
@@ -575,7 +575,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * Specifies whether the text field is a password text field that hides
@@ -591,7 +591,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Boolean
+	public function get displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -599,7 +599,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Boolean):Void
+	public function set displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -687,7 +687,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _isEditable:Boolean = true;
+	private var _isEditable:Bool = true;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -700,7 +700,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Boolean
+	public function get isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -708,7 +708,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Boolean):Void
+	public function set isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -721,7 +721,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _useGutter:Boolean = false;
+	private var _useGutter:Bool = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -736,7 +736,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public function get useGutter():Boolean
+	public function get useGutter():Bool
 	{
 		return this._useGutter;
 	}
@@ -744,7 +744,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set useGutter(value:Boolean):Void
+	public function set useGutter(value:Bool):Void
 	{
 		if(this._useGutter == value)
 		{
@@ -757,7 +757,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get setTouchFocusOnEndedPhase():Boolean
+	public function get setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
 	}
@@ -765,12 +765,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var _textFieldHasFocus:Boolean = false;
+	private var _textFieldHasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isWaitingToSetFocus:Boolean = false;
+	private var _isWaitingToSetFocus:Bool = false;
 
 	/**
 	 * @private
@@ -817,7 +817,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private var resetScrollOnFocusOut:Boolean = true;
+	private var resetScrollOnFocusOut:Bool = true;
 
 	/**
 	 * @private
@@ -855,7 +855,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		//or invisible immediately after the snapshot changes visibility in
 		//the rendered graphics. the OS might take longer to do the change,
 		//though.
-		var isTextFieldVisible:Boolean = this.textSnapshot ? !this.textSnapshot.visible : this._textFieldHasFocus;
+		var isTextFieldVisible:Bool = this.textSnapshot ? !this.textSnapshot.visible : this._textFieldHasFocus;
 		this.textField.visible = isTextFieldVisible;
 
 		this.transformTextField();
@@ -1003,8 +1003,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = this.explicitWidth;
@@ -1053,7 +1053,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		this.commit();
 
@@ -1067,9 +1067,9 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(dataInvalid || stylesInvalid || stateInvalid)
 		{
@@ -1093,10 +1093,10 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -1116,8 +1116,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight !== this.explicitHeight; //isNaN
 
 		if(!needsWidth && !needsHeight)
 		{
@@ -1189,7 +1189,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		textField.embedFonts = this._embedFonts;
 		textField.type = this._isEditable ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
 		textField.selectable = this._isEnabled;
-		var isFormatDifferent:Boolean = false;
+		var isFormatDifferent:Bool = false;
 		var currentTextFormat:TextFormat;
 		if(!this._isEnabled && this._disabledTextFormat)
 		{
@@ -1238,11 +1238,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function layout(sizeInvalid:Boolean):Void
+	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(sizeInvalid)
 		{
@@ -1352,7 +1352,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function checkIfNewSnapshotIsNeeded():Void
 	{
-		var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
+		var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 		if(canUseRectangleTexture)
 		{
 			this._snapshotWidth = this._textFieldClipRect.width;

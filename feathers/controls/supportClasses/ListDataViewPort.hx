@@ -195,7 +195,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._contentY;
 	}
 
-	private var _typicalItemIsInDataProvider:Boolean = false;
+	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IListItemRenderer;
 	private var _unrenderedData:Array = [];
 	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
@@ -205,7 +205,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _layoutIndexOffset:Int = 0;
 
-	private var _isScrolling:Boolean = false;
+	private var _isScrolling:Bool = false;
 
 	private var _owner:List;
 
@@ -231,7 +231,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private var _updateForDataReset:Boolean = false;
+	private var _updateForDataReset:Bool = false;
 
 	private var _dataProvider:ListCollection;
 
@@ -368,8 +368,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private var _ignoreLayoutChanges:Boolean = false;
-	private var _ignoreRendererResizing:Boolean = false;
+	private var _ignoreLayoutChanges:Bool = false;
+	private var _ignoreRendererResizing:Bool = false;
 
 	private var _layout:ILayout;
 
@@ -466,16 +466,16 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	private var _ignoreSelectionChanges:Boolean = false;
+	private var _ignoreSelectionChanges:Bool = false;
 
-	private var _isSelectable:Boolean = true;
+	private var _isSelectable:Bool = true;
 
-	public function get isSelectable():Boolean
+	public function get isSelectable():Bool
 	{
 		return this._isSelectable;
 	}
 
-	public function set isSelectable(value:Boolean):Void
+	public function set isSelectable(value:Bool):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -488,14 +488,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private var _allowMultipleSelection:Boolean = false;
+	private var _allowMultipleSelection:Bool = false;
 
-	public function get allowMultipleSelection():Boolean
+	public function get allowMultipleSelection():Bool
 	{
 		return this._allowMultipleSelection;
 	}
 
-	public function set allowMultipleSelection(value:Boolean):Void
+	public function set allowMultipleSelection(value:Bool):Void
 	{
 		this._allowMultipleSelection = value;
 	}
@@ -544,14 +544,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var itemRendererInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
 		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)
@@ -559,11 +559,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			layoutInvalid = true;
 		}
 
-		var basicsInvalid:Boolean = sizeInvalid || dataInvalid || layoutInvalid || itemRendererInvalid;
+		var basicsInvalid:Bool = sizeInvalid || dataInvalid || layoutInvalid || itemRendererInvalid;
 
-		var oldIgnoreRendererResizing:Boolean = this._ignoreRendererResizing;
+		var oldIgnoreRendererResizing:Bool = this._ignoreRendererResizing;
 		this._ignoreRendererResizing = true;
-		var oldIgnoreLayoutChanges:Boolean = this._ignoreLayoutChanges;
+		var oldIgnoreLayoutChanges:Bool = this._ignoreLayoutChanges;
 		this._ignoreLayoutChanges = true;
 
 		if(scrollInvalid || sizeInvalid)
@@ -592,7 +592,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			//stop listening for selection changes when we're forcibly
 			//updating selection. other property changes on item renderers
 			//can validly change selection, and we need to detect that.
-			var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
+			var oldIgnoreSelectionChanges:Bool = this._ignoreSelectionChanges;
 			this._ignoreSelectionChanges = true;
 			this.refreshSelection();
 			this._ignoreSelectionChanges = oldIgnoreSelectionChanges;
@@ -650,7 +650,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		var typicalItemIndex:Int = 0;
-		var newTypicalItemIsInDataProvider:Boolean = false;
+		var newTypicalItemIsInDataProvider:Bool = false;
 		var typicalItem:Object = this._typicalItem;
 		if(typicalItem)
 		{
@@ -680,7 +680,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			{
 				//we can reuse the typical item renderer if the old typical item
 				//wasn't in the data provider.
-				var canReuse:Boolean = !this._typicalItemIsInDataProvider;
+				var canReuse:Bool = !this._typicalItemIsInDataProvider;
 				if(!canReuse)
 				{
 					//we can also reuse the typical item renderer if the old
@@ -778,7 +778,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this._viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Boolean):Void
+	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Bool):Void
 	{
 		var temp:Vector.<IListItemRenderer> = this._inactiveRenderers;
 		this._inactiveRenderers = this._activeRenderers;
@@ -845,7 +845,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	{
 		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
 		var virtualLayout:IVirtualLayout = this._layout as IVirtualLayout;
-		var useVirtualLayout:Boolean = virtualLayout && virtualLayout.useVirtualLayout;
+		var useVirtualLayout:Bool = virtualLayout && virtualLayout.useVirtualLayout;
 		if(useVirtualLayout)
 		{
 			virtualLayout.measureViewPort(itemCount, this._viewPortBounds, HELPER_POINT);
@@ -853,7 +853,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 
 		var unrenderedItemCount:Int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
-		var canUseBeforeAndAfter:Boolean = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
+		var canUseBeforeAndAfter:Bool = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
 			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		if(canUseBeforeAndAfter)
@@ -1019,7 +1019,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function createRenderer(item:Object, index:Int, useCache:Boolean, isTemporary:Boolean):IListItemRenderer
+	private function createRenderer(item:Object, index:Int, useCache:Bool, isTemporary:Bool):IListItemRenderer
 	{
 		var renderer:IListItemRenderer;
 		do
@@ -1093,7 +1093,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
-		var selectionChanged:Boolean = false;
+		var selectionChanged:Bool = false;
 		var newIndices:Vector.<int> = new <int>[];
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
@@ -1121,7 +1121,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
-		var selectionChanged:Boolean = false;
+		var selectionChanged:Bool = false;
 		var newIndices:Vector.<int> = new <int>[];
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
@@ -1234,7 +1234,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			renderer.isSelected = false;
 			return;
 		}
-		var isSelected:Boolean = renderer.isSelected;
+		var isSelected:Bool = renderer.isSelected;
 		var index:Int = renderer.index;
 		if(this._allowMultipleSelection)
 		{
