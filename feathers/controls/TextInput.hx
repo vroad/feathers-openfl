@@ -197,27 +197,27 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_PROMPT_FACTORY:String = "promptFactory";
+	inline private static var INVALIDATION_FLAG_PROMPT_FACTORY:String = "promptFactory";
 
 	/**
 	 * The <code>TextInput</code> is enabled and does not have focus.
 	 */
-	public static const STATE_ENABLED:String = "enabled";
+	inline public static var STATE_ENABLED:String = "enabled";
 
 	/**
 	 * The <code>TextInput</code> is disabled.
 	 */
-	public static const STATE_DISABLED:String = "disabled";
+	inline public static var STATE_DISABLED:String = "disabled";
 
 	/**
 	 * The <code>TextInput</code> is enabled and has focus.
 	 */
-	public static const STATE_FOCUSED:String = "focused";
+	inline public static var STATE_FOCUSED:String = "focused";
 
 	/**
 	 * An alternate name to use with TextInput to allow a theme to give it
@@ -239,7 +239,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
+	inline public static var ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
 
 	/**
 	 * The text editor, icon, and prompt will be aligned vertically to the
@@ -247,7 +247,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The text editor, icon, and prompt will be aligned vertically to the
@@ -255,7 +255,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The text editor, icon, and prompt will be aligned vertically to the
@@ -263,7 +263,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The text editor will fill the full height of the text input (minus
@@ -271,7 +271,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>TextInput</code>

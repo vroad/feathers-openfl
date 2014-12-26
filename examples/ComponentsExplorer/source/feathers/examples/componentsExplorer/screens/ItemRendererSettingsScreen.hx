@@ -18,8 +18,8 @@ import starling.events.Event;
 
 class ItemRendererSettingsScreen extends PanelScreen
 {
-	private static const GAP_LABEL_INFINITE:String = "Fill Available Space";
-	private static const GAP_LABEL_DEFAULT:String = "No Fill";
+	inline private static var GAP_LABEL_INFINITE:String = "Fill Available Space";
+	inline private static var GAP_LABEL_DEFAULT:String = "No Fill";
 
 	public function ItemRendererSettingsScreen()
 	{

@@ -39,32 +39,32 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const CHARACTER_ID_SPACE:int = 32;
+	inline private static var CHARACTER_ID_SPACE:int = 32;
 
 	/**
 	 * @private
 	 */
-	private static const CHARACTER_ID_TAB:int = 9;
+	inline private static var CHARACTER_ID_TAB:int = 9;
 
 	/**
 	 * @private
 	 */
-	private static const CHARACTER_ID_LINE_FEED:int = 10;
+	inline private static var CHARACTER_ID_LINE_FEED:int = 10;
 
 	/**
 	 * @private
 	 */
-	private static const CHARACTER_ID_CARRIAGE_RETURN:int = 13;
+	inline private static var CHARACTER_ID_CARRIAGE_RETURN:int = 13;
 
 	/**
 	 * @private
@@ -79,7 +79,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static const FUZZY_MAX_WIDTH_PADDING:Number = 0.000001;
+	inline private static var FUZZY_MAX_WIDTH_PADDING:Number = 0.000001;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>BitmapFontTextRenderer</code>

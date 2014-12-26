@@ -72,17 +72,17 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
+	inline private static var INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
+	inline private static var INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_TEXT_INPUT_FACTORY:String = "textInputFactory";
+	inline private static var INVALIDATION_FLAG_TEXT_INPUT_FACTORY:String = "textInputFactory";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the decrement
@@ -90,7 +90,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = "feathers-numeric-stepper-decrement-button";
+	inline public static var DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = "feathers-numeric-stepper-decrement-button";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the increment
@@ -98,7 +98,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = "feathers-numeric-stepper-increment-button";
+	inline public static var DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = "feathers-numeric-stepper-increment-button";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the text
@@ -106,7 +106,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_TEXT_INPUT:String = "feathers-numeric-stepper-text-input";
+	inline public static var DEFAULT_CHILD_NAME_TEXT_INPUT:String = "feathers-numeric-stepper-text-input";
 
 	/**
 	 * The decrement button will be placed on the left side of the text
@@ -115,7 +115,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see #buttonLayoutMode
 	 */
-	public static const BUTTON_LAYOUT_MODE_SPLIT_HORIZONTAL:String = "splitHorizontal";
+	inline public static var BUTTON_LAYOUT_MODE_SPLIT_HORIZONTAL:String = "splitHorizontal";
 
 	/**
 	 * The decrement button will be placed below the text input and the
@@ -123,7 +123,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see #buttonLayoutMode
 	 */
-	public static const BUTTON_LAYOUT_MODE_SPLIT_VERTICAL:String = "splitVertical";
+	inline public static var BUTTON_LAYOUT_MODE_SPLIT_VERTICAL:String = "splitVertical";
 
 	/**
 	 * Both the decrement and increment button will be placed on the right
@@ -132,7 +132,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @see #buttonLayoutMode
 	 */
-	public static const BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL:String = "rightSideVertical";
+	inline public static var BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL:String = "rightSideVertical";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>NumericStepper</code>

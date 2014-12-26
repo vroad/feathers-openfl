@@ -56,22 +56,22 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
+	inline private static var INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
 
 	/**
 	 * Flag to indicate that the clipping has changed.
 	 */
-	private static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
+	inline private static var INVALIDATION_FLAG_CLIPPING:String = "clipping";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>LayoutGroup</code>

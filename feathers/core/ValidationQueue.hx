@@ -17,7 +17,7 @@ public final class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	private static const STARLING_TO_VALIDATION_QUEUE:Dictionary = new Dictionary(true);
+	inline private static var STARLING_TO_VALIDATION_QUEUE:Dictionary = new Dictionary(true);
 
 	/**
 	 * Gets the validation queue for the specified Starling instance. If

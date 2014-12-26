@@ -14,9 +14,9 @@ import starling.events.Event;
 
 class Main extends ScreenNavigator
 {
-	private static const MAIN_MENU:String = "mainMenu";
-	private static const LIST_VIDEOS:String = "listVideos";
-	private static const VIDEO_DETAILS:String = "videoDetails";
+	inline private static var MAIN_MENU:String = "mainMenu";
+	inline private static var LIST_VIDEOS:String = "listVideos";
+	inline private static var VIDEO_DETAILS:String = "videoDetails";
 
 	public function Main()
 	{

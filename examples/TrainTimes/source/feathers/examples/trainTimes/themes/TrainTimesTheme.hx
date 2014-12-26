@@ -42,31 +42,31 @@ import starling.textures.TextureAtlas;
 class TrainTimesTheme extends DisplayListWatcher
 {
 	[Embed(source="/../assets/images/traintimes.png")]
-	private static const ATLAS_IMAGE:Class;
+	inline private static var ATLAS_IMAGE:Class;
 
 	[Embed(source="/../assets/images/traintimes.xml",mimeType="application/octet-stream")]
-	private static const ATLAS_XML:Class;
+	inline private static var ATLAS_XML:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontName="SourceSansPro",mimeType="application/x-font",embedAsCFF="false")]
-	private static const SOURCE_SANS_PRO_REGULAR:Class;
+	inline private static var SOURCE_SANS_PRO_REGULAR:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Bold.ttf",fontName="SourceSansProBold",fontWeight="bold",mimeType="application/x-font",embedAsCFF="false")]
-	private static const SOURCE_SANS_PRO_BOLD:Class;
+	inline private static var SOURCE_SANS_PRO_BOLD:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-BoldIt.ttf",fontName="SourceSansProBoldItalic",fontWeight="bold",fontStyle="italic",mimeType="application/x-font",embedAsCFF="false")]
-	private static const SOURCE_SANS_PRO_BOLD_ITALIC:Class;
+	inline private static var SOURCE_SANS_PRO_BOLD_ITALIC:Class;
 
-	private static const TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
+	inline private static var TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 
-	private static const ORIGINAL_DPI_IPHONE_RETINA:int = 326;
-	private static const ORIGINAL_DPI_IPAD_RETINA:int = 264;
+	inline private static var ORIGINAL_DPI_IPHONE_RETINA:int = 326;
+	inline private static var ORIGINAL_DPI_IPAD_RETINA:int = 264;
 
-	private static const HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
-	private static const SCROLL_BAR_THUMB_REGION1:int = 5;
-	private static const SCROLL_BAR_THUMB_REGION2:int = 14;
+	inline private static var HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
+	inline private static var SCROLL_BAR_THUMB_REGION1:int = 5;
+	inline private static var SCROLL_BAR_THUMB_REGION2:int = 14;
 
-	private static const PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
-	private static const DETAIL_TEXT_COLOR:uint = 0x64908a;
+	inline private static var PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
+	inline private static var DETAIL_TEXT_COLOR:uint = 0x64908a;
 
 	private static function textRendererFactory():ITextRenderer
 	{

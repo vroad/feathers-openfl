@@ -33,14 +33,14 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The progress bar fills vertically (on the y-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ProgressBar</code>

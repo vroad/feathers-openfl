@@ -89,19 +89,19 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
+	inline private static var INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
+	inline private static var INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the button.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON:String = "feathers-picker-list-button";
+	inline public static var DEFAULT_CHILD_NAME_BUTTON:String = "feathers-picker-list-button";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the pop-up
@@ -109,7 +109,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_LIST:String = "feathers-picker-list-list";
+	inline public static var DEFAULT_CHILD_NAME_LIST:String = "feathers-picker-list-list";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PickerList</code>

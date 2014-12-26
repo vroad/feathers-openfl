@@ -188,7 +188,7 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerDocked
 	 * @see #isLeftDrawerDocked
 	 */
-	public static const DOCK_MODE_PORTRAIT:String = "portrait";
+	inline public static var DOCK_MODE_PORTRAIT:String = "portrait";
 
 	/**
 	 * The drawer will be docked in landscape orientation, but it must be
@@ -203,7 +203,7 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerDocked
 	 * @see #isLeftDrawerDocked
 	 */
-	public static const DOCK_MODE_LANDSCAPE:String = "landscape";
+	inline public static var DOCK_MODE_LANDSCAPE:String = "landscape";
 
 	/**
 	 * The drawer will be docked in all orientations.
@@ -217,7 +217,7 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerDocked
 	 * @see #isLeftDrawerDocked
 	 */
-	public static const DOCK_MODE_BOTH:String = "both";
+	inline public static var DOCK_MODE_BOTH:String = "both";
 
 	/**
 	 * The drawer won't be docked in any orientation. It must be opened and
@@ -232,21 +232,21 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerDocked
 	 * @see #isLeftDrawerDocked
 	 */
-	public static const DOCK_MODE_NONE:String = "none";
+	inline public static var DOCK_MODE_NONE:String = "none";
 
 	/**
 	 * The drawers container  will auto size itself to fill the entire stage.
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * The drawers container will auto size itself to fit its content.
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * A drawer will open by dragging the content starting from a certain
@@ -257,7 +257,7 @@ class Drawers extends FeathersControl
 	 * @see #openGesture
 	 * @see openGestureEdgeSize
 	 */
-	public static const OPEN_GESTURE_DRAG_CONTENT_EDGE:String = "dragContentEdge";
+	inline public static var OPEN_GESTURE_DRAG_CONTENT_EDGE:String = "dragContentEdge";
 
 	/**
 	 * A drawer will open by dragging the content from any location in the
@@ -265,7 +265,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #openGesture
 	 */
-	public static const OPEN_GESTURE_DRAG_CONTENT:String = "dragContent";
+	inline public static var OPEN_GESTURE_DRAG_CONTENT:String = "dragContent";
 
 	/**
 	 * The drawers container will only open using the toggle event types
@@ -277,7 +277,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerToggleEventType
 	 * @see #leftDrawerToggleEventType
 	 */
-	public static const OPEN_GESTURE_NONE:String = "none";
+	inline public static var OPEN_GESTURE_NONE:String = "none";
 
 	/**
 	 * The field used to access the "content event dispatcher" of a
@@ -287,29 +287,29 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherField
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	private static const SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD:String = "activeScreen";
+	inline private static var SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD:String = "activeScreen";
 
 	/**
 	 * @private
 	 * The current velocity is given high importance.
 	 */
-	private static const CURRENT_VELOCITY_WEIGHT:Number = 2.33;
+	inline private static var CURRENT_VELOCITY_WEIGHT:Number = 2.33;
 
 	/**
 	 * @private
 	 * Older saved velocities are given less importance.
 	 */
-	private static const VELOCITY_WEIGHTS:Vector.<Number> = new <Number>[1, 1.33, 1.66, 2];
+	inline private static var VELOCITY_WEIGHTS:Vector.<Number> = new <Number>[1, 1.33, 1.66, 2];
 
 	/**
 	 * @private
 	 */
-	private static const MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
+	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.

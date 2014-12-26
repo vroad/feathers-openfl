@@ -25,11 +25,11 @@ import starling.textures.Texture;
 class Main extends Sprite
 {
 	//used by the extended theme
-	public static const THUMBNAIL_LIST_NAME:String = "thumbnailList";
+	inline public static var THUMBNAIL_LIST_NAME:String = "thumbnailList";
 
-	private static const LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
-	private static const FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
-	private static const FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
+	inline private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
+	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
+	inline private static var FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
 
 	public function Main()
 	{

@@ -27,7 +27,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * An alternate name to use with <code>Label</code> to allow a theme to
@@ -49,7 +49,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_HEADING:String = "feathers-heading-label";
+	inline public static var ALTERNATE_NAME_HEADING:String = "feathers-heading-label";
 
 	/**
 	 * An alternate name to use with <code>Label</code> to allow a theme to
@@ -71,7 +71,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_DETAIL:String = "feathers-detail-label";
+	inline public static var ALTERNATE_NAME_DETAIL:String = "feathers-detail-label";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Label</code>

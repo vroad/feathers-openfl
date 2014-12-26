@@ -14,12 +14,12 @@ class TextInputNavigation
 	/**
 	 * @private
 	 */
-	private static const IS_WORD:RegExp = /\w/;
+	inline private static var IS_WORD:RegExp = /\w/;
 
 	/**
 	 * @private
 	 */
-	private static const IS_WHITESPACE:RegExp = /\s/;
+	inline private static var IS_WHITESPACE:RegExp = /\s/;
 
 	/**
 	 * Finds the start index of the word that starts before the selection.

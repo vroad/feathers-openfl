@@ -30,21 +30,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The content will be aligned horizontally to the center of the renderer.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The content will be aligned horizontally to the right edge of the renderer.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * The content will be justified horizontally, filling the entire width
@@ -52,28 +52,28 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The content will be aligned vertically to the top edge of the renderer.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The content will be aligned vertically to the middle of the renderer.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The content will be aligned vertically to the bottom edge of the renderer.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The content will be justified vertically, filling the entire height
@@ -81,7 +81,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -89,7 +89,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_CONTENT_LABEL:String = "feathers-header-footer-renderer-content-label";
+	inline public static var DEFAULT_CHILD_NAME_CONTENT_LABEL:String = "feathers-header-footer-renderer-content-label";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>DefaultGroupedListHeaderOrFooterRenderer</code>

@@ -27,11 +27,11 @@ import starling.textures.Texture;
 
 class MainMenuScreen extends PanelScreen
 {
-	public static const SHOW_ANCHOR:String = "showAnchor";
-	public static const SHOW_HORIZONTAL:String = "showHorizontal";
-	public static const SHOW_VERTICAL:String = "showVertical";
-	public static const SHOW_TILED_ROWS:String = "showTiledRows";
-	public static const SHOW_TILED_COLUMNS:String = "showTiledColumns";
+	inline public static var SHOW_ANCHOR:String = "showAnchor";
+	inline public static var SHOW_HORIZONTAL:String = "showHorizontal";
+	inline public static var SHOW_VERTICAL:String = "showVertical";
+	inline public static var SHOW_TILED_ROWS:String = "showTiledRows";
+	inline public static var SHOW_TILED_COLUMNS:String = "showTiledColumns";
 
 	public function MainMenuScreen()
 	{

@@ -113,33 +113,33 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE2:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE2:Rectangle = new Rectangle();
 
 	/**
 	 * @private
 	 */
-	private static const CONTEXT_LOST_WARNING:String = "ImageLoader: Context lost while processing loaded image, retrying...";
+	inline private static var CONTEXT_LOST_WARNING:String = "ImageLoader: Context lost while processing loaded image, retrying...";
 
 	/**
 	 * @private
 	 */
-	private static const LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
+	inline private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
 	LOADER_CONTEXT.imageDecodingPolicy = ImageDecodingPolicy.ON_LOAD;
 
 	/**
 	 * @private
 	 */
-	private static const ATF_FILE_EXTENSION:String = "atf";
+	inline private static var ATF_FILE_EXTENSION:String = "atf";
 
 	/**
 	 * @private

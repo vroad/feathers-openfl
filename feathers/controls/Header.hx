@@ -57,42 +57,42 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_LEFT_CONTENT:String = "leftContent";
+	inline private static var INVALIDATION_FLAG_LEFT_CONTENT:String = "leftContent";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_RIGHT_CONTENT:String = "rightContent";
+	inline private static var INVALIDATION_FLAG_RIGHT_CONTENT:String = "rightContent";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_CENTER_CONTENT:String = "centerContent";
+	inline private static var INVALIDATION_FLAG_CENTER_CONTENT:String = "centerContent";
 
 	/**
 	 * @private
 	 */
-	private static const IOS_RETINA_STATUS_BAR_HEIGHT:Number = 40;
+	inline private static var IOS_RETINA_STATUS_BAR_HEIGHT:Number = 40;
 
 	/**
 	 * @private
 	 */
-	private static const IOS_NON_RETINA_STATUS_BAR_HEIGHT:Number = 20;
+	inline private static var IOS_NON_RETINA_STATUS_BAR_HEIGHT:Number = 20;
 
 	/**
 	 * @private
 	 */
-	private static const IOS_RETINA_MINIMUM_DPI:Number = 264;
+	inline private static var IOS_RETINA_MINIMUM_DPI:Number = 264;
 
 	/**
 	 * @private
 	 */
-	private static const IOS_NAME_PREFIX:String = "iPhone OS ";
+	inline private static var IOS_NAME_PREFIX:String = "iPhone OS ";
 
 	/**
 	 * @private
 	 */
-	private static const STATUS_BAR_MIN_IOS_VERSION:int = 7;
+	inline private static var STATUS_BAR_MIN_IOS_VERSION:int = 7;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Header</code>
@@ -108,7 +108,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleAlign
 	 */
-	public static const TITLE_ALIGN_CENTER:String = "center";
+	inline public static var TITLE_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The title will appear on the left of the header, if there is no other
@@ -117,7 +117,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleAlign
 	 */
-	public static const TITLE_ALIGN_PREFER_LEFT:String = "preferLeft";
+	inline public static var TITLE_ALIGN_PREFER_LEFT:String = "preferLeft";
 
 	/**
 	 * The title will appear on the right of the header, if there is no
@@ -126,28 +126,28 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleAlign
 	 */
-	public static const TITLE_ALIGN_PREFER_RIGHT:String = "preferRight";
+	inline public static var TITLE_ALIGN_PREFER_RIGHT:String = "preferRight";
 
 	/**
 	 * The items will be aligned to the top of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The items will be aligned to the middle of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The items will be aligned to the bottom of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header's
@@ -155,7 +155,7 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_ITEM:String = "feathers-header-item";
+	inline public static var DEFAULT_CHILD_NAME_ITEM:String = "feathers-header-item";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header's
@@ -163,22 +163,22 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_TITLE:String = "feathers-header-title";
+	inline public static var DEFAULT_CHILD_NAME_TITLE:String = "feathers-header-title";
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_BOUNDS:ViewPortBounds = new ViewPortBounds();
+	inline private static var HELPER_BOUNDS:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
+	inline private static var HELPER_LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.

@@ -54,7 +54,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * If the total item height is smaller than the height of the bounds,
@@ -62,7 +62,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * If the total item height is smaller than the height of the bounds,
@@ -70,7 +70,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -78,7 +78,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -86,7 +86,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -94,7 +94,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * If an item height is smaller than the height of a tile, the item will
@@ -102,7 +102,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileVerticalAlign
 	 */
-	public static const TILE_VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var TILE_VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * If an item height is smaller than the height of a tile, the item will
@@ -110,7 +110,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileVerticalAlign
 	 */
-	public static const TILE_VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var TILE_VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * If an item height is smaller than the height of a tile, the item will
@@ -118,14 +118,14 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileVerticalAlign
 	 */
-	public static const TILE_VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var TILE_VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The item will be resized to fit the height of the tile.
 	 *
 	 * @see #tileVerticalAlign
 	 */
-	public static const TILE_VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var TILE_VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * If an item width is smaller than the width of a tile, the item will
@@ -133,7 +133,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileHorizontalAlign
 	 */
-	public static const TILE_HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var TILE_HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * If an item width is smaller than the width of a tile, the item will
@@ -141,7 +141,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileHorizontalAlign
 	 */
-	public static const TILE_HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var TILE_HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * If an item width is smaller than the width of a tile, the item will
@@ -149,28 +149,28 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #tileHorizontalAlign
 	 */
-	public static const TILE_HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var TILE_HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * The item will be resized to fit the width of the tile.
 	 *
 	 * @see #tileHorizontalAlign
 	 */
-	public static const TILE_HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var TILE_HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The items will be positioned in pages horizontally from left to right.
 	 *
 	 * @see #paging
 	 */
-	public static const PAGING_HORIZONTAL:String = "horizontal";
+	inline public static var PAGING_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The items will be positioned in pages vertically from top to bottom.
 	 *
 	 * @see #paging
 	 */
-	public static const PAGING_VERTICAL:String = "vertical";
+	inline public static var PAGING_VERTICAL:String = "vertical";
 
 	/**
 	 * The items will not be paged. In other words, they will be positioned
@@ -178,7 +178,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @see #paging
 	 */
-	public static const PAGING_NONE:String = "none";
+	inline public static var PAGING_NONE:String = "none";
 
 	/**
 	 * Constructor.

@@ -58,12 +58,12 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private

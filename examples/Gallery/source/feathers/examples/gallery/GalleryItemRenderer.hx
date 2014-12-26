@@ -21,19 +21,19 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_TOUCHES_VECTOR:Vector.<Touch> = new <Touch>[];
+	inline private static var HELPER_TOUCHES_VECTOR:Vector.<Touch> = new <Touch>[];
 
 	/**
 	 * @private
 	 * This will only work in a single list. If this item renderer needs to
 	 * be used by multiple lists, this data should be stored differently.
 	 */
-	private static const CACHED_BOUNDS:Dictionary = new Dictionary(false);
+	inline private static var CACHED_BOUNDS:Dictionary = new Dictionary(false);
 
 	/**
 	 * Constructor.

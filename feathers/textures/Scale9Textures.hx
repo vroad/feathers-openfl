@@ -20,27 +20,27 @@ public final class Scale9Textures
 	/**
 	 * @private
 	 */
-	private static const ZERO_WIDTH_ERROR:String = "The width of the scale9Grid must be greater than zero.";
+	inline private static var ZERO_WIDTH_ERROR:String = "The width of the scale9Grid must be greater than zero.";
 
 	/**
 	 * @private
 	 */
-	private static const ZERO_HEIGHT_ERROR:String = "The height of the scale9Grid must be greater than zero.";
+	inline private static var ZERO_HEIGHT_ERROR:String = "The height of the scale9Grid must be greater than zero.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be greater than the width of the texture.";
+	inline private static var SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be greater than the width of the texture.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be greater than the height of the texture.";
+	inline private static var SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be greater than the height of the texture.";
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * Constructor.

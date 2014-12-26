@@ -121,33 +121,33 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
+	inline private static var INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
 
 	/**
 	 * The scroll bar's thumb may be dragged horizontally (on the x-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The scroll bar's thumb may be dragged vertically (on the y-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>SimpleScrollBar</code>

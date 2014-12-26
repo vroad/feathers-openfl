@@ -16,7 +16,7 @@ class ButtonScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public static const CHILD_NAME_ICON_BUTTON:String = "components-explorer-button-screen-icon-button";
+	inline public static var CHILD_NAME_ICON_BUTTON:String = "components-explorer-button-screen-icon-button";
 	
 	public function ButtonScreen()
 	{

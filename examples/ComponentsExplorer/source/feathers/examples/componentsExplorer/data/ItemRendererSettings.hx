@@ -4,9 +4,9 @@ import feathers.controls.renderers.BaseDefaultItemRenderer;
 
 class ItemRendererSettings
 {
-	public static const ICON_ACCESSORY_TYPE_DISPLAY_OBJECT:String = "Display Object";
-	public static const ICON_ACCESSORY_TYPE_TEXTURE:String = "Texture";
-	public static const ICON_ACCESSORY_TYPE_LABEL:String = "Label";
+	inline public static var ICON_ACCESSORY_TYPE_DISPLAY_OBJECT:String = "Display Object";
+	inline public static var ICON_ACCESSORY_TYPE_TEXTURE:String = "Texture";
+	inline public static var ICON_ACCESSORY_TYPE_LABEL:String = "Label";
 
 	public function ItemRendererSettings()
 	{

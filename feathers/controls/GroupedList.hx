@@ -162,7 +162,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>GroupedList</code>
@@ -193,14 +193,14 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_INSET_GROUPED_LIST:String = "feathers-inset-grouped-list";
+	inline public static var ALTERNATE_NAME_INSET_GROUPED_LIST:String = "feathers-inset-grouped-list";
 
 	/**
 	 * The default name to use with header renderers.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER_RENDERER:String = "feathers-grouped-list-header-renderer";
+	inline public static var DEFAULT_CHILD_NAME_HEADER_RENDERER:String = "feathers-grouped-list-header-renderer";
 
 	/**
 	 * An alternate name to use with header renderers to give them an inset
@@ -214,14 +214,14 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_HEADER_RENDERER:String = "feathers-grouped-list-inset-header-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_HEADER_RENDERER:String = "feathers-grouped-list-inset-header-renderer";
 
 	/**
 	 * The default name to use with footer renderers.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_FOOTER_RENDERER:String = "feathers-grouped-list-footer-renderer";
+	inline public static var DEFAULT_CHILD_NAME_FOOTER_RENDERER:String = "feathers-grouped-list-footer-renderer";
 
 	/**
 	 * An alternate name to use with footer renderers to give them an inset
@@ -233,7 +233,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * list.footerRendererName = GroupedList.ALTERNATE_CHILD_NAME_INSET_FOOTER_RENDERER;</listing>
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_FOOTER_RENDERER:String = "feathers-grouped-list-inset-footer-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_FOOTER_RENDERER:String = "feathers-grouped-list-inset-footer-renderer";
 
 	/**
 	 * An alternate name to use with item renderers to give them an inset
@@ -247,7 +247,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_ITEM_RENDERER:String = "feathers-grouped-list-inset-item-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_ITEM_RENDERER:String = "feathers-grouped-list-inset-item-renderer";
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -262,7 +262,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_FIRST_ITEM_RENDERER:String = "feathers-grouped-list-inset-first-item-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_FIRST_ITEM_RENDERER:String = "feathers-grouped-list-inset-first-item-renderer";
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -277,7 +277,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_LAST_ITEM_RENDERER:String = "feathers-grouped-list-inset-last-item-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_LAST_ITEM_RENDERER:String = "feathers-grouped-list-inset-last-item-renderer";
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -293,7 +293,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_SINGLE_ITEM_RENDERER:String = "feathers-grouped-list-inset-single-item-renderer";
+	inline public static var ALTERNATE_CHILD_NAME_INSET_SINGLE_ITEM_RENDERER:String = "feathers-grouped-list-inset-single-item-renderer";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -301,7 +301,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_AUTO:String = "auto";
+	inline public static var SCROLL_POLICY_AUTO:String = "auto";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_ON
@@ -309,7 +309,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_ON:String = "on";
+	inline public static var SCROLL_POLICY_ON:String = "on";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_OFF
@@ -317,77 +317,77 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_OFF:String = "off";
+	inline public static var SCROLL_POLICY_OFF:String = "off";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FLOAT
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FLOAT:String = "float";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FLOAT:String = "float";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FIXED
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_NONE:String = "none";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_NONE:String = "none";
 
 	/**
 	 * The vertical scroll bar will be positioned on the right.
 	 *
 	 * @see feathers.controls.Scroller#verticalScrollBarPosition
 	 */
-	public static const VERTICAL_SCROLL_BAR_POSITION_RIGHT:String = "right";
+	inline public static var VERTICAL_SCROLL_BAR_POSITION_RIGHT:String = "right";
 
 	/**
 	 * The vertical scroll bar will be positioned on the left.
 	 *
 	 * @see feathers.controls.Scroller#verticalScrollBarPosition
 	 */
-	public static const VERTICAL_SCROLL_BAR_POSITION_LEFT:String = "left";
+	inline public static var VERTICAL_SCROLL_BAR_POSITION_LEFT:String = "left";
 
 	/**
 	 * @copy feathers.controls.Scroller#INTERACTION_MODE_TOUCH
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_TOUCH:String = "touch";
+	inline public static var INTERACTION_MODE_TOUCH:String = "touch";
 
 	/**
 	 * @copy feathers.controls.Scroller#INTERACTION_MODE_MOUSE
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_MOUSE:String = "mouse";
+	inline public static var INTERACTION_MODE_MOUSE:String = "mouse";
 
 	/**
 	 * @copy feathers.controls.Scroller#INTERACTION_MODE_TOUCH_AND_SCROLL_BARS
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
+	inline public static var INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	public static const DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_FAST
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
-	public static const DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
 
 	/**
 	 * Constructor.

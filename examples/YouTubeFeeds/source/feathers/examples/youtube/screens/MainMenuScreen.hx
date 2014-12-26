@@ -26,11 +26,11 @@ import starling.textures.Texture;
 
 class MainMenuScreen extends PanelScreen
 {
-	public static const LIST_VIDEOS:String = "listVideos";
+	inline public static var LIST_VIDEOS:String = "listVideos";
 
-	private static const CATEGORIES_URL:String = "http://gdata.youtube.com/schemas/2007/categories.cat";
-	private static const FEED_URL_BEFORE:String = "http://gdata.youtube.com/feeds/api/standardfeeds/US/most_popular_";
-	private static const FEED_URL_AFTER:String = "?v=2";
+	inline private static var CATEGORIES_URL:String = "http://gdata.youtube.com/schemas/2007/categories.cat";
+	inline private static var FEED_URL_BEFORE:String = "http://gdata.youtube.com/feeds/api/standardfeeds/US/most_popular_";
+	inline private static var FEED_URL_AFTER:String = "?v=2";
 
 	public function MainMenuScreen()
 	{

@@ -19,7 +19,7 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	private static const REQUIRES_ESCAPE:Dictionary = new Dictionary();
+	inline private static var REQUIRES_ESCAPE:Dictionary = new Dictionary();
 	REQUIRES_ESCAPE[/\[/g] = "\\[";
 	REQUIRES_ESCAPE[/\]/g] = "\\]";
 	REQUIRES_ESCAPE[/\{/g] = "\\{";

@@ -55,29 +55,29 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 * The minimum physical distance (in inches) that a touch must move
 	 * before the scroller starts scrolling.
 	 */
-	private static const MINIMUM_DRAG_DISTANCE:Number = 0.04;
+	inline private static var MINIMUM_DRAG_DISTANCE:Number = 0.04;
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
+	inline private static var INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_ON_TRACK_FACTORY:String = "onTrackFactory";
+	inline private static var INVALIDATION_FLAG_ON_TRACK_FACTORY:String = "onTrackFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_OFF_TRACK_FACTORY:String = "offTrackFactory";
+	inline private static var INVALIDATION_FLAG_OFF_TRACK_FACTORY:String = "offTrackFactory";
 
 	/**
 	 * The ON and OFF labels will be aligned to the middle vertically,
@@ -85,7 +85,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #labelAlign
 	 */
-	public static const LABEL_ALIGN_MIDDLE:String = "middle";
+	inline public static var LABEL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The ON and OFF labels will be aligned to the middle vertically,
@@ -93,7 +93,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #labelAlign
 	 */
-	public static const LABEL_ALIGN_BASELINE:String = "baseline";
+	inline public static var LABEL_ALIGN_BASELINE:String = "baseline";
 
 	/**
 	 * The toggle switch has only one track skin, stretching to fill the
@@ -103,7 +103,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #trackLayoutMode
 	 */
-	public static const TRACK_LAYOUT_MODE_SINGLE:String = "single";
+	inline public static var TRACK_LAYOUT_MODE_SINGLE:String = "single";
 
 	/**
 	 * The toggle switch has two tracks, stretching to fill each side of the
@@ -122,42 +122,42 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.display.Scale3Image
 	 * @see feathers.display.TiledImage
 	 */
-	public static const TRACK_LAYOUT_MODE_ON_OFF:String = "onOff";
+	inline public static var TRACK_LAYOUT_MODE_ON_OFF:String = "onOff";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the off label.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_OFF_LABEL:String = "feathers-toggle-switch-off-label";
+	inline public static var DEFAULT_CHILD_NAME_OFF_LABEL:String = "feathers-toggle-switch-off-label";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the on label.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_ON_LABEL:String = "feathers-toggle-switch-on-label";
+	inline public static var DEFAULT_CHILD_NAME_ON_LABEL:String = "feathers-toggle-switch-on-label";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the off track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_OFF_TRACK:String = "feathers-toggle-switch-off-track";
+	inline public static var DEFAULT_CHILD_NAME_OFF_TRACK:String = "feathers-toggle-switch-off-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the on track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_ON_TRACK:String = "feathers-toggle-switch-on-track";
+	inline public static var DEFAULT_CHILD_NAME_ON_TRACK:String = "feathers-toggle-switch-on-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = "feathers-toggle-switch-thumb";
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = "feathers-toggle-switch-thumb";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ToggleSwitch</code>

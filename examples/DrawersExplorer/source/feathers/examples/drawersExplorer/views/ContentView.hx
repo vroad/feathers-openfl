@@ -12,10 +12,10 @@ class ContentView extends ScrollContainer
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public static const TOGGLE_TOP_DRAWER:String = "toggleTopDrawer";
-	public static const TOGGLE_RIGHT_DRAWER:String = "toggleRightDrawer";
-	public static const TOGGLE_BOTTOM_DRAWER:String = "toggleBottomDrawer";
-	public static const TOGGLE_LEFT_DRAWER:String = "toggleLeftDrawer";
+	inline public static var TOGGLE_TOP_DRAWER:String = "toggleTopDrawer";
+	inline public static var TOGGLE_RIGHT_DRAWER:String = "toggleRightDrawer";
+	inline public static var TOGGLE_BOTTOM_DRAWER:String = "toggleBottomDrawer";
+	inline public static var TOGGLE_LEFT_DRAWER:String = "toggleLeftDrawer";
 
 	public function ContentView()
 	{

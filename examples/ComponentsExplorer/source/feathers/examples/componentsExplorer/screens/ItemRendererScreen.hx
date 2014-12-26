@@ -20,7 +20,7 @@ import starling.events.Event;
 
 class ItemRendererScreen extends PanelScreen
 {
-	public static const SHOW_SETTINGS:String = "showSettings";
+	inline public static var SHOW_SETTINGS:String = "showSettings";
 
 	public static var globalStyleProvider:IStyleProvider;
 

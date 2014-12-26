@@ -9,8 +9,8 @@ import starling.display.Quad;
 
 class DrawersExplorerTheme extends MetalWorksMobileTheme
 {
-	public static const THEME_NAME_TOP_AND_BOTTOM_DRAWER:String = "drawers-explorer-top-and-bottom-drawer";
-	public static const THEME_NAME_LEFT_AND_RIGHT_DRAWER:String = "drawers-explorer-left-and-right-drawer";
+	inline public static var THEME_NAME_TOP_AND_BOTTOM_DRAWER:String = "drawers-explorer-top-and-bottom-drawer";
+	inline public static var THEME_NAME_LEFT_AND_RIGHT_DRAWER:String = "drawers-explorer-left-and-right-drawer";
 
 	public function DrawersExplorerTheme()
 	{

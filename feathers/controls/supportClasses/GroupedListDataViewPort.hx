@@ -38,10 +38,10 @@ import starling.events.TouchPhase;
  */
 class GroupedListDataViewPort extends FeathersControl implements IViewPort
 {
-	private static const INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
+	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
-	private static const HELPER_POINT:Point = new Point();
-	private static const HELPER_VECTOR:Vector.<int> = new <int>[];
+	inline private static var HELPER_POINT:Point = new Point();
+	inline private static var HELPER_VECTOR:Vector.<int> = new <int>[];
 
 	public function GroupedListDataViewPort()
 	{

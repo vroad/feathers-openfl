@@ -42,7 +42,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private static const stageToObject:Dictionary = new Dictionary(true);
+	inline private static var stageToObject:Dictionary = new Dictionary(true);
 
 	/**
 	 * Retrieves the exclusive touch manager for the specified stage.

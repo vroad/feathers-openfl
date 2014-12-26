@@ -25,18 +25,18 @@ import starling.events.Event;
 
 class Main extends Drawers
 {
-	private static const MAIN_MENU:String = "mainMenu";
-	private static const ANCHOR:String = "anchor";
-	private static const HORIZONTAL:String = "horizontal";
-	private static const VERTICAL:String = "vertical";
-	private static const TILED_ROWS:String = "tiledRows";
-	private static const TILED_COLUMNS:String = "tiledColumns";
-	private static const HORIZONTAL_SETTINGS:String = "horizontalSettings";
-	private static const VERTICAL_SETTINGS:String = "verticalSettings";
-	private static const TILED_ROWS_SETTINGS:String = "tiledRowsSettings";
-	private static const TILED_COLUMNS_SETTINGS:String = "tiledColumnsSettings";
+	inline private static var MAIN_MENU:String = "mainMenu";
+	inline private static var ANCHOR:String = "anchor";
+	inline private static var HORIZONTAL:String = "horizontal";
+	inline private static var VERTICAL:String = "vertical";
+	inline private static var TILED_ROWS:String = "tiledRows";
+	inline private static var TILED_COLUMNS:String = "tiledColumns";
+	inline private static var HORIZONTAL_SETTINGS:String = "horizontalSettings";
+	inline private static var VERTICAL_SETTINGS:String = "verticalSettings";
+	inline private static var TILED_ROWS_SETTINGS:String = "tiledRowsSettings";
+	inline private static var TILED_COLUMNS_SETTINGS:String = "tiledColumnsSettings";
 
-	private static const MAIN_MENU_EVENTS:Object =
+	inline private static var MAIN_MENU_EVENTS:Object =
 	{
 		showAnchor: ANCHOR,
 		showHorizontal: HORIZONTAL,

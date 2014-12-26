@@ -90,22 +90,22 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
+	inline private static var INVALIDATION_FLAG_BUTTON_FACTORY:String = "buttonFactory";
 
 	/**
 	 * @private
 	 */
-	private static const LABEL_FIELD:String = "label";
+	inline private static var LABEL_FIELD:String = "label";
 
 	/**
 	 * @private
 	 */
-	private static const ENABLED_FIELD:String = "isEnabled";
+	inline private static var ENABLED_FIELD:String = "isEnabled";
 
 	/**
 	 * @private
 	 */
-	private static const DEFAULT_BUTTON_FIELDS:Vector.<String> = new <String>
+	inline private static var DEFAULT_BUTTON_FIELDS:Vector.<String> = new <String>
 	[
 		"defaultIcon",
 		"upIcon",
@@ -124,7 +124,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const DEFAULT_BUTTON_EVENTS:Vector.<String> = new <String>
+	inline private static var DEFAULT_BUTTON_EVENTS:Vector.<String> = new <String>
 	[
 		Event.TRIGGERED,
 		Event.CHANGE,
@@ -135,14 +135,14 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The buttons are displayed in order from top to bottom.
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The buttons will be aligned horizontally to the left edge of the
@@ -150,7 +150,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The buttons will be aligned horizontally to the center of the
@@ -158,7 +158,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The buttons will be aligned horizontally to the right edge of the
@@ -166,7 +166,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * If the direction is vertical, each button will fill the entire
@@ -176,13 +176,13 @@ class ButtonGroup extends FeathersControl
 	 * @see #horizontalAlign
 	 * @see #direction
 	 */
-	public static const HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The buttons will be aligned vertically to the top edge of the
 	 * button group.
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The buttons will be aligned vertically to the middle of the
@@ -190,7 +190,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The buttons will be aligned vertically to the bottom edge of the
@@ -198,7 +198,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * If the direction is horizontal, each button will fill the entire
@@ -208,14 +208,14 @@ class ButtonGroup extends FeathersControl
 	 * @see #verticalAlign
 	 * @see #direction
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the buttons.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON:String = "feathers-button-group-button";
+	inline public static var DEFAULT_CHILD_NAME_BUTTON:String = "feathers-button-group-button";
 
 	/**
 	 * @private

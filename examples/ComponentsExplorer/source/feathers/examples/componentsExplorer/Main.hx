@@ -40,32 +40,32 @@ import starling.events.Event;
 
 class Main extends Drawers
 {
-	private static const MAIN_MENU:String = "mainMenu";
-	private static const ALERT:String = "alert";
-	private static const BUTTON:String = "button";
-	private static const BUTTON_SETTINGS:String = "buttonSettings";
-	private static const BUTTON_GROUP:String = "buttonGroup";
-	private static const CALLOUT:String = "callout";
-	private static const GROUPED_LIST:String = "groupedList";
-	private static const GROUPED_LIST_SETTINGS:String = "groupedListSettings";
-	private static const ITEM_RENDERER:String = "itemRenderer";
-	private static const ITEM_RENDERER_SETTINGS:String = "itemRendererSettings";
-	private static const LABEL:String = "label";
-	private static const LIST:String = "list";
-	private static const LIST_SETTINGS:String = "listSettings";
-	private static const NUMERIC_STEPPER:String = "numericStepper";
-	private static const NUMERIC_STEPPER_SETTINGS:String = "numericStepperSettings";
-	private static const PAGE_INDICATOR:String = "pageIndicator";
-	private static const PICKER_LIST:String = "pickerList";
-	private static const PROGRESS_BAR:String = "progressBar";
-	private static const SCROLL_TEXT:String = "scrollText";
-	private static const SLIDER:String = "slider";
-	private static const SLIDER_SETTINGS:String = "sliderSettings";
-	private static const TAB_BAR:String = "tabBar";
-	private static const TEXT_INPUT:String = "textInput";
-	private static const TOGGLES:String = "toggles";
+	inline private static var MAIN_MENU:String = "mainMenu";
+	inline private static var ALERT:String = "alert";
+	inline private static var BUTTON:String = "button";
+	inline private static var BUTTON_SETTINGS:String = "buttonSettings";
+	inline private static var BUTTON_GROUP:String = "buttonGroup";
+	inline private static var CALLOUT:String = "callout";
+	inline private static var GROUPED_LIST:String = "groupedList";
+	inline private static var GROUPED_LIST_SETTINGS:String = "groupedListSettings";
+	inline private static var ITEM_RENDERER:String = "itemRenderer";
+	inline private static var ITEM_RENDERER_SETTINGS:String = "itemRendererSettings";
+	inline private static var LABEL:String = "label";
+	inline private static var LIST:String = "list";
+	inline private static var LIST_SETTINGS:String = "listSettings";
+	inline private static var NUMERIC_STEPPER:String = "numericStepper";
+	inline private static var NUMERIC_STEPPER_SETTINGS:String = "numericStepperSettings";
+	inline private static var PAGE_INDICATOR:String = "pageIndicator";
+	inline private static var PICKER_LIST:String = "pickerList";
+	inline private static var PROGRESS_BAR:String = "progressBar";
+	inline private static var SCROLL_TEXT:String = "scrollText";
+	inline private static var SLIDER:String = "slider";
+	inline private static var SLIDER_SETTINGS:String = "sliderSettings";
+	inline private static var TAB_BAR:String = "tabBar";
+	inline private static var TEXT_INPUT:String = "textInput";
+	inline private static var TOGGLES:String = "toggles";
 
-	private static const MAIN_MENU_EVENTS:Object =
+	inline private static var MAIN_MENU_EVENTS:Object =
 	{
 		showAlert: ALERT,
 		showButton: BUTTON,

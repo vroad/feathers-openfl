@@ -91,97 +91,97 @@ class Callout extends FeathersControl
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_ANY:String = "any";
+	inline public static var DIRECTION_ANY:String = "any";
 
 	/**
 	 * The callout may be positioned on top or bottom of the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The callout may be positioned on top or bottom of the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The callout must be positioned above the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_UP:String = "up";
+	inline public static var DIRECTION_UP:String = "up";
 
 	/**
 	 * The callout must be positioned below the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_DOWN:String = "down";
+	inline public static var DIRECTION_DOWN:String = "down";
 
 	/**
 	 * The callout must be positioned to the left side of the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_LEFT:String = "left";
+	inline public static var DIRECTION_LEFT:String = "left";
 
 	/**
 	 * The callout must be positioned to the right side of the origin region.
 	 *
 	 * @see #supportedDirections
 	 */
-	public static const DIRECTION_RIGHT:String = "right";
+	inline public static var DIRECTION_RIGHT:String = "right";
 
 	/**
 	 * The arrow will appear on the top side of the callout.
 	 *
 	 * @see #arrowPosition
 	 */
-	public static const ARROW_POSITION_TOP:String = "top";
+	inline public static var ARROW_POSITION_TOP:String = "top";
 
 	/**
 	 * The arrow will appear on the right side of the callout.
 	 *
 	 * @see #arrowPosition
 	 */
-	public static const ARROW_POSITION_RIGHT:String = "right";
+	inline public static var ARROW_POSITION_RIGHT:String = "right";
 
 	/**
 	 * The arrow will appear on the bottom side of the callout.
 	 *
 	 * @see #arrowPosition
 	 */
-	public static const ARROW_POSITION_BOTTOM:String = "bottom";
+	inline public static var ARROW_POSITION_BOTTOM:String = "bottom";
 
 	/**
 	 * The arrow will appear on the left side of the callout.
 	 *
 	 * @see #arrowPosition
 	 */
-	public static const ARROW_POSITION_LEFT:String = "left";
+	inline public static var ARROW_POSITION_LEFT:String = "left";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_ORIGIN:String = "origin";
+	inline private static var INVALIDATION_FLAG_ORIGIN:String = "origin";
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECT:Rectangle = new Rectangle();
+	inline private static var HELPER_RECT:Rectangle = new Rectangle();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const DIRECTION_TO_FUNCTION:Object = {};
+	inline private static var DIRECTION_TO_FUNCTION:Object = {};
 	DIRECTION_TO_FUNCTION[DIRECTION_ANY] = positionBestSideOfOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_UP] = positionAboveOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_DOWN] = positionBelowOrigin;
@@ -193,7 +193,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const FUZZY_CONTENT_DIMENSIONS_PADDING:Number = 0.000001;
+	inline private static var FUZZY_CONTENT_DIMENSIONS_PADDING:Number = 0.000001;
 
 	/**
 	 * Quickly sets all stage padding properties to the same value. The

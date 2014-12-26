@@ -122,46 +122,46 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
+	inline private static var INVALIDATION_FLAG_THUMB_FACTORY:String = "thumbFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY:String = "minimumTrackFactory";
+	inline private static var INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY:String = "minimumTrackFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY:String = "maximumTrackFactory";
+	inline private static var INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY:String = "maximumTrackFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
+	inline private static var INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY:String = "decrementButtonFactory";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
+	inline private static var INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY:String = "incrementButtonFactory";
 
 	/**
 	 * The scroll bar's thumb may be dragged horizontally (on the x-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The scroll bar's thumb may be dragged vertically (on the y-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The scroll bar has only one track, that fills the full length of the
@@ -171,7 +171,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #trackLayoutMode
 	 */
-	public static const TRACK_LAYOUT_MODE_SINGLE:String = "single";
+	inline public static var TRACK_LAYOUT_MODE_SINGLE:String = "single";
 
 	/**
 	 * The scroll bar has two tracks, stretching to fill each side of the
@@ -191,7 +191,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.display.Scale3Image
 	 * @see feathers.display.TiledImage
 	 */
-	public static const TRACK_LAYOUT_MODE_MIN_MAX:String = "minMax";
+	inline public static var TRACK_LAYOUT_MODE_MIN_MAX:String = "minMax";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the minimum
@@ -199,7 +199,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = "feathers-scroll-bar-minimum-track";
+	inline public static var DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = "feathers-scroll-bar-minimum-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the maximum
@@ -207,14 +207,14 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = "feathers-scroll-bar-maximum-track";
+	inline public static var DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = "feathers-scroll-bar-maximum-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = "feathers-scroll-bar-thumb";
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = "feathers-scroll-bar-thumb";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the decrement
@@ -222,7 +222,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = "feathers-scroll-bar-decrement-button";
+	inline public static var DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = "feathers-scroll-bar-decrement-button";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the increment
@@ -230,7 +230,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = "feathers-scroll-bar-increment-button";
+	inline public static var DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = "feathers-scroll-bar-increment-button";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollBar</code>

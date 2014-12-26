@@ -22,7 +22,7 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDragSource
 	 */
-	public static const DRAG_START:String = "dragStart";
+	inline public static var DRAG_START:String = "dragStart";
 
 	/**
 	 * Dispatched by the <code>IDragSource</code> when a drag completes.
@@ -32,7 +32,7 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDragSource
 	 */
-	public static const DRAG_COMPLETE:String = "dragComplete";
+	inline public static var DRAG_COMPLETE:String = "dragComplete";
 
 	/**
 	 * Dispatched by a <code>IDropTarget</code> when a drag enters its
@@ -40,7 +40,7 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public static const DRAG_ENTER:String = "dragEnter";
+	inline public static var DRAG_ENTER:String = "dragEnter";
 
 	/**
 	 * Dispatched by a <code>IDropTarget</code> when a drag moves to a new
@@ -48,7 +48,7 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public static const DRAG_MOVE:String = "dragMove";
+	inline public static var DRAG_MOVE:String = "dragMove";
 
 	/**
 	 * Dispatched by a <code>IDropTarget</code> when a drag exits its
@@ -56,14 +56,14 @@ class DragDropEvent extends Event
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public static const DRAG_EXIT:String = "dragExit";
+	inline public static var DRAG_EXIT:String = "dragExit";
 
 	/**
 	 * Dispatched by a <code>IDropTarget</code> when a drop occurs.
 	 *
 	 * @see feathers.dragDrop.IDropTarget
 	 */
-	public static const DRAG_DROP:String = "dragDrop";
+	inline public static var DRAG_DROP:String = "dragDrop";
 
 	/**
 	 * Constructor.

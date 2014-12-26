@@ -16,7 +16,7 @@ import starling.events.Event;
 
 class CalloutScreen extends PanelScreen
 {
-	private static const CONTENT_TEXT:String = "Thank you for trying Feathers.\nHappy coding.";
+	inline private static var CONTENT_TEXT:String = "Thank you for trying Feathers.\nHappy coding.";
 
 	public static var globalStyleProvider:IStyleProvider;
 

@@ -14,9 +14,9 @@ import starling.events.Event;
 
 class TimesScreen extends PanelScreen
 {
-	public static const CHILD_NAME_TIMES_LIST:String = "timesList";
+	inline public static var CHILD_NAME_TIMES_LIST:String = "timesList";
 
-	private static const NORTH_TIMES:Vector.<TimeData> = new <TimeData>
+	inline private static var NORTH_TIMES:Vector.<TimeData> = new <TimeData>
 	[
 		new TimeData(281, new Date(2013, 2, 6, 13, 5), new Date(2013, 2, 6, 13, 19)),
 		new TimeData(281, new Date(2013, 2, 6, 14, 5), new Date(2013, 2, 6, 14, 19)),

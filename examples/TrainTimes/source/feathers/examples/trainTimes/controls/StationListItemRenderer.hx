@@ -22,19 +22,19 @@ import starling.textures.Texture;
 
 class StationListItemRenderer extends FeathersControl implements IListItemRenderer
 {
-	public static const CHILD_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
-	public static const CHILD_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
-	public static const CHILD_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
-	public static const CHILD_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
-	public static const CHILD_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
+	inline public static var CHILD_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
+	inline public static var CHILD_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
+	inline public static var CHILD_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
+	inline public static var CHILD_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
+	inline public static var CHILD_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
 
-	private static const HELPER_POINT:Point = new Point();
-	private static const HELPER_TOUCHES_VECTOR:Vector.<Touch> = new <Touch>[];
+	inline private static var HELPER_POINT:Point = new Point();
+	inline private static var HELPER_TOUCHES_VECTOR:Vector.<Touch> = new <Touch>[];
 
-	private static const DEPART_FROM_TEXT:String = "DEPART FROM";
-	private static const DEPARTING_FROM_TEXT:String = "DEPARTING FROM";
-	private static const TRAVEL_TO_TEXT:String = "TRAVEL TO";
-	private static const QUESTION_MARK:String = "?";
+	inline private static var DEPART_FROM_TEXT:String = "DEPART FROM";
+	inline private static var DEPARTING_FROM_TEXT:String = "DEPARTING FROM";
+	inline private static var TRAVEL_TO_TEXT:String = "TRAVEL TO";
+	inline private static var QUESTION_MARK:String = "?";
 
 	private static function defaultLoaderFactory():ImageLoader
 	{

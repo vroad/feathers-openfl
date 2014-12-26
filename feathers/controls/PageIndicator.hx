@@ -58,17 +58,17 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
+	inline private static var LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	private static const SUGGESTED_BOUNDS:ViewPortBounds = new ViewPortBounds();
+	inline private static var SUGGESTED_BOUNDS:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The page indicator's symbols will be positioned vertically, from top
@@ -76,7 +76,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The page indicator's symbols will be positioned horizontally, from
@@ -84,49 +84,49 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The symbols will be vertically aligned to the top.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The symbols will be vertically aligned to the middle.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The symbols will be vertically aligned to the bottom.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The symbols will be horizontally aligned to the left.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The symbols will be horizontally aligned to the center.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The symbols will be horizontally aligned to the right.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * Touching the page indicator on the left of the selected symbol will
@@ -135,7 +135,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @see #interactionMode
 	 */
-	public static const INTERACTION_MODE_PREVIOUS_NEXT:String = "previousNext";
+	inline public static var INTERACTION_MODE_PREVIOUS_NEXT:String = "previousNext";
 
 	/**
 	 * Touching the page indicator on a symbol will select that symbol's
@@ -143,7 +143,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @see #interactionMode
 	 */
-	public static const INTERACTION_MODE_PRECISE:String = "precise";
+	inline public static var INTERACTION_MODE_PRECISE:String = "precise";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PageIndicator</code>

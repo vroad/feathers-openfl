@@ -11,7 +11,7 @@ import starling.events.Event;
 
 class Main extends Sprite implements IDragSource, IDropTarget
 {
-	private static const DRAG_FORMAT:String = "draggableQuad";
+	inline private static var DRAG_FORMAT:String = "draggableQuad";
 
 	public function Main()
 	{

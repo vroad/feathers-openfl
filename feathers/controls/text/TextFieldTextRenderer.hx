@@ -51,17 +51,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>TextFieldTextRenderer</code>

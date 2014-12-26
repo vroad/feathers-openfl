@@ -108,17 +108,17 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Flag to indicate that everything is invalid and should be redrawn.
 	 */
-	public static const INVALIDATION_FLAG_ALL:String = "all";
+	inline public static var INVALIDATION_FLAG_ALL:String = "all";
 
 	/**
 	 * Invalidation flag to indicate that the state has changed. Used by
@@ -126,79 +126,79 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @see #isEnabled
 	 */
-	public static const INVALIDATION_FLAG_STATE:String = "state";
+	inline public static var INVALIDATION_FLAG_STATE:String = "state";
 
 	/**
 	 * Invalidation flag to indicate that the dimensions of the UI control
 	 * have changed.
 	 */
-	public static const INVALIDATION_FLAG_SIZE:String = "size";
+	inline public static var INVALIDATION_FLAG_SIZE:String = "size";
 
 	/**
 	 * Invalidation flag to indicate that the styles or visual appearance of
 	 * the UI control has changed.
 	 */
-	public static const INVALIDATION_FLAG_STYLES:String = "styles";
+	inline public static var INVALIDATION_FLAG_STYLES:String = "styles";
 
 	/**
 	 * Invalidation flag to indicate that the skin of the UI control has changed.
 	 */
-	public static const INVALIDATION_FLAG_SKIN:String = "skin";
+	inline public static var INVALIDATION_FLAG_SKIN:String = "skin";
 
 	/**
 	 * Invalidation flag to indicate that the layout of the UI control has
 	 * changed.
 	 */
-	public static const INVALIDATION_FLAG_LAYOUT:String = "layout";
+	inline public static var INVALIDATION_FLAG_LAYOUT:String = "layout";
 
 	/**
 	 * Invalidation flag to indicate that the primary data displayed by the
 	 * UI control has changed.
 	 */
-	public static const INVALIDATION_FLAG_DATA:String = "data";
+	inline public static var INVALIDATION_FLAG_DATA:String = "data";
 
 	/**
 	 * Invalidation flag to indicate that the scroll position of the UI
 	 * control has changed.
 	 */
-	public static const INVALIDATION_FLAG_SCROLL:String = "scroll";
+	inline public static var INVALIDATION_FLAG_SCROLL:String = "scroll";
 
 	/**
 	 * Invalidation flag to indicate that the selection of the UI control
 	 * has changed.
 	 */
-	public static const INVALIDATION_FLAG_SELECTED:String = "selected";
+	inline public static var INVALIDATION_FLAG_SELECTED:String = "selected";
 
 	/**
 	 * Invalidation flag to indicate that the focus of the UI control has
 	 * changed.
 	 */
-	public static const INVALIDATION_FLAG_FOCUS:String = "focus";
+	inline public static var INVALIDATION_FLAG_FOCUS:String = "focus";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_TEXT_RENDERER:String = "textRenderer";
+	inline private static var INVALIDATION_FLAG_TEXT_RENDERER:String = "textRenderer";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_TEXT_EDITOR:String = "textEditor";
+	inline private static var INVALIDATION_FLAG_TEXT_EDITOR:String = "textEditor";
 
 	/**
 	 * @private
 	 */
-	private static const ILLEGAL_WIDTH_ERROR:String = "A component's width cannot be NaN.";
+	inline private static var ILLEGAL_WIDTH_ERROR:String = "A component's width cannot be NaN.";
 
 	/**
 	 * @private
 	 */
-	private static const ILLEGAL_HEIGHT_ERROR:String = "A component's height cannot be NaN.";
+	inline private static var ILLEGAL_HEIGHT_ERROR:String = "A component's height cannot be NaN.";
 
 	/**
 	 * @private
 	 */
-	private static const ABSTRACT_CLASS_ERROR:String = "FeathersControl is an abstract class. For a lightweight Feathers wrapper, use feathers.controls.LayoutGroup.";
+	inline private static var ABSTRACT_CLASS_ERROR:String = "FeathersControl is an abstract class. For a lightweight Feathers wrapper, use feathers.controls.LayoutGroup.";
 
 	/**
 	 * A function used by all UI controls that support text renderers to

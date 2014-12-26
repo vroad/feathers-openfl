@@ -53,7 +53,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * <code>toggleGroup</code> property is set to a different group, it
 	 * will be automatically removed from this group, if required.
 	 */
-	public static const defaultRadioGroup:ToggleGroup = new ToggleGroup();
+	inline public static var defaultRadioGroup:ToggleGroup = new ToggleGroup();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Radio</code>

@@ -9,8 +9,8 @@ import feathers.motion.transitions.OldFadeNewSlideTransitionManager;
 
 class Main extends ScreenNavigator
 {
-	private static const STATION_SCREEN:String = "stationScreen";
-	private static const TIMES_SCREEN:String = "timesScreen";
+	inline private static var STATION_SCREEN:String = "stationScreen";
+	inline private static var TIMES_SCREEN:String = "timesScreen";
 
 	public function Main()
 	{

@@ -29,7 +29,7 @@ import starling.events.Event;
 
 class ListVideosScreen extends PanelScreen
 {
-	public static const SHOW_VIDEO_DETAILS:String = "showVideoDetails";
+	inline public static var SHOW_VIDEO_DETAILS:String = "showVideoDetails";
 
 	public function ListVideosScreen()
 	{

@@ -10,8 +10,8 @@ class DrawerView extends ScrollContainer
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public static const CHANGE_DOCK_MODE_TO_NONE:String = "changeDockModeToNone";
-	public static const CHANGE_DOCK_MODE_TO_BOTH:String = "changeDockModeToBoth";
+	inline public static var CHANGE_DOCK_MODE_TO_NONE:String = "changeDockModeToNone";
+	inline public static var CHANGE_DOCK_MODE_TO_BOTH:String = "changeDockModeToBoth";
 
 	public function DrawerView(title:String)
 	{

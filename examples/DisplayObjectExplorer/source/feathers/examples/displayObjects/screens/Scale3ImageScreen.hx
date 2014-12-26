@@ -15,7 +15,7 @@ import starling.textures.Texture;
 class Scale3ImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/scale3.png")]
-	private static const SCALE_3_TEXTURE:Class;
+	inline private static var SCALE_3_TEXTURE:Class;
 
 	public static var globalStyleProvider:IStyleProvider;
 

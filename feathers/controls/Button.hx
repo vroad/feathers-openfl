@@ -106,14 +106,14 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the label.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_LABEL:String = "feathers-button-label";
+	inline public static var DEFAULT_CHILD_NAME_LABEL:String = "feathers-button-label";
 
 	/**
 	 * An alternate name to use with Button to allow a theme to give it
@@ -135,7 +135,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_CALL_TO_ACTION_BUTTON:String = "feathers-call-to-action-button";
+	inline public static var ALTERNATE_NAME_CALL_TO_ACTION_BUTTON:String = "feathers-call-to-action-button";
 
 	/**
 	 * An alternate name to use with Button to allow a theme to give it
@@ -157,7 +157,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_QUIET_BUTTON:String = "feathers-quiet-button";
+	inline public static var ALTERNATE_NAME_QUIET_BUTTON:String = "feathers-quiet-button";
 
 	/**
 	 * An alternate name to use with Button to allow a theme to give it
@@ -181,7 +181,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_DANGER_BUTTON:String = "feathers-danger-button";
+	inline public static var ALTERNATE_NAME_DANGER_BUTTON:String = "feathers-danger-button";
 
 	/**
 	 * An alternate name to use with Button to allow a theme to give it
@@ -203,7 +203,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_BACK_BUTTON:String = "feathers-back-button";
+	inline public static var ALTERNATE_NAME_BACK_BUTTON:String = "feathers-back-button";
 
 	/**
 	 * An alternate name to use with Button to allow a theme to give it
@@ -225,7 +225,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_NAME_FORWARD_BUTTON:String = "feathers-forward-button";
+	inline public static var ALTERNATE_NAME_FORWARD_BUTTON:String = "feathers-forward-button";
 	
 	/**
 	 * Identifier for the button's up state. Can be used for styling purposes.
@@ -234,7 +234,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_UP:String = "up";
+	inline public static var STATE_UP:String = "up";
 	
 	/**
 	 * Identifier for the button's down state. Can be used for styling purposes.
@@ -243,7 +243,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_DOWN:String = "down";
+	inline public static var STATE_DOWN:String = "down";
 
 	/**
 	 * Identifier for the button's hover state. Can be used for styling purposes.
@@ -252,7 +252,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_HOVER:String = "hover";
+	inline public static var STATE_HOVER:String = "hover";
 	
 	/**
 	 * Identifier for the button's disabled state. Can be used for styling purposes.
@@ -261,35 +261,35 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_DISABLED:String = "disabled";
+	inline public static var STATE_DISABLED:String = "disabled";
 	
 	/**
 	 * The icon will be positioned above the label.
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_TOP:String = "top";
+	inline public static var ICON_POSITION_TOP:String = "top";
 	
 	/**
 	 * The icon will be positioned to the right of the label.
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_RIGHT:String = "right";
+	inline public static var ICON_POSITION_RIGHT:String = "right";
 	
 	/**
 	 * The icon will be positioned below the label.
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_BOTTOM:String = "bottom";
+	inline public static var ICON_POSITION_BOTTOM:String = "bottom";
 	
 	/**
 	 * The icon will be positioned to the left of the label.
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_LEFT:String = "left";
+	inline public static var ICON_POSITION_LEFT:String = "left";
 
 	/**
 	 * The icon will be positioned manually with no relation to the position
@@ -300,7 +300,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #iconOffsetX
 	 * @see #iconOffsetY
 	 */
-	public static const ICON_POSITION_MANUAL:String = "manual";
+	inline public static var ICON_POSITION_MANUAL:String = "manual";
 	
 	/**
 	 * The icon will be positioned to the left the label, and the bottom of
@@ -308,7 +308,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_LEFT_BASELINE:String = "leftBaseline";
+	inline public static var ICON_POSITION_LEFT_BASELINE:String = "leftBaseline";
 	
 	/**
 	 * The icon will be positioned to the right the label, and the bottom of
@@ -316,49 +316,49 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_RIGHT_BASELINE:String = "rightBaseline";
+	inline public static var ICON_POSITION_RIGHT_BASELINE:String = "rightBaseline";
 	
 	/**
 	 * The icon and label will be aligned horizontally to the left edge of the button.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 	
 	/**
 	 * The icon and label will be aligned horizontally to the center of the button.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 	
 	/**
 	 * The icon and label will be aligned horizontally to the right edge of the button.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 	
 	/**
 	 * The icon and label will be aligned vertically to the top edge of the button.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 	
 	/**
 	 * The icon and label will be aligned vertically to the middle of the button.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 	
 	/**
 	 * The icon and label will be aligned vertically to the bottom edge of the button.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Button</code>

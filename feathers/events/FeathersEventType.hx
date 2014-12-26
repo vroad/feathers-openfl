@@ -20,7 +20,7 @@ class FeathersEventType
 	 * be used when an <code>IFeathersControl</code> has finished running
 	 * its <code>initialize()</code> function.
 	 */
-	public static const INITIALIZE:String = "initialize";
+	inline public static var INITIALIZE:String = "initialize";
 
 	/**
 	 * The <code>FeathersEventType.CREATION_COMPLETE</code> event type is
@@ -29,39 +29,39 @@ class FeathersEventType
 	 * created all of its children and it will be fully ready for user
 	 * interaction.
 	 */
-	public static const CREATION_COMPLETE:String = "creationComplete";
+	inline public static var CREATION_COMPLETE:String = "creationComplete";
 
 	/**
 	 * The <code>FeathersEventType.RESIZE</code> event type is meant to
 	 * be used when an <code>IFeathersControl</code> has resized.
 	 */
-	public static const RESIZE:String = "resize";
+	inline public static var RESIZE:String = "resize";
 
 	/**
 	 * The <code>FeathersEventType.ENTER</code> event type is meant to
 	 * be used when the enter key has been pressed in an input control.
 	 */
-	public static const ENTER:String = "enter";
+	inline public static var ENTER:String = "enter";
 
 	/**
 	 * The <code>FeathersEventType.CLEAR</code> event type is a generic
 	 * event type for when something is "cleared".
 	 */
-	public static const CLEAR:String = "clear";
+	inline public static var CLEAR:String = "clear";
 
 	/**
 	 * The <code>FeathersEventType.SCROLL_START</code> event type is used
 	 * when a control starts scrolling in either direction as a result of
 	 * either user interaction or animation.
 	 */
-	public static const SCROLL_START:String = "scrollStart";
+	inline public static var SCROLL_START:String = "scrollStart";
 
 	/**
 	 * The <code>FeathersEventType.SCROLL_COMPLETE</code> event type is used
 	 * when a control finishes scrolling in either direction as a result of
 	 * either user interaction or animation.
 	 */
-	public static const SCROLL_COMPLETE:String = "scrollComplete";
+	inline public static var SCROLL_COMPLETE:String = "scrollComplete";
 
 	/**
 	 * The <code>FeathersEventType.BEGIN_INTERACTION</code> event type is
@@ -69,7 +69,7 @@ class FeathersEventType
 	 * over time. An example is a <code>Slider</code> control where the
 	 * user touches the thumb to begin dragging.
 	 */
-	public static const BEGIN_INTERACTION:String = "beginInteraction";
+	inline public static var BEGIN_INTERACTION:String = "beginInteraction";
 
 	/**
 	 * The <code>FeathersEventType.END_INTERACTION</code> event type is
@@ -82,33 +82,33 @@ class FeathersEventType
 	 * may be "thrown", and the scrolling will continue animating after the
 	 * user has finished interacting with it.</p>
 	 */
-	public static const END_INTERACTION:String = "endInteraction";
+	inline public static var END_INTERACTION:String = "endInteraction";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_START</code> event type is
 	 * used by the <code>ScreenNavigator</code> to indicate when a
 	 * transition between screens begins.
 	 */
-	public static const TRANSITION_START:String = "transitionStart";
+	inline public static var TRANSITION_START:String = "transitionStart";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_COMPLETE</code> event type is
 	 * used by the <code>ScreenNavigator</code> to indicate when a
 	 * transition between screens ends.
 	 */
-	public static const TRANSITION_COMPLETE:String = "transitionComplete";
+	inline public static var TRANSITION_COMPLETE:String = "transitionComplete";
 
 	/**
 	 * The <code>FeathersEventType.FOCUS_IN</code> event type is used by
 	 * Feathers components to indicate when they have received focus.
 	 */
-	public static const FOCUS_IN:String = "focusIn";
+	inline public static var FOCUS_IN:String = "focusIn";
 
 	/**
 	 * The <code>FeathersEventType.FOCUS_OUT</code> event type is used by
 	 * Feathers components to indicate when they have lost focus.
 	 */
-	public static const FOCUS_OUT:String = "focusOut";
+	inline public static var FOCUS_OUT:String = "focusOut";
 
 	/**
 	 * The <code>FeathersEventType.RENDERER_ADD</code> event type is used by
@@ -117,7 +117,7 @@ class FeathersEventType
 	 * virtualized layouts where only a limited set of renderers will be
 	 * created for a data provider that may include a larger number of items.
 	 */
-	public static const RENDERER_ADD:String = "rendererAdd";
+	inline public static var RENDERER_ADD:String = "rendererAdd";
 
 	/**
 	 * The <code>FeathersEventType.RENDERER_REMOVE</code> event type is used
@@ -126,20 +126,20 @@ class FeathersEventType
 	 * layouts where only a limited set of renderers will be created for
 	 * a data provider that may include a larger number items.
 	 */
-	public static const RENDERER_REMOVE:String = "rendererRemove";
+	inline public static var RENDERER_REMOVE:String = "rendererRemove";
 
 	/**
 	 * The <code>FeathersEventType.ERROR</code> event type is used by
 	 * Feathers controls when an error occurs that can be caught and
 	 * safely ignored.
 	 */
-	public static const ERROR:String = "error";
+	inline public static var ERROR:String = "error";
 
 	/**
 	 * The <code>FeathersEventType.LAYOUT_DATA_CHANGE</code> event type is
 	 * used by Feathers controls when their layout data has changed.
 	 */
-	public static const LAYOUT_DATA_CHANGE:String = "layoutDataChange";
+	inline public static var LAYOUT_DATA_CHANGE:String = "layoutDataChange";
 
 	/**
 	 * The <code>FeathersEventType.LONG_PRESS</code> event type is used by
@@ -147,7 +147,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.Button#event:longPress
 	 */
-	public static const LONG_PRESS:String = "longPress";
+	inline public static var LONG_PRESS:String = "longPress";
 
 	/**
 	 * The <code>FeathersEventType.SOFT_KEYBOARD_ACTIVATE</code> event type
@@ -156,7 +156,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.core.ITextEditor
 	 */
-	public static const SOFT_KEYBOARD_ACTIVATE:String = "softKeyboardActivate";
+	inline public static var SOFT_KEYBOARD_ACTIVATE:String = "softKeyboardActivate";
 
 	/**
 	 * The <code>FeathersEventType.SOFT_KEYBOARD_DEACTIVATE</code> event type
@@ -165,5 +165,5 @@ class FeathersEventType
 	 *
 	 * @see feathers.core.ITextEditor
 	 */
-	public static const SOFT_KEYBOARD_DEACTIVATE:String = "softKeyboardDeactivate";
+	inline public static var SOFT_KEYBOARD_DEACTIVATE:String = "softKeyboardDeactivate";
 }

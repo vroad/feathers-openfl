@@ -82,21 +82,21 @@ class Alert extends Panel
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = "feathers-alert-header";
+	inline public static var DEFAULT_CHILD_NAME_HEADER:String = "feathers-alert-header";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the button group.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
+	inline public static var DEFAULT_CHILD_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the message.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MESSAGE:String = "feathers-alert-message";
+	inline public static var DEFAULT_CHILD_NAME_MESSAGE:String = "feathers-alert-message";
 
 	/**
 	 * Returns a new <code>Alert</code> instance when <code>Alert.show()</code>

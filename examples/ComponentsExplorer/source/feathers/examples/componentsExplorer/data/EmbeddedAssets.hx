@@ -4,10 +4,10 @@ import starling.textures.Texture;
 class EmbeddedAssets
 {
 	[Embed(source="/../assets/images/skull.png")]
-	private static const SKULL_ICON_DARK_EMBEDDED:Class;
+	inline private static var SKULL_ICON_DARK_EMBEDDED:Class;
 
 	[Embed(source="/../assets/images/skull-white.png")]
-	private static const SKULL_ICON_LIGHT_EMBEDDED:Class;
+	inline private static var SKULL_ICON_LIGHT_EMBEDDED:Class;
 
 	public static var SKULL_ICON_DARK:Texture;
 

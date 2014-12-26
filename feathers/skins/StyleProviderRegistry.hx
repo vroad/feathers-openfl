@@ -16,7 +16,7 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	private static const GLOBAL_STYLE_PROVIDER_PROPERTY_NAME:String = "globalStyleProvider";
+	inline private static var GLOBAL_STYLE_PROVIDER_PROPERTY_NAME:String = "globalStyleProvider";
 
 	/**
 	 * @private

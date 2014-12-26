@@ -36,28 +36,28 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The items will be aligned to the middle of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The items will be aligned to the bottom of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The items will fill the height of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -65,7 +65,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -73,7 +73,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -81,7 +81,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * Constructor.

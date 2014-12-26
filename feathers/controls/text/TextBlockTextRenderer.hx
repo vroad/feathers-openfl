@@ -59,17 +59,17 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * @private
@@ -80,43 +80,43 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @private
 	 * This is enforced by the runtime.
 	 */
-	private static const MAX_TEXT_LINE_WIDTH:Number = 1000000;
+	inline private static var MAX_TEXT_LINE_WIDTH:Number = 1000000;
 
 	/**
 	 * @private
 	 */
-	private static const LINE_FEED:String = "\n";
+	inline private static var LINE_FEED:String = "\n";
 
 	/**
 	 * @private
 	 */
-	private static const CARRIAGE_RETURN:String = "\r";
+	inline private static var CARRIAGE_RETURN:String = "\r";
 
 	/**
 	 * @private
 	 */
-	private static const FUZZY_TRUNCATION_DIFFERENCE:Number = 0.000001;
+	inline private static var FUZZY_TRUNCATION_DIFFERENCE:Number = 0.000001;
 
 	/**
 	 * The text will be positioned to the left edge.
 	 *
 	 * @see #textAlign
 	 */
-	public static const TEXT_ALIGN_LEFT:String = "left";
+	inline public static var TEXT_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The text will be centered horizontally.
 	 *
 	 * @see #textAlign
 	 */
-	public static const TEXT_ALIGN_CENTER:String = "center";
+	inline public static var TEXT_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The text will be positioned to the right edge.
 	 *
 	 * @see #textAlign
 	 */
-	public static const TEXT_ALIGN_RIGHT:String = "right";
+	inline public static var TEXT_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>TextBlockTextRenderer</code>

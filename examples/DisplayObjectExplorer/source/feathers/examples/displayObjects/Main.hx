@@ -17,9 +17,9 @@ import starling.events.ResizeEvent;
 
 class Main extends LayoutGroup
 {
-	private static const SCALE_9_IMAGE:String = "scale9Image";
-	private static const SCALE_3_IMAGE:String = "scale3Image";
-	private static const TILED_IMAGE:String = "tiledImage";
+	inline private static var SCALE_9_IMAGE:String = "scale9Image";
+	inline private static var SCALE_3_IMAGE:String = "scale3Image";
+	inline private static var TILED_IMAGE:String = "tiledImage";
 
 	public function Main()
 	{

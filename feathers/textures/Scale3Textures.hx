@@ -20,27 +20,27 @@ public final class Scale3Textures
 	/**
 	 * @private
 	 */
-	private static const SECOND_REGION_ERROR:String = "The size of the second region must be greater than zero.";
+	inline private static var SECOND_REGION_ERROR:String = "The size of the second region must be greater than zero.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_REGIONS_ERROR:String = "The combined size of the first and second regions must not be greater than the texture size.";
+	inline private static var SUM_REGIONS_ERROR:String = "The combined size of the first and second regions must not be greater than the texture size.";
 
 	/**
 	 * If the direction is horizontal, the layout will start on the left and continue to the right.
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * If the direction is vertical, the layout will start on the top and continue to the bottom.
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * Constructor.

@@ -18,26 +18,26 @@ class CollectionEventType
 	/**
 	 * Dispatched when the data provider's source is completely replaced.
 	 */
-	public static const RESET:String = "reset";
+	inline public static var RESET:String = "reset";
 
 	/**
 	 * Dispatched when an item is added to the collection.
 	 */
-	public static const ADD_ITEM:String = "addItem";
+	inline public static var ADD_ITEM:String = "addItem";
 
 	/**
 	 * Dispatched when an item is removed from the collection.
 	 */
-	public static const REMOVE_ITEM:String = "removeItem";
+	inline public static var REMOVE_ITEM:String = "removeItem";
 
 	/**
 	 * Dispatched when an item is replaced in the collection with a
 	 * different item.
 	 */
-	public static const REPLACE_ITEM:String = "replaceItem";
+	inline public static var REPLACE_ITEM:String = "replaceItem";
 
 	/**
 	 * Dispatched when an item in the collection has changed.
 	 */
-	public static const UPDATE_ITEM:String = "updateItem";
+	inline public static var UPDATE_ITEM:String = "updateItem";
 }

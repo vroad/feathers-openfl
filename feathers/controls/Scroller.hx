@@ -211,22 +211,22 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_SCROLL_BAR_RENDERER:String = "scrollBarRenderer";
+	inline private static var INVALIDATION_FLAG_SCROLL_BAR_RENDERER:String = "scrollBarRenderer";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_PENDING_SCROLL:String = "pendingScroll";
+	inline private static var INVALIDATION_FLAG_PENDING_SCROLL:String = "pendingScroll";
 
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS:String = "pendingRevealScrollBars";
+	inline private static var INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS:String = "pendingRevealScrollBars";
 
 	/**
 	 * The scroller may scroll if the view port is larger than the
@@ -239,7 +239,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_AUTO:String = "auto";
+	inline public static var SCROLL_POLICY_AUTO:String = "auto";
 
 	/**
 	 * The scroller will always scroll. If the interaction mode is touch,
@@ -250,7 +250,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_ON:String = "on";
+	inline public static var SCROLL_POLICY_ON:String = "on";
 
 	/**
 	 * The scroller does not scroll at all. If the scroll bar display mode
@@ -259,7 +259,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.Scroller#horizontalScrollPolicy
 	 * @see feathers.controls.Scroller#verticalScrollPolicy
 	 */
-	public static const SCROLL_POLICY_OFF:String = "off";
+	inline public static var SCROLL_POLICY_OFF:String = "off";
 
 	/**
 	 * The scroll bars appear above the scroller's view port, and fade out
@@ -267,7 +267,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FLOAT:String = "float";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FLOAT:String = "float";
 
 	/**
 	 * The scroll bars are always visible and appear next to the scroller's
@@ -275,28 +275,28 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
 
 	/**
 	 * The scroll bars are never visible.
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_NONE:String = "none";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_NONE:String = "none";
 
 	/**
 	 * The vertical scroll bar will be positioned on the right.
 	 *
 	 * @see feathers.controls.Scroller#verticalScrollBarPosition
 	 */
-	public static const VERTICAL_SCROLL_BAR_POSITION_RIGHT:String = "right";
+	inline public static var VERTICAL_SCROLL_BAR_POSITION_RIGHT:String = "right";
 
 	/**
 	 * The vertical scroll bar will be positioned on the left.
 	 *
 	 * @see feathers.controls.Scroller#verticalScrollBarPosition
 	 */
-	public static const VERTICAL_SCROLL_BAR_POSITION_LEFT:String = "left";
+	inline public static var VERTICAL_SCROLL_BAR_POSITION_LEFT:String = "left";
 
 	/**
 	 * The user may touch anywhere on the scroller and drag to scroll. The
@@ -305,7 +305,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_TOUCH:String = "touch";
+	inline public static var INTERACTION_MODE_TOUCH:String = "touch";
 
 	/**
 	 * The user may only interact with the scroll bars to scroll. The user
@@ -314,7 +314,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_MOUSE:String = "mouse";
+	inline public static var INTERACTION_MODE_MOUSE:String = "mouse";
 
 	/**
 	 * The user may touch anywhere on the scroller and drag to scroll, and
@@ -328,50 +328,50 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
-	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
+	inline public static var INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
 
 	/**
 	 * Flag to indicate that the clipping has changed.
 	 */
-	private static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
+	inline private static var INVALIDATION_FLAG_CLIPPING:String = "clipping";
 
 	/**
 	 * @private
 	 * The point where we stop calculating velocity changes because floating
 	 * point issues can start to appear.
 	 */
-	private static const MINIMUM_VELOCITY:Number = 0.02;
+	inline private static var MINIMUM_VELOCITY:Number = 0.02;
 
 	/**
 	 * @private
 	 * The current velocity is given high importance.
 	 */
-	private static const CURRENT_VELOCITY_WEIGHT:Number = 2.33;
+	inline private static var CURRENT_VELOCITY_WEIGHT:Number = 2.33;
 
 	/**
 	 * @private
 	 * Older saved velocities are given less importance.
 	 */
-	private static const VELOCITY_WEIGHTS:Vector.<Number> = new <Number>[1, 1.33, 1.66, 2];
+	inline private static var VELOCITY_WEIGHTS:Vector.<Number> = new <Number>[1, 1.33, 1.66, 2];
 
 	/**
 	 * @private
 	 */
-	private static const MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
+	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:int = 4;
 
 	/**
 	 * The default deceleration rate per millisecond.
 	 *
 	 * @see #decelerationRate
 	 */
-	public static const DECELERATION_RATE_NORMAL:Number = 0.998;
+	inline public static var DECELERATION_RATE_NORMAL:Number = 0.998;
 
 	/**
 	 * Decelerates a bit faster per millisecond than the default.
 	 *
 	 * @see #decelerationRate
 	 */
-	public static const DECELERATION_RATE_FAST:Number = 0.99;
+	inline public static var DECELERATION_RATE_FAST:Number = 0.99;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -379,7 +379,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HORIZONTAL_SCROLL_BAR:String = "feathers-scroller-horizontal-scroll-bar";
+	inline public static var DEFAULT_CHILD_NAME_HORIZONTAL_SCROLL_BAR:String = "feathers-scroller-horizontal-scroll-bar";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the vertical
@@ -387,7 +387,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_VERTICAL_SCROLL_BAR:String = "feathers-scroller-vertical-scroll-bar";
+	inline public static var DEFAULT_CHILD_NAME_VERTICAL_SCROLL_BAR:String = "feathers-scroller-vertical-scroll-bar";
 
 	/**
 	 * @private
