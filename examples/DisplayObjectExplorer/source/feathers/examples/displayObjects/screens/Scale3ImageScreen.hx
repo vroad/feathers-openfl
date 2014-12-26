@@ -48,7 +48,7 @@ class Scale3ImageScreen extends Screen
 		return this._padding;
 	}
 
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		if(this._padding == value)
 		{

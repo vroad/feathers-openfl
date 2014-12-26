@@ -253,7 +253,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):Void
+	public function set_layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -285,7 +285,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function set mxmlContent(value:Array):Void
+	public function set_mxmlContent(value:Array):Void
 	{
 		if(this._mxmlContent == value)
 		{

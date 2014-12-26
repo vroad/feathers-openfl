@@ -287,7 +287,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set title(value:String):Void
+	public function set_title(value:String):Void
 	{
 		if(this._title == value)
 		{
@@ -313,7 +313,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set message(value:String):Void
+	public function set_message(value:String):Void
 	{
 		if(this._message == value)
 		{
@@ -339,7 +339,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set icon(value:DisplayObject):Void
+	public function set_icon(value:DisplayObject):Void
 	{
 		if(this._icon == value)
 		{
@@ -384,7 +384,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set gap(value:Float):Void
+	public function set_gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -410,7 +410,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonsDataProvider(value:ListCollection):Void
+	public function set_buttonsDataProvider(value:ListCollection):Void
 	{
 		if(this._buttonsDataProvider == value)
 		{
@@ -469,7 +469,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set messageFactory(value:Function):Void
+	public function set_messageFactory(value:Function):Void
 	{
 		if(this._messageFactory == value)
 		{
@@ -529,7 +529,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set messageProperties(value:Object):Void
+	public function set_messageProperties(value:Object):Void
 	{
 		if(this._messageProperties == value)
 		{
@@ -584,7 +584,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonGroupFactory(value:Function):Void
+	public function set_buttonGroupFactory(value:Function):Void
 	{
 		super.footerFactory = value;
 	}
@@ -620,7 +620,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set customButtonGroupName(value:String):Void
+	public function set_customButtonGroupName(value:String):Void
 	{
 		super.customFooterName = value;
 	}
@@ -658,7 +658,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set buttonGroupProperties(value:Object):Void
+	public function set_buttonGroupProperties(value:Object):Void
 	{
 		super.footerProperties = value;
 	}

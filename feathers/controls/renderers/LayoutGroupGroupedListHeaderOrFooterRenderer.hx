@@ -73,7 +73,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:Int):Void
+	public function set_groupIndex(value:Int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -94,7 +94,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:Int):Void
+	public function set_layoutIndex(value:Int):Void
 	{
 		this._layoutIndex = value;
 	}
@@ -115,7 +115,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set owner(value:GroupedList):Void
+	public function set_owner(value:GroupedList):Void
 	{
 		if(this._owner == value)
 		{
@@ -141,7 +141,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):Void
+	public function set_data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -167,7 +167,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{

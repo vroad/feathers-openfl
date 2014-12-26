@@ -41,7 +41,7 @@ class ItemRendererScreen extends PanelScreen
 		return this._itemRendererGap;
 	}
 
-	public function set itemRendererGap(value:Float):Void
+	public function set_itemRendererGap(value:Float):Void
 	{
 		if(this._itemRendererGap == value)
 		{
@@ -58,7 +58,7 @@ class ItemRendererScreen extends PanelScreen
 		return this._settings;
 	}
 
-	public function set settings(value:ItemRendererSettings):Void
+	public function set_settings(value:ItemRendererSettings):Void
 	{
 		if(this._settings == value)
 		{

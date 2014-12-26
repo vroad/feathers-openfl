@@ -269,7 +269,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set source(value:Object):Void
+	public function set_source(value:Object):Void
 	{
 		if(this._source == value)
 		{
@@ -325,7 +325,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set loadingTexture(value:Texture):Void
+	public function set_loadingTexture(value:Texture):Void
 	{
 		if(this._loadingTexture == value)
 		{
@@ -363,7 +363,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set errorTexture(value:Texture):Void
+	public function set_errorTexture(value:Texture):Void
 	{
 		if(this._errorTexture == value)
 		{
@@ -421,7 +421,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureScale(value:Float):Void
+	public function set_textureScale(value:Float):Void
 	{
 		if(this._textureScale == value)
 		{
@@ -458,7 +458,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set smoothing(value:String):Void
+	public function set_smoothing(value:String):Void
 	{
 		if(this._smoothing == value)
 		{
@@ -494,7 +494,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set color(value:UInt):Void
+	public function set_color(value:UInt):Void
 	{
 		if(this._color == value)
 		{
@@ -530,7 +530,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureFormat(value:String):Void
+	public function set_textureFormat(value:String):Void
 	{
 		if(this._textureFormat == value)
 		{
@@ -566,7 +566,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Bool):Void
+	public function set_snapToPixels(value:Bool):Void
 	{
 		if(this._snapToPixels == value)
 		{
@@ -600,7 +600,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set maintainAspectRatio(value:Bool):Void
+	public function set_maintainAspectRatio(value:Bool):Void
 	{
 		if(this._maintainAspectRatio == value)
 		{
@@ -693,7 +693,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set delayTextureCreation(value:Bool):Void
+	public function set_delayTextureCreation(value:Bool):Void
 	{
 		if(this._delayTextureCreation == value)
 		{
@@ -763,7 +763,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set textureQueueDuration(value:Float):Void
+	public function set_textureQueueDuration(value:Float):Void
 	{
 		if(this._textureQueueDuration == value)
 		{
@@ -812,7 +812,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -846,7 +846,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -882,7 +882,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -918,7 +918,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -954,7 +954,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{

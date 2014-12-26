@@ -378,7 +378,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -444,7 +444,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):Void
+	public function set_direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -484,7 +484,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -524,7 +524,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -562,7 +562,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeButtonSizes(value:Bool):Void
+	public function set_distributeButtonSizes(value:Bool):Void
 	{
 		if(this._distributeButtonSizes == value)
 		{
@@ -596,7 +596,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Float):Void
+	public function set_gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -635,7 +635,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Float):Void
+	public function set_firstGap(value:Float):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -674,7 +674,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Float):Void
+	public function set_lastGap(value:Float):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -711,7 +711,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -744,7 +744,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -779,7 +779,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -814,7 +814,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -849,7 +849,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -900,7 +900,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonFactory(value:Function):Void
+	public function set_buttonFactory(value:Function):Void
 	{
 		if(this._buttonFactory == value)
 		{
@@ -953,7 +953,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstButtonFactory(value:Function):Void
+	public function set_firstButtonFactory(value:Function):Void
 	{
 		if(this._firstButtonFactory == value)
 		{
@@ -1006,7 +1006,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastButtonFactory(value:Function):Void
+	public function set_lastButtonFactory(value:Function):Void
 	{
 		if(this._lastButtonFactory == value)
 		{
@@ -1052,7 +1052,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonInitializer(value:Function):Void
+	public function set_buttonInitializer(value:Function):Void
 	{
 		if(this._buttonInitializer == value)
 		{
@@ -1095,7 +1095,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customButtonName(value:String):Void
+	public function set_customButtonName(value:String):Void
 	{
 		if(this._customButtonName == value)
 		{
@@ -1137,7 +1137,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstButtonName(value:String):Void
+	public function set_customFirstButtonName(value:String):Void
 	{
 		if(this._customFirstButtonName == value)
 		{
@@ -1179,7 +1179,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastButtonName(value:String):Void
+	public function set_customLastButtonName(value:String):Void
 	{
 		if(this._customLastButtonName == value)
 		{
@@ -1237,7 +1237,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set buttonProperties(value:Object):Void
+	public function set_buttonProperties(value:Object):Void
 	{
 		if(this._buttonProperties == value)
 		{

@@ -52,7 +52,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set originalStyleProvider(value:IStyleProvider):Void
+	public function set_originalStyleProvider(value:IStyleProvider):Void
 	{
 		this._originalStyleProvider = value;
 	}
@@ -77,7 +77,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set addOnFunction(value:Function):Void
+	public function set_addOnFunction(value:Function):Void
 	{
 		this._addOnFunction = value;
 	}

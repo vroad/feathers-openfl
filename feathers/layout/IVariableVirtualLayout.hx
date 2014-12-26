@@ -24,7 +24,7 @@ public interface IVariableVirtualLayout extends IVirtualLayout
 	/**
 	 * @private
 	 */
-	function set hasVariableItemDimensions(value:Bool):Void;
+	function set_hasVariableItemDimensions(value:Bool):Void;
 
 	/**
 	 * Clears the cached dimensions for all virtualized indices.

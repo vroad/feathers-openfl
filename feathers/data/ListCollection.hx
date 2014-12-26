@@ -204,7 +204,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):Void
+	public function set_data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -263,7 +263,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set dataDescriptor(value:IListCollectionDataDescriptor):Void
+	public function set_dataDescriptor(value:IListCollectionDataDescriptor):Void
 	{
 		if(this._dataDescriptor == value)
 		{

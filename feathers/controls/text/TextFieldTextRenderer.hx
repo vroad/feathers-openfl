@@ -172,7 +172,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set text(value:String):Void
+	public function set_text(value:String):Void
 	{
 		if(this._text == value)
 		{
@@ -214,7 +214,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Bool):Void
+	public function set_isHTML(value:Bool):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -250,7 +250,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:TextFormat):Void
+	public function set_textFormat(value:TextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -287,7 +287,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:TextFormat):Void
+	public function set_disabledTextFormat(value:TextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -337,7 +337,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set styleSheet(value:StyleSheet):Void
+	public function set_styleSheet(value:StyleSheet):Void
 	{
 		if(this._styleSheet == value)
 		{
@@ -373,7 +373,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Bool):Void
+	public function set_embedFonts(value:Bool):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -425,7 +425,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set wordWrap(value:Bool):Void
+	public function set_wordWrap(value:Bool):Void
 	{
 		if(this._wordWrap == value)
 		{
@@ -461,7 +461,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set snapToPixels(value:Bool):Void
+	public function set_snapToPixels(value:Bool):Void
 	{
 		this._snapToPixels = value;
 	}
@@ -493,7 +493,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set antiAliasType(value:String):Void
+	public function set_antiAliasType(value:String):Void
 	{
 		if(this._antiAliasType == value)
 		{
@@ -532,7 +532,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set background(value:Bool):Void
+	public function set_background(value:Bool):Void
 	{
 		if(this._background == value)
 		{
@@ -570,7 +570,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:UInt):Void
+	public function set_backgroundColor(value:UInt):Void
 	{
 		if(this._backgroundColor == value)
 		{
@@ -611,7 +611,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set border(value:Bool):Void
+	public function set_border(value:Bool):Void
 	{
 		if(this._border == value)
 		{
@@ -649,7 +649,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:UInt):Void
+	public function set_borderColor(value:UInt):Void
 	{
 		if(this._borderColor == value)
 		{
@@ -686,7 +686,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Bool):Void
+	public function set_condenseWhite(value:Bool):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -723,7 +723,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -764,7 +764,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set gridFitType(value:String):Void
+	public function set_gridFitType(value:String):Void
 	{
 		if(this._gridFitType == value)
 		{
@@ -804,7 +804,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Float):Void
+	public function set_sharpness(value:Float):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -844,7 +844,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Float):Void
+	public function set_thickness(value:Float):Void
 	{
 		if(this._thickness == value)
 		{
@@ -881,7 +881,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set maxTextureDimensions(value:Int):Void
+	public function set_maxTextureDimensions(value:Int):Void
 	{
 		//check if we can use rectangle textures or not
 		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)
@@ -923,7 +923,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set nativeFilters(value:Array):Void
+	public function set_nativeFilters(value:Array):Void
 	{
 		if(this._nativeFilters == value)
 		{
@@ -959,7 +959,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set useGutter(value:Bool):Void
+	public function set_useGutter(value:Bool):Void
 	{
 		if(this._useGutter == value)
 		{

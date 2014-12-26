@@ -55,5 +55,5 @@ public interface IScrollBar extends IRange
 	/**
 	 * @private
 	 */
-	function set page(value:Float):Void;
+	function set_page(value:Float):Void;
 }

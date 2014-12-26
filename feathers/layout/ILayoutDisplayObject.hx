@@ -30,7 +30,7 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set layoutData(value:ILayoutData):Void;
+	function set_layoutData(value:ILayoutData):Void;
 
 	/**
 	 * Determines if the ILayout should use this object or ignore it.
@@ -46,5 +46,5 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	/**
 	 * @private
 	 */
-	function set includeInLayout(value:Bool):Void;
+	function set_includeInLayout(value:Bool):Void;
 }

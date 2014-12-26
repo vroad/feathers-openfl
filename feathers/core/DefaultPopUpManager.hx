@@ -78,7 +78,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	public function set overlayFactory(value:Function):Void
+	public function set_overlayFactory(value:Function):Void
 	{
 		this._overlayFactory = value;
 	}
@@ -104,7 +104,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	public function set root(value:DisplayObjectContainer):Void
+	public function set_root(value:DisplayObjectContainer):Void
 	{
 		if(this._root == value)
 		{

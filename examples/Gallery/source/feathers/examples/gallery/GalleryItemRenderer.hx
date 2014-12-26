@@ -76,7 +76,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set index(value:Int):Void
+	public function set_index(value:Int):Void
 	{
 		if(this._index == value)
 		{
@@ -102,7 +102,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set owner(value:List):Void
+	public function set_owner(value:List):Void
 	{
 		if(this._owner == value)
 		{
@@ -142,7 +142,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):Void
+	public function set_data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -169,7 +169,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{

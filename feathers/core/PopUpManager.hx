@@ -120,7 +120,7 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	public static function set overlayFactory(value:Function):Void
+	public static function set_overlayFactory(value:Function):Void
 	{
 		PopUpManager.forStarling(Starling.current).overlayFactory = value;
 	}
@@ -155,7 +155,7 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	public static function set root(value:DisplayObjectContainer):Void
+	public static function set_root(value:DisplayObjectContainer):Void
 	{
 		PopUpManager.forStarling(Starling.current).root = value;
 	}

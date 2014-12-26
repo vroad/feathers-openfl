@@ -340,7 +340,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -430,7 +430,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):Void
+	public function set_direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -470,7 +470,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -510,7 +510,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -549,7 +549,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeTabSizes(value:Bool):Void
+	public function set_distributeTabSizes(value:Bool):Void
 	{
 		if(this._distributeTabSizes == value)
 		{
@@ -582,7 +582,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Float):Void
+	public function set_gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -621,7 +621,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Float):Void
+	public function set_firstGap(value:Float):Void
 	{
 		if(this._firstGap == value)
 		{
@@ -660,7 +660,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Float):Void
+	public function set_lastGap(value:Float):Void
 	{
 		if(this._lastGap == value)
 		{
@@ -697,7 +697,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -730,7 +730,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -765,7 +765,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -800,7 +800,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -835,7 +835,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -888,7 +888,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabFactory(value:Function):Void
+	public function set_tabFactory(value:Function):Void
 	{
 		if(this._tabFactory == value)
 		{
@@ -943,7 +943,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstTabFactory(value:Function):Void
+	public function set_firstTabFactory(value:Function):Void
 	{
 		if(this._firstTabFactory == value)
 		{
@@ -998,7 +998,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastTabFactory(value:Function):Void
+	public function set_lastTabFactory(value:Function):Void
 	{
 		if(this._lastTabFactory == value)
 		{
@@ -1042,7 +1042,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabInitializer(value:Function):Void
+	public function set_tabInitializer(value:Function):Void
 	{
 		if(this._tabInitializer == value)
 		{
@@ -1103,7 +1103,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Void
 	{
 		if(this._pendingSelectedIndex == value ||
 			(this._pendingSelectedIndex == NOT_PENDING_INDEX && this.toggleGroup && this.toggleGroup.selectedIndex == value))
@@ -1152,7 +1152,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):Void
+	public function set_selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -1196,7 +1196,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customTabName(value:String):Void
+	public function set_customTabName(value:String):Void
 	{
 		if(this._customTabName == value)
 		{
@@ -1239,7 +1239,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstTabName(value:String):Void
+	public function set_customFirstTabName(value:String):Void
 	{
 		if(this._customFirstTabName == value)
 		{
@@ -1282,7 +1282,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastTabName(value:String):Void
+	public function set_customLastTabName(value:String):Void
 	{
 		if(this._customLastTabName == value)
 		{
@@ -1338,7 +1338,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabProperties(value:Object):Void
+	public function set_tabProperties(value:Object):Void
 	{
 		if(this._tabProperties == value)
 		{

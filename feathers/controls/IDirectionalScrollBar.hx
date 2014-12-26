@@ -26,5 +26,5 @@ public interface IDirectionalScrollBar extends IScrollBar
 	/**
 	 * @private
 	 */
-	function set direction(value:String):Void;
+	function set_direction(value:String):Void;
 }

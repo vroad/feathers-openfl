@@ -39,7 +39,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set x(value:Float):Void;
+	function set_x(value:Float):Void;
 
 	/**
 	 * The y, or vertical, position of the display object in the parent's
@@ -52,7 +52,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set y(value:Float):Void;
+	function set_y(value:Float):Void;
 
 	/**
 	 * The width of the display object in the parent's coordinate space.
@@ -64,7 +64,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set width(value:Float):Void;
+	function set_width(value:Float):Void;
 
 	/**
 	 * The height of the display object in the parent's coordinate space.
@@ -76,7 +76,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set height(value:Float):Void;
+	function set_height(value:Float):Void;
 
 	/**
 	 * The x coordinate of the display object's origin in its own coordinate
@@ -89,7 +89,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set pivotX(value:Float):Void;
+	function set_pivotX(value:Float):Void;
 
 	/**
 	 * The y coordinate of the display object's origin in its own coordinate
@@ -102,7 +102,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set pivotY(value:Float):Void;
+	function set_pivotY(value:Float):Void;
 
 	/**
 	 * This horizontal scale factor.
@@ -113,7 +113,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set scaleX(value:Float):Void;
+	function set_scaleX(value:Float):Void;
 
 	/**
 	 * The vertical scale factor.
@@ -125,7 +125,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set scaleY(value:Float):Void;
+	function set_scaleY(value:Float):Void;
 
 	/**
 	 * The horizontal skew, in radians.
@@ -137,7 +137,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set skewX(value:Float):Void;
+	function set_skewX(value:Float):Void;
 
 	/**
 	 * The vertical skew, in radians.
@@ -149,7 +149,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set skewY(value:Float):Void;
+	function set_skewY(value:Float):Void;
 
 	/**
 	 * The blend mode used when rendering the display object.
@@ -161,7 +161,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set blendMode(value:String):Void;
+	function set_blendMode(value:String):Void;
 
 	/**
 	 * The name of the display object.
@@ -173,7 +173,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set name(value:String):Void;
+	function set_name(value:String):Void;
 
 	/**
 	 * Determines if the display object may be touched.
@@ -185,7 +185,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set touchable(value:Bool):Void;
+	function set_touchable(value:Bool):Void;
 
 	/**
 	 * Determines the visibility of the display object.
@@ -197,7 +197,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set visible(value:Bool):Void;
+	function set_visible(value:Bool):Void;
 
 	/**
 	 * The opacity of the display object.
@@ -209,7 +209,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set alpha(value:Float):Void;
+	function set_alpha(value:Float):Void;
 
 	/**
 	 * The rotation of the display object, in radians.
@@ -221,7 +221,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set rotation(value:Float):Void;
+	function set_rotation(value:Float):Void;
 
 	/**
 	 * The display object's parent, or <code>null</code> if it doesn't have
@@ -279,7 +279,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set useHandCursor(value:Bool):Void;
+	function set_useHandCursor(value:Bool):Void;
 
 	/**
 	 * The bounds of the display object in its local coordinate space.
@@ -298,7 +298,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	/**
 	 * @private
 	 */
-	function set filter(value:FragmentFilter):Void;
+	function set_filter(value:FragmentFilter):Void;
 
 	/**
 	 * Removes a display object from its parent.

@@ -77,7 +77,7 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):Void
+	public function set_restrict(value:String):Void
 	{
 		if(this._restrict === value)
 		{

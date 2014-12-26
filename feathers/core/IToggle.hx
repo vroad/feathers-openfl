@@ -41,5 +41,5 @@ public interface IToggle extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set isSelected(value:Bool):Void;
+	function set_isSelected(value:Bool):Void;
 }

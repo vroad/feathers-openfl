@@ -448,7 +448,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):Void
+	public function set_layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -553,7 +553,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:HierarchicalCollection):Void
+	public function set_dataProvider(value:HierarchicalCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -605,7 +605,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isSelectable(value:Bool):Void
+	public function set_isSelectable(value:Bool):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -721,7 +721,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):Void
+	public function set_selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -779,7 +779,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererType(value:Class):Void
+	public function set_itemRendererType(value:Class):Void
 	{
 		if(this._itemRendererType == value)
 		{
@@ -838,7 +838,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererFactory(value:Function):Void
+	public function set_itemRendererFactory(value:Function):Void
 	{
 		if(this._itemRendererFactory === value)
 		{
@@ -878,7 +878,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:Object):Void
+	public function set_typicalItem(value:Object):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -923,7 +923,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererName(value:String):Void
+	public function set_itemRendererName(value:String):Void
 	{
 		if(this._itemRendererName == value)
 		{
@@ -984,7 +984,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererProperties(value:Object):Void
+	public function set_itemRendererProperties(value:Object):Void
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -1045,7 +1045,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererType(value:Class):Void
+	public function set_firstItemRendererType(value:Class):Void
 	{
 		if(this._firstItemRendererType == value)
 		{
@@ -1100,7 +1100,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererFactory(value:Function):Void
+	public function set_firstItemRendererFactory(value:Function):Void
 	{
 		if(this._firstItemRendererFactory === value)
 		{
@@ -1150,7 +1150,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererName(value:String):Void
+	public function set_firstItemRendererName(value:String):Void
 	{
 		if(this._firstItemRendererName == value)
 		{
@@ -1191,7 +1191,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererType(value:Class):Void
+	public function set_lastItemRendererType(value:Class):Void
 	{
 		if(this._lastItemRendererType == value)
 		{
@@ -1246,7 +1246,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererFactory(value:Function):Void
+	public function set_lastItemRendererFactory(value:Function):Void
 	{
 		if(this._lastItemRendererFactory === value)
 		{
@@ -1296,7 +1296,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererName(value:String):Void
+	public function set_lastItemRendererName(value:String):Void
 	{
 		if(this._lastItemRendererName == value)
 		{
@@ -1337,7 +1337,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererType(value:Class):Void
+	public function set_singleItemRendererType(value:Class):Void
 	{
 		if(this._singleItemRendererType == value)
 		{
@@ -1392,7 +1392,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererFactory(value:Function):Void
+	public function set_singleItemRendererFactory(value:Function):Void
 	{
 		if(this._singleItemRendererFactory === value)
 		{
@@ -1443,7 +1443,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererName(value:String):Void
+	public function set_singleItemRendererName(value:String):Void
 	{
 		if(this._singleItemRendererName == value)
 		{
@@ -1480,7 +1480,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererType(value:Class):Void
+	public function set_headerRendererType(value:Class):Void
 	{
 		if(this._headerRendererType == value)
 		{
@@ -1531,7 +1531,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererFactory(value:Function):Void
+	public function set_headerRendererFactory(value:Function):Void
 	{
 		if(this._headerRendererFactory === value)
 		{
@@ -1574,7 +1574,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererName(value:String):Void
+	public function set_headerRendererName(value:String):Void
 	{
 		if(this._headerRendererName == value)
 		{
@@ -1634,7 +1634,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerRendererProperties(value:Object):Void
+	public function set_headerRendererProperties(value:Object):Void
 	{
 		if(this._headerRendererProperties == value)
 		{
@@ -1692,7 +1692,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererType(value:Class):Void
+	public function set_footerRendererType(value:Class):Void
 	{
 		if(this._footerRendererType == value)
 		{
@@ -1743,7 +1743,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererFactory(value:Function):Void
+	public function set_footerRendererFactory(value:Function):Void
 	{
 		if(this._footerRendererFactory === value)
 		{
@@ -1786,7 +1786,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererName(value:String):Void
+	public function set_footerRendererName(value:String):Void
 	{
 		if(this._footerRendererName == value)
 		{
@@ -1846,7 +1846,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerRendererProperties(value:Object):Void
+	public function set_footerRendererProperties(value:Object):Void
 	{
 		if(this._footerRendererProperties == value)
 		{
@@ -1911,7 +1911,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerField(value:String):Void
+	public function set_headerField(value:String):Void
 	{
 		if(this._headerField == value)
 		{
@@ -1960,7 +1960,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set headerFunction(value:Function):Void
+	public function set_headerFunction(value:Function):Void
 	{
 		if(this._headerFunction == value)
 		{
@@ -2004,7 +2004,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerField(value:String):Void
+	public function set_footerField(value:String):Void
 	{
 		if(this._footerField == value)
 		{
@@ -2053,7 +2053,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set footerFunction(value:Function):Void
+	public function set_footerFunction(value:Function):Void
 	{
 		if(this._footerFunction == value)
 		{

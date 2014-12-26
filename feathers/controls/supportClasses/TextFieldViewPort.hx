@@ -62,7 +62,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set text(value:String):Void
+	public function set_text(value:String):Void
 	{
 		if(!value)
 		{
@@ -92,7 +92,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set isHTML(value:Bool):Void
+	public function set_isHTML(value:Bool):Void
 	{
 		if(this._isHTML == value)
 		{
@@ -118,7 +118,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set textFormat(value:TextFormat):Void
+	public function set_textFormat(value:TextFormat):Void
 	{
 		if(this._textFormat == value)
 		{
@@ -144,7 +144,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set disabledTextFormat(value:TextFormat):Void
+	public function set_disabledTextFormat(value:TextFormat):Void
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -170,7 +170,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set styleSheet(value:StyleSheet):Void
+	public function set_styleSheet(value:StyleSheet):Void
 	{
 		if(this._styleSheet == value)
 		{
@@ -196,7 +196,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set embedFonts(value:Bool):Void
+	public function set_embedFonts(value:Bool):Void
 	{
 		if(this._embedFonts == value)
 		{
@@ -222,7 +222,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set antiAliasType(value:String):Void
+	public function set_antiAliasType(value:String):Void
 	{
 		if(this._antiAliasType == value)
 		{
@@ -248,7 +248,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set background(value:Bool):Void
+	public function set_background(value:Bool):Void
 	{
 		if(this._background == value)
 		{
@@ -274,7 +274,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:UInt):Void
+	public function set_backgroundColor(value:UInt):Void
 	{
 		if(this._backgroundColor == value)
 		{
@@ -300,7 +300,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set border(value:Bool):Void
+	public function set_border(value:Bool):Void
 	{
 		if(this._border == value)
 		{
@@ -326,7 +326,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:UInt):Void
+	public function set_borderColor(value:UInt):Void
 	{
 		if(this._borderColor == value)
 		{
@@ -352,7 +352,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set condenseWhite(value:Bool):Void
+	public function set_condenseWhite(value:Bool):Void
 	{
 		if(this._condenseWhite == value)
 		{
@@ -378,7 +378,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -404,7 +404,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set gridFitType(value:String):Void
+	public function set_gridFitType(value:String):Void
 	{
 		if(this._gridFitType == value)
 		{
@@ -430,7 +430,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Float):Void
+	public function set_sharpness(value:Float):Void
 	{
 		if(this._sharpness == value)
 		{
@@ -456,7 +456,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Float):Void
+	public function set_thickness(value:Float):Void
 	{
 		if(this._thickness == value)
 		{
@@ -473,7 +473,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleWidth;
 	}
 
-	public function set minVisibleWidth(value:Float):Void
+	public function set_minVisibleWidth(value:Float):Void
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -494,7 +494,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleWidth;
 	}
 
-	public function set maxVisibleWidth(value:Float):Void
+	public function set_maxVisibleWidth(value:Float):Void
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -521,7 +521,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._explicitVisibleWidth;
 	}
 
-	public function set visibleWidth(value:Float):Void
+	public function set_visibleWidth(value:Float):Void
 	{
 		if(this._explicitVisibleWidth == value ||
 			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
@@ -539,7 +539,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleHeight;
 	}
 
-	public function set minVisibleHeight(value:Float):Void
+	public function set_minVisibleHeight(value:Float):Void
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -560,7 +560,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleHeight;
 	}
 
-	public function set maxVisibleHeight(value:Float):Void
+	public function set_maxVisibleHeight(value:Float):Void
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -587,7 +587,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._explicitVisibleHeight;
 	}
 
-	public function set visibleHeight(value:Float):Void
+	public function set_visibleHeight(value:Float):Void
 	{
 		if(this._explicitVisibleHeight == value ||
 			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
@@ -627,7 +627,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._horizontalScrollPosition;
 	}
 
-	public function set horizontalScrollPosition(value:Float):Void
+	public function set_horizontalScrollPosition(value:Float):Void
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -644,7 +644,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._verticalScrollPosition;
 	}
 
-	public function set verticalScrollPosition(value:Float):Void
+	public function set_verticalScrollPosition(value:Float):Void
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -661,7 +661,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._paddingTop;
 	}
 
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -678,7 +678,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._paddingRight;
 	}
 
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -695,7 +695,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._paddingBottom;
 	}
 
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -712,7 +712,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		return this._paddingLeft;
 	}
 
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -722,7 +722,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	override public function set visible(value:Bool):Void
+	override public function set_visible(value:Bool):Void
 	{
 		if(super.visible == value)
 		{
@@ -732,7 +732,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._hasPendingRenderChange = true;
 	}
 
-	override public function set alpha(value:Float):Void
+	override public function set_alpha(value:Float):Void
 	{
 		if(super.alpha == value)
 		{

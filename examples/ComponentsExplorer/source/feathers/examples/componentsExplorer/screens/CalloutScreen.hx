@@ -44,7 +44,7 @@ class CalloutScreen extends PanelScreen
 		return this._layoutPadding;
 	}
 
-	public function set layoutPadding(value:Float):Void
+	public function set_layoutPadding(value:Float):Void
 	{
 		if(this._layoutPadding == value)
 		{

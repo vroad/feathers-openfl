@@ -94,7 +94,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set minWidth(value:Float):Void;
+	function set_minWidth(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#minHeight
@@ -104,7 +104,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set minHeight(value:Float):Void;
+	function set_minHeight(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxWidth
@@ -114,7 +114,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set maxWidth(value:Float):Void;
+	function set_maxWidth(value:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#maxHeight
@@ -124,7 +124,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set maxHeight(value:Float):Void;
+	function set_maxHeight(value:Float):Void;
 
 	/**
 	 * @private
@@ -134,7 +134,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set clipRect(value:Rectangle):Void;
+	function set_clipRect(value:Rectangle):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isEnabled
@@ -144,7 +144,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set isEnabled(value:Bool):Void;
+	function set_isEnabled(value:Bool):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isInitialized
@@ -174,7 +174,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set styleName(value:String):Void
+	function set_styleName(value:String):Void
 
 	/**
 	 * @copy feathers.core.FeathersControl#styleProvider
@@ -184,7 +184,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function set styleProvider(value:IStyleProvider):Void
+	function set_styleProvider(value:IStyleProvider):Void
 
 	/**
 	 * @copy feathers.core.FeathersControl#setSize()

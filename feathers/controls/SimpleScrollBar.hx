@@ -251,7 +251,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):Void
+	public function set_direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -300,7 +300,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Float):Void
+	public function set_value(newValue:Float):Void
 	{
 		if(this.clampToRange)
 		{
@@ -339,7 +339,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Float):Void
+	public function set_minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -370,7 +370,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Float):Void
+	public function set_maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -401,7 +401,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set step(value:Float):Void
+	public function set_step(value:Float):Void
 	{
 		this._step = value;
 	}
@@ -427,7 +427,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set page(value:Float):Void
+	public function set_page(value:Float):Void
 	{
 		if(this._page == value)
 		{
@@ -463,7 +463,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -494,7 +494,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -527,7 +527,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -560,7 +560,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -593,7 +593,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -638,7 +638,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Float):Void
+	public function set_repeatDelay(value:Float):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -707,7 +707,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set thumbFactory(value:Function):Void
+	public function set_thumbFactory(value:Function):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -753,7 +753,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):Void
+	public function set_customThumbName(value:String):Void
 	{
 		if(this._customThumbName == value)
 		{
@@ -807,7 +807,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set thumbProperties(value:Object):Void
+	public function set_thumbProperties(value:Object):Void
 	{
 		if(this._thumbProperties == value)
 		{

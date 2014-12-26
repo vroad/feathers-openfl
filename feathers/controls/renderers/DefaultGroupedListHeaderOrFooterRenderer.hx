@@ -163,7 +163,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set data(value:Object):Void
+	public function set_data(value:Object):Void
 	{
 		if(this._data == value)
 		{
@@ -189,7 +189,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:Int):Void
+	public function set_groupIndex(value:Int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -210,7 +210,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:Int):Void
+	public function set_layoutIndex(value:Int):Void
 	{
 		this._layoutIndex = value;
 	}
@@ -231,7 +231,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set owner(value:GroupedList):Void
+	public function set_owner(value:GroupedList):Void
 	{
 		if(this._owner == value)
 		{
@@ -272,7 +272,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):Void
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -313,7 +313,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -365,7 +365,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentField(value:String):Void
+	public function set_contentField(value:String):Void
 	{
 		if(this._contentField == value)
 		{
@@ -429,7 +429,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentFunction(value:Function):Void
+	public function set_contentFunction(value:Function):Void
 	{
 		if(this._contentFunction == value)
 		{
@@ -490,7 +490,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentSourceField(value:String):Void
+	public function set_contentSourceField(value:String):Void
 	{
 		if(this._contentSourceField == value)
 		{
@@ -560,7 +560,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentSourceFunction(value:Function):Void
+	public function set_contentSourceFunction(value:Function):Void
 	{
 		if(this.contentSourceFunction == value)
 		{
@@ -620,7 +620,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentLabelField(value:String):Void
+	public function set_contentLabelField(value:String):Void
 	{
 		if(this._contentLabelField == value)
 		{
@@ -686,7 +686,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentLabelFunction(value:Function):Void
+	public function set_contentLabelFunction(value:Function):Void
 	{
 		if(this._contentLabelFunction == value)
 		{
@@ -733,7 +733,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentLoaderFactory(value:Function):Void
+	public function set_contentLoaderFactory(value:Function):Void
 	{
 		if(this._contentLoaderFactory == value)
 		{
@@ -780,7 +780,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentLabelFactory(value:Function):Void
+	public function set_contentLabelFactory(value:Function):Void
 	{
 		if(this._contentLabelFactory == value)
 		{
@@ -829,7 +829,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set contentLabelProperties(value:Object):Void
+	public function set_contentLabelProperties(value:Object):Void
 	{
 		if(this._contentLabelProperties == value)
 		{
@@ -899,7 +899,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -943,7 +943,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -984,7 +984,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -1016,7 +1016,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -1050,7 +1050,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -1084,7 +1084,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1118,7 +1118,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{

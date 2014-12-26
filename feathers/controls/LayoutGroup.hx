@@ -140,7 +140,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):Void
+	public function set_layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -186,7 +186,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set mxmlContent(value:Array):Void
+	public function set_mxmlContent(value:Array):Void
 	{
 		if(this._mxmlContent == value)
 		{
@@ -234,7 +234,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Bool):Void
+	public function set_clipContent(value:Bool):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -284,7 +284,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -319,7 +319,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundDisabledSkin == value)
 		{

@@ -45,7 +45,7 @@ public final class StageTextField extends EventDispatcher
 		return this._autoCapitalize;
 	}
 
-	public function set autoCapitalize(value:String):Void
+	public function set_autoCapitalize(value:String):Void
 	{
 		this._autoCapitalize = value;
 	}
@@ -57,7 +57,7 @@ public final class StageTextField extends EventDispatcher
 		return this._autoCorrect;
 	}
 
-	public function set autoCorrect(value:Bool):Void
+	public function set_autoCorrect(value:Bool):Void
 	{
 		this._autoCorrect = value;
 	}
@@ -69,7 +69,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textFormat.color as uint;
 	}
 
-	public function set color(value:UInt):Void
+	public function set_color(value:UInt):Void
 	{
 		if(this._textFormat.color == value)
 		{
@@ -85,7 +85,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.displayAsPassword;
 	}
 
-	public function set displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Void
 	{
 		this._textField.displayAsPassword = value;
 	}
@@ -95,7 +95,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.type == TextFieldType.INPUT;
 	}
 
-	public function set editable(value:Bool):Void
+	public function set_editable(value:Bool):Void
 	{
 		this._textField.type = value ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
 	}
@@ -107,7 +107,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textFormat.font;
 	}
 
-	public function set fontFamily(value:String):Void
+	public function set_fontFamily(value:String):Void
 	{
 		if(this._textFormat.font == value)
 		{
@@ -123,7 +123,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textFormat.italic ? FontPosture.ITALIC : FontPosture.NORMAL;
 	}
 
-	public function set fontPosture(value:String):Void
+	public function set_fontPosture(value:String):Void
 	{
 		if(this.fontPosture == value)
 		{
@@ -139,7 +139,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textFormat.size as int;
 	}
 
-	public function set fontSize(value:Int):Void
+	public function set_fontSize(value:Int):Void
 	{
 		if(this._textFormat.size == value)
 		{
@@ -155,7 +155,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textFormat.bold ? FontWeight.BOLD : FontWeight.NORMAL;
 	}
 
-	public function set fontWeight(value:String):Void
+	public function set_fontWeight(value:String):Void
 	{
 		if(this.fontWeight == value)
 		{
@@ -173,7 +173,7 @@ public final class StageTextField extends EventDispatcher
 		return this._locale;
 	}
 
-	public function set locale(value:String):Void
+	public function set_locale(value:String):Void
 	{
 		this._locale = value;
 	}
@@ -183,7 +183,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.maxChars;
 	}
 
-	public function set maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Void
 	{
 		this._textField.maxChars = value;
 	}
@@ -198,7 +198,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.restrict;
 	}
 
-	public function set restrict(value:String):Void
+	public function set_restrict(value:String):Void
 	{
 		this._textField.restrict = value;
 	}
@@ -210,7 +210,7 @@ public final class StageTextField extends EventDispatcher
 		return this._returnKeyLabel;
 	}
 
-	public function set returnKeyLabel(value:String):Void
+	public function set_returnKeyLabel(value:String):Void
 	{
 		this._returnKeyLabel = value;
 	}
@@ -232,7 +232,7 @@ public final class StageTextField extends EventDispatcher
 		return this._softKeyboardType;
 	}
 
-	public function set softKeyboardType(value:String):Void
+	public function set_softKeyboardType(value:String):Void
 	{
 		this._softKeyboardType = value;
 	}
@@ -242,7 +242,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.stage;
 	}
 
-	public function set stage(value:Stage):Void
+	public function set_stage(value:Stage):Void
 	{
 		if(this._textField.stage == value)
 		{
@@ -264,7 +264,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.text;
 	}
 
-	public function set text(value:String):Void
+	public function set_text(value:String):Void
 	{
 		this._textField.text = value;
 	}
@@ -276,7 +276,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textAlign;
 	}
 
-	public function set textAlign(value:String):Void
+	public function set_textAlign(value:String):Void
 	{
 		if(this._textAlign == value)
 		{
@@ -303,7 +303,7 @@ public final class StageTextField extends EventDispatcher
 		return this._viewPort;
 	}
 
-	public function set viewPort(value:Rectangle):Void
+	public function set_viewPort(value:Rectangle):Void
 	{
 		if(!value || value.width < 0 || value.height < 0)
 		{
@@ -323,7 +323,7 @@ public final class StageTextField extends EventDispatcher
 		return this._textField.visible;
 	}
 
-	public function set visible(value:Bool):Void
+	public function set_visible(value:Bool):Void
 	{
 		this._textField.visible = value;
 	}

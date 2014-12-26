@@ -325,7 +325,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set isEnabled(value:Bool):Void
+	override public function set_isEnabled(value:Bool):Void
 	{
 		super.isEnabled = value;
 		if(this._isEnabled)
@@ -376,7 +376,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function set currentState(value:String):Void
+	private function set_currentState(value:String):Void
 	{
 		if(this._currentState == value)
 		{
@@ -417,7 +417,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set text(value:String):Void
+	public function set_text(value:String):Void
 	{
 		if(!value)
 		{
@@ -457,7 +457,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -491,7 +491,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):Void
+	public function set_restrict(value:String):Void
 	{
 		if(this._restrict == value)
 		{
@@ -525,7 +525,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -560,7 +560,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set backgroundFocusedSkin(value:DisplayObject):Void
+	public function set_backgroundFocusedSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundFocusedSkin == value)
 		{
@@ -603,7 +603,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set stateToSkinFunction(value:Function):Void
+	public function set_stateToSkinFunction(value:Function):Void
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -653,7 +653,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set textEditorFactory(value:Function):Void
+	public function set_textEditorFactory(value:Function):Void
 	{
 		if(this._textEditorFactory == value)
 		{
@@ -709,7 +709,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set textEditorProperties(value:Object):Void
+	public function set_textEditorProperties(value:Object):Void
 	{
 		if(this._textEditorProperties == value)
 		{

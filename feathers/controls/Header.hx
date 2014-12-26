@@ -259,7 +259,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set title(value:String):Void
+	public function set_title(value:String):Void
 	{
 		if(value === null)
 		{
@@ -322,7 +322,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleFactory(value:Function):Void
+	public function set_titleFactory(value:Function):Void
 	{
 		if(this._titleFactory == value)
 		{
@@ -367,7 +367,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set disposeItems(value:Bool):Void
+	public function set_disposeItems(value:Bool):Void
 	{
 		this._disposeItems = value;
 	}
@@ -400,7 +400,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftItems(value:Vector.<DisplayObject>):Void
+	public function set_leftItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._leftItems == value)
 		{
@@ -462,7 +462,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set centerItems(value:Vector.<DisplayObject>):Void
+	public function set_centerItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._centerItems == value)
 		{
@@ -521,7 +521,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightItems(value:Vector.<DisplayObject>):Void
+	public function set_rightItems(value:Vector.<DisplayObject>):Void
 	{
 		if(this._rightItems == value)
 		{
@@ -579,7 +579,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Float):Void
+	public function set_padding(value:Float):Void
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -612,7 +612,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Void
 	{
 		if(this._paddingTop == value)
 		{
@@ -647,7 +647,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Void
 	{
 		if(this._paddingRight == value)
 		{
@@ -682,7 +682,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Void
 	{
 		if(this._paddingBottom == value)
 		{
@@ -717,7 +717,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Void
 	{
 		if(this._paddingLeft == value)
 		{
@@ -759,7 +759,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Float):Void
+	public function set_gap(value:Float):Void
 	{
 		if(this._gap == value)
 		{
@@ -797,7 +797,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleGap(value:Float):Void
+	public function set_titleGap(value:Float):Void
 	{
 		if(this._titleGap == value)
 		{
@@ -839,7 +839,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set useExtraPaddingForOSStatusBar(value:Bool):Void
+	public function set_useExtraPaddingForOSStatusBar(value:Bool):Void
 	{
 		if(this._useExtraPaddingForOSStatusBar == value)
 		{
@@ -878,7 +878,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):Void
 	{
 		if(this._verticalAlign == value)
 		{
@@ -927,7 +927,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -971,7 +971,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -1041,7 +1041,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleProperties(value:Object):Void
+	public function set_titleProperties(value:Object):Void
 	{
 		if(this._titleProperties == value)
 		{
@@ -1096,7 +1096,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set titleAlign(value:String):Void
+	public function set_titleAlign(value:String):Void
 	{
 		if(this._titleAlign == value)
 		{

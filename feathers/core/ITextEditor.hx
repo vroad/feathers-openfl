@@ -156,7 +156,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set text(value:String):Void;
+	function set_text(value:String):Void;
 
 	/**
 	 * Determines if the entered text will be masked so that it cannot be
@@ -167,7 +167,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set displayAsPassword(value:Bool):Void;
+	function set_displayAsPassword(value:Bool):Void;
 
 	/**
 	 * The maximum number of characters that may be entered.
@@ -177,7 +177,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set maxChars(value:Int):Void;
+	function set_maxChars(value:Int):Void;
 
 	/**
 	 * Limits the set of characters that may be entered.
@@ -187,7 +187,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set restrict(value:String):Void;
+	function set_restrict(value:String):Void;
 
 	/**
 	 * Determines if the text is editable.
@@ -197,7 +197,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * @private
 	 */
-	function set isEditable(value:Bool):Void;
+	function set_isEditable(value:Bool):Void;
 
 	/**
 	 * Determines if the owner should call <code>setFocus()</code> on

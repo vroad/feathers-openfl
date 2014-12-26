@@ -24,7 +24,7 @@ public interface IPopUpManager
 	/**
 	 * @private
 	 */
-	function set overlayFactory(value:Function):Void;
+	function set_overlayFactory(value:Function):Void;
 
 	/**
 	 * @copy PopUpManager#root
@@ -34,7 +34,7 @@ public interface IPopUpManager
 	/**
 	 * @private
 	 */
-	function set root(value:DisplayObjectContainer):Void;
+	function set_root(value:DisplayObjectContainer):Void;
 
 	/**
 	 * @copy PopUpManager#addPopUp()

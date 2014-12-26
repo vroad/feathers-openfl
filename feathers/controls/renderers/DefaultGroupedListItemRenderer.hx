@@ -205,7 +205,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set groupIndex(value:Int):Void
+	public function set_groupIndex(value:Int):Void
 	{
 		this._groupIndex = value;
 	}
@@ -226,7 +226,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set itemIndex(value:Int):Void
+	public function set_itemIndex(value:Int):Void
 	{
 		this._itemIndex = value;
 	}
@@ -247,7 +247,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set layoutIndex(value:Int):Void
+	public function set_layoutIndex(value:Int):Void
 	{
 		this._layoutIndex = value;
 	}
@@ -263,7 +263,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	public function set owner(value:GroupedList):Void
+	public function set_owner(value:GroupedList):Void
 	{
 		if(this._owner == value)
 		{

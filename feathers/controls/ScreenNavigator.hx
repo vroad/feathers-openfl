@@ -244,7 +244,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Bool):Void
+	public function set_clipContent(value:Bool):Void
 	{
 		if(this._clipContent == value)
 		{
@@ -351,7 +351,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):Void
+	public function set_autoSizeMode(value:String):Void
 	{
 		if(this._autoSizeMode == value)
 		{

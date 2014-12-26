@@ -238,7 +238,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -312,7 +312,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Void
 	{
 		if(this._selectedIndex == value)
 		{
@@ -365,7 +365,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):Void
+	public function set_selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -401,7 +401,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set prompt(value:String):Void
+	public function set_prompt(value:String):Void
 	{
 		if(this._prompt == value)
 		{
@@ -446,7 +446,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set labelField(value:String):Void
+	public function set_labelField(value:String):Void
 	{
 		if(this._labelField == value)
 		{
@@ -500,7 +500,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set labelFunction(value:Function):Void
+	public function set_labelFunction(value:Function):Void
 	{
 		this._labelFunction = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
@@ -529,7 +529,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set popUpContentManager(value:IPopUpContentManager):Void
+	public function set_popUpContentManager(value:IPopUpContentManager):Void
 	{
 		if(this._popUpContentManager == value)
 		{
@@ -588,7 +588,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:Object):Void
+	public function set_typicalItem(value:Object):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -641,7 +641,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set buttonFactory(value:Function):Void
+	public function set_buttonFactory(value:Function):Void
 	{
 		if(this._buttonFactory == value)
 		{
@@ -687,7 +687,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customButtonName(value:String):Void
+	public function set_customButtonName(value:String):Void
 	{
 		if(this._customButtonName == value)
 		{
@@ -741,7 +741,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set buttonProperties(value:Object):Void
+	public function set_buttonProperties(value:Object):Void
 	{
 		if(this._buttonProperties == value)
 		{
@@ -812,7 +812,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set listFactory(value:Function):Void
+	public function set_listFactory(value:Function):Void
 	{
 		if(this._listFactory == value)
 		{
@@ -858,7 +858,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customListName(value:String):Void
+	public function set_customListName(value:String):Void
 	{
 		if(this._customListName == value)
 		{
@@ -912,7 +912,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set listProperties(value:Object):Void
+	public function set_listProperties(value:Object):Void
 	{
 		if(this._listProperties == value)
 		{
@@ -974,7 +974,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set toggleButtonOnOpenAndClose(value:Bool):Void
+	public function set_toggleButtonOnOpenAndClose(value:Bool):Void
 	{
 		if(this._toggleButtonOnOpenAndClose == value)
 		{

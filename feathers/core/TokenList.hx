@@ -64,7 +64,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set value(value:String):Void
+	public function set_value(value:String):Void
 	{
 		if(this.value == value)
 		{

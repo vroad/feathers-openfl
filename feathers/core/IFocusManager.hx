@@ -26,7 +26,7 @@ public interface IFocusManager
 	/**
 	 * @private
 	 */
-	function set isEnabled(value:Bool):Void;
+	function set_isEnabled(value:Bool):Void;
 
 	/**
 	 * The object that currently has focus. May return <code>null</code> if
@@ -42,7 +42,7 @@ public interface IFocusManager
 	/**
 	 * @private
 	 */
-	function set focus(value:IFocusDisplayObject):Void;
+	function set_focus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * The top-level container of the focus manager. This isn't necessarily

@@ -59,7 +59,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentWidth(value:Float):Void
+	public function set_percentWidth(value:Float):Void
 	{
 		if(this._percentWidth == value)
 		{
@@ -91,7 +91,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	public function set percentHeight(value:Float):Void
+	public function set_percentHeight(value:Float):Void
 	{
 		if(this._percentHeight == value)
 		{

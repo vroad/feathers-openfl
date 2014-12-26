@@ -307,7 +307,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set layout(value:ILayout):Void
+	public function set_layout(value:ILayout):Void
 	{
 		if(this._layout == value)
 		{
@@ -375,7 +375,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):Void
 	{
 		if(this._dataProvider == value)
 		{
@@ -434,7 +434,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set isSelectable(value:Bool):Void
+	public function set_isSelectable(value:Bool):Void
 	{
 		if(this._isSelectable == value)
 		{
@@ -494,7 +494,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Void
 	{
 		if(this._selectedIndex == value)
 		{
@@ -557,7 +557,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):Void
+	public function set_selectedItem(value:Object):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -597,7 +597,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set allowMultipleSelection(value:Bool):Void
+	public function set_allowMultipleSelection(value:Bool):Void
 	{
 		if(this._allowMultipleSelection == value)
 		{
@@ -652,7 +652,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedIndices(value:Vector.<int>):Void
+	public function set_selectedIndices(value:Vector.<int>):Void
 	{
 		var oldValue:Vector.<int> = this._selectedIndices.data as Vector.<int>;
 		if(oldValue == value)
@@ -720,7 +720,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set selectedItems(value:Vector.<Object>):Void
+	public function set_selectedItems(value:Vector.<Object>):Void
 	{
 		if(!value || !this._dataProvider)
 		{
@@ -803,7 +803,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererType(value:Class):Void
+	public function set_itemRendererType(value:Class):Void
 	{
 		if(this._itemRendererType == value)
 		{
@@ -853,7 +853,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererFactory(value:Function):Void
+	public function set_itemRendererFactory(value:Function):Void
 	{
 		if(this._itemRendererFactory === value)
 		{
@@ -893,7 +893,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:Object):Void
+	public function set_typicalItem(value:Object):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -935,7 +935,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererName(value:String):Void
+	public function set_itemRendererName(value:String):Void
 	{
 		if(this._itemRendererName == value)
 		{
@@ -996,7 +996,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set itemRendererProperties(value:Object):Void
+	public function set_itemRendererProperties(value:Object):Void
 	{
 		if(this._itemRendererProperties == value)
 		{

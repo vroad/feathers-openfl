@@ -12,25 +12,25 @@ import feathers.core.IFeathersControl;
 public interface IViewPort extends IFeathersControl
 {
 	function get visibleWidth():Float;
-	function set visibleWidth(value:Float):Void;
+	function set_visibleWidth(value:Float):Void;
 	function get minVisibleWidth():Float;
-	function set minVisibleWidth(value:Float):Void;
+	function set_minVisibleWidth(value:Float):Void;
 	function get maxVisibleWidth():Float;
-	function set maxVisibleWidth(value:Float):Void;
+	function set_maxVisibleWidth(value:Float):Void;
 	function get visibleHeight():Float;
-	function set visibleHeight(value:Float):Void;
+	function set_visibleHeight(value:Float):Void;
 	function get minVisibleHeight():Float;
-	function set minVisibleHeight(value:Float):Void;
+	function set_minVisibleHeight(value:Float):Void;
 	function get maxVisibleHeight():Float;
-	function set maxVisibleHeight(value:Float):Void;
+	function set_maxVisibleHeight(value:Float):Void;
 
 	function get contentX():Float;
 	function get contentY():Float;
 
 	function get horizontalScrollPosition():Float;
-	function set horizontalScrollPosition(value:Float):Void;
+	function set_horizontalScrollPosition(value:Float):Void;
 	function get verticalScrollPosition():Float;
-	function set verticalScrollPosition(value:Float):Void;
+	function set_verticalScrollPosition(value:Float):Void;
 	function get horizontalScrollStep():Float;
 	function get verticalScrollStep():Float;
 }

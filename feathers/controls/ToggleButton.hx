@@ -118,7 +118,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set isToggle(value:Bool):Void
+	public function set_isToggle(value:Bool):Void
 	{
 		this._isToggle = value;
 	}
@@ -156,7 +156,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Void
 	{
 		if(this._isSelected == value)
 		{
@@ -196,7 +196,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set defaultSelectedSkin(value:DisplayObject):Void
+	public function set_defaultSelectedSkin(value:DisplayObject):Void
 	{
 		if(this._skinSelector.defaultSelectedValue == value)
 		{
@@ -230,7 +230,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedUpSkin(value:DisplayObject):Void
+	public function set_selectedUpSkin(value:DisplayObject):Void
 	{
 		if(this._skinSelector.getValueForState(STATE_UP, true) == value)
 		{
@@ -264,7 +264,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDownSkin(value:DisplayObject):Void
+	public function set_selectedDownSkin(value:DisplayObject):Void
 	{
 		if(this._skinSelector.getValueForState(STATE_DOWN, true) == value)
 		{
@@ -298,7 +298,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedHoverSkin(value:DisplayObject):Void
+	public function set_selectedHoverSkin(value:DisplayObject):Void
 	{
 		if(this._skinSelector.getValueForState(STATE_HOVER, true) == value)
 		{
@@ -332,7 +332,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDisabledSkin(value:DisplayObject):Void
+	public function set_selectedDisabledSkin(value:DisplayObject):Void
 	{
 		if(this._skinSelector.getValueForState(STATE_DISABLED, true) == value)
 		{
@@ -383,7 +383,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set defaultSelectedLabelProperties(value:Object):Void
+	public function set_defaultSelectedLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -443,7 +443,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedUpLabelProperties(value:Object):Void
+	public function set_selectedUpLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -503,7 +503,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDownLabelProperties(value:Object):Void
+	public function set_selectedDownLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -563,7 +563,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedHoverLabelProperties(value:Object):Void
+	public function set_selectedHoverLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -623,7 +623,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDisabledLabelProperties(value:Object):Void
+	public function set_selectedDisabledLabelProperties(value:Object):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -670,7 +670,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set defaultSelectedIcon(value:DisplayObject):Void
+	public function set_defaultSelectedIcon(value:DisplayObject):Void
 	{
 		if(this._iconSelector.defaultSelectedValue == value)
 		{
@@ -704,7 +704,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedUpIcon(value:DisplayObject):Void
+	public function set_selectedUpIcon(value:DisplayObject):Void
 	{
 		if(this._iconSelector.getValueForState(STATE_UP, true) == value)
 		{
@@ -738,7 +738,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDownIcon(value:DisplayObject):Void
+	public function set_selectedDownIcon(value:DisplayObject):Void
 	{
 		if(this._iconSelector.getValueForState(STATE_DOWN, true) == value)
 		{
@@ -772,7 +772,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedHoverIcon(value:DisplayObject):Void
+	public function set_selectedHoverIcon(value:DisplayObject):Void
 	{
 		if(this._iconSelector.getValueForState(STATE_HOVER, true) == value)
 		{
@@ -806,7 +806,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set selectedDisabledIcon(value:DisplayObject):Void
+	public function set_selectedDisabledIcon(value:DisplayObject):Void
 	{
 		if(this._iconSelector.getValueForState(STATE_DISABLED, true) == value)
 		{

@@ -283,7 +283,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set styleName(value:String):Void
+	public function set_styleName(value:String):Void
 	{
 		this._styleNameList.value = value;
 	}
@@ -358,7 +358,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set styleProvider(value:IStyleProvider):Void
+	public function set_styleProvider(value:IStyleProvider):Void
 	{
 		if(this.isInitialized)
 		{
@@ -416,7 +416,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isQuickHitAreaEnabled(value:Bool):Void
+	public function set_isQuickHitAreaEnabled(value:Bool):Void
 	{
 		this._isQuickHitAreaEnabled = value;
 	}
@@ -493,7 +493,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isEnabled(value:Bool):Void
+	public function set_isEnabled(value:Bool):Void
 	{
 		if(this._isEnabled == value)
 		{
@@ -564,7 +564,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set width(value:Float):Void
+	override public function set_width(value:Float):Void
 	{
 		if(this.explicitWidth == value)
 		{
@@ -648,7 +648,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set height(value:Float):Void
+	override public function set_height(value:Float):Void
 	{
 		if(this.explicitHeight == value)
 		{
@@ -696,7 +696,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minTouchWidth(value:Float):Void
+	public function set_minTouchWidth(value:Float):Void
 	{
 		if(this._minTouchWidth == value)
 		{
@@ -731,7 +731,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minTouchHeight(value:Float):Void
+	public function set_minTouchHeight(value:Float):Void
 	{
 		if(this._minTouchHeight == value)
 		{
@@ -769,7 +769,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minWidth(value:Float):Void
+	public function set_minWidth(value:Float):Void
 	{
 		if(this._minWidth == value)
 		{
@@ -811,7 +811,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set minHeight(value:Float):Void
+	public function set_minHeight(value:Float):Void
 	{
 		if(this._minHeight == value)
 		{
@@ -853,7 +853,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set maxWidth(value:Float):Void
+	public function set_maxWidth(value:Float):Void
 	{
 		if(this._maxWidth == value)
 		{
@@ -895,7 +895,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set maxHeight(value:Float):Void
+	public function set_maxHeight(value:Float):Void
 	{
 		if(this._maxHeight == value)
 		{
@@ -912,7 +912,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set scaleX(value:Float):Void
+	override public function set_scaleX(value:Float):Void
 	{
 		super.scaleX = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -921,7 +921,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	override public function set scaleY(value:Float):Void
+	override public function set_scaleY(value:Float):Void
 	{
 		super.scaleY = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -945,7 +945,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set includeInLayout(value:Bool):Void
+	public function set_includeInLayout(value:Bool):Void
 	{
 		if(this._includeInLayout == value)
 		{
@@ -973,7 +973,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set layoutData(value:ILayoutData):Void
+	public function set_layoutData(value:ILayoutData):Void
 	{
 		if(this._layoutData == value)
 		{
@@ -1013,7 +1013,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusManager(value:IFocusManager):Void
+	public function set_focusManager(value:IFocusManager):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1058,7 +1058,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusOwner(value:IFocusDisplayObject):Void
+	public function set_focusOwner(value:IFocusDisplayObject):Void
 	{
 		this._focusOwner = value;
 	}
@@ -1085,7 +1085,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set isFocusEnabled(value:Bool):Void
+	public function set_isFocusEnabled(value:Bool):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1120,7 +1120,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set nextTabFocus(value:IFocusDisplayObject):Void
+	public function set_nextTabFocus(value:IFocusDisplayObject):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1151,7 +1151,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set previousTabFocus(value:IFocusDisplayObject):Void
+	public function set_previousTabFocus(value:IFocusDisplayObject):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1197,7 +1197,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusIndicatorSkin(value:DisplayObject):Void
+	public function set_focusIndicatorSkin(value:DisplayObject):Void
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1253,7 +1253,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPadding(value:Float):Void
+	public function set_focusPadding(value:Float):Void
 	{
 		this.focusPaddingTop = value;
 		this.focusPaddingRight = value;
@@ -1291,7 +1291,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingTop(value:Float):Void
+	public function set_focusPaddingTop(value:Float):Void
 	{
 		if(this._focusPaddingTop == value)
 		{
@@ -1331,7 +1331,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingRight(value:Float):Void
+	public function set_focusPaddingRight(value:Float):Void
 	{
 		if(this._focusPaddingRight == value)
 		{
@@ -1371,7 +1371,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingBottom(value:Float):Void
+	public function set_focusPaddingBottom(value:Float):Void
 	{
 		if(this._focusPaddingBottom == value)
 		{
@@ -1411,7 +1411,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set focusPaddingLeft(value:Float):Void
+	public function set_focusPaddingLeft(value:Float):Void
 	{
 		if(this._focusPaddingLeft == value)
 		{

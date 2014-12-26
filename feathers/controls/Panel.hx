@@ -293,7 +293,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set headerFactory(value:Function):Void
+	public function set_headerFactory(value:Function):Void
 	{
 		if(this._headerFactory == value)
 		{
@@ -344,7 +344,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customHeaderName(value:String):Void
+	public function set_customHeaderName(value:String):Void
 	{
 		if(this._customHeaderName == value)
 		{
@@ -402,7 +402,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set headerProperties(value:Object):Void
+	public function set_headerProperties(value:Object):Void
 	{
 		if(this._headerProperties == value)
 		{
@@ -471,7 +471,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set footerFactory(value:Function):Void
+	public function set_footerFactory(value:Function):Void
 	{
 		if(this._footerFactory == value)
 		{
@@ -522,7 +522,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customFooterName(value:String):Void
+	public function set_customFooterName(value:String):Void
 	{
 		if(this._customFooterName == value)
 		{
@@ -578,7 +578,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set footerProperties(value:Object):Void
+	public function set_footerProperties(value:Object):Void
 	{
 		if(this._footerProperties == value)
 		{
@@ -662,7 +662,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPadding(value:Float):Void
+	public function set_outerPadding(value:Float):Void
 	{
 		this.outerPaddingTop = value;
 		this.outerPaddingRight = value;
@@ -703,7 +703,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingTop(value:Float):Void
+	public function set_outerPaddingTop(value:Float):Void
 	{
 		if(this._outerPaddingTop == value)
 		{
@@ -747,7 +747,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingRight(value:Float):Void
+	public function set_outerPaddingRight(value:Float):Void
 	{
 		if(this._outerPaddingRight == value)
 		{
@@ -790,7 +790,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingBottom(value:Float):Void
+	public function set_outerPaddingBottom(value:Float):Void
 	{
 		if(this._outerPaddingBottom == value)
 		{
@@ -834,7 +834,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set outerPaddingLeft(value:Float):Void
+	public function set_outerPaddingLeft(value:Float):Void
 	{
 		if(this._outerPaddingLeft == value)
 		{

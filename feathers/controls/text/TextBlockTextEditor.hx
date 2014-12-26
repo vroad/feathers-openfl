@@ -203,7 +203,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set selectionSkin(value:DisplayObject):Void
+	public function set_selectionSkin(value:DisplayObject):Void
 	{
 		if(this._selectionSkin == value)
 		{
@@ -238,7 +238,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set cursorSkin(value:DisplayObject):Void
+	public function set_cursorSkin(value:DisplayObject):Void
 	{
 		if(this._cursorSkin == value)
 		{
@@ -288,7 +288,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Void
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -335,7 +335,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set passwordCharCode(value:Int):Void
+	public function set_passwordCharCode(value:Int):Void
 	{
 		if(this._passwordCharCode == value)
 		{
@@ -373,7 +373,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Void
 	{
 		if(this._isEditable == value)
 		{
@@ -408,7 +408,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function set text(value:String):Void
+	override public function set_text(value:String):Void
 	{
 		if(value === null)
 		{
@@ -462,7 +462,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Void
 	{
 		if(this._maxChars == value)
 		{
@@ -501,7 +501,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set restrict(value:String):Void
+	public function set_restrict(value:String):Void
 	{
 		if(this._restrict && this._restrict.restrict === value)
 		{
@@ -582,7 +582,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function set nativeFocus(value:InteractiveObject):Void
+	private function set_nativeFocus(value:InteractiveObject):Void
 	{
 		if(this._nativeFocus == value)
 		{

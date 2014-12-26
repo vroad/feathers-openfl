@@ -408,7 +408,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):Void
+	public function set_direction(value:String):Void
 	{
 		if(this._direction == value)
 		{
@@ -453,7 +453,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set value(newValue:Float):Void
+	public function set_value(newValue:Float):Void
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -502,7 +502,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimum(value:Float):Void
+	public function set_minimum(value:Float):Void
 	{
 		if(this._minimum == value)
 		{
@@ -544,7 +544,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximum(value:Float):Void
+	public function set_maximum(value:Float):Void
 	{
 		if(this._maximum == value)
 		{
@@ -587,7 +587,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set step(value:Float):Void
+	public function set_step(value:Float):Void
 	{
 		if(this._step == value)
 		{
@@ -634,7 +634,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set page(value:Float):Void
+	public function set_page(value:Float):Void
 	{
 		if(this._page == value)
 		{
@@ -684,7 +684,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set showThumb(value:Bool):Void
+	public function set_showThumb(value:Bool):Void
 	{
 		if(this._showThumb == value)
 		{
@@ -719,7 +719,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumPadding(value:Float):Void
+	public function set_minimumPadding(value:Float):Void
 	{
 		if(this._minimumPadding == value)
 		{
@@ -754,7 +754,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumPadding(value:Float):Void
+	public function set_maximumPadding(value:Float):Void
 	{
 		if(this._maximumPadding == value)
 		{
@@ -792,7 +792,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackLayoutMode(value:String):Void
+	public function set_trackLayoutMode(value:String):Void
 	{
 		if(this._trackLayoutMode == value)
 		{
@@ -831,7 +831,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackScaleMode(value:String):Void
+	public function set_trackScaleMode(value:String):Void
 	{
 		if(this._trackScaleMode == value)
 		{
@@ -875,7 +875,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set trackInteractionMode(value:String):Void
+	public function set_trackInteractionMode(value:String):Void
 	{
 		this._trackInteractionMode = value;
 	}
@@ -916,7 +916,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set repeatDelay(value:Float):Void
+	public function set_repeatDelay(value:Float):Void
 	{
 		if(this._repeatDelay == value)
 		{
@@ -967,7 +967,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumTrackFactory(value:Function):Void
+	public function set_minimumTrackFactory(value:Function):Void
 	{
 		if(this._minimumTrackFactory == value)
 		{
@@ -1013,7 +1013,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customMinimumTrackName(value:String):Void
+	public function set_customMinimumTrackName(value:String):Void
 	{
 		if(this._customMinimumTrackName == value)
 		{
@@ -1068,7 +1068,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set minimumTrackProperties(value:Object):Void
+	public function set_minimumTrackProperties(value:Object):Void
 	{
 		if(this._minimumTrackProperties == value)
 		{
@@ -1140,7 +1140,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumTrackFactory(value:Function):Void
+	public function set_maximumTrackFactory(value:Function):Void
 	{
 		if(this._maximumTrackFactory == value)
 		{
@@ -1186,7 +1186,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customMaximumTrackName(value:String):Void
+	public function set_customMaximumTrackName(value:String):Void
 	{
 		if(this._customMaximumTrackName == value)
 		{
@@ -1241,7 +1241,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set maximumTrackProperties(value:Object):Void
+	public function set_maximumTrackProperties(value:Object):Void
 	{
 		if(this._maximumTrackProperties == value)
 		{
@@ -1313,7 +1313,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set thumbFactory(value:Function):Void
+	public function set_thumbFactory(value:Function):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1359,7 +1359,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):Void
+	public function set_customThumbName(value:String):Void
 	{
 		if(this._customThumbName == value)
 		{
@@ -1413,7 +1413,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set thumbProperties(value:Object):Void
+	public function set_thumbProperties(value:Object):Void
 	{
 		if(this._thumbProperties == value)
 		{

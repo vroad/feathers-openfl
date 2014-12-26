@@ -382,7 +382,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set content(value:DisplayObject):Void
+	public function set_content(value:DisplayObject):Void
 	{
 		if(this._content == value)
 		{
@@ -461,7 +461,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set overlaySkin(value:DisplayObject):Void
+	public function set_overlaySkin(value:DisplayObject):Void
 	{
 		if(this._overlaySkin == value)
 		{
@@ -510,7 +510,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set topDrawer(value:DisplayObject):Void
+	public function set_topDrawer(value:DisplayObject):Void
 	{
 		if(this._topDrawer == value)
 		{
@@ -558,7 +558,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set topDrawerDockMode(value:String):Void
+	public function set_topDrawerDockMode(value:String):Void
 	{
 		if(this._topDrawerDockMode == value)
 		{
@@ -596,7 +596,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set topDrawerToggleEventType(value:String):Void
+	public function set_topDrawerToggleEventType(value:String):Void
 	{
 		if(this._topDrawerToggleEventType == value)
 		{
@@ -649,7 +649,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isTopDrawerOpen(value:Bool):Void
+	public function set_isTopDrawerOpen(value:Bool):Void
 	{
 		if(this.isTopDrawerDocked || this._isTopDrawerOpen == value)
 		{
@@ -725,7 +725,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightDrawer(value:DisplayObject):Void
+	public function set_rightDrawer(value:DisplayObject):Void
 	{
 		if(this._rightDrawer == value)
 		{
@@ -773,7 +773,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightDrawerDockMode(value:String):Void
+	public function set_rightDrawerDockMode(value:String):Void
 	{
 		if(this._rightDrawerDockMode == value)
 		{
@@ -811,7 +811,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set rightDrawerToggleEventType(value:String):Void
+	public function set_rightDrawerToggleEventType(value:String):Void
 	{
 		if(this._rightDrawerToggleEventType == value)
 		{
@@ -864,7 +864,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isRightDrawerOpen(value:Bool):Void
+	public function set_isRightDrawerOpen(value:Bool):Void
 	{
 		if(this.isRightDrawerDocked || this._isRightDrawerOpen == value)
 		{
@@ -940,7 +940,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set bottomDrawer(value:DisplayObject):Void
+	public function set_bottomDrawer(value:DisplayObject):Void
 	{
 		if(this._bottomDrawer == value)
 		{
@@ -988,7 +988,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set bottomDrawerDockMode(value:String):Void
+	public function set_bottomDrawerDockMode(value:String):Void
 	{
 		if(this._bottomDrawerDockMode == value)
 		{
@@ -1026,7 +1026,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set bottomDrawerToggleEventType(value:String):Void
+	public function set_bottomDrawerToggleEventType(value:String):Void
 	{
 		if(this._bottomDrawerToggleEventType == value)
 		{
@@ -1079,7 +1079,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isBottomDrawerOpen(value:Bool):Void
+	public function set_isBottomDrawerOpen(value:Bool):Void
 	{
 		if(this.isBottomDrawerDocked || this._isBottomDrawerOpen == value)
 		{
@@ -1155,7 +1155,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftDrawer(value:DisplayObject):Void
+	public function set_leftDrawer(value:DisplayObject):Void
 	{
 		if(this._leftDrawer == value)
 		{
@@ -1203,7 +1203,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftDrawerDockMode(value:String):Void
+	public function set_leftDrawerDockMode(value:String):Void
 	{
 		if(this._leftDrawerDockMode == value)
 		{
@@ -1241,7 +1241,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set leftDrawerToggleEventType(value:String):Void
+	public function set_leftDrawerToggleEventType(value:String):Void
 	{
 		if(this._leftDrawerToggleEventType == value)
 		{
@@ -1294,7 +1294,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set isLeftDrawerOpen(value:Bool):Void
+	public function set_isLeftDrawerOpen(value:Bool):Void
 	{
 		if(this.isLeftDrawerDocked || this._isLeftDrawerOpen == value)
 		{
@@ -1370,7 +1370,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):Void
+	public function set_autoSizeMode(value:String):Void
 	{
 		if(this._autoSizeMode == value)
 		{
@@ -1424,7 +1424,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipDrawers(value:Bool):Void
+	public function set_clipDrawers(value:Bool):Void
 	{
 		if(this._clipDrawers == value)
 		{
@@ -1462,7 +1462,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openGesture(value:String):Void
+	public function set_openGesture(value:String):Void
 	{
 		this._openGesture = value;
 	}
@@ -1491,7 +1491,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumDragDistance(value:Float):Void
+	public function set_minimumDragDistance(value:Float):Void
 	{
 		this._minimumDragDistance = value;
 	}
@@ -1522,7 +1522,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set minimumDrawerThrowVelocity(value:Float):Void
+	public function set_minimumDrawerThrowVelocity(value:Float):Void
 	{
 		this._minimumDrawerThrowVelocity = value;
 	}
@@ -1551,7 +1551,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openGestureEdgeSize(value:Float):Void
+	public function set_openGestureEdgeSize(value:Float):Void
 	{
 		this._openGestureEdgeSize = value;
 	}
@@ -1592,7 +1592,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set contentEventDispatcherChangeEventType(value:String):Void
+	public function set_contentEventDispatcherChangeEventType(value:String):Void
 	{
 		if(this._contentEventDispatcherChangeEventType == value)
 		{
@@ -1645,7 +1645,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set contentEventDispatcherField(value:String):Void
+	public function set_contentEventDispatcherField(value:String):Void
 	{
 		if(this._contentEventDispatcherField == value)
 		{
@@ -1694,7 +1694,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set contentEventDispatcherFunction(value:Function):Void
+	public function set_contentEventDispatcherFunction(value:Function):Void
 	{
 		if(this._contentEventDispatcherFunction == value)
 		{
@@ -1736,7 +1736,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openOrCloseDuration(value:Float):Void
+	public function set_openOrCloseDuration(value:Float):Void
 	{
 		this._openOrCloseDuration = value;
 	}
@@ -1768,7 +1768,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set openOrCloseEase(value:Object):Void
+	public function set_openOrCloseEase(value:Object):Void
 	{
 		this._openOrCloseEase = value;
 	}

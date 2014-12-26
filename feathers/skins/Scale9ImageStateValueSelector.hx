@@ -45,7 +45,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set imageProperties(value:Object):Void
+	public function set_imageProperties(value:Object):Void
 	{
 		this._imageProperties = value;
 	}

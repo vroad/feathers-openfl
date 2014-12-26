@@ -84,7 +84,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	public function set margin(value:Float):Void
+	public function set_margin(value:Float):Void
 	{
 		this.marginTop = 0;
 		this.marginRight = 0;

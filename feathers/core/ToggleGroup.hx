@@ -89,7 +89,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set isSelectionRequired(value:Bool):Void
+	public function set_isSelectionRequired(value:Bool):Void
 	{
 		if(this._isSelectionRequired == value)
 		{
@@ -124,7 +124,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:IToggle):Void
+	public function set_selectedItem(value:IToggle):Void
 	{
 		this.selectedIndex = this._items.indexOf(value);
 	}
@@ -152,7 +152,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Void
 	{
 		var itemCount:Int = this._items.length;
 		if(value < -1 || value >= itemCount)

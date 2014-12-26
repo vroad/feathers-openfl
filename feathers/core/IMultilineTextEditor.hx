@@ -26,5 +26,5 @@ public interface IMultilineTextEditor extends ITextEditor
 	/**
 	 * @private
 	 */
-	function set multiline(value:Bool):Void;
+	function set_multiline(value:Bool):Void;
 }

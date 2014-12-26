@@ -152,7 +152,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set displayObjectProperties(value:Object):Void
+	public function set_displayObjectProperties(value:Object):Void
 	{
 		this._displayObjectProperties = value;
 	}

@@ -181,7 +181,7 @@ class FocusManager
 	/**
 	 * @private
 	 */
-	public static function set focus(value:IFocusDisplayObject):Void
+	public static function set_focus(value:IFocusDisplayObject):Void
 	{
 		var manager:IFocusManager = getFocusManagerForStage(Starling.current.stage);
 		if(!manager)
