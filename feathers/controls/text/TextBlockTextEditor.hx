@@ -740,7 +740,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 		var newText:String = "";
 		var textLength:Int = this._unmaskedText.length;
 		var maskChar:String = String.fromCharCode(this._passwordCharCode);
-		for(var i:Int = 0; i < textLength; i++)
+		for(i in 0 ... textLength)
 		{
 			newText += maskChar;
 		}

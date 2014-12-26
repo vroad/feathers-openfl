@@ -213,7 +213,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		unpositionedItems.length = 0;
 		var itemCount:Int = items.length;
 		var pushIndex:Int = 0;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
 			var layoutData:AnchorLayoutData;
@@ -631,7 +631,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		unpositionedItems.length = 0;
 		var itemCount:Int = items.length;
 		var pushIndex:Int = 0;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
 			var layoutItem:ILayoutDisplayObject = item as ILayoutDisplayObject;
@@ -953,7 +953,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var maxX:Float = viewPortWidth;
 		var maxY:Float = viewPortHeight;
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
 			var itemMaxX:Float = item.x - item.pivotX + item.width;
@@ -1009,7 +1009,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	private function isReferenced(item:DisplayObject, items:Array<DisplayObject>):Bool
 	{
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var otherItem:ILayoutDisplayObject = items[i] as ILayoutDisplayObject;
 			if(!otherItem || otherItem == item)
@@ -1037,7 +1037,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	private function validateItems(items:Array<DisplayObject>, force:Bool):Void
 	{
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var control:IFeathersControl = items[i] as IFeathersControl;
 			if(control)

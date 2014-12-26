@@ -33,7 +33,7 @@ class PickerListScreen extends PanelScreen
 		this.layout = new AnchorLayout();
 
 		var items:Array = [];
-		for(var i:Int = 0; i < 150; i++)
+		for(i in 0 ... 150)
 		{
 			var item:Object = {text: "Item " + (i + 1).toString()};
 			items[i] = item;

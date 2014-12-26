@@ -64,7 +64,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 		var dataClone:XMLList = (data as XMLList).copy();
 		data[index] = item;
 		var listLength:Int = dataClone.length();
-		for(var i:Int = index; i < listLength; i++)
+		for(i in index ... listLength)
 		{
 			data[i + 1] = dataClone[i];
 		}
@@ -89,7 +89,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
 		var listLength:Int = list.length();
-		for(var i:Int = 0; i < listLength; i++)
+		for(i in 0 ... listLength)
 		{
 			delete data[0];
 		}
@@ -103,7 +103,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
 		var listLength:Int = list.length();
-		for(var i:Int = 0; i < listLength; i++)
+		for(i in 0 ... listLength)
 		{
 			var currentItem:XML = list[i];
 			if(currentItem == item)

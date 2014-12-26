@@ -113,7 +113,7 @@ class DefaultPopUpManager implements IPopUpManager
 		var popUpCount:Int = this._popUps.length;
 		var oldIgnoreRemoval:Bool = this._ignoreRemoval; //just in case
 		this._ignoreRemoval = true;
-		for(var i:Int = 0; i < popUpCount; i++)
+		for(i in 0 ... popUpCount)
 		{
 			var popUp:DisplayObject = this._popUps[i];
 			var overlay:DisplayObject = DisplayObject(_popUpToOverlay[popUp]);
@@ -310,7 +310,7 @@ class DefaultPopUpManager implements IPopUpManager
 	{
 		var stage:Stage = this._root.stage;
 		var popUpCount:Int = this._popUps.length;
-		for(var i:Int = 0; i < popUpCount; i++)
+		for(i in 0 ... popUpCount)
 		{
 			var popUp:DisplayObject = this._popUps[i];
 			var overlay:DisplayObject = DisplayObject(this._popUpToOverlay[popUp]);

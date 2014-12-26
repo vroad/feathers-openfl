@@ -760,7 +760,7 @@ class PageIndicator extends FeathersControl
 		if(symbolsInvalid)
 		{
 			var symbolCount:Int = this.unselectedSymbols.length;
-			for(var i:Int = 0; i < symbolCount; i++)
+			for(i in 0 ... symbolCount)
 			{
 				var symbol:DisplayObject = this.unselectedSymbols.shift();
 				this.removeChild(symbol, true);

@@ -277,7 +277,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 		this._ignoreChildChanges = true;
 		var itemCount:Int = this.items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
 			if(item is IValidating)

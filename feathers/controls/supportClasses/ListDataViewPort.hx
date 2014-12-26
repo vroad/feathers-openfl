@@ -628,7 +628,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private function validateItemRenderers():Void
 	{
 		var rendererCount:Int = this._activeRenderers.length;
-		for(var i:Int = 0; i < rendererCount; i++)
+		for(i in 0 ... rendererCount)
 		{
 			var renderer:IListItemRenderer = this._activeRenderers[i];
 			renderer.validate();

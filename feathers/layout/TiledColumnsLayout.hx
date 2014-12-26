@@ -978,7 +978,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		//that case
 		if(!this._useVirtualLayout)
 		{
-			for(var i:Int = 0; i < itemCount; i++)
+			for(i in 0 ... itemCount)
 			{
 				var item:DisplayObject = items[i];
 				if(!item)
@@ -1433,7 +1433,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		var pageIndex:Int = 0;
 		var nextPageStartIndex:Int = perPage;
 		var positionX:Float = startX;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			if(i != 0 && i % verticalTileCount == 0)
 			{
@@ -1572,7 +1572,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		//that case
 		if(!this._useVirtualLayout)
 		{
-			for(var i:Int = 0; i < itemCount; i++)
+			for(i in 0 ... itemCount)
 			{
 				var item:DisplayObject = items[i];
 				if(!item)
@@ -1845,7 +1845,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		minimum = maximum - minimumItemCount;
 		var resultPushIndex:Int = result.length;
-		for(var i:Int = minimum; i < maximum; i++)
+		for(i in minimum ... maximum)
 		{
 			result[resultPushIndex] = i;
 			resultPushIndex++;
@@ -1959,7 +1959,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			//an optimized path when we're on or near the last page
 			minimum = itemCount - minimumItemCount;
 			var resultPushIndex:Int = result.length;
-			for(var i:Int = minimum; i < itemCount; i++)
+			for(i in minimum ... itemCount)
 			{
 				result[resultPushIndex] = i;
 				resultPushIndex++;
@@ -2068,7 +2068,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		minimum = maximum - minimumItemCount;
 		var resultPushIndex:Int = result.length;
-		for(var i:Int = minimum; i < maximum; i++)
+		for(i in minimum ... maximum)
 		{
 			result[resultPushIndex] = i;
 			resultPushIndex++;
@@ -2081,7 +2081,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	private function validateItems(items:Array<DisplayObject>):Void
 	{
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
 			if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)

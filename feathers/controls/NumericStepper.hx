@@ -1538,7 +1538,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			maxCharactersAfterDecimal = 0;
 		}
 		var characterCount:Int = maxCharactersBeforeDecimal + maxCharactersAfterDecimal;
-		for(var i:Int = 0; i < characterCount; i++)
+		for(i in 0 ... characterCount)
 		{
 			typicalText += "0";
 		}

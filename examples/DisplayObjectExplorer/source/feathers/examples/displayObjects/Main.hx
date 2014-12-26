@@ -82,7 +82,7 @@ class Main extends LayoutGroup
 	{
 		var dataProvider:ListCollection = this._tabBar.dataProvider;
 		var itemCount:Int = dataProvider.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:Object = dataProvider.getItemAt(i);
 			if(this._navigator.activeScreenID == item.action)

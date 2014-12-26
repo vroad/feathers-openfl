@@ -1593,7 +1593,7 @@ class TabBar extends FeathersControl
 		var pushIndex:Int = 0;
 		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
 		var lastItemIndex:Int = itemCount - 1;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:Object = this._dataProvider.getItemAt(i);
 			if(i == 0)
@@ -1639,7 +1639,7 @@ class TabBar extends FeathersControl
 	private function clearInactiveTabs():Void
 	{
 		var itemCount:Int = this.inactiveTabs.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var tab:ToggleButton = this.inactiveTabs.shift();
 			this.destroyTab(tab);

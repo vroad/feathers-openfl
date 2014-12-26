@@ -178,7 +178,7 @@ class ListVideosScreen extends PanelScreen
 		var items:Array<VideoDetails> = new Array();
 		var entries:XMLList = feed.atom::entry;
 		var entryCount:Int = entries.length();
-		for(var i:Int = 0; i < entryCount; i++)
+		for(i in 0 ... entryCount)
 		{
 			var entry:XML = entries[i];
 			var item:VideoDetails = new VideoDetails();

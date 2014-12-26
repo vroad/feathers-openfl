@@ -293,7 +293,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		if(this._mxmlContent && this._mxmlContentIsReady)
 		{
 			var childCount:Int = this._mxmlContent.length;
-			for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 				this.removeChild(child, true);
@@ -632,7 +632,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 			return;
 		}
 		var childCount:Int = this._mxmlContent.length;
-		for(var i:Int = 0; i < childCount; i++)
+		for(i in 0 ... childCount)
 		{
 			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 			this.addChild(child);

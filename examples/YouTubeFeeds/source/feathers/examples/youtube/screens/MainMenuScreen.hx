@@ -135,7 +135,7 @@ class MainMenuScreen extends PanelScreen
 		var items:Array<VideoFeed> = new Array();
 		var categories:XMLList = feed.atom::category;
 		var categoryCount:Int = categories.length();
-		for(var i:Int = 0; i < categoryCount; i++)
+		for(i in 0 ... categoryCount)
 		{
 			var category:XML = categories[i];
 			var item:VideoFeed = new VideoFeed();

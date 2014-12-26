@@ -55,7 +55,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	{
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
 			var index:Int = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
@@ -72,7 +72,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		rest.unshift(index);
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
 			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
@@ -89,7 +89,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		rest.unshift(index);
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
 			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
@@ -106,7 +106,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		rest.unshift(index);
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
 			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
@@ -123,7 +123,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		rest.unshift(index);
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
 			index = rest[i] as Int;
 			branch = branch[index][childrenField] as Array;
@@ -149,7 +149,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		}
 		var branch:Array = data as Array;
 		var restCount:Int = rest.length;
-		for(var i:Int = 0; i < restCount; i++)
+		for(i in 0 ... restCount)
 		{
 			var index:Int = rest[i] as Int;
 			result[i] = index;
@@ -185,7 +185,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		}
 
 		var branchLength:Int = branch.length;
-		for(var i:Int = 0; i < branchLength; i++)
+		for(i in 0 ... branchLength)
 		{
 			var branchItem:Object = branch[i];
 			if(this.isBranch(branchItem))

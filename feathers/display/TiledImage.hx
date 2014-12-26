@@ -501,7 +501,7 @@ class TiledImage extends Sprite implements IValidating
 			var yPosition:Float = 0;
 			var nextXPosition:Float = xPosition + scaledTextureWidth;
 			var nextYPosition:Float = yPosition + scaledTextureHeight;
-			for(var i:Int = 0; i < imageCount; i++)
+			for(i in 0 ... imageCount)
 			{
 				this._image.x = xPosition;
 				this._image.y = yPosition;

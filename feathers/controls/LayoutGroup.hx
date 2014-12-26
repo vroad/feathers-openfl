@@ -195,7 +195,7 @@ class LayoutGroup extends FeathersControl
 		if(this._mxmlContent && this._mxmlContentIsReady)
 		{
 			var childCount:Int = this._mxmlContent.length;
-			for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 				this.removeChild(child, true);
@@ -633,7 +633,7 @@ class LayoutGroup extends FeathersControl
 		}
 		this._ignoreChildChanges = true;
 		var itemCount:Int = this.items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
 			if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
@@ -676,7 +676,7 @@ class LayoutGroup extends FeathersControl
 			IValidating(this.currentBackgroundSkin).validate();
 		}
 		var itemCount:Int = this.items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
 			if(item is IValidating)
@@ -696,7 +696,7 @@ class LayoutGroup extends FeathersControl
 			return;
 		}
 		var childCount:Int = this._mxmlContent.length;
-		for(var i:Int = 0; i < childCount; i++)
+		for(i in 0 ... childCount)
 		{
 			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
 			this.addChild(child);

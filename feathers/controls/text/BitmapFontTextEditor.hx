@@ -763,7 +763,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		this._text = "";
 		var textLength:Int = this._unmaskedText.length;
 		var maskChar:String = String.fromCharCode(this._passwordCharCode);
-		for(var i:Int = 0; i < textLength; i++)
+		for(i in 0 ... textLength)
 		{
 			this._text += maskChar;
 		}
@@ -840,7 +840,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		var currentX:Float = 0;
 		var previousCharID:Float = NaN;
 		var charCount:Int = this._text.length;
-		for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
@@ -913,7 +913,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			charCount = index;
 		}
-		for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);

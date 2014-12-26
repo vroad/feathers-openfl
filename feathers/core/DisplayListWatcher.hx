@@ -259,7 +259,7 @@ class DisplayListWatcher extends EventDispatcher
 		}
 
 		var objectCount:Int = this._excludedObjects.length;
-		for(var i:Int = 0; i < objectCount; i++)
+		for(i in 0 ... objectCount)
 		{
 			var object:DisplayObject = this._excludedObjects[i];
 			if(object is DisplayObjectContainer)
@@ -405,7 +405,7 @@ class DisplayListWatcher extends EventDispatcher
 			if(targetAsContainer)
 			{
 				var childCount:Int = targetAsContainer.numChildren;
-				for(var i:Int = 0; i < childCount; i++)
+				for(i in 0 ... childCount)
 				{
 					var child:DisplayObject = targetAsContainer.getChildAt(i);
 					this.initializeObject(child);
@@ -420,7 +420,7 @@ class DisplayListWatcher extends EventDispatcher
 	private function processAllInitializers(target:DisplayObject):Void
 	{
 		var superTypeCount:Int = this._initializerSuperTypes.length;
-		for(var i:Int = 0; i < superTypeCount; i++)
+		for(i in 0 ... superTypeCount)
 		{
 			var type:Class = this._initializerSuperTypes[i];
 			if(target is type)
@@ -447,7 +447,7 @@ class DisplayListWatcher extends EventDispatcher
 				var uiControl:IFeathersControl = IFeathersControl(target);
 				var styleNameList:TokenList = uiControl.styleNameList;
 				var nameCount:Int = styleNameList.length;
-				for(var i:Int = 0; i < nameCount; i++)
+				for(i in 0 ... nameCount)
 				{
 					var name:String = styleNameList.item(i);
 					initializer = nameTable[name] as Function;

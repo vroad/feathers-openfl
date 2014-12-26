@@ -142,7 +142,7 @@ class TextInputRestrict
 		var isExcluding:Bool = this._restrictStartsWithExclude;
 		var isIncluded:Bool = isExcluding;
 		var restrictCount:Int = this._restricts.length;
-		for(var i:Int = 0; i < restrictCount; i++)
+		for(i in 0 ... restrictCount)
 		{
 			var restrict:RegExp = this._restricts[i];
 			if(isExcluding)
@@ -170,7 +170,7 @@ class TextInputRestrict
 		}
 		var textLength:Int = value.length;
 		var restrictCount:Int = this._restricts.length;
-		for(var i:Int = 0; i < textLength; i++)
+		for(i in 0 ... textLength)
 		{
 			var character:String = value.charAt(i);
 			var isExcluding:Bool = this._restrictStartsWithExclude;

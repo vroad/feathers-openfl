@@ -163,7 +163,7 @@ class ToggleGroup extends EventDispatcher
 
 		//refresh all the items
 		this._ignoreChanges = true;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:IToggle = this._items[i];
 			item.isSelected = i == value;
@@ -266,7 +266,7 @@ class ToggleGroup extends EventDispatcher
 	public function removeAllItems():Void
 	{
 		var itemCount:Int = this._items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:IToggle = this._items.shift();
 			item.removeEventListener(Event.CHANGE, item_changeHandler);

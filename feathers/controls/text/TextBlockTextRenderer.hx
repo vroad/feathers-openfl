@@ -1047,7 +1047,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		if(this.textSnapshots)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;
-			for(var i:Int = 0; i < snapshotCount; i++)
+			for(i in 0 ... snapshotCount)
 			{
 				var snapshot:Image = this.textSnapshots[i];
 				snapshot.texture.dispose();
@@ -1388,7 +1388,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var resultWidth:Float = 0;
 		var resultHeight:Float = 0;
 		var filterCount:Int = this._nativeFilters.length;
-		for(var i:Int = 0; i < filterCount; i++)
+		for(i in 0 ... filterCount)
 		{
 			var filter:BitmapFilter = this._nativeFilters[i];
 			var filterRect:Rectangle = bitmapData.generateFilterRect(bitmapData.rect, filter);
@@ -1576,7 +1576,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		if(this.textSnapshots)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;
-			for(var i:Int = snapshotIndex; i < snapshotCount; i++)
+			for(i in snapshotIndex ... snapshotCount)
 			{
 				snapshot = this.textSnapshots[i];
 				snapshot.texture.dispose();
@@ -1624,7 +1624,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var lineCount:Int = textLines.length;
 		var lastLine:TextLine;
 		var cacheIndex:Int = lineCount;
-		for(var i:Int = 0; i < lineCount; i++)
+		for(i in 0 ... lineCount)
 		{
 			var line:TextLine = textLines[i];
 			if(line.validity == TextLineValidity.VALID)
@@ -1761,7 +1761,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	private function alignTextLines(textLines:Array<TextLine>, width:Float, textAlign:String):Void
 	{
 		var lineCount:Int = textLines.length;
-		for(var i:Int = 0; i < lineCount; i++)
+		for(i in 0 ... lineCount)
 		{
 			var line:TextLine = textLines[i];
 			if(textAlign == TEXT_ALIGN_CENTER)

@@ -226,7 +226,7 @@ class DefaultFocusManager implements IFocusManager
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
 			var childCount:Int = container.numChildren;
-			for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				var child:DisplayObject = container.getChildAt(i);
 				this.setFocusManager(child);
@@ -280,7 +280,7 @@ class DefaultFocusManager implements IFocusManager
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(target);
 			var childCount:Int = container.numChildren;
-			for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				var child:DisplayObject = container.getChildAt(i);
 				this.clearFocusManager(child);
@@ -439,7 +439,7 @@ class DefaultFocusManager implements IFocusManager
 				if(!skip)
 				{
 					var childCount:Int = extras.length;
-					for(var i:Int = startIndex; i < childCount; i++)
+					for(i in startIndex ... childCount)
 					{
 						var child:DisplayObject = extras[i];
 						var foundChild:IFocusDisplayObject = this.findNextChildFocus(child);
