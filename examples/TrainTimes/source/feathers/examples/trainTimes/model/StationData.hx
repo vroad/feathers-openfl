@@ -1,5 +1,4 @@
-package feathers.examples.trainTimes.model
-{
+package feathers.examples.trainTimes.model;
 public class StationData
 {
 	public function StationData(name:String)

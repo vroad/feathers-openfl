@@ -1,5 +1,4 @@
-package feathers.examples.layoutExplorer.data
-{
+package feathers.examples.layoutExplorer.data;
 import feathers.layout.TiledRowsLayout;
 
 public class TiledRowsLayoutSettings

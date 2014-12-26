@@ -1,5 +1,4 @@
-package feathers.examples.tileList
-{
+package feathers.examples.tileList;
 import feathers.controls.Button;
 import feathers.controls.LayoutGroup;
 import feathers.controls.List;

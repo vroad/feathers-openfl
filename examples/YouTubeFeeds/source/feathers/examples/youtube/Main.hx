@@ -1,5 +1,4 @@
-package feathers.examples.youtube
-{
+package feathers.examples.youtube;
 import feathers.controls.ScreenNavigator;
 import feathers.controls.ScreenNavigatorItem;
 import feathers.examples.youtube.models.VideoDetails;

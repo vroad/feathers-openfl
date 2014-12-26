@@ -1,5 +1,4 @@
-package feathers.examples.trainTimes.themes
-{
+package feathers.examples.trainTimes.themes;
 import feathers.controls.Button;
 import feathers.controls.Callout;
 import feathers.controls.Header;

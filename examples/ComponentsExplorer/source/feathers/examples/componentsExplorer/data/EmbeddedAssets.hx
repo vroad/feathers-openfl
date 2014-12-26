@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.data
-{
+package feathers.examples.componentsExplorer.data;
 import starling.textures.Texture;
 
 public class EmbeddedAssets

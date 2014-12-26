@@ -1,5 +1,4 @@
-package feathers.examples.drawersExplorer.views
-{
+package feathers.examples.drawersExplorer.views;
 import feathers.controls.Check;
 import feathers.controls.Label;
 import feathers.controls.ScrollContainer;

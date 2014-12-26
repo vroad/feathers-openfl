@@ -1,5 +1,4 @@
-package feathers.examples.helloWorld
-{
+package feathers.examples.helloWorld;
 import feathers.controls.Button;
 import feathers.controls.Callout;
 import feathers.controls.Label;

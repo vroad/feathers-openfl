@@ -1,5 +1,4 @@
-package feathers.examples.dragDrop
-{
+package feathers.examples.dragDrop;
 import feathers.controls.LayoutGroup;
 import feathers.dragDrop.DragData;
 import feathers.dragDrop.DragDropManager;

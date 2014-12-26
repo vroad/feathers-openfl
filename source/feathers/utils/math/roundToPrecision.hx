@@ -5,8 +5,7 @@ Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.utils.math
-{
+package feathers.utils.math;
 /**
  * Rounds a number to a certain level of precision. Useful for limiting the number of
  * decimal places on a fractional number.

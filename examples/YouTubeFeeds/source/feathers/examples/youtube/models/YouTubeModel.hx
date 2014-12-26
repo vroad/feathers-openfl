@@ -1,5 +1,4 @@
-package feathers.examples.youtube.models
-{
+package feathers.examples.youtube.models;
 public class YouTubeModel
 {
 	public var selectedList:VideoFeed;

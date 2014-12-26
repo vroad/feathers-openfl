@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer
-{
+package feathers.examples.componentsExplorer;
 import feathers.controls.Drawers;
 import feathers.controls.ScreenNavigator;
 import feathers.controls.ScreenNavigatorItem;

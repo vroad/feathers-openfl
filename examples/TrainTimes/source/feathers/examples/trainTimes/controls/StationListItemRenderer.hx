@@ -1,5 +1,4 @@
-package feathers.examples.trainTimes.controls
-{
+package feathers.examples.trainTimes.controls;
 import feathers.controls.Button;
 import feathers.controls.ImageLoader;
 import feathers.controls.Label;

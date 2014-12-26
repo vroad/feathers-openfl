@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.screens
-{
+package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.PanelScreen;
 import feathers.controls.Slider;

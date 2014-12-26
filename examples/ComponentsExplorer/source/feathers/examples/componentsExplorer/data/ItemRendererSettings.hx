@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.data
-{
+package feathers.examples.componentsExplorer.data;
 import feathers.controls.Button;
 import feathers.controls.renderers.BaseDefaultItemRenderer;
 

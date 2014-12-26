@@ -1,5 +1,4 @@
-package feathers.examples.todos.controls
-{
+package feathers.examples.todos.controls;
 import feathers.controls.Button;
 import feathers.controls.Check;
 import feathers.controls.List;

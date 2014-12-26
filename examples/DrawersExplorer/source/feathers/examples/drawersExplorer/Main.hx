@@ -1,5 +1,4 @@
-package feathers.examples.drawersExplorer
-{
+package feathers.examples.drawersExplorer;
 import feathers.controls.Drawers;
 import feathers.examples.drawersExplorer.skins.DrawersExplorerTheme;
 import feathers.examples.drawersExplorer.views.ContentView;

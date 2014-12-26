@@ -1,5 +1,4 @@
-package feathers.examples.trainTimes
-{
+package feathers.examples.trainTimes;
 
 import feathers.controls.ScreenNavigator;
 import feathers.controls.ScreenNavigatorItem;

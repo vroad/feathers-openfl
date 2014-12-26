@@ -1,5 +1,4 @@
-package feathers.examples.gallery
-{
+package feathers.examples.gallery;
 public class GalleryItem
 {
 	public function GalleryItem(title:String, url:String, thumbURL:String)

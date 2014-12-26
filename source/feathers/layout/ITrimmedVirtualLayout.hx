@@ -5,8 +5,7 @@ Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.layout
-{
+package feathers.layout;
 /**
  * Optimizes a virtual layout by skipping a specific number of items before
  * and after the set that is passed to <code>layout()</code>.

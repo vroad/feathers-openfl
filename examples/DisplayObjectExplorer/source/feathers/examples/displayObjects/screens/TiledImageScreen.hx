@@ -1,5 +1,4 @@
-package feathers.examples.displayObjects.screens
-{
+package feathers.examples.displayObjects.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.Screen;

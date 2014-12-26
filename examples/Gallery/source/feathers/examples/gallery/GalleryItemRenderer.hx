@@ -1,5 +1,4 @@
-package feathers.examples.gallery
-{
+package feathers.examples.gallery;
 import feathers.controls.ImageLoader;
 import feathers.controls.List;
 import feathers.controls.renderers.IListItemRenderer;

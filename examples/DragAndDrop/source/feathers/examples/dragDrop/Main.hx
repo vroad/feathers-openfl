@@ -1,5 +1,4 @@
-package feathers.examples.dragDrop
-{
+package feathers.examples.dragDrop;
 import feathers.controls.Button;
 import feathers.controls.Label;
 import feathers.dragDrop.IDragSource;

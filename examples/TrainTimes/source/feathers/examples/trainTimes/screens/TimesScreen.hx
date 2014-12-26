@@ -1,5 +1,4 @@
-package feathers.examples.trainTimes.screens
-{
+package feathers.examples.trainTimes.screens;
 import feathers.controls.Button;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;

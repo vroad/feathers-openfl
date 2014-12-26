@@ -5,8 +5,7 @@ Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.data
-{
+package feathers.data;
 /**
  * A hierarchical data descriptor where children are defined as arrays in a
  * property defined on each branch. The property name defaults to <code>"children"</code>,

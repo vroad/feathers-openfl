@@ -1,5 +1,4 @@
-package feathers.examples.displayObjects
-{
+package feathers.examples.displayObjects;
 import feathers.controls.LayoutGroup;
 import feathers.controls.ScreenNavigator;
 import feathers.controls.ScreenNavigatorItem;

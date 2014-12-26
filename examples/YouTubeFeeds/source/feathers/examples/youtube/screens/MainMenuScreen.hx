@@ -1,5 +1,4 @@
-package feathers.examples.youtube.screens
-{
+package feathers.examples.youtube.screens;
 import feathers.controls.Label;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;

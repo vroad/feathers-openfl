@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.data
-{
+package feathers.examples.componentsExplorer.data;
 public class GroupedListSettings
 {
 	public static const STYLE_NORMAL:String = "normal";

@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.themes
-{
+package feathers.examples.componentsExplorer.themes;
 import feathers.controls.Button;
 import feathers.controls.ImageLoader;
 import feathers.controls.PanelScreen;
