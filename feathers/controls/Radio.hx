@@ -78,7 +78,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Radio.globalStyleProvider;
 	}
@@ -99,7 +99,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @inheritDoc
 	 */
-	public function get toggleGroup():ToggleGroup
+	public function get_toggleGroup():ToggleGroup
 	{
 		return this._toggleGroup;
 	}

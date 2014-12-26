@@ -38,14 +38,14 @@ class ToggleScreen extends PanelScreen
 	private var _radioGroup:ToggleGroup;
 	private var _backButton:Button;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ToggleScreen.globalStyleProvider;
 	}
 
 	private var _innerLayout:ILayout;
 
-	public function get innerLayout():ILayout
+	public function get_innerLayout():ILayout
 	{
 		return this._innerLayout;
 	}

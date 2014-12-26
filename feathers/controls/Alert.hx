@@ -266,7 +266,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Alert.globalStyleProvider;
 	}
@@ -279,7 +279,7 @@ class Alert extends Panel
 	/**
 	 * The title text displayed in the alert's header.
 	 */
-	public function get title():String
+	public function get_title():String
 	{
 		return this._title;
 	}
@@ -305,7 +305,7 @@ class Alert extends Panel
 	/**
 	 * The alert's main text content.
 	 */
-	public function get message():String
+	public function get_message():String
 	{
 		return this._message;
 	}
@@ -331,7 +331,7 @@ class Alert extends Panel
 	/**
 	 * The alert's optional icon content to display next to the text.
 	 */
-	public function get icon():DisplayObject
+	public function get_icon():DisplayObject
 	{
 		return this._icon;
 	}
@@ -376,7 +376,7 @@ class Alert extends Panel
 	 *
 	 * @default 0
 	 */
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -402,7 +402,7 @@ class Alert extends Panel
 	/**
 	 * The data provider of the alert's <code>ButtonGroup</code>.
 	 */
-	public function get buttonsDataProvider():ListCollection
+	public function get_buttonsDataProvider():ListCollection
 	{
 		return this._buttonsDataProvider;
 	}
@@ -461,7 +461,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get messageFactory():Function
+	public function get_messageFactory():Function
 	{
 		return this._messageFactory;
 	}
@@ -517,7 +517,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get messageProperties():Object
+	public function get_messageProperties():Object
 	{
 		if(!this._messageProperties)
 		{
@@ -576,7 +576,7 @@ class Alert extends Panel
 	 * @see feathers.controls.ButtonGroup
 	 * @see #buttonGroupProperties
 	 */
-	public function get buttonGroupFactory():Function
+	public function get_buttonGroupFactory():Function
 	{
 		return super.footerFactory;
 	}
@@ -612,7 +612,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #buttonGroupProperties
 	 */
-	public function get customButtonGroupName():String
+	public function get_customButtonGroupName():String
 	{
 		return super.customFooterName;
 	}
@@ -650,7 +650,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see feathers.controls.ButtonGroup
 	 */
-	public function get buttonGroupProperties():Object
+	public function get_buttonGroupProperties():Object
 	{
 		return super.footerProperties;
 	}

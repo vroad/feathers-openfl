@@ -76,7 +76,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	 * @see #marginBottom
 	 * @see #marginLeft
 	 */
-	public function get margin():Float
+	public function get_margin():Float
 	{
 		return this.marginTop;
 	}
@@ -169,7 +169,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Bool
+	public function get_isOpen():Bool
 	{
 		return this.content !== null;
 	}

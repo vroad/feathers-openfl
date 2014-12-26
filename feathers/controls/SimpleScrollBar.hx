@@ -217,7 +217,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return SimpleScrollBar.globalStyleProvider;
 	}
@@ -243,7 +243,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -292,7 +292,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #page
 	 * @see #event:change
 	 */
-	public function get value():Float
+	public function get_value():Float
 	{
 		return this._value;
 	}
@@ -331,7 +331,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Float
+	public function get_minimum():Float
 	{
 		return this._minimum;
 	}
@@ -362,7 +362,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Float
+	public function get_maximum():Float
 	{
 		return this._maximum;
 	}
@@ -393,7 +393,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #page
 	 */
-	public function get step():Float
+	public function get_step():Float
 	{
 		return this._step;
 	}
@@ -419,7 +419,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #step
 	 */
-	public function get page():Float
+	public function get_page():Float
 	{
 		return this._page;
 	}
@@ -455,7 +455,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -486,7 +486,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -519,7 +519,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -552,7 +552,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -585,7 +585,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -630,7 +630,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Float
+	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -699,7 +699,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
-	public function get thumbFactory():Function
+	public function get_thumbFactory():Function
 	{
 		return this._thumbFactory;
 	}
@@ -745,7 +745,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
-	public function get customThumbName():String
+	public function get_customThumbName():String
 	{
 		return this._customThumbName;
 	}
@@ -795,7 +795,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get thumbProperties():Object
+	public function get_thumbProperties():Object
 	{
 		if(!this._thumbProperties)
 		{

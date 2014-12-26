@@ -295,7 +295,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return TextArea.globalStyleProvider;
 	}
@@ -303,7 +303,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -313,7 +313,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * can be used instead of <code>FocusManager.focus == textArea</code>
 	 * to determine if the text area has focus.
 	 */
-	public function get hasFocus():Bool
+	public function get_hasFocus():Bool
 	{
 		if(!this._focusManager)
 		{
@@ -353,7 +353,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #currentState
 	 */
-	private function get stateNames():Vector.<String>
+	private function get_stateNames():Vector.<String>
 	{
 		return this._stateNames;
 	}
@@ -368,7 +368,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
-	private function get currentState():String
+	private function get_currentState():String
 	{
 		return this._currentState;
 	}
@@ -409,7 +409,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default ""
 	 */
-	public function get text():String
+	public function get_text():String
 	{
 		return this._text;
 	}
@@ -449,7 +449,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	public function get maxChars():Int
+	public function get_maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -483,7 +483,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get restrict():String
+	public function get_restrict():String
 	{
 		return this._restrict;
 	}
@@ -517,7 +517,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Bool
+	public function get_isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -552,7 +552,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get backgroundFocusedSkin():DisplayObject
+	public function get_backgroundFocusedSkin():DisplayObject
 	{
 		return this._backgroundFocusedSkin;
 	}
@@ -595,7 +595,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get stateToSkinFunction():Function
+	public function get_stateToSkinFunction():Function
 	{
 		return this._stateToSkinFunction;
 	}
@@ -645,7 +645,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public function get textEditorFactory():Function
+	public function get_textEditorFactory():Function
 	{
 		return this._textEditorFactory;
 	}
@@ -697,7 +697,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public function get textEditorProperties():Object
+	public function get_textEditorProperties():Object
 	{
 		if(!this._textEditorProperties)
 		{

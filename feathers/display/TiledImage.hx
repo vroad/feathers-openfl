@@ -98,7 +98,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function get width():Float
+	override public function get_width():Float
 	{
 		return this._width;
 	}
@@ -125,7 +125,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function get height():Float
+	override public function get_height():Float
 	{
 		return this._height;
 	}
@@ -157,7 +157,7 @@ class TiledImage extends Sprite implements IValidating
 	 * <listing version="3.0">
 	 * image.texture = Texture.fromBitmapData( bitmapData );</listing>
 	 */
-	public function get texture():Texture
+	public function get_texture():Texture
 	{
 		return this._texture;
 	}
@@ -218,7 +218,7 @@ class TiledImage extends Sprite implements IValidating
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/textures/TextureSmoothing.html starling.textures.TextureSmoothing
 	 */
-	public function get smoothing():String
+	public function get_smoothing():String
 	{
 		return this._smoothing;
 	}
@@ -255,7 +255,7 @@ class TiledImage extends Sprite implements IValidating
 	 *
 	 * @default 0xffffff
 	 */
-	public function get color():UInt
+	public function get_color():UInt
 	{
 		return this._color;
 	}
@@ -290,7 +290,7 @@ class TiledImage extends Sprite implements IValidating
 	 *
 	 * @default true
 	 */
-	public function get useSeparateBatch():Bool
+	public function get_useSeparateBatch():Bool
 	{
 		return this._useSeparateBatch;
 	}
@@ -325,7 +325,7 @@ class TiledImage extends Sprite implements IValidating
 	 *
 	 * @default 1
 	 */
-	public function get textureScale():Float
+	public function get_textureScale():Float
 	{
 		return this._textureScale;
 	}
@@ -367,7 +367,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public function get depth():Int
+	public function get_depth():Int
 	{
 		return this._depth;
 	}

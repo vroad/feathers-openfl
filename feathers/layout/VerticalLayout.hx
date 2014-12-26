@@ -125,7 +125,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default 0
 	 */
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -155,7 +155,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default NaN
 	 */
-	public function get firstGap():Float
+	public function get_firstGap():Float
 	{
 		return this._firstGap;
 	}
@@ -185,7 +185,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default NaN
 	 */
-	public function get lastGap():Float
+	public function get_lastGap():Float
 	{
 		return this._lastGap;
 	}
@@ -216,7 +216,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -242,7 +242,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -270,7 +270,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -299,7 +299,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -327,7 +327,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -362,7 +362,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
 	}
@@ -396,7 +396,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -424,7 +424,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Bool
+	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -454,7 +454,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get hasVariableItemDimensions():Bool
+	public function get_hasVariableItemDimensions():Bool
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -485,7 +485,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get distributeHeights():Bool
+	public function get_distributeHeights():Bool
 	{
 		return this._distributeHeights;
 	}
@@ -525,7 +525,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 *
 	 * @default false
 	 */
-	public function get manageVisibility():Bool
+	public function get_manageVisibility():Bool
 	{
 		return this._manageVisibility;
 	}
@@ -551,7 +551,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function get beforeVirtualizedItemCount():Int
+	public function get_beforeVirtualizedItemCount():Int
 	{
 		return this._beforeVirtualizedItemCount;
 	}
@@ -577,7 +577,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function get afterVirtualizedItemCount():Int
+	public function get_afterVirtualizedItemCount():Int
 	{
 		return this._afterVirtualizedItemCount;
 	}
@@ -607,7 +607,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #typicalItemWidth
 	 * @see #typicalItemHeight
 	 */
-	public function get typicalItem():DisplayObject
+	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
 	}
@@ -645,7 +645,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get resetTypicalItemDimensionsOnMeasure():Bool
+	public function get_resetTypicalItemDimensionsOnMeasure():Bool
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
 	}
@@ -692,7 +692,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get typicalItemWidth():Float
+	public function get_typicalItemWidth():Float
 	{
 		return this._typicalItemWidth;
 	}
@@ -739,7 +739,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #typicalItemWidth
 	 * @see #typicalItem
 	 */
-	public function get typicalItemHeight():Float
+	public function get_typicalItemHeight():Float
 	{
 		return this._typicalItemHeight;
 	}
@@ -773,7 +773,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
-	public function get scrollPositionVerticalAlign():String
+	public function get_scrollPositionVerticalAlign():String
 	{
 		return this._scrollPositionVerticalAlign;
 	}
@@ -789,7 +789,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Bool
+	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._manageVisibility || this._useVirtualLayout;
 	}

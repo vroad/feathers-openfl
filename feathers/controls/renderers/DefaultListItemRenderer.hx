@@ -184,7 +184,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return DefaultListItemRenderer.globalStyleProvider;
 	}
@@ -197,7 +197,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @inheritDoc
 	 */
-	public function get index():Int
+	public function get_index():Int
 	{
 		return this._index;
 	}
@@ -213,7 +213,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():List
+	public function get_owner():List
 	{
 		return List(this._owner);
 	}

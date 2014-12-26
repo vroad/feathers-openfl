@@ -52,7 +52,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroupGroupedListHeaderOrFooterRenderer.globalStyleProvider;
 	}
@@ -65,7 +65,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():Int
+	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -86,7 +86,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():Int
+	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -107,7 +107,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():GroupedList
+	public function get_owner():GroupedList
 	{
 		return this._owner;
 	}
@@ -133,7 +133,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get data():Object
+	public function get_data():Object
 	{
 		return this._data;
 	}
@@ -159,7 +159,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get isSelected():Bool
+	public function get_isSelected():Bool
 	{
 		return this._isSelected;
 	}

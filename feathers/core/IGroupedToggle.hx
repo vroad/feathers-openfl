@@ -28,7 +28,7 @@ public interface IGroupedToggle extends IToggle
 	 * radio.toggleGroup = group;
 	 * this.addChild( radio );</listing>
 	 */
-	function get toggleGroup():ToggleGroup;
+	function get_toggleGroup():ToggleGroup;
 
 	/**
 	 * @private

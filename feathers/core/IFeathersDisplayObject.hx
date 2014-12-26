@@ -34,7 +34,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#x Full description of starling.display.DisplayObject.x in Gamua's Starling Framework API Reference
 	 */
-	function get x():Float;
+	function get_x():Float;
 
 	/**
 	 * @private
@@ -47,7 +47,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#y Full description of starling.display.DisplayObject.y in Gamua's Starling Framework API Reference
 	 */
-	function get y():Float;
+	function get_y():Float;
 
 	/**
 	 * @private
@@ -59,7 +59,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#width Full description of starling.display.DisplayObject.width in Gamua's Starling Framework API Reference
 	 */
-	function get width():Float;
+	function get_width():Float;
 
 	/**
 	 * @private
@@ -71,7 +71,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#height Full description of starling.display.DisplayObject.height in Gamua's Starling Framework API Reference
 	 */
-	function get height():Float;
+	function get_height():Float;
 
 	/**
 	 * @private
@@ -84,7 +84,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#pivotX Full description of starling.display.DisplayObject.pivotX in Gamua's Starling Framework API Reference
 	 */
-	function get pivotX():Float;
+	function get_pivotX():Float;
 
 	/**
 	 * @private
@@ -97,7 +97,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#pivotY Full description of starling.display.DisplayObject.pivotY in Gamua's Starling Framework API Reference
 	 */
-	function get pivotY():Float;
+	function get_pivotY():Float;
 
 	/**
 	 * @private
@@ -108,7 +108,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 * This horizontal scale factor.
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#scaleX Full description of starling.display.DisplayObject.scaleX in Gamua's Starling Framework API Reference
 	 */
-	function get scaleX():Float;
+	function get_scaleX():Float;
 
 	/**
 	 * @private
@@ -120,7 +120,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#scaleY Full description of starling.display.DisplayObject.scaleY in Gamua's Starling Framework API Reference
 	 */
-	function get scaleY():Float;
+	function get_scaleY():Float;
 
 	/**
 	 * @private
@@ -132,7 +132,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#skewX Full description of starling.display.DisplayObject.skewX in Gamua's Starling Framework API Reference
 	 */
-	function get skewX():Float;
+	function get_skewX():Float;
 
 	/**
 	 * @private
@@ -144,7 +144,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#skewY Full description of starling.display.DisplayObject.skewY in Gamua's Starling Framework API Reference
 	 */
-	function get skewY():Float;
+	function get_skewY():Float;
 
 	/**
 	 * @private
@@ -156,7 +156,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#blendMode Full description of starling.display.DisplayObject.blendMode in Gamua's Starling Framework API Reference
 	 */
-	function get blendMode():String;
+	function get_blendMode():String;
 
 	/**
 	 * @private
@@ -168,7 +168,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#name Full description of starling.display.DisplayObject.name in Gamua's Starling Framework API Reference
 	 */
-	function get name():String;
+	function get_name():String;
 
 	/**
 	 * @private
@@ -180,7 +180,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#touchable Full description of starling.display.DisplayObject.touchable in Gamua's Starling Framework API Reference
 	 */
-	function get touchable():Bool;
+	function get_touchable():Bool;
 
 	/**
 	 * @private
@@ -192,7 +192,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#visible Full description of starling.display.DisplayObject.visible in Gamua's Starling Framework API Reference
 	 */
-	function get visible():Bool;
+	function get_visible():Bool;
 
 	/**
 	 * @private
@@ -204,7 +204,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#alpha Full description of starling.display.DisplayObject.alpha in Gamua's Starling Framework API Reference
 	 */
-	function get alpha():Float;
+	function get_alpha():Float;
 
 	/**
 	 * @private
@@ -216,7 +216,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#rotation Full description of starling.display.DisplayObject.rotation in Gamua's Starling Framework API Reference
 	 */
-	function get rotation():Float;
+	function get_rotation():Float;
 
 	/**
 	 * @private
@@ -229,7 +229,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#parent Full description of starling.display.DisplayObject.parent in Gamua's Starling Framework API Reference
 	 */
-	function get parent():DisplayObjectContainer;
+	function get_parent():DisplayObjectContainer;
 
 	/**
 	 * The top-most object of the display tree that the display object is
@@ -237,13 +237,13 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#base Full description of starling.display.DisplayObject.base in Gamua's Starling Framework API Reference
 	 */
-	function get base():DisplayObject;
+	function get_base():DisplayObject;
 
 	/**
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#root Full description of starling.display.DisplayObject.root in Gamua's Starling Framework API Reference
 	 */
-	function get root():DisplayObject;
+	function get_root():DisplayObject;
 
 	/**
 	 * The stage that the display object is connected to, or <code>null</code>
@@ -251,14 +251,14 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#stage Full description of starling.display.DisplayObject.stage in Gamua's Starling Framework API Reference
 	 */
-	function get stage():Stage;
+	function get_stage():Stage;
 
 	/**
 	 * Determines if the display object should be rendered or not.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#hasVisibleArea Full description of starling.display.DisplayObject.hasVisibleArea in Gamua's Starling Framework API Reference
 	 */
-	function get hasVisibleArea():Bool;
+	function get_hasVisibleArea():Bool;
 
 	/**
 	 * The transformation matrix of the display object, relative to its
@@ -266,7 +266,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#transformationMatrix Full description of starling.display.DisplayObject.transformationMatrix in Gamua's Starling Framework API Reference
 	 */
-	function get transformationMatrix():Matrix;
+	function get_transformationMatrix():Matrix;
 
 	/**
 	 * Determines if the mouse cursor should turn into a hand when the mouse
@@ -274,7 +274,7 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#useHandCursor Full description of starling.display.DisplayObject.useHandCursor in Gamua's Starling Framework API Reference
 	 */
-	function get useHandCursor():Bool;
+	function get_useHandCursor():Bool;
 
 	/**
 	 * @private
@@ -286,14 +286,14 @@ public interface IFeathersDisplayObject extends IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#bounds Full description of starling.display.DisplayObject.bounds in Gamua's Starling Framework API Reference
 	 */
-	function get bounds():Rectangle;
+	function get_bounds():Rectangle;
 
 	/**
 	 * The filter used when rendering the display object.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#filter Full description of starling.display.DisplayObject.filter in Gamua's Starling Framework API Reference
 	 */
-	function get filter():FragmentFilter;
+	function get_filter():FragmentFilter;
 
 	/**
 	 * @private

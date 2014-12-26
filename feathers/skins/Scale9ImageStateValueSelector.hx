@@ -33,7 +33,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
-	public function get imageProperties():Object
+	public function get_imageProperties():Object
 	{
 		if(!this._imageProperties)
 		{

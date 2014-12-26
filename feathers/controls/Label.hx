@@ -102,7 +102,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Label.globalStyleProvider;
 	}
@@ -122,7 +122,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default null
 	 */
-	public function get text():String
+	public function get_text():String
 	{
 		return this._text;
 	}
@@ -156,7 +156,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default false
 	 */
-	public function get wordWrap():Bool
+	public function get_wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -177,7 +177,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * The baseline measurement of the text, in pixels.
 	 */
-	public function get baseline():Float
+	public function get_baseline():Float
 	{
 		if(!this.textRenderer)
 		{
@@ -218,7 +218,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
-	public function get textRendererFactory():Function
+	public function get_textRendererFactory():Function
 	{
 		return this._textRendererFactory;
 	}
@@ -274,7 +274,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get textRendererProperties():Object
+	public function get_textRendererProperties():Object
 	{
 		if(!this._textRendererProperties)
 		{

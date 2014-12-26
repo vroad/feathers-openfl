@@ -25,7 +25,7 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 * Extra parameters associated with this display object that will be
 	 * used by the layout algorithm.
 	 */
-	function get layoutData():ILayoutData;
+	function get_layoutData():ILayoutData;
 
 	/**
 	 * @private
@@ -41,7 +41,7 @@ public interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.includeInLayout = false;</listing>
 	 */
-	function get includeInLayout():Bool;
+	function get_includeInLayout():Bool;
 
 	/**
 	 * @private

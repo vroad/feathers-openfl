@@ -168,7 +168,7 @@ class FocusManager
 	 *
 	 * @see #getFocusManagerForStage()
 	 */
-	public static function get focus():IFocusDisplayObject
+	public static function get_focus():IFocusDisplayObject
 	{
 		var manager:IFocusManager = getFocusManagerForStage(Starling.current.stage);
 		if(manager)

@@ -275,7 +275,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/themes
 	 * @see http://wiki.starling-framework.org/feathers/extending-themes
 	 */
-	public function get styleName():String
+	public function get_styleName():String
 	{
 		return this._styleNameList.value;
 	}
@@ -314,7 +314,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/themes
 	 * @see http://wiki.starling-framework.org/feathers/extending-themes
 	 */
-	public function get styleNameList():TokenList
+	public function get_styleNameList():TokenList
 	{
 		return this._styleNameList;
 	}
@@ -330,7 +330,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @see #styleNameList
 	 */
-	public function get nameList():TokenList
+	public function get_nameList():TokenList
 	{
 		return this._styleNameList;
 	}
@@ -350,7 +350,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #styleNameList
 	 * @see http://wiki.starling-framework.org/feathers/themes
 	 */
-	public function get styleProvider():IStyleProvider
+	public function get_styleProvider():IStyleProvider
 	{
 		return this._styleProvider;
 	}
@@ -378,14 +378,14 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * this function, and its implementation looks like this:</p>
 	 *
 	 * <listing version="3.0">
-	 * override private function get defaultStyleProvider():IStyleProvider
+	 * override private function get_defaultStyleProvider():IStyleProvider
 	 * {
 	 *     return Button.globalStyleProvider;
 	 * }</listing>
 	 *
 	 * @see #styleProvider
 	 */
-	private function get defaultStyleProvider():IStyleProvider
+	private function get_defaultStyleProvider():IStyleProvider
 	{
 		return null;
 	}
@@ -408,7 +408,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default false
 	 */
-	public function get isQuickHitAreaEnabled():Bool
+	public function get_isQuickHitAreaEnabled():Bool
 	{
 		return this._isQuickHitAreaEnabled;
 	}
@@ -448,7 +448,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #event:initialize
 	 * @see #isCreated
 	 */
-	public function get isInitialized():Bool
+	public function get_isInitialized():Bool
 	{
 		return this._isInitialized;
 	}
@@ -485,7 +485,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default true
 	 */
-	public function get isEnabled():Bool
+	public function get_isEnabled():Bool
 	{
 		return _isEnabled;
 	}
@@ -556,7 +556,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public function get width():Float
+	override public function get_width():Float
 	{
 		return this.scaledActualWidth;
 	}
@@ -640,7 +640,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public function get height():Float
+	override public function get_height():Float
 	{
 		return this.scaledActualHeight;
 	}
@@ -688,7 +688,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minTouchWidth():Float
+	public function get_minTouchWidth():Float
 	{
 		return this._minTouchWidth;
 	}
@@ -723,7 +723,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minTouchHeight():Float
+	public function get_minTouchHeight():Float
 	{
 		return this._minTouchHeight;
 	}
@@ -761,7 +761,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minWidth():Float
+	public function get_minWidth():Float
 	{
 		return this._minWidth;
 	}
@@ -803,7 +803,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get minHeight():Float
+	public function get_minHeight():Float
 	{
 		return this._minHeight;
 	}
@@ -845,7 +845,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default Number.POSITIVE_INFINITY
 	 */
-	public function get maxWidth():Float
+	public function get_maxWidth():Float
 	{
 		return this._maxWidth;
 	}
@@ -887,7 +887,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default Number.POSITIVE_INFINITY
 	 */
-	public function get maxHeight():Float
+	public function get_maxHeight():Float
 	{
 		return this._maxHeight;
 	}
@@ -937,7 +937,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default true
 	 */
-	public function get includeInLayout():Bool
+	public function get_includeInLayout():Bool
 	{
 		return this._includeInLayout;
 	}
@@ -965,7 +965,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get layoutData():ILayoutData
+	public function get_layoutData():ILayoutData
 	{
 		return this._layoutData;
 	}
@@ -1005,7 +1005,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get focusManager():IFocusManager
+	public function get_focusManager():IFocusManager
 	{
 		return this._focusManager;
 	}
@@ -1050,7 +1050,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get focusOwner():IFocusDisplayObject
+	public function get_focusOwner():IFocusDisplayObject
 	{
 		return this._focusOwner;
 	}
@@ -1077,7 +1077,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default true
 	 */
-	public function get isFocusEnabled():Bool
+	public function get_isFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isFocusEnabled;
 	}
@@ -1112,7 +1112,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get nextTabFocus():IFocusDisplayObject
+	public function get_nextTabFocus():IFocusDisplayObject
 	{
 		return this._nextTabFocus;
 	}
@@ -1143,7 +1143,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get previousTabFocus():IFocusDisplayObject
+	public function get_previousTabFocus():IFocusDisplayObject
 	{
 		return this._previousTabFocus;
 	}
@@ -1189,7 +1189,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default null
 	 */
-	public function get focusIndicatorSkin():DisplayObject
+	public function get_focusIndicatorSkin():DisplayObject
 	{
 		return this._focusIndicatorSkin;
 	}
@@ -1245,7 +1245,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #focusPaddingBottom
 	 * @see #focusPaddingLeft
 	 */
-	public function get focusPadding():Float
+	public function get_focusPadding():Float
 	{
 		return this._focusPaddingTop;
 	}
@@ -1283,7 +1283,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingTop():Float
+	public function get_focusPaddingTop():Float
 	{
 		return this._focusPaddingTop;
 	}
@@ -1323,7 +1323,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingRight():Float
+	public function get_focusPaddingRight():Float
 	{
 		return this._focusPaddingRight;
 	}
@@ -1363,7 +1363,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingBottom():Float
+	public function get_focusPaddingBottom():Float
 	{
 		return this._focusPaddingBottom;
 	}
@@ -1403,7 +1403,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @default 0
 	 */
-	public function get focusPaddingLeft():Float
+	public function get_focusPaddingLeft():Float
 	{
 		return this._focusPaddingLeft;
 	}
@@ -1459,7 +1459,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #event:creationComplete
 	 * @see #isInitialized
 	 */
-	public function get isCreated():Bool
+	public function get_isCreated():Bool
 	{
 		return this._hasValidated;
 	}
@@ -1472,7 +1472,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public function get depth():Int
+	public function get_depth():Int
 	{
 		return this._depth;
 	}

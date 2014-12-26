@@ -195,7 +195,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
-	public function get selectionSkin():DisplayObject
+	public function get_selectionSkin():DisplayObject
 	{
 		return this._selectionSkin;
 	}
@@ -230,7 +230,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
-	public function get cursorSkin():DisplayObject
+	public function get_cursorSkin():DisplayObject
 	{
 		return this._cursorSkin;
 	}
@@ -280,7 +280,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @see #passwordCharCode
 	 */
-	public function get displayAsPassword():Bool
+	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -327,7 +327,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @see #displayAsPassword
 	 */
-	public function get passwordCharCode():Int
+	public function get_passwordCharCode():Int
 	{
 		return this._passwordCharCode;
 	}
@@ -365,7 +365,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Bool
+	public function get_isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -388,7 +388,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public function get setTouchFocusOnEndedPhase():Bool
+	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
 	}
@@ -396,7 +396,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function get text():String
+	override public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -454,7 +454,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default 0
 	 */
-	public function get maxChars():Int
+	public function get_maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -489,7 +489,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default null
 	 */
-	public function get restrict():String
+	public function get_restrict():String
 	{
 		if(!this._restrict)
 		{
@@ -538,7 +538,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionBeginIndex():Int
+	public function get_selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
 	}
@@ -551,7 +551,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionEndIndex():Int
+	public function get_selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;
 	}
@@ -574,7 +574,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function get nativeFocus():InteractiveObject
+	private function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
 	}

@@ -269,7 +269,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default ""
 	 */
-	public function get text():String
+	public function get_text():String
 	{
 		return this._text;
 	}
@@ -296,7 +296,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Float
+	public function get_baseline():Float
 	{
 		if(!this.textField)
 		{
@@ -333,7 +333,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * @see #disabledTextFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get textFormat():TextFormat
+	public function get_textFormat():TextFormat
 	{
 		return this._textFormat;
 	}
@@ -374,7 +374,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * @see #textFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get disabledTextFormat():TextFormat
+	public function get_disabledTextFormat():TextFormat
 	{
 		return this._disabledTextFormat;
 	}
@@ -410,7 +410,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Bool
+	public function get_embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -445,7 +445,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
-	public function get wordWrap():Bool
+	public function get_wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -480,7 +480,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#multiline Full description of flash.text.TextField.multiline in Adobe's Flash Platform API Reference
 	 */
-	public function get multiline():Bool
+	public function get_multiline():Bool
 	{
 		return this._multiline;
 	}
@@ -516,7 +516,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 */
-	public function get isHTML():Bool
+	public function get_isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -554,7 +554,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#alwaysShowSelection Full description of flash.text.TextField.alwaysShowSelection in Adobe's Flash Platform API Reference
 	 */
-	public function get alwaysShowSelection():Bool
+	public function get_alwaysShowSelection():Bool
 	{
 		return this._alwaysShowSelection;
 	}
@@ -591,7 +591,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Bool
+	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -629,7 +629,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#maxChars Full description of flash.text.TextField.maxChars in Adobe's Flash Platform API Reference
 	 */
-	public function get maxChars():Int
+	public function get_maxChars():Int
 	{
 		return this._maxChars;
 	}
@@ -666,7 +666,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of flash.text.TextField.restrict in Adobe's Flash Platform API Reference
 	 */
-	public function get restrict():String
+	public function get_restrict():String
 	{
 		return this._restrict;
 	}
@@ -700,7 +700,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default true
 	 */
-	public function get isEditable():Bool
+	public function get_isEditable():Bool
 	{
 		return this._isEditable;
 	}
@@ -736,7 +736,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public function get useGutter():Bool
+	public function get_useGutter():Bool
 	{
 		return this._useGutter;
 	}
@@ -757,7 +757,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get setTouchFocusOnEndedPhase():Bool
+	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
 	}
@@ -780,7 +780,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionBeginIndex():Int
+	public function get_selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
@@ -801,7 +801,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public function get selectionEndIndex():Int
+	public function get_selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{

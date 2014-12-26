@@ -46,7 +46,7 @@ class DragDropManager
 	 * knowing the touch ID is useful if additional actions need to happen
 	 * using the same touch.
 	 */
-	public static function get touchPointID():Int
+	public static function get_touchPointID():Int
 	{
 		return _touchPointID;
 	}
@@ -59,7 +59,7 @@ class DragDropManager
 	/**
 	 * The <code>IDragSource</code> that started the current drag.
 	 */
-	public static function get dragSource():IDragSource
+	public static function get_dragSource():IDragSource
 	{
 		return _dragSource;
 	}
@@ -73,7 +73,7 @@ class DragDropManager
 	 * Determines if the drag and drop manager is currently handling a drag.
 	 * Only one drag may be active at a time.
 	 */
-	public static function get isDragging():Bool
+	public static function get_isDragging():Bool
 	{
 		return _dragData != null;
 	}
@@ -82,7 +82,7 @@ class DragDropManager
 	 * The data associated with the current drag. Returns <code>null</code>
 	 * if there is not a current drag.
 	 */
-	public static function get dragData():DragData
+	public static function get_dragData():DragData
 	{
 		return _dragData;
 	}

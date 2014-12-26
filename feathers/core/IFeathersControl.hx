@@ -89,7 +89,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#minWidth
 	 */
-	function get minWidth():Float;
+	function get_minWidth():Float;
 
 	/**
 	 * @private
@@ -99,7 +99,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#minHeight
 	 */
-	function get minHeight():Float;
+	function get_minHeight():Float;
 
 	/**
 	 * @private
@@ -109,7 +109,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#maxWidth
 	 */
-	function get maxWidth():Float;
+	function get_maxWidth():Float;
 
 	/**
 	 * @private
@@ -119,7 +119,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#maxHeight
 	 */
-	function get maxHeight():Float;
+	function get_maxHeight():Float;
 
 	/**
 	 * @private
@@ -129,7 +129,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @private
 	 */
-	function get clipRect():Rectangle;
+	function get_clipRect():Rectangle;
 
 	/**
 	 * @private
@@ -139,7 +139,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#isEnabled
 	 */
-	function get isEnabled():Bool;
+	function get_isEnabled():Bool;
 
 	/**
 	 * @private
@@ -149,27 +149,27 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#isInitialized
 	 */
-	function get isInitialized():Bool;
+	function get_isInitialized():Bool;
 
 	/**
 	 * @copy feathers.core.FeathersControl#isCreated
 	 */
-	function get isCreated():Bool;
+	function get_isCreated():Bool;
 
 	/**
 	 * @copy feathers.core.FeathersControl#nameList
 	 */
-	function get nameList():TokenList;
+	function get_nameList():TokenList;
 
 	/**
 	 * @copy feathers.core.FeathersControl#styleNameList
 	 */
-	function get styleNameList():TokenList;
+	function get_styleNameList():TokenList;
 
 	/**
 	 * @copy feathers.core.FeathersControl#styleName
 	 */
-	function get styleName():String;
+	function get_styleName():String;
 
 	/**
 	 * @private
@@ -179,7 +179,7 @@ public interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#styleProvider
 	 */
-	function get styleProvider():IStyleProvider;
+	function get_styleProvider():IStyleProvider;
 
 	/**
 	 * @private

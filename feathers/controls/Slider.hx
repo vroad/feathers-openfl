@@ -374,7 +374,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Slider.globalStyleProvider;
 	}
@@ -400,7 +400,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -445,7 +445,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #step
 	 * @see #page
 	 */
-	public function get value():Float
+	public function get_value():Float
 	{
 		return this._value;
 	}
@@ -494,7 +494,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Float
+	public function get_minimum():Float
 	{
 		return this._minimum;
 	}
@@ -536,7 +536,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Float
+	public function get_maximum():Float
 	{
 		return this._maximum;
 	}
@@ -579,7 +579,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #page
 	 */
-	public function get step():Float
+	public function get_step():Float
 	{
 		return this._step;
 	}
@@ -626,7 +626,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #page
 	 * @see #trackInteractionMode
 	 */
-	public function get page():Float
+	public function get_page():Float
 	{
 		return this._page;
 	}
@@ -676,7 +676,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default true
 	 */
-	public function get showThumb():Bool
+	public function get_showThumb():Bool
 	{
 		return this._showThumb;
 	}
@@ -711,7 +711,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
-	public function get minimumPadding():Float
+	public function get_minimumPadding():Float
 	{
 		return this._minimumPadding;
 	}
@@ -746,7 +746,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
-	public function get maximumPadding():Float
+	public function get_maximumPadding():Float
 	{
 		return this._maximumPadding;
 	}
@@ -784,7 +784,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_LAYOUT_MODE_SINGLE
 	 * @see #TRACK_LAYOUT_MODE_MIN_MAX
 	 */
-	public function get trackLayoutMode():String
+	public function get_trackLayoutMode():String
 	{
 		return this._trackLayoutMode;
 	}
@@ -823,7 +823,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_SCALE_MODE_EXACT_FIT
 	 * @see #trackLayoutMode
 	 */
-	public function get trackScaleMode():String
+	public function get_trackScaleMode():String
 	{
 		return this._trackScaleMode;
 	}
@@ -867,7 +867,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_INTERACTION_MODE_BY_PAGE
 	 * @see #page
 	 */
-	public function get trackInteractionMode():String
+	public function get_trackInteractionMode():String
 	{
 		return this._trackInteractionMode;
 	}
@@ -908,7 +908,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Float
+	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -959,7 +959,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #minimumTrackProperties
 	 */
-	public function get minimumTrackFactory():Function
+	public function get_minimumTrackFactory():Function
 	{
 		return this._minimumTrackFactory;
 	}
@@ -1005,7 +1005,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
-	public function get customMinimumTrackName():String
+	public function get_customMinimumTrackName():String
 	{
 		return this._customMinimumTrackName;
 	}
@@ -1056,7 +1056,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get minimumTrackProperties():Object
+	public function get_minimumTrackProperties():Object
 	{
 		if(!this._minimumTrackProperties)
 		{
@@ -1132,7 +1132,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #maximumTrackProperties
 	 */
-	public function get maximumTrackFactory():Function
+	public function get_maximumTrackFactory():Function
 	{
 		return this._maximumTrackFactory;
 	}
@@ -1178,7 +1178,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
-	public function get customMaximumTrackName():String
+	public function get_customMaximumTrackName():String
 	{
 		return this._customMaximumTrackName;
 	}
@@ -1229,7 +1229,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get maximumTrackProperties():Object
+	public function get_maximumTrackProperties():Object
 	{
 		if(!this._maximumTrackProperties)
 		{
@@ -1305,7 +1305,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
-	public function get thumbFactory():Function
+	public function get_thumbFactory():Function
 	{
 		return this._thumbFactory;
 	}
@@ -1351,7 +1351,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
-	public function get customThumbName():String
+	public function get_customThumbName():String
 	{
 		return this._customThumbName;
 	}
@@ -1401,7 +1401,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
-	public function get thumbProperties():Object
+	public function get_thumbProperties():Object
 	{
 		if(!this._thumbProperties)
 		{

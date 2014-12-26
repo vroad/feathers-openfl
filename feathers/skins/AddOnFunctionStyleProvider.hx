@@ -44,7 +44,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 * The <code>addOnFunction</code> will be called after the original
 	 * style provider applies its styles.
 	 */
-	public function get originalStyleProvider():IStyleProvider
+	public function get_originalStyleProvider():IStyleProvider
 	{
 		return this._originalStyleProvider;
 	}
@@ -69,7 +69,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 */
-	public function get addOnFunction():Function
+	public function get_addOnFunction():Function
 	{
 		return this._addOnFunction;
 	}

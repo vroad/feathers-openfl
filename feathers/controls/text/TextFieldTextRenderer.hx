@@ -142,7 +142,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return TextFieldTextRenderer.globalStyleProvider;
 	}
@@ -164,7 +164,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #isHTML
 	 */
-	public function get text():String
+	public function get_text():String
 	{
 		return this._text;
 	}
@@ -206,7 +206,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 * @see #text
 	 */
-	public function get isHTML():Bool
+	public function get_isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -242,7 +242,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see #disabledTextFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get textFormat():TextFormat
+	public function get_textFormat():TextFormat
 	{
 		return this._textFormat;
 	}
@@ -279,7 +279,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see #textFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get disabledTextFormat():TextFormat
+	public function get_disabledTextFormat():TextFormat
 	{
 		return this._disabledTextFormat;
 	}
@@ -329,7 +329,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html flash.text.StyleSheet
 	 * @see #isHTML
 	 */
-	public function get styleSheet():StyleSheet
+	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
 	}
@@ -365,7 +365,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Bool
+	public function get_embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -386,7 +386,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
-	public function get baseline():Float
+	public function get_baseline():Float
 	{
 		if(!this.textField)
 		{
@@ -417,7 +417,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
-	public function get wordWrap():Bool
+	public function get_wordWrap():Bool
 	{
 		return this._wordWrap;
 	}
@@ -453,7 +453,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
-	public function get snapToPixels():Bool
+	public function get_snapToPixels():Bool
 	{
 		return this._snapToPixels;
 	}
@@ -485,7 +485,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of flash.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html flash.text.AntiAliasType
 	 */
-	public function get antiAliasType():String
+	public function get_antiAliasType():String
 	{
 		return this._antiAliasType;
 	}
@@ -524,7 +524,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get background():Bool
+	public function get_background():Bool
 	{
 		return this._background;
 	}
@@ -562,7 +562,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
-	public function get backgroundColor():UInt
+	public function get_backgroundColor():UInt
 	{
 		return this._backgroundColor;
 	}
@@ -603,7 +603,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get border():Bool
+	public function get_border():Bool
 	{
 		return this._border;
 	}
@@ -641,7 +641,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
-	public function get borderColor():UInt
+	public function get_borderColor():UInt
 	{
 		return this._borderColor;
 	}
@@ -678,7 +678,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of flash.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
 	 * @see #isHTML
 	 */
-	public function get condenseWhite():Bool
+	public function get_condenseWhite():Bool
 	{
 		return this._condenseWhite;
 	}
@@ -715,7 +715,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Bool
+	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -756,7 +756,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html flash.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public function get gridFitType():String
+	public function get_gridFitType():String
 	{
 		return this._gridFitType;
 	}
@@ -796,7 +796,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get sharpness():Float
+	public function get_sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -836,7 +836,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get thickness():Float
+	public function get_thickness():Float
 	{
 		return this._thickness;
 	}
@@ -873,7 +873,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 2048
 	 */
-	public function get maxTextureDimensions():Int
+	public function get_maxTextureDimensions():Int
 	{
 		return this._maxTextureDimensions;
 	}
@@ -915,7 +915,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of flash.display.DisplayObject.filters in Adobe's Flash Platform API Reference
 	 */
-	public function get nativeFilters():Array
+	public function get_nativeFilters():Array
 	{
 		return this._nativeFilters;
 	}
@@ -951,7 +951,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get useGutter():Bool
+	public function get_useGutter():Bool
 	{
 		return this._useGutter;
 	}

@@ -289,7 +289,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return TabBar.globalStyleProvider;
 	}
@@ -332,7 +332,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #tabInitializer
 	 */
-	public function get dataProvider():ListCollection
+	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
 	}
@@ -422,7 +422,7 @@ class TabBar extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -462,7 +462,7 @@ class TabBar extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -502,7 +502,7 @@ class TabBar extends FeathersControl
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
 	}
@@ -541,7 +541,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get distributeTabSizes():Bool
+	public function get_distributeTabSizes():Bool
 	{
 		return this._distributeTabSizes;
 	}
@@ -574,7 +574,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -613,7 +613,7 @@ class TabBar extends FeathersControl
 	 * @see #gap
 	 * @see #lastGap
 	 */
-	public function get firstGap():Float
+	public function get_firstGap():Float
 	{
 		return this._firstGap;
 	}
@@ -652,7 +652,7 @@ class TabBar extends FeathersControl
 	 * @see #gap
 	 * @see #firstGap
 	 */
-	public function get lastGap():Float
+	public function get_lastGap():Float
 	{
 		return this._lastGap;
 	}
@@ -689,7 +689,7 @@ class TabBar extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -722,7 +722,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -757,7 +757,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -792,7 +792,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -827,7 +827,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -880,7 +880,7 @@ class TabBar extends FeathersControl
 	 * @see #firstTabFactory
 	 * @see #lastTabFactory
 	 */
-	public function get tabFactory():Function
+	public function get_tabFactory():Function
 	{
 		return this._tabFactory;
 	}
@@ -935,7 +935,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #lastTabFactory
 	 */
-	public function get firstTabFactory():Function
+	public function get_firstTabFactory():Function
 	{
 		return this._firstTabFactory;
 	}
@@ -990,7 +990,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #firstTabFactory
 	 */
-	public function get lastTabFactory():Function
+	public function get_lastTabFactory():Function
 	{
 		return this._lastTabFactory;
 	}
@@ -1034,7 +1034,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
-	public function get tabInitializer():Function
+	public function get_tabInitializer():Function
 	{
 		return this._tabInitializer;
 	}
@@ -1087,7 +1087,7 @@ class TabBar extends FeathersControl
 	 * 
 	 * @see #selectedItem
 	 */
-	public function get selectedIndex():Int
+	public function get_selectedIndex():Int
 	{
 		if(this._pendingSelectedIndex != NOT_PENDING_INDEX)
 		{
@@ -1139,7 +1139,7 @@ class TabBar extends FeathersControl
 	 * 
 	 * @see #selectedIndex
 	 */
-	public function get selectedItem():Object
+	public function get_selectedItem():Object
 	{
 		var index:Int = this.selectedIndex;
 		if(!this._dataProvider || index < 0 || index >= this._dataProvider.length)
@@ -1188,7 +1188,7 @@ class TabBar extends FeathersControl
 	 * @see #DEFAULT_CHILD_NAME_TAB
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customTabName():String
+	public function get_customTabName():String
 	{
 		return this._customTabName;
 	}
@@ -1231,7 +1231,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customFirstTabName():String
+	public function get_customFirstTabName():String
 	{
 		return this._customFirstTabName;
 	}
@@ -1274,7 +1274,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customLastTabName():String
+	public function get_customLastTabName():String
 	{
 		return this._customLastTabName;
 	}
@@ -1326,7 +1326,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get tabProperties():Object
+	public function get_tabProperties():Object
 	{
 		if(!this._tabProperties)
 		{

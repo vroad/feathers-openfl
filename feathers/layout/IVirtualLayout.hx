@@ -24,7 +24,7 @@ public interface IVirtualLayout extends ILayout
 	 * <code>false</code>. In those cases, the virtual layout options
 	 * will be ignored.
 	 */
-	function get useVirtualLayout():Bool;
+	function get_useVirtualLayout():Bool;
 
 	/**
 	 * @private
@@ -41,7 +41,7 @@ public interface IVirtualLayout extends ILayout
 	 * have no effect. It is meant to be used by the component, and the
 	 * component will replace any value you pass to this property.
 	 */
-	function get typicalItem():DisplayObject;
+	function get_typicalItem():DisplayObject;
 
 	/**
 	 * @private

@@ -27,7 +27,7 @@ public interface IScrollContainer extends IFeathersControl
 	 * <code>Scroller</code> rather than delegating the call to the view
 	 * port.
 	 */
-	function get numRawChildren():Int;
+	function get_numRawChildren():Int;
 
 	/**
 	 * Gets the name of a direct child of the <code>Scroller</code> rather

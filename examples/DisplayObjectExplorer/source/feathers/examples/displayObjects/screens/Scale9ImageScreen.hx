@@ -45,7 +45,7 @@ class Scale9ImageScreen extends Screen
 
 	private var _padding:Float = 0;
 
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._padding;
 	}
@@ -60,7 +60,7 @@ class Scale9ImageScreen extends Screen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Scale9ImageScreen.globalStyleProvider;
 	}

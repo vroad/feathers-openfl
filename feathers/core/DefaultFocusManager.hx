@@ -74,7 +74,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @inheritDoc
 	 */
-	public function get root():DisplayObjectContainer
+	public function get_root():DisplayObjectContainer
 	{
 		return this._root;
 	}
@@ -89,7 +89,7 @@ class DefaultFocusManager implements IFocusManager
 	 *
 	 * @default false
 	 */
-	public function get isEnabled():Bool
+	public function get_isEnabled():Bool
 	{
 		return this._isEnabled;
 	}
@@ -159,7 +159,7 @@ class DefaultFocusManager implements IFocusManager
 	 *
 	 * @default null
 	 */
-	public function get focus():IFocusDisplayObject
+	public function get_focus():IFocusDisplayObject
 	{
 		return this._focus;
 	}

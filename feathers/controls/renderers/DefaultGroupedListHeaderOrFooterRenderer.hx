@@ -142,7 +142,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return DefaultGroupedListHeaderOrFooterRenderer.globalStyleProvider;
 	}
@@ -155,7 +155,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get data():Object
+	public function get_data():Object
 	{
 		return this._data;
 	}
@@ -181,7 +181,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():Int
+	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -202,7 +202,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():Int
+	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -223,7 +223,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():GroupedList
+	public function get_owner():GroupedList
 	{
 		return this._owner;
 	}
@@ -264,7 +264,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -305,7 +305,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
 	}
@@ -357,7 +357,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentField():String
+	public function get_contentField():String
 	{
 		return this._contentField;
 	}
@@ -421,7 +421,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentFunction():Function
+	public function get_contentFunction():Function
 	{
 		return this._contentFunction;
 	}
@@ -482,7 +482,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentSourceField():String
+	public function get_contentSourceField():String
 	{
 		return this._contentSourceField;
 	}
@@ -552,7 +552,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentSourceFunction():Function
+	public function get_contentSourceFunction():Function
 	{
 		return this._contentSourceFunction;
 	}
@@ -612,7 +612,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public function get contentLabelField():String
+	public function get_contentLabelField():String
 	{
 		return this._contentLabelField;
 	}
@@ -678,7 +678,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public function get contentLabelFunction():Function
+	public function get_contentLabelFunction():Function
 	{
 		return this._contentLabelFunction;
 	}
@@ -725,7 +725,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public function get contentLoaderFactory():Function
+	public function get_contentLoaderFactory():Function
 	{
 		return this._contentLoaderFactory;
 	}
@@ -772,7 +772,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentLabelFactory():Function
+	public function get_contentLabelFactory():Function
 	{
 		return this._contentLabelFactory;
 	}
@@ -817,7 +817,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get contentLabelProperties():Object
+	public function get_contentLabelProperties():Object
 	{
 		if(!this._contentLabelProperties)
 		{
@@ -891,7 +891,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default null
 	 */
-	public function get backgroundSkin():DisplayObject
+	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
 	}
@@ -935,7 +935,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default null
 	 */
-	public function get backgroundDisabledSkin():DisplayObject
+	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
 	}
@@ -976,7 +976,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -1008,7 +1008,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -1042,7 +1042,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -1076,7 +1076,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -1110,7 +1110,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * 
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}

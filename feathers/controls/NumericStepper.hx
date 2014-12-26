@@ -253,7 +253,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return NumericStepper.globalStyleProvider;
 	}
@@ -281,7 +281,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #step
 	 * @see #event:change
 	 */
-	public function get value():Float
+	public function get_value():Float
 	{
 		return this._value;
 	}
@@ -329,7 +329,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #maximum
 	 * @see #step
 	 */
-	public function get minimum():Float
+	public function get_minimum():Float
 	{
 		return this._minimum;
 	}
@@ -369,7 +369,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #minimum
 	 * @see #step
 	 */
-	public function get maximum():Float
+	public function get_maximum():Float
 	{
 		return this._maximum;
 	}
@@ -410,7 +410,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #minimum
 	 * @see #maximum
 	 */
-	public function get step():Float
+	public function get_step():Float
 	{
 		return this._step;
 	}
@@ -455,7 +455,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Float
+	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -495,7 +495,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #BUTTON_LAYOUT_MODE_SPLIT_VERTICAL
 	 * @see #BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL
 	 */
-	public function get buttonLayoutMode():String
+	public function get_buttonLayoutMode():String
 	{
 		return this._buttonLayoutMode;
 	}
@@ -534,7 +534,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #textInputGap
 	 * @see #buttonLayoutMode
 	 */
-	public function get buttonGap():Float
+	public function get_buttonGap():Float
 	{
 		return this._buttonGap;
 	}
@@ -573,7 +573,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #buttonGap
 	 * @see #buttonLayoutMode
 	 */
-	public function get textInputGap():Float
+	public function get_textInputGap():Float
 	{
 		return this._textInputGap;
 	}
@@ -624,7 +624,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.Button
 	 * @see #decrementButtonProperties
 	 */
-	public function get decrementButtonFactory():Function
+	public function get_decrementButtonFactory():Function
 	{
 		return this._decrementButtonFactory;
 	}
@@ -671,7 +671,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #decrementButtonFactory
 	 * @see #decrementButtonProperties
 	 */
-	public function get customDecrementButtonName():String
+	public function get_customDecrementButtonName():String
 	{
 		return this._customDecrementButtonName;
 	}
@@ -722,7 +722,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #decrementButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get decrementButtonProperties():Object
+	public function get_decrementButtonProperties():Object
 	{
 		if(!this._decrementButtonProperties)
 		{
@@ -781,7 +781,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @default null
 	 */
-	public function get decrementButtonLabel():String
+	public function get_decrementButtonLabel():String
 	{
 		return this._decrementButtonLabel;
 	}
@@ -832,7 +832,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.Button
 	 * @see #incrementButtonProperties
 	 */
-	public function get incrementButtonFactory():Function
+	public function get_incrementButtonFactory():Function
 	{
 		return this._incrementButtonFactory;
 	}
@@ -879,7 +879,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #incrementButtonFactory
 	 * @see #incrementButtonProperties
 	 */
-	public function get customIncrementButtonName():String
+	public function get_customIncrementButtonName():String
 	{
 		return this._customIncrementButtonName;
 	}
@@ -930,7 +930,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #incrementButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get incrementButtonProperties():Object
+	public function get_incrementButtonProperties():Object
 	{
 		if(!this._incrementButtonProperties)
 		{
@@ -989,7 +989,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 *
 	 * @default null
 	 */
-	public function get incrementButtonLabel():String
+	public function get_incrementButtonLabel():String
 	{
 		return this._incrementButtonLabel;
 	}
@@ -1039,7 +1039,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.TextInput
 	 * @see #textInputProperties
 	 */
-	public function get textInputFactory():Function
+	public function get_textInputFactory():Function
 	{
 		return this._textInputFactory;
 	}
@@ -1086,7 +1086,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #textInputFactory
 	 * @see #textInputProperties
 	 */
-	public function get customTextInputName():String
+	public function get_customTextInputName():String
 	{
 		return this._customTextInputName;
 	}
@@ -1136,7 +1136,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see #textInputFactory
 	 * @see feathers.controls.TextInput
 	 */
-	public function get textInputProperties():Object
+	public function get_textInputProperties():Object
 	{
 		if(!this._textInputProperties)
 		{

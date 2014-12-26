@@ -136,7 +136,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *
 	 * @default true
 	 */
-	public function get initializeOnce():Bool
+	public function get_initializeOnce():Bool
 	{
 		return this._initializeOnce;
 	}

@@ -176,7 +176,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return PanelScreen.globalStyleProvider;
 	}
@@ -189,7 +189,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get screenID():String
+	public function get_screenID():String
 	{
 		return this._screenID;
 	}
@@ -210,7 +210,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():ScreenNavigator
+	public function get_owner():ScreenNavigator
 	{
 		return this._owner;
 	}

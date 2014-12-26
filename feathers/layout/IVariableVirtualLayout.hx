@@ -19,7 +19,7 @@ public interface IVariableVirtualLayout extends IVirtualLayout
 	 * same dimensions as the typical item. Performance is better for
 	 * layouts where all items have the same dimensions.
 	 */
-	function get hasVariableItemDimensions():Bool;
+	function get_hasVariableItemDimensions():Bool;
 
 	/**
 	 * @private

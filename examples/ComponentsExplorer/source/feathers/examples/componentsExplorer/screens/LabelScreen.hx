@@ -27,7 +27,7 @@ class LabelScreen extends PanelScreen
 
 	private var _backButton:Button;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return LabelScreen.globalStyleProvider;
 	}

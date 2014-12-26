@@ -64,7 +64,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get minVisibleWidth():Float
+	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
@@ -94,7 +94,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get maxVisibleWidth():Float
+	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
@@ -124,7 +124,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get visibleWidth():Float
+	public function get_visibleWidth():Float
 	{
 		return this._visibleWidth;
 	}
@@ -151,7 +151,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get minVisibleHeight():Float
+	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
@@ -181,7 +181,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get maxVisibleHeight():Float
+	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
@@ -211,7 +211,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get visibleHeight():Float
+	public function get_visibleHeight():Float
 	{
 		return this._visibleHeight;
 	}
@@ -230,12 +230,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	public function get contentX():Float
+	public function get_contentX():Float
 	{
 		return 0;
 	}
 
-	public function get contentY():Float
+	public function get_contentY():Float
 	{
 		return 0;
 	}
@@ -248,7 +248,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get horizontalScrollStep():Float
+	public function get_horizontalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
@@ -256,7 +256,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get verticalScrollStep():Float
+	public function get_verticalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
@@ -269,7 +269,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get horizontalScrollPosition():Float
+	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -297,7 +297,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get verticalScrollPosition():Float
+	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}

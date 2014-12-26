@@ -58,7 +58,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _data:StationData;
 
-	public function get data():Object
+	public function get_data():Object
 	{
 		return this._data;
 	}
@@ -76,7 +76,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _index:Int = -1;
 
-	public function get index():Int
+	public function get_index():Int
 	{
 		return this._index;
 	}
@@ -93,7 +93,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _isFirstItem:Bool = false;
 
-	public function get isFirstItem():Bool
+	public function get_isFirstItem():Bool
 	{
 		return this._isFirstItem;
 	}
@@ -110,7 +110,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _isLastItem:Bool = false;
 
-	public function get isLastItem():Bool
+	public function get_isLastItem():Bool
 	{
 		return this._isLastItem;
 	}
@@ -127,7 +127,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _isInDestinationPhase:Bool = false;
 
-	public function get isInDestinationPhase():Bool
+	public function get_isInDestinationPhase():Bool
 	{
 		return this._isInDestinationPhase;
 	}
@@ -144,7 +144,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _owner:List;
 
-	public function get owner():List
+	public function get_owner():List
 	{
 		return this._owner;
 	}
@@ -175,7 +175,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _isSelected:Bool = false;
 
-	public function get isSelected():Bool
+	public function get_isSelected():Bool
 	{
 		return this._isSelected;
 	}
@@ -199,7 +199,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _normalIconTexture:Texture;
 
-	public function get normalIconTexture():Texture
+	public function get_normalIconTexture():Texture
 	{
 		return this._normalIconTexture;
 	}
@@ -216,7 +216,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _firstNormalIconTexture:Texture;
 
-	public function get firstNormalIconTexture():Texture
+	public function get_firstNormalIconTexture():Texture
 	{
 		return this._firstNormalIconTexture;
 	}
@@ -233,7 +233,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _lastNormalIconTexture:Texture;
 
-	public function get lastNormalIconTexture():Texture
+	public function get_lastNormalIconTexture():Texture
 	{
 		return this._lastNormalIconTexture;
 	}
@@ -250,7 +250,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _selectedIconTexture:Texture;
 
-	public function get selectedIconTexture():Texture
+	public function get_selectedIconTexture():Texture
 	{
 		return this._selectedIconTexture;
 	}
@@ -267,7 +267,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _firstSelectedIconTexture:Texture;
 
-	public function get firstSelectedIconTexture():Texture
+	public function get_firstSelectedIconTexture():Texture
 	{
 		return this._firstSelectedIconTexture;
 	}
@@ -284,7 +284,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _lastSelectedIconTexture:Texture;
 
-	public function get lastSelectedIconTexture():Texture
+	public function get_lastSelectedIconTexture():Texture
 	{
 		return this._lastSelectedIconTexture;
 	}
@@ -301,7 +301,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _iconLoaderFactory:Function = defaultLoaderFactory;
 
-	public function get iconLoaderFactory():Function
+	public function get_iconLoaderFactory():Function
 	{
 		return this._iconLoaderFactory;
 	}
@@ -318,7 +318,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _paddingTop:Float = 0;
 
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -335,7 +335,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _paddingRight:Float = 0;
 
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -352,7 +352,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _paddingBottom:Float = 0;
 
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -369,7 +369,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _paddingLeft:Float = 0;
 
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -386,7 +386,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _gap:Float = 0;
 
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}

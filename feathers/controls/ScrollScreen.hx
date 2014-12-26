@@ -168,7 +168,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ScrollScreen.globalStyleProvider;
 	}
@@ -181,7 +181,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get screenID():String
+	public function get_screenID():String
 	{
 		return this._screenID;
 	}
@@ -202,7 +202,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():ScreenNavigator
+	public function get_owner():ScreenNavigator
 	{
 		return this._owner;
 	}

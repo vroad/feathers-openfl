@@ -208,7 +208,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return PageIndicator.globalStyleProvider;
 	}
@@ -228,7 +228,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 1
 	 */
-	public function get pageCount():Int
+	public function get_pageCount():Int
 	{
 		return this._pageCount;
 	}
@@ -274,7 +274,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get selectedIndex():Int
+	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -313,7 +313,7 @@ class PageIndicator extends FeathersControl
 	 * @see #INTERACTION_MODE_PREVIOUS_NEXT
 	 * @see #INTERACTION_MODE_PRECISE
 	 */
-	public function get interactionMode():String
+	public function get_interactionMode():String
 	{
 		return this._interactionMode;
 	}
@@ -350,7 +350,7 @@ class PageIndicator extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -389,7 +389,7 @@ class PageIndicator extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -428,7 +428,7 @@ class PageIndicator extends FeathersControl
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
 	}
@@ -461,7 +461,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -497,7 +497,7 @@ class PageIndicator extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -529,7 +529,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -563,7 +563,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -597,7 +597,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -631,7 +631,7 @@ class PageIndicator extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -673,7 +673,7 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #selectedSymbolFactory
 	 */
-	public function get normalSymbolFactory():Function
+	public function get_normalSymbolFactory():Function
 	{
 		return this._normalSymbolFactory;
 	}
@@ -715,7 +715,7 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #normalSymbolFactory
 	 */
-	public function get selectedSymbolFactory():Function
+	public function get_selectedSymbolFactory():Function
 	{
 		return this._selectedSymbolFactory;
 	}

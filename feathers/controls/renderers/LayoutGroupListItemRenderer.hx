@@ -52,7 +52,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroupListItemRenderer.globalStyleProvider;
 	}
@@ -65,7 +65,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
-	public function get index():Int
+	public function get_index():Int
 	{
 		return this._index;
 	}
@@ -86,7 +86,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():List
+	public function get_owner():List
 	{
 		return this._owner;
 	}
@@ -112,7 +112,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
-	public function get data():Object
+	public function get_data():Object
 	{
 		return this._data;
 	}
@@ -138,7 +138,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
-	public function get isSelected():Bool
+	public function get_isSelected():Bool
 	{
 		return this._isSelected;
 	}

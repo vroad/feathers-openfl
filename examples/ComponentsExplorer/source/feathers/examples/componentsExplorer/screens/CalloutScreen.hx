@@ -39,7 +39,7 @@ class CalloutScreen extends PanelScreen
 
 	private var _layoutPadding:Float = 0;
 
-	public function get layoutPadding():Float
+	public function get_layoutPadding():Float
 	{
 		return this._layoutPadding;
 	}
@@ -54,7 +54,7 @@ class CalloutScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return CalloutScreen.globalStyleProvider;
 	}

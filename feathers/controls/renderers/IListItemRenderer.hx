@@ -21,7 +21,7 @@ public interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get data():Object;
+	function get_data():Object;
 	
 	/**
 	 * @private
@@ -36,7 +36,7 @@ public interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get index():Int;
+	function get_index():Int;
 	
 	/**
 	 * @private
@@ -48,7 +48,7 @@ public interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get owner():List;
+	function get_owner():List;
 	
 	/**
 	 * @private

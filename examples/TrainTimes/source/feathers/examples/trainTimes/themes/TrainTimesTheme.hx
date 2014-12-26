@@ -100,14 +100,14 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private var _originalDPI:Int;
 
-	public function get originalDPI():Int
+	public function get_originalDPI():Int
 	{
 		return this._originalDPI;
 	}
 
 	private var _scaleToDPI:Bool;
 
-	public function get scaleToDPI():Bool
+	public function get_scaleToDPI():Bool
 	{
 		return this._scaleToDPI;
 	}

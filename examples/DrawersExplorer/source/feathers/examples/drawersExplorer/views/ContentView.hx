@@ -27,7 +27,7 @@ class ContentView extends ScrollContainer
 	private var _bottomButton:Button;
 	private var _leftButton:Button;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ContentView.globalStyleProvider;
 	}

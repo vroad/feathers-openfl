@@ -204,7 +204,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ScrollText.globalStyleProvider;
 	}
@@ -212,7 +212,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._maxVerticalScrollPosition != this._minVerticalScrollPosition && this._isEnabled && this._isFocusEnabled;
 	}
@@ -236,7 +236,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #isHTML
 	 */
-	public function get text():String
+	public function get_text():String
 	{
 		return this._text;
 	}
@@ -277,7 +277,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
 	 * @see #text
 	 */
-	public function get isHTML():Bool
+	public function get_isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -313,7 +313,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see #disabledTextFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get textFormat():TextFormat
+	public function get_textFormat():TextFormat
 	{
 		return this._textFormat;
 	}
@@ -350,7 +350,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see #textFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
 	 */
-	public function get disabledTextFormat():TextFormat
+	public function get_disabledTextFormat():TextFormat
 	{
 		return this._disabledTextFormat;
 	}
@@ -400,7 +400,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html flash.text.StyleSheet
 	 * @see #isHTML
 	 */
-	public function get styleSheet():StyleSheet
+	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
 	}
@@ -438,7 +438,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
-	public function get embedFonts():Bool
+	public function get_embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -475,7 +475,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of flash.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html flash.text.AntiAliasType
 	 */
-	public function get antiAliasType():String
+	public function get_antiAliasType():String
 	{
 		return this._antiAliasType;
 	}
@@ -514,7 +514,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get background():Bool
+	public function get_background():Bool
 	{
 		return this._background;
 	}
@@ -552,7 +552,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
-	public function get backgroundColor():UInt
+	public function get_backgroundColor():UInt
 	{
 		return this._backgroundColor;
 	}
@@ -590,7 +590,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get border():Bool
+	public function get_border():Bool
 	{
 		return this._border;
 	}
@@ -628,7 +628,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
-	public function get borderColor():UInt
+	public function get_borderColor():UInt
 	{
 		return this._borderColor;
 	}
@@ -665,7 +665,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of flash.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
 	 * @see #isHTML
 	 */
-	public function get condenseWhite():Bool
+	public function get_condenseWhite():Bool
 	{
 		return this._condenseWhite;
 	}
@@ -702,7 +702,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
-	public function get displayAsPassword():Bool
+	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -743,7 +743,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html flash.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public function get gridFitType():String
+	public function get_gridFitType():String
 	{
 		return this._gridFitType;
 	}
@@ -783,7 +783,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get sharpness():Float
+	public function get_sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -823,7 +823,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get thickness():Float
+	public function get_thickness():Float
 	{
 		return this._thickness;
 	}
@@ -844,7 +844,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get padding():Float
+	override public function get_padding():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -867,7 +867,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
-	override public function get paddingTop():Float
+	override public function get_paddingTop():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -899,7 +899,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingRight = 20;</listing>
 	 */
-	override public function get paddingRight():Float
+	override public function get_paddingRight():Float
 	{
 		return this._textPaddingRight;
 	}
@@ -931,7 +931,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingBottom = 20;</listing>
 	 */
-	override public function get paddingBottom():Float
+	override public function get_paddingBottom():Float
 	{
 		return this._textPaddingBottom;
 	}
@@ -963,7 +963,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 * <listing version="3.0">
 	 * scrollText.paddingLeft = 20;</listing>
 	 */
-	override public function get paddingLeft():Float
+	override public function get_paddingLeft():Float
 	{
 		return this._textPaddingLeft;
 	}
@@ -989,7 +989,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get visible():Bool
+	override public function get_visible():Bool
 	{
 		return this._visible;
 	}
@@ -1015,7 +1015,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get alpha():Float
+	override public function get_alpha():Float
 	{
 		return this._alpha;
 	}
@@ -1036,7 +1036,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get hasVisibleArea():Bool
+	override public function get_hasVisibleArea():Bool
 	{
 		return true;
 	}

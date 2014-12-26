@@ -62,7 +62,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ProgressBar.globalStyleProvider;
 	}
@@ -88,7 +88,7 @@ class ProgressBar extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -126,7 +126,7 @@ class ProgressBar extends FeathersControl
 	 * @see #minimum
 	 * @see #maximum
 	 */
-	public function get value():Float
+	public function get_value():Float
 	{
 		return this._value;
 	}
@@ -165,7 +165,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Float
+	public function get_minimum():Float
 	{
 		return this._minimum;
 	}
@@ -203,7 +203,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Float
+	public function get_maximum():Float
 	{
 		return this._maximum;
 	}
@@ -252,7 +252,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundSkin():DisplayObject
+	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
 	}
@@ -296,7 +296,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundDisabledSkin():DisplayObject
+	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
 	}
@@ -368,7 +368,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get fillSkin():DisplayObject
+	public function get_fillSkin():DisplayObject
 	{
 		return this._fillSkin;
 	}
@@ -412,7 +412,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get fillDisabledSkin():DisplayObject
+	public function get_fillDisabledSkin():DisplayObject
 	{
 		return this._fillDisabledSkin;
 	}
@@ -458,7 +458,7 @@ class ProgressBar extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -490,7 +490,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -524,7 +524,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -558,7 +558,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -592,7 +592,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}

@@ -104,7 +104,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Bool
+	public function get_isOpen():Bool
 	{
 		return this.content !== null;
 	}

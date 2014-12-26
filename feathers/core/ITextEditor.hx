@@ -151,7 +151,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * The text displayed by the editor.
 	 */
-	function get text():String;
+	function get_text():String;
 
 	/**
 	 * @private
@@ -162,7 +162,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 * Determines if the entered text will be masked so that it cannot be
 	 * seen, such as for a password input.
 	 */
-	function get displayAsPassword():Bool;
+	function get_displayAsPassword():Bool;
 
 	/**
 	 * @private
@@ -172,7 +172,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * The maximum number of characters that may be entered.
 	 */
-	function get maxChars():Int;
+	function get_maxChars():Int;
 
 	/**
 	 * @private
@@ -182,7 +182,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * Limits the set of characters that may be entered.
 	 */
-	function get restrict():String;
+	function get_restrict():String;
 
 	/**
 	 * @private
@@ -192,7 +192,7 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	/**
 	 * Determines if the text is editable.
 	 */
-	function get isEditable():Bool;
+	function get_isEditable():Bool;
 
 	/**
 	 * @private
@@ -208,19 +208,19 @@ public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 *
 	 * @see #setFocus()
 	 */
-	function get setTouchFocusOnEndedPhase():Bool;
+	function get_setTouchFocusOnEndedPhase():Bool;
 
 	/**
 	 * The index of the first character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get selectionBeginIndex():Int;
+	function get_selectionBeginIndex():Int;
 
 	/**
 	 * The index of the last character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get selectionEndIndex():Int;
+	function get_selectionEndIndex():Int;
 
 	/**
 	 * Gives focus to the text editor. Includes an optional position which

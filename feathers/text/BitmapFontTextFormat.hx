@@ -40,7 +40,7 @@ class BitmapFontTextFormat
 	/**
 	 * The name of the font.
 	 */
-	public function get fontName():String
+	public function get_fontName():String
 	{
 		return this.font ? this.font.name : null;
 	}

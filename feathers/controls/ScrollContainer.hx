@@ -221,7 +221,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ScrollContainer.globalStyleProvider;
 	}
@@ -245,7 +245,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 *
 	 * @default null
 	 */
-	public function get layout():ILayout
+	public function get_layout():ILayout
 	{
 		return this._layout;
 	}
@@ -277,7 +277,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function get mxmlContent():Array
+	public function get_mxmlContent():Array
 	{
 		return this._mxmlContent;
 	}
@@ -308,7 +308,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function get numChildren():Int
+	override public function get_numChildren():Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -320,7 +320,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function get numRawChildren():Int
+	public function get_numRawChildren():Int
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;

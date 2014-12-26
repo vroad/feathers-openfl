@@ -21,7 +21,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get data():Object;
+	function get_data():Object;
 	
 	/**
 	 * @private
@@ -34,7 +34,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get groupIndex():Int;
+	function get_groupIndex():Int;
 	
 	/**
 	 * @private
@@ -46,7 +46,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get itemIndex():Int;
+	function get_itemIndex():Int;
 
 	/**
 	 * @private
@@ -58,7 +58,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get layoutIndex():Int;
+	function get_layoutIndex():Int;
 
 	/**
 	 * @private
@@ -70,7 +70,7 @@ public interface IGroupedListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get owner():GroupedList;
+	function get_owner():GroupedList;
 	
 	/**
 	 * @private

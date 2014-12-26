@@ -443,7 +443,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ScrollBar.globalStyleProvider;
 	}
@@ -469,7 +469,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public function get direction():String
+	public function get_direction():String
 	{
 		return this._direction;
 	}
@@ -508,7 +508,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #page
 	 * @see #event:change
 	 */
-	public function get value():Float
+	public function get_value():Float
 	{
 		return this._value;
 	}
@@ -544,7 +544,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #maximum
 	 */
-	public function get minimum():Float
+	public function get_minimum():Float
 	{
 		return this._minimum;
 	}
@@ -575,7 +575,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #minimum
 	 */
-	public function get maximum():Float
+	public function get_maximum():Float
 	{
 		return this._maximum;
 	}
@@ -606,7 +606,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #page
 	 */
-	public function get step():Float
+	public function get_step():Float
 	{
 		return this._step;
 	}
@@ -632,7 +632,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #step
 	 */
-	public function get page():Float
+	public function get_page():Float
 	{
 		return this._page;
 	}
@@ -668,7 +668,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -700,7 +700,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -734,7 +734,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -768,7 +768,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -802,7 +802,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -847,7 +847,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0.05
 	 */
-	public function get repeatDelay():Float
+	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
 	}
@@ -903,7 +903,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #TRACK_LAYOUT_MODE_SINGLE
 	 * @see #TRACK_LAYOUT_MODE_MIN_MAX
 	 */
-	public function get trackLayoutMode():String
+	public function get_trackLayoutMode():String
 	{
 		return this._trackLayoutMode;
 	}
@@ -954,7 +954,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #minimumTrackProperties
 	 */
-	public function get minimumTrackFactory():Function
+	public function get_minimumTrackFactory():Function
 	{
 		return this._minimumTrackFactory;
 	}
@@ -1000,7 +1000,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
-	public function get customMinimumTrackName():String
+	public function get_customMinimumTrackName():String
 	{
 		return this._customMinimumTrackName;
 	}
@@ -1051,7 +1051,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #minimumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get minimumTrackProperties():Object
+	public function get_minimumTrackProperties():Object
 	{
 		if(!this._minimumTrackProperties)
 		{
@@ -1127,7 +1127,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #maximumTrackProperties
 	 */
-	public function get maximumTrackFactory():Function
+	public function get_maximumTrackFactory():Function
 	{
 		return this._maximumTrackFactory;
 	}
@@ -1173,7 +1173,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
-	public function get customMaximumTrackName():String
+	public function get_customMaximumTrackName():String
 	{
 		return this._customMaximumTrackName;
 	}
@@ -1224,7 +1224,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #maximumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get maximumTrackProperties():Object
+	public function get_maximumTrackProperties():Object
 	{
 		if(!this._maximumTrackProperties)
 		{
@@ -1300,7 +1300,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
-	public function get thumbFactory():Function
+	public function get_thumbFactory():Function
 	{
 		return this._thumbFactory;
 	}
@@ -1346,7 +1346,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
-	public function get customThumbName():String
+	public function get_customThumbName():String
 	{
 		return this._customThumbName;
 	}
@@ -1396,7 +1396,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get thumbProperties():Object
+	public function get_thumbProperties():Object
 	{
 		if(!this._thumbProperties)
 		{
@@ -1472,7 +1472,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #decrementButtonProperties
 	 */
-	public function get decrementButtonFactory():Function
+	public function get_decrementButtonFactory():Function
 	{
 		return this._decrementButtonFactory;
 	}
@@ -1518,7 +1518,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #decrementButtonFactory
 	 * @see #decrementButtonProperties
 	 */
-	public function get customDecrementButtonName():String
+	public function get_customDecrementButtonName():String
 	{
 		return this._customDecrementButtonName;
 	}
@@ -1569,7 +1569,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #decrementButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get decrementButtonProperties():Object
+	public function get_decrementButtonProperties():Object
 	{
 		if(!this._decrementButtonProperties)
 		{
@@ -1645,7 +1645,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #incrementButtonProperties
 	 */
-	public function get incrementButtonFactory():Function
+	public function get_incrementButtonFactory():Function
 	{
 		return this._incrementButtonFactory;
 	}
@@ -1691,7 +1691,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #incrementButtonFactory
 	 * @see #incrementButtonProperties
 	 */
-	public function get customIncrementButtonName():String
+	public function get_customIncrementButtonName():String
 	{
 		return this._customIncrementButtonName;
 	}
@@ -1742,7 +1742,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #incrementButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get incrementButtonProperties():Object
+	public function get_incrementButtonProperties():Object
 	{
 		if(!this._incrementButtonProperties)
 		{

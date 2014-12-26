@@ -36,7 +36,7 @@ public interface IToggle extends IFeathersControl
 	/**
 	 * Indicates if the IToggle is selected or not.
 	 */
-	function get isSelected():Bool;
+	function get_isSelected():Bool;
 	
 	/**
 	 * @private

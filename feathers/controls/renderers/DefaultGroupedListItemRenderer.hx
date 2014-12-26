@@ -184,7 +184,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return DefaultGroupedListItemRenderer.globalStyleProvider;
 	}
@@ -197,7 +197,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():Int
+	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -218,7 +218,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get itemIndex():Int
+	public function get_itemIndex():Int
 	{
 		return this._itemIndex;
 	}
@@ -239,7 +239,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():Int
+	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -255,7 +255,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():GroupedList
+	public function get_owner():GroupedList
 	{
 		return GroupedList(this._owner);
 	}

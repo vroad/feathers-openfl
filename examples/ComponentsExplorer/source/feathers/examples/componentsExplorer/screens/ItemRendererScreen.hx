@@ -36,7 +36,7 @@ class ItemRendererScreen extends PanelScreen
 
 	private var _itemRendererGap:Float = 0;
 
-	public function get itemRendererGap():Float
+	public function get_itemRendererGap():Float
 	{
 		return this._itemRendererGap;
 	}
@@ -53,7 +53,7 @@ class ItemRendererScreen extends PanelScreen
 
 	private var _settings:ItemRendererSettings;
 
-	public function get settings():ItemRendererSettings
+	public function get_settings():ItemRendererSettings
 	{
 		return this._settings;
 	}
@@ -68,7 +68,7 @@ class ItemRendererScreen extends PanelScreen
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ItemRendererScreen.globalStyleProvider;
 	}

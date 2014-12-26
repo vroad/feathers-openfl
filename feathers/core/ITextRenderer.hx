@@ -18,7 +18,7 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	/**
 	 * The text to render.
 	 */
-	function get text():String;
+	function get_text():String;
 
 	/**
 	 * @private
@@ -29,7 +29,7 @@ public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 	 * Determines if the text wraps to the next line when it reaches the
 	 * width of the component.
 	 */
-	function get wordWrap():Bool;
+	function get_wordWrap():Bool;
 
 	/**
 	 * @private

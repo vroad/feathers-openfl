@@ -109,7 +109,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroup.globalStyleProvider;
 	}
@@ -132,7 +132,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get layout():ILayout
+	public function get_layout():ILayout
 	{
 		return this._layout;
 	}
@@ -178,7 +178,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function get mxmlContent():Array
+	public function get_mxmlContent():Array
 	{
 		return this._mxmlContent;
 	}
@@ -226,7 +226,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get clipContent():Bool
+	public function get_clipContent():Bool
 	{
 		return this._clipContent;
 	}
@@ -276,7 +276,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundSkin():DisplayObject
+	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
 	}
@@ -311,7 +311,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundDisabledSkin():DisplayObject
+	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
 	}

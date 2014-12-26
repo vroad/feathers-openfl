@@ -52,7 +52,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return LayoutGroupGroupedListItemRenderer.globalStyleProvider;
 	}
@@ -65,7 +65,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get groupIndex():Int
+	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
 	}
@@ -86,7 +86,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get itemIndex():Int
+	public function get_itemIndex():Int
 	{
 		return this._itemIndex;
 	}
@@ -107,7 +107,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get layoutIndex():Int
+	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
 	}
@@ -128,7 +128,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():GroupedList
+	public function get_owner():GroupedList
 	{
 		return this._owner;
 	}
@@ -154,7 +154,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get data():Object
+	public function get_data():Object
 	{
 		return this._data;
 	}
@@ -180,7 +180,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get isSelected():Bool
+	public function get_isSelected():Bool
 	{
 		return this._isSelected;
 	}

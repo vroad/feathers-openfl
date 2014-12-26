@@ -195,7 +195,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return PickerList.globalStyleProvider;
 	}
@@ -230,7 +230,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get dataProvider():ListCollection
+	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
 	}
@@ -304,7 +304,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedItem
 	 */
-	public function get selectedIndex():Int
+	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -353,7 +353,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedIndex
 	 */
-	public function get selectedItem():Object
+	public function get_selectedItem():Object
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
@@ -393,7 +393,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get prompt():String
+	public function get_prompt():String
 	{
 		return this._prompt;
 	}
@@ -438,7 +438,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelFunction
 	 */
-	public function get labelField():String
+	public function get_labelField():String
 	{
 		return this._labelField;
 	}
@@ -492,7 +492,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelField
 	 */
-	public function get labelFunction():Function
+	public function get_labelFunction():Function
 	{
 		return this._labelFunction;
 	}
@@ -521,7 +521,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get popUpContentManager():IPopUpContentManager
+	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
 	}
@@ -580,7 +580,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get typicalItem():Object
+	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
@@ -633,7 +633,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.Button
 	 * @see #buttonProperties
 	 */
-	public function get buttonFactory():Function
+	public function get_buttonFactory():Function
 	{
 		return this._buttonFactory;
 	}
@@ -679,7 +679,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see #buttonProperties
 	 */
-	public function get customButtonName():String
+	public function get_customButtonName():String
 	{
 		return this._customButtonName;
 	}
@@ -729,7 +729,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get buttonProperties():Object
+	public function get_buttonProperties():Object
 	{
 		if(!this._buttonProperties)
 		{
@@ -804,7 +804,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
-	public function get listFactory():Function
+	public function get_listFactory():Function
 	{
 		return this._listFactory;
 	}
@@ -850,7 +850,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
-	public function get customListName():String
+	public function get_customListName():String
 	{
 		return this._customListName;
 	}
@@ -900,7 +900,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
-	public function get listProperties():Object
+	public function get_listProperties():Object
 	{
 		if(!this._listProperties)
 		{
@@ -966,7 +966,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.core.IToggle
 	 * @see feathers.controls.ToggleButton
 	 */
-	public function get toggleButtonOnOpenAndClose():Bool
+	public function get_toggleButtonOnOpenAndClose():Bool
 	{
 		return this._toggleButtonOnOpenAndClose;
 	}

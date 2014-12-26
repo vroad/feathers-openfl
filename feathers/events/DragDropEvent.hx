@@ -79,7 +79,7 @@ class DragDropEvent extends Event
 	/**
 	 * The <code>DragData</code> associated with the current drag.
 	 */
-	public function get dragData():DragData
+	public function get_dragData():DragData
 	{
 		return DragData(this.data);
 	}

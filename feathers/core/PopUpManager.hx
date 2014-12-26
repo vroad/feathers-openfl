@@ -112,7 +112,7 @@ class PopUpManager
 	 *     return overlay;
 	 * };</listing>
 	 */
-	public static function get overlayFactory():Function
+	public static function get_overlayFactory():Function
 	{
 		return PopUpManager.forStarling(Starling.current).overlayFactory;
 	}
@@ -147,7 +147,7 @@ class PopUpManager
 	 *
 	 * @default null
 	 */
-	public static function get root():DisplayObjectContainer
+	public static function get_root():DisplayObjectContainer
 	{
 		return PopUpManager.forStarling(Starling.current).root;
 	}

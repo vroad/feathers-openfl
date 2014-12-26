@@ -31,7 +31,7 @@ class SliderScreen extends PanelScreen
 	private var _backButton:Button;
 	private var _settingsButton:Button;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return SliderScreen.globalStyleProvider;
 	}

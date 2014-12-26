@@ -50,7 +50,7 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get minimum():Float;
+	function get_minimum():Float;
 
 	/**
 	 * @private
@@ -69,7 +69,7 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get maximum():Float;
+	function get_maximum():Float;
 
 	/**
 	 * @private
@@ -88,7 +88,7 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get value():Float;
+	function get_value():Float;
 
 	/**
 	 * @private
@@ -107,7 +107,7 @@ public interface IRange extends IFeathersControl
 	 * component.page = 10
 	 * component.value = 12;</listing>
 	 */
-	function get step():Float;
+	function get_step():Float;
 
 	/**
 	 * @private

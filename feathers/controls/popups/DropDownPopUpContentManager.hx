@@ -64,7 +64,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @inheritDoc
 	 */
-	public function get isOpen():Bool
+	public function get_isOpen():Bool
 	{
 		return this.content !== null;
 	}
@@ -77,7 +77,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * The space, in pixels, between the source and the pop-up.
 	 */
-	public function get gap():Float
+	public function get_gap():Float
 	{
 		return this._gap;
 	}

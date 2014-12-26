@@ -25,7 +25,7 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	 * this property. It is meant for developers creating custom components
 	 * only.</p>
 	 */
-	function get beforeVirtualizedItemCount():Int;
+	function get_beforeVirtualizedItemCount():Int;
 
 	/**
 	 * @private
@@ -45,7 +45,7 @@ public interface ITrimmedVirtualLayout extends IVirtualLayout
 	 * this property. It is meant for developers creating custom components
 	 * only.</p>
 	 */
-	function get afterVirtualizedItemCount():Int;
+	function get_afterVirtualizedItemCount():Int;
 
 	/**
 	 * @private

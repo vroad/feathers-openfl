@@ -33,7 +33,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html starling.display.Image
 	 */
-	public function get imageProperties():Object
+	public function get_imageProperties():Object
 	{
 		if(!this._imageProperties)
 		{

@@ -19,7 +19,7 @@ public interface IPopUpManager
 	/**
 	 * @copy PopUpManager#overlayFactory
 	 */
-	function get overlayFactory():Function;
+	function get_overlayFactory():Function;
 
 	/**
 	 * @private
@@ -29,7 +29,7 @@ public interface IPopUpManager
 	/**
 	 * @copy PopUpManager#root
 	 */
-	function get root():DisplayObjectContainer;
+	function get_root():DisplayObjectContainer;
 
 	/**
 	 * @private

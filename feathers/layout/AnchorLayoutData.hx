@@ -53,7 +53,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentWidth():Float
+	public function get_percentWidth():Float
 	{
 		return this._percentWidth;
 	}
@@ -84,7 +84,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentHeight():Float
+	public function get_percentHeight():Float
 	{
 		return this._percentHeight;
 	}
@@ -116,7 +116,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #top
 	 */
-	public function get topAnchorDisplayObject():DisplayObject
+	public function get_topAnchorDisplayObject():DisplayObject
 	{
 		return this._topAnchorDisplayObject;
 	}
@@ -149,7 +149,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #topAnchorDisplayObject
 	 */
-	public function get top():Float
+	public function get_top():Float
 	{
 		return this._top;
 	}
@@ -181,7 +181,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #right
 	 */
-	public function get rightAnchorDisplayObject():DisplayObject
+	public function get_rightAnchorDisplayObject():DisplayObject
 	{
 		return this._rightAnchorDisplayObject;
 	}
@@ -214,7 +214,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #rightAnchorDisplayObject
 	 */
-	public function get right():Float
+	public function get_right():Float
 	{
 		return this._right;
 	}
@@ -246,7 +246,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #bottom
 	 */
-	public function get bottomAnchorDisplayObject():DisplayObject
+	public function get_bottomAnchorDisplayObject():DisplayObject
 	{
 		return this._bottomAnchorDisplayObject;
 	}
@@ -279,7 +279,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #bottomAnchorDisplayObject
 	 */
-	public function get bottom():Float
+	public function get_bottom():Float
 	{
 		return this._bottom;
 	}
@@ -311,7 +311,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #left
 	 */
-	public function get leftAnchorDisplayObject():DisplayObject
+	public function get_leftAnchorDisplayObject():DisplayObject
 	{
 		return this._leftAnchorDisplayObject;
 	}
@@ -344,7 +344,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #leftAnchorDisplayObject
 	 */
-	public function get left():Float
+	public function get_left():Float
 	{
 		return this._left;
 	}
@@ -376,7 +376,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #horizontalCenter
 	 */
-	public function get horizontalCenterAnchorDisplayObject():DisplayObject
+	public function get_horizontalCenterAnchorDisplayObject():DisplayObject
 	{
 		return this._horizontalCenterAnchorDisplayObject;
 	}
@@ -410,7 +410,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #horizontalCenterAnchorDisplayObject
 	 */
-	public function get horizontalCenter():Float
+	public function get_horizontalCenter():Float
 	{
 		return this._horizontalCenter;
 	}
@@ -442,7 +442,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #verticalCenter
 	 */
-	public function get verticalCenterAnchorDisplayObject():DisplayObject
+	public function get_verticalCenterAnchorDisplayObject():DisplayObject
 	{
 		return this._verticalCenterAnchorDisplayObject;
 	}
@@ -476,7 +476,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @see #verticalCenterAnchorDisplayObject
 	 */
-	public function get verticalCenter():Float
+	public function get_verticalCenter():Float
 	{
 		return this._verticalCenter;
 	}

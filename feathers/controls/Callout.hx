@@ -214,7 +214,7 @@ class Callout extends FeathersControl
 	 * @see #stagePaddingBottom
 	 * @see #stagePaddingLeft
 	 */
-	public static function get stagePadding():Float
+	public static function get_stagePadding():Float
 	{
 		return Callout.stagePaddingTop;
 	}
@@ -720,7 +720,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Callout.globalStyleProvider;
 	}
@@ -744,7 +744,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get content():DisplayObject
+	public function get_content():DisplayObject
 	{
 		return this._content;
 	}
@@ -812,7 +812,7 @@ class Callout extends FeathersControl
 	 * @see #arrowPosition
 	 * @see #arrowOffset
 	 */
-	public function get origin():DisplayObject
+	public function get_origin():DisplayObject
 	{
 		return this._origin;
 	}
@@ -876,7 +876,7 @@ class Callout extends FeathersControl
 	 * @see #DIRECTION_RIGHT
 	 * @see #arrowPosition
 	 */
-	public function get supportedDirections():String
+	public function get_supportedDirections():String
 	{
 		return this._supportedDirections;
 	}
@@ -905,7 +905,7 @@ class Callout extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Float
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -938,7 +938,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Float
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -973,7 +973,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Float
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -1008,7 +1008,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Float
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -1043,7 +1043,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Float
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -1099,7 +1099,7 @@ class Callout extends FeathersControl
 	 * @see #supportedDirections
 	 * @see #arrowOffset
 	 */
-	public function get arrowPosition():String
+	public function get_arrowPosition():String
 	{
 		return this._arrowPosition;
 	}
@@ -1142,7 +1142,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundSkin():DisplayObject
+	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
 	}
@@ -1194,7 +1194,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get bottomArrowSkin():DisplayObject
+	public function get_bottomArrowSkin():DisplayObject
 	{
 		return this._bottomArrowSkin;
 	}
@@ -1248,7 +1248,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get topArrowSkin():DisplayObject
+	public function get_topArrowSkin():DisplayObject
 	{
 		return this._topArrowSkin;
 	}
@@ -1302,7 +1302,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get leftArrowSkin():DisplayObject
+	public function get_leftArrowSkin():DisplayObject
 	{
 		return this._leftArrowSkin;
 	}
@@ -1356,7 +1356,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
-	public function get rightArrowSkin():DisplayObject
+	public function get_rightArrowSkin():DisplayObject
 	{
 		return this._rightArrowSkin;
 	}
@@ -1411,7 +1411,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get topArrowGap():Float
+	public function get_topArrowGap():Float
 	{
 		return this._topArrowGap;
 	}
@@ -1448,7 +1448,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get bottomArrowGap():Float
+	public function get_bottomArrowGap():Float
 	{
 		return this._bottomArrowGap;
 	}
@@ -1485,7 +1485,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get rightArrowGap():Float
+	public function get_rightArrowGap():Float
 	{
 		return this._rightArrowGap;
 	}
@@ -1522,7 +1522,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
-	public function get leftArrowGap():Float
+	public function get_leftArrowGap():Float
 	{
 		return this._leftArrowGap;
 	}
@@ -1571,7 +1571,7 @@ class Callout extends FeathersControl
 	 * @see #arrowPosition
 	 * @see #origin
 	 */
-	public function get arrowOffset():Float
+	public function get_arrowOffset():Float
 	{
 		return this._arrowOffset;
 	}

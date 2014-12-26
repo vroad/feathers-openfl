@@ -40,7 +40,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _autoCapitalize:String = "none";
 
-	public function get autoCapitalize():String
+	public function get_autoCapitalize():String
 	{
 		return this._autoCapitalize;
 	}
@@ -52,7 +52,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _autoCorrect:Bool = false;
 
-	public function get autoCorrect():Bool
+	public function get_autoCorrect():Bool
 	{
 		return this._autoCorrect;
 	}
@@ -64,7 +64,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _color:UInt = 0x000000;
 
-	public function get color():UInt
+	public function get_color():UInt
 	{
 		return this._textFormat.color as uint;
 	}
@@ -80,7 +80,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get displayAsPassword():Bool
+	public function get_displayAsPassword():Bool
 	{
 		return this._textField.displayAsPassword;
 	}
@@ -90,7 +90,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.displayAsPassword = value;
 	}
 
-	public function get editable():Bool
+	public function get_editable():Bool
 	{
 		return this._textField.type == TextFieldType.INPUT;
 	}
@@ -102,7 +102,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _fontFamily:String = null;
 
-	public function get fontFamily():String
+	public function get_fontFamily():String
 	{
 		return this._textFormat.font;
 	}
@@ -118,7 +118,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get fontPosture():String
+	public function get_fontPosture():String
 	{
 		return this._textFormat.italic ? FontPosture.ITALIC : FontPosture.NORMAL;
 	}
@@ -134,7 +134,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get fontSize():Int
+	public function get_fontSize():Int
 	{
 		return this._textFormat.size as int;
 	}
@@ -150,7 +150,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get fontWeight():String
+	public function get_fontWeight():String
 	{
 		return this._textFormat.bold ? FontWeight.BOLD : FontWeight.NORMAL;
 	}
@@ -168,7 +168,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _locale:String = "en";
 
-	public function get locale():String
+	public function get_locale():String
 	{
 		return this._locale;
 	}
@@ -178,7 +178,7 @@ public final class StageTextField extends EventDispatcher
 		this._locale = value;
 	}
 
-	public function get maxChars():Int
+	public function get_maxChars():Int
 	{
 		return this._textField.maxChars;
 	}
@@ -188,12 +188,12 @@ public final class StageTextField extends EventDispatcher
 		this._textField.maxChars = value;
 	}
 
-	public function get multiline():Bool
+	public function get_multiline():Bool
 	{
 		return this._textField.multiline;
 	}
 
-	public function get restrict():String
+	public function get_restrict():String
 	{
 		return this._textField.restrict;
 	}
@@ -205,7 +205,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _returnKeyLabel:String = "default";
 
-	public function get returnKeyLabel():String
+	public function get_returnKeyLabel():String
 	{
 		return this._returnKeyLabel;
 	}
@@ -215,19 +215,19 @@ public final class StageTextField extends EventDispatcher
 		this._returnKeyLabel = value;
 	}
 
-	public function get selectionActiveIndex():Int
+	public function get_selectionActiveIndex():Int
 	{
 		return this._textField.selectionBeginIndex;
 	}
 
-	public function get selectionAnchorIndex():Int
+	public function get_selectionAnchorIndex():Int
 	{
 		return this._textField.selectionEndIndex;
 	}
 
 	private var _softKeyboardType:String = "default";
 
-	public function get softKeyboardType():String
+	public function get_softKeyboardType():String
 	{
 		return this._softKeyboardType;
 	}
@@ -237,7 +237,7 @@ public final class StageTextField extends EventDispatcher
 		this._softKeyboardType = value;
 	}
 
-	public function get stage():Stage
+	public function get_stage():Stage
 	{
 		return this._textField.stage;
 	}
@@ -259,7 +259,7 @@ public final class StageTextField extends EventDispatcher
 		}
 	}
 
-	public function get text():String
+	public function get_text():String
 	{
 		return this._textField.text;
 	}
@@ -271,7 +271,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _textAlign:String = TextFormatAlign.START;
 
-	public function get textAlign():String
+	public function get_textAlign():String
 	{
 		return this._textAlign;
 	}
@@ -298,7 +298,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _viewPort:Rectangle = new Rectangle();
 
-	public function get viewPort():Rectangle
+	public function get_viewPort():Rectangle
 	{
 		return this._viewPort;
 	}
@@ -318,7 +318,7 @@ public final class StageTextField extends EventDispatcher
 		this.dispatchCompleteIfPossible();
 	}
 
-	public function get visible():Bool
+	public function get_visible():Bool
 	{
 		return this._textField.visible;
 	}

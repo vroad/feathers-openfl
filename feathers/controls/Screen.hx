@@ -71,7 +71,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return Screen.globalStyleProvider;
 	}
@@ -84,7 +84,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get screenID():String
+	public function get_screenID():String
 	{
 		return this._screenID;
 	}
@@ -105,7 +105,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():ScreenNavigator
+	public function get_owner():ScreenNavigator
 	{
 		return this._owner;
 	}

@@ -59,7 +59,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _minVisibleWidth:Float = 0;
 
-	public function get minVisibleWidth():Float
+	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
@@ -80,7 +80,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _maxVisibleWidth:Float = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleWidth():Float
+	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
@@ -103,7 +103,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var explicitVisibleWidth:Float = NaN;
 
-	public function get visibleWidth():Float
+	public function get_visibleWidth():Float
 	{
 		return this.actualVisibleWidth;
 	}
@@ -121,7 +121,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _minVisibleHeight:Float = 0;
 
-	public function get minVisibleHeight():Float
+	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
@@ -142,7 +142,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _maxVisibleHeight:Float = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleHeight():Float
+	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
@@ -165,7 +165,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var explicitVisibleHeight:Float = NaN;
 
-	public function get visibleHeight():Float
+	public function get_visibleHeight():Float
 	{
 		return this.actualVisibleHeight;
 	}
@@ -183,14 +183,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _contentX:Float = 0;
 
-	public function get contentX():Float
+	public function get_contentX():Float
 	{
 		return this._contentX;
 	}
 
 	private var _contentY:Float = 0;
 
-	public function get contentY():Float
+	public function get_contentY():Float
 	{
 		return this._contentY;
 	}
@@ -209,7 +209,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _owner:List;
 
-	public function get owner():List
+	public function get_owner():List
 	{
 		return this._owner;
 	}
@@ -235,7 +235,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _dataProvider:ListCollection;
 
-	public function get dataProvider():ListCollection
+	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
 	}
@@ -275,7 +275,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererType:Class;
 
-	public function get itemRendererType():Class
+	public function get_itemRendererType():Class
 	{
 		return this._itemRendererType;
 	}
@@ -293,7 +293,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererFactory:Function;
 
-	public function get itemRendererFactory():Function
+	public function get_itemRendererFactory():Function
 	{
 		return this._itemRendererFactory;
 	}
@@ -311,7 +311,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererName:String;
 
-	public function get itemRendererName():String
+	public function get_itemRendererName():String
 	{
 		return this._itemRendererName;
 	}
@@ -328,7 +328,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _typicalItem:Object = null;
 
-	public function get typicalItem():Object
+	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
@@ -345,7 +345,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererProperties:PropertyProxy;
 
-	public function get itemRendererProperties():PropertyProxy
+	public function get_itemRendererProperties():PropertyProxy
 	{
 		return this._itemRendererProperties;
 	}
@@ -373,7 +373,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _layout:ILayout;
 
-	public function get layout():ILayout
+	public function get_layout():ILayout
 	{
 		return this._layout;
 	}
@@ -400,7 +400,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	public function get horizontalScrollStep():Float
+	public function get_horizontalScrollStep():Float
 	{
 		if(this._activeRenderers.length == 0)
 		{
@@ -416,7 +416,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return itemRendererHeight;
 	}
 
-	public function get verticalScrollStep():Float
+	public function get_verticalScrollStep():Float
 	{
 		if(this._activeRenderers.length == 0)
 		{
@@ -434,7 +434,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _horizontalScrollPosition:Float = 0;
 
-	public function get horizontalScrollPosition():Float
+	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -451,7 +451,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _verticalScrollPosition:Float = 0;
 
-	public function get verticalScrollPosition():Float
+	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
@@ -470,7 +470,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _isSelectable:Bool = true;
 
-	public function get isSelectable():Bool
+	public function get_isSelectable():Bool
 	{
 		return this._isSelectable;
 	}
@@ -490,7 +490,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _allowMultipleSelection:Bool = false;
 
-	public function get allowMultipleSelection():Bool
+	public function get_allowMultipleSelection():Bool
 	{
 		return this._allowMultipleSelection;
 	}
@@ -502,7 +502,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _selectedIndices:ListCollection;
 
-	public function get selectedIndices():ListCollection
+	public function get_selectedIndices():ListCollection
 	{
 		return this._selectedIndices;
 	}

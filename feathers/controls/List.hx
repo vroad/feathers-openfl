@@ -263,7 +263,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return List.globalStyleProvider;
 	}
@@ -271,7 +271,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -299,7 +299,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get layout():ILayout
+	public function get_layout():ILayout
 	{
 		return this._layout;
 	}
@@ -367,7 +367,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.data.ListCollection#dispose()
 	 */
-	public function get dataProvider():ListCollection
+	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
 	}
@@ -426,7 +426,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #allowMultipleSelection
 	 */
-	public function get isSelectable():Bool
+	public function get_isSelectable():Bool
 	{
 		return this._isSelectable;
 	}
@@ -486,7 +486,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
-	public function get selectedIndex():Int
+	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -544,7 +544,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
-	public function get selectedItem():Object
+	public function get_selectedItem():Object
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
@@ -589,7 +589,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndices
 	 * @see #selectedItems
 	 */
-	public function get allowMultipleSelection():Bool
+	public function get_allowMultipleSelection():Bool
 	{
 		return this._allowMultipleSelection;
 	}
@@ -644,7 +644,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public function get selectedIndices():Vector.<int>
+	public function get_selectedIndices():Vector.<int>
 	{
 		return this._selectedIndices.data as Vector.<int>;
 	}
@@ -712,7 +712,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public function get selectedItems():Vector.<Object>
+	public function get_selectedItems():Vector.<Object>
 	{
 		return this.getSelectedItems(new <Object>[]);
 	}
@@ -795,7 +795,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererFactory
 	 */
-	public function get itemRendererType():Class
+	public function get_itemRendererType():Class
 	{
 		return this._itemRendererType;
 	}
@@ -845,7 +845,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererType
 	 */
-	public function get itemRendererFactory():Function
+	public function get_itemRendererFactory():Function
 	{
 		return this._itemRendererFactory;
 	}
@@ -885,7 +885,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get typicalItem():Object
+	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
@@ -927,7 +927,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get itemRendererName():String
+	public function get_itemRendererName():String
 	{
 		return this._itemRendererName;
 	}
@@ -984,7 +984,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see feathers.controls.renderers.DefaultListItemRenderer
 	 */
-	public function get itemRendererProperties():Object
+	public function get_itemRendererProperties():Object
 	{
 		if(!this._itemRendererProperties)
 		{

@@ -51,7 +51,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentWidth():Float
+	public function get_percentWidth():Float
 	{
 		return this._percentWidth;
 	}
@@ -83,7 +83,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 *
 	 * @default NaN
 	 */
-	public function get percentHeight():Float
+	public function get_percentHeight():Float
 	{
 		return this._percentHeight;
 	}

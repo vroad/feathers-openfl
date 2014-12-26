@@ -28,7 +28,7 @@ class ProgressBarScreen extends PanelScreen
 	private var _horizontalProgressTween:Tween;
 	private var _verticalProgressTween:Tween;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ProgressBarScreen.globalStyleProvider;
 	}

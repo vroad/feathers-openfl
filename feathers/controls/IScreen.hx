@@ -20,7 +20,7 @@ public interface IScreen extends IFeathersControl
 	 * The identifier for the screen. This value is passed in by the
 	 * <code>ScreenNavigator</code> when the screen is instantiated.
 	 */
-	function get screenID():String;
+	function get_screenID():String;
 
 	/**
 	 * @private
@@ -30,7 +30,7 @@ public interface IScreen extends IFeathersControl
 	/**
 	 * The ScreenNavigator that is displaying this screen.
 	 */
-	function get owner():ScreenNavigator;
+	function get_owner():ScreenNavigator;
 
 	/**
 	 * @private

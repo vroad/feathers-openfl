@@ -60,7 +60,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * The current focus manager for this component.
 	 */
-	function get focusManager():IFocusManager;
+	function get_focusManager():IFocusManager;
 
 	/**
 	 * @private
@@ -75,7 +75,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.isFocusEnabled = false;</listing>
 	 */
-	function get isFocusEnabled():Bool;
+	function get_isFocusEnabled():Bool;
 
 	/**
 	 * @private
@@ -91,7 +91,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.nextTabFocus = otherObject;</listing>
 	 */
-	function get nextTabFocus():IFocusDisplayObject;
+	function get_nextTabFocus():IFocusDisplayObject;
 
 	/**
 	 * @private
@@ -108,7 +108,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.previousTabFocus = otherObject;</listing>
 	 */
-	function get previousTabFocus():IFocusDisplayObject;
+	function get_previousTabFocus():IFocusDisplayObject;
 
 	/**
 	 * @private
@@ -125,7 +125,7 @@ public interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.focusOwner = otherObject;</listing>
 	 */
-	function get focusOwner():IFocusDisplayObject;
+	function get_focusOwner():IFocusDisplayObject;
 
 	/**
 	 * @private

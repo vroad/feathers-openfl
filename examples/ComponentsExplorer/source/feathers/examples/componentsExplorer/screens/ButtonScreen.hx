@@ -37,7 +37,7 @@ class ButtonScreen extends PanelScreen
 	
 	private var _icon:ImageLoader;
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return ButtonScreen.globalStyleProvider;
 	}
