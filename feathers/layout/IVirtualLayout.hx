@@ -16,7 +16,7 @@ import starling.display.DisplayObject;
  * hundreds of items are needed, but only a small subset of the items are
  * visible at any given moment.
  */
-public interface IVirtualLayout extends ILayout
+interface IVirtualLayout extends ILayout
 {
 	/**
 	 * Determines if virtual layout should be used. Some components don't

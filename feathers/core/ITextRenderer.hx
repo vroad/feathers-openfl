@@ -13,7 +13,7 @@ import flash.geom.Point;
  *
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  */
-public interface ITextRenderer extends IFeathersControl, ITextBaselineControl
+interface ITextRenderer extends IFeathersControl, ITextBaselineControl
 {
 	/**
 	 * The text to render.

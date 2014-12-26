@@ -12,7 +12,7 @@ package feathers.data;
  *
  * @see HierarchicalCollection
  */
-public interface IHierarchicalCollectionDataDescriptor
+interface IHierarchicalCollectionDataDescriptor
 {
 	/**
 	 * Determines if a node from the data source is a branch.

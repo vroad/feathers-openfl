@@ -26,7 +26,7 @@ import starling.filters.FragmentFilter;
  *
  * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html Full description of starling.display.DisplayObject in Gamua's Starling Framework API Reference
  */
-public interface IFeathersDisplayObject extends IFeathersEventDispatcher
+interface IFeathersDisplayObject extends IFeathersEventDispatcher
 {
 	/**
 	 * The x, or horizontal, position of the display object in the parent's

@@ -11,7 +11,7 @@ package feathers.core;
  * will delay updating after property changes until just before Starling
  * renders the display list to avoid running redundant code.
  */
-public interface IValidating extends IFeathersDisplayObject
+interface IValidating extends IFeathersDisplayObject
 {
 	/**
 	 * The component's depth in the display list, relative to the stage. If

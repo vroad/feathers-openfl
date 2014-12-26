@@ -84,7 +84,7 @@ import flash.geom.Rectangle;
  * Basic interface for Feathers UI controls. A Feathers control must also
  * be a Starling display object.
  */
-public interface IFeathersControl extends IValidating
+interface IFeathersControl extends IValidating
 {
 	/**
 	 * @copy feathers.core.FeathersControl#minWidth

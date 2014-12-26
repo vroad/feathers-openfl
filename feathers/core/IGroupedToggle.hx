@@ -11,7 +11,7 @@ package feathers.core;
  *
  * @see ToggleGroup
  */
-public interface IGroupedToggle extends IToggle
+interface IGroupedToggle extends IToggle
 {
 	/**
 	 * When the toggle is added to a <code>ToggleGroup</code>, the group

@@ -14,7 +14,7 @@ import starling.display.DisplayObjectContainer;
  *
  * @see feathers.core.PopUpManager
  */
-public interface IPopUpManager
+interface IPopUpManager
 {
 	/**
 	 * @copy PopUpManager#overlayFactory

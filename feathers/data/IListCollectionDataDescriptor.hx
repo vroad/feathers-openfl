@@ -12,7 +12,7 @@ package feathers.data;
  * 
  * @see ListCollection
  */
-public interface IListCollectionDataDescriptor
+interface IListCollectionDataDescriptor
 {
 	/**
 	 * The number of items in the data source.

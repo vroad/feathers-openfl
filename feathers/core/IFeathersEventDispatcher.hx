@@ -18,7 +18,7 @@ import starling.events.Event;
  *
  * @see http://doc.starling-framework.org/core/starling/events/EventDispatcher.html starling.events.EventDispatcher
  */
-public interface IFeathersEventDispatcher
+interface IFeathersEventDispatcher
 {
 	/**
 	 * Adds a listener for an event type.

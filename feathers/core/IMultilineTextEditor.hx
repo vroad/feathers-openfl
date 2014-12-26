@@ -15,7 +15,7 @@ package feathers.core;
  * @see feathers.controls.TextInput
  * @see http://wiki.starling-framework.org/feathers/text-editors
  */
-public interface IMultilineTextEditor extends ITextEditor
+interface IMultilineTextEditor extends ITextEditor
 {
 	/**
 	 * Indicates whether the text editor can display more than one line of

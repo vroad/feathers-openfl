@@ -13,7 +13,7 @@ package feathers.controls;
  * <code>IDirectionalScrollBar</code> is returned by its scroll bar
  * factories.
  */
-public interface IDirectionalScrollBar extends IScrollBar
+interface IDirectionalScrollBar extends IScrollBar
 {
 	/**
 	 * The direction of the scroll bar, either horizontal or vertical.

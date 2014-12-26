@@ -20,7 +20,7 @@ import starling.display.DisplayObject;
  * @see feathers.controls.Scroller
  * @see feathers.controls.ScrollContainer
  */
-public interface IScrollContainer extends IFeathersControl
+interface IScrollContainer extends IFeathersControl
 {
 	/**
 	 * Returns the number of raw children that are added directly to the

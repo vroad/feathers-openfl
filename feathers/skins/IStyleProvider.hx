@@ -11,7 +11,7 @@ import feathers.core.IFeathersControl;
 /**
  * Sets skin and style properties on a Feathers UI component.
  */
-public interface IStyleProvider
+interface IStyleProvider
 {
 	/**
 	 * Applies styles to a specific Feathers UI component, unless that

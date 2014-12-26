@@ -19,7 +19,7 @@ import feathers.core.IFeathersDisplayObject;
  * A display object that may be associated with extra data for use with
  * advanced layouts.
  */
-public interface ILayoutDisplayObject extends IFeathersDisplayObject
+interface ILayoutDisplayObject extends IFeathersDisplayObject
 {
 	/**
 	 * Extra parameters associated with this display object that will be

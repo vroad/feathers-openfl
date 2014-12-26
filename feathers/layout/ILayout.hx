@@ -23,7 +23,7 @@ import starling.display.DisplayObject;
 /**
  * Interface providing layout capabilities for containers.
  */
-public interface ILayout extends IFeathersEventDispatcher
+interface ILayout extends IFeathersEventDispatcher
 {
 	/**
 	 * Determines if the container calls <code>layout()</code> when the

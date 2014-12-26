@@ -36,7 +36,7 @@ import feathers.core.IFeathersControl;
  *
  * @see Scroller
  */
-public interface IRange extends IFeathersControl
+interface IRange extends IFeathersControl
 {
 	/**
 	 * The minimum numeric value of the range.

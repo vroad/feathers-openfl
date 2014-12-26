@@ -12,7 +12,7 @@ import feathers.core.IToggle;
 /**
  * Interface to implement a renderer for a grouped list item.
  */
-public interface IGroupedListItemRenderer extends IToggle
+interface IGroupedListItemRenderer extends IToggle
 {
 	/**
 	 * An item from the grouped list's data provider. The data may change if

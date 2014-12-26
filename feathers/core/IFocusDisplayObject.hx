@@ -55,7 +55,7 @@ package feathers.core;
  *
  * @see feathers.core.IFocusManager
  */
-public interface IFocusDisplayObject extends IFeathersDisplayObject
+interface IFocusDisplayObject extends IFeathersDisplayObject
 {
 	/**
 	 * The current focus manager for this component.

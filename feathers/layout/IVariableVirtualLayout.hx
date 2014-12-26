@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 /**
  * A virtual layout that supports variable item dimensions.
  */
-public interface IVariableVirtualLayout extends IVirtualLayout
+interface IVariableVirtualLayout extends IVirtualLayout
 {
 	/**
 	 * When the layout is virtualized, and this value is true, the items may

@@ -14,7 +14,7 @@ import feathers.core.IFeathersControl;
  * @see ScreenNavigator
  * @see ScreenNavigatorItem
  */
-public interface IScreen extends IFeathersControl
+interface IScreen extends IFeathersControl
 {
 	/**
 	 * The identifier for the screen. This value is passed in by the

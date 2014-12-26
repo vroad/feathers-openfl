@@ -12,7 +12,7 @@ import feathers.core.IToggle;
 /**
  * Interface to implement a renderer for a list item.
  */
-public interface IListItemRenderer extends IToggle
+interface IListItemRenderer extends IToggle
 {
 	/**
 	 * An item from the list's data provider. The data may change if this

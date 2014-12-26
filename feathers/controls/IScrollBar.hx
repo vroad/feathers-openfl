@@ -34,7 +34,7 @@ package feathers.controls;
  *
  * @see Scroller
  */
-public interface IScrollBar extends IRange
+interface IScrollBar extends IRange
 {
 
 	/**

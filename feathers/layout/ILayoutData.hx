@@ -31,6 +31,6 @@ import feathers.core.IFeathersEventDispatcher;
 /**
  * Extra data used by layout algorithms.
  */
-public interface ILayoutData extends IFeathersEventDispatcher
+interface ILayoutData extends IFeathersEventDispatcher
 {
 }

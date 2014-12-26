@@ -55,7 +55,7 @@ import starling.display.DisplayObject;
 /**
  * Automatically manages pop-up content layout and positioning.
  */
-public interface IPopUpContentManager
+interface IPopUpContentManager
 {
 	/**
 	 * Indicates if the pop-up content is open or not.

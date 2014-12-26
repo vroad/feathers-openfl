@@ -68,7 +68,7 @@ import starling.events.Event;
  *
  * @see DragDropManager
  */
-public interface IDragSource
+interface IDragSource
 {
 	function dispatchEvent(event:Event):Void;
 	function dispatchEventWith(type:String, bubbles:Bool = false, data:Object = null):Void;

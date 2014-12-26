@@ -14,7 +14,7 @@ import starling.display.DisplayObjectContainer;
  * @see feathers.core.IFocusDisplayObject
  * @see feathers.core.FocusManager
  */
-public interface IFocusManager
+interface IFocusManager
 {
 	/**
 	 * Determines if this focus manager is enabled. A focus manager may be

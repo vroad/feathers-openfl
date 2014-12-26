@@ -16,7 +16,7 @@ import starling.display.DisplayObject;
  *
  * @see feathers.core.IFocusManager
  */
-public interface IFocusExtras
+interface IFocusExtras
 {
 	/**
 	 * Extra display objects that are not accessible through standard

@@ -9,7 +9,7 @@ package feathers.core;
 /**
  * A UI control with text that has a baseline.
  */
-public interface ITextBaselineControl extends IFeathersControl
+interface ITextBaselineControl extends IFeathersControl
 {
 	/**
 	 * Returns the text baseline measurement, in pixels.
