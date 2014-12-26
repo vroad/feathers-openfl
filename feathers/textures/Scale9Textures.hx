@@ -15,7 +15,7 @@ import starling.textures.Texture;
  *
  * @see feathers.display.Scale9Image
  */
-public final class Scale9Textures
+class Scale9Textures
 {
 	/**
 	 * @private

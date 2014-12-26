@@ -12,7 +12,7 @@ import starling.animation.IAnimatable;
 import starling.core.Starling;
 
 [ExcludeClass]
-public final class ValidationQueue implements IAnimatable
+class ValidationQueue implements IAnimatable
 {
 	/**
 	 * @private

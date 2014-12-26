@@ -18,7 +18,7 @@ import flash.utils.flash_proxy;
  * is like saying, "If this nested <code>PropertyProxy</code> doesn't exist
  * yet, create one. If it does, use the existing one."</p>
  */
-public final dynamic class PropertyProxy extends Proxy
+dynamic class PropertyProxy extends Proxy
 {
 	/**
 	 * Creates a <code>PropertyProxy</code> from a regular old <code>Object</code>.

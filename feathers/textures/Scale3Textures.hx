@@ -15,7 +15,7 @@ import starling.textures.Texture;
  *
  * @see feathers.display.Scale3Image
  */
-public final class Scale3Textures
+class Scale3Textures
 {
 	/**
 	 * @private
