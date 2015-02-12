@@ -56,7 +56,7 @@ package feathers.themes
 		/**
 		 * Constructor.
 		 */
-		public function MetalWorksMobileTheme(scaleToDPI:Boolean = true)
+		public function MetalWorksMobileTheme(scaleToDPI:Bool = true)
 		{
 			super(scaleToDPI);
 			this.initialize();

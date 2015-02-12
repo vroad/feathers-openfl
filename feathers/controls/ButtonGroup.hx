@@ -1407,7 +1407,7 @@ class ButtonGroup extends FeathersControl
 			}
 			if(item.hasOwnProperty(ENABLED_FIELD))
 			{
-				button.isEnabled = item.isEnabled as Boolean;
+				button.isEnabled = item.isEnabled as Bool;
 			}
 			else
 			{

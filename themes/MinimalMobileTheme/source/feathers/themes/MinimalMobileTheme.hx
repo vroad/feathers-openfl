@@ -63,7 +63,7 @@ package feathers.themes
 		/**
 		 * Constructor.
 		 */
-		public function MinimalMobileTheme(scaleToDPI:Boolean = true)
+		public function MinimalMobileTheme(scaleToDPI:Bool = true)
 		{
 			super(scaleToDPI);
 			this.initialize();

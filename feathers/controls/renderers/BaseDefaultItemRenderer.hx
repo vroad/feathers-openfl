@@ -3057,11 +3057,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._selectableFunction != null)
 		{
-			return this._selectableFunction(item) as Boolean;
+			return this._selectableFunction(item) as Bool;
 		}
 		else if(this._selectableField != null && item && item.hasOwnProperty(this._selectableField))
 		{
-			return item[this._selectableField] as Boolean;
+			return item[this._selectableField] as Bool;
 		}
 
 		return true;
@@ -3081,11 +3081,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._enabledFunction != null)
 		{
-			return this._enabledFunction(item) as Boolean;
+			return this._enabledFunction(item) as Bool;
 		}
 		else if(this._enabledField != null && item && item.hasOwnProperty(this._enabledField))
 		{
-			return item[this._enabledField] as Boolean;
+			return item[this._enabledField] as Bool;
 		}
 
 		return true;

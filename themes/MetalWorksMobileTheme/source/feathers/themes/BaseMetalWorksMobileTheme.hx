@@ -272,7 +272,7 @@ package feathers.themes
 		 *
 		 * @param scaleToDPI Determines if the theme's skins will be scaled based on the screen density and content scale factor.
 		 */
-		public function BaseMetalWorksMobileTheme(scaleToDPI:Boolean = true)
+		public function BaseMetalWorksMobileTheme(scaleToDPI:Bool = true)
 		{
 			this._scaleToDPI = scaleToDPI;
 		}
@@ -293,13 +293,13 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected var _scaleToDPI:Boolean;
+		protected var _scaleToDPI:Bool;
 
 		/**
 		 * Indicates if the theme scales skins to match the screen density of
 		 * the device.
 		 */
-		public function get scaleToDPI():Boolean
+		public function get scaleToDPI():Bool
 		{
 			return this._scaleToDPI;
 		}
