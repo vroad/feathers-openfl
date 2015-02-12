@@ -892,7 +892,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #firstButtonFactory
 	 * @see #lastButtonFactory
 	 */
-	public function get_buttonFactory():Function
+	public function get_buttonFactory():Dynamic
 	{
 		return this._buttonFactory;
 	}
@@ -945,7 +945,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #lastButtonFactory
 	 */
-	public function get_firstButtonFactory():Function
+	public function get_firstButtonFactory():Dynamic
 	{
 		return this._firstButtonFactory;
 	}
@@ -998,7 +998,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #firstButtonFactory
 	 */
-	public function get_lastButtonFactory():Function
+	public function get_lastButtonFactory():Dynamic
 	{
 		return this._lastButtonFactory;
 	}
@@ -1044,7 +1044,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
-	public function get_buttonInitializer():Function
+	public function get_buttonInitializer():Dynamic
 	{
 		return this._buttonInitializer;
 	}

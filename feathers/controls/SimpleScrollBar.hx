@@ -696,7 +696,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
-	public function get_thumbFactory():Function
+	public function get_thumbFactory():Dynamic
 	{
 		return this._thumbFactory;
 	}

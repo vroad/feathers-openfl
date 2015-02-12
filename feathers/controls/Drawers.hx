@@ -1686,7 +1686,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerToggleEventType
 	 * @see #leftDrawerToggleEventType
 	 */
-	public function get_contentEventDispatcherFunction():Function
+	public function get_contentEventDispatcherFunction():Dynamic
 	{
 		return this._contentEventDispatcherFunction;
 	}

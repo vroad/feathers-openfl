@@ -112,7 +112,7 @@ class PopUpManager
 	 *     return overlay;
 	 * };</listing>
 	 */
-	public static function get_overlayFactory():Function
+	public static function get_overlayFactory():Dynamic
 	{
 		return PopUpManager.forStarling(Starling.current).overlayFactory;
 	}

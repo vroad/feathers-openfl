@@ -314,7 +314,7 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_titleFactory():Function
+	public function get_titleFactory():Dynamic
 	{
 		return this._titleFactory;
 	}

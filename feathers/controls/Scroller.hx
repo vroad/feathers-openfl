@@ -748,7 +748,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.IScrollBar
 	 * @see #horizontalScrollBarProperties
 	 */
-	public function get_horizontalScrollBarFactory():Function
+	public function get_horizontalScrollBarFactory():Dynamic
 	{
 		return this._horizontalScrollBarFactory;
 	}
@@ -960,7 +960,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.IScrollBar
 	 * @see #verticalScrollBarProperties
 	 */
-	public function get_verticalScrollBarFactory():Function
+	public function get_verticalScrollBarFactory():Dynamic
 	{
 		return this._verticalScrollBarFactory;
 	}

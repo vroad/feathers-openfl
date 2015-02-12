@@ -672,7 +672,7 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #selectedSymbolFactory
 	 */
-	public function get_normalSymbolFactory():Function
+	public function get_normalSymbolFactory():Dynamic
 	{
 		return this._normalSymbolFactory;
 	}
@@ -714,7 +714,7 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #normalSymbolFactory
 	 */
-	public function get_selectedSymbolFactory():Function
+	public function get_selectedSymbolFactory():Dynamic
 	{
 		return this._selectedSymbolFactory;
 	}

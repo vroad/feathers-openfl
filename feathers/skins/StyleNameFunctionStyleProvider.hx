@@ -82,7 +82,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 *
 	 * @see #setFunctionForStyleName()
 	 */
-	public function get_defaultStyleFunction():Function
+	public function get_defaultStyleFunction():Dynamic
 	{
 		return this._defaultStyleFunction;
 	}

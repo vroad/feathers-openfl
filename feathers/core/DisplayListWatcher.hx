@@ -312,7 +312,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * If an initializer exists for a specific class, it will be returned.
 	 */
-	public function getInitializerForClass(type:Class<Dynamic>, withName:String = null):Function
+	public function getInitializerForClass(type:Class<Dynamic>, withName:String = null):Dynamic
 	{
 		if(!withName)
 		{
@@ -329,7 +329,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * If an initializer exists for a specific class and its subclasses, the initializer will be returned.
 	 */
-	public function getInitializerForClassAndSubclasses(type:Class<Dynamic>):Function
+	public function getInitializerForClassAndSubclasses(type:Class<Dynamic>):Dynamic
 	{
 		return this._initializerSuperTypeMap[type];
 	}

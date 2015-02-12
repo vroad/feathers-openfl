@@ -227,7 +227,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Returns the function that handles updating a value of a specific type.
 	 */
-	public function getValueTypeHandler(type:Class<Dynamic>):Function
+	public function getValueTypeHandler(type:Class<Dynamic>):Dynamic
 	{
 		return this._handlers[type] as Function;
 	}
@@ -243,7 +243,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	private function valueToValueTypeHandler(value:Dynamic):Function
+	private function valueToValueTypeHandler(value:Dynamic):Dynamic
 	{
 		var type:Class<Dynamic> = Class(value.constructor);
 		return this._handlers[type] as Function;

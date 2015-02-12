@@ -845,7 +845,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererType
 	 */
-	public function get_itemRendererFactory():Function
+	public function get_itemRendererFactory():Dynamic
 	{
 		return this._itemRendererFactory;
 	}

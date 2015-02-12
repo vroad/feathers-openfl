@@ -780,7 +780,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenEventListener(screenID:String):Function
+	private function createScreenEventListener(screenID:String):Dynamic
 	{
 		var self:ScreenNavigator = this;
 		var eventListener:Dynamic = function(event:Event):Void
@@ -794,7 +794,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenSignalListener(screenID:String, signal:Dynamic):Function
+	private function createScreenSignalListener(screenID:String, signal:Dynamic):Dynamic
 	{
 		var self:ScreenNavigator = this;
 		if(signal.valueClasses.length == 1)

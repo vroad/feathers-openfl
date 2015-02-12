@@ -491,7 +491,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelField
 	 */
-	public function get_labelFunction():Function
+	public function get_labelFunction():Dynamic
 	{
 		return this._labelFunction;
 	}
@@ -632,7 +632,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.Button
 	 * @see #buttonProperties
 	 */
-	public function get_buttonFactory():Function
+	public function get_buttonFactory():Dynamic
 	{
 		return this._buttonFactory;
 	}
@@ -803,7 +803,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
-	public function get_listFactory():Function
+	public function get_listFactory():Dynamic
 	{
 		return this._listFactory;
 	}

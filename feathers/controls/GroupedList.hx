@@ -830,7 +830,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #lastItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public function get_itemRendererFactory():Function
+	public function get_itemRendererFactory():Dynamic
 	{
 		return this._itemRendererFactory;
 	}
@@ -1092,7 +1092,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #lastItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public function get_firstItemRendererFactory():Function
+	public function get_firstItemRendererFactory():Dynamic
 	{
 		return this._firstItemRendererFactory;
 	}
@@ -1238,7 +1238,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #firstItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public function get_lastItemRendererFactory():Function
+	public function get_lastItemRendererFactory():Dynamic
 	{
 		return this._lastItemRendererFactory;
 	}
@@ -1384,7 +1384,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see #firstItemRendererFactory
 	 * @see #lastItemRendererFactory
 	 */
-	public function get_singleItemRendererFactory():Function
+	public function get_singleItemRendererFactory():Dynamic
 	{
 		return this._singleItemRendererFactory;
 	}
@@ -1523,7 +1523,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #headerRendererType
 	 */
-	public function get_headerRendererFactory():Function
+	public function get_headerRendererFactory():Dynamic
 	{
 		return this._headerRendererFactory;
 	}
@@ -1735,7 +1735,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #footerRendererType
 	 */
-	public function get_footerRendererFactory():Function
+	public function get_footerRendererFactory():Dynamic
 	{
 		return this._footerRendererFactory;
 	}
@@ -1952,7 +1952,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #headerField
 	 */
-	public function get_headerFunction():Function
+	public function get_headerFunction():Dynamic
 	{
 		return this._headerFunction;
 	}
@@ -2045,7 +2045,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #footerField
 	 */
-	public function get_footerFunction():Function
+	public function get_footerFunction():Dynamic
 	{
 		return this._footerFunction;
 	}

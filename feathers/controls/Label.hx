@@ -218,7 +218,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
-	public function get_textRendererFactory():Function
+	public function get_textRendererFactory():Dynamic
 	{
 		return this._textRendererFactory;
 	}

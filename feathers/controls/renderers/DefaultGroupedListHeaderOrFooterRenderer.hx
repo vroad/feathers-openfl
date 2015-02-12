@@ -421,7 +421,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get_contentFunction():Function
+	public function get_contentFunction():Dynamic
 	{
 		return this._contentFunction;
 	}
@@ -552,7 +552,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get_contentSourceFunction():Function
+	public function get_contentSourceFunction():Dynamic
 	{
 		return this._contentSourceFunction;
 	}
@@ -678,7 +678,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public function get_contentLabelFunction():Function
+	public function get_contentLabelFunction():Dynamic
 	{
 		return this._contentLabelFunction;
 	}
@@ -725,7 +725,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public function get_contentLoaderFactory():Function
+	public function get_contentLoaderFactory():Dynamic
 	{
 		return this._contentLoaderFactory;
 	}
@@ -772,7 +772,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get_contentLabelFactory():Function
+	public function get_contentLabelFactory():Dynamic
 	{
 		return this._contentLabelFactory;
 	}

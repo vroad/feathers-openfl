@@ -293,7 +293,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererFactory:Dynamic;
 
-	public function get_itemRendererFactory():Function
+	public function get_itemRendererFactory():Dynamic
 	{
 		return this._itemRendererFactory;
 	}

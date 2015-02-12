@@ -461,7 +461,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_messageFactory():Function
+	public function get_messageFactory():Dynamic
 	{
 		return this._messageFactory;
 	}
@@ -576,7 +576,7 @@ class Alert extends Panel
 	 * @see feathers.controls.ButtonGroup
 	 * @see #buttonGroupProperties
 	 */
-	public function get_buttonGroupFactory():Function
+	public function get_buttonGroupFactory():Dynamic
 	{
 		return super.footerFactory;
 	}

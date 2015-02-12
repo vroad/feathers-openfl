@@ -721,7 +721,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.core.ITextEditor
 	 * @see feathers.core.FeathersControl#defaultTextEditorFactory
 	 */
-	public function get_textEditorFactory():Function
+	public function get_textEditorFactory():Dynamic
 	{
 		return this._textEditorFactory;
 	}
@@ -776,7 +776,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_promptFactory():Function
+	public function get_promptFactory():Dynamic
 	{
 		return this._promptFactory;
 	}
@@ -1031,7 +1031,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
-	public function get_stateToSkinFunction():Function
+	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
 	}
@@ -1199,7 +1199,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
-	public function get_stateToIconFunction():Function
+	public function get_stateToIconFunction():Dynamic
 	{
 		return this._stateToIconFunction;
 	}

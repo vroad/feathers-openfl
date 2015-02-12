@@ -592,7 +592,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_stateToSkinFunction():Function
+	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
 	}
@@ -642,7 +642,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public function get_textEditorFactory():Function
+	public function get_textEditorFactory():Dynamic
 	{
 		return this._textEditorFactory;
 	}

@@ -879,7 +879,7 @@ class TabBar extends FeathersControl
 	 * @see #firstTabFactory
 	 * @see #lastTabFactory
 	 */
-	public function get_tabFactory():Function
+	public function get_tabFactory():Dynamic
 	{
 		return this._tabFactory;
 	}
@@ -934,7 +934,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #lastTabFactory
 	 */
-	public function get_firstTabFactory():Function
+	public function get_firstTabFactory():Dynamic
 	{
 		return this._firstTabFactory;
 	}
@@ -989,7 +989,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #firstTabFactory
 	 */
-	public function get_lastTabFactory():Function
+	public function get_lastTabFactory():Dynamic
 	{
 		return this._lastTabFactory;
 	}
@@ -1033,7 +1033,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
-	public function get_tabInitializer():Function
+	public function get_tabInitializer():Dynamic
 	{
 		return this._tabInitializer;
 	}

@@ -1159,7 +1159,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_stateToSkinFunction():Function
+	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
 	}
@@ -1190,7 +1190,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_stateToIconFunction():Function
+	public function get_stateToIconFunction():Dynamic
 	{
 		return this._stateToIconFunction;
 	}
@@ -1221,7 +1221,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_stateToLabelPropertiesFunction():Function
+	public function get_stateToLabelPropertiesFunction():Dynamic
 	{
 		return this._stateToLabelPropertiesFunction;
 	}
@@ -1439,7 +1439,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_labelFactory():Function
+	public function get_labelFactory():Dynamic
 	{
 		return this._labelFactory;
 	}

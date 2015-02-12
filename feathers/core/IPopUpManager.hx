@@ -19,7 +19,7 @@ interface IPopUpManager
 	/**
 	 * @copy PopUpManager#overlayFactory
 	 */
-	function get_overlayFactory():Function;
+	function get_overlayFactory():Dynamic;
 
 	/**
 	 * @private

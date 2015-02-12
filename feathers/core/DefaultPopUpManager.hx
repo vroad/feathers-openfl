@@ -70,7 +70,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#overlayFactory
 	 */
-	public function get_overlayFactory():Function
+	public function get_overlayFactory():Dynamic
 	{
 		return this._overlayFactory;
 	}

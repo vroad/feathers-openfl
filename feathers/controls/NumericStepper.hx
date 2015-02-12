@@ -623,7 +623,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.Button
 	 * @see #decrementButtonProperties
 	 */
-	public function get_decrementButtonFactory():Function
+	public function get_decrementButtonFactory():Dynamic
 	{
 		return this._decrementButtonFactory;
 	}
@@ -831,7 +831,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.Button
 	 * @see #incrementButtonProperties
 	 */
-	public function get_incrementButtonFactory():Function
+	public function get_incrementButtonFactory():Dynamic
 	{
 		return this._incrementButtonFactory;
 	}
@@ -1038,7 +1038,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 * @see feathers.controls.TextInput
 	 * @see #textInputProperties
 	 */
-	public function get_textInputFactory():Function
+	public function get_textInputFactory():Dynamic
 	{
 		return this._textInputFactory;
 	}

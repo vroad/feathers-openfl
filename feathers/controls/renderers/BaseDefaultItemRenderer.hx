@@ -1073,7 +1073,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #labelField
 	 */
-	public function get_labelFunction():Function
+	public function get_labelFunction():Dynamic
 	{
 		return this._labelFunction;
 	}
@@ -1203,7 +1203,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
-	public function get_iconFunction():Function
+	public function get_iconFunction():Dynamic
 	{
 		return this._iconFunction;
 	}
@@ -1345,7 +1345,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconField
 	 * @see #iconFunction
 	 */
-	public function get_iconSourceFunction():Function
+	public function get_iconSourceFunction():Dynamic
 	{
 		return this._iconSourceFunction;
 	}
@@ -1473,7 +1473,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
-	public function get_iconLabelFunction():Function
+	public function get_iconLabelFunction():Dynamic
 	{
 		return this._iconLabelFunction;
 	}
@@ -1612,7 +1612,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public function get_accessoryFunction():Function
+	public function get_accessoryFunction():Dynamic
 	{
 		return this._accessoryFunction;
 	}
@@ -1758,7 +1758,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public function get_accessorySourceFunction():Function
+	public function get_accessorySourceFunction():Dynamic
 	{
 		return this._accessorySourceFunction;
 	}
@@ -1886,7 +1886,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessorySourceField
 	 * @see #accessorySourceFunction
 	 */
-	public function get_accessoryLabelFunction():Function
+	public function get_accessoryLabelFunction():Dynamic
 	{
 		return this._accessoryLabelFunction;
 	}
@@ -2002,7 +2002,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
-	public function get_skinFunction():Function
+	public function get_skinFunction():Dynamic
 	{
 		return this._skinFunction;
 	}
@@ -2142,7 +2142,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinField
 	 * @see #skinFunction
 	 */
-	public function get_skinSourceFunction():Function
+	public function get_skinSourceFunction():Dynamic
 	{
 		return this._skinSourceFunction;
 	}
@@ -2237,7 +2237,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #selectableField
 	 */
-	public function get_selectableFunction():Function
+	public function get_selectableFunction():Dynamic
 	{
 		return this._selectableFunction;
 	}
@@ -2332,7 +2332,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #enabledField
 	 */
-	public function get_enabledFunction():Function
+	public function get_enabledFunction():Dynamic
 	{
 		return this._enabledFunction;
 	}
@@ -2420,7 +2420,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
-	public function get_iconLoaderFactory():Function
+	public function get_iconLoaderFactory():Dynamic
 	{
 		return this._iconLoaderFactory;
 	}
@@ -2471,7 +2471,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
-	public function get_iconLabelFactory():Function
+	public function get_iconLabelFactory():Dynamic
 	{
 		return this._iconLabelFactory;
 	}
@@ -2599,7 +2599,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessorySourceField;
 	 * @see #accessorySourceFunction;
 	 */
-	public function get_accessoryLoaderFactory():Function
+	public function get_accessoryLoaderFactory():Dynamic
 	{
 		return this._accessoryLoaderFactory;
 	}
@@ -2650,7 +2650,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public function get_accessoryLabelFactory():Function
+	public function get_accessoryLabelFactory():Dynamic
 	{
 		return this._accessoryLabelFactory;
 	}
@@ -2778,7 +2778,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
-	public function get_skinLoaderFactory():Function
+	public function get_skinLoaderFactory():Dynamic
 	{
 		return this._skinLoaderFactory;
 	}

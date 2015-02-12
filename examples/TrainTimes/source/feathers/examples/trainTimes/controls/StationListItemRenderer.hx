@@ -301,7 +301,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _iconLoaderFactory:Dynamic = defaultLoaderFactory;
 
-	public function get_iconLoaderFactory():Function
+	public function get_iconLoaderFactory():Dynamic
 	{
 		return this._iconLoaderFactory;
 	}

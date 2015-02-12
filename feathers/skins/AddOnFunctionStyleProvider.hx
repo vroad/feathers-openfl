@@ -69,7 +69,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 */
-	public function get_addOnFunction():Function
+	public function get_addOnFunction():Dynamic
 	{
 		return this._addOnFunction;
 	}

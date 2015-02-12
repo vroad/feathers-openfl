@@ -413,7 +413,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _itemRendererFactory:Dynamic;
 
-	public function get_itemRendererFactory():Function
+	public function get_itemRendererFactory():Dynamic
 	{
 		return this._itemRendererFactory;
 	}
@@ -508,7 +508,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _firstItemRendererFactory:Dynamic;
 
-	public function get_firstItemRendererFactory():Function
+	public function get_firstItemRendererFactory():Dynamic
 	{
 		return this._firstItemRendererFactory;
 	}
@@ -561,7 +561,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _lastItemRendererFactory:Dynamic;
 
-	public function get_lastItemRendererFactory():Function
+	public function get_lastItemRendererFactory():Dynamic
 	{
 		return this._lastItemRendererFactory;
 	}
@@ -614,7 +614,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _singleItemRendererFactory:Dynamic;
 
-	public function get_singleItemRendererFactory():Function
+	public function get_singleItemRendererFactory():Dynamic
 	{
 		return this._singleItemRendererFactory;
 	}
@@ -667,7 +667,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _headerRendererFactory:Dynamic;
 
-	public function get_headerRendererFactory():Function
+	public function get_headerRendererFactory():Dynamic
 	{
 		return this._headerRendererFactory;
 	}
@@ -745,7 +745,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _footerRendererFactory:Dynamic;
 
-	public function get_footerRendererFactory():Function
+	public function get_footerRendererFactory():Dynamic
 	{
 		return this._footerRendererFactory;
 	}
