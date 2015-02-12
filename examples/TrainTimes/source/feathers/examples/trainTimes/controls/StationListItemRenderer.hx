@@ -58,7 +58,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private var _data:StationData;
 
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}

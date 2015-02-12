@@ -1053,7 +1053,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get_minimumTrackProperties():Object
+	public function get_minimumTrackProperties():Dynamic
 	{
 		if(!this._minimumTrackProperties)
 		{
@@ -1226,7 +1226,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get_maximumTrackProperties():Object
+	public function get_maximumTrackProperties():Dynamic
 	{
 		if(!this._maximumTrackProperties)
 		{
@@ -1398,7 +1398,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
-	public function get_thumbProperties():Object
+	public function get_thumbProperties():Dynamic
 	{
 		if(!this._thumbProperties)
 		{

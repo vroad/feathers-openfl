@@ -448,7 +448,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _typicalItem:Dynamic = null;
 
-	public function get_typicalItem():Object
+	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
 	}

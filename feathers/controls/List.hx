@@ -544,7 +544,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
-	public function get_selectedItem():Object
+	public function get_selectedItem():Dynamic
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
@@ -885,7 +885,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_typicalItem():Object
+	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
 	}
@@ -984,7 +984,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see feathers.controls.renderers.DefaultListItemRenderer
 	 */
-	public function get_itemRendererProperties():Object
+	public function get_itemRendererProperties():Dynamic
 	{
 		if(!this._itemRendererProperties)
 		{

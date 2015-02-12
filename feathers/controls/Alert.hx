@@ -517,7 +517,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_messageProperties():Object
+	public function get_messageProperties():Dynamic
 	{
 		if(!this._messageProperties)
 		{
@@ -650,7 +650,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see feathers.controls.ButtonGroup
 	 */
-	public function get_buttonGroupProperties():Object
+	public function get_buttonGroupProperties():Dynamic
 	{
 		return super.footerProperties;
 	}

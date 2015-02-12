@@ -154,7 +154,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}

@@ -112,7 +112,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}

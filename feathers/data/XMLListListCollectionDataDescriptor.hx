@@ -37,7 +37,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Dynamic, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		return data[index];
@@ -73,7 +73,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Dynamic, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		var item:XML = data[index];

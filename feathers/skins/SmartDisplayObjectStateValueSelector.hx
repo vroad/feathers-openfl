@@ -140,7 +140,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
-	public function get_displayObjectProperties():Object
+	public function get_displayObjectProperties():Dynamic
 	{
 		if(!this._displayObjectProperties)
 		{
@@ -181,7 +181,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
+	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
 	{
 		var value:Dynamic = super.updateValue(target, state);
 		if(value == null)

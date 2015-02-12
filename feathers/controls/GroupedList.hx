@@ -709,7 +709,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_selectedItem():Object
+	public function get_selectedItem():Dynamic
 	{
 		if(!this._dataProvider || this._selectedGroupIndex < 0 || this._selectedItemIndex < 0)
 		{
@@ -870,7 +870,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_typicalItem():Object
+	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
 	}
@@ -972,7 +972,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IGroupedListItemRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListItemRenderer
 	 */
-	public function get_itemRendererProperties():Object
+	public function get_itemRendererProperties():Dynamic
 	{
 		if(!this._itemRendererProperties)
 		{
@@ -1622,7 +1622,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer
 	 */
-	public function get_headerRendererProperties():Object
+	public function get_headerRendererProperties():Dynamic
 	{
 		if(!this._headerRendererProperties)
 		{
@@ -1834,7 +1834,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer
 	 */
-	public function get_footerRendererProperties():Object
+	public function get_footerRendererProperties():Dynamic
 	{
 		if(!this._footerRendererProperties)
 		{
@@ -1932,7 +1932,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>All of the header fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1943,7 +1943,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <p>The following example sets the header function:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.headerFunction = function( group:Dynamic ):Object
+	 * list.headerFunction = function( group:Dynamic ):Dynamic
 	 * {
 	 *    return group.header;
 	 * };</listing>
@@ -2025,7 +2025,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>All of the footer fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -2036,7 +2036,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <p>The following example sets the footer function:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.footerFunction = function( group:Dynamic ):Object
+	 * list.footerFunction = function( group:Dynamic ):Dynamic
 	 * {
 	 *    return group.footer;
 	 * };</listing>
@@ -2176,7 +2176,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * Extracts header data from a group object.
 	 */
-	public function groupToHeaderData(group:Dynamic):Object
+	public function groupToHeaderData(group:Dynamic):Dynamic
 	{
 		if(this._headerFunction != null)
 		{
@@ -2193,7 +2193,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * Extracts footer data from a group object.
 	 */
-	public function groupToFooterData(group:Dynamic):Object
+	public function groupToFooterData(group:Dynamic):Dynamic
 	{
 		if(this._footerFunction != null)
 		{

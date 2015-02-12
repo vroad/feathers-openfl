@@ -1217,7 +1217,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * Returns a text format for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function(target:Button, state:Dynamic):Object</pre>
+	 * <pre>function(target:Button, state:Dynamic):Dynamic</pre>
 	 *
 	 * @default null
 	 */
@@ -1489,7 +1489,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public function get_defaultLabelProperties():Object
+	public function get_defaultLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultValue);
 		if(!value)
@@ -1545,7 +1545,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_upLabelProperties():Object
+	public function get_upLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, false));
 		if(!value)
@@ -1601,7 +1601,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_downLabelProperties():Object
+	public function get_downLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, false));
 		if(!value)
@@ -1657,7 +1657,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_hoverLabelProperties():Object
+	public function get_hoverLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, false));
 		if(!value)
@@ -1713,7 +1713,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_disabledLabelProperties():Object
+	public function get_disabledLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false));
 		if(!value)

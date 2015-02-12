@@ -368,7 +368,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_defaultSelectedLabelProperties():Object
+	public function get_defaultSelectedLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultSelectedValue);
 		if(!value)
@@ -428,7 +428,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #upLabelProperties
 	 */
-	public function get_selectedUpLabelProperties():Object
+	public function get_selectedUpLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, true));
 		if(!value)
@@ -488,7 +488,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #downLabelProperties
 	 */
-	public function get_selectedDownLabelProperties():Object
+	public function get_selectedDownLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, true));
 		if(!value)
@@ -548,7 +548,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #hoverLabelProperties
 	 */
-	public function get_selectedHoverLabelProperties():Object
+	public function get_selectedHoverLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, true));
 		if(!value)
@@ -608,7 +608,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #disabledLabelProperties
 	 */
-	public function get_selectedDisabledLabelProperties():Object
+	public function get_selectedDisabledLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, true));
 		if(!value)

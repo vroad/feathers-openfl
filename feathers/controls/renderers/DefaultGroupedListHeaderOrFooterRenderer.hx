@@ -155,7 +155,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}
@@ -519,7 +519,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * renderer can avoid costly display list manipulation.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -537,7 +537,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>In the following example, the content source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.contentSourceFunction = function( item:Dynamic ):Object
+	 * renderer.contentSourceFunction = function( item:Dynamic ):Dynamic
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -817,7 +817,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public function get_contentLabelProperties():Object
+	public function get_contentLabelProperties():Dynamic
 	{
 		if(!this._contentLabelProperties)
 		{

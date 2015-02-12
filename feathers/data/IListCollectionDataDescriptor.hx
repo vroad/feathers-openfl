@@ -22,7 +22,7 @@ interface IListCollectionDataDescriptor
 	/**
 	 * Returns the item at the specified index in the data source.
 	 */
-	function getItemAt(data:Dynamic, index:Int):Object;
+	function getItemAt(data:Dynamic, index:Int):Dynamic;
 	
 	/**
 	 * Replaces the item at the specified index with a new item.
@@ -38,7 +38,7 @@ interface IListCollectionDataDescriptor
 	 * Removes the item at the specified index from the data source and
 	 * returns it.
 	 */
-	function removeItemAt(data:Dynamic, index:Int):Object;
+	function removeItemAt(data:Dynamic, index:Int):Dynamic;
 	
 	/**
 	 * Determines which index the item appears at within the data source. If

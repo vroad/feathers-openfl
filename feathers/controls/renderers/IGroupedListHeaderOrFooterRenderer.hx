@@ -21,7 +21,7 @@ interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_data():Object;
+	function get_data():Dynamic;
 
 	/**
 	 * @private

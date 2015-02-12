@@ -1760,7 +1760,7 @@ class Drawers extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 * @see #openOrCloseDuration
 	 */
-	public function get_openOrCloseEase():Object
+	public function get_openOrCloseEase():Dynamic
 	{
 		return this._openOrCloseEase;
 	}

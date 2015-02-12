@@ -849,7 +849,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.SimpleScrollBar
 	 * @see feathers.controls.ScrollBar
 	 */
-	public function get_horizontalScrollBarProperties():Object
+	public function get_horizontalScrollBarProperties():Dynamic
 	{
 		if(!this._horizontalScrollBarProperties)
 		{
@@ -1061,7 +1061,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.SimpleScrollBar
 	 * @see feathers.controls.ScrollBar
 	 */
-	public function get_verticalScrollBarProperties():Object
+	public function get_verticalScrollBarProperties():Dynamic
 	{
 		if(!this._verticalScrollBarProperties)
 		{
@@ -2290,7 +2290,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
-	public function get_hideScrollBarAnimationEase():Object
+	public function get_hideScrollBarAnimationEase():Dynamic
 	{
 		return this._hideScrollBarAnimationEase;
 	}
@@ -2506,7 +2506,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
-	public function get_throwEase():Object
+	public function get_throwEase():Dynamic
 	{
 		return this._throwEase;
 	}

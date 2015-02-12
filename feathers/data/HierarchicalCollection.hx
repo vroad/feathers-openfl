@@ -187,7 +187,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * the data source's APIs to something that can be understood by
 	 * <code>HierarchicalCollection</code>.
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return _data;
 	}
@@ -265,7 +265,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Returns the item at the specified location in the collection.
 	 */
-	public function getItemAt(index:Int, ...rest:Array):Object
+	public function getItemAt(index:Int, ...rest:Array):Dynamic
 	{
 		rest.unshift(index);
 		rest.unshift(this._data);
@@ -300,7 +300,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * Removes the item at the specified location from the collection and
 	 * returns it.
 	 */
-	public function removeItemAt(index:Int, ...rest:Array):Object
+	public function removeItemAt(index:Int, ...rest:Array):Dynamic
 	{
 		rest.unshift(index);
 		rest.unshift(this._data);

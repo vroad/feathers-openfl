@@ -352,7 +352,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedIndex
 	 */
-	public function get_selectedItem():Object
+	public function get_selectedItem():Dynamic
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
@@ -579,7 +579,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public function get_typicalItem():Object
+	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
 	}
@@ -728,7 +728,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get_buttonProperties():Object
+	public function get_buttonProperties():Dynamic
 	{
 		if(!this._buttonProperties)
 		{
@@ -899,7 +899,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
-	public function get_listProperties():Object
+	public function get_listProperties():Dynamic
 	{
 		if(!this._listProperties)
 		{

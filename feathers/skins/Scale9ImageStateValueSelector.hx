@@ -33,7 +33,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
-	public function get_imageProperties():Object
+	public function get_imageProperties():Dynamic
 	{
 		if(!this._imageProperties)
 		{
@@ -65,7 +65,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
+	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
 	{
 		var textures:Scale9Textures = super.updateValue(target, state) as Scale9Textures;
 		if(!textures)

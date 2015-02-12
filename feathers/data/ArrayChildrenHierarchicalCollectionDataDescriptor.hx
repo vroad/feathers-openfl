@@ -67,7 +67,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Dynamic, index:Int, ...rest:Array):Object
+	public function getItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -118,7 +118,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Object
+	public function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;

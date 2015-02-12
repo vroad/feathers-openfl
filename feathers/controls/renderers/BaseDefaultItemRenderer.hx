@@ -329,7 +329,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * The item displayed by this renderer. This property is set by the
 	 * list, and should not be set manually.
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}
@@ -1313,7 +1313,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -1331,7 +1331,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the icon source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.iconSourceFunction = function( item:Dynamic ):Object
+	 * renderer.iconSourceFunction = function( item:Dynamic ):Dynamic
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -1724,7 +1724,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -1742,7 +1742,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the accessory source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.accessorySourceFunction = function( item:Dynamic ):Object
+	 * renderer.accessorySourceFunction = function( item:Dynamic ):Dynamic
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -2111,7 +2111,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Dynamic ):Object</pre>
+	 * <pre>function( item:Dynamic ):Dynamic</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -2128,7 +2128,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <listing version="3.0">
 	 * renderer.itemHasSkin = true;
-	 * renderer.skinSourceFunction = function( item:Dynamic ):Object
+	 * renderer.skinSourceFunction = function( item:Dynamic ):Dynamic
 	 * {
 	 *    return "http://www.example.com/images/" + item.name + "-skin.png";
 	 * };</listing>
@@ -2525,7 +2525,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
-	public function get_iconLabelProperties():Object
+	public function get_iconLabelProperties():Dynamic
 	{
 		if(!this._iconLabelProperties)
 		{
@@ -2704,7 +2704,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public function get_accessoryLabelProperties():Object
+	public function get_accessoryLabelProperties():Dynamic
 	{
 		if(!this._accessoryLabelProperties)
 		{

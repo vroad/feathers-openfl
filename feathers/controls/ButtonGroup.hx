@@ -1225,7 +1225,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #lastButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get_buttonProperties():Object
+	public function get_buttonProperties():Dynamic
 	{
 		if(!this._buttonProperties)
 		{

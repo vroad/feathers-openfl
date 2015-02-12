@@ -133,7 +133,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return this._data;
 	}

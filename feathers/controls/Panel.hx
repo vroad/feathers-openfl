@@ -390,7 +390,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see feathers.controls.Header
 	 */
-	public function get_headerProperties():Object
+	public function get_headerProperties():Dynamic
 	{
 		if(!this._headerProperties)
 		{
@@ -566,7 +566,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footerFactory
 	 */
-	public function get_footerProperties():Object
+	public function get_footerProperties():Dynamic
 	{
 		if(!this._footerProperties)
 		{

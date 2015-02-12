@@ -69,7 +69,7 @@ class StateWithToggleValueSelector
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Dynamic, isSelected:Bool = false):Object
+	public function clearValueForState(state:Dynamic, isSelected:Bool = false):Dynamic
 	{
 		if(isSelected)
 		{
@@ -87,7 +87,7 @@ class StateWithToggleValueSelector
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Dynamic, isSelected:Bool = false):Object
+	public function getValueForState(state:Dynamic, isSelected:Bool = false):Dynamic
 	{
 		if(isSelected)
 		{
@@ -104,7 +104,7 @@ class StateWithToggleValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
+	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
 	{
 		var value:Dynamic;
 		if(target is IToggle && IToggle(target).isSelected)

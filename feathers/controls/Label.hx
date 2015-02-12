@@ -274,7 +274,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_textRendererProperties():Object
+	public function get_textRendererProperties():Dynamic
 	{
 		if(!this._textRendererProperties)
 		{

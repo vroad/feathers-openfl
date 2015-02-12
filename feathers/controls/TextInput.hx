@@ -834,7 +834,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_promptProperties():Object
+	public function get_promptProperties():Dynamic
 	{
 		if(!this._promptProperties)
 		{
@@ -1523,7 +1523,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #textEditorFactory
 	 * @see feathers.core.ITextEditor
 	 */
-	public function get_textEditorProperties():Object
+	public function get_textEditorProperties():Dynamic
 	{
 		if(!this._textEditorProperties)
 		{

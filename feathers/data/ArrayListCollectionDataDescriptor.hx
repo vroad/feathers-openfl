@@ -35,7 +35,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Dynamic, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array)[index];
@@ -62,7 +62,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Dynamic, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array).splice(index, 1)[0];

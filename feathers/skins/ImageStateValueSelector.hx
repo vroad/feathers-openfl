@@ -33,7 +33,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html starling.display.Image
 	 */
-	public function get_imageProperties():Object
+	public function get_imageProperties():Dynamic
 	{
 		if(!this._imageProperties)
 		{
@@ -65,7 +65,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
+	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
 	{
 		var texture:Texture = super.updateValue(target, state) as Texture;
 		if(!texture)

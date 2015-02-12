@@ -1029,7 +1029,7 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public function get_titleProperties():Object
+	public function get_titleProperties():Dynamic
 	{
 		if(!this._titleProperties)
 		{

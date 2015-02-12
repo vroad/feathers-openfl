@@ -1138,7 +1138,7 @@ class TabBar extends FeathersControl
 	 * 
 	 * @see #selectedIndex
 	 */
-	public function get_selectedItem():Object
+	public function get_selectedItem():Dynamic
 	{
 		var index:Int = this.selectedIndex;
 		if(!this._dataProvider || index < 0 || index >= this._dataProvider.length)
@@ -1325,7 +1325,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see feathers.controls.Button
 	 */
-	public function get_tabProperties():Object
+	public function get_tabProperties():Dynamic
 	{
 		if(!this._tabProperties)
 		{

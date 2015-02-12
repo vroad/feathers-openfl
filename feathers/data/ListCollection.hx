@@ -196,7 +196,7 @@ class ListCollection extends EventDispatcher
 	 * detected, and no <code>dataDescriptor</code> needs to be set if the
 	 * <code>ListCollection</code> uses one of these types.</p>
 	 */
-	public function get_data():Object
+	public function get_data():Dynamic
 	{
 		return _data;
 	}
@@ -296,7 +296,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Returns the item at the specified index in the collection.
 	 */
-	public function getItemAt(index:Int):Object
+	public function getItemAt(index:Int):Dynamic
 	{
 		return this._dataDescriptor.getItemAt(this._data, index);
 	}
@@ -324,7 +324,7 @@ class ListCollection extends EventDispatcher
 	 * Removes the item at the specified index from the collection and
 	 * returns it.
 	 */
-	public function removeItemAt(index:Int):Object
+	public function removeItemAt(index:Int):Dynamic
 	{
 		var item:Dynamic = this._dataDescriptor.removeItemAt(this._data, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -416,7 +416,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Removes the item from the end of the collection and returns it.
 	 */
-	public function pop():Object
+	public function pop():Dynamic
 	{
 		return this.removeItemAt(this.length - 1);
 	}
@@ -432,7 +432,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Removed the item from the beginning of the collection and returns it. 
 	 */
-	public function shift():Object
+	public function shift():Dynamic
 	{
 		return this.removeItemAt(0);
 	}

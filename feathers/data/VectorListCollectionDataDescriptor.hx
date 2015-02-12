@@ -35,7 +35,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Dynamic, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>)[index];
@@ -62,7 +62,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Dynamic, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>).splice(index, 1)[0];

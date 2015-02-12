@@ -529,7 +529,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #offLabelProperties
 	 * @see #disabledLabelProperties
 	 */
-	public function get_defaultLabelProperties():Object
+	public function get_defaultLabelProperties():Dynamic
 	{
 		if(!this._defaultLabelProperties)
 		{
@@ -589,7 +589,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_disabledLabelProperties():Object
+	public function get_disabledLabelProperties():Dynamic
 	{
 		if(!this._disabledLabelProperties)
 		{
@@ -650,7 +650,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_onLabelProperties():Object
+	public function get_onLabelProperties():Dynamic
 	{
 		if(!this._onLabelProperties)
 		{
@@ -711,7 +711,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public function get_offLabelProperties():Object
+	public function get_offLabelProperties():Dynamic
 	{
 		if(!this._offLabelProperties)
 		{
@@ -1085,7 +1085,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
-	public function get_toggleEase():Object
+	public function get_toggleEase():Dynamic
 	{
 		return this._toggleEase;
 	}
@@ -1331,7 +1331,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #onTrackFactory
 	 */
-	public function get_onTrackProperties():Object
+	public function get_onTrackProperties():Dynamic
 	{
 		if(!this._onTrackProperties)
 		{
@@ -1501,7 +1501,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #offTrackFactory
 	 */
-	public function get_offTrackProperties():Object
+	public function get_offTrackProperties():Dynamic
 	{
 		if(!this._offTrackProperties)
 		{
@@ -1669,7 +1669,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
-	public function get_thumbProperties():Object
+	public function get_thumbProperties():Dynamic
 	{
 		if(!this._thumbProperties)
 		{

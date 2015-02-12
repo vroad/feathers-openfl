@@ -45,7 +45,7 @@ class StateValueSelector
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Dynamic):Object
+	public function clearValueForState(state:Dynamic):Dynamic
 	{
 		var value:Dynamic = this.stateToValue[state];
 		delete this.stateToValue[state];
@@ -55,7 +55,7 @@ class StateValueSelector
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Dynamic):Object
+	public function getValueForState(state:Dynamic):Dynamic
 	{
 		return this.stateToValue[state];
 	}
@@ -68,7 +68,7 @@ class StateValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
+	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
 	{
 		var value:Dynamic = this.stateToValue[state];
 		if(!value)

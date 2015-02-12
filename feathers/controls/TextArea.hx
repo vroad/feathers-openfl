@@ -694,7 +694,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public function get_textEditorProperties():Object
+	public function get_textEditorProperties():Dynamic
 	{
 		if(!this._textEditorProperties)
 		{

@@ -33,7 +33,7 @@ interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function getItemAt(data:Dynamic, index:Int, ...rest:Array):Object;
+	function getItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic;
 
 	/**
 	 * Replaces the item at the specified location with a new item.
@@ -55,7 +55,7 @@ interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Object;
+	function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic;
 
 	/**
 	 * Determines which location the item appears at within the data source.

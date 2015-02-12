@@ -261,7 +261,7 @@ class ImageLoader extends FeathersControl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Loader.html
 	 * @see http://wiki.starling-framework.org/manual/atf_textures
 	 */
-	public function get_source():Object
+	public function get_source():Dynamic
 	{
 		return this._source;
 	}
