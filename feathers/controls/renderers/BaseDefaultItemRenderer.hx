@@ -1045,7 +1045,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _labelFunction:Function;
+	private var _labelFunction:Dynamic;
 
 	/**
 	 * A function used to generate label text for a specific item. If this
@@ -1081,7 +1081,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Function):Void
+	public function set_labelFunction(value:Dynamic):Void
 	{
 		if(this._labelFunction == value)
 		{
@@ -1149,7 +1149,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _iconFunction:Function;
+	private var _iconFunction:Dynamic;
 
 	/**
 	 * A function used to generate an icon for a specific item.
@@ -1211,7 +1211,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconFunction(value:Function):Void
+	public function set_iconFunction(value:Dynamic):Void
 	{
 		if(this._iconFunction == value)
 		{
@@ -1284,7 +1284,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _iconSourceFunction:Function;
+	private var _iconSourceFunction:Dynamic;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -1353,7 +1353,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconSourceFunction(value:Function):Void
+	public function set_iconSourceFunction(value:Dynamic):Void
 	{
 		if(this._iconSourceFunction == value)
 		{
@@ -1427,7 +1427,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _iconLabelFunction:Function;
+	private var _iconLabelFunction:Dynamic;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -1481,7 +1481,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFunction(value:Function):Void
+	public function set_iconLabelFunction(value:Dynamic):Void
 	{
 		if(this._iconLabelFunction == value)
 		{
@@ -1553,7 +1553,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryFunction:Function;
+	private var _accessoryFunction:Dynamic;
 
 	/**
 	 * A function that returns a display object to be positioned in the
@@ -1620,7 +1620,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryFunction(value:Function):Void
+	public function set_accessoryFunction(value:Dynamic):Void
 	{
 		if(this._accessoryFunction == value)
 		{
@@ -1695,7 +1695,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessorySourceFunction:Function;
+	private var _accessorySourceFunction:Dynamic;
 
 	/**
 	 * A function that generates a <code>starling.textures.Texture</code>
@@ -1766,7 +1766,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessorySourceFunction(value:Function):Void
+	public function set_accessorySourceFunction(value:Dynamic):Void
 	{
 		if(this._accessorySourceFunction == value)
 		{
@@ -1840,7 +1840,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryLabelFunction:Function;
+	private var _accessoryLabelFunction:Dynamic;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -1894,7 +1894,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelFunction(value:Function):Void
+	public function set_accessoryLabelFunction(value:Dynamic):Void
 	{
 		if(this._accessoryLabelFunction == value)
 		{
@@ -1955,7 +1955,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _skinFunction:Function;
+	private var _skinFunction:Dynamic;
 
 	/**
 	 * A function used to generate a background skin for a specific item.
@@ -2010,7 +2010,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinFunction(value:Function):Void
+	public function set_skinFunction(value:Dynamic):Void
 	{
 		if(this._skinFunction == value)
 		{
@@ -2082,7 +2082,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _skinSourceFunction:Function;
+	private var _skinSourceFunction:Dynamic;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -2150,7 +2150,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinSourceFunction(value:Function):Void
+	public function set_skinSourceFunction(value:Dynamic):Void
 	{
 		if(this._skinSourceFunction == value)
 		{
@@ -2208,7 +2208,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _selectableFunction:Function;
+	private var _selectableFunction:Dynamic;
 
 	/**
 	 * A function used to determine if a specific item is selectable. If this
@@ -2245,7 +2245,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_selectableFunction(value:Function):Void
+	public function set_selectableFunction(value:Dynamic):Void
 	{
 		if(this._selectableFunction == value)
 		{
@@ -2303,7 +2303,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _enabledFunction:Function;
+	private var _enabledFunction:Dynamic;
 
 	/**
 	 * A function used to determine if a specific item is enabled. If this
@@ -2340,7 +2340,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_enabledFunction(value:Function):Void
+	public function set_enabledFunction(value:Dynamic):Void
 	{
 		if(this._enabledFunction == value)
 		{
@@ -2392,7 +2392,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _iconLoaderFactory:Function = defaultLoaderFactory;
+	private var _iconLoaderFactory:Dynamic = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2428,7 +2428,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLoaderFactory(value:Function):Void
+	public function set_iconLoaderFactory(value:Dynamic):Void
 	{
 		if(this._iconLoaderFactory == value)
 		{
@@ -2443,7 +2443,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _iconLabelFactory:Function;
+	private var _iconLabelFactory:Dynamic;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2479,7 +2479,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFactory(value:Function):Void
+	public function set_iconLabelFactory(value:Dynamic):Void
 	{
 		if(this._iconLabelFactory == value)
 		{
@@ -2571,7 +2571,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryLoaderFactory:Function = defaultLoaderFactory;
+	private var _accessoryLoaderFactory:Dynamic = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2607,7 +2607,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLoaderFactory(value:Function):Void
+	public function set_accessoryLoaderFactory(value:Dynamic):Void
 	{
 		if(this._accessoryLoaderFactory == value)
 		{
@@ -2622,7 +2622,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryLabelFactory:Function;
+	private var _accessoryLabelFactory:Dynamic;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2658,7 +2658,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelFactory(value:Function):Void
+	public function set_accessoryLabelFactory(value:Dynamic):Void
 	{
 		if(this._accessoryLabelFactory == value)
 		{
@@ -2750,7 +2750,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _skinLoaderFactory:Function = defaultLoaderFactory;
+	private var _skinLoaderFactory:Dynamic = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2786,7 +2786,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinLoaderFactory(value:Function):Void
+	public function set_skinLoaderFactory(value:Dynamic):Void
 	{
 		if(this._skinLoaderFactory == value)
 		{
@@ -3762,7 +3762,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(!this.iconLabel)
 		{
-			var factory:Function = this._iconLabelFactory != null ? this._iconLabelFactory : FeathersControl.defaultTextRendererFactory;
+			var factory:Dynamic = this._iconLabelFactory != null ? this._iconLabelFactory : FeathersControl.defaultTextRendererFactory;
 			this.iconLabel = ITextRenderer(factory());
 			this.iconLabel.styleNameList.add(this.iconLabelName);
 		}
@@ -3790,7 +3790,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(!this.accessoryLabel)
 		{
-			var factory:Function = this._accessoryLabelFactory != null ? this._accessoryLabelFactory : FeathersControl.defaultTextRendererFactory;
+			var factory:Dynamic = this._accessoryLabelFactory != null ? this._accessoryLabelFactory : FeathersControl.defaultTextRendererFactory;
 			this.accessoryLabel = ITextRenderer(factory());
 			this.accessoryLabel.styleNameList.add(this.accessoryLabelName);
 		}

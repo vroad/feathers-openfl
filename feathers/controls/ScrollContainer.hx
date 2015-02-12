@@ -550,7 +550,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function sortChildren(compareFunction:Function):Void
+	override public function sortChildren(compareFunction:Dynamic):Void
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -563,7 +563,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
-	public function sortRawChildren(compareFunction:Function):Void
+	public function sortRawChildren(compareFunction:Dynamic):Void
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;

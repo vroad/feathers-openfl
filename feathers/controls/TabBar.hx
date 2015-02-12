@@ -847,7 +847,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _tabFactory:Function = defaultTabFactory;
+	private var _tabFactory:Dynamic = defaultTabFactory;
 
 	/**
 	 * Creates a new tab. A tab must be an instance of <code>ToggleButton</code>.
@@ -887,7 +887,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_tabFactory(value:Function):Void
+	public function set_tabFactory(value:Dynamic):Void
 	{
 		if(this._tabFactory == value)
 		{
@@ -900,7 +900,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _firstTabFactory:Function;
+	private var _firstTabFactory:Dynamic;
 
 	/**
 	 * Creates a new first tab. If the <code>firstTabFactory</code> is
@@ -942,7 +942,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_firstTabFactory(value:Function):Void
+	public function set_firstTabFactory(value:Dynamic):Void
 	{
 		if(this._firstTabFactory == value)
 		{
@@ -955,7 +955,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastTabFactory:Function;
+	private var _lastTabFactory:Dynamic;
 
 	/**
 	 * Creates a new last tab. If the <code>lastTabFactory</code> is
@@ -997,7 +997,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_lastTabFactory(value:Function):Void
+	public function set_lastTabFactory(value:Dynamic):Void
 	{
 		if(this._lastTabFactory == value)
 		{
@@ -1010,7 +1010,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _tabInitializer:Function = defaultTabInitializer;
+	private var _tabInitializer:Dynamic = defaultTabInitializer;
 
 	/**
 	 * Modifies the properties of an individual tab, using an item from the
@@ -1041,7 +1041,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_tabInitializer(value:Function):Void
+	public function set_tabInitializer(value:Dynamic):Void
 	{
 		if(this._tabInitializer == value)
 		{
@@ -1670,7 +1670,7 @@ class TabBar extends FeathersControl
 		}
 		else
 		{
-			var factory:Function = this._firstTabFactory != null ? this._firstTabFactory : this._tabFactory;
+			var factory:Dynamic = this._firstTabFactory != null ? this._firstTabFactory : this._tabFactory;
 			tab = ToggleButton(factory());
 			if(this._customFirstTabName)
 			{
@@ -1703,7 +1703,7 @@ class TabBar extends FeathersControl
 		}
 		else
 		{
-			var factory:Function = this._lastTabFactory != null ? this._lastTabFactory : this._tabFactory;
+			var factory:Dynamic = this._lastTabFactory != null ? this._lastTabFactory : this._tabFactory;
 			tab = ToggleButton(factory());
 			if(this._customLastTabName)
 			{

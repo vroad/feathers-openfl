@@ -63,7 +63,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Dynamic;
 
 	/**
 	 * @private
@@ -135,7 +135,7 @@ class TabBarSlideTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
 		this._oldScreen = oldScreen;
 		this._newScreen = newScreen;
@@ -167,7 +167,7 @@ class TabBarSlideTransitionManager
 		if(!this._oldScreen || !this._newScreen || this.skipNextTransition)
 		{
 			this.skipNextTransition = false;
-			var savedCompleteHandler:Function = this._savedCompleteHandler;
+			var savedCompleteHandler:Dynamic = this._savedCompleteHandler;
 			this._savedCompleteHandler = null;
 			if(this._oldScreen)
 			{
@@ -185,7 +185,7 @@ class TabBarSlideTransitionManager
 		else
 		{
 			this._oldScreen.x = 0;
-			var activeTransition_onUpdate:Function;
+			var activeTransition_onUpdate:Dynamic;
 			if(this._isFromRight)
 			{
 				this._newScreen.x = this.navigator.width;

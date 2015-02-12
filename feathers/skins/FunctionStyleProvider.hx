@@ -29,7 +29,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * Constructor.
 	 */
-	public function FunctionStyleProvider(skinFunction:Function)
+	public function FunctionStyleProvider(skinFunction:Dynamic)
 	{
 		this._styleFunction = skinFunction;
 	}
@@ -37,7 +37,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	private var _styleFunction:Function;
+	private var _styleFunction:Dynamic;
 
 	/**
 	 * The target Feathers UI component is passed to this function when
@@ -54,7 +54,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set_styleFunction(value:Function):Void
+	public function set_styleFunction(value:Dynamic):Void
 	{
 		this._styleFunction = value;
 	}

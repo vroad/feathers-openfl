@@ -651,7 +651,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _normalSymbolFactory:Function = defaultNormalSymbolFactory;
+	private var _normalSymbolFactory:Dynamic = defaultNormalSymbolFactory;
 
 	/**
 	 * A function used to create a normal symbol. May be any Starling
@@ -680,7 +680,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_normalSymbolFactory(value:Function):Void
+	public function set_normalSymbolFactory(value:Dynamic):Void
 	{
 		if(this._normalSymbolFactory == value)
 		{
@@ -693,7 +693,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _selectedSymbolFactory:Function = defaultSelectedSymbolFactory;
+	private var _selectedSymbolFactory:Dynamic = defaultSelectedSymbolFactory;
 
 	/**
 	 * A function used to create a selected symbol. May be any Starling
@@ -722,7 +722,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedSymbolFactory(value:Function):Void
+	public function set_selectedSymbolFactory(value:Dynamic):Void
 	{
 		if(this._selectedSymbolFactory == value)
 		{

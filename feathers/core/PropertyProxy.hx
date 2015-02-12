@@ -23,7 +23,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Creates a <code>PropertyProxy</code> from a regular old <code>Object</code>.
 	 */
-	public static function fromObject(source:Object, onChangeCallback:Function = null):PropertyProxy
+	public static function fromObject(source:Object, onChangeCallback:Dynamic = null):PropertyProxy
 	{
 		var newValue:PropertyProxy = new PropertyProxy(onChangeCallback);
 		for(var propertyName:String in source)
@@ -36,7 +36,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Constructor.
 	 */
-	public function PropertyProxy(onChangeCallback:Function = null)
+	public function PropertyProxy(onChangeCallback:Dynamic = null)
 	{
 		if(onChangeCallback != null)
 		{
@@ -170,7 +170,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Adds a callback to react to property changes.
 	 */
-	public function addOnChangeCallback(callback:Function):Void
+	public function addOnChangeCallback(callback:Dynamic):Void
 	{
 		this._onChangeCallbacks[this._onChangeCallbacks.length] = callback;
 	}
@@ -178,7 +178,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Removes a callback.
 	 */
-	public function removeOnChangeCallback(callback:Function):Void
+	public function removeOnChangeCallback(callback:Dynamic):Void
 	{
 		var index:Int = this._onChangeCallbacks.indexOf(callback);
 		if(index < 0)
@@ -220,7 +220,7 @@ dynamic class PropertyProxy extends Proxy
 		var callbackCount:Int = this._onChangeCallbacks.length;
 		for(var i:Int = 0; i < callbackCount; i++)
 		{
-			var callback:Function = this._onChangeCallbacks[i] as Function;
+			var callback:Dynamic = this._onChangeCallbacks[i] as Function;
 			callback(this, forName);
 		}
 	}

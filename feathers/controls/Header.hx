@@ -276,7 +276,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _titleFactory:Function;
+	private var _titleFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the header's title text renderer
@@ -322,7 +322,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_titleFactory(value:Function):Void
+	public function set_titleFactory(value:Dynamic):Void
 	{
 		if(this._titleFactory == value)
 		{
@@ -1467,7 +1467,7 @@ class Header extends FeathersControl
 			this.titleTextRenderer = null;
 		}
 
-		var factory:Function = this._titleFactory != null ? this._titleFactory : FeathersControl.defaultTextRendererFactory;
+		var factory:Dynamic = this._titleFactory != null ? this._titleFactory : FeathersControl.defaultTextRendererFactory;
 		this.titleTextRenderer = ITextRenderer(factory());
 		var uiTitleRenderer:IFeathersControl = IFeathersControl(this.titleTextRenderer);
 		uiTitleRenderer.styleNameList.add(this.titleName);

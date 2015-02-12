@@ -155,7 +155,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * The default transition function.
 	 */
-	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
+	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void
 	{
 		//in short, do nothing
 		completeCallback();
@@ -257,7 +257,7 @@ class ScreenNavigator extends FeathersControl
 	 * finished.
 	 *
 	 * <p>The function should have the following signature:</p>
-	 * <pre>function(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void</pre>
+	 * <pre>function(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void</pre>
 	 *
 	 * <p>Either of the <code>oldScreen</code> and <code>newScreen</code>
 	 * arguments may be <code>null</code>, but never both. The
@@ -281,7 +281,7 @@ class ScreenNavigator extends FeathersControl
 	 * @see #clearScreen()
 	 * @see http://wiki.starling-framework.org/feathers/transitions
 	 */
-	public var transition:Function = defaultTransition;
+	public var transition:Dynamic = defaultTransition;
 
 	/**
 	 * @private
@@ -432,7 +432,7 @@ class ScreenNavigator extends FeathersControl
 			{
 				if(signal)
 				{
-					var eventListener:Function = this.createScreenSignalListener(eventAction as String, signal);
+					var eventListener:Dynamic = this.createScreenSignalListener(eventAction as String, signal);
 					signal.add(eventListener);
 				}
 				else
@@ -519,7 +519,7 @@ class ScreenNavigator extends FeathersControl
 			}
 			else if(Std.is(eventAction, String))
 			{
-				var eventListener:Function = savedScreenEvents[eventName] as Function;
+				var eventListener:Dynamic = savedScreenEvents[eventName] as Function;
 				if(signal)
 				{
 					signal.remove(eventListener);
@@ -783,7 +783,7 @@ class ScreenNavigator extends FeathersControl
 	private function createScreenEventListener(screenID:String):Function
 	{
 		var self:ScreenNavigator = this;
-		var eventListener:Function = function(event:Event):Void
+		var eventListener:Dynamic = function(event:Event):Void
 		{
 			self.showScreen(screenID);
 		};
@@ -800,7 +800,7 @@ class ScreenNavigator extends FeathersControl
 		if(signal.valueClasses.length == 1)
 		{
 			//shortcut to avoid the allocation of the rest array
-			var signalListener:Function = function(arg0:Object):Void
+			var signalListener:Dynamic = function(arg0:Object):Void
 			{
 				self.showScreen(screenID);
 			};

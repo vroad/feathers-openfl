@@ -212,7 +212,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/text-renderers
 	 * @see feathers.core.ITextRenderer
 	 */
-	public static var defaultTextRendererFactory:Function = function():ITextRenderer
+	public static var defaultTextRendererFactory:Dynamic = function():ITextRenderer
 	{
 		return new BitmapFontTextRenderer();
 	}
@@ -229,7 +229,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/text-editors
 	 * @see feathers.core.ITextEditor
 	 */
-	public static var defaultTextEditorFactory:Function = function():ITextEditor
+	public static var defaultTextEditorFactory:Dynamic = function():ITextEditor
 	{
 		return new StageTextTextEditor();
 	}

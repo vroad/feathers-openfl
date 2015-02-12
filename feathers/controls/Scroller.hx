@@ -720,7 +720,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollBarFactory:Function = defaultScrollBarFactory;
+	private var _horizontalScrollBarFactory:Dynamic = defaultScrollBarFactory;
 
 	/**
 	 * Creates the horizontal scroll bar. The horizontal scroll bar must be
@@ -756,7 +756,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollBarFactory(value:Function):Void
+	public function set_horizontalScrollBarFactory(value:Dynamic):Void
 	{
 		if(this._horizontalScrollBarFactory == value)
 		{
@@ -932,7 +932,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _verticalScrollBarFactory:Function = defaultScrollBarFactory;
+	private var _verticalScrollBarFactory:Dynamic = defaultScrollBarFactory;
 
 	/**
 	 * Creates the vertical scroll bar. The vertical scroll bar must be an
@@ -968,7 +968,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollBarFactory(value:Function):Void
+	public function set_verticalScrollBarFactory(value:Dynamic):Void
 	{
 		if(this._verticalScrollBarFactory == value)
 		{

@@ -53,7 +53,7 @@ class PopUpManager
 		var popUpManager:IPopUpManager = _starlingToPopUpManager[starling];
 		if(!popUpManager)
 		{
-			var factory:Function = PopUpManager.popUpManagerFactory;
+			var factory:Dynamic = PopUpManager.popUpManagerFactory;
 			if(factory == null)
 			{
 				factory = PopUpManager.defaultPopUpManagerFactory;
@@ -93,7 +93,7 @@ class PopUpManager
 	 *
 	 * @see feathers.core.IPopUpManager
 	 */
-	public static var popUpManagerFactory:Function = defaultPopUpManagerFactory;
+	public static var popUpManagerFactory:Dynamic = defaultPopUpManagerFactory;
 	
 	/**
 	 * A function that returns a display object to use as an overlay for
@@ -120,7 +120,7 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	public static function set_overlayFactory(value:Function):Void
+	public static function set_overlayFactory(value:Dynamic):Void
 	{
 		PopUpManager.forStarling(Starling.current).overlayFactory = value;
 	}
@@ -182,7 +182,7 @@ class PopUpManager
 	 * Regular Starling display objects do not dispatch a proper resize
 	 * event that the pop-up manager can listen to.</p>
 	 */
-	public static function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject
+	public static function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Dynamic = null):DisplayObject
 	{
 		return PopUpManager.forStarling(Starling.current).addPopUp(popUp, isModal, isCentered, customOverlayFactory);
 	}

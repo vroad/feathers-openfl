@@ -1149,7 +1149,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateToSkinFunction:Function;
+	private var _stateToSkinFunction:Dynamic;
 
 	/**
 	 * Returns a skin for the current state.
@@ -1167,7 +1167,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Function):Void
+	public function set_stateToSkinFunction(value:Dynamic):Void
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -1180,7 +1180,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateToIconFunction:Function;
+	private var _stateToIconFunction:Dynamic;
 
 	/**
 	 * Returns an icon for the current state.
@@ -1198,7 +1198,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToIconFunction(value:Function):Void
+	public function set_stateToIconFunction(value:Dynamic):Void
 	{
 		if(this._stateToIconFunction == value)
 		{
@@ -1211,7 +1211,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateToLabelPropertiesFunction:Function;
+	private var _stateToLabelPropertiesFunction:Dynamic;
 
 	/**
 	 * Returns a text format for the current state.
@@ -1229,7 +1229,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToLabelPropertiesFunction(value:Function):Void
+	public function set_stateToLabelPropertiesFunction(value:Dynamic):Void
 	{
 		if(this._stateToLabelPropertiesFunction == value)
 		{
@@ -1408,7 +1408,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _labelFactory:Function;
+	private var _labelFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the button's label text renderer
@@ -1447,7 +1447,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFactory(value:Function):Void
+	public function set_labelFactory(value:Dynamic):Void
 	{
 		if(this._labelFactory == value)
 		{
@@ -2191,7 +2191,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 
 		if(this._hasLabelTextRenderer)
 		{
-			var factory:Function = this._labelFactory != null ? this._labelFactory : FeathersControl.defaultTextRendererFactory;
+			var factory:Dynamic = this._labelFactory != null ? this._labelFactory : FeathersControl.defaultTextRendererFactory;
 			this.labelTextRenderer = ITextRenderer(factory());
 			this.labelTextRenderer.styleNameList.add(this.labelName);
 			this.addChild(DisplayObject(this.labelTextRenderer));

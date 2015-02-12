@@ -299,14 +299,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_SKIN);
 	}
 
-	private var _iconLoaderFactory:Function = defaultLoaderFactory;
+	private var _iconLoaderFactory:Dynamic = defaultLoaderFactory;
 
 	public function get_iconLoaderFactory():Function
 	{
 		return this._iconLoaderFactory;
 	}
 
-	public function set_iconLoaderFactory(value:Function):Void
+	public function set_iconLoaderFactory(value:Dynamic):Void
 	{
 		if(this._iconLoaderFactory == value)
 		{
@@ -401,7 +401,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	public var confirmCallback:Function;
+	public var confirmCallback:Dynamic;
 
 	private var selectionTween:Tween;
 

@@ -82,7 +82,7 @@ class FocusManager
 	 *
 	 * @see feathers.core.IFocusManager
 	 */
-	public static var focusManagerFactory:Function = defaultFocusManagerFactory;
+	public static var focusManagerFactory:Dynamic = defaultFocusManagerFactory;
 
 	/**
 	 * Determines if the focus manager is enabled or disabled for the

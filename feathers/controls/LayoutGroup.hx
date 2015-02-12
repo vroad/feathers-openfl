@@ -425,7 +425,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function sortChildren(compareFunction:Function):Void
+	override public function sortChildren(compareFunction:Dynamic):Void
 	{
 		super.sortChildren(compareFunction);
 		this.items.sort(compareFunction);

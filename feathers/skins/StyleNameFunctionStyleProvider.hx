@@ -61,7 +61,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * Constructor.
 	 */
-	public function StyleNameFunctionStyleProvider(styleFunction:Function = null)
+	public function StyleNameFunctionStyleProvider(styleFunction:Dynamic = null)
 	{
 		this._defaultStyleFunction = styleFunction;
 	}
@@ -69,7 +69,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	private var _defaultStyleFunction:Function;
+	private var _defaultStyleFunction:Dynamic;
 
 	/**
 	 * The target Feathers UI component is passed to this function when
@@ -90,7 +90,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set_defaultStyleFunction(value:Function):Void
+	public function set_defaultStyleFunction(value:Dynamic):Void
 	{
 		this._defaultStyleFunction = value;
 	}
@@ -110,7 +110,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 *
 	 * @see #defaultStyleFunction
 	 */
-	public function setFunctionForStyleName(styleName:String, styleFunction:Function):Void
+	public function setFunctionForStyleName(styleName:String, styleFunction:Dynamic):Void
 	{
 		if(!this._styleNameMap)
 		{
@@ -132,7 +132,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 			for(i in 0 ... styleNameCount)
 			{
 				var name:String = styleNameList.item(i);
-				var initializer:Function = this._styleNameMap[name] as Function;
+				var initializer:Dynamic = this._styleNameMap[name] as Function;
 				if(initializer != null)
 				{
 					hasNameInitializers = true;

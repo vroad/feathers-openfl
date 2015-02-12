@@ -817,7 +817,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _itemRendererFactory:Function;
+	private var _itemRendererFactory:Dynamic;
 	
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -853,7 +853,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Function):Void
+	public function set_itemRendererFactory(value:Dynamic):Void
 	{
 		if(this._itemRendererFactory == value)
 		{

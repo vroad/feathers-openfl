@@ -303,7 +303,7 @@ class Callout extends FeathersControl
 	 *
 	 * @see #show()
 	 */
-	public static var calloutFactory:Function = defaultCalloutFactory;
+	public static var calloutFactory:Dynamic = defaultCalloutFactory;
 
 	/**
 	 * Returns an overlay to display with a callout that is modal. Uses the
@@ -329,7 +329,7 @@ class Callout extends FeathersControl
 	 *
 	 * @see #show()
 	 */
-	public static var calloutOverlayFactory:Function = PopUpManager.defaultOverlayFactory;
+	public static var calloutOverlayFactory:Dynamic = PopUpManager.defaultOverlayFactory;
 
 	/**
 	 * Creates a callout, and then positions and sizes it automatically
@@ -353,13 +353,13 @@ class Callout extends FeathersControl
 	 * }</listing>
 	 */
 	public static function show(content:DisplayObject, origin:DisplayObject, supportedDirections:String = DIRECTION_ANY,
-		isModal:Bool = true, customCalloutFactory:Function = null, customOverlayFactory:Function = null):Callout
+		isModal:Bool = true, customCalloutFactory:Dynamic = null, customOverlayFactory:Dynamic = null):Callout
 	{
 		if(!origin.stage)
 		{
 			throw new ArgumentError("Callout origin must be added to the stage.");
 		}
-		var factory:Function = customCalloutFactory;
+		var factory:Dynamic = customCalloutFactory;
 		if(factory == null)
 		{
 			factory = calloutFactory != null ? calloutFactory : defaultCalloutFactory;
@@ -399,7 +399,7 @@ class Callout extends FeathersControl
 	{
 		if(DIRECTION_TO_FUNCTION.hasOwnProperty(direction))
 		{
-			var calloutPositionFunction:Function = DIRECTION_TO_FUNCTION[direction];
+			var calloutPositionFunction:Dynamic = DIRECTION_TO_FUNCTION[direction];
 			calloutPositionFunction(callout, globalOrigin);
 		}
 		else

@@ -189,7 +189,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _textRendererFactory:Function;
+	private var _textRendererFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the label's text renderer
@@ -226,7 +226,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererFactory(value:Function):Void
+	public function set_textRendererFactory(value:Dynamic):Void
 	{
 		if(this._textRendererFactory == value)
 		{
@@ -422,7 +422,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 			this.textRenderer = null;
 		}
 
-		var factory:Function = this._textRendererFactory != null ? this._textRendererFactory : FeathersControl.defaultTextRendererFactory;
+		var factory:Dynamic = this._textRendererFactory != null ? this._textRendererFactory : FeathersControl.defaultTextRendererFactory;
 		this.textRenderer = ITextRenderer(factory());
 		this.addChild(DisplayObject(this.textRenderer));
 	}

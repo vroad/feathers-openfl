@@ -465,7 +465,7 @@ class ListCollection extends EventDispatcher
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#dispose() starling.display.DisplayObject.dispose()
 	 * @see http://doc.starling-framework.org/core/starling/textures/Texture.html#dispose() starling.textures.Texture.dispose()
 	 */
-	public function dispose(disposeItem:Function):Void
+	public function dispose(disposeItem:Dynamic):Void
 	{
 		var itemCount:Int = this.length;
 		for(var i:Int = 0; i < itemCount; i++)

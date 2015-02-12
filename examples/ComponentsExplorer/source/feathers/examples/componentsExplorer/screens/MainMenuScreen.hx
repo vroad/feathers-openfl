@@ -83,7 +83,7 @@ class MainMenuScreen extends PanelScreen
 		this._list.autoHideBackground = true;
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
 
-		var itemRendererAccessorySourceFunction:Function = null;
+		var itemRendererAccessorySourceFunction:Dynamic = null;
 		if(!isTablet)
 		{
 			itemRendererAccessorySourceFunction = this.accessorySourceFunction;

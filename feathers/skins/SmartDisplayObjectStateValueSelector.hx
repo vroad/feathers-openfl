@@ -189,7 +189,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 			return null;
 		}
 
-		var typeHandler:Function = this.valueToValueTypeHandler(value);
+		var typeHandler:Dynamic = this.valueToValueTypeHandler(value);
 		if(typeHandler != null)
 		{
 			var displayObject:DisplayObject = typeHandler(value, oldValue);
@@ -219,7 +219,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 * types do not match, the function should create a new object instead
 	 * of reusing the old display object.</p>
 	 */
-	public function setValueTypeHandler(type:Class, handler:Function):Void
+	public function setValueTypeHandler(type:Class, handler:Dynamic):Void
 	{
 		this._handlers[type] = handler;
 	}

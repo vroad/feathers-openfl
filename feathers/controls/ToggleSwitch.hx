@@ -782,7 +782,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _labelFactory:Function;
+	private var _labelFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the toggle switch's label text
@@ -821,7 +821,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_labelFactory(value:Function):Void
+	public function set_labelFactory(value:Dynamic):Void
 	{
 		if(this._labelFactory == value)
 		{
@@ -834,7 +834,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _onLabelFactory:Function;
+	private var _onLabelFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the toggle switch's on label text
@@ -875,7 +875,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_onLabelFactory(value:Function):Void
+	public function set_onLabelFactory(value:Dynamic):Void
 	{
 		if(this._onLabelFactory == value)
 		{
@@ -888,7 +888,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _offLabelFactory:Function;
+	private var _offLabelFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the toggle switch's off label text
@@ -929,7 +929,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_offLabelFactory(value:Function):Void
+	public function set_offLabelFactory(value:Dynamic):Void
 	{
 		if(this._offLabelFactory == value)
 		{
@@ -1207,7 +1207,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _onTrackFactory:Function;
+	private var _onTrackFactory:Dynamic;
 
 	/**
 	 * A function used to generate the toggle switch's on track
@@ -1244,7 +1244,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_onTrackFactory(value:Function):Void
+	public function set_onTrackFactory(value:Dynamic):Void
 	{
 		if(this._onTrackFactory == value)
 		{
@@ -1377,7 +1377,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _offTrackFactory:Function;
+	private var _offTrackFactory:Dynamic;
 
 	/**
 	 * A function used to generate the toggle switch's off track
@@ -1414,7 +1414,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_offTrackFactory(value:Function):Void
+	public function set_offTrackFactory(value:Dynamic):Void
 	{
 		if(this._offTrackFactory == value)
 		{
@@ -1547,7 +1547,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _thumbFactory:Function;
+	private var _thumbFactory:Dynamic;
 
 	/**
 	 * A function used to generate the toggle switch's thumb sub-component.
@@ -1582,7 +1582,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_thumbFactory(value:Function):Void
+	public function set_thumbFactory(value:Dynamic):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1905,7 +1905,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			this.thumb = null;
 		}
 
-		var factory:Function = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
+		var factory:Dynamic = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
 		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
 		this.thumb = Button(factory());
 		this.thumb.styleNameList.add(thumbName);
@@ -1933,7 +1933,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			this.onTrack = null;
 		}
 
-		var factory:Function = this._onTrackFactory != null ? this._onTrackFactory : defaultOnTrackFactory;
+		var factory:Dynamic = this._onTrackFactory != null ? this._onTrackFactory : defaultOnTrackFactory;
 		var onTrackName:String = this._customOnTrackName != null ? this._customOnTrackName : this.onTrackName;
 		this.onTrack = Button(factory());
 		this.onTrack.styleNameList.add(onTrackName);
@@ -1962,7 +1962,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 				this.offTrack.removeFromParent(true);
 				this.offTrack = null;
 			}
-			var factory:Function = this._offTrackFactory != null ? this._offTrackFactory : defaultOffTrackFactory;
+			var factory:Dynamic = this._offTrackFactory != null ? this._offTrackFactory : defaultOffTrackFactory;
 			var offTrackName:String = this._customOffTrackName != null ? this._customOffTrackName : this.offTrackName;
 			this.offTrack = Button(factory());
 			this.offTrack.styleNameList.add(offTrackName);
@@ -1993,7 +1993,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		}
 
 		var index:Int = this.getChildIndex(this.thumb);
-		var offLabelFactory:Function = this._offLabelFactory;
+		var offLabelFactory:Dynamic = this._offLabelFactory;
 		if(offLabelFactory == null)
 		{
 			offLabelFactory = this._labelFactory;
@@ -2007,7 +2007,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		this.offTextRenderer.clipRect = new Rectangle();
 		this.addChildAt(DisplayObject(this.offTextRenderer), index);
 
-		var onLabelFactory:Function = this._onLabelFactory;
+		var onLabelFactory:Dynamic = this._onLabelFactory;
 		if(onLabelFactory == null)
 		{
 			onLabelFactory = this._labelFactory;

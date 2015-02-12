@@ -236,7 +236,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	private var backButtonHandler:Function;
+	private var backButtonHandler:Dynamic;
 
 	/**
 	 * Optional callback for the menu hardware key. Automatically handles
@@ -259,7 +259,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	private var menuButtonHandler:Function;
+	private var menuButtonHandler:Dynamic;
 
 	/**
 	 * Optional callback for the search hardware key. Automatically handles
@@ -282,7 +282,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	 *
 	 * @default null
 	 */
-	private var searchButtonHandler:Function;
+	private var searchButtonHandler:Dynamic;
 
 	/**
 	 * @private

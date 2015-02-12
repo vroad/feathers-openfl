@@ -87,5 +87,5 @@ interface IScrollContainer extends IFeathersControl
 	 * Sorts the children of the <code>Scroller</code> rather than
 	 * delegating the call to the view port.
 	 */
-	function sortRawChildren(compareFunction:Function):Void;
+	function sortRawChildren(compareFunction:Dynamic):Void;
 }

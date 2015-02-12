@@ -247,7 +247,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _headerFactory:Function;
+	private var _headerFactory:Dynamic;
 
 	/**
 	 * A function used to generate the panel's header sub-component.
@@ -293,7 +293,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_headerFactory(value:Function):Void
+	public function set_headerFactory(value:Dynamic):Void
 	{
 		if(this._headerFactory == value)
 		{
@@ -436,7 +436,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _footerFactory:Function;
+	private var _footerFactory:Dynamic;
 
 	/**
 	 * A function used to generate the panel's footer sub-component.
@@ -471,7 +471,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_footerFactory(value:Function):Void
+	public function set_footerFactory(value:Dynamic):Void
 	{
 		if(this._footerFactory == value)
 		{
@@ -977,7 +977,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			this.header = null;
 		}
 
-		var factory:Function = this._headerFactory != null ? this._headerFactory : defaultHeaderFactory;
+		var factory:Dynamic = this._headerFactory != null ? this._headerFactory : defaultHeaderFactory;
 		var headerName:String = this._customHeaderName != null ? this._customHeaderName : this.headerName;
 		this.header = IFeathersControl(factory());
 		this.header.styleNameList.add(headerName);

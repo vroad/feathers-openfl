@@ -86,7 +86,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	private var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Dynamic;
 	
 	/**
 	 * The duration of the transition, in seconds.
@@ -133,7 +133,7 @@ class ScreenSlidingStackTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
 		if(this._activeTransition)
 		{
@@ -169,7 +169,7 @@ class ScreenSlidingStackTransitionManager
 			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
 		}
 		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
-		var activeTransition_onUpdate:Function;
+		var activeTransition_onUpdate:Dynamic;
 		if(stackIndex < 0)
 		{
 			var oldScreenClassAndID:String = getQualifiedClassName(oldScreen);

@@ -24,7 +24,7 @@ interface IPopUpManager
 	/**
 	 * @private
 	 */
-	function set_overlayFactory(value:Function):Void;
+	function set_overlayFactory(value:Dynamic):Void;
 
 	/**
 	 * @copy PopUpManager#root
@@ -39,7 +39,7 @@ interface IPopUpManager
 	/**
 	 * @copy PopUpManager#addPopUp()
 	 */
-	function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject;
+	function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Dynamic = null):DisplayObject;
 
 	/**
 	 * @copy PopUpManager#removePopUp()

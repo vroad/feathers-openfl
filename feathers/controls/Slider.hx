@@ -880,7 +880,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var currentRepeatAction:Function;
+	private var currentRepeatAction:Dynamic;
 
 	/**
 	 * @private
@@ -926,7 +926,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _minimumTrackFactory:Function;
+	private var _minimumTrackFactory:Dynamic;
 
 	/**
 	 * A function used to generate the slider's minimum track sub-component.
@@ -964,7 +964,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackFactory(value:Function):Void
+	public function set_minimumTrackFactory(value:Dynamic):Void
 	{
 		if(this._minimumTrackFactory == value)
 		{
@@ -1099,7 +1099,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _maximumTrackFactory:Function;
+	private var _maximumTrackFactory:Dynamic;
 
 	/**
 	 * A function used to generate the slider's maximum track sub-component.
@@ -1137,7 +1137,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackFactory(value:Function):Void
+	public function set_maximumTrackFactory(value:Dynamic):Void
 	{
 		if(this._maximumTrackFactory == value)
 		{
@@ -1272,7 +1272,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _thumbFactory:Function;
+	private var _thumbFactory:Dynamic;
 
 	/**
 	 * A function used to generate the slider's thumb sub-component.
@@ -1310,7 +1310,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbFactory(value:Function):Void
+	public function set_thumbFactory(value:Dynamic):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1655,7 +1655,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			this.thumb = null;
 		}
 
-		var factory:Function = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
+		var factory:Dynamic = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
 		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
 		this.thumb = Button(factory());
 		this.thumb.styleNameList.add(thumbName);
@@ -1683,7 +1683,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			this.minimumTrack = null;
 		}
 
-		var factory:Function = this._minimumTrackFactory != null ? this._minimumTrackFactory : defaultMinimumTrackFactory;
+		var factory:Dynamic = this._minimumTrackFactory != null ? this._minimumTrackFactory : defaultMinimumTrackFactory;
 		var minimumTrackName:String = this._customMinimumTrackName != null ? this._customMinimumTrackName : this.minimumTrackName;
 		this.minimumTrack = Button(factory());
 		this.minimumTrack.styleNameList.add(minimumTrackName);
@@ -1713,7 +1713,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 				this.maximumTrack.removeFromParent(true);
 				this.maximumTrack = null;
 			}
-			var factory:Function = this._maximumTrackFactory != null ? this._maximumTrackFactory : defaultMaximumTrackFactory;
+			var factory:Dynamic = this._maximumTrackFactory != null ? this._maximumTrackFactory : defaultMaximumTrackFactory;
 			var maximumTrackName:String = this._customMaximumTrackName != null ? this._customMaximumTrackName : this.maximumTrackName;
 			this.maximumTrack = Button(factory());
 			this.maximumTrack.styleNameList.add(maximumTrackName);
@@ -1934,7 +1934,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function startRepeatTimer(action:Function):Void
+	private function startRepeatTimer(action:Dynamic):Void
 	{
 		this.currentRepeatAction = action;
 		if(this._repeatDelay > 0)

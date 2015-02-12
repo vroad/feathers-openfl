@@ -119,7 +119,7 @@ class Alert extends Panel
 	 *
 	 * @see #show()
 	 */
-	public static var alertFactory:Function = defaultAlertFactory;
+	public static var alertFactory:Dynamic = defaultAlertFactory;
 
 	/**
 	 * Returns an overlay to display with a alert that is modal. Uses the
@@ -145,7 +145,7 @@ class Alert extends Panel
 	 *
 	 * @see #show()
 	 */
-	public static var overlayFactory:Function;
+	public static var overlayFactory:Dynamic;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Alert</code>
@@ -191,9 +191,9 @@ class Alert extends Panel
 	 */
 	public static function show(message:String, title:String = null, buttons:ListCollection = null,
 		icon:DisplayObject = null, isModal:Bool = true, isCentered:Bool = true,
-		customAlertFactory:Function = null, customOverlayFactory:Function = null):Alert
+		customAlertFactory:Dynamic = null, customOverlayFactory:Dynamic = null):Alert
 	{
-		var factory:Function = customAlertFactory;
+		var factory:Dynamic = customAlertFactory;
 		if(factory == null)
 		{
 			factory = alertFactory != null ? alertFactory : defaultAlertFactory;
@@ -423,7 +423,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private var _messageFactory:Function;
+	private var _messageFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the alert's message text renderer
@@ -469,7 +469,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageFactory(value:Function):Void
+	public function set_messageFactory(value:Dynamic):Void
 	{
 		if(this._messageFactory == value)
 		{
@@ -584,7 +584,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupFactory(value:Function):Void
+	public function set_buttonGroupFactory(value:Dynamic):Void
 	{
 		super.footerFactory = value;
 	}
@@ -866,7 +866,7 @@ class Alert extends Panel
 			this.messageTextRenderer = null;
 		}
 
-		var factory:Function = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
+		var factory:Dynamic = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
 		this.messageTextRenderer = ITextRenderer(factory());
 		var uiTextRenderer:IFeathersControl = IFeathersControl(this.messageTextRenderer);
 		uiTextRenderer.styleNameList.add(this.messageName);

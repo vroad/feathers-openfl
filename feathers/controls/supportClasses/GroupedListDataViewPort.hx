@@ -411,14 +411,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _itemRendererFactory:Function;
+	private var _itemRendererFactory:Dynamic;
 
 	public function get_itemRendererFactory():Function
 	{
 		return this._itemRendererFactory;
 	}
 
-	public function set_itemRendererFactory(value:Function):Void
+	public function set_itemRendererFactory(value:Dynamic):Void
 	{
 		if(this._itemRendererFactory == value)
 		{
@@ -506,14 +506,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _firstItemRendererFactory:Function;
+	private var _firstItemRendererFactory:Dynamic;
 
 	public function get_firstItemRendererFactory():Function
 	{
 		return this._firstItemRendererFactory;
 	}
 
-	public function set_firstItemRendererFactory(value:Function):Void
+	public function set_firstItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._firstItemRendererFactory == value)
 		{
@@ -559,14 +559,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _lastItemRendererFactory:Function;
+	private var _lastItemRendererFactory:Dynamic;
 
 	public function get_lastItemRendererFactory():Function
 	{
 		return this._lastItemRendererFactory;
 	}
 
-	public function set_lastItemRendererFactory(value:Function):Void
+	public function set_lastItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._lastItemRendererFactory == value)
 		{
@@ -612,14 +612,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _singleItemRendererFactory:Function;
+	private var _singleItemRendererFactory:Dynamic;
 
 	public function get_singleItemRendererFactory():Function
 	{
 		return this._singleItemRendererFactory;
 	}
 
-	public function set_singleItemRendererFactory(value:Function):Void
+	public function set_singleItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._singleItemRendererFactory == value)
 		{
@@ -665,14 +665,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _headerRendererFactory:Function;
+	private var _headerRendererFactory:Dynamic;
 
 	public function get_headerRendererFactory():Function
 	{
 		return this._headerRendererFactory;
 	}
 
-	public function set_headerRendererFactory(value:Function):Void
+	public function set_headerRendererFactory(value:Dynamic):Void
 	{
 		if(this._headerRendererFactory == value)
 		{
@@ -743,14 +743,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _footerRendererFactory:Function;
+	private var _footerRendererFactory:Dynamic;
 
 	public function get_footerRendererFactory():Function
 	{
 		return this._footerRendererFactory;
 	}
 
-	public function set_footerRendererFactory(value:Function):Void
+	public function set_footerRendererFactory(value:Dynamic):Void
 	{
 		if(this._footerRendererFactory == value)
 		{
@@ -1196,7 +1196,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 					var activeRenderers:Array<IGroupedListItemRenderer> = this._activeFirstItemRenderers;
 					var inactiveRenderers:Array<IGroupedListItemRenderer> = this._inactiveFirstItemRenderers;
 					var type:Class = this._firstItemRendererType ? this._firstItemRendererType : this._itemRendererType;
-					var factory:Function = this._firstItemRendererFactory != null ? this._firstItemRendererFactory : this._itemRendererFactory;
+					var factory:Dynamic = this._firstItemRendererFactory != null ? this._firstItemRendererFactory : this._itemRendererFactory;
 					var name:String = this._firstItemRendererName ? this._firstItemRendererName : this._itemRendererName;
 					typicalItemRenderer = this.createItemRenderer(inactiveRenderers,
 						activeRenderers, this._firstItemRendererMap, type, factory,
@@ -1884,7 +1884,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				layoutIndex = this._unrenderedFirstItems.shift();
 				item = this._dataProvider.getItemAt(groupIndex, itemIndex);
 				var type:Class = this._firstItemRendererType ? this._firstItemRendererType : this._itemRendererType;
-				var factory:Function = this._firstItemRendererFactory != null ? this._firstItemRendererFactory : this._itemRendererFactory;
+				var factory:Dynamic = this._firstItemRendererFactory != null ? this._firstItemRendererFactory : this._itemRendererFactory;
 				var name:String = this._firstItemRendererName ? this._firstItemRendererName : this._itemRendererName;
 				itemRenderer = this.createItemRenderer(this._inactiveFirstItemRenderers, this._activeFirstItemRenderers,
 					this._firstItemRendererMap, type, factory, name, item, groupIndex, itemIndex, layoutIndex, true, false);
@@ -2177,7 +2177,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function createItemRenderer(inactiveRenderers:Array<IGroupedListItemRenderer>,
 		activeRenderers:Array<IGroupedListItemRenderer>, rendererMap:Dictionary,
-		type:Class, factory:Function, name:String, item:Object, groupIndex:Int, itemIndex:Int,
+		type:Class, factory:Dynamic, name:String, item:Object, groupIndex:Int, itemIndex:Int,
 		layoutIndex:Int, useCache:Bool, isTemporary:Bool):IGroupedListItemRenderer
 	{
 		if(!useCache || isTemporary || inactiveRenderers.length == 0)

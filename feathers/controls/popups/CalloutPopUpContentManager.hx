@@ -49,7 +49,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	 *
 	 * @default null
 	 */
-	public var calloutFactory:Function;
+	public var calloutFactory:Dynamic;
 
 	/**
 	 * The direction of the callout.

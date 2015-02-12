@@ -25,14 +25,14 @@ interface IFeathersEventDispatcher
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/events/EventDispatcher.html#addEventListener() Full description of starling.events.EventDispatcher.addEventListener() in Gamua's Starling Framework API Reference
 	 */
-	function addEventListener(type:String, listener:Function):Void;
+	function addEventListener(type:String, listener:Dynamic):Void;
 
 	/**
 	 * Removes a listener for an event type.
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/events/EventDispatcher.html#removeEventListener() Full description of starling.events.EventDispatcher.addEventListener() in Gamua's Starling Framework API Reference
 	 */
-	function removeEventListener(type:String, listener:Function):Void;
+	function removeEventListener(type:String, listener:Dynamic):Void;
 
 	/**
 	 * Removes all listeners for an event type.

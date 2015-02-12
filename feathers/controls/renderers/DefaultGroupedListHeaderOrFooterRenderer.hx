@@ -378,7 +378,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _contentFunction:Function;
+	private var _contentFunction:Dynamic;
 
 	/**
 	 * A function that returns a display object to be positioned in the
@@ -429,7 +429,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentFunction(value:Function):Void
+	public function set_contentFunction(value:Dynamic):Void
 	{
 		if(this._contentFunction == value)
 		{
@@ -503,7 +503,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _contentSourceFunction:Function;
+	private var _contentSourceFunction:Dynamic;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -560,7 +560,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentSourceFunction(value:Function):Void
+	public function set_contentSourceFunction(value:Dynamic):Void
 	{
 		if(this.contentSourceFunction == value)
 		{
@@ -633,7 +633,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _contentLabelFunction:Function;
+	private var _contentLabelFunction:Dynamic;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -686,7 +686,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelFunction(value:Function):Void
+	public function set_contentLabelFunction(value:Dynamic):Void
 	{
 		if(this._contentLabelFunction == value)
 		{
@@ -699,7 +699,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _contentLoaderFactory:Function = defaultImageLoaderFactory;
+	private var _contentLoaderFactory:Dynamic = defaultImageLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -733,7 +733,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLoaderFactory(value:Function):Void
+	public function set_contentLoaderFactory(value:Dynamic):Void
 	{
 		if(this._contentLoaderFactory == value)
 		{
@@ -746,7 +746,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _contentLabelFactory:Function;
+	private var _contentLabelFactory:Dynamic;
 
 	/**
 	 * A function that generates an <code>ITextRenderer</code> that uses the result
@@ -780,7 +780,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelFactory(value:Function):Void
+	public function set_contentLabelFactory(value:Dynamic):Void
 	{
 		if(this._contentLabelFactory == value)
 		{
@@ -1436,7 +1436,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		{
 			if(!this.contentLabel)
 			{
-				var factory:Function = this._contentLabelFactory != null ? this._contentLabelFactory : FeathersControl.defaultTextRendererFactory;
+				var factory:Dynamic = this._contentLabelFactory != null ? this._contentLabelFactory : FeathersControl.defaultTextRendererFactory;
 				this.contentLabel = ITextRenderer(factory());
 				FeathersControl(this.contentLabel).styleNameList.add(this.contentLabelName);
 			}

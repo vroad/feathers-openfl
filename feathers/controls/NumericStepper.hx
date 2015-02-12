@@ -429,7 +429,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var currentRepeatAction:Function;
+	private var currentRepeatAction:Dynamic;
 
 	/**
 	 * @private
@@ -593,7 +593,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _decrementButtonFactory:Function;
+	private var _decrementButtonFactory:Dynamic;
 
 	/**
 	 * A function used to generate the numeric stepper's decrement button
@@ -631,7 +631,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_decrementButtonFactory(value:Function):Void
+	public function set_decrementButtonFactory(value:Dynamic):Void
 	{
 		if(this._decrementButtonFactory == value)
 		{
@@ -801,7 +801,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _incrementButtonFactory:Function;
+	private var _incrementButtonFactory:Dynamic;
 
 	/**
 	 * A function used to generate the numeric stepper's increment button
@@ -839,7 +839,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_incrementButtonFactory(value:Function):Void
+	public function set_incrementButtonFactory(value:Dynamic):Void
 	{
 		if(this._incrementButtonFactory == value)
 		{
@@ -1009,7 +1009,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private var _textInputFactory:Function;
+	private var _textInputFactory:Dynamic;
 
 	/**
 	 * A function used to generate the numeric stepper's text input
@@ -1046,7 +1046,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_textInputFactory(value:Function):Void
+	public function set_textInputFactory(value:Dynamic):Void
 	{
 		if(this._textInputFactory == value)
 		{
@@ -1418,7 +1418,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			this.decrementButton = null;
 		}
 
-		var factory:Function = this._decrementButtonFactory != null ? this._decrementButtonFactory : defaultDecrementButtonFactory;
+		var factory:Dynamic = this._decrementButtonFactory != null ? this._decrementButtonFactory : defaultDecrementButtonFactory;
 		var decrementButtonName:String = this._customDecrementButtonName != null ? this._customDecrementButtonName : this.decrementButtonName;
 		this.decrementButton = Button(factory());
 		this.decrementButton.styleNameList.add(decrementButtonName);
@@ -1445,7 +1445,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			this.incrementButton = null;
 		}
 
-		var factory:Function = this._incrementButtonFactory != null ? this._incrementButtonFactory : defaultIncrementButtonFactory;
+		var factory:Dynamic = this._incrementButtonFactory != null ? this._incrementButtonFactory : defaultIncrementButtonFactory;
 		var incrementButtonName:String = this._customIncrementButtonName != null ? this._customIncrementButtonName : this.incrementButtonName;
 		this.incrementButton = Button(factory());
 		this.incrementButton.styleNameList.add(incrementButtonName);
@@ -1472,7 +1472,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			this.textInput = null;
 		}
 
-		var factory:Function = this._textInputFactory != null ? this._textInputFactory : defaultTextInputFactory;
+		var factory:Dynamic = this._textInputFactory != null ? this._textInputFactory : defaultTextInputFactory;
 		var textInputName:String = this._customTextInputName != null ? this._customTextInputName : this.textInputName;
 		this.textInput = TextInput(factory());
 		this.textInput.styleNameList.add(textInputName);
@@ -1616,7 +1616,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function startRepeatTimer(action:Function):Void
+	private function startRepeatTimer(action:Dynamic):Void
 	{
 		if(this.touchPointID >= 0)
 		{

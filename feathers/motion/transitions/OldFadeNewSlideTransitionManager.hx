@@ -81,7 +81,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _savedCompleteHandler:Function;
+	private var _savedCompleteHandler:Dynamic;
 
 	/**
 	 * @private
@@ -133,7 +133,7 @@ class OldFadeNewSlideTransitionManager
 	 * The function passed to the <code>transition</code> property of the
 	 * <code>ScreenNavigator</code>.
 	 */
-	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
 		if(this._activeTransition)
 		{

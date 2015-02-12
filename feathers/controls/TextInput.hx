@@ -693,7 +693,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _textEditorFactory:Function;
+	private var _textEditorFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the text editor. If null,
@@ -729,7 +729,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_textEditorFactory(value:Function):Void
+	public function set_textEditorFactory(value:Dynamic):Void
 	{
 		if(this._textEditorFactory == value)
 		{
@@ -742,7 +742,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _promptFactory:Function;
+	private var _promptFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the prompt text renderer. If null,
@@ -784,7 +784,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_promptFactory(value:Function):Void
+	public function set_promptFactory(value:Dynamic):Void
 	{
 		if(this._promptFactory == value)
 		{
@@ -1021,7 +1021,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _stateToSkinFunction:Function;
+	private var _stateToSkinFunction:Dynamic;
 
 	/**
 	 * Returns a skin for the current state.
@@ -1039,7 +1039,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Function):Void
+	public function set_stateToSkinFunction(value:Dynamic):Void
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -1189,7 +1189,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private var _stateToIconFunction:Function;
+	private var _stateToIconFunction:Dynamic;
 
 	/**
 	 * Returns an icon for the current state.
@@ -1207,7 +1207,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_stateToIconFunction(value:Function):Void
+	public function set_stateToIconFunction(value:Dynamic):Void
 	{
 		if(this._stateToIconFunction == value)
 		{
@@ -1903,7 +1903,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			this.textEditor = null;
 		}
 
-		var factory:Function = this._textEditorFactory != null ? this._textEditorFactory : FeathersControl.defaultTextEditorFactory;
+		var factory:Dynamic = this._textEditorFactory != null ? this._textEditorFactory : FeathersControl.defaultTextEditorFactory;
 		this.textEditor = ITextEditor(factory());
 		this.textEditor.addEventListener(Event.CHANGE, textEditor_changeHandler);
 		this.textEditor.addEventListener(FeathersEventType.ENTER, textEditor_enterHandler);
@@ -1928,7 +1928,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			return;
 		}
 
-		var factory:Function = this._promptFactory != null ? this._promptFactory : FeathersControl.defaultTextRendererFactory;
+		var factory:Dynamic = this._promptFactory != null ? this._promptFactory : FeathersControl.defaultTextRendererFactory;
 		this.promptTextRenderer = ITextRenderer(factory());
 		this.addChild(DisplayObject(this.promptTextRenderer));
 	}

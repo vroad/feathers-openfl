@@ -376,7 +376,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html#dispose() starling.display.DisplayObject.dispose()
 	 * @see http://doc.starling-framework.org/core/starling/textures/Texture.html#dispose() starling.textures.Texture.dispose()
 	 */
-	public function dispose(disposeGroup:Function, disposeItem:Function):Void
+	public function dispose(disposeGroup:Dynamic, disposeItem:Dynamic):Void
 	{
 		var groupCount:Int = this.getLength();
 		var path:Array = [];
@@ -392,7 +392,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Function, disposeItem:Function):Void
+	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Dynamic, disposeItem:Dynamic):Void
 	{
 		if(disposeGroup != null)
 		{

@@ -458,7 +458,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _labelFunction:Function;
+	private var _labelFunction:Dynamic;
 
 	/**
 	 * A function used to generate label text for the selected item
@@ -499,7 +499,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Function):Void
+	public function set_labelFunction(value:Dynamic):Void
 	{
 		this._labelFunction = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
@@ -602,7 +602,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _buttonFactory:Function;
+	private var _buttonFactory:Dynamic;
 
 	/**
 	 * A function used to generate the picker list's button sub-component.
@@ -640,7 +640,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonFactory(value:Function):Void
+	public function set_buttonFactory(value:Dynamic):Void
 	{
 		if(this._buttonFactory == value)
 		{
@@ -774,7 +774,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _listFactory:Function;
+	private var _listFactory:Dynamic;
 
 	/**
 	 * A function used to generate the picker list's pop-up list
@@ -811,7 +811,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listFactory(value:Function):Void
+	public function set_listFactory(value:Dynamic):Void
 	{
 		if(this._listFactory == value)
 		{
@@ -1362,7 +1362,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.button = null;
 		}
 
-		var factory:Function = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
+		var factory:Dynamic = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
 		var buttonName:String = this._customButtonName != null ? this._customButtonName : this.buttonName;
 		this.button = Button(factory());
 		if(Std.is(this.button, ToggleButton))
@@ -1397,7 +1397,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.list = null;
 		}
 
-		var factory:Function = this._listFactory != null ? this._listFactory : defaultListFactory;
+		var factory:Dynamic = this._listFactory != null ? this._listFactory : defaultListFactory;
 		var listName:String = this._customListName != null ? this._customListName : this.listName;
 		this.list = List(factory());
 		this.list.focusOwner = this;

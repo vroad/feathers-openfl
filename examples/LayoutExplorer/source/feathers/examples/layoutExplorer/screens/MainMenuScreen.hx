@@ -61,7 +61,7 @@ class MainMenuScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
 
-		var itemRendererAccessorySourceFunction:Function = null;
+		var itemRendererAccessorySourceFunction:Dynamic = null;
 		if(!isTablet)
 		{
 			itemRendererAccessorySourceFunction = this.accessorySourceFunction;

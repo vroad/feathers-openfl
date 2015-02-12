@@ -582,7 +582,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateToSkinFunction:Function;
+	private var _stateToSkinFunction:Dynamic;
 
 	/**
 	 * Returns a skin for the current state.
@@ -600,7 +600,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Function):Void
+	public function set_stateToSkinFunction(value:Dynamic):Void
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -613,7 +613,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _textEditorFactory:Function;
+	private var _textEditorFactory:Dynamic;
 
 	/**
 	 * A function used to instantiate the text editor view port. If
@@ -650,7 +650,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_textEditorFactory(value:Function):Void
+	public function set_textEditorFactory(value:Dynamic):Void
 	{
 		if(this._textEditorFactory == value)
 		{

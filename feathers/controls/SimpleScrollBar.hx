@@ -603,7 +603,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var currentRepeatAction:Function;
+	private var currentRepeatAction:Dynamic;
 
 	/**
 	 * @private
@@ -666,7 +666,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _thumbFactory:Function;
+	private var _thumbFactory:Dynamic;
 
 	/**
 	 * A function used to generate the scroll bar's thumb sub-component.
@@ -704,7 +704,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set_thumbFactory(value:Function):Void
+	public function set_thumbFactory(value:Dynamic):Void
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1030,7 +1030,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			this.thumb = null;
 		}
 
-		var factory:Function = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
+		var factory:Dynamic = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
 		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
 		this.thumb = Button(factory());
 		this.thumb.styleNameList.add(thumbName);
@@ -1213,7 +1213,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function startRepeatTimer(action:Function):Void
+	private function startRepeatTimer(action:Dynamic):Void
 	{
 		this.currentRepeatAction = action;
 		if(this._repeatDelay > 0)

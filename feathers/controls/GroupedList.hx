@@ -793,7 +793,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _itemRendererFactory:Function;
+	private var _itemRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -838,7 +838,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Function):Void
+	public function set_itemRendererFactory(value:Dynamic):Void
 	{
 		if(this._itemRendererFactory == value)
 		{
@@ -1059,7 +1059,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _firstItemRendererFactory:Function;
+	private var _firstItemRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1100,7 +1100,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererFactory(value:Function):Void
+	public function set_firstItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._firstItemRendererFactory == value)
 		{
@@ -1205,7 +1205,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _lastItemRendererFactory:Function;
+	private var _lastItemRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1246,7 +1246,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererFactory(value:Function):Void
+	public function set_lastItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._lastItemRendererFactory == value)
 		{
@@ -1351,7 +1351,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _singleItemRendererFactory:Function;
+	private var _singleItemRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1392,7 +1392,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererFactory(value:Function):Void
+	public function set_singleItemRendererFactory(value:Dynamic):Void
 	{
 		if(this._singleItemRendererFactory == value)
 		{
@@ -1494,7 +1494,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _headerRendererFactory:Function;
+	private var _headerRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new header renderer.
@@ -1531,7 +1531,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_headerRendererFactory(value:Function):Void
+	public function set_headerRendererFactory(value:Dynamic):Void
 	{
 		if(this._headerRendererFactory == value)
 		{
@@ -1706,7 +1706,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _footerRendererFactory:Function;
+	private var _footerRendererFactory:Dynamic;
 
 	/**
 	 * A function called that is expected to return a new footer renderer.
@@ -1743,7 +1743,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_footerRendererFactory(value:Function):Void
+	public function set_footerRendererFactory(value:Dynamic):Void
 	{
 		if(this._footerRendererFactory == value)
 		{
@@ -1924,7 +1924,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _headerFunction:Function;
+	private var _headerFunction:Dynamic;
 
 	/**
 	 * A function used to generate header data for a specific group. If this
@@ -1960,7 +1960,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_headerFunction(value:Function):Void
+	public function set_headerFunction(value:Dynamic):Void
 	{
 		if(this._headerFunction == value)
 		{
@@ -2017,7 +2017,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _footerFunction:Function;
+	private var _footerFunction:Dynamic;
 
 	/**
 	 * A function used to generate footer data for a specific group. If this
@@ -2053,7 +2053,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_footerFunction(value:Function):Void
+	public function set_footerFunction(value:Dynamic):Void
 	{
 		if(this._footerFunction == value)
 		{

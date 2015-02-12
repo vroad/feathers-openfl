@@ -280,7 +280,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * Sets the initializer for a specific class.
 	 */
-	public function setInitializerForClass(type:Class, initializer:Function, withName:String = null):Void
+	public function setInitializerForClass(type:Class, initializer:Dynamic, withName:String = null):Void
 	{
 		if(!withName)
 		{
@@ -299,7 +299,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * Sets an initializer for a specific class and any subclasses. This
 	 * option can potentially hurt performance, so use sparingly.
 	 */
-	public function setInitializerForClassAndSubclasses(type:Class, initializer:Function):Void
+	public function setInitializerForClassAndSubclasses(type:Class, initializer:Dynamic):Void
 	{
 		var index:Int = this._initializerSuperTypes.indexOf(type);
 		if(index < 0)
@@ -437,7 +437,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):Void
 	{
-		var initializer:Function;
+		var initializer:Dynamic;
 		var hasNameInitializer:Bool = false;
 		if(target is IFeathersControl && nameMap)
 		{

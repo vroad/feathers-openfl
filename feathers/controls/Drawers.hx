@@ -1658,7 +1658,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _contentEventDispatcherFunction:Function;
+	private var _contentEventDispatcherFunction:Dynamic;
 
 	/**
 	 * A function that returns an event dispatcher that dispatches events to
@@ -1694,7 +1694,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_contentEventDispatcherFunction(value:Function):Void
+	public function set_contentEventDispatcherFunction(value:Dynamic):Void
 	{
 		if(this._contentEventDispatcherFunction == value)
 		{

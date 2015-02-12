@@ -862,7 +862,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _buttonFactory:Function = defaultButtonFactory;
+	private var _buttonFactory:Dynamic = defaultButtonFactory;
 
 	/**
 	 * Creates a new button. A button must be an instance of <code>Button</code>.
@@ -900,7 +900,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonFactory(value:Function):Void
+	public function set_buttonFactory(value:Dynamic):Void
 	{
 		if(this._buttonFactory == value)
 		{
@@ -913,7 +913,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _firstButtonFactory:Function;
+	private var _firstButtonFactory:Dynamic;
 
 	/**
 	 * Creates a new first button. If the <code>firstButtonFactory</code> is
@@ -953,7 +953,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_firstButtonFactory(value:Function):Void
+	public function set_firstButtonFactory(value:Dynamic):Void
 	{
 		if(this._firstButtonFactory == value)
 		{
@@ -966,7 +966,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastButtonFactory:Function;
+	private var _lastButtonFactory:Dynamic;
 
 	/**
 	 * Creates a new last button. If the <code>lastButtonFactory</code> is
@@ -1006,7 +1006,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_lastButtonFactory(value:Function):Void
+	public function set_lastButtonFactory(value:Dynamic):Void
 	{
 		if(this._lastButtonFactory == value)
 		{
@@ -1019,7 +1019,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _buttonInitializer:Function = defaultButtonInitializer;
+	private var _buttonInitializer:Dynamic = defaultButtonInitializer;
 
 	/**
 	 * Modifies a button, perhaps by changing its label and icons, based on the
@@ -1052,7 +1052,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonInitializer(value:Function):Void
+	public function set_buttonInitializer(value:Dynamic):Void
 	{
 		if(this._buttonInitializer == value)
 		{
@@ -1425,7 +1425,7 @@ class ButtonGroup extends FeathersControl
 				var removeListener:Bool = true;
 				if(item.hasOwnProperty(field))
 				{
-					var listener:Function = item[field] as Function;
+					var listener:Dynamic = item[field] as Function;
 					if(listener == null)
 					{
 						continue;
@@ -1546,7 +1546,7 @@ class ButtonGroup extends FeathersControl
 		else
 		{
 			isNewInstance = true;
-			var factory:Function = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
+			var factory:Dynamic = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
 			button = Button(factory());
 			if(this._customFirstButtonName)
 			{
@@ -1587,7 +1587,7 @@ class ButtonGroup extends FeathersControl
 		else
 		{
 			isNewInstance = true;
-			var factory:Function = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
+			var factory:Dynamic = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
 			button = Button(factory());
 			if(this._customLastButtonName)
 			{
@@ -1727,7 +1727,7 @@ class ButtonGroup extends FeathersControl
 		var field:String = event.type;
 		if(item.hasOwnProperty(field))
 		{
-			var listener:Function = item[field] as Function;
+			var listener:Dynamic = item[field] as Function;
 			if(listener == null)
 			{
 				return;

@@ -65,7 +65,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	private var _overlayFactory:Function = defaultOverlayFactory;
+	private var _overlayFactory:Dynamic = defaultOverlayFactory;
 
 	/**
 	 * @copy PopUpManager#overlayFactory
@@ -78,7 +78,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @private
 	 */
-	public function set_overlayFactory(value:Function):Void
+	public function set_overlayFactory(value:Dynamic):Void
 	{
 		this._overlayFactory = value;
 	}
@@ -140,7 +140,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#addPopUp()
 	 */
-	public function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Function = null):DisplayObject
+	public function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Dynamic = null):DisplayObject
 	{
 		if(isModal)
 		{
