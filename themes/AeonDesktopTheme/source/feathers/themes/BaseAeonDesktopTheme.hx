@@ -194,8 +194,8 @@ package feathers.themes
 		protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(4, 4, 55, 16);
 		protected static const STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
 		protected static const STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
-		protected static const HSLIDER_FIRST_REGION:Number = 2;
-		protected static const HSLIDER_SECOND_REGION:Number = 75;
+		protected static const HSLIDER_FIRST_REGION:Float = 2;
+		protected static const HSLIDER_SECOND_REGION:Float = 75;
 		protected static const TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 148, 18);
 		protected static const VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
 		protected static const VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
@@ -211,7 +211,7 @@ package feathers.themes
 		protected static const MODAL_OVERLAY_COLOR:uint = 0xDDDDDD;
 		protected static const PRIMARY_TEXT_COLOR:uint = 0x0B333C;
 		protected static const DISABLED_TEXT_COLOR:uint = 0x5B6770;
-		protected static const MODAL_OVERLAY_ALPHA:Number = 0.5;
+		protected static const MODAL_OVERLAY_ALPHA:Float = 0.5;
 
 		/**
 		 * The default global text renderer factory for this theme creates a
@@ -272,7 +272,7 @@ package feathers.themes
 		/**
 		 * Skins are scaled by a value based on the content scale factor.
 		 */
-		protected var scale:Number = 1;
+		protected var scale:Float = 1;
 
 		/**
 		 * A smaller font size for details.
@@ -1206,7 +1206,7 @@ package feathers.themes
 			renderer.paddingLeft = this.smallGutterSize;
 			renderer.gap = this.extraSmallGutterSize;
 			renderer.minGap = this.extraSmallGutterSize;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.smallGutterSize;
 			renderer.minWidth = this.controlSize;
 			renderer.minHeight = this.controlSize;
@@ -1374,7 +1374,7 @@ package feathers.themes
 			}
 			button.stateToIconFunction = iconSelector.updateValue;
 
-			button.gap = Number.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.smallGutterSize;
 			button.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;

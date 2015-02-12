@@ -299,7 +299,7 @@ class Drawers extends FeathersControl
 	 * @private
 	 * Older saved velocities are given less importance.
 	 */
-	inline private static var VELOCITY_WEIGHTS:Array<Number> = new <Number>[1, 1.33, 1.66, 2];
+	inline private static var VELOCITY_WEIGHTS:Array<Float> = new <Float>[1, 1.33, 1.66, 2];
 
 	/**
 	 * @private
@@ -1876,12 +1876,12 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _previousVelocityX:Array<Number> = new Array();
+	private var _previousVelocityX:Array<Float> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var _previousVelocityY:Array<Number> = new Array();
+	private var _previousVelocityY:Array<Float> = new Array();
 
 	/**
 	 * @private

@@ -204,7 +204,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		{
 			if(this.fadeTween)
 			{
-				this.fadeTween.advanceTime(Number.MAX_VALUE);
+				this.fadeTween.advanceTime(Float.MAX_VALUE);
 			}
 			if(this._data)
 			{

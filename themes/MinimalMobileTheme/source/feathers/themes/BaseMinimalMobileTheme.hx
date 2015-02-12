@@ -138,7 +138,7 @@ package feathers.themes
 		protected static const PRIMARY_TEXT_COLOR:uint = 0x666666;
 		protected static const DISABLED_TEXT_COLOR:uint = 0x999999;
 		protected static const MODAL_OVERLAY_COLOR:uint = 0xcccccc;
-		protected static const MODAL_OVERLAY_ALPHA:Number = 0.4;
+		protected static const MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 		/**
 		 * The screen density of an iPhone with Retina display. The textures
@@ -263,7 +263,7 @@ package feathers.themes
 		 * Skins are scaled by a value based on the screen density on the
 		 * content scale factor.
 		 */
-		protected var scale:Number = 1;
+		protected var scale:Float = 1;
 
 		/**
 		 * A normal font size.
@@ -1209,7 +1209,7 @@ package feathers.themes
 			renderer.paddingRight = this.gutterSize;
 			renderer.gap = this.gutterSize;
 			renderer.minGap = this.gutterSize;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.minWidth = this.gridSize;
 			renderer.minHeight = this.gridSize;
@@ -1397,8 +1397,8 @@ package feathers.themes
 			var frame:Rectangle = this.pickerListItemSelectedIconTexture.frame;
 			if(frame)
 			{
-				var iconWidth:Number = frame.width;
-				var iconHeight:Number = frame.height;
+				var iconWidth:Float = frame.width;
+				var iconHeight:Float = frame.height;
 			}
 			else
 			{
@@ -1417,11 +1417,11 @@ package feathers.themes
 			renderer.paddingBottom = this.smallGutterSize;
 			renderer.paddingLeft = this.gutterSize;
 			renderer.paddingRight = this.gutterSize;
-			renderer.gap = Number.POSITIVE_INFINITY;
+			renderer.gap = Float.POSITIVE_INFINITY;
 			renderer.minGap = this.gutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_RIGHT;
 			renderer.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.gridSize;
@@ -1450,7 +1450,7 @@ package feathers.themes
 			};
 			button.stateToIconFunction = iconSelector.updateValue;
 
-			button.gap = Number.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.gutterSize;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 			button.horizontalAlign =  Button.HORIZONTAL_ALIGN_LEFT;

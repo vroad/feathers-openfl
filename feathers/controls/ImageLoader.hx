@@ -729,16 +729,16 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _textureQueueDuration:Float = Number.POSITIVE_INFINITY;
+	private var _textureQueueDuration:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * If <code>delayTextureCreation</code> is <code>true</code> and the
-	 * duration is not <code>Number.POSITIVE_INFINITY</code>, the loader
+	 * duration is not <code>Float.POSITIVE_INFINITY</code>, the loader
 	 * will be added to a queue where the textures are uploaded to the GPU
 	 * in sequence to avoid significantly affecting performance. Useful for
 	 * lists where many textures may need to be uploaded during scrolling.
 	 *
-	 * <p>If the duration is <code>Number.POSITIVE_INFINITY</code>, the
+	 * <p>If the duration is <code>Float.POSITIVE_INFINITY</code>, the
 	 * default value, the texture will not be uploaded until
 	 * <code>delayTextureCreation</code> is set to <code>false</code>. In
 	 * this situation, the loader will not be added to the queue, and other
@@ -751,7 +751,7 @@ class ImageLoader extends FeathersControl
 	 * loader.delayTextureCreation = true;
 	 * loader.textureQueueDuration = 0.5;</listing>
 	 *
-	 * @default Number.POSITIVE_INFINITY
+	 * @default Float.POSITIVE_INFINITY
 	 *
 	 * @see #delayTextureCreation
 	 */
@@ -774,11 +774,11 @@ class ImageLoader extends FeathersControl
 		if(this._delayTextureCreation)
 		{
 			 if((this._pendingBitmapDataTexture || this._pendingRawTextureData) &&
-				oldDuration == Number.POSITIVE_INFINITY && this._textureQueueDuration < Number.POSITIVE_INFINITY)
+				oldDuration == Float.POSITIVE_INFINITY && this._textureQueueDuration < Float.POSITIVE_INFINITY)
 			{
 				this.addToTextureQueue();
 			}
-			else if(this._isInTextureQueue && this._textureQueueDuration == Number.POSITIVE_INFINITY)
+			else if(this._isInTextureQueue && this._textureQueueDuration == Float.POSITIVE_INFINITY)
 			{
 				this.removeFromTextureQueue();
 			}
@@ -1438,9 +1438,9 @@ class ImageLoader extends FeathersControl
 		{
 			throw new IllegalOperationError("Cannot add loader to delayed texture queue if delayTextureCreation is false.");
 		}
-		if(this._textureQueueDuration == Number.POSITIVE_INFINITY)
+		if(this._textureQueueDuration == Float.POSITIVE_INFINITY)
 		{
-			throw new IllegalOperationError("Cannot add loader to delayed texture queue if textureQueueDuration is Number.POSITIVE_INFINITY.");
+			throw new IllegalOperationError("Cannot add loader to delayed texture queue if textureQueueDuration is Float.POSITIVE_INFINITY.");
 		}
 		if(this._isInTextureQueue)
 		{
@@ -1589,7 +1589,7 @@ class ImageLoader extends FeathersControl
 		if(this._delayTextureCreation)
 		{
 			this._pendingBitmapDataTexture = bitmapData;
-			if(this._textureQueueDuration < Number.POSITIVE_INFINITY)
+			if(this._textureQueueDuration < Float.POSITIVE_INFINITY)
 			{
 				this.addToTextureQueue();
 			}
@@ -1630,7 +1630,7 @@ class ImageLoader extends FeathersControl
 		if(this._delayTextureCreation)
 		{
 			this._pendingRawTextureData = rawData;
-			if(this._textureQueueDuration < Number.POSITIVE_INFINITY)
+			if(this._textureQueueDuration < Float.POSITIVE_INFINITY)
 			{
 				this.addToTextureQueue();
 			}

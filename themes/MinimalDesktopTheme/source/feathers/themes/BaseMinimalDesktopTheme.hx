@@ -159,7 +159,7 @@ package feathers.themes
 		protected static const PRIMARY_TEXT_COLOR:uint = 0x666666;
 		protected static const DISABLED_TEXT_COLOR:uint = 0x999999;
 		protected static const MODAL_OVERLAY_COLOR:uint = 0xcccccc;
-		protected static const MODAL_OVERLAY_ALPHA:Number = 0.4;
+		protected static const MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 		/**
 		 * The default global text renderer factory for this theme creates a
@@ -222,7 +222,7 @@ package feathers.themes
 		/**
 		 * Skins are scaled by a value based on the content scale factor.
 		 */
-		protected var scale:Number = 1;
+		protected var scale:Float = 1;
 
 		/**
 		 * A normal font size.
@@ -1231,7 +1231,7 @@ package feathers.themes
 			renderer.gap = this.smallGutterSize;
 			renderer.minGap = this.smallGutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_LEFT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.smallGutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.controlSize;
@@ -1420,7 +1420,7 @@ package feathers.themes
 			this.setBaseButtonStyles(button);
 
 			button.minWidth = this.buttonMinWidth;
-			button.gap = Number.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.gutterSize;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 			button.horizontalAlign =  Button.HORIZONTAL_ALIGN_LEFT;

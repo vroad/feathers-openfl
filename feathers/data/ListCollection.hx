@@ -221,7 +221,7 @@ class ListCollection extends EventDispatcher
 		{
 			this.dataDescriptor = new ArrayListCollectionDataDescriptor();
 		}
-		else if(this._data is Array<Number> && !(this._dataDescriptor is VectorNumberListCollectionDataDescriptor))
+		else if(this._data is Array<Float> && !(this._dataDescriptor is VectorNumberListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorNumberListCollectionDataDescriptor();
 		}

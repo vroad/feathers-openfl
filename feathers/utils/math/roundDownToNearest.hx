@@ -7,7 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.utils.math;
 /**
- * Rounds a Number <em>down</em> to the nearest multiple of an input. For example, by rounding
+ * Rounds a Float <em>down</em> to the nearest multiple of an input. For example, by rounding
  * 16 down to the nearest 10, you will receive 10. Similar to the built-in function Math.floor().
  * 
  * @param	numberToRound		the number to round down

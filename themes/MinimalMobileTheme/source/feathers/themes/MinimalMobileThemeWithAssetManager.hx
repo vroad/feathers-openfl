@@ -132,7 +132,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected function assetManager_onProgress(progress:Number):void
+		protected function assetManager_onProgress(progress:Float):void
 		{
 			if(progress < 1)
 			{

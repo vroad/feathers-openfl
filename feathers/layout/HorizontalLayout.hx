@@ -667,7 +667,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * <p>If <code>typicalItemWidth</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred width. If you
-	 * pass a valid <code>Number</code> value, the typical item's width will
+	 * pass a valid <code>Float</code> value, the typical item's width will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemHeight</code>.</p>
 	 *
@@ -714,7 +714,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * <p>If <code>typicalItemHeight</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred height. If you
-	 * pass a valid <code>Number</code> value, the typical item's height will
+	 * pass a valid <code>Float</code> value, the typical item's height will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemWidth</code>.</p>
 	 *
@@ -790,8 +790,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
@@ -1093,8 +1093,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
 
 		this.prepareTypicalItem(explicitHeight - this._paddingTop - this._paddingBottom);
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;

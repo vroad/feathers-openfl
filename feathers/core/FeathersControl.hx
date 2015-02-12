@@ -828,7 +828,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _maxWidth:Float = Number.POSITIVE_INFINITY;
+	private var _maxWidth:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended width to be used for self-measurement and,
@@ -843,7 +843,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * <listing version="3.0">
 	 * control.maxWidth = 120;</listing>
 	 *
-	 * @default Number.POSITIVE_INFINITY
+	 * @default Float.POSITIVE_INFINITY
 	 */
 	public function get_maxWidth():Float
 	{
@@ -870,7 +870,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _maxHeight:Float = Number.POSITIVE_INFINITY;
+	private var _maxHeight:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended height to be used for self-measurement and,
@@ -885,7 +885,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * <listing version="3.0">
 	 * control.maxWidth = 120;</listing>
 	 *
-	 * @default Number.POSITIVE_INFINITY
+	 * @default Float.POSITIVE_INFINITY
 	 */
 	public function get_maxHeight():Float
 	{
@@ -1492,8 +1492,8 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			resultRect = new Rectangle();
 		}
 
-		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
-		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
+		var minX:Float = Float.MAX_VALUE, maxX:Float = -Float.MAX_VALUE;
+		var minY:Float = Float.MAX_VALUE, maxY:Float = -Float.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{

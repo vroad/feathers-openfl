@@ -89,7 +89,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _maxVisibleWidth:Float = Number.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
@@ -176,7 +176,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _maxVisibleHeight:Float = Number.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
@@ -371,7 +371,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		var textFieldWidth:Float = this._visibleWidth;
 		if(textFieldWidth != textFieldWidth) //isNaN
 		{
-			if(this._maxVisibleWidth < Number.POSITIVE_INFINITY)
+			if(this._maxVisibleWidth < Float.POSITIVE_INFINITY)
 			{
 				textFieldWidth = this._maxVisibleWidth;
 			}
@@ -383,7 +383,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		var textFieldHeight:Float = this._visibleHeight;
 		if(textFieldHeight != textFieldHeight) //isNaN
 		{
-			if(this._maxVisibleHeight < Number.POSITIVE_INFINITY)
+			if(this._maxVisibleHeight < Float.POSITIVE_INFINITY)
 			{
 				textFieldHeight = this._maxVisibleHeight;
 			}

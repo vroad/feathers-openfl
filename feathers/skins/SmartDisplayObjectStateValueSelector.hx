@@ -126,8 +126,8 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 		this.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 		this.setValueTypeHandler(Scale9Textures, scale9TextureValueTypeHandler);
 		this.setValueTypeHandler(Scale3Textures, scale3TextureValueTypeHandler);
-		//the constructor property of a uint is actually Number.
-		this.setValueTypeHandler(Number, uintValueTypeHandler);
+		//the constructor property of a uint is actually Float.
+		this.setValueTypeHandler(Float, uintValueTypeHandler);
 	}
 
 	/**

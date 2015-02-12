@@ -616,7 +616,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * either horizontal or vertical spacing, depending on the value of
 	 * <code>iconPosition</code>.
 	 * 
-	 * <p>If <code>gap</code> is set to <code>Number.POSITIVE_INFINITY</code>,
+	 * <p>If <code>gap</code> is set to <code>Float.POSITIVE_INFINITY</code>,
 	 * the label and icon will be positioned as far apart as possible. In
 	 * other words, they will be positioned at the edges of the button,
 	 * adjusted for padding.</p>
@@ -659,7 +659,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 
 	/**
 	 * If the value of the <code>gap</code> property is
-	 * <code>Number.POSITIVE_INFINITY</code>, meaning that the gap will
+	 * <code>Float.POSITIVE_INFINITY</code>, meaning that the gap will
 	 * fill as much space as possible, the final calculated value will not be
 	 * smaller than the value of the <code>minGap</code> property.
 	 *
@@ -667,7 +667,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 20 pixels:</p>
 	 *
 	 * <listing version="3.0">
-	 * button.gap = Number.POSITIVE_INFINITY;
+	 * button.gap = Float.POSITIVE_INFINITY;
 	 * button.minGap = 20;</listing>
 	 *
 	 * @default 0
@@ -2086,7 +2086,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					this._iconPosition != ICON_POSITION_MANUAL)
 				{
 					var adjustedGap:Float = this._gap;
-					if(adjustedGap == Number.POSITIVE_INFINITY)
+					if(adjustedGap == Float.POSITIVE_INFINITY)
 					{
 						adjustedGap = this._minGap;
 					}
@@ -2131,7 +2131,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				if(this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM)
 				{
 					adjustedGap = this._gap;
-					if(adjustedGap == Number.POSITIVE_INFINITY)
+					if(adjustedGap == Float.POSITIVE_INFINITY)
 					{
 						adjustedGap = this._minGap;
 					}
@@ -2409,7 +2409,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE)
 			{
 				var adjustedGap:Float = this._gap;
-				if(adjustedGap == Number.POSITIVE_INFINITY)
+				if(adjustedGap == Float.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
 				}
@@ -2465,7 +2465,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconPosition == ICON_POSITION_TOP)
 		{
-			if(this._gap == Number.POSITIVE_INFINITY)
+			if(this._gap == Float.POSITIVE_INFINITY)
 			{
 				this.currentIcon.y = this._paddingTop;
 				this.labelTextRenderer.y = this.actualHeight - this._paddingBottom - this.labelTextRenderer.height;
@@ -2485,7 +2485,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		else if(this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE)
 		{
-			if(this._gap == Number.POSITIVE_INFINITY)
+			if(this._gap == Float.POSITIVE_INFINITY)
 			{
 				this.labelTextRenderer.x = this._paddingLeft;
 				this.currentIcon.x = this.actualWidth - this._paddingRight - this.currentIcon.width;
@@ -2505,7 +2505,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		else if(this._iconPosition == ICON_POSITION_BOTTOM)
 		{
-			if(this._gap == Number.POSITIVE_INFINITY)
+			if(this._gap == Float.POSITIVE_INFINITY)
 			{
 				this.labelTextRenderer.y = this._paddingTop;
 				this.currentIcon.y = this.actualHeight - this._paddingBottom - this.currentIcon.height;
@@ -2525,7 +2525,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		else if(this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE)
 		{
-			if(this._gap == Number.POSITIVE_INFINITY)
+			if(this._gap == Float.POSITIVE_INFINITY)
 			{
 				this.currentIcon.x = this._paddingLeft;
 				this.labelTextRenderer.x = this.actualWidth - this._paddingRight - this.labelTextRenderer.width;

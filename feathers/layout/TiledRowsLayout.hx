@@ -848,7 +848,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * <p>If <code>typicalItemWidth</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred width. If you
-	 * pass a valid <code>Number</code> value, the typical item's width will
+	 * pass a valid <code>Float</code> value, the typical item's width will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemHeight</code>.</p>
 	 *
@@ -895,7 +895,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * <p>If <code>typicalItemHeight</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred height. If you
-	 * pass a valid <code>Number</code> value, the typical item's height will
+	 * pass a valid <code>Float</code> value, the typical item's height will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemWidth</code>.</p>
 	 *
@@ -957,8 +957,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
@@ -1032,7 +1032,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 			horizontalTileCount = (explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
 		}
 		else if(maxWidth == maxWidth && //!isNaN
-			maxWidth < Number.POSITIVE_INFINITY)
+			maxWidth < Float.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
 			horizontalTileCount = (maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
@@ -1066,7 +1066,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 			verticalTileCount = (explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
 		}
 		else if(maxHeight == maxHeight && //!isNaN
-			maxHeight < Number.POSITIVE_INFINITY)
+			maxHeight < Float.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
 			verticalTileCount = (maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
@@ -1325,8 +1325,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
 
 		this.prepareTypicalItem();
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
@@ -1364,7 +1364,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 			horizontalTileCount = (explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
 		}
 		else if(maxWidth == maxWidth && //!isNaN
-			maxWidth < Number.POSITIVE_INFINITY)
+			maxWidth < Float.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
 			horizontalTileCount = (maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
@@ -1396,7 +1396,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 			verticalTileCount = (explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
 		}
 		else if(maxHeight == maxHeight && //!isNaN
-			maxHeight < Number.POSITIVE_INFINITY)
+			maxHeight < Float.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
 			verticalTileCount = (maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);

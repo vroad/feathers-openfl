@@ -125,9 +125,9 @@ package feathers.themes
 		protected static const GROUPED_LIST_HEADER_BACKGROUND_COLOR:uint = 0x2e2a26;
 		protected static const GROUPED_LIST_FOOTER_BACKGROUND_COLOR:uint = 0x2e2a26;
 		protected static const MODAL_OVERLAY_COLOR:uint = 0x29241e;
-		protected static const MODAL_OVERLAY_ALPHA:Number = 0.8;
+		protected static const MODAL_OVERLAY_ALPHA:Float = 0.8;
 		protected static const DRAWER_OVERLAY_COLOR:uint = 0x29241e;
-		protected static const DRAWER_OVERLAY_ALPHA:Number = 0.4;
+		protected static const DRAWER_OVERLAY_ALPHA:Float = 0.4;
 
 		/**
 		 * The screen density of an iPhone with Retina display. The textures
@@ -146,10 +146,10 @@ package feathers.themes
 		protected static const DEFAULT_SCALE9_GRID:Rectangle = new Rectangle(5, 5, 22, 22);
 		protected static const BUTTON_SCALE9_GRID:Rectangle = new Rectangle(5, 5, 50, 50);
 		protected static const BUTTON_SELECTED_SCALE9_GRID:Rectangle = new Rectangle(8, 8, 44, 44);
-		protected static const BACK_BUTTON_SCALE3_REGION1:Number = 24;
-		protected static const BACK_BUTTON_SCALE3_REGION2:Number = 6;
-		protected static const FORWARD_BUTTON_SCALE3_REGION1:Number = 6;
-		protected static const FORWARD_BUTTON_SCALE3_REGION2:Number = 6;
+		protected static const BACK_BUTTON_SCALE3_REGION1:Float = 24;
+		protected static const BACK_BUTTON_SCALE3_REGION2:Float = 6;
+		protected static const FORWARD_BUTTON_SCALE3_REGION1:Float = 6;
+		protected static const FORWARD_BUTTON_SCALE3_REGION2:Float = 6;
 		protected static const ITEM_RENDERER_SCALE9_GRID:Rectangle = new Rectangle(13, 0, 2, 82);
 		protected static const INSET_ITEM_RENDERER_FIRST_SCALE9_GRID:Rectangle = new Rectangle(13, 13, 3, 70);
 		protected static const INSET_ITEM_RENDERER_LAST_SCALE9_GRID:Rectangle = new Rectangle(13, 0, 3, 75);
@@ -308,7 +308,7 @@ package feathers.themes
 		 * Skins are scaled by a value based on the screen density on the
 		 * content scale factor.
 		 */
-		protected var scale:Number = 1;
+		protected var scale:Float = 1;
 
 		/**
 		 * A smaller font size for details.
@@ -1362,7 +1362,7 @@ package feathers.themes
 			renderer.gap = this.gutterSize;
 			renderer.minGap = this.gutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_LEFT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = renderer.minHeight = this.gridSize;
@@ -1509,7 +1509,7 @@ package feathers.themes
 			renderer.gap = this.gutterSize;
 			renderer.minGap = this.gutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_LEFT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.gridSize;
@@ -1686,7 +1686,7 @@ package feathers.themes
 			}
 			button.stateToIconFunction = iconSelector.updateValue;
 
-			button.gap = Number.POSITIVE_INFINITY;
+			button.gap = Float.POSITIVE_INFINITY;
 			button.minGap = this.gutterSize;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 		}
@@ -1722,10 +1722,10 @@ package feathers.themes
 			renderer.paddingBottom = this.smallGutterSize;
 			renderer.paddingLeft = this.gutterSize + this.smallGutterSize;
 			renderer.paddingRight = this.smallGutterSize;
-			renderer.gap = Number.POSITIVE_INFINITY;
+			renderer.gap = Float.POSITIVE_INFINITY;
 			renderer.minGap = this.gutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_RIGHT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.gridSize;

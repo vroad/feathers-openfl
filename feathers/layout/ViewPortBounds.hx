@@ -68,11 +68,11 @@ class ViewPortBounds
 	 * The maximum width of the view port, in pixels. Should be 0 or
 	 * a positive number, including infinity.
 	 */
-	public var maxWidth:Float = Number.POSITIVE_INFINITY;
+	public var maxWidth:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum height of the view port, in pixels. Should be 0 or
 	 * a positive number, including infinity.
 	 */
-	public var maxHeight:Float = Number.POSITIVE_INFINITY;
+	public var maxHeight:Float = Float.POSITIVE_INFINITY;
 }

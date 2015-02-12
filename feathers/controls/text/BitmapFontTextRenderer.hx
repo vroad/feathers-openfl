@@ -704,7 +704,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var hasExplicitWidth:Bool = this.explicitWidth == this.explicitWidth; //!isNaN
 		var isAligned:Bool = this.currentTextFormat.align != TextFormatAlign.LEFT;
 		var maxLineWidth:Float = hasExplicitWidth ? this.explicitWidth : this._maxWidth;
-		if(isAligned && maxLineWidth == Number.POSITIVE_INFINITY)
+		if(isAligned && maxLineWidth == Float.POSITIVE_INFINITY)
 		{
 			//we need to measure the text to get the maximum line width
 			//so that we can align the text
@@ -1027,7 +1027,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		}
 
 		//if the width is infinity or the string is multiline, don't allow truncation
-		if(width == Number.POSITIVE_INFINITY || this._wordWrap || this._text.indexOf(String.fromCharCode(CHARACTER_ID_LINE_FEED)) >= 0 || this._text.indexOf(String.fromCharCode(CHARACTER_ID_CARRIAGE_RETURN)) >= 0)
+		if(width == Float.POSITIVE_INFINITY || this._wordWrap || this._text.indexOf(String.fromCharCode(CHARACTER_ID_LINE_FEED)) >= 0 || this._text.indexOf(String.fromCharCode(CHARACTER_ID_CARRIAGE_RETURN)) >= 0)
 		{
 			return this._text;
 		}

@@ -778,7 +778,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the value is <code>NaN</code>, the value of the <code>gap</code>
 	 * property will be used instead.
 	 *
-	 * <p>If <code>accessoryGap</code> is set to <code>Number.POSITIVE_INFINITY</code>,
+	 * <p>If <code>accessoryGap</code> is set to <code>Float.POSITIVE_INFINITY</code>,
 	 * the accessory and the component it is relative to will be positioned
 	 * as far apart as possible.</p>
 	 *
@@ -817,7 +817,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 	/**
 	 * If the value of the <code>accessoryGap</code> property is
-	 * <code>Number.POSITIVE_INFINITY</code>, meaning that the gap will
+	 * <code>Float.POSITIVE_INFINITY</code>, meaning that the gap will
 	 * fill as much space as possible, the final calculated value will not be
 	 * smaller than the value of the <code>minAccessoryGap</code> property.
 	 * If the value of <code>minAccessoryGap</code> is <code>NaN</code>, the
@@ -827,7 +827,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * 20 pixels:</p>
 	 *
 	 * <listing version="3.0">
-	 * button.gap = Number.POSITIVE_INFINITY;
+	 * button.gap = Float.POSITIVE_INFINITY;
 	 * button.minGap = 20;</listing>
 	 *
 	 * <listing version="3.0">
@@ -3232,7 +3232,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			if(hasPreviousItem)
 			{
 				var adjustedGap:Float = this._gap;
-				if(this._gap == Number.POSITIVE_INFINITY)
+				if(this._gap == Float.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
 				}
@@ -3284,7 +3284,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					adjustedAccessoryGap = this._gap;
 				}
-				if(adjustedAccessoryGap == Number.POSITIVE_INFINITY)
+				if(adjustedAccessoryGap == Float.POSITIVE_INFINITY)
 				{
 					if(this._minAccessoryGap != this._minAccessoryGap) //isNaN
 					{
@@ -3333,7 +3333,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			if(hasPreviousItem)
 			{
 				var adjustedGap:Float = this._gap;
-				if(this._gap == Number.POSITIVE_INFINITY)
+				if(this._gap == Float.POSITIVE_INFINITY)
 				{
 					adjustedGap = this._minGap;
 				}
@@ -3385,7 +3385,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					adjustedAccessoryGap =  this._gap;
 				}
-				if(adjustedAccessoryGap == Number.POSITIVE_INFINITY)
+				if(adjustedAccessoryGap == Float.POSITIVE_INFINITY)
 				{
 					if(this._minAccessoryGap != this._minAccessoryGap) //isNaN
 					{
@@ -3926,7 +3926,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		calculatedWidth -= (this._paddingLeft + this._paddingRight);
 
 		var adjustedGap:Float = this._gap;
-		if(adjustedGap == Number.POSITIVE_INFINITY)
+		if(adjustedGap == Float.POSITIVE_INFINITY)
 		{
 			adjustedGap = this._minGap;
 		}
@@ -3935,7 +3935,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			adjustedAccessoryGap = this._gap;
 		}
-		if(adjustedAccessoryGap == Number.POSITIVE_INFINITY)
+		if(adjustedAccessoryGap == Float.POSITIVE_INFINITY)
 		{
 			adjustedAccessoryGap = this._minAccessoryGap;
 			if(adjustedAccessoryGap != adjustedAccessoryGap) //isNaN
@@ -4064,7 +4064,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var newRelativeToY:Float = relativeToY;
 		if(position == ACCESSORY_POSITION_TOP)
 		{
-			if(gap == Number.POSITIVE_INFINITY)
+			if(gap == Float.POSITIVE_INFINITY)
 			{
 				object.y = this._paddingTop;
 				newRelativeToY = this.actualHeight - this._paddingBottom - relativeToHeight;
@@ -4088,7 +4088,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else if(position == ACCESSORY_POSITION_RIGHT)
 		{
-			if(gap == Number.POSITIVE_INFINITY)
+			if(gap == Float.POSITIVE_INFINITY)
 			{
 				newRelativeToX = this._paddingLeft;
 				object.x = this.actualWidth - this._paddingRight - object.width;
@@ -4112,7 +4112,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else if(position == ACCESSORY_POSITION_BOTTOM)
 		{
-			if(gap == Number.POSITIVE_INFINITY)
+			if(gap == Float.POSITIVE_INFINITY)
 			{
 				newRelativeToY = this._paddingTop;
 				object.y = this.actualHeight - this._paddingBottom - object.height;
@@ -4136,7 +4136,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else if(position == ACCESSORY_POSITION_LEFT)
 		{
-			if(gap == Number.POSITIVE_INFINITY)
+			if(gap == Float.POSITIVE_INFINITY)
 			{
 				object.x = this._paddingLeft;
 				newRelativeToX = this.actualWidth - this._paddingRight - relativeToWidth;
@@ -4161,7 +4161,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 		var offsetX:Float = newRelativeToX - relativeToX;
 		var offsetY:Float = newRelativeToY - relativeToY;
-		if(!relativeTo2 || otherGap != Number.POSITIVE_INFINITY || !(
+		if(!relativeTo2 || otherGap != Float.POSITIVE_INFINITY || !(
 			(position == ACCESSORY_POSITION_TOP && otherPosition == ACCESSORY_POSITION_TOP) ||
 			(position == ACCESSORY_POSITION_RIGHT && otherPosition == ACCESSORY_POSITION_RIGHT) ||
 			(position == ACCESSORY_POSITION_BOTTOM && otherPosition == ACCESSORY_POSITION_BOTTOM) ||
@@ -4173,7 +4173,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		if(relativeTo2)
 		{
-			if(otherGap != Number.POSITIVE_INFINITY || !(
+			if(otherGap != Float.POSITIVE_INFINITY || !(
 				(position == ACCESSORY_POSITION_LEFT && otherPosition == ACCESSORY_POSITION_RIGHT) ||
 				(position == ACCESSORY_POSITION_RIGHT && otherPosition == ACCESSORY_POSITION_LEFT) ||
 				(position == ACCESSORY_POSITION_TOP && otherPosition == ACCESSORY_POSITION_BOTTOM) ||
@@ -4183,7 +4183,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				relativeTo2.x += offsetX;
 				relativeTo2.y += offsetY;
 			}
-			if(gap == Number.POSITIVE_INFINITY && otherGap == Number.POSITIVE_INFINITY)
+			if(gap == Float.POSITIVE_INFINITY && otherGap == Float.POSITIVE_INFINITY)
 			{
 				if(position == ACCESSORY_POSITION_RIGHT && otherPosition == ACCESSORY_POSITION_LEFT)
 				{

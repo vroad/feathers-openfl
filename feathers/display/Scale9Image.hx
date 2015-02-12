@@ -394,8 +394,8 @@ class Scale9Image extends Sprite implements IValidating
 			resultRect = new Rectangle();
 		}
 
-		var minX:Float = Number.MAX_VALUE, maxX:Float = -Number.MAX_VALUE;
-		var minY:Float = Number.MAX_VALUE, maxY:Float = -Number.MAX_VALUE;
+		var minX:Float = Float.MAX_VALUE, maxX:Float = -Float.MAX_VALUE;
+		var minY:Float = Float.MAX_VALUE, maxY:Float = -Float.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{

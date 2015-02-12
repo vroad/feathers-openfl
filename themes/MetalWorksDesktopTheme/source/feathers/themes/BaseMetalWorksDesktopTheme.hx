@@ -126,19 +126,19 @@ package feathers.themes
 		protected static const SCROLL_BAR_TRACK_DOWN_COLOR:uint = 0xff7700;
 		protected static const TEXT_SELECTION_BACKGROUND_COLOR:uint = 0x574f46;
 		protected static const MODAL_OVERLAY_COLOR:uint = 0x29241e;
-		protected static const MODAL_OVERLAY_ALPHA:Number = 0.8;
+		protected static const MODAL_OVERLAY_ALPHA:Float = 0.8;
 		protected static const DRAWER_OVERLAY_COLOR:uint = 0x29241e;
-		protected static const DRAWER_OVERLAY_ALPHA:Number = 0.4;
+		protected static const DRAWER_OVERLAY_ALPHA:Float = 0.4;
 
 		protected static const DEFAULT_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 1);
 		protected static const SIMPLE_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
 		protected static const BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 16);
 		protected static const BUTTON_SELECTED_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 1, 14);
 		protected static const SCROLL_BAR_STEP_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 7);
-		protected static const BACK_BUTTON_SCALE3_REGION1:Number = 13;
-		protected static const BACK_BUTTON_SCALE3_REGION2:Number = 1;
-		protected static const FORWARD_BUTTON_SCALE3_REGION1:Number = 3;
-		protected static const FORWARD_BUTTON_SCALE3_REGION2:Number = 1;
+		protected static const BACK_BUTTON_SCALE3_REGION1:Float = 13;
+		protected static const BACK_BUTTON_SCALE3_REGION2:Float = 1;
+		protected static const FORWARD_BUTTON_SCALE3_REGION1:Float = 3;
+		protected static const FORWARD_BUTTON_SCALE3_REGION2:Float = 1;
 		protected static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
 		protected static const TAB_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 11);
 		protected static const SCROLL_BAR_THUMB_REGION1:Int = 5;
@@ -303,7 +303,7 @@ package feathers.themes
 		/**
 		 * Skins are scaled by a value based on the content scale factor.
 		 */
-		protected var scale:Number = 1;
+		protected var scale:Float = 1;
 
 		/**
 		 * A smaller font size for details.
@@ -1399,7 +1399,7 @@ package feathers.themes
 			renderer.gap = this.smallGutterSize;
 			renderer.minGap = this.smallGutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_LEFT;
-			renderer.accessoryGap = Number.POSITIVE_INFINITY;
+			renderer.accessoryGap = Float.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.smallGutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.controlSize;
@@ -1621,7 +1621,7 @@ package feathers.themes
 
 			this.setBaseButtonStyles(button);
 
-			button.gap = Number.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
 			button.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 			button.minWidth = this.buttonMinWidth;
