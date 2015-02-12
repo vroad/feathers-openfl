@@ -273,14 +273,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private var _itemRendererType:Class;
+	private var _itemRendererType:Class<Dynamic>;
 
 	public function get_itemRendererType():Class
 	{
 		return this._itemRendererType;
 	}
 
-	public function set_itemRendererType(value:Class):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._itemRendererType == value)
 		{

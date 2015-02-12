@@ -21,13 +21,13 @@ import starling.textures.TextureAtlas;
 class Main extends LayoutGroup
 {
 	[Embed(source="/../assets/images/atlas.png")]
-	inline private static var ICONS_IMAGE:Class;
+	inline private static var ICONS_IMAGE:Class<Dynamic>;
 
 	[Embed(source="/../assets/images/atlas.xml",mimeType="application/octet-stream")]
-	inline private static var ICONS_XML:Class;
+	inline private static var ICONS_XML:Class<Dynamic>;
 
 	[Embed(source="/../assets/images/arial20.fnt",mimeType="application/octet-stream")]
-	inline private static var FONT_XML:Class;
+	inline private static var FONT_XML:Class<Dynamic>;
 
 	public function Main()
 	{

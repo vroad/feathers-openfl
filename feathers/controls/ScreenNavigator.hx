@@ -127,7 +127,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static var SIGNAL_TYPE:Class;
+	private static var SIGNAL_TYPE:Class<Dynamic>;
 
 	/**
 	 * The screen navigator will auto size itself to fill the entire stage.

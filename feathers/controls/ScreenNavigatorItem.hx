@@ -80,7 +80,7 @@ class ScreenNavigatorItem
 		var screenInstance:DisplayObject;
 		if(Std.is(this.screen, Class))
 		{
-			var ScreenType:Class = Class(this.screen);
+			var ScreenType:Class<Dynamic> = Class(this.screen);
 			screenInstance = new ScreenType();
 		}
 		else if(Std.is(this.screen, Function))

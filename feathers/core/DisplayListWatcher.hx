@@ -97,7 +97,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *
 	 * @default feathers.core.IFeathersControl
 	 */
-	public var requiredBaseClass:Class = IFeathersControl;
+	public var requiredBaseClass:Class<Dynamic> = IFeathersControl;
 
 	/**
 	 * Determines if only the object added should be processed or if its
@@ -280,7 +280,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * Sets the initializer for a specific class.
 	 */
-	public function setInitializerForClass(type:Class, initializer:Dynamic, withName:String = null):Void
+	public function setInitializerForClass(type:Class<Dynamic>, initializer:Dynamic, withName:String = null):Void
 	{
 		if(!withName)
 		{
@@ -299,7 +299,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * Sets an initializer for a specific class and any subclasses. This
 	 * option can potentially hurt performance, so use sparingly.
 	 */
-	public function setInitializerForClassAndSubclasses(type:Class, initializer:Dynamic):Void
+	public function setInitializerForClassAndSubclasses(type:Class<Dynamic>, initializer:Dynamic):Void
 	{
 		var index:Int = this._initializerSuperTypes.indexOf(type);
 		if(index < 0)
@@ -312,7 +312,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * If an initializer exists for a specific class, it will be returned.
 	 */
-	public function getInitializerForClass(type:Class, withName:String = null):Function
+	public function getInitializerForClass(type:Class<Dynamic>, withName:String = null):Function
 	{
 		if(!withName)
 		{
@@ -329,7 +329,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * If an initializer exists for a specific class and its subclasses, the initializer will be returned.
 	 */
-	public function getInitializerForClassAndSubclasses(type:Class):Function
+	public function getInitializerForClassAndSubclasses(type:Class<Dynamic>):Function
 	{
 		return this._initializerSuperTypeMap[type];
 	}
@@ -338,7 +338,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * If an initializer exists for a specific class, it will be removed
 	 * completely.
 	 */
-	public function clearInitializerForClass(type:Class, withName:String = null):Void
+	public function clearInitializerForClass(type:Class<Dynamic>, withName:String = null):Void
 	{
 		if(!withName)
 		{
@@ -359,7 +359,7 @@ class DisplayListWatcher extends EventDispatcher
 	 * If an initializer exists for a specific class and its subclasses, the
 	 * initializer will be removed completely.
 	 */
-	public function clearInitializerForClassAndSubclasses(type:Class):Void
+	public function clearInitializerForClassAndSubclasses(type:Class<Dynamic>):Void
 	{
 		delete this._initializerSuperTypeMap[type];
 		var index:Int = this._initializerSuperTypes.indexOf(type);
@@ -422,7 +422,7 @@ class DisplayListWatcher extends EventDispatcher
 		var superTypeCount:Int = this._initializerSuperTypes.length;
 		for(i in 0 ... superTypeCount)
 		{
-			var type:Class = this._initializerSuperTypes[i];
+			var type:Class<Dynamic> = this._initializerSuperTypes[i];
 			if(Std.is(target, type))
 			{
 				this.applyAllStylesForTypeFromMaps(target, type, this._initializerSuperTypeMap);
@@ -435,7 +435,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class, map:Dictionary, nameMap:Dictionary = null):Void
+	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class<Dynamic>, map:Dictionary, nameMap:Dictionary = null):Void
 	{
 		var initializer:Dynamic;
 		var hasNameInitializer:Bool = false;

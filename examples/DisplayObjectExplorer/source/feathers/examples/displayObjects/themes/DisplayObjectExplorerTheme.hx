@@ -11,10 +11,10 @@ import starling.textures.Texture;
 class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 {
 	[Embed(source="/../assets/images/horizontal-grip.png")]
-	inline private static var HORIZONTAL_GRIP:Class;
+	inline private static var HORIZONTAL_GRIP:Class<Dynamic>;
 
 	[Embed(source="/../assets/images/vertical-grip.png")]
-	inline private static var VERTICAL_GRIP:Class;
+	inline private static var VERTICAL_GRIP:Class<Dynamic>;
 
 	inline public static var THEME_NAME_RIGHT_GRIP:String = "right-grip";
 	inline public static var THEME_NAME_BOTTOM_GRIP:String = "bottom-grip";

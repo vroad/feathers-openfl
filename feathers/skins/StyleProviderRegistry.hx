@@ -80,7 +80,7 @@ class StyleProviderRegistry
 		//style providers with different ones.
 		for (untypedType in this._classToStyleProvider)
 		{
-			var type:Class = Class(untypedType);
+			var type:Class<Dynamic> = Class(untypedType);
 			this.clearStyleProvider(type);
 		}
 		this._classToStyleProvider = null;
@@ -96,7 +96,7 @@ class StyleProviderRegistry
 	 * @param forClass					The style provider is registered for this class.
 	 * @param styleProviderFactory		A factory used to create the style provider.
 	 */
-	public function getStyleProvider(forClass:Class):IStyleProvider
+	public function getStyleProvider(forClass:Class<Dynamic>):IStyleProvider
 	{
 		this.validateComponentClass(forClass);
 		var styleProvider:IStyleProvider = IStyleProvider(this._classToStyleProvider[forClass]);
@@ -121,7 +121,7 @@ class StyleProviderRegistry
 	 *
 	 * @param forClass		The style provider is registered for this class.
 	 */
-	public function clearStyleProvider(forClass:Class):Void
+	public function clearStyleProvider(forClass:Class<Dynamic>):Void
 	{
 		this.validateComponentClass(forClass);
 		if(forClass in this._classToStyleProvider)
@@ -142,7 +142,7 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	private function validateComponentClass(type:Class):Void
+	private function validateComponentClass(type:Class<Dynamic>):Void
 	{
 		if(!this._registerGlobally || Object(type).hasOwnProperty(GLOBAL_STYLE_PROVIDER_PROPERTY_NAME))
 		{

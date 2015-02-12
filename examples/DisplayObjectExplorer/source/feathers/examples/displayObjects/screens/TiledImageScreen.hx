@@ -14,7 +14,7 @@ import starling.textures.Texture;
 class TiledImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/tile-pattern.png")]
-	inline private static var TILE_TEXTURE:Class;
+	inline private static var TILE_TEXTURE:Class<Dynamic>;
 
 	public static var globalStyleProvider:IStyleProvider;
 

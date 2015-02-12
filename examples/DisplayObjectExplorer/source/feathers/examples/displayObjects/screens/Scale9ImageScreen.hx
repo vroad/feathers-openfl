@@ -17,7 +17,7 @@ import starling.textures.Texture;
 class Scale9ImageScreen extends Screen
 {
 	[Embed(source="/../assets/images/scale9.png")]
-	inline private static var SCALE_9_TEXTURE:Class;
+	inline private static var SCALE_9_TEXTURE:Class<Dynamic>;
 
 	public static var globalStyleProvider:IStyleProvider;
 

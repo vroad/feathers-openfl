@@ -776,7 +776,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _itemRendererType:Class = DefaultListItemRenderer;
+	private var _itemRendererType:Class<Dynamic> = DefaultListItemRenderer;
 	
 	/**
 	 * The class used to instantiate item renderers. Must implement the
@@ -803,7 +803,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererType(value:Class):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._itemRendererType == value)
 		{

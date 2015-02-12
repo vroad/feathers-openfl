@@ -169,7 +169,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	{
 		if(value != null)
 		{
-			var type:Class = Class(value.constructor);
+			var type:Class<Dynamic> = Class(value.constructor);
 			if(this._handlers[type] == null)
 			{
 				throw new ArgumentError("Handler for value type " + type + " has not been set.");
@@ -219,7 +219,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 * types do not match, the function should create a new object instead
 	 * of reusing the old display object.</p>
 	 */
-	public function setValueTypeHandler(type:Class, handler:Dynamic):Void
+	public function setValueTypeHandler(type:Class<Dynamic>, handler:Dynamic):Void
 	{
 		this._handlers[type] = handler;
 	}
@@ -227,7 +227,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Returns the function that handles updating a value of a specific type.
 	 */
-	public function getValueTypeHandler(type:Class):Function
+	public function getValueTypeHandler(type:Class<Dynamic>):Function
 	{
 		return this._handlers[type] as Function;
 	}
@@ -235,7 +235,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Clears a value type handler.
 	 */
-	public function clearValueTypeHandler(type:Class):Void
+	public function clearValueTypeHandler(type:Class<Dynamic>):Void
 	{
 		delete this._handlers[type];
 	}
@@ -245,7 +245,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	private function valueToValueTypeHandler(value:Dynamic):Function
 	{
-		var type:Class = Class(value.constructor);
+		var type:Class<Dynamic> = Class(value.constructor);
 		return this._handlers[type] as Function;
 	}
 }

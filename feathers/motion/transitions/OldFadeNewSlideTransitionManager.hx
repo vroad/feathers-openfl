@@ -40,7 +40,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * Constructor.
 	 */
-	public function OldFadeNewSlideTransitionManager(navigator:ScreenNavigator, quickStackScreenClass:Class = null, quickStackScreenID:String = null)
+	public function OldFadeNewSlideTransitionManager(navigator:ScreenNavigator, quickStackScreenClass:Class<Dynamic> = null, quickStackScreenID:String = null)
 	{
 		if(!navigator)
 		{

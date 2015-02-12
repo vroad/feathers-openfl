@@ -42,19 +42,19 @@ import starling.textures.TextureAtlas;
 class TrainTimesTheme extends DisplayListWatcher
 {
 	[Embed(source="/../assets/images/traintimes.png")]
-	inline private static var ATLAS_IMAGE:Class;
+	inline private static var ATLAS_IMAGE:Class<Dynamic>;
 
 	[Embed(source="/../assets/images/traintimes.xml",mimeType="application/octet-stream")]
-	inline private static var ATLAS_XML:Class;
+	inline private static var ATLAS_XML:Class<Dynamic>;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontName="SourceSansPro",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_REGULAR:Class;
+	inline private static var SOURCE_SANS_PRO_REGULAR:Class<Dynamic>;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Bold.ttf",fontName="SourceSansProBold",fontWeight="bold",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_BOLD:Class;
+	inline private static var SOURCE_SANS_PRO_BOLD:Class<Dynamic>;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-BoldIt.ttf",fontName="SourceSansProBoldItalic",fontWeight="bold",fontStyle="italic",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_BOLD_ITALIC:Class;
+	inline private static var SOURCE_SANS_PRO_BOLD_ITALIC:Class<Dynamic>;
 
 	inline private static var TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 

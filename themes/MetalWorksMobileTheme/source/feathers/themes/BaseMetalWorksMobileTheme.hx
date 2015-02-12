@@ -102,10 +102,10 @@ package feathers.themes
 	public class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 	{
 		[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontFamily="SourceSansPro",fontWeight="normal",mimeType="application/x-font",embedAsCFF="true")]
-		protected static const SOURCE_SANS_PRO_REGULAR:Class;
+		protected static const SOURCE_SANS_PRO_REGULAR:Class<Dynamic>;
 
 		[Embed(source="/../assets/fonts/SourceSansPro-Semibold.ttf",fontFamily="SourceSansPro",fontWeight="bold",mimeType="application/x-font",embedAsCFF="true")]
-		protected static const SOURCE_SANS_PRO_SEMIBOLD:Class;
+		protected static const SOURCE_SANS_PRO_SEMIBOLD:Class<Dynamic>;
 
 		/**
 		 * The name of the embedded font used by controls in this theme. Comes

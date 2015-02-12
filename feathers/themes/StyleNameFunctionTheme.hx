@@ -48,7 +48,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 * Returns a <code>StyleNameFunctionStyleProvider</code> to be passed to
 	 * the specified class.
 	 */
-	private function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
+	private function getStyleProviderForClass(type:Class<Dynamic>):StyleNameFunctionStyleProvider
 	{
 		return StyleNameFunctionStyleProvider(this._registry.getStyleProvider(type));
 	}

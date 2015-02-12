@@ -1790,12 +1790,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function createStageText():Void
 	{
 		this._stageTextIsComplete = false;
-		var StageTextType:Class;
+		var StageTextType:Class<Dynamic>;
 		var initOptions:Dynamic;
 		try
 		{
 			StageTextType = Class(getDefinitionByName("flash.text.StageText"));
-			var StageTextInitOptionsType:Class = Class(getDefinitionByName("flash.text.StageTextInitOptions"));
+			var StageTextInitOptionsType:Class<Dynamic> = Class(getDefinitionByName("flash.text.StageTextInitOptions"));
 			initOptions = new StageTextInitOptionsType(this._multiline);
 		}
 		catch(error:Error)

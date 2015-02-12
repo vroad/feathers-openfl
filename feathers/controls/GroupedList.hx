@@ -742,7 +742,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _itemRendererType:Class = DefaultGroupedListItemRenderer;
+	private var _itemRendererType:Class<Dynamic> = DefaultGroupedListItemRenderer;
 
 	/**
 	 * The class used to instantiate item renderers. Must implement the
@@ -779,7 +779,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererType(value:Class):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._itemRendererType == value)
 		{
@@ -1018,7 +1018,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _firstItemRendererType:Class;
+	private var _firstItemRendererType:Class<Dynamic>;
 
 	/**
 	 * The class used to instantiate the item renderer for the first item in
@@ -1045,7 +1045,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererType(value:Class):Void
+	public function set_firstItemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._firstItemRendererType == value)
 		{
@@ -1163,7 +1163,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _lastItemRendererType:Class;
+	private var _lastItemRendererType:Class<Dynamic>;
 
 	/**
 	 * The class used to instantiate the item renderer for the last item in
@@ -1191,7 +1191,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererType(value:Class):Void
+	public function set_lastItemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._lastItemRendererType == value)
 		{
@@ -1309,7 +1309,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _singleItemRendererType:Class;
+	private var _singleItemRendererType:Class<Dynamic>;
 
 	/**
 	 * The class used to instantiate the item renderer for an item in a
@@ -1337,7 +1337,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererType(value:Class):Void
+	public function set_singleItemRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._singleItemRendererType == value)
 		{
@@ -1456,7 +1456,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _headerRendererType:Class<Dynamic> = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate header renderers. Must implement the
@@ -1480,7 +1480,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_headerRendererType(value:Class):Void
+	public function set_headerRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._headerRendererType == value)
 		{
@@ -1668,7 +1668,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _footerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _footerRendererType:Class<Dynamic> = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate footer renderers. Must implement the
@@ -1692,7 +1692,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_footerRendererType(value:Class):Void
+	public function set_footerRendererType(value:Class<Dynamic>):Void
 	{
 		if(this._footerRendererType == value)
 		{
