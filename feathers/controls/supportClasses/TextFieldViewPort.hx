@@ -11,17 +11,17 @@ import feathers.utils.geom.matrixToRotation;
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
 
-import flash.display.Sprite;
-import flash.events.TextEvent;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.AntiAliasType;
-import flash.text.GridFitType;
-import flash.text.StyleSheet;
-import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
-import flash.text.TextFormat;
+import openfl.display.Sprite;
+import openfl.events.TextEvent;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.AntiAliasType;
+import openfl.text.GridFitType;
+import openfl.text.StyleSheet;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.TextFormat;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;

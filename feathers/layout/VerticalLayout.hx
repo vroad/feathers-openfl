@@ -9,8 +9,8 @@ package feathers.layout;
 import feathers.core.IFeathersControl;
 import feathers.core.IValidating;
 
-import flash.errors.IllegalOperationError;
-import flash.geom.Point;
+import openfl.errors.IllegalOperationError;
+import openfl.geom.Point;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

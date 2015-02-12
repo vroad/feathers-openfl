@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
-import flash.errors.IllegalOperationError;
+import openfl.errors.IllegalOperationError;
 
 import starling.events.Event;
 import starling.events.EventDispatcher;

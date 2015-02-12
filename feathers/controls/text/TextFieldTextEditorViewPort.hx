@@ -12,19 +12,19 @@ import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
 import feathers.utils.math.roundToNearest;
 
-import flash.events.Event;
-import flash.events.FocusEvent;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.TextField;
+import openfl.events.Event;
+import openfl.events.FocusEvent;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.TextField;
 
 import starling.core.Starling;
 import starling.utils.MatrixUtil;
 
 /**
  * A text editor view port for the <code>TextArea</code> component that uses
- * <code>flash.text.TextField</code>.
+ * <code>openfl.text.TextField</code>.
  *
  * @see feathers.controls.TextArea
  */

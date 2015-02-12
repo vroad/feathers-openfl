@@ -4,14 +4,14 @@ import feathers.controls.List;
 import feathers.data.ListCollection;
 import feathers.layout.HorizontalLayout;
 
-import flash.display.Bitmap;
-import flash.display.Loader;
-import flash.events.Event;
-import flash.events.IOErrorEvent;
-import flash.events.SecurityErrorEvent;
-import flash.net.URLLoader;
-import flash.net.URLRequest;
-import flash.system.LoaderContext;
+import openfl.display.Bitmap;
+import openfl.display.Loader;
+import openfl.events.Event;
+import openfl.events.IOErrorEvent;
+import openfl.events.SecurityErrorEvent;
+import openfl.net.URLLoader;
+import openfl.net.URLRequest;
+import openfl.system.LoaderContext;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -85,7 +85,7 @@ class Main extends Sprite
 		else
 		{
 			this.loader = new Loader();
-			this.loader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+			this.loader.contentLoaderInfo.addEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 			this.loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 			this.loader.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		}
@@ -109,7 +109,7 @@ class Main extends Sprite
 		new GalleryTheme();
 
 		this.apiLoader = new URLLoader();
-		this.apiLoader.addEventListener(flash.events.Event.COMPLETE, apiLoader_completeListener);
+		this.apiLoader.addEventListener(openfl.events.Event.COMPLETE, apiLoader_completeListener);
 		this.apiLoader.addEventListener(IOErrorEvent.IO_ERROR, apiLoader_errorListener);
 		this.apiLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, apiLoader_errorListener);
 		this.apiLoader.load(new URLRequest(FLICKR_URL));
@@ -141,7 +141,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	private function apiLoader_completeListener(event:flash.events.Event):Void
+	private function apiLoader_completeListener(event:openfl.events.Event):Void
 	{
 		var result:XML = XML(this.apiLoader.data);
 		if(result.attribute("stat") == "fail")
@@ -172,13 +172,13 @@ class Main extends Sprite
 		this.list.selectedIndex = 0;
 	}
 
-	private function apiLoader_errorListener(event:flash.events.Event):Void
+	private function apiLoader_errorListener(event:openfl.events.Event):Void
 	{
 		this.message.text = "Error loading images.";
 		this.layout();
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):Void
+	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
 		var texture:Texture = Texture.fromBitmap(Bitmap(this.loader.content));
 		if(this.selectedImage)
@@ -207,7 +207,7 @@ class Main extends Sprite
 		this.layout();
 	}
 
-	private function loader_errorHandler(event:flash.events.Event):Void
+	private function loader_errorHandler(event:openfl.events.Event):Void
 	{
 		this.message.text = "Error loading image.";
 		this.layout();

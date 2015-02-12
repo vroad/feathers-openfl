@@ -16,8 +16,8 @@ import feathers.layout.ILayout;
 import feathers.layout.VerticalLayout;
 import feathers.skins.IStyleProvider;
 
-import flash.geom.Point;
-import flash.ui.Keyboard;
+import openfl.geom.Point;
+import openfl.ui.Keyboard;
 
 import starling.events.Event;
 import starling.events.KeyboardEvent;

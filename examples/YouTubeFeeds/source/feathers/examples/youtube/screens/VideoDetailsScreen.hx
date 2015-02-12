@@ -7,8 +7,8 @@ import feathers.examples.youtube.models.YouTubeModel;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 
-import flash.net.URLRequest;
-import flash.net.navigateToURL;
+import openfl.net.URLRequest;
+import openfl.net.navigateToURL;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

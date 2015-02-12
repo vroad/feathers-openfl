@@ -6,8 +6,8 @@ import feathers.controls.Screen;
 import feathers.data.ListCollection;
 import feathers.examples.trainTimes.model.StationData;
 
-import flash.events.KeyboardEvent;
-import flash.ui.Keyboard;
+import openfl.events.KeyboardEvent;
+import openfl.ui.Keyboard;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;

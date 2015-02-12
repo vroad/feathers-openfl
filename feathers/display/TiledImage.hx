@@ -10,9 +10,9 @@ import feathers.core.IValidating;
 import feathers.core.ValidationQueue;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;

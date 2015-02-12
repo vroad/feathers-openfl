@@ -19,10 +19,10 @@ import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.skins.StateValueSelector;
 
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.ui.Mouse;
-import flash.ui.MouseCursor;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.ui.Mouse;
+import openfl.ui.MouseCursor;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

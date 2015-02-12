@@ -15,10 +15,10 @@ import feathers.skins.IStyleProvider;
 import feathers.utils.math.clamp;
 import feathers.utils.math.roundToNearest;
 
-import flash.events.TimerEvent;
-import flash.geom.Point;
-import flash.ui.Keyboard;
-import flash.utils.Timer;
+import openfl.events.TimerEvent;
+import openfl.geom.Point;
+import openfl.ui.Keyboard;
+import openfl.utils.Timer;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

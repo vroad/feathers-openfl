@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
-import flash.utils.Dictionary;
+import openfl.utils.Dictionary;
 
 /**
  * Maps a component's states to values, perhaps for one of the component's

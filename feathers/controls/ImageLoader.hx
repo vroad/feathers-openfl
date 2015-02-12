@@ -10,24 +10,24 @@ import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.display.Loader;
-import flash.display3D.Context3DTextureFormat;
-import flash.errors.IllegalOperationError;
-import flash.events.ErrorEvent;
-import flash.events.Event;
-import flash.events.IOErrorEvent;
-import flash.events.SecurityErrorEvent;
-import flash.geom.Matrix;
-import flash.geom.Rectangle;
-import flash.net.URLLoader;
-import flash.net.URLLoaderDataFormat;
-import flash.net.URLRequest;
-import flash.system.ImageDecodingPolicy;
-import flash.system.LoaderContext;
-import flash.utils.ByteArray;
-import flash.utils.setTimeout;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.Loader;
+import openfl.display3D.Context3DTextureFormat;
+import openfl.errors.IllegalOperationError;
+import openfl.events.ErrorEvent;
+import openfl.events.Event;
+import openfl.events.IOErrorEvent;
+import openfl.events.SecurityErrorEvent;
+import openfl.geom.Matrix;
+import openfl.geom.Rectangle;
+import openfl.net.URLLoader;
+import openfl.net.URLLoaderDataFormat;
+import openfl.net.URLRequest;
+import openfl.system.ImageDecodingPolicy;
+import openfl.system.LoaderContext;
+import openfl.utils.ByteArray;
+import openfl.utils.setTimeout;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -74,7 +74,7 @@ import starling.utils.SystemUtil;
  *   event listener that handles the event. For example, if you use
  *   <code>myButton.addEventListener()</code> to register an event listener,
  *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>The <code>flash.events.ErrorEvent</code>
+ * <tr><td><code>data</code></td><td>The <code>openfl.events.ErrorEvent</code>
  *   dispatched by the loader.</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
@@ -90,7 +90,7 @@ import starling.utils.SystemUtil;
  * Displays an image, either from an existing <code>Texture</code> object or
  * from an image file loaded with its URL. Supported image files include ATF
  * format and any bitmap formats that may be loaded by
- * <code>flash.display.Loader</code>, including JPG, GIF, and PNG.
+ * <code>openfl.display.Loader</code>, including JPG, GIF, and PNG.
  *
  * <p>The following example passes a URL to an image loader and listens for
  * its complete event:</p>
@@ -174,13 +174,13 @@ class ImageLoader extends FeathersControl
 	private var image:Image;
 
 	/**
-	 * The internal <code>flash.display.Loader</code> used to load textures
+	 * The internal <code>openfl.display.Loader</code> used to load textures
 	 * from URLs.
 	 */
 	private var loader:Loader;
 
 	/**
-	 * The internal <code>flash.net.URLLoader</code> used to load raw data
+	 * The internal <code>openfl.net.URLLoader</code> used to load raw data
 	 * from URLs.
 	 */
 	private var urlLoader:URLLoader;
@@ -241,7 +241,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * The <code>Texture</code> to display, or a URL pointing to an image
 	 * file. Supported image files include ATF format and any bitmap formats
-	 * that may be loaded by <code>flash.display.Loader</code>, including
+	 * that may be loaded by <code>openfl.display.Loader</code>, including
 	 * JPG, GIF, and PNG.
 	 *
 	 * <p>In the following example, the image loader's source is set to a
@@ -518,9 +518,9 @@ class ImageLoader extends FeathersControl
 	 * <listing version="3.0">
 	 * loader.textureFormat = Context3DTextureFormat.BGRA_PACKED;</listing>
 	 *
-	 * @default flash.display3d.Context3DTextureFormat.BGRA
+	 * @default openfl.display3d.Context3DTextureFormat.BGRA
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display3D/Context3DTextureFormat.html flash.display3d.Context3DTextureFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display3D/Context3DTextureFormat.html openfl.display3d.Context3DTextureFormat
 	 */
 	public function get_textureFormat():String
 	{
@@ -988,7 +988,7 @@ class ImageLoader extends FeathersControl
 	{
 		if(this.loader)
 		{
-			this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+			this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 			this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 			this.loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 			try
@@ -1123,7 +1123,7 @@ class ImageLoader extends FeathersControl
 
 				if(this.urlLoader)
 				{
-					this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
+					this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 					this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
 					this.urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, rawDataLoader_errorHandler);
 					try
@@ -1138,7 +1138,7 @@ class ImageLoader extends FeathersControl
 
 				if(this.loader)
 				{
-					this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+					this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 					this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 					this.loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 					try
@@ -1162,7 +1162,7 @@ class ImageLoader extends FeathersControl
 						this.urlLoader = new URLLoader();
 						this.urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
 					}
-					this.urlLoader.addEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
+					this.urlLoader.addEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 					this.urlLoader.addEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
 					this.urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, rawDataLoader_errorHandler);
 					this.urlLoader.load(new URLRequest(sourceURL));
@@ -1178,7 +1178,7 @@ class ImageLoader extends FeathersControl
 					{
 						this.loader = new Loader();
 					}
-					this.loader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+					this.loader.contentLoaderInfo.addEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 					this.loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 					this.loader.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 					this.loader.load(new URLRequest(sourceURL), LOADER_CONTEXT);
@@ -1576,10 +1576,10 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_completeHandler(event:flash.events.Event):Void
+	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
 		var bitmap:Bitmap = Bitmap(this.loader.content);
-		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+		this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 		this.loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		this.loader = null;
@@ -1605,7 +1605,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function loader_errorHandler(event:ErrorEvent):Void
 	{
-		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+		this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 		this.loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		this.loader = null;
@@ -1618,10 +1618,10 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_completeHandler(event:flash.events.Event):Void
+	private function rawDataLoader_completeHandler(event:openfl.events.Event):Void
 	{
 		var rawData:ByteArray = ByteArray(this.urlLoader.data);
-		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
+		this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
 		this.urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, rawDataLoader_errorHandler);
 		this.urlLoader = null;
@@ -1646,7 +1646,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function rawDataLoader_errorHandler(event:ErrorEvent):Void
 	{
-		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
+		this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
 		this.urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, rawDataLoader_errorHandler);
 		this.urlLoader = null;

@@ -13,12 +13,12 @@ import feathers.examples.youtube.models.YouTubeModel;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 
-import flash.events.ErrorEvent;
-import flash.events.Event;
-import flash.events.IOErrorEvent;
-import flash.events.SecurityErrorEvent;
-import flash.net.URLLoader;
-import flash.net.URLRequest;
+import openfl.events.ErrorEvent;
+import openfl.events.Event;
+import openfl.events.IOErrorEvent;
+import openfl.events.SecurityErrorEvent;
+import openfl.net.URLLoader;
+import openfl.net.URLRequest;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -144,7 +144,7 @@ class ListVideosScreen extends PanelScreen
 				else
 				{
 					this._loader = new URLLoader();
-					this._loader.addEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+					this._loader.addEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 					this._loader.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 					this._loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 					this._loader.load(new URLRequest(this._model.selectedList.url));
@@ -162,7 +162,7 @@ class ListVideosScreen extends PanelScreen
 		{
 			return;
 		}
-		this._loader.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
+		this._loader.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this._loader.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 		this._loader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		this._loader = null;
@@ -243,7 +243,7 @@ class ListVideosScreen extends PanelScreen
 		this.cleanUpLoader();
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):Void
+	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
 		var loaderData:* = this._loader.data;
 		this.cleanUpLoader();

@@ -13,10 +13,10 @@ import feathers.core.ValidationQueue;
 import feathers.events.FeathersEventType;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 
-import flash.errors.IllegalOperationError;
-import flash.events.KeyboardEvent;
-import flash.geom.Rectangle;
-import flash.ui.Keyboard;
+import openfl.errors.IllegalOperationError;
+import openfl.events.KeyboardEvent;
+import openfl.geom.Rectangle;
+import openfl.ui.Keyboard;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;

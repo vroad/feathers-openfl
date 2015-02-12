@@ -14,10 +14,10 @@ import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 
-import flash.events.KeyboardEvent;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.ui.Keyboard;
+import openfl.events.KeyboardEvent;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.ui.Keyboard;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;

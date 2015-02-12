@@ -10,26 +10,26 @@ import feathers.core.FeathersControl;
 import feathers.core.ITextRenderer;
 import feathers.skins.IStyleProvider;
 
-import flash.display.BitmapData;
-import flash.display.DisplayObjectContainer;
-import flash.display.Sprite;
-import flash.display3D.Context3DProfile;
-import flash.filters.BitmapFilter;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.engine.ContentElement;
-import flash.text.engine.ElementFormat;
-import flash.text.engine.FontDescription;
-import flash.text.engine.SpaceJustifier;
-import flash.text.engine.TabStop;
-import flash.text.engine.TextBaseline;
-import flash.text.engine.TextBlock;
-import flash.text.engine.TextElement;
-import flash.text.engine.TextJustifier;
-import flash.text.engine.TextLine;
-import flash.text.engine.TextLineValidity;
-import flash.text.engine.TextRotation;
+import openfl.display.BitmapData;
+import openfl.display.DisplayObjectContainer;
+import openfl.display.Sprite;
+import openfl.display3D.Context3DProfile;
+import openfl.filters.BitmapFilter;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.engine.ContentElement;
+import openfl.text.engine.ElementFormat;
+import openfl.text.engine.FontDescription;
+import openfl.text.engine.SpaceJustifier;
+import openfl.text.engine.TabStop;
+import openfl.text.engine.TextBaseline;
+import openfl.text.engine.TextBlock;
+import openfl.text.engine.TextElement;
+import openfl.text.engine.TextJustifier;
+import openfl.text.engine.TextLine;
+import openfl.text.engine.TextLineValidity;
+import openfl.text.engine.TextRotation;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -39,7 +39,7 @@ import starling.textures.Texture;
 import starling.utils.getNextPowerOfTwo;
 
 /**
- * Renders text with a native <code>flash.text.engine.TextBlock</code> from
+ * Renders text with a native <code>openfl.text.engine.TextBlock</code> from
  * Flash Text Engine (FTE), and draws it to <code>BitmapData</code> to
  * convert to Starling textures. Textures are completely managed by this
  * component, and they will be automatically disposed when the component is
@@ -52,7 +52,7 @@ import starling.utils.getNextPowerOfTwo;
  * caution when displaying a lot of text.</p>
  *
  * @see http://wiki.starling-framework.org/feathers/text-renderers
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html flash.text.engine.TextBlock
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html openfl.text.engine.TextBlock
  */
 class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 {
@@ -346,7 +346,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @default null
 	 *
 	 * @see #disabledElementFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html flash.text.engine.ElementFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html openfl.text.engine.ElementFormat
 	 */
 	public function get_elementFormat():ElementFormat
 	{
@@ -385,7 +385,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @default null
 	 *
 	 * @see #elementFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html flash.text.engine.ElementFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html openfl.text.engine.ElementFormat
 	 */
 	public function get_disabledElementFormat():ElementFormat
 	{
@@ -539,7 +539,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#applyNonLinearFontScaling Full description of flash.text.engine.TextBlock.applyNonLinearFontScaling in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#applyNonLinearFontScaling Full description of openfl.text.engine.TextBlock.applyNonLinearFontScaling in Adobe's Flash Platform API Reference
 	 */
 	public function get_applyNonLinearFontScaling():Bool
 	{
@@ -574,7 +574,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontDescription Full description of flash.text.engine.TextBlock.baselineFontDescription in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontDescription Full description of openfl.text.engine.TextBlock.baselineFontDescription in Adobe's Flash Platform API Reference
 	 * @see #baselineFontSize
 	 */
 	public function get_baselineFontDescription():FontDescription
@@ -611,7 +611,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 12
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontSize Full description of flash.text.engine.TextBlock.baselineFontSize in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontSize Full description of openfl.text.engine.TextBlock.baselineFontSize in Adobe's Flash Platform API Reference
 	 * @see #baselineFontDescription
 	 */
 	public function get_baselineFontSize():Float
@@ -647,8 +647,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default TextBaseline.ROMAN
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineZero Full description of flash.text.engine.TextBlock.baselineZero in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBaseline.html flash.text.engine.TextBaseline
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineZero Full description of openfl.text.engine.TextBlock.baselineZero in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBaseline.html openfl.text.engine.TextBaseline
 	 */
 	public function get_baselineZero():String
 	{
@@ -684,7 +684,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#bidiLevel Full description of flash.text.engine.TextBlock.bidiLevel in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#bidiLevel Full description of openfl.text.engine.TextBlock.bidiLevel in Adobe's Flash Platform API Reference
 	 */
 	public function get_bidiLevel():Int
 	{
@@ -719,8 +719,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default TextRotation.ROTATE_0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#lineRotation Full description of flash.text.engine.TextBlock.lineRotation in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextRotation.html flash.text.engine.TextRotation
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#lineRotation Full description of openfl.text.engine.TextBlock.lineRotation in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextRotation.html openfl.text.engine.TextRotation
 	 */
 	public function get_lineRotation():String
 	{
@@ -756,7 +756,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#tabStops Full description of flash.text.engine.TextBlock.tabStops in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#tabStops Full description of openfl.text.engine.TextBlock.tabStops in Adobe's Flash Platform API Reference
 	 */
 	public function get_tabStops():Array<TabStop>
 	{
@@ -789,7 +789,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * <listing version="3.0">
 	 * textRenderer.textJustifier = new SpaceJustifier( "en", LineJustification.ALL_BUT_LAST );</listing>
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#textJustifier Full description of flash.text.engine.TextBlock.textJustifier in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#textJustifier Full description of openfl.text.engine.TextBlock.textJustifier in Adobe's Flash Platform API Reference
 	 */
 	public function get_textJustifier():TextJustifier
 	{
@@ -823,7 +823,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * <listing version="3.0">
 	 * textRenderer.userData = { author: "William Shakespeare", title: "Much Ado About Nothing" };</listing>
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#userData Full description of flash.text.engine.TextBlock.userData in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#userData Full description of openfl.text.engine.TextBlock.userData in Adobe's Flash Platform API Reference
 	 */
 	public function get_userData():*
 	{
@@ -923,7 +923,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	private var _nativeFilters:Array;
 
 	/**
-	 * Native filters to pass to the <code>flash.text.engine.TextLine</code>
+	 * Native filters to pass to the <code>openfl.text.engine.TextLine</code>
 	 * instances before creating the texture snapshot.
 	 *
 	 * <p>In the following example, the native filters are changed:</p>
@@ -933,7 +933,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of flash.display.DisplayObject.filters in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of openfl.display.DisplayObject.filters in Adobe's Flash Platform API Reference
 	 */
 	public function get_nativeFilters():Array
 	{

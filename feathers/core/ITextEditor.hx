@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
-import flash.geom.Point;
+import openfl.geom.Point;
 
 /**
  * Dispatched when the text property changes.

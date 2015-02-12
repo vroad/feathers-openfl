@@ -16,10 +16,10 @@ import feathers.utils.math.roundDownToNearest;
 import feathers.utils.math.roundToNearest;
 import feathers.utils.math.roundUpToNearest;
 
-import flash.events.MouseEvent;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.utils.getTimer;
+import openfl.events.MouseEvent;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.utils.getTimer;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -5110,7 +5110,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function nativeStage_orientationChangeHandler(event:flash.events.Event):Void
+	private function nativeStage_orientationChangeHandler(event:openfl.events.Event):Void
 	{
 		if(this._touchPointID < 0)
 		{

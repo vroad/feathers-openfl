@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls;
 import feathers.skins.IStyleProvider;
 
-import flash.errors.IllegalOperationError;
+import openfl.errors.IllegalOperationError;
 
 [Exclude(name="isToggle",kind="property")]
 

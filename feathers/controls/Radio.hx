@@ -10,7 +10,7 @@ import feathers.core.IGroupedToggle;
 import feathers.core.ToggleGroup;
 import feathers.skins.IStyleProvider;
 
-import flash.errors.IllegalOperationError;
+import openfl.errors.IllegalOperationError;
 
 import starling.events.Event;
 

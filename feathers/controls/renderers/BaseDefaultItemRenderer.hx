@@ -18,9 +18,9 @@ import feathers.core.IValidating;
 import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
 
-import flash.events.TimerEvent;
-import flash.geom.Point;
-import flash.utils.Timer;
+import openfl.events.TimerEvent;
+import openfl.geom.Point;
+import openfl.utils.Timer;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

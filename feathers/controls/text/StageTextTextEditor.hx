@@ -13,23 +13,23 @@ import feathers.text.StageTextField;
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
 
-import flash.display.BitmapData;
-import flash.events.Event;
-import flash.events.FocusEvent;
-import flash.events.KeyboardEvent;
-import flash.events.SoftKeyboardEvent;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.system.Capabilities;
-import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
-import flash.text.TextFormat;
-import flash.text.TextFormatAlign;
-import flash.text.engine.FontPosture;
-import flash.text.engine.FontWeight;
-import flash.ui.Keyboard;
-import flash.utils.getDefinitionByName;
+import openfl.display.BitmapData;
+import openfl.events.Event;
+import openfl.events.FocusEvent;
+import openfl.events.KeyboardEvent;
+import openfl.events.SoftKeyboardEvent;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.system.Capabilities;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
+import openfl.text.engine.FontPosture;
+import openfl.text.engine.FontWeight;
+import openfl.ui.Keyboard;
+import openfl.utils.getDefinitionByName;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -176,17 +176,17 @@ import starling.utils.MatrixUtil;
 //[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
 
 /**
- * A Feathers text editor that uses the native <code>flash.text.StageText</code>
+ * A Feathers text editor that uses the native <code>openfl.text.StageText</code>
  * class in Adobe AIR, and the custom <code>feathers.text.StageTextField</code>
  * class (that simulates <code>StageText</code> using
- * <code>flash.text.TextField</code>) in Adobe Flash Player.
+ * <code>openfl.text.TextField</code>) in Adobe Flash Player.
  *
  * <p>Note: Due to quirks with how the runtime manages focus with
  * <code>StageText</code>, <code>StageTextTextEditor</code> is not
  * compatible with the Feathers <code>FocusManager</code>.</p>
  *
  * @see http://wiki.starling-framework.org/feathers/text-editors
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html flash.text.StageText
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html openfl.text.StageText
  * @see feathers.text.StageTextField
  */
 class StageTextTextEditor extends FeathersControl implements IMultilineTextEditor
@@ -404,9 +404,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <listing version="3.0">
 	 * textEditor.autoCapitalize = AutoCapitalize.WORD;</listing>
 	 *
-	 * @default flash.text.AutoCapitalize.NONE
+	 * @default openfl.text.AutoCapitalize.NONE
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCapitalize Full description of flash.text.StageText.autoCapitalize in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCapitalize Full description of openfl.text.StageText.autoCapitalize in Adobe's Flash Platform API Reference
 	 */
 	public function get_autoCapitalize():String
 	{
@@ -444,7 +444,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCorrect Full description of flash.text.StageText.autoCorrect in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCorrect Full description of openfl.text.StageText.autoCorrect in Adobe's Flash Platform API Reference
 	 */
 	public function get_autoCorrect():Bool
 	{
@@ -481,7 +481,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @default 0x000000
 	 *
 	 * @see #disabledColor
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of flash.text.StageText.color in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of openfl.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
 	public function get_color():UInt
 	{
@@ -519,7 +519,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @default 0x999999
 	 *
 	 * @see #disabledColor
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of flash.text.StageText.color in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of openfl.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
 	public function get_disabledColor():UInt
 	{
@@ -555,7 +555,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#displayAsPassword Full description of flash.text.StageText.displayAsPassword in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#displayAsPassword Full description of openfl.text.StageText.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
 	public function get_displayAsPassword():Bool
 	{
@@ -635,7 +635,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontFamily Full description of flash.text.StageText.fontFamily in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontFamily Full description of openfl.text.StageText.fontFamily in Adobe's Flash Platform API Reference
 	 */
 	public function get_fontFamily():String
 	{
@@ -662,17 +662,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 	/**
 	 * Specifies the font posture, using constants defined in the
-	 * <code>flash.text.engine.FontPosture</code> class.
+	 * <code>openfl.text.engine.FontPosture</code> class.
 	 *
 	 * <p>In the following example, the font posture is changed:</p>
 	 *
 	 * <listing version="3.0">
 	 * textEditor.fontPosture = FontPosture.ITALIC;</listing>
 	 *
-	 * @default flash.text.engine.FontPosture.NORMAL
+	 * @default openfl.text.engine.FontPosture.NORMAL
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontPosture Full description of flash.text.StageText.fontPosture in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontPosture.html flash.text.engine.FontPosture
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontPosture Full description of openfl.text.StageText.fontPosture in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontPosture.html openfl.text.engine.FontPosture
 	 */
 	public function get_fontPosture():String
 	{
@@ -707,7 +707,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default 12
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontSize Full description of flash.text.StageText.fontSize in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontSize Full description of openfl.text.StageText.fontSize in Adobe's Flash Platform API Reference
 	 */
 	public function get_fontSize():Int
 	{
@@ -734,17 +734,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 	/**
 	 * Specifies the font weight, using constants defined in the
-	 * <code>flash.text.engine.FontWeight</code> class.
+	 * <code>openfl.text.engine.FontWeight</code> class.
 	 *
 	 * <p>In the following example, the font weight is changed to bold:</p>
 	 *
 	 * <listing version="3.0">
 	 * textEditor.fontWeight = FontWeight.BOLD;</listing>
 	 *
-	 * @default flash.text.engine.FontWeight.NORMAL
+	 * @default openfl.text.engine.FontWeight.NORMAL
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontWeight Full description of flash.text.StageText.fontWeight in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontWeight.html flash.text.engine.FontWeight
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontWeight Full description of openfl.text.StageText.fontWeight in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontWeight.html openfl.text.engine.FontWeight
 	 */
 	public function get_fontWeight():String
 	{
@@ -781,7 +781,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default "en"
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#locale Full description of flash.text.StageText.locale in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#locale Full description of openfl.text.StageText.locale in Adobe's Flash Platform API Reference
 	 */
 	public function get_locale():String
 	{
@@ -819,7 +819,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default 0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#maxChars Full description of flash.text.StageText.maxChars in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#maxChars Full description of openfl.text.StageText.maxChars in Adobe's Flash Platform API Reference
 	 */
 	public function get_maxChars():Int
 	{
@@ -863,7 +863,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#multiline Full description of flash.text.StageText.multiline in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#multiline Full description of openfl.text.StageText.multiline in Adobe's Flash Platform API Reference
 	 */
 	public function get_multiline():Bool
 	{
@@ -900,7 +900,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#restrict Full description of flash.text.StageText.restrict in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#restrict Full description of openfl.text.StageText.restrict in Adobe's Flash Platform API Reference
 	 */
 	public function get_restrict():String
 	{
@@ -928,7 +928,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * Indicates the label on the Return key for devices that feature a soft
 	 * keyboard. The available values are constants defined in the
-	 * <code>flash.text.ReturnKeyLabel</code> class. This property is only a
+	 * <code>openfl.text.ReturnKeyLabel</code> class. This property is only a
 	 * hint to the underlying platform, because not all devices and
 	 * operating systems support this functionality.
 	 *
@@ -937,10 +937,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <listing version="3.0">
 	 * textEditor.returnKeyLabel = ReturnKeyLabel.GO;</listing>
 	 *
-	 * @default flash.text.ReturnKeyLabel.DEFAULT
+	 * @default openfl.text.ReturnKeyLabel.DEFAULT
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#returnKeyLabel Full description of flash.text.StageText.returnKeyLabel in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/ReturnKeyLabel.html flash.text.ReturnKeyLabel
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#returnKeyLabel Full description of openfl.text.StageText.returnKeyLabel in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/ReturnKeyLabel.html openfl.text.ReturnKeyLabel
 	 */
 	public function get_returnKeyLabel():String
 	{
@@ -967,7 +967,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 	/**
 	 * Controls the appearance of the soft keyboard. Valid values are
-	 * defined as constants in the <code>flash.text.SoftKeyboardType</code>
+	 * defined as constants in the <code>openfl.text.SoftKeyboardType</code>
 	 * class. This property is only a hint to the underlying platform,
 	 * because not all devices and operating systems support this
 	 * functionality.
@@ -977,10 +977,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * <listing version="3.0">
 	 * textEditor.softKeyboardType = SoftKeyboardType.NUMBER;</listing>
 	 *
-	 * @default flash.text.SoftKeyboardType.DEFAULT
+	 * @default openfl.text.SoftKeyboardType.DEFAULT
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#softKeyboardType Full description of flash.text.StageText.softKeyboardType in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/SoftKeyboardType.html flash.text.SoftKeyboardType
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#softKeyboardType Full description of openfl.text.StageText.softKeyboardType in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/SoftKeyboardType.html openfl.text.SoftKeyboardType
 	 */
 	public function get_softKeyboardType():String
 	{
@@ -1007,17 +1007,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 	/**
 	 * Indicates the paragraph alignment. Valid values are defined as
-	 * constants in the <code>flash.text.TextFormatAlign</code> class.
+	 * constants in the <code>openfl.text.TextFormatAlign</code> class.
 	 *
 	 * <p>In the following example, the text is centered:</p>
 	 *
 	 * <listing version="3.0">
 	 * textEditor.textAlign = TextFormatAlign.CENTER;</listing>
 	 *
-	 * @default flash.text.TextFormatAlign.START
+	 * @default openfl.text.TextFormatAlign.START
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#textAlign Full description of flash.text.StageText.textAlign in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormatAlign.html flash.text.TextFormatAlign
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#textAlign Full description of openfl.text.StageText.textAlign in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormatAlign.html openfl.text.TextFormatAlign
 	 */
 	public function get_textAlign():String
 	{
@@ -1768,12 +1768,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			return;
 		}
-		this.stageText.removeEventListener(flash.events.Event.CHANGE, stageText_changeHandler);
+		this.stageText.removeEventListener(openfl.events.Event.CHANGE, stageText_changeHandler);
 		this.stageText.removeEventListener(KeyboardEvent.KEY_DOWN, stageText_keyDownHandler);
 		this.stageText.removeEventListener(KeyboardEvent.KEY_UP, stageText_keyUpHandler);
 		this.stageText.removeEventListener(FocusEvent.FOCUS_IN, stageText_focusInHandler);
 		this.stageText.removeEventListener(FocusEvent.FOCUS_OUT, stageText_focusOutHandler);
-		this.stageText.removeEventListener(flash.events.Event.COMPLETE, stageText_completeHandler);
+		this.stageText.removeEventListener(openfl.events.Event.COMPLETE, stageText_completeHandler);
 		this.stageText.removeEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, stageText_softKeyboardActivateHandler);
 		this.stageText.removeEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, stageText_softKeyboardDeactivateHandler);
 		this.stageText.stage = null;
@@ -1794,8 +1794,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var initOptions:Dynamic;
 		try
 		{
-			StageTextType = Class(getDefinitionByName("flash.text.StageText"));
-			var StageTextInitOptionsType:Class<Dynamic> = Class(getDefinitionByName("flash.text.StageTextInitOptions"));
+			StageTextType = Class(getDefinitionByName("openfl.text.StageText"));
+			var StageTextInitOptionsType:Class<Dynamic> = Class(getDefinitionByName("openfl.text.StageTextInitOptions"));
 			initOptions = new StageTextInitOptionsType(this._multiline);
 		}
 		catch(error:Error)
@@ -1805,14 +1805,14 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		}
 		this.stageText = new StageTextType(initOptions);
 		this.stageText.visible = false;
-		this.stageText.addEventListener(flash.events.Event.CHANGE, stageText_changeHandler);
+		this.stageText.addEventListener(openfl.events.Event.CHANGE, stageText_changeHandler);
 		this.stageText.addEventListener(KeyboardEvent.KEY_DOWN, stageText_keyDownHandler);
 		this.stageText.addEventListener(KeyboardEvent.KEY_UP, stageText_keyUpHandler);
 		this.stageText.addEventListener(FocusEvent.FOCUS_IN, stageText_focusInHandler);
 		this.stageText.addEventListener(FocusEvent.FOCUS_OUT, stageText_focusOutHandler);
 		this.stageText.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, stageText_softKeyboardActivateHandler);
 		this.stageText.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, stageText_softKeyboardDeactivateHandler);
-		this.stageText.addEventListener(flash.events.Event.COMPLETE, stageText_completeHandler);
+		this.stageText.addEventListener(openfl.events.Event.COMPLETE, stageText_completeHandler);
 		this.invalidate();
 	}
 
@@ -1829,7 +1829,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function stageText_changeHandler(event:flash.events.Event):Void
+	private function stageText_changeHandler(event:openfl.events.Event):Void
 	{
 		if(this._ignoreStageTextChanges)
 		{
@@ -1841,9 +1841,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function stageText_completeHandler(event:flash.events.Event):Void
+	private function stageText_completeHandler(event:openfl.events.Event):Void
 	{
-		this.stageText.removeEventListener(flash.events.Event.COMPLETE, stageText_completeHandler);
+		this.stageText.removeEventListener(openfl.events.Event.COMPLETE, stageText_completeHandler);
 		this.invalidate();
 
 		this._stageTextIsComplete = true;

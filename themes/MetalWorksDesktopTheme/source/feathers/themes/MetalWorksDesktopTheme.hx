@@ -23,8 +23,8 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 package feathers.themes {
-	import flash.display.Bitmap;
-	import flash.display.BitmapData;
+	import openfl.display.Bitmap;
+	import openfl.display.BitmapData;
 
 	import starling.events.Event;
 	import starling.textures.Texture;

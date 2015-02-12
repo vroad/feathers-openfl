@@ -9,8 +9,8 @@ package feathers.controls;
 import feathers.skins.IStyleProvider;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 
-import flash.events.KeyboardEvent;
-import flash.ui.Keyboard;
+import openfl.events.KeyboardEvent;
+import openfl.ui.Keyboard;
 
 import starling.core.Starling;
 import starling.events.Event;

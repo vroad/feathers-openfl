@@ -16,9 +16,9 @@ import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.skins.StateWithToggleValueSelector;
 
-import flash.geom.Point;
-import flash.ui.Keyboard;
-import flash.utils.getTimer;
+import openfl.geom.Point;
+import openfl.ui.Keyboard;
+import openfl.utils.getTimer;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

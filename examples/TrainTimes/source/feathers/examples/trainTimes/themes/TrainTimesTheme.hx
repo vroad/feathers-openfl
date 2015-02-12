@@ -26,9 +26,9 @@ import feathers.system.DeviceCapabilities;
 import feathers.textures.Scale3Textures;
 import feathers.textures.Scale9Textures;
 
-import flash.display.BitmapData;
-import flash.geom.Rectangle;
-import flash.text.TextFormat;
+import openfl.display.BitmapData;
+import openfl.geom.Rectangle;
+import openfl.text.TextFormat;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;

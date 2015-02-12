@@ -18,11 +18,11 @@ import feathers.layout.ViewPortBounds;
 import feathers.skins.IStyleProvider;
 import feathers.system.DeviceCapabilities;
 
-import flash.display.Stage;
-import flash.display.StageDisplayState;
-import flash.events.FullScreenEvent;
-import flash.geom.Point;
-import flash.system.Capabilities;
+import openfl.display.Stage;
+import openfl.display.StageDisplayState;
+import openfl.events.FullScreenEvent;
+import openfl.geom.Point;
+import openfl.system.Capabilities;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;

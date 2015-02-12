@@ -15,11 +15,11 @@ import feathers.system.DeviceCapabilities;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 import feathers.utils.math.roundToNearest;
 
-import flash.events.KeyboardEvent;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.ui.Keyboard;
-import flash.utils.getTimer;
+import openfl.events.KeyboardEvent;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.ui.Keyboard;
+import openfl.utils.getTimer;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;

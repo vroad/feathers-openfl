@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.text;
-import flash.text.TextFormatAlign;
+import openfl.text.TextFormatAlign;
 
 import starling.text.BitmapFont;
 import starling.text.TextField;
@@ -77,7 +77,7 @@ class BitmapFontTextFormat
 	/**
 	 * Determines the alignment of the text, either left, center, or right.
 	 *
-	 * @default flash.text.TextFormatAlign.LEFT
+	 * @default openfl.text.TextFormatAlign.LEFT
 	 */
 	public var align:String = TextFormatAlign.LEFT;
 	

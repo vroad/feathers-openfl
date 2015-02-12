@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.core;
 import feathers.skins.IStyleProvider;
 
-import flash.geom.Rectangle;
+import openfl.geom.Rectangle;
 
 /**
  * Dispatched after the control has been initialized, but before it has

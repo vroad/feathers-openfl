@@ -12,18 +12,18 @@ import feathers.events.FeathersEventType;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
 
-import flash.desktop.Clipboard;
-import flash.desktop.ClipboardFormats;
-import flash.display.DisplayObjectContainer;
-import flash.display.InteractiveObject;
-import flash.display.Stage;
-import flash.events.Event;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.TextFormatAlign;
-import flash.text.engine.TextElement;
-import flash.text.engine.TextLine;
-import flash.ui.Keyboard;
+import openfl.desktop.Clipboard;
+import openfl.desktop.ClipboardFormats;
+import openfl.display.DisplayObjectContainer;
+import openfl.display.InteractiveObject;
+import openfl.display.Stage;
+import openfl.events.Event;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.TextFormatAlign;
+import openfl.text.engine.TextElement;
+import openfl.text.engine.TextLine;
+import openfl.ui.Keyboard;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -119,7 +119,7 @@ import starling.events.TouchPhase;
  *///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
- * Renders text with a native <code>flash.text.engine.TextBlock</code> from
+ * Renders text with a native <code>openfl.text.engine.TextBlock</code> from
  * Flash Text Engine (FTE) that may be edited at runtime by the user. Draws
  * the text to <code>BitmapData</code> to convert to Starling textures.
  * Textures are completely managed by this component, and they will be
@@ -139,7 +139,7 @@ import starling.events.TouchPhase;
  * beta to stable.</p>
  *
  * @see http://wiki.starling-framework.org/feathers/text-editors
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html flash.text.engine.TextBlock
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html openfl.text.engine.TextBlock
  */
 class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 {
@@ -586,16 +586,16 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 		}
 		if(this._nativeFocus)
 		{
-			this._nativeFocus.removeEventListener(flash.events.Event.CUT, nativeStage_cutHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.COPY, nativeStage_copyHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.CUT, nativeStage_cutHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.COPY, nativeStage_copyHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler);
 		}
 		this._nativeFocus = value;
 		if(this._nativeFocus)
 		{
-			this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
 		}
 	}
 
@@ -1227,7 +1227,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_cutHandler(event:flash.events.Event):Void
+	private function nativeStage_cutHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1240,7 +1240,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_copyHandler(event:flash.events.Event):Void
+	private function nativeStage_copyHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1252,7 +1252,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_pasteHandler(event:flash.events.Event):Void
+	private function nativeStage_pasteHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{

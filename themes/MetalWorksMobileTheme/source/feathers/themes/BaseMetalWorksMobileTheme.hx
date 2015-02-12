@@ -74,15 +74,15 @@ package feathers.themes
 	import feathers.textures.Scale3Textures;
 	import feathers.textures.Scale9Textures;
 
-	import flash.geom.Rectangle;
-	import flash.text.TextFormat;
-	import flash.text.engine.CFFHinting;
-	import flash.text.engine.ElementFormat;
-	import flash.text.engine.FontDescription;
-	import flash.text.engine.FontLookup;
-	import flash.text.engine.FontPosture;
-	import flash.text.engine.FontWeight;
-	import flash.text.engine.RenderingMode;
+	import openfl.geom.Rectangle;
+	import openfl.text.TextFormat;
+	import openfl.text.engine.CFFHinting;
+	import openfl.text.engine.ElementFormat;
+	import openfl.text.engine.FontDescription;
+	import openfl.text.engine.FontLookup;
+	import openfl.text.engine.FontPosture;
+	import openfl.text.engine.FontWeight;
+	import openfl.text.engine.RenderingMode;
 
 	import starling.core.Starling;
 	import starling.display.DisplayObject;

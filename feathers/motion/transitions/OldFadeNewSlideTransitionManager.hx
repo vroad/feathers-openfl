@@ -9,7 +9,7 @@ package feathers.motion.transitions;
 import feathers.controls.IScreen;
 import feathers.controls.ScreenNavigator;
 
-import flash.utils.getQualifiedClassName;
+import openfl.utils.getQualifiedClassName;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;

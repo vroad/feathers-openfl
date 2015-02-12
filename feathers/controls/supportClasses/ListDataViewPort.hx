@@ -22,9 +22,9 @@ import feathers.layout.IVirtualLayout;
 import feathers.layout.LayoutBoundsResult;
 import feathers.layout.ViewPortBounds;
 
-import flash.errors.IllegalOperationError;
-import flash.geom.Point;
-import flash.utils.Dictionary;
+import openfl.errors.IllegalOperationError;
+import openfl.geom.Point;
+import openfl.utils.Dictionary;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

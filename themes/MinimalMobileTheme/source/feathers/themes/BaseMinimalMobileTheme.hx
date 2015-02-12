@@ -74,9 +74,9 @@ package feathers.themes
 	import feathers.textures.Scale9Textures;
 	import feathers.utils.math.roundToNearest;
 
-	import flash.geom.Rectangle;
-	import flash.text.TextFormat;
-	import flash.text.TextFormatAlign;
+	import openfl.geom.Rectangle;
+	import openfl.text.TextFormat;
+	import openfl.text.TextFormatAlign;
 
 	import starling.core.Starling;
 	import starling.display.DisplayObject;

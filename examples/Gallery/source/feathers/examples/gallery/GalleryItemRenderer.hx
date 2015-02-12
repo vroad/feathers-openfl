@@ -5,8 +5,8 @@ import feathers.controls.renderers.IListItemRenderer;
 import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
 
-import flash.geom.Point;
-import flash.utils.Dictionary;
+import openfl.geom.Point;
+import openfl.utils.Dictionary;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;

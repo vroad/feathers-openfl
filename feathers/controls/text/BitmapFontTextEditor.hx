@@ -12,15 +12,15 @@ import feathers.events.FeathersEventType;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
 
-import flash.desktop.Clipboard;
-import flash.desktop.ClipboardFormats;
-import flash.display.InteractiveObject;
-import flash.display.Stage;
-import flash.events.Event;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.TextFormatAlign;
-import flash.ui.Keyboard;
+import openfl.desktop.Clipboard;
+import openfl.desktop.ClipboardFormats;
+import openfl.display.InteractiveObject;
+import openfl.display.Stage;
+import openfl.events.Event;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.TextFormatAlign;
+import openfl.ui.Keyboard;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -565,16 +565,16 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		}
 		if(this._nativeFocus)
 		{
-			this._nativeFocus.removeEventListener(flash.events.Event.CUT, nativeStage_cutHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.COPY, nativeStage_copyHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.CUT, nativeStage_cutHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.COPY, nativeStage_copyHandler);
+			this._nativeFocus.removeEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler);
 		}
 		this._nativeFocus = value;
 		if(this._nativeFocus)
 		{
-			this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
+			this._nativeFocus.addEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
 		}
 	}
 
@@ -1307,7 +1307,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_cutHandler(event:flash.events.Event):Void
+	private function nativeStage_cutHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1320,7 +1320,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_copyHandler(event:flash.events.Event):Void
+	private function nativeStage_copyHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1332,7 +1332,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function nativeStage_pasteHandler(event:flash.events.Event):Void
+	private function nativeStage_pasteHandler(event:openfl.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{

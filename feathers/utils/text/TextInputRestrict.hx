@@ -6,13 +6,13 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.utils.text;
-import flash.utils.Dictionary;
+import openfl.utils.Dictionary;
 
 /**
  * Duplicates the functionality of the <code>restrict</code> property on
- * <code>flash.text.TextField</code>.
+ * <code>openfl.text.TextField</code>.
  *
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of flash.text.TextField.restrict in Adobe's Flash Platform API Reference
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of openfl.text.TextField.restrict in Adobe's Flash Platform API Reference
  */
 class TextInputRestrict
 {
@@ -67,7 +67,7 @@ class TextInputRestrict
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of flash.text.TextField.restrict in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of openfl.text.TextField.restrict in Adobe's Flash Platform API Reference
 	 */
 	public function get_restrict():String
 	{

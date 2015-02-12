@@ -10,18 +10,18 @@ import feathers.core.FeathersControl;
 import feathers.core.ITextRenderer;
 import feathers.skins.IStyleProvider;
 
-import flash.display.BitmapData;
-import flash.display3D.Context3DProfile;
-import flash.filters.BitmapFilter;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.AntiAliasType;
-import flash.text.GridFitType;
-import flash.text.StyleSheet;
-import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
-import flash.text.TextFormat;
+import openfl.display.BitmapData;
+import openfl.display3D.Context3DProfile;
+import openfl.filters.BitmapFilter;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.AntiAliasType;
+import openfl.text.GridFitType;
+import openfl.text.StyleSheet;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.TextFormat;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -32,7 +32,7 @@ import starling.textures.Texture;
 import starling.utils.getNextPowerOfTwo;
 
 /**
- * Renders text with a native <code>flash.text.TextField</code> and draws
+ * Renders text with a native <code>openfl.text.TextField</code> and draws
  * it to <code>BitmapData</code> to convert to Starling textures. Textures
  * are completely managed by this component, and they will be automatically
  * disposed when the component is disposed.
@@ -44,7 +44,7 @@ import starling.utils.getNextPowerOfTwo;
  * caution when displaying a lot of text.</p>
  *
  * @see http://wiki.starling-framework.org/feathers/text-renderers
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html flash.text.TextField
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html openfl.text.TextField
  */
 class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 {
@@ -180,7 +180,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		if(value == null)
 		{
-			//flash.text.TextField won't accept a null value
+			//openfl.text.TextField won't accept a null value
 			value = "";
 		}
 		this._text = value;
@@ -203,7 +203,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText openfl.text.TextField.htmlText
 	 * @see #text
 	 */
 	public function get_isHTML():Bool
@@ -240,7 +240,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @default null
 	 *
 	 * @see #disabledTextFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html openfl.text.TextFormat
 	 */
 	public function get_textFormat():TextFormat
 	{
@@ -277,7 +277,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @default null
 	 *
 	 * @see #textFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html openfl.text.TextFormat
 	 */
 	public function get_disabledTextFormat():TextFormat
 	{
@@ -325,8 +325,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#styleSheet Full description of flash.text.TextField.styleSheet in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html flash.text.StyleSheet
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#styleSheet Full description of openfl.text.TextField.styleSheet in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html openfl.text.StyleSheet
 	 * @see #isHTML
 	 */
 	public function get_styleSheet():StyleSheet
@@ -363,7 +363,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of openfl.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
 	public function get_embedFonts():Bool
 	{
@@ -415,7 +415,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of openfl.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
 	public function get_wordWrap():Bool
 	{
@@ -473,17 +473,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 
 	/**
 	 * The type of anti-aliasing used for this text field, defined as
-	 * constants in the <code>flash.text.AntiAliasType</code> class.
+	 * constants in the <code>openfl.text.AntiAliasType</code> class.
 	 *
 	 * <p>In the following example, the anti-alias type is changed:</p>
 	 *
 	 * <listing version="3.0">
 	 * textRenderer.antiAliasType = AntiAliasType.NORMAL;</listing>
 	 *
-	 * @default flash.text.AntiAliasType.ADVANCED
+	 * @default openfl.text.AntiAliasType.ADVANCED
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of flash.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html flash.text.AntiAliasType
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of openfl.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html openfl.text.AntiAliasType
 	 */
 	public function get_antiAliasType():String
 	{
@@ -521,7 +521,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of openfl.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
 	public function get_background():Bool
@@ -559,7 +559,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0xffffff
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of openfl.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
 	public function get_backgroundColor():UInt
@@ -600,7 +600,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of openfl.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
 	public function get_border():Bool
@@ -638,7 +638,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0x000000
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of openfl.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
 	public function get_borderColor():UInt
@@ -675,7 +675,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of flash.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#condenseWhite Full description of openfl.text.TextField.condenseWhite in Adobe's Flash Platform API Reference
 	 * @see #isHTML
 	 */
 	public function get_condenseWhite():Bool
@@ -713,7 +713,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of openfl.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
 	public function get_displayAsPassword():Bool
 	{
@@ -741,19 +741,19 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * Determines whether Flash Player forces strong horizontal and vertical
 	 * lines to fit to a pixel or subpixel grid, or not at all using the
-	 * constants defined in the <code>flash.text.GridFitType</code> class.
+	 * constants defined in the <code>openfl.text.GridFitType</code> class.
 	 * This property applies only if the <code>antiAliasType</code> property
-	 * of the text field is set to <code>flash.text.AntiAliasType.ADVANCED</code>.
+	 * of the text field is set to <code>openfl.text.AntiAliasType.ADVANCED</code>.
 	 *
 	 * <p>In the following example, the grid fit type is changed:</p>
 	 *
 	 * <listing version="3.0">
 	 * textRenderer.gridFitType = GridFitType.SUBPIXEL;</listing>
 	 *
-	 * @default flash.text.GridFitType.PIXEL
+	 * @default openfl.text.GridFitType.PIXEL
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#gridFitType Full description of flash.text.TextField.gridFitType in Adobe's Flash Platform API Reference
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html flash.text.GridFitType
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#gridFitType Full description of openfl.text.TextField.gridFitType in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html openfl.text.GridFitType
 	 * @see #antiAliasType
 	 */
 	public function get_gridFitType():String
@@ -782,7 +782,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * The sharpness of the glyph edges in this text field. This property
 	 * applies only if the <code>antiAliasType</code> property of the text
-	 * field is set to <code>flash.text.AntiAliasType.ADVANCED</code>. The
+	 * field is set to <code>openfl.text.AntiAliasType.ADVANCED</code>. The
 	 * range for <code>sharpness</code> is a number from <code>-400</code>
 	 * to <code>400</code>.
 	 *
@@ -793,7 +793,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of openfl.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
 	public function get_sharpness():Float
@@ -822,7 +822,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * The thickness of the glyph edges in this text field. This property
 	 * applies only if the <code>antiAliasType</code> property is set to
-	 * <code>flash.text.AntiAliasType.ADVANCED</code>. The range for
+	 * <code>openfl.text.AntiAliasType.ADVANCED</code>. The range for
 	 * <code>thickness</code> is a number from <code>-200</code> to
 	 * <code>200</code>.
 	 *
@@ -833,7 +833,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of openfl.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
 	public function get_thickness():Float
@@ -903,7 +903,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	private var _nativeFilters:Array;
 
 	/**
-	 * Native filters to pass to the <code>flash.text.TextField</code>
+	 * Native filters to pass to the <code>openfl.text.TextField</code>
 	 * before creating the texture snapshot.
 	 *
 	 * <p>In the following example, the native filters are changed:</p>
@@ -913,7 +913,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of flash.display.DisplayObject.filters in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of openfl.display.DisplayObject.filters in Adobe's Flash Platform API Reference
 	 */
 	public function get_nativeFilters():Array
 	{
@@ -940,7 +940,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
-	 * <code>flash.text.TextField</code> will be used in measurement and
+	 * <code>openfl.text.TextField</code> will be used in measurement and
 	 * layout. To visually align with other text renderers and text editors,
 	 * it is often best to leave the gutter disabled.
 	 *
@@ -1190,7 +1190,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				newWidth = this._maxWidth;
 			}
 		}
-		//and this is a workaround for an issue where flash.text.TextField
+		//and this is a workaround for an issue where openfl.text.TextField
 		//will wrap the last word when you pass the value returned by the
 		//width getter (when TextFieldAutoSize.LEFT is used) to the width
 		//setter. In other words, the value technically isn't changing, but
@@ -1245,7 +1245,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		}
 
 		//if measure() isn't called, we need to apply the same workaround
-		//for the flash.text.TextField bug with wordWrap.
+		//for the openfl.text.TextField bug with wordWrap.
 		if(!this._hasMeasured && this._wordWrap)
 		{
 			this.textField.autoSize = TextFieldAutoSize.LEFT;

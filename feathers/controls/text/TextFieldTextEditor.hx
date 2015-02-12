@@ -13,19 +13,19 @@ import feathers.utils.geom.matrixToRotation;
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
 
-import flash.display.BitmapData;
-import flash.display3D.Context3DProfile;
-import flash.events.FocusEvent;
-import flash.events.KeyboardEvent;
-import flash.events.SoftKeyboardEvent;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
-import flash.text.TextFieldType;
-import flash.text.TextFormat;
-import flash.ui.Keyboard;
+import openfl.display.BitmapData;
+import openfl.display3D.Context3DProfile;
+import openfl.events.FocusEvent;
+import openfl.events.KeyboardEvent;
+import openfl.events.SoftKeyboardEvent;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.TextFieldType;
+import openfl.text.TextFormat;
+import openfl.ui.Keyboard;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -163,9 +163,9 @@ import starling.utils.getNextPowerOfTwo;
  *///[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
 
 /**
- * A Feathers text editor that uses the native <code>flash.text.TextField</code>
+ * A Feathers text editor that uses the native <code>openfl.text.TextField</code>
  * class with its <code>type</code> property set to
- * <code>flash.text.TextInputType.INPUT</code>. Textures are completely
+ * <code>openfl.text.TextInputType.INPUT</code>. Textures are completely
  * managed by this component, and they will be automatically disposed when
  * the component is disposed.
  *
@@ -176,7 +176,7 @@ import starling.utils.getNextPowerOfTwo;
  *
  * @see http://wiki.starling-framework.org/feathers/text-editors
  *
- * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html flash.text.TextField
+ * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html openfl.text.TextField
  */
 class TextFieldTextEditor extends FeathersControl implements ITextEditor
 {
@@ -325,7 +325,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * @default null
 	 *
 	 * @see #disabledTextFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html openfl.text.TextFormat
 	 */
 	public function get_textFormat():TextFormat
 	{
@@ -366,7 +366,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 * @default null
 	 *
 	 * @see #textFormat
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html flash.text.TextFormat
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html openfl.text.TextFormat
 	 */
 	public function get_disabledTextFormat():TextFormat
 	{
@@ -402,7 +402,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of flash.text.TextField.embedFonts in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#embedFonts Full description of openfl.text.TextField.embedFonts in Adobe's Flash Platform API Reference
 	 */
 	public function get_embedFonts():Bool
 	{
@@ -437,7 +437,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of flash.text.TextField.wordWrap in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#wordWrap Full description of openfl.text.TextField.wordWrap in Adobe's Flash Platform API Reference
 	 */
 	public function get_wordWrap():Bool
 	{
@@ -472,7 +472,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#multiline Full description of flash.text.TextField.multiline in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#multiline Full description of openfl.text.TextField.multiline in Adobe's Flash Platform API Reference
 	 */
 	public function get_multiline():Bool
 	{
@@ -508,7 +508,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText flash.text.TextField.htmlText
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#htmlText openfl.text.TextField.htmlText
 	 */
 	public function get_isHTML():Bool
 	{
@@ -546,7 +546,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#alwaysShowSelection Full description of flash.text.TextField.alwaysShowSelection in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#alwaysShowSelection Full description of openfl.text.TextField.alwaysShowSelection in Adobe's Flash Platform API Reference
 	 */
 	public function get_alwaysShowSelection():Bool
 	{
@@ -583,7 +583,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default false
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of flash.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#displayAsPassword Full description of openfl.text.TextField.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
 	public function get_displayAsPassword():Bool
 	{
@@ -621,7 +621,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default 0
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#maxChars Full description of flash.text.TextField.maxChars in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#maxChars Full description of openfl.text.TextField.maxChars in Adobe's Flash Platform API Reference
 	 */
 	public function get_maxChars():Int
 	{
@@ -658,7 +658,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 *
 	 * @default null
 	 *
-	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of flash.text.TextField.restrict in Adobe's Flash Platform API Reference
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of openfl.text.TextField.restrict in Adobe's Flash Platform API Reference
 	 */
 	public function get_restrict():String
 	{
@@ -719,7 +719,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
-	 * <code>flash.text.TextField</code> will be used in measurement and
+	 * <code>openfl.text.TextField</code> will be used in measurement and
 	 * layout. To visually align with other text renderers and text editors,
 	 * it is often best to leave the gutter disabled.
 	 *
@@ -1028,7 +1028,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		this.textField = new TextField();
 		this.textField.needsSoftKeyboard = true;
-		this.textField.addEventListener(flash.events.Event.CHANGE, textField_changeHandler);
+		this.textField.addEventListener(openfl.events.Event.CHANGE, textField_changeHandler);
 		this.textField.addEventListener(FocusEvent.FOCUS_IN, textField_focusInHandler);
 		this.textField.addEventListener(FocusEvent.FOCUS_OUT, textField_focusOutHandler);
 		this.textField.addEventListener(KeyboardEvent.KEY_DOWN, textField_keyDownHandler);
@@ -1250,7 +1250,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 
 		if(!this._textFieldHasFocus && (stylesInvalid || dataInvalid || stateInvalid || this._needsNewTexture))
 		{
-			//we need to wait a frame for the flash.text.TextField to render
+			//we need to wait a frame for the openfl.text.TextField to render
 			//properly. sometimes two, and this is a known issue.
 			this.addEventListener(Event.ENTER_FRAME, textEditor_enterFrameHandler);
 		}
@@ -1488,7 +1488,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_changeHandler(event:flash.events.Event):Void
+	private function textField_changeHandler(event:openfl.events.Event):Void
 	{
 		this.text = this.textField.text;
 	}

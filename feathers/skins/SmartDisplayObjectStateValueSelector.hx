@@ -11,7 +11,7 @@ import feathers.display.Scale9Image;
 import feathers.textures.Scale3Textures;
 import feathers.textures.Scale9Textures;
 
-import flash.utils.Dictionary;
+import openfl.utils.Dictionary;
 
 import starling.display.DisplayObject;
 import starling.display.Image;

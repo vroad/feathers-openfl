@@ -24,8 +24,8 @@
  */
 package feathers.themes
 {
-	import flash.display.Bitmap;
-	import flash.display.BitmapData;
+	import openfl.display.Bitmap;
+	import openfl.display.BitmapData;
 
 	import starling.text.BitmapFont;
 	import starling.text.TextField;

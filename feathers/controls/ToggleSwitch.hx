@@ -14,9 +14,9 @@ import feathers.core.PropertyProxy;
 import feathers.skins.IStyleProvider;
 import feathers.system.DeviceCapabilities;
 
-import flash.geom.Point;
-import flash.geom.Rectangle;
-import flash.ui.Keyboard;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.ui.Keyboard;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;

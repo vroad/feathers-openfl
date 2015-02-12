@@ -16,9 +16,9 @@ import feathers.utils.math.clamp;
 import feathers.utils.math.roundToNearest;
 import feathers.utils.math.roundToPrecision;
 
-import flash.events.TimerEvent;
-import flash.ui.Keyboard;
-import flash.utils.Timer;
+import openfl.events.TimerEvent;
+import openfl.ui.Keyboard;
+import openfl.utils.Timer;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

@@ -6,8 +6,8 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
-import flash.utils.Proxy;
-import flash.utils.flash_proxy;
+import openfl.utils.Proxy;
+import openfl.utils.flash_proxy;
 
 /**
  * Detects when its own properties have changed and dispatches an event

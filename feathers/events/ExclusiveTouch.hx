@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.events;
-import flash.utils.Dictionary;
+import openfl.utils.Dictionary;
 
 import starling.display.DisplayObject;
 import starling.display.Stage;

@@ -13,9 +13,9 @@ import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 
-import flash.geom.Point;
-import flash.ui.Mouse;
-import flash.ui.MouseCursor;
+import openfl.geom.Point;
+import openfl.ui.Mouse;
+import openfl.ui.MouseCursor;
 
 import starling.display.DisplayObject;
 import starling.events.Event;

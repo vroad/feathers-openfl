@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.layout;
 import feathers.core.IFeathersEventDispatcher;
 
-import flash.geom.Point;
+import openfl.geom.Point;
 
 import starling.display.DisplayObject;
 

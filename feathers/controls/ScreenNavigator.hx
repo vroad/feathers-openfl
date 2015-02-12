@@ -11,9 +11,9 @@ import feathers.core.IValidating;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 
-import flash.errors.IllegalOperationError;
-import flash.geom.Rectangle;
-import flash.utils.getDefinitionByName;
+import openfl.errors.IllegalOperationError;
+import openfl.geom.Rectangle;
+import openfl.utils.getDefinitionByName;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -171,7 +171,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			try
 			{
-				SIGNAL_TYPE = Class(getDefinitionByName("org.osflash.signals.ISignal"));
+				SIGNAL_TYPE = Class(getDefinitionByName("org.osopenfl.signals.ISignal"));
 			}
 			catch(error:Error)
 			{

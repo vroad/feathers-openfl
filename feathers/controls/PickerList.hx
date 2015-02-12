@@ -19,7 +19,7 @@ import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.system.DeviceCapabilities;
 
-import flash.ui.Keyboard;
+import openfl.ui.Keyboard;
 
 import starling.core.Starling;
 import starling.events.Event;

@@ -11,9 +11,9 @@ import feathers.core.ITextRenderer;
 import feathers.skins.IStyleProvider;
 import feathers.text.BitmapFontTextFormat;
 
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.text.TextFormatAlign;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.text.TextFormatAlign;
 
 import starling.core.RenderSupport;
 import starling.display.Image;

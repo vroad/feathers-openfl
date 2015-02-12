@@ -2,18 +2,18 @@ package
 {
 import feathers.examples.tileList.Main;
 
-import flash.display.Loader;
-import flash.display.Sprite;
-import flash.display.StageAlign;
-import flash.display.StageOrientation;
-import flash.display.StageScaleMode;
-import flash.events.Event;
-import flash.filesystem.File;
-import flash.filesystem.FileMode;
-import flash.filesystem.FileStream;
-import flash.geom.Rectangle;
-import flash.system.Capabilities;
-import flash.utils.ByteArray;
+import openfl.display.Loader;
+import openfl.display.Sprite;
+import openfl.display.StageAlign;
+import openfl.display.StageOrientation;
+import openfl.display.StageScaleMode;
+import openfl.events.Event;
+import openfl.filesystem.File;
+import openfl.filesystem.FileMode;
+import openfl.filesystem.FileStream;
+import openfl.geom.Rectangle;
+import openfl.system.Capabilities;
+import openfl.utils.ByteArray;
 
 import starling.core.Starling;
 

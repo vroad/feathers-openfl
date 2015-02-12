@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.skins;
 import feathers.core.IToggle;
 
-import flash.utils.Dictionary;
+import openfl.utils.Dictionary;
 
 /**
  * Maps a component's states to values, perhaps for one of the component's

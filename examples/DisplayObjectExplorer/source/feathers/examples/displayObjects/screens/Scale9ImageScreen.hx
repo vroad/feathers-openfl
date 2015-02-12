@@ -7,7 +7,7 @@ import feathers.examples.displayObjects.themes.DisplayObjectExplorerTheme;
 import feathers.skins.IStyleProvider;
 import feathers.textures.Scale9Textures;
 
-import flash.geom.Rectangle;
+import openfl.geom.Rectangle;
 
 import starling.events.Touch;
 import starling.events.TouchEvent;

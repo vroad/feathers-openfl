@@ -9,11 +9,11 @@ package feathers.core;
 import feathers.controls.supportClasses.LayoutViewPort;
 import feathers.events.FeathersEventType;
 
-import flash.display.InteractiveObject;
-import flash.display.Stage;
-import flash.events.FocusEvent;
-import flash.ui.Keyboard;
-import flash.utils.Dictionary;
+import openfl.display.InteractiveObject;
+import openfl.display.Stage;
+import openfl.events.FocusEvent;
+import openfl.ui.Keyboard;
+import openfl.utils.Dictionary;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;
@@ -718,7 +718,7 @@ class DefaultFocusManager implements IFocusManager
 	}
 }
 
-import flash.display.Sprite;
+import openfl.display.Sprite;
 
 class NativeFocusTarget extends Sprite
 {

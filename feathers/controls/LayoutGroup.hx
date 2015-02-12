@@ -17,9 +17,9 @@ import feathers.layout.LayoutBoundsResult;
 import feathers.layout.ViewPortBounds;
 import feathers.skins.IStyleProvider;
 
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
+import openfl.geom.Matrix;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
 
 import starling.core.RenderSupport;
 import starling.display.DisplayObject;

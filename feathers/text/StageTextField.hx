@@ -6,19 +6,19 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.text;
-import flash.display.BitmapData;
-import flash.display.Stage;
-import flash.events.Event;
-import flash.events.EventDispatcher;
-import flash.events.FocusEvent;
-import flash.events.KeyboardEvent;
-import flash.geom.Rectangle;
-import flash.text.TextField;
-import flash.text.TextFieldType;
-import flash.text.TextFormat;
-import flash.text.TextFormatAlign;
-import flash.text.engine.FontPosture;
-import flash.text.engine.FontWeight;
+import openfl.display.BitmapData;
+import openfl.display.Stage;
+import openfl.events.Event;
+import openfl.events.EventDispatcher;
+import openfl.events.FocusEvent;
+import openfl.events.KeyboardEvent;
+import openfl.geom.Rectangle;
+import openfl.text.TextField;
+import openfl.text.TextFieldType;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
+import openfl.text.engine.FontPosture;
+import openfl.text.engine.FontWeight;
 
 /**
  * A StageText replacement for Flash Player with matching properties, since

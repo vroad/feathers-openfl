@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.textures;
-import flash.geom.Rectangle;
+import openfl.geom.Rectangle;
 
 import starling.textures.Texture;
 

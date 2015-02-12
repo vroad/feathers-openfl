@@ -12,10 +12,10 @@ import feathers.core.PopUpManager;
 import feathers.events.FeathersEventType;
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 
-import flash.errors.IllegalOperationError;
-import flash.events.KeyboardEvent;
-import flash.geom.Point;
-import flash.ui.Keyboard;
+import openfl.errors.IllegalOperationError;
+import openfl.events.KeyboardEvent;
+import openfl.geom.Point;
+import openfl.ui.Keyboard;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;

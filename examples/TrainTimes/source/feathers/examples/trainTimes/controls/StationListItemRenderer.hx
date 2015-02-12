@@ -8,7 +8,7 @@ import feathers.controls.renderers.IListItemRenderer;
 import feathers.core.FeathersControl;
 import feathers.examples.trainTimes.model.StationData;
 
-import flash.geom.Point;
+import openfl.geom.Point;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
