@@ -323,7 +323,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _data:Object;
+	private var _data:Dynamic;
 
 	/**
 	 * The item displayed by this renderer. This property is set by the
@@ -337,7 +337,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{
@@ -1053,7 +1053,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):String</pre>
+	 * <pre>function( item:Dynamic ):String</pre>
 	 *
 	 * <p>All of the label fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1064,7 +1064,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the label function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.labelFunction = function( item:Object ):String
+	 * renderer.labelFunction = function( item:Dynamic ):String
 	 * {
 	 *    return item.firstName + " " + item.lastName;
 	 * };</listing>
@@ -1170,7 +1170,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * Not disposing an icon may result in a memory leak.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):DisplayObject</pre>
+	 * <pre>function( item:Dynamic ):DisplayObject</pre>
 	 *
 	 * <p>All of the icon fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1185,7 +1185,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the icon function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.iconFunction = function( item:Object ):DisplayObject
+	 * renderer.iconFunction = function( item:Dynamic ):DisplayObject
 	 * {
 	 *    if(item in cachedIcons)
 	 *    {
@@ -1313,7 +1313,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -1331,7 +1331,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the icon source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.iconSourceFunction = function( item:Object ):Object
+	 * renderer.iconSourceFunction = function( item:Dynamic ):Object
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -1443,7 +1443,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * display list manipulation.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):String</pre>
+	 * <pre>function( item:Dynamic ):String</pre>
 	 *
 	 * <p>All of the icon fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1458,7 +1458,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the icon label function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.iconLabelFunction = function( item:Object ):String
+	 * renderer.iconLabelFunction = function( item:Dynamic ):String
 	 * {
 	 *    return item.firstName + " " + item.lastName;
 	 * };</listing>
@@ -1577,7 +1577,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * Not disposing an accessory may result in a memory leak.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):DisplayObject</pre>
+	 * <pre>function( item:Dynamic ):DisplayObject</pre>
 	 *
 	 * <p>All of the accessory fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1592,7 +1592,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the accessory function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.accessoryFunction = function( item:Object ):DisplayObject
+	 * renderer.accessoryFunction = function( item:Dynamic ):DisplayObject
 	 * {
 	 *    if(item in cachedAccessories)
 	 *    {
@@ -1724,7 +1724,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -1742,7 +1742,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the accessory source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.accessorySourceFunction = function( item:Object ):Object
+	 * renderer.accessorySourceFunction = function( item:Dynamic ):Object
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -1856,7 +1856,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * costly display list manipulation.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):String</pre>
+	 * <pre>function( item:Dynamic ):String</pre>
 	 *
 	 * <p>All of the accessory fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1871,7 +1871,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <p>In the following example, the accessory label function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.accessoryLabelFunction = function( item:Object ):String
+	 * renderer.accessoryLabelFunction = function( item:Dynamic ):String
 	 * {
 	 *    return item.firstName + " " + item.lastName;
 	 * };</listing>
@@ -1970,7 +1970,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * skin if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):DisplayObject</pre>
+	 * <pre>function( item:Dynamic ):DisplayObject</pre>
 	 *
 	 * <p>All of the skin fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1984,7 +1984,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <listing version="3.0">
 	 * renderer.itemHasSkin = true;
-	 * renderer.skinFunction = function( item:Object ):DisplayObject
+	 * renderer.skinFunction = function( item:Dynamic ):DisplayObject
 	 * {
 	 *    if(item in cachedSkin)
 	 *    {
@@ -2111,7 +2111,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * the same texture if that item is passed to this function again.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -2128,7 +2128,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <listing version="3.0">
 	 * renderer.itemHasSkin = true;
-	 * renderer.skinSourceFunction = function( item:Object ):Object
+	 * renderer.skinSourceFunction = function( item:Dynamic ):Object
 	 * {
 	 *    return "http://www.example.com/images/" + item.name + "-skin.png";
 	 * };</listing>
@@ -2216,7 +2216,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Bool</pre>
+	 * <pre>function( item:Dynamic ):Bool</pre>
 	 *
 	 * <p>All of the selectable fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -2228,7 +2228,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <listing version="3.0">
 	 * renderer.itemHasSelectable = true;
-	 * renderer.selectableFunction = function( item:Object ):Bool
+	 * renderer.selectableFunction = function( item:Dynamic ):Bool
 	 * {
 	 *    return item.isSelectable;
 	 * };</listing>
@@ -2311,7 +2311,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Bool</pre>
+	 * <pre>function( item:Dynamic ):Bool</pre>
 	 *
 	 * <p>All of the enabled fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -2323,7 +2323,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * <listing version="3.0">
 	 * renderer.itemHasEnabled = true;
-	 * renderer.enabledFunction = function( item:Object ):Bool
+	 * renderer.enabledFunction = function( item:Dynamic ):Bool
 	 * {
 	 *    return item.isEnabled;
 	 * };</listing>
@@ -2537,7 +2537,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelProperties(value:Object):Void
+	public function set_iconLabelProperties(value:Dynamic):Void
 	{
 		if(this._iconLabelProperties == value)
 		{
@@ -2716,7 +2716,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelProperties(value:Object):Void
+	public function set_accessoryLabelProperties(value:Dynamic):Void
 	{
 		if(this._accessoryLabelProperties == value)
 		{
@@ -2842,11 +2842,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>labelField</code></li>
 	 * </ol>
 	 */
-	public function itemToLabel(item:Object):String
+	public function itemToLabel(item:Dynamic):String
 	{
 		if(this._labelFunction != null)
 		{
-			var labelResult:Object = this._labelFunction(item);
+			var labelResult:Dynamic = this._labelFunction(item);
 			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
@@ -2887,11 +2887,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>iconField</code></li>
 	 * </ol>
 	 */
-	private function itemToIcon(item:Object):DisplayObject
+	private function itemToIcon(item:Dynamic):DisplayObject
 	{
 		if(this._iconSourceFunction != null)
 		{
-			var source:Object = this._iconSourceFunction(item);
+			var source:Dynamic = this._iconSourceFunction(item);
 			this.refreshIconSource(source);
 			return this.iconLoader;
 		}
@@ -2903,7 +2903,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else if(this._iconLabelFunction != null)
 		{
-			var labelResult:Object = this._iconLabelFunction(item);
+			var labelResult:Dynamic = this._iconLabelFunction(item);
 			if(Std.is(labelResult, String))
 			{
 				this.refreshIconLabelcast(labelResult, String);
@@ -2953,11 +2953,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>accessoryField</code></li>
 	 * </ol>
 	 */
-	private function itemToAccessory(item:Object):DisplayObject
+	private function itemToAccessory(item:Dynamic):DisplayObject
 	{
 		if(this._accessorySourceFunction != null)
 		{
-			var source:Object = this._accessorySourceFunction(item);
+			var source:Dynamic = this._accessorySourceFunction(item);
 			this.refreshAccessorySource(source);
 			return this.accessoryLoader;
 		}
@@ -2969,7 +2969,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		else if(this._accessoryLabelFunction != null)
 		{
-			var labelResult:Object = this._accessoryLabelFunction(item);
+			var labelResult:Dynamic = this._accessoryLabelFunction(item);
 			if(Std.is(labelResult, String))
 			{
 				this.refreshAccessoryLabelcast(labelResult, String);
@@ -3017,11 +3017,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>skinField</code></li>
 	 * </ol>
 	 */
-	private function itemToSkin(item:Object):DisplayObject
+	private function itemToSkin(item:Dynamic):DisplayObject
 	{
 		if(this._skinSourceFunction != null)
 		{
-			var source:Object = this._skinSourceFunction(item);
+			var source:Dynamic = this._skinSourceFunction(item);
 			this.refreshSkinSource(source);
 			return this.skinLoader;
 		}
@@ -3053,7 +3053,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>selectableField</code></li>
 	 * </ol>
 	 */
-	private function itemToSelectable(item:Object):Bool
+	private function itemToSelectable(item:Dynamic):Bool
 	{
 		if(this._selectableFunction != null)
 		{
@@ -3077,7 +3077,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *     <li><code>enabledField</code></li>
 	 * </ol>
 	 */
-	private function itemToEnabled(item:Object):Bool
+	private function itemToEnabled(item:Dynamic):Bool
 	{
 		if(this._enabledFunction != null)
 		{
@@ -3715,7 +3715,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			var displayIconLabel:DisplayObject = DisplayObject(this.iconLabel);
 			for (propertyName in this._iconLabelProperties)
 			{
-				var propertyValue:Object = this._iconLabelProperties[propertyName];
+				var propertyValue:Dynamic = this._iconLabelProperties[propertyName];
 				displayIconLabel[propertyName] = propertyValue;
 			}
 		}
@@ -3735,7 +3735,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			var displayAccessoryLabel:DisplayObject = DisplayObject(this.accessoryLabel);
 			for (propertyName in this._accessoryLabelProperties)
 			{
-				var propertyValue:Object = this._accessoryLabelProperties[propertyName];
+				var propertyValue:Dynamic = this._accessoryLabelProperties[propertyName];
 				displayAccessoryLabel[propertyName] = propertyValue;
 			}
 		}
@@ -3744,7 +3744,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function refreshIconSource(source:Object):Void
+	private function refreshIconSource(source:Dynamic):Void
 	{
 		if(!this.iconLoader)
 		{
@@ -3772,7 +3772,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function refreshAccessorySource(source:Object):Void
+	private function refreshAccessorySource(source:Dynamic):Void
 	{
 		if(!this.accessoryLoader)
 		{
@@ -3800,7 +3800,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private function refreshSkinSource(source:Object):Void
+	private function refreshSkinSource(source:Dynamic):Void
 	{
 		if(!this.skinLoader)
 		{

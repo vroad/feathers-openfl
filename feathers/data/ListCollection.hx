@@ -171,7 +171,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Constructor
 	 */
-	public function ListCollection(data:Object = null)
+	public function ListCollection(data:Dynamic = null)
 	{
 		if(!data)
 		{
@@ -184,7 +184,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _data:Object;
+	private var _data:Dynamic;
 	
 	/**
 	 * The data source for this collection. May be any type of data, but a
@@ -204,7 +204,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{
@@ -305,7 +305,7 @@ class ListCollection extends EventDispatcher
 	 * Determines which index the item appears at within the collection. If
 	 * the item isn't in the collection, returns <code>-1</code>.
 	 */
-	public function getItemIndex(item:Object):Int
+	public function getItemIndex(item:Dynamic):Int
 	{
 		return this._dataDescriptor.getItemIndex(this._data, item);
 	}
@@ -313,7 +313,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified index.
 	 */
-	public function addItemAt(item:Object, index:Int):Void
+	public function addItemAt(item:Dynamic, index:Int):Void
 	{
 		this._dataDescriptor.addItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -326,7 +326,7 @@ class ListCollection extends EventDispatcher
 	 */
 	public function removeItemAt(index:Int):Object
 	{
-		var item:Object = this._dataDescriptor.removeItemAt(this._data, index);
+		var item:Dynamic = this._dataDescriptor.removeItemAt(this._data, index);
 		this.dispatchEventWith(Event.CHANGE);
 		this.dispatchEventWith(CollectionEventType.REMOVE_ITEM, false, index);
 		return item;
@@ -335,7 +335,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Removes a specific item from the collection.
 	 */
-	public function removeItem(item:Object):Void
+	public function removeItem(item:Dynamic):Void
 	{
 		var index:Int = this.getItemIndex(item);
 		if(index >= 0)
@@ -361,7 +361,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified index with a new item.
 	 */
-	public function setItemAt(item:Object, index:Int):Void
+	public function setItemAt(item:Dynamic, index:Int):Void
 	{
 		this._dataDescriptor.setItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
@@ -371,7 +371,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the end of the collection.
 	 */
-	public function addItem(item:Object):Void
+	public function addItem(item:Dynamic):Void
 	{
 		this.addItemAt(item, this.length);
 	}
@@ -379,7 +379,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the end of the collection.
 	 */
-	public function push(item:Object):Void
+	public function push(item:Dynamic):Void
 	{
 		this.addItemAt(item, this.length);
 	}
@@ -392,7 +392,7 @@ class ListCollection extends EventDispatcher
 		var otherCollectionLength:Int = collection.length;
 		for(var i:Int = 0; i < otherCollectionLength; i++)
 		{
-			var item:Object = collection.getItemAt(i);
+			var item:Dynamic = collection.getItemAt(i);
 			this.addItem(item);
 		}
 	}
@@ -407,7 +407,7 @@ class ListCollection extends EventDispatcher
 		var currentIndex:Int = index;
 		for(var i:Int = 0; i < otherCollectionLength; i++)
 		{
-			var item:Object = collection.getItemAt(i);
+			var item:Dynamic = collection.getItemAt(i);
 			this.addItemAt(item, currentIndex);
 			currentIndex++;
 		}
@@ -424,7 +424,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Adds an item to the beginning of the collection.
 	 */
-	public function unshift(item:Object):Void
+	public function unshift(item:Dynamic):Void
 	{
 		this.addItemAt(item, 0);
 	}
@@ -440,7 +440,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Determines if the specified item is in the collection.
 	 */
-	public function contains(item:Object):Bool
+	public function contains(item:Dynamic):Bool
 	{
 		return this.getItemIndex(item) >= 0;
 	}
@@ -451,12 +451,12 @@ class ListCollection extends EventDispatcher
 	 * or textures may need to be disposed.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Void</pre>
+	 * <pre>function( item:Dynamic ):Void</pre>
 	 *
 	 * <p>In the following example, the items in the collection are disposed:</p>
 	 *
 	 * <listing version="3.0">
-	 * collection.dispose( function( item:Object ):Void
+	 * collection.dispose( function( item:Dynamic ):Void
 	 * {
 	 *     var accessory:DisplayObject = DisplayObject(item.accessory);
 	 *     accessory.dispose();
@@ -470,7 +470,7 @@ class ListCollection extends EventDispatcher
 		var itemCount:Int = this.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
-			var item:Object = this.getItemAt(i);
+			var item:Dynamic = this.getItemAt(i);
 			disposeItem(item);
 		}
 	}

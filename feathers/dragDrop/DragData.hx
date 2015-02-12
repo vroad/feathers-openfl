@@ -23,7 +23,7 @@ class DragData
 	/**
 	 * @private
 	 */
-	private var _data:Object = {};
+	private var _data:Dynamic = {};
 
 	/**
 	 * Determines if the specified data format is available.

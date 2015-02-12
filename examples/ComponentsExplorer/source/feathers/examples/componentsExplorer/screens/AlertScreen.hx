@@ -75,7 +75,7 @@ class AlertScreen extends PanelScreen
 		alert.addEventListener(Event.CLOSE, alert_closeHandler);
 	}
 
-	private function alert_closeHandler(event:Event, data:Object):Void
+	private function alert_closeHandler(event:Event, data:Dynamic):Void
 	{
 		if(data)
 		{

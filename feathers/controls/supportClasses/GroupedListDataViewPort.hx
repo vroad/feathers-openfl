@@ -446,14 +446,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _typicalItem:Object = null;
+	private var _typicalItem:Dynamic = null;
 
 	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
 
-	public function set_typicalItem(value:Object):Void
+	public function set_typicalItem(value:Dynamic):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -1122,7 +1122,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var hasCustomSingleItemRenderer:Bool = this._singleItemRendererType || this._singleItemRendererFactory != null || this._singleItemRendererName;
 
 		var newTypicalItemIsInDataProvider:Bool = false;
-		var typicalItem:Object = this._typicalItem;
+		var typicalItem:Dynamic = this._typicalItem;
 		var groupCount:Int = 0;
 		var firstGroupLength:Int = 0;
 		var typicalItemGroupIndex:Int = 0;
@@ -1280,7 +1280,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._itemRendererProperties)
 		{
-			var propertyValue:Object = this._itemRendererProperties[propertyName];
+			var propertyValue:Dynamic = this._itemRendererProperties[propertyName];
 			displayRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -1290,7 +1290,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._headerRendererProperties)
 		{
-			var propertyValue:Object = this._headerRendererProperties[propertyName];
+			var propertyValue:Dynamic = this._headerRendererProperties[propertyName];
 			displayRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -1300,7 +1300,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._footerRendererProperties)
 		{
-			var propertyValue:Object = this._footerRendererProperties[propertyName];
+			var propertyValue:Dynamic = this._footerRendererProperties[propertyName];
 			displayRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -1529,7 +1529,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			if(this._typicalItemIsInDataProvider)
 			{
-				var typicalItem:Object = this._typicalItemRenderer.data;
+				var typicalItem:Dynamic = this._typicalItemRenderer.data;
 				if(IGroupedListItemRenderer(this._itemRendererMap[typicalItem]) == this._typicalItemRenderer)
 				{
 					//this renderer is already is use by the typical item, so we
@@ -1599,7 +1599,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var averageItemsPerGroup:Int = 0;
 		for(var i:Int = 0; i < groupCount; i++)
 		{
-			var group:Object = this._dataProvider.getItemAt(i);
+			var group:Dynamic = this._dataProvider.getItemAt(i);
 			if(this._owner.groupToHeaderData(group) != null)
 			{
 				this._headerIndices.push(totalLayoutCount);
@@ -1671,7 +1671,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		for(i = 0; i < groupCount; i++)
 		{
 			group = this._dataProvider.getItemAt(i);
-			var header:Object = this._owner.groupToHeaderData(group);
+			var header:Dynamic = this._owner.groupToHeaderData(group);
 			if(header != null)
 			{
 				//the end index is included in the visible items
@@ -1717,7 +1717,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				}
 				else
 				{
-					var item:Object = this._dataProvider.getItemAt(i, j);
+					var item:Dynamic = this._dataProvider.getItemAt(i, j);
 					if(hasCustomSingleItemRenderer && j == 0 && j == currentGroupLastIndex)
 					{
 						this.findRendererForItem(item, i, j, currentIndex, this._singleItemRendererMap, this._inactiveSingleItemRenderers,
@@ -1741,7 +1741,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				}
 				currentIndex++;
 			}
-			var footer:Object = this._owner.groupToFooterData(group);
+			var footer:Dynamic = this._owner.groupToFooterData(group);
 			if(footer != null)
 			{
 				if(useVirtualLayout && HELPER_VECTOR.indexOf(currentIndex) < 0)
@@ -1806,7 +1806,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		HELPER_VECTOR.length = 0;
 	}
 
-	private function findRendererForItem(item:Object, groupIndex:Int, itemIndex:Int, layoutIndex:Int,
+	private function findRendererForItem(item:Dynamic, groupIndex:Int, itemIndex:Int, layoutIndex:Int,
 		rendererMap:Dictionary, inactiveRenderers:Array<IGroupedListItemRenderer>,
 		activeRenderers:Array<IGroupedListItemRenderer>, unrenderedItems:Array<int>):Void
 	{
@@ -1867,7 +1867,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			var groupIndex:Int = this._unrenderedItems.shift();
 			var itemIndex:Int = this._unrenderedItems.shift();
 			var layoutIndex:Int = this._unrenderedItems.shift();
-			var item:Object = this._dataProvider.getItemAt(groupIndex, itemIndex);
+			var item:Dynamic = this._dataProvider.getItemAt(groupIndex, itemIndex);
 			var itemRenderer:IGroupedListItemRenderer = this.createItemRenderer(this._inactiveItemRenderers,
 				this._activeItemRenderers, this._itemRendererMap, this._itemRendererType, this._itemRendererFactory,
 				this._itemRendererName, item, groupIndex, itemIndex, layoutIndex, true, false);
@@ -2177,7 +2177,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function createItemRenderer(inactiveRenderers:Array<IGroupedListItemRenderer>,
 		activeRenderers:Array<IGroupedListItemRenderer>, rendererMap:Dictionary,
-		type:Class, factory:Dynamic, name:String, item:Object, groupIndex:Int, itemIndex:Int,
+		type:Class, factory:Dynamic, name:String, item:Dynamic, groupIndex:Int, itemIndex:Int,
 		layoutIndex:Int, useCache:Bool, isTemporary:Bool):IGroupedListItemRenderer
 	{
 		if(!useCache || isTemporary || inactiveRenderers.length == 0)
@@ -2221,7 +2221,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return renderer;
 	}
 
-	private function createHeaderRenderer(header:Object, groupIndex:Int, layoutIndex:Int, isTemporary:Bool = false):IGroupedListHeaderOrFooterRenderer
+	private function createHeaderRenderer(header:Dynamic, groupIndex:Int, layoutIndex:Int, isTemporary:Bool = false):IGroupedListHeaderOrFooterRenderer
 	{
 		if(isTemporary || this._inactiveHeaderRenderers.length == 0)
 		{
@@ -2262,7 +2262,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return renderer;
 	}
 
-	private function createFooterRenderer(footer:Object, groupIndex:Int, layoutIndex:Int, isTemporary:Bool = false):IGroupedListHeaderOrFooterRenderer
+	private function createFooterRenderer(footer:Dynamic, groupIndex:Int, layoutIndex:Int, isTemporary:Bool = false):IGroupedListHeaderOrFooterRenderer
 	{
 		if(isTemporary || this._inactiveFooterRenderers.length == 0)
 		{
@@ -2330,8 +2330,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function groupToHeaderDisplayIndex(groupIndex:Int):Int
 	{
-		var group:Object = this._dataProvider.getItemAt(groupIndex);
-		var header:Object = this._owner.groupToHeaderData(group);
+		var group:Dynamic = this._dataProvider.getItemAt(groupIndex);
+		var header:Dynamic = this._owner.groupToHeaderData(group);
 		if(!header)
 		{
 			return -1;
@@ -2355,7 +2355,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			{
 				displayIndex++;
 			}
-			var footer:Object = this._owner.groupToFooterData(group);
+			var footer:Dynamic = this._owner.groupToFooterData(group);
 			if(footer)
 			{
 				displayIndex++;
@@ -2366,8 +2366,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function groupToFooterDisplayIndex(groupIndex:Int):Int
 	{
-		var group:Object = this._dataProvider.getItemAt(groupIndex);
-		var footer:Object = this._owner.groupToFooterData(group);
+		var group:Dynamic = this._dataProvider.getItemAt(groupIndex);
+		var footer:Dynamic = this._owner.groupToFooterData(group);
 		if(!footer)
 		{
 			return -1;
@@ -2377,7 +2377,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		for(var i:Int = 0; i < groupCount; i++)
 		{
 			group = this._dataProvider.getItemAt(i);
-			var header:Object = this._owner.groupToHeaderData(group);
+			var header:Dynamic = this._owner.groupToHeaderData(group);
 			if(header)
 			{
 				displayIndex++;
@@ -2406,8 +2406,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var groupCount:Int = this._dataProvider.getLength();
 		for(var i:Int = 0; i < groupCount; i++)
 		{
-			var group:Object = this._dataProvider.getItemAt(i);
-			var header:Object = this._owner.groupToHeaderData(group);
+			var group:Dynamic = this._dataProvider.getItemAt(i);
+			var header:Dynamic = this._owner.groupToHeaderData(group);
 			if(header)
 			{
 				displayIndex++;
@@ -2421,7 +2421,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				}
 				displayIndex++;
 			}
-			var footer:Object = this._owner.groupToFooterData(group);
+			var footer:Dynamic = this._owner.groupToFooterData(group);
 			if(footer)
 			{
 				displayIndex++;
@@ -2430,7 +2430,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return -1;
 	}
 
-	private function getMappedItemRenderer(item:Object):IGroupedListItemRenderer
+	private function getMappedItemRenderer(item:Dynamic):IGroupedListItemRenderer
 	{
 		var renderer:IGroupedListItemRenderer = IGroupedListItemRenderer(this._itemRendererMap[item]);
 		if(renderer)
@@ -2584,7 +2584,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		if(indices.length > 1) //updating a single item
 		{
 			var itemIndex:Int = indices[1] as int;
-			var item:Object = this._dataProvider.getItemAt(groupIndex, itemIndex);
+			var item:Dynamic = this._dataProvider.getItemAt(groupIndex, itemIndex);
 			var itemRenderer:IGroupedListItemRenderer = this.getMappedItemRenderer(item);
 			if(itemRenderer)
 			{
@@ -2608,7 +2608,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 					}
 				}
 			}
-			var group:Object = this._dataProvider.getItemAt(groupIndex);
+			var group:Dynamic = this._dataProvider.getItemAt(groupIndex);
 			item = this._owner.groupToHeaderData(group);
 			if(item)
 			{

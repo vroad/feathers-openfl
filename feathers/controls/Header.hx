@@ -1041,7 +1041,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_titleProperties(value:Object):Void
+	public function set_titleProperties(value:Dynamic):Void
 	{
 		if(this._titleProperties == value)
 		{
@@ -1533,7 +1533,7 @@ class Header extends FeathersControl
 	{
 		for(var propertyName:String in this._titleProperties)
 		{
-			var propertyValue:Object = this._titleProperties[propertyName];
+			var propertyValue:Dynamic = this._titleProperties[propertyName];
 			this.titleTextRenderer[propertyName] = propertyValue;
 		}
 	}

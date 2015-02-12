@@ -529,7 +529,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageProperties(value:Object):Void
+	public function set_messageProperties(value:Dynamic):Void
 	{
 		if(this._messageProperties == value)
 		{
@@ -658,7 +658,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupProperties(value:Object):Void
+	public function set_buttonGroupProperties(value:Dynamic):Void
 	{
 		super.footerProperties = value;
 	}
@@ -899,7 +899,7 @@ class Alert extends Panel
 	{
 		for(var propertyName:String in this._messageProperties)
 		{
-			var propertyValue:Object = this._messageProperties[propertyName];
+			var propertyValue:Dynamic = this._messageProperties[propertyName];
 			this.messageTextRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -927,7 +927,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private function buttonsFooter_triggeredHandler(event:Event, data:Object):Void
+	private function buttonsFooter_triggeredHandler(event:Event, data:Dynamic):Void
 	{
 		this.removeFromParent();
 		this.dispatchEventWith(Event.CLOSE, false, data);

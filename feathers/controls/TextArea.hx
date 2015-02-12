@@ -588,7 +588,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * Returns a skin for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function( target:TextArea, state:Object, oldSkin:DisplayObject = null ):DisplayObject</pre>
+	 * <pre>function( target:TextArea, state:Dynamic, oldSkin:DisplayObject = null ):DisplayObject</pre>
 	 *
 	 * @default null
 	 */
@@ -706,7 +706,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_textEditorProperties(value:Object):Void
+	public function set_textEditorProperties(value:Dynamic):Void
 	{
 		if(this._textEditorProperties == value)
 		{
@@ -937,7 +937,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		this.textEditorViewPort.isEditable = this._isEditable;
 		for (propertyName in this._textEditorProperties)
 		{
-			var propertyValue:Object = this._textEditorProperties[propertyName];
+			var propertyValue:Dynamic = this._textEditorProperties[propertyName];
 			this.textEditorViewPort[propertyName] = propertyValue;
 		}
 	}

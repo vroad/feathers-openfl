@@ -39,7 +39,7 @@ class StateWithToggleValueSelector
 	 * If there is no value for the specified state, a default value can
 	 * be used as a fallback.
 	 */
-	public var defaultValue:Object;
+	public var defaultValue:Dynamic;
 
 	/**
 	 * If the target is a selected IToggle instance, and if there is no
@@ -48,13 +48,13 @@ class StateWithToggleValueSelector
 	 *
 	 * @see feathers.core.IToggle
 	 */
-	public var defaultSelectedValue:Object;
+	public var defaultSelectedValue:Dynamic;
 
 	/**
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
+	public function setValueForState(value:Dynamic, state:Dynamic, isSelected:Bool = false):Void
 	{
 		if(isSelected)
 		{
@@ -69,11 +69,11 @@ class StateWithToggleValueSelector
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Object, isSelected:Bool = false):Object
+	public function clearValueForState(state:Dynamic, isSelected:Bool = false):Object
 	{
 		if(isSelected)
 		{
-			var value:Object = this.stateToSelectedValue[state];
+			var value:Dynamic = this.stateToSelectedValue[state];
 			delete this.stateToSelectedValue[state];
 		}
 		else
@@ -87,7 +87,7 @@ class StateWithToggleValueSelector
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Object, isSelected:Bool = false):Object
+	public function getValueForState(state:Dynamic, isSelected:Bool = false):Object
 	{
 		if(isSelected)
 		{
@@ -104,9 +104,9 @@ class StateWithToggleValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Object, state:Object, oldValue:Object = null):Object
+	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
 	{
-		var value:Object;
+		var value:Dynamic;
 		if(target is IToggle && IToggle(target).isSelected)
 		{
 			value = this.stateToSelectedValue[state];

@@ -152,7 +152,7 @@ class VerticalLayoutSettingsScreen extends PanelScreen
 		this.backButtonHandler = this.onBackButton;
 	}
 
-	private function disposeItemAccessory(item:Object):Void
+	private function disposeItemAccessory(item:Dynamic):Void
 	{
 		DisplayObject(item.accessory).dispose();
 	}

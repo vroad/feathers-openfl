@@ -65,7 +65,7 @@ class Main extends Drawers
 	inline private static var TEXT_INPUT:String = "textInput";
 	inline private static var TOGGLES:String = "toggles";
 
-	inline private static var MAIN_MENU_EVENTS:Object =
+	inline private static var MAIN_MENU_EVENTS:Dynamic =
 	{
 		showAlert: ALERT,
 		showButton: BUTTON,

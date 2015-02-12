@@ -1065,7 +1065,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackProperties(value:Object):Void
+	public function set_minimumTrackProperties(value:Dynamic):Void
 	{
 		if(this._minimumTrackProperties == value)
 		{
@@ -1238,7 +1238,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackProperties(value:Object):Void
+	public function set_maximumTrackProperties(value:Dynamic):Void
 	{
 		if(this._maximumTrackProperties == value)
 		{
@@ -1410,7 +1410,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbProperties(value:Object):Void
+	public function set_thumbProperties(value:Dynamic):Void
 	{
 		if(this._thumbProperties == value)
 		{
@@ -1735,7 +1735,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		for (propertyName in this._thumbProperties)
 		{
-			var propertyValue:Object = this._thumbProperties[propertyName];
+			var propertyValue:Dynamic = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
 		}
 		this.thumb.visible = this._showThumb;
@@ -1748,7 +1748,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		for (propertyName in this._minimumTrackProperties)
 		{
-			var propertyValue:Object = this._minimumTrackProperties[propertyName];
+			var propertyValue:Dynamic = this._minimumTrackProperties[propertyName];
 			this.minimumTrack[propertyName] = propertyValue;
 		}
 	}
@@ -1764,7 +1764,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		}
 		for (propertyName in this._maximumTrackProperties)
 		{
-			var propertyValue:Object = this._maximumTrackProperties[propertyName];
+			var propertyValue:Dynamic = this._maximumTrackProperties[propertyName];
 			this.maximumTrack[propertyName] = propertyValue;
 		}
 	}
@@ -1976,7 +1976,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

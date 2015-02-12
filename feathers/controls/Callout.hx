@@ -181,7 +181,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DIRECTION_TO_FUNCTION:Object = {};
+	inline private static var DIRECTION_TO_FUNCTION:Dynamic = {};
 	DIRECTION_TO_FUNCTION[DIRECTION_ANY] = positionBestSideOfOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_UP] = positionAboveOrigin;
 	DIRECTION_TO_FUNCTION[DIRECTION_DOWN] = positionBelowOrigin;

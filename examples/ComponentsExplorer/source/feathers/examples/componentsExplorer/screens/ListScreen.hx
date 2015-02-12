@@ -41,7 +41,7 @@ class ListScreen extends PanelScreen
 		var items:Array = [];
 		for(i in 0 ... 150)
 		{
-			var item:Object = {text: "Item " + (i + 1).toString()};
+			var item:Dynamic = {text: "Item " + (i + 1).toString()};
 			items[i] = item;
 		}
 		items.fixed = true;

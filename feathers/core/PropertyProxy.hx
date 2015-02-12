@@ -23,7 +23,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Creates a <code>PropertyProxy</code> from a regular old <code>Object</code>.
 	 */
-	public static function fromObject(source:Object, onChangeCallback:Dynamic = null):PropertyProxy
+	public static function fromObject(source:Dynamic, onChangeCallback:Dynamic = null):PropertyProxy
 	{
 		var newValue:PropertyProxy = new PropertyProxy(onChangeCallback);
 		for(var propertyName:String in source)
@@ -62,7 +62,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	private var _storage:Object = {};
+	private var _storage:Dynamic = {};
 
 	/**
 	 * @private

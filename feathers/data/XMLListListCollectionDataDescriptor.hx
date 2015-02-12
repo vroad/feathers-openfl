@@ -28,7 +28,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):Int
+	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, XMLList).length();
@@ -37,7 +37,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return data[index];
@@ -46,7 +46,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:Int):Void
+	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		data[index] = XML(item);
@@ -55,7 +55,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:Int):Void
+	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		
@@ -73,7 +73,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		var item:XML = data[index];
@@ -84,7 +84,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):Void
+	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
@@ -98,7 +98,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):Int
+	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		var list:XMLList = data as XMLList;
@@ -117,7 +117,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * @private
 	 */
-	private function checkForCorrectDataType(data:Object):Void
+	private function checkForCorrectDataType(data:Dynamic):Void
 	{
 		if(!(Std.is(data, XMLList)))
 		{

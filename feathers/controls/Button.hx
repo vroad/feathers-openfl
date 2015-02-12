@@ -1155,7 +1155,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * Returns a skin for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function(target:Button, state:Object, oldSkin:DisplayObject = null):DisplayObject</pre>
+	 * <pre>function(target:Button, state:Dynamic, oldSkin:DisplayObject = null):DisplayObject</pre>
 	 *
 	 * @default null
 	 */
@@ -1186,7 +1186,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * Returns an icon for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function(target:Button, state:Object, oldIcon:DisplayObject = null):DisplayObject</pre>
+	 * <pre>function(target:Button, state:Dynamic, oldIcon:DisplayObject = null):DisplayObject</pre>
 	 *
 	 * @default null
 	 */
@@ -1217,7 +1217,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * Returns a text format for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function(target:Button, state:Object):Object</pre>
+	 * <pre>function(target:Button, state:Dynamic):Object</pre>
 	 *
 	 * @default null
 	 */
@@ -1503,7 +1503,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_defaultLabelProperties(value:Object):Void
+	public function set_defaultLabelProperties(value:Dynamic):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1559,7 +1559,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_upLabelProperties(value:Object):Void
+	public function set_upLabelProperties(value:Dynamic):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1615,7 +1615,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_downLabelProperties(value:Object):Void
+	public function set_downLabelProperties(value:Dynamic):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1671,7 +1671,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hoverLabelProperties(value:Object):Void
+	public function set_hoverLabelProperties(value:Dynamic):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1727,7 +1727,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_disabledLabelProperties(value:Object):Void
+	public function set_disabledLabelProperties(value:Dynamic):Void
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -2302,7 +2302,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		if(this._stateToLabelPropertiesFunction != null)
 		{
-			var properties:Object = this._stateToLabelPropertiesFunction(this, this._currentState);
+			var properties:Dynamic = this._stateToLabelPropertiesFunction(this, this._currentState);
 		}
 		else
 		{
@@ -2310,7 +2310,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		for(var propertyName:String in properties)
 		{
-			var propertyValue:Object = properties[propertyName];
+			var propertyValue:Dynamic = properties[propertyName];
 			this.labelTextRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -2608,7 +2608,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

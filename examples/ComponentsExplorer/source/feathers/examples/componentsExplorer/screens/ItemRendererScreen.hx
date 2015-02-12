@@ -28,7 +28,7 @@ class ItemRendererScreen extends PanelScreen
 	}
 
 	private var _list:List;
-	private var _listItem:Object;
+	private var _listItem:Dynamic;
 	private var _backButton:Button;
 	private var _settingsButton:Button;
 
@@ -229,7 +229,7 @@ class ItemRendererScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function disposeItemIconOrAccessory(item:Object):Void
+	private function disposeItemIconOrAccessory(item:Dynamic):Void
 	{
 		if(item.hasOwnProperty("icon"))
 		{

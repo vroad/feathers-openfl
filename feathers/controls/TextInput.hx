@@ -846,7 +846,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_promptProperties(value:Object):Void
+	public function set_promptProperties(value:Dynamic):Void
 	{
 		if(this._promptProperties == value)
 		{
@@ -1027,7 +1027,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * Returns a skin for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function( target:TextInput, state:Object, oldSkin:DisplayObject = null ):DisplayObject</pre>
+	 * <pre>function( target:TextInput, state:Dynamic, oldSkin:DisplayObject = null ):DisplayObject</pre>
 	 *
 	 * @default null
 	 */
@@ -1195,7 +1195,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * Returns an icon for the current state.
 	 *
 	 * <p>The following function signature is expected:</p>
-	 * <pre>function( target:TextInput, state:Object, oldIcon:DisplayObject = null ):DisplayObject</pre>
+	 * <pre>function( target:TextInput, state:Dynamic, oldIcon:DisplayObject = null ):DisplayObject</pre>
 	 *
 	 * @default null
 	 */
@@ -1535,7 +1535,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	public function set_textEditorProperties(value:Object):Void
+	public function set_textEditorProperties(value:Dynamic):Void
 	{
 		if(this._textEditorProperties == value)
 		{
@@ -1975,7 +1975,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		this.textEditor.isEditable = this._isEditable;
 		for (propertyName in this._textEditorProperties)
 		{
-			var propertyValue:Object = this._textEditorProperties[propertyName];
+			var propertyValue:Dynamic = this._textEditorProperties[propertyName];
 			this.textEditor[propertyName] = propertyValue;
 		}
 	}
@@ -1993,7 +1993,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		var displayPrompt:DisplayObject = DisplayObject(this.promptTextRenderer);
 		for (propertyName in this._promptProperties)
 		{
-			var propertyValue:Object = this._promptProperties[propertyName];
+			var propertyValue:Dynamic = this._promptProperties[propertyName];
 			this.promptTextRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -2244,7 +2244,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

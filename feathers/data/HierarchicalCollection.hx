@@ -166,7 +166,7 @@ import starling.events.EventDispatcher;
  */
 class HierarchicalCollection extends EventDispatcher
 {
-	public function HierarchicalCollection(data:Object = null)
+	public function HierarchicalCollection(data:Dynamic = null)
 	{
 		if(!data)
 		{
@@ -179,7 +179,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _data:Object;
+	private var _data:Dynamic;
 
 	/**
 	 * The data source for this collection. May be any type of data, but a
@@ -195,7 +195,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{
@@ -236,7 +236,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Determines if a node from the data source is a branch.
 	 */
-	public function isBranch(node:Object):Bool
+	public function isBranch(node:Dynamic):Bool
 	{
 		return this._dataDescriptor.isBranch(node);
 	}
@@ -276,7 +276,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * Determines which location the item appears at within the collection. If
 	 * the item isn't in the collection, returns <code>null</code>.
 	 */
-	public function getItemLocation(item:Object, result:Array<int> = null):Array<int>
+	public function getItemLocation(item:Dynamic, result:Array<int> = null):Array<int>
 	{
 		return this._dataDescriptor.getItemLocation(this._data, item, result);
 	}
@@ -284,7 +284,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified location.
 	 */
-	public function addItemAt(item:Object, index:Int, ...rest:Array):Void
+	public function addItemAt(item:Dynamic, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -304,7 +304,7 @@ class HierarchicalCollection extends EventDispatcher
 	{
 		rest.unshift(index);
 		rest.unshift(this._data);
-		var item:Object = this._dataDescriptor.removeItemAt.apply(null, rest);
+		var item:Dynamic = this._dataDescriptor.removeItemAt.apply(null, rest);
 		this.dispatchEventWith(Event.CHANGE);
 		rest.shift();
 		this.dispatchEventWith(CollectionEventType.REMOVE_ITEM, false, rest);
@@ -314,7 +314,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Removes a specific item from the collection.
 	 */
-	public function removeItem(item:Object):Void
+	public function removeItem(item:Dynamic):Void
 	{
 		var location:Array<int> = this.getItemLocation(item);
 		if(location)
@@ -333,7 +333,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 */
-	public function setItemAt(item:Object, index:Int, ...rest:Array):Void
+	public function setItemAt(item:Dynamic, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		rest.unshift(item);
@@ -354,20 +354,20 @@ class HierarchicalCollection extends EventDispatcher
 	 * anything to dispose in one or the other.
 	 *
 	 * <p>The function to dispose a group is expected to have the following signature:</p>
-	 * <pre>function( group:Object ):Void</pre>
+	 * <pre>function( group:Dynamic ):Void</pre>
 	 *
 	 * <p>The function to dispose an item is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Void</pre>
+	 * <pre>function( item:Dynamic ):Void</pre>
 	 *
 	 * <p>In the following example, the items in the collection are disposed:</p>
 	 *
 	 * <listing version="3.0">
-	 * collection.dispose( function( group:Object ):Void
+	 * collection.dispose( function( group:Dynamic ):Void
 	 * {
 	 *     var content:DisplayObject = DisplayObject(group.content);
 	 *     content.dispose();
 	 * },
-	 * function( item:Object ):Void
+	 * function( item:Dynamic ):Void
 	 * {
 	 *     var accessory:DisplayObject = DisplayObject(item.accessory);
 	 *     accessory.dispose();
@@ -382,7 +382,7 @@ class HierarchicalCollection extends EventDispatcher
 		var path:Array = [];
 		for(var i:Int = 0; i < groupCount; i++)
 		{
-			var group:Object = this.getItemAt(i);
+			var group:Dynamic = this.getItemAt(i);
 			path[0] = i;
 			this.disposeGroupInternal(group, path, disposeGroup, disposeItem);
 			path.length = 0;
@@ -392,7 +392,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private function disposeGroupInternal(group:Object, path:Array, disposeGroup:Dynamic, disposeItem:Dynamic):Void
+	private function disposeGroupInternal(group:Dynamic, path:Array, disposeGroup:Dynamic, disposeItem:Dynamic):Void
 	{
 		if(disposeGroup != null)
 		{
@@ -403,7 +403,7 @@ class HierarchicalCollection extends EventDispatcher
 		for(var i:Int = 0; i < itemCount; i++)
 		{
 			path[path.length] = i;
-			var item:Object = this.getItemAt.apply(this, path);
+			var item:Dynamic = this.getItemAt.apply(this, path);
 			if(this.isBranch(item))
 			{
 				this.disposeGroupInternal(item, path, disposeGroup, disposeItem);

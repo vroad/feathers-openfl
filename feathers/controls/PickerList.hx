@@ -244,7 +244,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		var oldSelectedIndex:Int = this.selectedIndex;
-		var oldSelectedItem:Object = this.selectedItem;
+		var oldSelectedItem:Dynamic = this.selectedItem;
 		this._dataProvider = value;
 		if(!this._dataProvider || this._dataProvider.length == 0)
 		{
@@ -343,7 +343,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:PickerList = PickerList( event.currentTarget );
-	 *     var item:Object = list.selectedItem;
+	 *     var item:Dynamic = list.selectedItem;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -364,7 +364,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Object):Void
+	public function set_selectedItem(value:Dynamic):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -471,7 +471,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * affect the label text of the pop-up list's item renderers.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):String</pre>
+	 * <pre>function( item:Dynamic ):String</pre>
 	 *
 	 * <p>All of the label fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -482,7 +482,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * <p>In the following example, the label field is changed:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.labelFunction = function( item:Object ):String
+	 * list.labelFunction = function( item:Dynamic ):String
 	 * {
 	 *     return item.firstName + " " + item.lastName;
 	 * };</listing>
@@ -563,7 +563,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _typicalItem:Object = null;
+	private var _typicalItem:Dynamic = null;
 	
 	/**
 	 * Used to auto-size the list. If the list's width or height is NaN, the
@@ -587,7 +587,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Object):Void
+	public function set_typicalItem(value:Dynamic):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -740,7 +740,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonProperties(value:Object):Void
+	public function set_buttonProperties(value:Dynamic):Void
 	{
 		if(this._buttonProperties == value)
 		{
@@ -911,7 +911,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listProperties(value:Object):Void
+	public function set_listProperties(value:Dynamic):Void
 	{
 		if(this._listProperties == value)
 		{
@@ -1012,11 +1012,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * item displayed by the picker list's button control. It will <em>not</em>
 	 * affect the label text of the pop-up list's item renderers.</p>
 	 */
-	public function itemToLabel(item:Object):String
+	public function itemToLabel(item:Dynamic):String
 	{
 		if(this._labelFunction != null)
 		{
-			var labelResult:Object = this._labelFunction(item);
+			var labelResult:Dynamic = this._labelFunction(item);
 			if(Std.is(labelResult, String))
 			{
 				return labelResult as String;
@@ -1430,7 +1430,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		for (propertyName in this._buttonProperties)
 		{
-			var propertyValue:Object = this._buttonProperties[propertyName];
+			var propertyValue:Dynamic = this._buttonProperties[propertyName];
 			this.button[propertyName] = propertyValue;
 		}
 	}
@@ -1442,7 +1442,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		for (propertyName in this._listProperties)
 		{
-			var propertyValue:Object = this._listProperties[propertyName];
+			var propertyValue:Dynamic = this._listProperties[propertyName];
 			this.list[propertyName] = propertyValue;
 		}
 	}

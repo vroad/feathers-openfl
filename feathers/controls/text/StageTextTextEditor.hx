@@ -250,7 +250,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * The StageText instance. It's typed Object so that a replacement class
 	 * can be used in browser-based Flash Player.
 	 */
-	private var stageText:Object;
+	private var stageText:Dynamic;
 
 	/**
 	 * An image that displays a snapshot of the native <code>StageText</code>
@@ -1791,7 +1791,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		this._stageTextIsComplete = false;
 		var StageTextType:Class;
-		var initOptions:Object;
+		var initOptions:Dynamic;
 		try
 		{
 			StageTextType = Class(getDefinitionByName("flash.text.StageText"));

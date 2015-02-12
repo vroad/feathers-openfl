@@ -26,7 +26,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):Int
+	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array).length;
@@ -35,7 +35,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array)[index];
@@ -44,7 +44,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:Int):Void
+	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		cast(data, Array)[index] = item;
@@ -53,7 +53,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:Int):Void
+	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		cast(data, Array).splice(index, 0, item);
@@ -62,7 +62,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array).splice(index, 1)[0];
@@ -71,7 +71,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):Void
+	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
 		cast(data, Array).length = 0;
@@ -80,7 +80,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):Int
+	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		return cast(data, Array).indexOf(item);
@@ -89,7 +89,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * @private
 	 */
-	private function checkForCorrectDataType(data:Object):Void
+	private function checkForCorrectDataType(data:Dynamic):Void
 	{
 		if(!(Std.is(data, Array)))
 		{

@@ -26,7 +26,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	private var _imageProperties:Object;
+	private var _imageProperties:Dynamic;
 
 	/**
 	 * Optional properties to set on the Image instance.
@@ -45,7 +45,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set_imageProperties(value:Object):Void
+	public function set_imageProperties(value:Dynamic):Void
 	{
 		this._imageProperties = value;
 	}
@@ -53,7 +53,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
+	override public function setValueForState(value:Dynamic, state:Dynamic, isSelected:Bool = false):Void
 	{
 		if(!(Std.is(value, Texture)))
 		{
@@ -65,7 +65,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Object, state:Object, oldValue:Object = null):Object
+	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
 	{
 		var texture:Texture = super.updateValue(target, state) as Texture;
 		if(!texture)
@@ -86,7 +86,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 
 		for (propertyName in this._imageProperties)
 		{
-			var propertyValue:Object = this._imageProperties[propertyName];
+			var propertyValue:Dynamic = this._imageProperties[propertyName];
 			image[propertyName] = propertyValue;
 		}
 

@@ -286,12 +286,12 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _screens:Object = {};
+	private var _screens:Dynamic = {};
 
 	/**
 	 * @private
 	 */
-	private var _screenEvents:Object = {};
+	private var _screenEvents:Dynamic = {};
 
 	/**
 	 * @private
@@ -411,12 +411,12 @@ class ScreenNavigator extends FeathersControl
 		}
 		this._activeScreenID = id;
 
-		var events:Object = item.events;
-		var savedScreenEvents:Object = {};
+		var events:Dynamic = item.events;
+		var savedScreenEvents:Dynamic = {};
 		for (eventName in events)
 		{
-			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
-			var eventAction:Object = events[eventName];
+			var signal:Dynamic = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
+			var eventAction:Dynamic = events[eventName];
 			if(Std.is(eventAction, Function))
 			{
 				if(signal)
@@ -500,12 +500,12 @@ class ScreenNavigator extends FeathersControl
 		}
 
 		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
-		var events:Object = item.events;
-		var savedScreenEvents:Object = this._screenEvents[this._activeScreenID];
+		var events:Dynamic = item.events;
+		var savedScreenEvents:Dynamic = this._screenEvents[this._activeScreenID];
 		for (eventName in events)
 		{
-			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
-			var eventAction:Object = events[eventName];
+			var signal:Dynamic = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
+			var eventAction:Dynamic = events[eventName];
 			if(Std.is(eventAction, Function))
 			{
 				if(signal)
@@ -794,13 +794,13 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenSignalListener(screenID:String, signal:Object):Function
+	private function createScreenSignalListener(screenID:String, signal:Dynamic):Function
 	{
 		var self:ScreenNavigator = this;
 		if(signal.valueClasses.length == 1)
 		{
 			//shortcut to avoid the allocation of the rest array
-			var signalListener:Dynamic = function(arg0:Object):Void
+			var signalListener:Dynamic = function(arg0:Dynamic):Void
 			{
 				self.showScreen(screenID);
 			};

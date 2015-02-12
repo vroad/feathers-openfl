@@ -26,7 +26,7 @@ interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set_data(value:Object):Void;
+	function set_data(value:Dynamic):Void;
 
 	/**
 	 * The index of the group within the data provider of the grouped list.

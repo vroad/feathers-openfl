@@ -861,7 +861,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollBarProperties(value:Object):Void
+	public function set_horizontalScrollBarProperties(value:Dynamic):Void
 	{
 		if(this._horizontalScrollBarProperties == value)
 		{
@@ -1073,7 +1073,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollBarProperties(value:Object):Void
+	public function set_verticalScrollBarProperties(value:Dynamic):Void
 	{
 		if(this._horizontalScrollBarProperties == value)
 		{
@@ -2275,7 +2275,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _hideScrollBarAnimationEase:Object = Transitions.EASE_OUT;
+	private var _hideScrollBarAnimationEase:Dynamic = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function used for hiding the scroll bars, if applicable.
@@ -2298,7 +2298,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_hideScrollBarAnimationEase(value:Object):Void
+	public function set_hideScrollBarAnimationEase(value:Dynamic):Void
 	{
 		this._hideScrollBarAnimationEase = value;
 	}
@@ -2491,7 +2491,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _throwEase:Object = Transitions.EASE_OUT;
+	private var _throwEase:Dynamic = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function used for "throw" animations.
@@ -2514,7 +2514,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_throwEase(value:Object):Void
+	public function set_throwEase(value:Dynamic):Void
 	{
 		this._throwEase = value;
 	}
@@ -3157,7 +3157,7 @@ class Scroller extends FeathersControl
 		{
 			for(var propertyName:String in this._horizontalScrollBarProperties)
 			{
-				var propertyValue:Object = this._horizontalScrollBarProperties[propertyName];
+				var propertyValue:Dynamic = this._horizontalScrollBarProperties[propertyName];
 				this.horizontalScrollBar[propertyName] = propertyValue;
 			}
 			if(this._horizontalScrollBarHideTween)

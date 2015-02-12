@@ -26,7 +26,7 @@ interface IGroupedListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set_data(value:Object):Void;
+	function set_data(value:Dynamic):Void;
 	
 	/**
 	 * The index of the item's parent group within the data provider of the

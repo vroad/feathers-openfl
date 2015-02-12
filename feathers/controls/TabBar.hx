@@ -346,7 +346,7 @@ class TabBar extends FeathersControl
 			return;
 		}
 		var oldSelectedIndex:Int = this.selectedIndex;
-		var oldSelectedItem:Object = this.selectedItem;
+		var oldSelectedItem:Dynamic = this.selectedItem;
 		if(this._dataProvider)
 		{
 			this._dataProvider.removeEventListener(CollectionEventType.ADD_ITEM, dataProvider_addItemHandler);
@@ -1019,13 +1019,13 @@ class TabBar extends FeathersControl
 	 * properties or to use different field names in the data provider.
 	 *
 	 * <p>This function is expected to have the following signature:</p>
-	 * <pre>function( tab:ToggleButton, item:Object ):Void</pre>
+	 * <pre>function( tab:ToggleButton, item:Dynamic ):Void</pre>
 	 *
 	 * <p>In the following example, a custom tab initializer is passed to the
 	 * tab bar:</p>
 	 *
 	 * <listing version="3.0">
-	 * tabs.tabInitializer = function( tab:ToggleButton, item:Object ):Void
+	 * tabs.tabInitializer = function( tab:ToggleButton, item:Dynamic ):Void
 	 * {
 	 *     tab.label = item.text;
 	 *     tab.defaultIcon = item.icon;
@@ -1129,7 +1129,7 @@ class TabBar extends FeathersControl
 	 * function tabs_changeHandler( event:Event ):Void
 	 * {
 	 *     var tabs:TabBar = TabBar( event.currentTarget );
-	 *     var item:Object = tabs.selectedItem;
+	 *     var item:Dynamic = tabs.selectedItem;
 	 *
 	 * }
 	 * tabs.addEventListener( Event.CHANGE, tabs_changeHandler );</listing>
@@ -1151,7 +1151,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Object):Void
+	public function set_selectedItem(value:Dynamic):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -1337,7 +1337,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_tabProperties(value:Object):Void
+	public function set_tabProperties(value:Dynamic):Void
 	{
 		if(this._tabProperties == value)
 		{
@@ -1465,7 +1465,7 @@ class TabBar extends FeathersControl
 	{
 		for (propertyName in this._tabProperties)
 		{
-			var propertyValue:Object = this._tabProperties[propertyName];
+			var propertyValue:Dynamic = this._tabProperties[propertyName];
 			for (tab in this.activeTabs)
 			{
 				tab[propertyName] = propertyValue;
@@ -1527,7 +1527,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultTabInitializer(tab:ToggleButton, item:Object):Void
+	private function defaultTabInitializer(tab:ToggleButton, item:Dynamic):Void
 	{
 		if(Std.is(item, Object))
 		{
@@ -1595,7 +1595,7 @@ class TabBar extends FeathersControl
 		var lastItemIndex:Int = itemCount - 1;
 		for(i in 0 ... itemCount)
 		{
-			var item:Object = this._dataProvider.getItemAt(i);
+			var item:Dynamic = this._dataProvider.getItemAt(i);
 			if(i == 0)
 			{
 				var tab:ToggleButton = this.activeFirstTab = this.createFirstTab(item);
@@ -1661,7 +1661,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createFirstTab(item:Object):ToggleButton
+	private function createFirstTab(item:Dynamic):ToggleButton
 	{
 		if(this.inactiveFirstTab)
 		{
@@ -1694,7 +1694,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createLastTab(item:Object):ToggleButton
+	private function createLastTab(item:Dynamic):ToggleButton
 	{
 		if(this.inactiveLastTab)
 		{
@@ -1727,7 +1727,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createTab(item:Object):ToggleButton
+	private function createTab(item:Dynamic):ToggleButton
 	{
 		if(this.inactiveTabs.length == 0)
 		{

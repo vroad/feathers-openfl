@@ -287,7 +287,7 @@ class DisplayListWatcher extends EventDispatcher
 			this._initializerNoNameTypeMap[type] = initializer;
 			return;
 		}
-		var nameTable:Object = this._initializerNameTypeMap[type];
+		var nameTable:Dynamic = this._initializerNameTypeMap[type];
 		if(!nameTable)
 		{
 			this._initializerNameTypeMap[type] = nameTable = {};
@@ -318,7 +318,7 @@ class DisplayListWatcher extends EventDispatcher
 		{
 			return this._initializerNoNameTypeMap[type] as Function;
 		}
-		var nameTable:Object = this._initializerNameTypeMap[type];
+		var nameTable:Dynamic = this._initializerNameTypeMap[type];
 		if(!nameTable)
 		{
 			return null;
@@ -346,7 +346,7 @@ class DisplayListWatcher extends EventDispatcher
 			return;
 		}
 
-		var nameTable:Object = this._initializerNameTypeMap[type];
+		var nameTable:Dynamic = this._initializerNameTypeMap[type];
 		if(!nameTable)
 		{
 			return;
@@ -441,7 +441,7 @@ class DisplayListWatcher extends EventDispatcher
 		var hasNameInitializer:Bool = false;
 		if(target is IFeathersControl && nameMap)
 		{
-			var nameTable:Object = nameMap[type];
+			var nameTable:Dynamic = nameMap[type];
 			if(nameTable)
 			{
 				var uiControl:IFeathersControl = IFeathersControl(target);

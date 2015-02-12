@@ -532,7 +532,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:List = List( event.currentTarget );
-	 *     var item:Object = list.selectedItem;
+	 *     var item:Dynamic = list.selectedItem;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -557,7 +557,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Object):Void
+	public function set_selectedItem(value:Dynamic):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -731,7 +731,7 @@ class List extends Scroller implements IFocusDisplayObject
 		var itemCount:Int = value.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
-			var item:Object = value[i];
+			var item:Dynamic = value[i];
 			var index:Int = this._dataProvider.getItemIndex(item);
 			if(index >= 0)
 			{
@@ -767,7 +767,7 @@ class List extends Scroller implements IFocusDisplayObject
 		for(var i:Int = 0; i < indexCount; i++)
 		{
 			var index:Int = this._selectedIndices.getItemAt(i) as Int;
-			var item:Object = this._dataProvider.getItemAt(index);
+			var item:Dynamic = this._dataProvider.getItemAt(index);
 			result[i] = item;
 		}
 		return result;
@@ -867,7 +867,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _typicalItem:Object = null;
+	private var _typicalItem:Dynamic = null;
 	
 	/**
 	 * Used to auto-size the list when a virtualized layout is used. If the
@@ -893,7 +893,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Object):Void
+	public function set_typicalItem(value:Dynamic):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -996,7 +996,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Object):Void
+	public function set_itemRendererProperties(value:Dynamic):Void
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -1177,7 +1177,7 @@ class List extends Scroller implements IFocusDisplayObject
 	{
 		if(this.pendingItemIndex >= 0)
 		{
-			var item:Object = this._dataProvider.getItemAt(this.pendingItemIndex);
+			var item:Dynamic = this._dataProvider.getItemAt(this.pendingItemIndex);
 			if(item is Object)
 			{
 				this.dataViewPort.getScrollPositionForIndex(this.pendingItemIndex, HELPER_POINT);

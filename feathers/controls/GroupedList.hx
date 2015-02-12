@@ -702,7 +702,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * function list_changeHandler( event:Event ):Void
 	 * {
 	 *     var list:GroupedList = GroupedList( event.currentTarget );
-	 *     var item:Object = list.selectedItem;
+	 *     var item:Dynamic = list.selectedItem;
 	 *
 	 * }
 	 * list.addEventListener( Event.CHANGE, list_changeHandler );</listing>
@@ -721,7 +721,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Object):Void
+	public function set_selectedItem(value:Dynamic):Void
 	{
 		if(!this._dataProvider)
 		{
@@ -852,7 +852,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _typicalItem:Object = null;
+	private var _typicalItem:Dynamic = null;
 
 	/**
 	 * Used to auto-size the list when a virtualized layout is used. If the
@@ -878,7 +878,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Object):Void
+	public function set_typicalItem(value:Dynamic):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -984,7 +984,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Object):Void
+	public function set_itemRendererProperties(value:Dynamic):Void
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -1634,7 +1634,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_headerRendererProperties(value:Object):Void
+	public function set_headerRendererProperties(value:Dynamic):Void
 	{
 		if(this._headerRendererProperties == value)
 		{
@@ -1846,7 +1846,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_footerRendererProperties(value:Object):Void
+	public function set_footerRendererProperties(value:Dynamic):Void
 	{
 		if(this._footerRendererProperties == value)
 		{
@@ -1932,7 +1932,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>All of the header fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -1943,7 +1943,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <p>The following example sets the header function:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.headerFunction = function( group:Object ):Object
+	 * list.headerFunction = function( group:Dynamic ):Object
 	 * {
 	 *    return group.header;
 	 * };</listing>
@@ -2025,7 +2025,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * ignored.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>All of the footer fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -2036,7 +2036,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	 * <p>The following example sets the footer function:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.footerFunction = function( group:Object ):Object
+	 * list.footerFunction = function( group:Dynamic ):Object
 	 * {
 	 *    return group.footer;
 	 * };</listing>
@@ -2176,7 +2176,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * Extracts header data from a group object.
 	 */
-	public function groupToHeaderData(group:Object):Object
+	public function groupToHeaderData(group:Dynamic):Object
 	{
 		if(this._headerFunction != null)
 		{
@@ -2193,7 +2193,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * Extracts footer data from a group object.
 	 */
-	public function groupToFooterData(group:Object):Object
+	public function groupToFooterData(group:Dynamic):Object
 	{
 		if(this._footerFunction != null)
 		{
@@ -2303,7 +2303,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	{
 		if(this.pendingGroupIndex >= 0 && this.pendingItemIndex >= 0)
 		{
-			var item:Object = this._dataProvider.getItemAt(this.pendingGroupIndex, this.pendingItemIndex);
+			var item:Dynamic = this._dataProvider.getItemAt(this.pendingGroupIndex, this.pendingItemIndex);
 			if(item is Object)
 			{
 				this.dataViewPort.getScrollPositionForIndex(this.pendingGroupIndex, this.pendingItemIndex, HELPER_POINT);

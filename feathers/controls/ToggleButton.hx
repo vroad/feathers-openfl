@@ -382,7 +382,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_defaultSelectedLabelProperties(value:Object):Void
+	public function set_defaultSelectedLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -442,7 +442,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedUpLabelProperties(value:Object):Void
+	public function set_selectedUpLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -502,7 +502,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedDownLabelProperties(value:Object):Void
+	public function set_selectedDownLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -562,7 +562,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedHoverLabelProperties(value:Object):Void
+	public function set_selectedHoverLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -622,7 +622,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedDisabledLabelProperties(value:Object):Void
+	public function set_selectedDisabledLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{

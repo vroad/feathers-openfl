@@ -51,7 +51,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object, ...rest:Array):Int
+	public function getLength(data:Dynamic, ...rest:Array):Int
 	{
 		var branch:Array = data as Array;
 		var indexCount:Int = rest.length;
@@ -67,7 +67,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:Int, ...rest:Array):Object
+	public function getItemAt(data:Dynamic, index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -84,7 +84,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
+	public function setItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -101,7 +101,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
+	public function addItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -118,7 +118,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:Int, ...rest:Array):Object
+	public function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Object
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -129,7 +129,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 			branch = branch[index][childrenField] as Array;
 		}
 		var lastIndex:Int = rest[indexCount];
-		var item:Object = branch[lastIndex];
+		var item:Dynamic = branch[lastIndex];
 		branch.splice(lastIndex, 1);
 		return item;
 	}
@@ -137,7 +137,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemLocation(data:Object, item:Object, result:Array<Int> = null, ...rest:Array):Array<Int>
+	public function getItemLocation(data:Dynamic, item:Dynamic, result:Array<Int> = null, ...rest:Array):Array<Int>
 	{
 		if(!result)
 		{
@@ -167,7 +167,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function isBranch(node:Object):Bool
+	public function isBranch(node:Dynamic):Bool
 	{
 		return node.hasOwnProperty(this.childrenField) && node[this.childrenField] is Array;
 	}
@@ -175,7 +175,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @private
 	 */
-	private function findItemInBranch(branch:Array, item:Object, result:Array<Int>):Bool
+	private function findItemInBranch(branch:Array, item:Dynamic, result:Array<Int>):Bool
 	{
 		var index:Int = branch.indexOf(item);
 		if(index >= 0)
@@ -187,7 +187,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		var branchLength:Int = branch.length;
 		for(i in 0 ... branchLength)
 		{
-			var branchItem:Object = branch[i];
+			var branchItem:Dynamic = branch[i];
 			if(this.isBranch(branchItem))
 			{
 				result.push(i);

@@ -26,7 +26,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):Int
+	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Array<uint>).length;
@@ -35,7 +35,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:Int):Object
+	public function getItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Array<uint>)[index];
@@ -44,7 +44,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:Int):Void
+	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Array<uint>)[index] = item as uint;
@@ -53,7 +53,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:Int):Void
+	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Array<uint>).splice(index, 0, item);
@@ -62,7 +62,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:Int):Object
+	public function removeItemAt(data:Dynamic, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Array<uint>).splice(index, 1)[0];
@@ -71,7 +71,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):Void
+	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Array<uint>).length = 0;
@@ -80,7 +80,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):Int
+	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Array<uint>).indexOfcast(item, uint);
@@ -89,7 +89,7 @@ class VectorUintListCollectionDataDescriptor implements IListCollectionDataDescr
 	/**
 	 * @private
 	 */
-	private function checkForCorrectDataType(data:Object):Void
+	private function checkForCorrectDataType(data:Dynamic):Void
 	{
 		if(!(data is Array<uint>))
 		{

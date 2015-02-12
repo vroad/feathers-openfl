@@ -133,7 +133,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	private var _displayObjectProperties:Object;
+	private var _displayObjectProperties:Dynamic;
 
 	/**
 	 * Optional properties to set on the Scale9Image instance.
@@ -152,7 +152,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set_displayObjectProperties(value:Object):Void
+	public function set_displayObjectProperties(value:Dynamic):Void
 	{
 		this._displayObjectProperties = value;
 	}
@@ -165,7 +165,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function setValueForState(value:Object, state:Object, isSelected:Bool = false):Void
+	override public function setValueForState(value:Dynamic, state:Dynamic, isSelected:Bool = false):Void
 	{
 		if(value != null)
 		{
@@ -181,9 +181,9 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Object, state:Object, oldValue:Object = null):Object
+	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
 	{
-		var value:Object = super.updateValue(target, state);
+		var value:Dynamic = super.updateValue(target, state);
 		if(value == null)
 		{
 			return null;
@@ -201,7 +201,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 
 		for (propertyName in this._displayObjectProperties)
 		{
-			var propertyValue:Object = this._displayObjectProperties[propertyName];
+			var propertyValue:Dynamic = this._displayObjectProperties[propertyName];
 			displayObject[propertyName] = propertyValue;
 		}
 
@@ -212,7 +212,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 * Sets a function to handle updating a value of a specific type. The
 	 * function must have the following signature:
 	 *
-	 * <pre>function(value:Object, oldDisplayObject:DisplayObject = null):DisplayObject</pre>
+	 * <pre>function(value:Dynamic, oldDisplayObject:DisplayObject = null):DisplayObject</pre>
 	 *
 	 * <p>The <code>oldDisplayObject</code> is optional, and it may be of
 	 * a type that is different than what the function will return. If the
@@ -243,7 +243,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	private function valueToValueTypeHandler(value:Object):Function
+	private function valueToValueTypeHandler(value:Dynamic):Function
 	{
 		var type:Class = Class(value.constructor);
 		return this._handlers[type] as Function;

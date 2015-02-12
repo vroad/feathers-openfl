@@ -236,7 +236,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _source:Object;
+	private var _source:Dynamic;
 
 	/**
 	 * The <code>Texture</code> to display, or a URL pointing to an image
@@ -269,7 +269,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_source(value:Object):Void
+	public function set_source(value:Dynamic):Void
 	{
 		if(this._source == value)
 		{

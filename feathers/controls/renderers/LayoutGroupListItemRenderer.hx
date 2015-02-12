@@ -107,7 +107,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	private var _data:Object;
+	private var _data:Dynamic;
 
 	/**
 	 * @inheritDoc
@@ -120,7 +120,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{

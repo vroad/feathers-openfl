@@ -150,7 +150,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private var _data:Object;
+	private var _data:Dynamic;
 
 	/**
 	 * @inheritDoc
@@ -163,7 +163,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{
@@ -387,7 +387,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <code>contentSourceFunction</code> instead.
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):DisplayObject</pre>
+	 * <pre>function( item:Dynamic ):DisplayObject</pre>
 	 *
 	 * <p>All of the content fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -402,7 +402,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>In the following example, the content function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.contentFunction = function( item:Object ):DisplayObject
+	 * renderer.contentFunction = function( item:Dynamic ):DisplayObject
 	 * {
 	 *    if(item in cachedContent)
 	 *    {
@@ -519,7 +519,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * renderer can avoid costly display list manipulation.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):Object</pre>
+	 * <pre>function( item:Dynamic ):Object</pre>
 	 *
 	 * <p>The return value is a valid value for the <code>source</code>
 	 * property of an <code>ImageLoader</code> component.</p>
@@ -537,7 +537,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>In the following example, the content source function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.contentSourceFunction = function( item:Object ):Object
+	 * renderer.contentSourceFunction = function( item:Dynamic ):Object
 	 * {
 	 *    return "http://www.example.com/thumbs/" + item.name + "-thumb.png";
 	 * };</listing>
@@ -649,7 +649,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * costly display list manipulation.</p>
 	 *
 	 * <p>The function is expected to have the following signature:</p>
-	 * <pre>function( item:Object ):String</pre>
+	 * <pre>function( item:Dynamic ):String</pre>
 	 *
 	 * <p>All of the content fields and functions, ordered by priority:</p>
 	 * <ol>
@@ -664,7 +664,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * <p>In the following example, the content label function is customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * renderer.contentLabelFunction = function( item:Object ):String
+	 * renderer.contentLabelFunction = function( item:Dynamic ):String
 	 * {
 	 *    return item.category + " > " + item.subCategory;
 	 * };</listing>
@@ -829,7 +829,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelProperties(value:Object):Void
+	public function set_contentLabelProperties(value:Dynamic):Void
 	{
 		if(this._contentLabelProperties == value)
 		{
@@ -1170,11 +1170,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *     <li><code>contentField</code></li>
 	 * </ol>
 	 */
-	private function itemToContent(item:Object):DisplayObject
+	private function itemToContent(item:Dynamic):DisplayObject
 	{
 		if(this._contentSourceFunction != null)
 		{
-			var source:Object = this._contentSourceFunction(item);
+			var source:Dynamic = this._contentSourceFunction(item);
 			this.refreshContentSource(source);
 			return this.contentImage;
 		}
@@ -1186,7 +1186,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		}
 		else if(this._contentLabelFunction != null)
 		{
-			var labelResult:Object = this._contentLabelFunction(item);
+			var labelResult:Dynamic = this._contentLabelFunction(item);
 			if(labelResult is String)
 			{
 				this.refreshContentLabel(labelResult as String);
@@ -1418,7 +1418,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	private function refreshContentSource(source:Object):Void
+	private function refreshContentSource(source:Dynamic):Void
 	{
 		if(!this.contentImage)
 		{
@@ -1471,7 +1471,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		}
 		for(var propertyName:String in this._contentLabelProperties)
 		{
-			var propertyValue:Object = this._contentLabelProperties[propertyName];
+			var propertyValue:Dynamic = this._contentLabelProperties[propertyName];
 			this.contentLabel[propertyName] = propertyValue;
 		}
 	}

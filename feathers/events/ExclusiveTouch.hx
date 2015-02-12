@@ -166,7 +166,7 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
-		for(var key:Object in this._claims)
+		for(var key:Dynamic in this._claims)
 		{
 			var touchID:Int = key as int;
 			var touch:Touch = event.getTouch(this._stage, TouchPhase.ENDED, touchID);

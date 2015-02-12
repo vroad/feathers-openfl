@@ -286,7 +286,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererProperties(value:Object):Void
+	public function set_textRendererProperties(value:Dynamic):Void
 	{
 		if(this._textRendererProperties == value)
 		{
@@ -452,7 +452,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		this.textRenderer.wordWrap = this._wordWrap;
 		for(var propertyName:String in this._textRendererProperties)
 		{
-			var propertyValue:Object = this._textRendererProperties[propertyName];
+			var propertyValue:Dynamic = this._textRendererProperties[propertyName];
 			this.textRenderer[propertyName] = propertyValue;
 		}
 	}

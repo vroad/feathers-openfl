@@ -98,7 +98,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	private var _styleNameMap:Object;
+	private var _styleNameMap:Dynamic;
 
 	/**
 	 * The target Feathers UI component is passed to this function when

@@ -83,7 +83,7 @@ package feathers.themes
 		 * @param assetsBasePath The root folder of the assets.
 		 * @param assetManager An optional pre-created asset manager.
 		 */
-		public function MinimalDesktopThemeWithAssetManager(assetsBasePath:Object = null, assetManager:AssetManager = null)
+		public function MinimalDesktopThemeWithAssetManager(assetsBasePath:Dynamic = null, assetManager:AssetManager = null)
 		{
 			this.loadAssets(assetsBasePath, assetManager);
 		}
@@ -144,7 +144,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected function loadAssets(assetsBasePath:Object, assetManager:AssetManager):void
+		protected function loadAssets(assetsBasePath:Dynamic, assetManager:AssetManager):void
 		{
 			this.assetManager = assetManager;
 			if(!this.assetManager)

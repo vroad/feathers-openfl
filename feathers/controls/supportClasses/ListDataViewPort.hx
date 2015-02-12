@@ -326,14 +326,14 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _typicalItem:Object = null;
+	private var _typicalItem:Dynamic = null;
 
 	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
 
-	public function set_typicalItem(value:Object):Void
+	public function set_typicalItem(value:Dynamic):Void
 	{
 		if(this._typicalItem == value)
 		{
@@ -651,7 +651,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		var typicalItemIndex:Int = 0;
 		var newTypicalItemIsInDataProvider:Bool = false;
-		var typicalItem:Object = this._typicalItem;
+		var typicalItem:Dynamic = this._typicalItem;
 		if(typicalItem)
 		{
 			if(this._dataProvider)
@@ -740,7 +740,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._itemRendererProperties)
 		{
-			var propertyValue:Object = this._itemRendererProperties[propertyName];
+			var propertyValue:Dynamic = this._itemRendererProperties[propertyName];
 			displayRenderer[propertyName] = propertyValue;
 		}
 	}
@@ -899,7 +899,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			{
 				continue;
 			}
-			var item:Object = this._dataProvider.getItemAt(index);
+			var item:Dynamic = this._dataProvider.getItemAt(index);
 			var renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
 			if(renderer)
 			{
@@ -982,7 +982,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		var itemCount:Int = this._unrenderedData.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
-			var item:Object = this._unrenderedData.shift();
+			var item:Dynamic = this._unrenderedData.shift();
 			var index:Int = this._dataProvider.getItemIndex(item);
 			var renderer:IListItemRenderer = this.createRenderer(item, index, true, false);
 			renderer.visible = true;
@@ -1019,7 +1019,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function createRenderer(item:Object, index:Int, useCache:Bool, isTemporary:Bool):IListItemRenderer
+	private function createRenderer(item:Dynamic, index:Int, useCache:Bool, isTemporary:Bool):IListItemRenderer
 	{
 		var renderer:IListItemRenderer;
 		do
@@ -1185,7 +1185,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_updateItemHandler(event:Event, index:Int):Void
 	{
-		var item:Object = this._dataProvider.getItemAt(index);
+		var item:Dynamic = this._dataProvider.getItemAt(index);
 		var renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
 		if(!renderer)
 		{

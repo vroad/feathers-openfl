@@ -84,7 +84,7 @@ class Main extends LayoutGroup
 		var itemCount:Int = dataProvider.length;
 		for(i in 0 ... itemCount)
 		{
-			var item:Object = dataProvider.getItemAt(i);
+			var item:Dynamic = dataProvider.getItemAt(i);
 			if(this._navigator.activeScreenID == item.action)
 			{
 				this._tabBar.selectedIndex = i;

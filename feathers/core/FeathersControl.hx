@@ -463,12 +463,12 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _invalidationFlags:Object = {};
+	private var _invalidationFlags:Dynamic = {};
 
 	/**
 	 * @private
 	 */
-	private var _delayedInvalidationFlags:Object = {};
+	private var _delayedInvalidationFlags:Dynamic = {};
 
 	/**
 	 * @private

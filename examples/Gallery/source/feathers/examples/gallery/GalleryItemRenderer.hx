@@ -142,7 +142,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set_data(value:Object):Void
+	public function set_data(value:Dynamic):Void
 	{
 		if(this._data == value)
 		{

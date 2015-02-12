@@ -36,7 +36,7 @@ class ScreenNavigatorItem
 	/**
 	 * Constructor.
 	 */
-	public function ScreenNavigatorItem(screen:Object = null, events:Object = null, properties:Object = null)
+	public function ScreenNavigatorItem(screen:Dynamic = null, events:Dynamic = null, properties:Dynamic = null)
 	{
 		this.screen = screen;
 		this.events = events ? events : {};
@@ -49,7 +49,7 @@ class ScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public var screen:Object;
+	public var screen:Dynamic;
 	
 	/**
 	 * A hash of events to which the ScreenNavigator will listen. Keys in
@@ -62,14 +62,14 @@ class ScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public var events:Object;
+	public var events:Dynamic;
 	
 	/**
 	 * A hash of properties to set on the screen.
 	 *
 	 * @default null
 	 */
-	public var properties:Object;
+	public var properties:Dynamic;
 	
 	/**
 	 * Creates and instance of the screen type (or uses the screen directly

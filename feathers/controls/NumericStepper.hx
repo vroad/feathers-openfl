@@ -733,7 +733,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_decrementButtonProperties(value:Object):Void
+	public function set_decrementButtonProperties(value:Dynamic):Void
 	{
 		if(this._decrementButtonProperties == value)
 		{
@@ -941,7 +941,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_incrementButtonProperties(value:Object):Void
+	public function set_incrementButtonProperties(value:Dynamic):Void
 	{
 		if(this._incrementButtonProperties == value)
 		{
@@ -1147,7 +1147,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	public function set_textInputProperties(value:Object):Void
+	public function set_textInputProperties(value:Dynamic):Void
 	{
 		if(this._textInputProperties == value)
 		{
@@ -1489,7 +1489,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	{
 		for (propertyName in this._decrementButtonProperties)
 		{
-			var propertyValue:Object = this._decrementButtonProperties[propertyName];
+			var propertyValue:Dynamic = this._decrementButtonProperties[propertyName];
 			this.decrementButton[propertyName] = propertyValue;
 		}
 		this.decrementButton.label = this._decrementButtonLabel;
@@ -1502,7 +1502,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	{
 		for (propertyName in this._incrementButtonProperties)
 		{
-			var propertyValue:Object = this._incrementButtonProperties[propertyName];
+			var propertyValue:Dynamic = this._incrementButtonProperties[propertyName];
 			this.incrementButton[propertyName] = propertyValue;
 		}
 		this.incrementButton.label = this._incrementButtonLabel;
@@ -1515,7 +1515,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	{
 		for (propertyName in this._textInputProperties)
 		{
-			var propertyValue:Object = this._textInputProperties[propertyName];
+			var propertyValue:Dynamic = this._textInputProperties[propertyName];
 			this.textInput[propertyName] = propertyValue;
 		}
 	}
@@ -1675,7 +1675,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

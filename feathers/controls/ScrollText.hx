@@ -379,11 +379,11 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	 *
 	 * <listing version="3.0">
 	 * var style:StyleSheet = new StyleSheet();
-	 * var heading:Object = new Object();
+	 * var heading:Dynamic = new Object();
 	 * heading.fontWeight = "bold";
 	 * heading.color = "#FF0000";
 	 *
-	 * var body:Object = new Object();
+	 * var body:Dynamic = new Object();
 	 * body.fontStyle = "italic";
 	 *
 	 * style.setStyle(".heading", heading);

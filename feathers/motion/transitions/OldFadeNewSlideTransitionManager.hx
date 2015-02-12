@@ -109,7 +109,7 @@ class OldFadeNewSlideTransitionManager
 	 *
 	 * @default starling.animation.Transitions.EASE_OUT
 	 */
-	public var ease:Object = Transitions.EASE_OUT;
+	public var ease:Dynamic = Transitions.EASE_OUT;
 
 	/**
 	 * Determines if the next transition should be skipped. After the

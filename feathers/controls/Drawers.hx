@@ -1744,7 +1744,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _openOrCloseEase:Object = Transitions.EASE_OUT;
+	private var _openOrCloseEase:Dynamic = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function used for opening or closing the drawers.
@@ -1768,7 +1768,7 @@ class Drawers extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_openOrCloseEase(value:Object):Void
+	public function set_openOrCloseEase(value:Dynamic):Void
 	{
 		this._openOrCloseEase = value;
 	}

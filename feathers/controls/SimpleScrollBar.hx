@@ -804,7 +804,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set_thumbProperties(value:Object):Void
+	public function set_thumbProperties(value:Dynamic):Void
 	{
 		if(this._thumbProperties == value)
 		{
@@ -1047,7 +1047,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	{
 		for (propertyName in this._thumbProperties)
 		{
-			var propertyValue:Object = this._thumbProperties[propertyName];
+			var propertyValue:Dynamic = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
 		}
 	}
@@ -1235,7 +1235,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function thumbProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function thumbProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

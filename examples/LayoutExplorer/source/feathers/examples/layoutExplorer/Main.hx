@@ -36,7 +36,7 @@ class Main extends Drawers
 	inline private static var TILED_ROWS_SETTINGS:String = "tiledRowsSettings";
 	inline private static var TILED_COLUMNS_SETTINGS:String = "tiledColumnsSettings";
 
-	inline private static var MAIN_MENU_EVENTS:Object =
+	inline private static var MAIN_MENU_EVENTS:Dynamic =
 	{
 		showAnchor: ANCHOR,
 		showHorizontal: HORIZONTAL,

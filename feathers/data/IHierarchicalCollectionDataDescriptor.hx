@@ -17,7 +17,7 @@ interface IHierarchicalCollectionDataDescriptor
 	/**
 	 * Determines if a node from the data source is a branch.
 	 */
-	function isBranch(node:Object):Bool;
+	function isBranch(node:Dynamic):Bool;
 
 	/**
 	 * The number of items at the specified location in the data source.
@@ -26,28 +26,28 @@ interface IHierarchicalCollectionDataDescriptor
 	 * a location is omitted, the length returned will be for the root level
 	 * of the collection.</p>
 	 */
-	function getLength(data:Object, ...rest:Array):Int;
+	function getLength(data:Dynamic, ...rest:Array):Int;
 
 	/**
 	 * Returns the item at the specified location in the data source.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function getItemAt(data:Object, index:Int, ...rest:Array):Object;
+	function getItemAt(data:Dynamic, index:Int, ...rest:Array):Object;
 
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function setItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void;
+	function setItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void;
 
 	/**
 	 * Adds an item to the data source, at the specified location.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function addItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void;
+	function addItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void;
 
 	/**
 	 * Removes the item at the specified location from the data source and
@@ -55,7 +55,7 @@ interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function removeItemAt(data:Object, index:Int, ...rest:Array):Object;
+	function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Object;
 
 	/**
 	 * Determines which location the item appears at within the data source.
@@ -64,5 +64,5 @@ interface IHierarchicalCollectionDataDescriptor
 	 * <p>The <code>rest</code> arguments are optional indices to narrow
 	 * the search.</p>
 	 */
-	function getItemLocation(data:Object, item:Object, result:Array<Int> = null, ...rest:Array):Array<Int>;
+	function getItemLocation(data:Dynamic, item:Dynamic, result:Array<Int> = null, ...rest:Array):Array<Int>;
 }

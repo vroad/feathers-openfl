@@ -33,7 +33,7 @@ import starling.events.Event;
  *     { label: "No" },
  *     { label: "Cancel" },
  * ]);
- * group.addEventListener( Event.TRIGGERED, function( event:Event, data:Object ):Void
+ * group.addEventListener( Event.TRIGGERED, function( event:Event, data:Dynamic ):Void
  * {
  *    trace( "The button with label \"" + data.label + "\" was triggered." );
  * }</listing>
@@ -1032,12 +1032,12 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * <p>This function is expected to have the following signature:</p>
 	 *
-	 * <pre>function( button:Button, item:Object ):Void</pre>
+	 * <pre>function( button:Button, item:Dynamic ):Void</pre>
 	 *
 	 * <p>The following example provides a custom button initializer:</p>
 	 *
 	 * <listing version="3.0">
-	 * group.buttonInitializer = function( button:Button, item:Object ):Void
+	 * group.buttonInitializer = function( button:Button, item:Dynamic ):Void
 	 * {
 	 *     button.label = item.label;
 	 * };</listing>
@@ -1237,7 +1237,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonProperties(value:Object):Void
+	public function set_buttonProperties(value:Dynamic):Void
 	{
 		if(this._buttonProperties == value)
 		{
@@ -1331,7 +1331,7 @@ class ButtonGroup extends FeathersControl
 	{
 		for(var propertyName:String in this._buttonProperties)
 		{
-			var propertyValue:Object = this._buttonProperties[propertyName];
+			var propertyValue:Dynamic = this._buttonProperties[propertyName];
 			for each(var button:Button in this.activeButtons)
 			{
 				button[propertyName] = propertyValue;
@@ -1393,7 +1393,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultButtonInitializer(button:Button, item:Object):Void
+	private function defaultButtonInitializer(button:Button, item:Dynamic):Void
 	{
 		if(item is Object)
 		{
@@ -1487,7 +1487,7 @@ class ButtonGroup extends FeathersControl
 		var lastItemIndex:Int = itemCount - 1;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
-			var item:Object = this._dataProvider.getItemAt(i);
+			var item:Dynamic = this._dataProvider.getItemAt(i);
 			if(i == 0)
 			{
 				var button:Button = this.activeFirstButton = this.createFirstButton(item);
@@ -1535,7 +1535,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createFirstButton(item:Object):Button
+	private function createFirstButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
 		if(this.inactiveFirstButton)
@@ -1576,7 +1576,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createLastButton(item:Object):Button
+	private function createLastButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
 		if(this.inactiveLastButton)
@@ -1617,7 +1617,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createButton(item:Object):Button
+	private function createButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
 		if(this.inactiveButtons.length == 0)
@@ -1712,7 +1712,7 @@ class ButtonGroup extends FeathersControl
 		}
 		var button:Button = Button(event.currentTarget);
 		var index:Int = this.activeButtons.indexOf(button);
-		var item:Object = this._dataProvider.getItemAt(index);
+		var item:Dynamic = this._dataProvider.getItemAt(index);
 		this.dispatchEventWith(Event.TRIGGERED, false, item);
 	}
 
@@ -1723,7 +1723,7 @@ class ButtonGroup extends FeathersControl
 	{
 		var button:Button = Button(event.currentTarget);
 		var index:Int = this.activeButtons.indexOf(button);
-		var item:Object = this._dataProvider.getItemAt(index);
+		var item:Dynamic = this._dataProvider.getItemAt(index);
 		var field:String = event.type;
 		if(item.hasOwnProperty(field))
 		{

@@ -26,7 +26,7 @@ interface IListItemRenderer extends IToggle
 	/**
 	 * @private
 	 */
-	function set_data(value:Object):Void;
+	function set_data(value:Dynamic):Void;
 	
 	/**
 	 * The index (numeric position, starting from zero) of the item within

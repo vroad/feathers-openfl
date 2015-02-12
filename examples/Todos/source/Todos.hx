@@ -112,7 +112,7 @@ class Todos extends Sprite
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
-	private function starling_rootCreatedHandler(event:Object):Void
+	private function starling_rootCreatedHandler(event:Dynamic):Void
 	{
 		if(this._launchImage)
 		{

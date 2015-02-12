@@ -541,7 +541,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_defaultLabelProperties(value:Object):Void
+	public function set_defaultLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -601,7 +601,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_disabledLabelProperties(value:Object):Void
+	public function set_disabledLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -662,7 +662,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_onLabelProperties(value:Object):Void
+	public function set_onLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -723,7 +723,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_offLabelProperties(value:Object):Void
+	public function set_offLabelProperties(value:Dynamic):Void
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
@@ -1070,7 +1070,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var _toggleEase:Object = Transitions.EASE_OUT;
+	private var _toggleEase:Dynamic = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function used for toggle animations.
@@ -1093,7 +1093,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_toggleEase(value:Object):Void
+	public function set_toggleEase(value:Dynamic):Void
 	{
 		this._toggleEase = value;
 	}
@@ -1343,7 +1343,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_onTrackProperties(value:Object):Void
+	public function set_onTrackProperties(value:Dynamic):Void
 	{
 		if(this._onTrackProperties == value)
 		{
@@ -1513,7 +1513,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_offTrackProperties(value:Object):Void
+	public function set_offTrackProperties(value:Dynamic):Void
 	{
 		if(this._offTrackProperties == value)
 		{
@@ -1681,7 +1681,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	public function set_thumbProperties(value:Object):Void
+	public function set_thumbProperties(value:Dynamic):Void
 	{
 		if(this._thumbProperties == value)
 		{
@@ -2168,7 +2168,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			var displayRenderer:DisplayObject = DisplayObject(this.onTextRenderer);
 			for (propertyName in properties)
 			{
-				var propertyValue:Object = properties[propertyName];
+				var propertyValue:Dynamic = properties[propertyName];
 				displayRenderer[propertyName] = propertyValue;
 			}
 		}
@@ -2208,7 +2208,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			var displayRenderer:DisplayObject = DisplayObject(this.offTextRenderer);
 			for (propertyName in properties)
 			{
-				var propertyValue:Object = properties[propertyName];
+				var propertyValue:Dynamic = properties[propertyName];
 				displayRenderer[propertyName] = propertyValue;
 			}
 		}
@@ -2223,7 +2223,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	{
 		for (propertyName in this._thumbProperties)
 		{
-			var propertyValue:Object = this._thumbProperties[propertyName];
+			var propertyValue:Dynamic = this._thumbProperties[propertyName];
 			this.thumb[propertyName] = propertyValue;
 		}
 		this.thumb.visible = this._showThumb;
@@ -2236,7 +2236,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	{
 		for (propertyName in this._onTrackProperties)
 		{
-			var propertyValue:Object = this._onTrackProperties[propertyName];
+			var propertyValue:Dynamic = this._onTrackProperties[propertyName];
 			this.onTrack[propertyName] = propertyValue;
 		}
 	}
@@ -2252,7 +2252,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		}
 		for (propertyName in this._offTrackProperties)
 		{
-			var propertyValue:Object = this._offTrackProperties[propertyName];
+			var propertyValue:Dynamic = this._offTrackProperties[propertyName];
 			this.offTrack[propertyName] = propertyValue;
 		}
 	}
@@ -2294,7 +2294,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:Object):Void
+	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}

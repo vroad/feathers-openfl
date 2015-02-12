@@ -115,7 +115,7 @@ class MainMenuScreen extends PanelScreen
 		this.addChild(this._list);
 	}
 
-	private function accessorySourceFunction(item:Object):Texture
+	private function accessorySourceFunction(item:Dynamic):Texture
 	{
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}

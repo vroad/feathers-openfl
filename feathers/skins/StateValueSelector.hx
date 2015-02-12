@@ -31,13 +31,13 @@ class StateValueSelector
 	 * If there is no value for the specified state, a default value can
 	 * be used as a fallback.
 	 */
-	public var defaultValue:Object;
+	public var defaultValue:Dynamic;
 
 	/**
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Object, state:Object):Void
+	public function setValueForState(value:Dynamic, state:Dynamic):Void
 	{
 		this.stateToValue[state] = value;
 	}
@@ -45,9 +45,9 @@ class StateValueSelector
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Object):Object
+	public function clearValueForState(state:Dynamic):Object
 	{
-		var value:Object = this.stateToValue[state];
+		var value:Dynamic = this.stateToValue[state];
 		delete this.stateToValue[state];
 		return value;
 	}
@@ -55,7 +55,7 @@ class StateValueSelector
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Object):Object
+	public function getValueForState(state:Dynamic):Object
 	{
 		return this.stateToValue[state];
 	}
@@ -68,9 +68,9 @@ class StateValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Object, state:Object, oldValue:Object = null):Object
+	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Object
 	{
-		var value:Object = this.stateToValue[state];
+		var value:Dynamic = this.stateToValue[state];
 		if(!value)
 		{
 			value = this.defaultValue;
