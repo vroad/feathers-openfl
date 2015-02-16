@@ -134,7 +134,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -165,7 +165,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_firstGap(value:Float):Void
+	public function set_firstGap(value:Float):Float
 	{
 		if(this._firstGap == value)
 		{
@@ -196,7 +196,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_lastGap(value:Float):Void
+	public function set_lastGap(value:Float):Float
 	{
 		if(this._lastGap == value)
 		{
@@ -228,7 +228,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -255,7 +255,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -284,7 +284,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -314,7 +314,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -343,7 +343,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -379,7 +379,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -414,7 +414,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -443,7 +443,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_useVirtualLayout(value:Bool):Void
+	public function set_useVirtualLayout(value:Bool):Bool
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -474,7 +474,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_hasVariableItemDimensions(value:Bool):Void
+	public function set_hasVariableItemDimensions(value:Bool):Bool
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
@@ -506,7 +506,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_distributeHeights(value:Bool):Void
+	public function set_distributeHeights(value:Bool):Bool
 	{
 		if(this._distributeHeights == value)
 		{
@@ -547,7 +547,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_manageVisibility(value:Bool):Void
+	public function set_manageVisibility(value:Bool):Bool
 	{
 		if(this._manageVisibility == value)
 		{
@@ -574,7 +574,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_beforeVirtualizedItemCount(value:Int):Void
+	public function set_beforeVirtualizedItemCount(value:Int):Int
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
@@ -601,7 +601,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_afterVirtualizedItemCount(value:Int):Void
+	public function set_afterVirtualizedItemCount(value:Int):Int
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
@@ -632,7 +632,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:DisplayObject):Void
+	public function set_typicalItem(value:DisplayObject):DisplayObject
 	{
 		if(this._typicalItem == value)
 		{
@@ -671,7 +671,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_resetTypicalItemDimensionsOnMeasure(value:Bool):Void
+	public function set_resetTypicalItemDimensionsOnMeasure(value:Bool):Bool
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -719,7 +719,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_typicalItemWidth(value:Float):Void
+	public function set_typicalItemWidth(value:Float):Float
 	{
 		if(this._typicalItemWidth == value)
 		{
@@ -767,7 +767,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_typicalItemHeight(value:Float):Void
+	public function set_typicalItemHeight(value:Float):Float
 	{
 		if(this._typicalItemHeight == value)
 		{
@@ -802,7 +802,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @private
 	 */
-	public function set_scrollPositionVerticalAlign(value:String):Void
+	public function set_scrollPositionVerticalAlign(value:String):String
 	{
 		this._scrollPositionVerticalAlign = value;
 	}

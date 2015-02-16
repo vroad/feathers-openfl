@@ -295,7 +295,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override public function set_defaultIcon(value:DisplayObject):Void
+	override public function set_defaultIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.defaultValue == value)
 		{
@@ -309,7 +309,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override public function set_defaultSkin(value:DisplayObject):Void
+	override public function set_defaultSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.defaultValue == value)
 		{
@@ -338,7 +338,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -388,7 +388,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_useStateDelayTimer(value:Bool):Void
+	public function set_useStateDelayTimer(value:Bool):Bool
 	{
 		this._useStateDelayTimer = value;
 	}
@@ -426,7 +426,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasLabel(value:Bool):Void
+	public function set_itemHasLabel(value:Bool):Bool
 	{
 		if(this._itemHasLabel == value)
 		{
@@ -462,7 +462,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasIcon(value:Bool):Void
+	public function set_itemHasIcon(value:Bool):Bool
 	{
 		if(this._itemHasIcon == value)
 		{
@@ -498,7 +498,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasAccessory(value:Bool):Void
+	public function set_itemHasAccessory(value:Bool):Bool
 	{
 		if(this._itemHasAccessory == value)
 		{
@@ -535,7 +535,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasSkin(value:Bool):Void
+	public function set_itemHasSkin(value:Bool):Bool
 	{
 		if(this._itemHasSkin == value)
 		{
@@ -572,7 +572,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasSelectable(value:Bool):Void
+	public function set_itemHasSelectable(value:Bool):Bool
 	{
 		if(this._itemHasSelectable == value)
 		{
@@ -608,7 +608,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_itemHasEnabled(value:Bool):Void
+	public function set_itemHasEnabled(value:Bool):Bool
 	{
 		if(this._itemHasEnabled == value)
 		{
@@ -652,7 +652,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryPosition(value:String):Void
+	public function set_accessoryPosition(value:String):String
 	{
 		if(this._accessoryPosition == value)
 		{
@@ -696,7 +696,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_layoutOrder(value:String):Void
+	public function set_layoutOrder(value:String):String
 	{
 		if(this._layoutOrder == value)
 		{
@@ -732,7 +732,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryOffsetX(value:Float):Void
+	public function set_accessoryOffsetX(value:Float):Float
 	{
 		if(this._accessoryOffsetX == value)
 		{
@@ -768,7 +768,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryOffsetY(value:Float):Void
+	public function set_accessoryOffsetY(value:Float):Float
 	{
 		if(this._accessoryOffsetY == value)
 		{
@@ -813,7 +813,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryGap(value:Float):Void
+	public function set_accessoryGap(value:Float):Float
 	{
 		if(this._accessoryGap == value)
 		{
@@ -859,7 +859,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_minAccessoryGap(value:Float):Void
+	public function set_minAccessoryGap(value:Float):Float
 	{
 		if(this._minAccessoryGap == value)
 		{
@@ -940,7 +940,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_stopScrollingOnAccessoryTouch(value:Bool):Void
+	public function set_stopScrollingOnAccessoryTouch(value:Bool):Bool
 	{
 		this._stopScrollingOnAccessoryTouch = value;
 	}
@@ -972,7 +972,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_isSelectableOnAccessoryTouch(value:Bool):Void
+	public function set_isSelectableOnAccessoryTouch(value:Bool):Bool
 	{
 		this._isSelectableOnAccessoryTouch = value;
 	}
@@ -1007,7 +1007,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_delayTextureCreationOnScroll(value:Bool):Void
+	public function set_delayTextureCreationOnScroll(value:Bool):Bool
 	{
 		this._delayTextureCreationOnScroll = value;
 	}
@@ -1050,7 +1050,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_labelField(value:String):Void
+	public function set_labelField(value:String):String
 	{
 		if(this._labelField == value)
 		{
@@ -1100,7 +1100,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Dynamic):Void
+	public function set_labelFunction(value:Dynamic):Dynamic
 	{
 		if(this._labelFunction == value)
 		{
@@ -1156,7 +1156,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconField(value:String):Void
+	public function set_iconField(value:String):String
 	{
 		if(this._iconField == value)
 		{
@@ -1232,7 +1232,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconFunction(value:Dynamic):Void
+	public function set_iconFunction(value:Dynamic):Dynamic
 	{
 		if(this._iconFunction == value)
 		{
@@ -1293,7 +1293,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconSourceField(value:String):Void
+	public function set_iconSourceField(value:String):String
 	{
 		if(this._iconSourceField == value)
 		{
@@ -1376,7 +1376,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconSourceFunction(value:Dynamic):Void
+	public function set_iconSourceFunction(value:Dynamic):Dynamic
 	{
 		if(this._iconSourceFunction == value)
 		{
@@ -1438,7 +1438,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelField(value:String):Void
+	public function set_iconLabelField(value:String):String
 	{
 		if(this._iconLabelField == value)
 		{
@@ -1506,7 +1506,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFunction(value:Dynamic):Void
+	public function set_iconLabelFunction(value:Dynamic):Dynamic
 	{
 		if(this._iconLabelFunction == value)
 		{
@@ -1566,7 +1566,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryField(value:String):Void
+	public function set_accessoryField(value:String):String
 	{
 		if(this._accessoryField == value)
 		{
@@ -1647,7 +1647,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryFunction(value:Dynamic):Void
+	public function set_accessoryFunction(value:Dynamic):Dynamic
 	{
 		if(this._accessoryFunction == value)
 		{
@@ -1710,7 +1710,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessorySourceField(value:String):Void
+	public function set_accessorySourceField(value:String):String
 	{
 		if(this._accessorySourceField == value)
 		{
@@ -1795,7 +1795,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessorySourceFunction(value:Dynamic):Void
+	public function set_accessorySourceFunction(value:Dynamic):Dynamic
 	{
 		if(this._accessorySourceFunction == value)
 		{
@@ -1857,7 +1857,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelField(value:String):Void
+	public function set_accessoryLabelField(value:String):String
 	{
 		if(this._accessoryLabelField == value)
 		{
@@ -1925,7 +1925,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelFunction(value:Dynamic):Void
+	public function set_accessoryLabelFunction(value:Dynamic):Dynamic
 	{
 		if(this._accessoryLabelFunction == value)
 		{
@@ -1974,7 +1974,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinField(value:String):Void
+	public function set_skinField(value:String):String
 	{
 		if(this._skinField == value)
 		{
@@ -2043,7 +2043,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinFunction(value:Dynamic):Void
+	public function set_skinFunction(value:Dynamic):Dynamic
 	{
 		if(this._skinFunction == value)
 		{
@@ -2103,7 +2103,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinSourceField(value:String):Void
+	public function set_skinSourceField(value:String):String
 	{
 		if(this._iconSourceField == value)
 		{
@@ -2185,7 +2185,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinSourceFunction(value:Dynamic):Void
+	public function set_skinSourceFunction(value:Dynamic):Dynamic
 	{
 		if(this._skinSourceFunction == value)
 		{
@@ -2231,7 +2231,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_selectableField(value:String):Void
+	public function set_selectableField(value:String):String
 	{
 		if(this._selectableField == value)
 		{
@@ -2282,7 +2282,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_selectableFunction(value:Dynamic):Void
+	public function set_selectableFunction(value:Dynamic):Dynamic
 	{
 		if(this._selectableFunction == value)
 		{
@@ -2328,7 +2328,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_enabledField(value:String):Void
+	public function set_enabledField(value:String):String
 	{
 		if(this._enabledField == value)
 		{
@@ -2379,7 +2379,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_enabledFunction(value:Dynamic):Void
+	public function set_enabledFunction(value:Dynamic):Dynamic
 	{
 		if(this._enabledFunction == value)
 		{
@@ -2397,7 +2397,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override public function set_isToggle(value:Bool):Void
+	override public function set_isToggle(value:Bool):Bool
 	{
 		if(this._explicitIsToggle == value)
 		{
@@ -2416,7 +2416,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	override public function set_isEnabled(value:Bool):Void
+	override public function set_isEnabled(value:Bool):Bool
 	{
 		if(this._explicitIsEnabled == value)
 		{
@@ -2468,7 +2468,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLoaderFactory(value:Dynamic):Void
+	public function set_iconLoaderFactory(value:Dynamic):Dynamic
 	{
 		if(this._iconLoaderFactory == value)
 		{
@@ -2520,7 +2520,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFactory(value:Dynamic):Void
+	public function set_iconLabelFactory(value:Dynamic):Dynamic
 	{
 		if(this._iconLabelFactory == value)
 		{
@@ -2579,7 +2579,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelProperties(value:Dynamic):Void
+	public function set_iconLabelProperties(value:Dynamic):Dynamic
 	{
 		if(this._iconLabelProperties == value)
 		{
@@ -2650,7 +2650,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLoaderFactory(value:Dynamic):Void
+	public function set_accessoryLoaderFactory(value:Dynamic):Dynamic
 	{
 		if(this._accessoryLoaderFactory == value)
 		{
@@ -2702,7 +2702,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelFactory(value:Dynamic):Void
+	public function set_accessoryLabelFactory(value:Dynamic):Dynamic
 	{
 		if(this._accessoryLabelFactory == value)
 		{
@@ -2761,7 +2761,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelProperties(value:Dynamic):Void
+	public function set_accessoryLabelProperties(value:Dynamic):Dynamic
 	{
 		if(this._accessoryLabelProperties == value)
 		{
@@ -2832,7 +2832,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinLoaderFactory(value:Dynamic):Void
+	public function set_skinLoaderFactory(value:Dynamic):Dynamic
 	{
 		if(this._skinLoaderFactory == value)
 		{

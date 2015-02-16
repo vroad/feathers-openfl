@@ -324,7 +324,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function set_isEnabled(value:Bool):Void
+	override public function set_isEnabled(value:Bool):Bool
 	{
 		super.isEnabled = value;
 		if(this._isEnabled)
@@ -417,7 +417,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(!value)
 		{
@@ -458,7 +458,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Int
 	{
 		if(this._maxChars == value)
 		{
@@ -493,7 +493,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_restrict(value:String):Void
+	public function set_restrict(value:String):String
 	{
 		if(this._restrict == value)
 		{
@@ -528,7 +528,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{
@@ -564,7 +564,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundFocusedSkin(value:DisplayObject):Void
+	public function set_backgroundFocusedSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundFocusedSkin == value)
 		{
@@ -608,7 +608,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Dynamic):Void
+	public function set_stateToSkinFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -659,7 +659,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorFactory(value:Dynamic):Void
+	public function set_textEditorFactory(value:Dynamic):Dynamic
 	{
 		if(this._textEditorFactory == value)
 		{
@@ -716,7 +716,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorProperties(value:Dynamic):Void
+	public function set_textEditorProperties(value:Dynamic):Dynamic
 	{
 		if(this._textEditorProperties == value)
 		{

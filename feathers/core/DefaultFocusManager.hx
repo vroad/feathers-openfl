@@ -99,7 +99,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	public function set_isEnabled(value:Bool):Void
+	public function set_isEnabled(value:Bool):Bool
 	{
 		if(this._isEnabled == value)
 		{
@@ -170,7 +170,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	public function set_focus(value:IFocusDisplayObject):Void
+	public function set_focus(value:IFocusDisplayObject):IFocusDisplayObject
 	{
 		if(this._focus == value)
 		{

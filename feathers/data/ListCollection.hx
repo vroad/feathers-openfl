@@ -205,7 +205,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -265,7 +265,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_dataDescriptor(value:IListCollectionDataDescriptor):Void
+	public function set_dataDescriptor(value:IListCollectionDataDescriptor):IListCollectionDataDescriptor
 	{
 		if(this._dataDescriptor == value)
 		{

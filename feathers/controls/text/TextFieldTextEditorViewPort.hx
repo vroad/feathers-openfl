@@ -73,7 +73,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_minVisibleWidth(value:Float):Void
+	public function set_minVisibleWidth(value:Float):Float
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -104,7 +104,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_maxVisibleWidth(value:Float):Void
+	public function set_maxVisibleWidth(value:Float):Float
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -135,7 +135,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_visibleWidth(value:Float):Void
+	public function set_visibleWidth(value:Float):Float
 	{
 		if(this._visibleWidth == value ||
 			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN
@@ -163,7 +163,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_minVisibleHeight(value:Float):Void
+	public function set_minVisibleHeight(value:Float):Float
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -194,7 +194,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_maxVisibleHeight(value:Float):Void
+	public function set_maxVisibleHeight(value:Float):Float
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -225,7 +225,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_visibleHeight(value:Float):Void
+	public function set_visibleHeight(value:Float):Float
 	{
 		if(this._visibleHeight == value ||
 			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN
@@ -288,7 +288,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollPosition(value:Float):Void
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -317,7 +317,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollPosition(value:Float):Void
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._verticalScrollPosition == value)
 		{

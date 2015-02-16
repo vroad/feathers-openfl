@@ -245,7 +245,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(!value)
 		{
@@ -287,7 +287,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_isHTML(value:Bool):Void
+	public function set_isHTML(value:Bool):Bool
 	{
 		if(this._isHTML == value)
 		{
@@ -324,7 +324,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textFormat(value:TextFormat):Void
+	public function set_textFormat(value:TextFormat):TextFormat
 	{
 		if(this._textFormat == value)
 		{
@@ -362,7 +362,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_disabledTextFormat(value:TextFormat):Void
+	public function set_disabledTextFormat(value:TextFormat):TextFormat
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -413,7 +413,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_styleSheet(value:StyleSheet):Void
+	public function set_styleSheet(value:StyleSheet):StyleSheet
 	{
 		if(this._styleSheet == value)
 		{
@@ -452,7 +452,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_embedFonts(value:Bool):Void
+	public function set_embedFonts(value:Bool):Bool
 	{
 		if(this._embedFonts == value)
 		{
@@ -490,7 +490,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_antiAliasType(value:String):Void
+	public function set_antiAliasType(value:String):String
 	{
 		if(this._antiAliasType == value)
 		{
@@ -530,7 +530,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_background(value:Bool):Void
+	public function set_background(value:Bool):Bool
 	{
 		if(this._background == value)
 		{
@@ -569,7 +569,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundColor(value:UInt):Void
+	public function set_backgroundColor(value:UInt):UInt
 	{
 		if(this._backgroundColor == value)
 		{
@@ -608,7 +608,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_border(value:Bool):Void
+	public function set_border(value:Bool):Bool
 	{
 		if(this._border == value)
 		{
@@ -647,7 +647,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_borderColor(value:UInt):Void
+	public function set_borderColor(value:UInt):UInt
 	{
 		if(this._borderColor == value)
 		{
@@ -685,7 +685,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_condenseWhite(value:Bool):Void
+	public function set_condenseWhite(value:Bool):Bool
 	{
 		if(this._condenseWhite == value)
 		{
@@ -723,7 +723,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -765,7 +765,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_gridFitType(value:String):Void
+	public function set_gridFitType(value:String):String
 	{
 		if(this._gridFitType == value)
 		{
@@ -806,7 +806,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_sharpness(value:Float):Void
+	public function set_sharpness(value:Float):Float
 	{
 		if(this._sharpness == value)
 		{
@@ -847,7 +847,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_thickness(value:Float):Void
+	public function set_thickness(value:Float):Float
 	{
 		if(this._thickness == value)
 		{
@@ -893,7 +893,7 @@ public function get_paddingTop():Float
 	/**
 	 * @private
 	 */
-	override public function set_paddingTop(value:Float):Void
+	override public function set_paddingTop(value:Float):Float
 	{
 		if(this._textPaddingTop == value)
 		{
@@ -926,7 +926,7 @@ public function get_paddingRight():Float
 	/**
 	 * @private
 	 */
-	override public function set_paddingRight(value:Float):Void
+	override public function set_paddingRight(value:Float):Float
 	{
 		if(this._textPaddingRight == value)
 		{
@@ -959,7 +959,7 @@ public function get_paddingBottom():Float
 	/**
 	 * @private
 	 */
-	override public function set_paddingBottom(value:Float):Void
+	override public function set_paddingBottom(value:Float):Float
 	{
 		if(this._textPaddingBottom == value)
 		{
@@ -992,7 +992,7 @@ public function get_paddingLeft():Float
 	/**
 	 * @private
 	 */
-	override public function set_paddingLeft(value:Float):Void
+	override public function set_paddingLeft(value:Float):Float
 	{
 		if(this._textPaddingLeft == value)
 		{
@@ -1019,7 +1019,7 @@ public function get_visible():Bool
 	/**
 	 * @private
 	 */
-	override public function set_visible(value:Bool):Void
+	override public function set_visible(value:Bool):Bool
 	{
 		if(this._visible == value)
 		{
@@ -1046,7 +1046,7 @@ public function get_alpha():Float
 	/**
 	 * @private
 	 */
-	override public function set_alpha(value:Float):Void
+	override public function set_alpha(value:Float):Float
 	{
 		if(this._alpha == value)
 		{

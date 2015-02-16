@@ -236,7 +236,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_pageCount(value:Int):Void
+	public function set_pageCount(value:Int):Int
 	{
 		if(this._pageCount == value)
 		{
@@ -283,7 +283,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Int
 	{
 		value = Math.max(0, Math.min(value, this._pageCount - 1));
 		if(this._selectedIndex == value)
@@ -323,7 +323,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_interactionMode(value:String):Void
+	public function set_interactionMode(value:String):String
 	{
 		this._interactionMode = value;
 	}
@@ -361,7 +361,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_direction(value:String):Void
+	public function set_direction(value:String):String
 	{
 		if(this._direction == value)
 		{
@@ -401,7 +401,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -441,7 +441,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -475,7 +475,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -512,7 +512,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -545,7 +545,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -580,7 +580,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -615,7 +615,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -650,7 +650,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -693,7 +693,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_normalSymbolFactory(value:Dynamic):Void
+	public function set_normalSymbolFactory(value:Dynamic):Dynamic
 	{
 		if(this._normalSymbolFactory == value)
 		{
@@ -736,7 +736,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedSymbolFactory(value:Dynamic):Void
+	public function set_selectedSymbolFactory(value:Dynamic):Dynamic
 	{
 		if(this._selectedSymbolFactory == value)
 		{

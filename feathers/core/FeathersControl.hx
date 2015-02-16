@@ -284,7 +284,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set_styleName(value:String):Void
+	public function set_styleName(value:String):String
 	{
 		this._styleNameList.value = value;
 	}
@@ -362,7 +362,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set_styleProvider(value:IStyleProvider):Void
+	public function set_styleProvider(value:IStyleProvider):IStyleProvider
 	{
 		if(this.isInitialized)
 		{
@@ -421,7 +421,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set_isQuickHitAreaEnabled(value:Bool):Void
+	public function set_isQuickHitAreaEnabled(value:Bool):Bool
 	{
 		this._isQuickHitAreaEnabled = value;
 	}
@@ -500,7 +500,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	public function set_isEnabled(value:Bool):Void
+	public function set_isEnabled(value:Bool):Bool
 	{
 		if(this._isEnabled == value)
 		{
@@ -572,7 +572,7 @@ public function get_width():Float
 	/**
 	 * @private
 	 */
-	override public function set_width(value:Float):Void
+	override public function set_width(value:Float):Float
 	{
 		if(this.explicitWidth == value)
 		{
@@ -657,7 +657,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	override public function set_height(value:Float):Void
+	override public function set_height(value:Float):Float
 	{
 		if(this.explicitHeight == value)
 		{
@@ -706,7 +706,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_minTouchWidth(value:Float):Void
+	public function set_minTouchWidth(value:Float):Float
 	{
 		if(this._minTouchWidth == value)
 		{
@@ -742,7 +742,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_minTouchHeight(value:Float):Void
+	public function set_minTouchHeight(value:Float):Float
 	{
 		if(this._minTouchHeight == value)
 		{
@@ -781,7 +781,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_minWidth(value:Float):Void
+	public function set_minWidth(value:Float):Float
 	{
 		if(this._minWidth == value)
 		{
@@ -824,7 +824,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_minHeight(value:Float):Void
+	public function set_minHeight(value:Float):Float
 	{
 		if(this._minHeight == value)
 		{
@@ -867,7 +867,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_maxWidth(value:Float):Void
+	public function set_maxWidth(value:Float):Float
 	{
 		if(this._maxWidth == value)
 		{
@@ -910,7 +910,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_maxHeight(value:Float):Void
+	public function set_maxHeight(value:Float):Float
 	{
 		if(this._maxHeight == value)
 		{
@@ -927,7 +927,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	override public function set_scaleX(value:Float):Void
+	override public function set_scaleX(value:Float):Float
 	{
 		super.scaleX = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -936,7 +936,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	override public function set_scaleY(value:Float):Void
+	override public function set_scaleY(value:Float):Float
 	{
 		super.scaleY = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
@@ -961,7 +961,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_includeInLayout(value:Bool):Void
+	public function set_includeInLayout(value:Bool):Bool
 	{
 		if(this._includeInLayout == value)
 		{
@@ -990,7 +990,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_layoutData(value:ILayoutData):Void
+	public function set_layoutData(value:ILayoutData):ILayoutData
 	{
 		if(this._layoutData == value)
 		{
@@ -1031,7 +1031,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusManager(value:IFocusManager):Void
+	public function set_focusManager(value:IFocusManager):IFocusManager
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1077,7 +1077,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusOwner(value:IFocusDisplayObject):Void
+	public function set_focusOwner(value:IFocusDisplayObject):IFocusDisplayObject
 	{
 		this._focusOwner = value;
 	}
@@ -1105,7 +1105,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_isFocusEnabled(value:Bool):Void
+	public function set_isFocusEnabled(value:Bool):Bool
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1141,7 +1141,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_nextTabFocus(value:IFocusDisplayObject):Void
+	public function set_nextTabFocus(value:IFocusDisplayObject):IFocusDisplayObject
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1173,7 +1173,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_previousTabFocus(value:IFocusDisplayObject):Void
+	public function set_previousTabFocus(value:IFocusDisplayObject):IFocusDisplayObject
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1220,7 +1220,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusIndicatorSkin(value:DisplayObject):Void
+	public function set_focusIndicatorSkin(value:DisplayObject):DisplayObject
 	{
 		if(!(this is IFocusDisplayObject))
 		{
@@ -1277,7 +1277,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusPadding(value:Float):Void
+	public function set_focusPadding(value:Float):Float
 	{
 		this.focusPaddingTop = value;
 		this.focusPaddingRight = value;
@@ -1316,7 +1316,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusPaddingTop(value:Float):Void
+	public function set_focusPaddingTop(value:Float):Float
 	{
 		if(this._focusPaddingTop == value)
 		{
@@ -1357,7 +1357,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusPaddingRight(value:Float):Void
+	public function set_focusPaddingRight(value:Float):Float
 	{
 		if(this._focusPaddingRight == value)
 		{
@@ -1398,7 +1398,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusPaddingBottom(value:Float):Void
+	public function set_focusPaddingBottom(value:Float):Float
 	{
 		if(this._focusPaddingBottom == value)
 		{
@@ -1439,7 +1439,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_focusPaddingLeft(value:Float):Void
+	public function set_focusPaddingLeft(value:Float):Float
 	{
 		if(this._focusPaddingLeft == value)
 		{

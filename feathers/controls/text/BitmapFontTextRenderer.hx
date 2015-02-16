@@ -156,7 +156,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_textFormat(value:BitmapFontTextFormat):Void
+	public function set_textFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
 	{
 		if(this._textFormat == value)
 		{
@@ -190,7 +190,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_disabledTextFormat(value:BitmapFontTextFormat):Void
+	public function set_disabledTextFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -224,7 +224,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(this._text == value)
 		{
@@ -261,7 +261,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_smoothing(value:String):Void
+	public function set_smoothing(value:String):String
 	{
 		if(this._smoothing == value)
 		{
@@ -296,7 +296,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_wordWrap(value:Bool):Void
+	public function set_wordWrap(value:Bool):Bool
 	{
 		if(this._wordWrap == value)
 		{
@@ -333,7 +333,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_snapToPixels(value:Bool):Void
+	public function set_snapToPixels(value:Bool):Bool
 	{
 		if(this._snapToPixels == value)
 		{
@@ -375,7 +375,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_truncateToFit(value:Bool):Void
+	public function set_truncateToFit(value:Bool):Bool
 	{
 		if(this._truncateToFit == value)
 		{
@@ -409,7 +409,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_truncationText(value:String):Void
+	public function set_truncationText(value:String):String
 	{
 		if(this._truncationText == value)
 		{
@@ -446,7 +446,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_useSeparateBatch(value:Bool):Void
+	public function set_useSeparateBatch(value:Bool):Bool
 	{
 		if(this._useSeparateBatch == value)
 		{

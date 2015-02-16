@@ -91,7 +91,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set_defaultStyleFunction(value:Dynamic):Void
+	public function set_defaultStyleFunction(value:Dynamic):Dynamic
 	{
 		this._defaultStyleFunction = value;
 	}

@@ -238,7 +238,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		if(this._dataProvider == value)
 		{
@@ -313,7 +313,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Int
 	{
 		if(this._selectedIndex == value)
 		{
@@ -367,7 +367,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Dynamic):Void
+	public function set_selectedItem(value:Dynamic):Dynamic
 	{
 		if(!this._dataProvider)
 		{
@@ -404,7 +404,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_prompt(value:String):Void
+	public function set_prompt(value:String):String
 	{
 		if(this._prompt == value)
 		{
@@ -450,7 +450,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelField(value:String):Void
+	public function set_labelField(value:String):String
 	{
 		if(this._labelField == value)
 		{
@@ -505,7 +505,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Dynamic):Void
+	public function set_labelFunction(value:Dynamic):Dynamic
 	{
 		this._labelFunction = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
@@ -535,7 +535,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_popUpContentManager(value:IPopUpContentManager):Void
+	public function set_popUpContentManager(value:IPopUpContentManager):IPopUpContentManager
 	{
 		if(this._popUpContentManager == value)
 		{
@@ -595,7 +595,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Dynamic):Void
+	public function set_typicalItem(value:Dynamic):Dynamic
 	{
 		if(this._typicalItem == value)
 		{
@@ -649,7 +649,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonFactory(value:Dynamic):Void
+	public function set_buttonFactory(value:Dynamic):Dynamic
 	{
 		if(this._buttonFactory == value)
 		{
@@ -696,7 +696,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_customButtonName(value:String):Void
+	public function set_customButtonName(value:String):String
 	{
 		if(this._customButtonName == value)
 		{
@@ -751,7 +751,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonProperties(value:Dynamic):Void
+	public function set_buttonProperties(value:Dynamic):Dynamic
 	{
 		if(this._buttonProperties == value)
 		{
@@ -823,7 +823,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listFactory(value:Dynamic):Void
+	public function set_listFactory(value:Dynamic):Dynamic
 	{
 		if(this._listFactory == value)
 		{
@@ -870,7 +870,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_customListName(value:String):Void
+	public function set_customListName(value:String):String
 	{
 		if(this._customListName == value)
 		{
@@ -925,7 +925,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listProperties(value:Dynamic):Void
+	public function set_listProperties(value:Dynamic):Dynamic
 	{
 		if(this._listProperties == value)
 		{
@@ -988,7 +988,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_toggleButtonOnOpenAndClose(value:Bool):Void
+	public function set_toggleButtonOnOpenAndClose(value:Bool):Bool
 	{
 		if(this._toggleButtonOnOpenAndClose == value)
 		{

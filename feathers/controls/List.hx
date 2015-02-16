@@ -309,7 +309,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_layout(value:ILayout):Void
+	public function set_layout(value:ILayout):ILayout
 	{
 		if(this._layout == value)
 		{
@@ -378,7 +378,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		if(this._dataProvider == value)
 		{
@@ -438,7 +438,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_isSelectable(value:Bool):Void
+	public function set_isSelectable(value:Bool):Bool
 	{
 		if(this._isSelectable == value)
 		{
@@ -499,7 +499,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedIndex(value:Int):Void
+	public function set_selectedIndex(value:Int):Int
 	{
 		if(this._selectedIndex == value)
 		{
@@ -563,7 +563,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Dynamic):Void
+	public function set_selectedItem(value:Dynamic):Dynamic
 	{
 		if(!this._dataProvider)
 		{
@@ -604,7 +604,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_allowMultipleSelection(value:Bool):Void
+	public function set_allowMultipleSelection(value:Bool):Bool
 	{
 		if(this._allowMultipleSelection == value)
 		{
@@ -660,7 +660,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedIndices(value:Array<Int>):Void
+	public function set_selectedIndices(value:Array<Int>):Array<Int>
 	{
 		var oldValue:Array<Int> = this._selectedIndices.data as Array<Int>;
 		if(oldValue == value)
@@ -729,7 +729,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedItems(value:Array<Object>):Void
+	public function set_selectedItems(value:Array<Object>):Array<Object>
 	{
 		if(!value || !this._dataProvider)
 		{
@@ -813,7 +813,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererType(value:Class<Dynamic>):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._itemRendererType == value)
 		{
@@ -864,7 +864,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Dynamic):Void
+	public function set_itemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._itemRendererFactory == value)
 		{
@@ -905,7 +905,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Dynamic):Void
+	public function set_typicalItem(value:Dynamic):Dynamic
 	{
 		if(this._typicalItem == value)
 		{
@@ -948,7 +948,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererName(value:String):Void
+	public function set_itemRendererName(value:String):String
 	{
 		if(this._itemRendererName == value)
 		{
@@ -1010,7 +1010,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Dynamic):Void
+	public function set_itemRendererProperties(value:Dynamic):Dynamic
 	{
 		if(this._itemRendererProperties == value)
 		{

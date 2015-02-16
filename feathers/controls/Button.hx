@@ -436,7 +436,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function set_isEnabled(value:Bool):Void
+	override public function set_isEnabled(value:Bool):Bool
 	{
 		if(this._isEnabled == value)
 		{
@@ -517,7 +517,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_label(value:String):Void
+	public function set_label(value:String):String
 	{
 		if(this._label == value)
 		{
@@ -553,7 +553,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hasLabelTextRenderer(value:Bool):Void
+	public function set_hasLabelTextRenderer(value:Bool):Bool
 	{
 		if(this._hasLabelTextRenderer == value)
 		{
@@ -599,7 +599,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_iconPosition(value:String):Void
+	public function set_iconPosition(value:String):String
 	{
 		if(this._iconPosition == value)
 		{
@@ -646,7 +646,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -687,7 +687,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_minGap(value:Float):Void
+	public function set_minGap(value:Float):Float
 	{
 		if(this._minGap == value)
 		{
@@ -727,7 +727,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -767,7 +767,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -805,7 +805,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -839,7 +839,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -875,7 +875,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -911,7 +911,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -947,7 +947,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -987,7 +987,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelOffsetX(value:Float):Void
+	public function set_labelOffsetX(value:Float):Float
 	{
 		if(this._labelOffsetX == value)
 		{
@@ -1027,7 +1027,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelOffsetY(value:Float):Void
+	public function set_labelOffsetY(value:Float):Float
 	{
 		if(this._labelOffsetY == value)
 		{
@@ -1067,7 +1067,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_iconOffsetX(value:Float):Void
+	public function set_iconOffsetX(value:Float):Float
 	{
 		if(this._iconOffsetX == value)
 		{
@@ -1107,7 +1107,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_iconOffsetY(value:Float):Void
+	public function set_iconOffsetY(value:Float):Float
 	{
 		if(this._iconOffsetY == value)
 		{
@@ -1184,7 +1184,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Dynamic):Void
+	public function set_stateToSkinFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -1216,7 +1216,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToIconFunction(value:Dynamic):Void
+	public function set_stateToIconFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToIconFunction == value)
 		{
@@ -1248,7 +1248,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToLabelPropertiesFunction(value:Dynamic):Void
+	public function set_stateToLabelPropertiesFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToLabelPropertiesFunction == value)
 		{
@@ -1291,7 +1291,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_defaultSkin(value:DisplayObject):Void
+	public function set_defaultSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.defaultValue == value)
 		{
@@ -1323,7 +1323,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_upSkin(value:DisplayObject):Void
+	public function set_upSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_UP, false) == value)
 		{
@@ -1355,7 +1355,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_downSkin(value:DisplayObject):Void
+	public function set_downSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_DOWN, false) == value)
 		{
@@ -1387,7 +1387,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hoverSkin(value:DisplayObject):Void
+	public function set_hoverSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_HOVER, false) == value)
 		{
@@ -1419,7 +1419,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_disabledSkin(value:DisplayObject):Void
+	public function set_disabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_DISABLED, false) == value)
 		{
@@ -1472,7 +1472,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFactory(value:Dynamic):Void
+	public function set_labelFactory(value:Dynamic):Dynamic
 	{
 		if(this._labelFactory == value)
 		{
@@ -1529,7 +1529,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_defaultLabelProperties(value:Dynamic):Void
+	public function set_defaultLabelProperties(value:Dynamic):Dynamic
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1586,7 +1586,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_upLabelProperties(value:Dynamic):Void
+	public function set_upLabelProperties(value:Dynamic):Dynamic
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1643,7 +1643,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_downLabelProperties(value:Dynamic):Void
+	public function set_downLabelProperties(value:Dynamic):Dynamic
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1700,7 +1700,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hoverLabelProperties(value:Dynamic):Void
+	public function set_hoverLabelProperties(value:Dynamic):Dynamic
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1757,7 +1757,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_disabledLabelProperties(value:Dynamic):Void
+	public function set_disabledLabelProperties(value:Dynamic):Dynamic
 	{
 		if(!(value is PropertyProxy))
 		{
@@ -1808,7 +1808,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_defaultIcon(value:DisplayObject):Void
+	public function set_defaultIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.defaultValue == value)
 		{
@@ -1840,7 +1840,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_upIcon(value:DisplayObject):Void
+	public function set_upIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_UP, false) == value)
 		{
@@ -1872,7 +1872,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_downIcon(value:DisplayObject):Void
+	public function set_downIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_DOWN, false) == value)
 		{
@@ -1904,7 +1904,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hoverIcon(value:DisplayObject):Void
+	public function set_hoverIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_HOVER, false) == value)
 		{
@@ -1936,7 +1936,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_disabledIcon(value:DisplayObject):Void
+	public function set_disabledIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_DISABLED, false) == value)
 		{
@@ -1984,7 +1984,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_longPressDuration(value:Float):Void
+	public function set_longPressDuration(value:Float):Float
 	{
 		this._longPressDuration = value;
 	}
@@ -2021,7 +2021,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_isLongPressEnabled(value:Bool):Void
+	public function set_isLongPressEnabled(value:Bool):Bool
 	{
 		this._isLongPressEnabled = value;
 		if(!value)

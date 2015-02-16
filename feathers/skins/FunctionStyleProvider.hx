@@ -55,7 +55,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set_styleFunction(value:Dynamic):Void
+	public function set_styleFunction(value:Dynamic):Dynamic
 	{
 		this._styleFunction = value;
 	}

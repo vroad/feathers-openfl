@@ -131,7 +131,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	public function set_textures(value:Scale3Textures):Void
+	public function set_textures(value:Scale3Textures):Scale3Textures
 	{
 		if(!value)
 		{
@@ -170,7 +170,7 @@ public function get_width():Float
 	/**
 	 * @private
 	 */
-	override public function set_width(value:Float):Void
+	override public function set_width(value:Float):Float
 	{
 		if(this._width == value)
 		{
@@ -198,7 +198,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	override public function set_height(value:Float):Void
+	override public function set_height(value:Float):Float
 	{
 		if(this._height == value)
 		{
@@ -234,7 +234,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_textureScale(value:Float):Void
+	public function set_textureScale(value:Float):Float
 	{
 		if(this._textureScale == value)
 		{
@@ -271,7 +271,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_smoothing(value:String):Void
+	public function set_smoothing(value:String):String
 	{
 		if(this._smoothing == value)
 		{
@@ -306,7 +306,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_color(value:UInt):Void
+	public function set_color(value:UInt):UInt
 	{
 		if(this._color == value)
 		{
@@ -342,7 +342,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	public function set_useSeparateBatch(value:Bool):Void
+	public function set_useSeparateBatch(value:Bool):Bool
 	{
 		if(this._useSeparateBatch == value)
 		{

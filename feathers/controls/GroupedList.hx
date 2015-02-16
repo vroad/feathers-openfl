@@ -450,7 +450,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_layout(value:ILayout):Void
+	public function set_layout(value:ILayout):ILayout
 	{
 		if(this._layout == value)
 		{
@@ -556,7 +556,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_dataProvider(value:HierarchicalCollection):Void
+	public function set_dataProvider(value:HierarchicalCollection):HierarchicalCollection
 	{
 		if(this._dataProvider == value)
 		{
@@ -609,7 +609,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_isSelectable(value:Bool):Void
+	public function set_isSelectable(value:Bool):Bool
 	{
 		if(this._isSelectable == value)
 		{
@@ -728,7 +728,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedItem(value:Dynamic):Void
+	public function set_selectedItem(value:Dynamic):Dynamic
 	{
 		if(!this._dataProvider)
 		{
@@ -787,7 +787,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererType(value:Class<Dynamic>):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._itemRendererType == value)
 		{
@@ -847,7 +847,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Dynamic):Void
+	public function set_itemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._itemRendererFactory == value)
 		{
@@ -888,7 +888,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:Dynamic):Void
+	public function set_typicalItem(value:Dynamic):Dynamic
 	{
 		if(this._typicalItem == value)
 		{
@@ -934,7 +934,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererName(value:String):Void
+	public function set_itemRendererName(value:String):String
 	{
 		if(this._itemRendererName == value)
 		{
@@ -996,7 +996,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Dynamic):Void
+	public function set_itemRendererProperties(value:Dynamic):Dynamic
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -1058,7 +1058,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererType(value:Class<Dynamic>):Void
+	public function set_firstItemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._firstItemRendererType == value)
 		{
@@ -1114,7 +1114,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererFactory(value:Dynamic):Void
+	public function set_firstItemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._firstItemRendererFactory == value)
 		{
@@ -1165,7 +1165,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererName(value:String):Void
+	public function set_firstItemRendererName(value:String):String
 	{
 		if(this._firstItemRendererName == value)
 		{
@@ -1207,7 +1207,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererType(value:Class<Dynamic>):Void
+	public function set_lastItemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._lastItemRendererType == value)
 		{
@@ -1263,7 +1263,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererFactory(value:Dynamic):Void
+	public function set_lastItemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._lastItemRendererFactory == value)
 		{
@@ -1314,7 +1314,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererName(value:String):Void
+	public function set_lastItemRendererName(value:String):String
 	{
 		if(this._lastItemRendererName == value)
 		{
@@ -1356,7 +1356,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererType(value:Class<Dynamic>):Void
+	public function set_singleItemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._singleItemRendererType == value)
 		{
@@ -1412,7 +1412,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererFactory(value:Dynamic):Void
+	public function set_singleItemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._singleItemRendererFactory == value)
 		{
@@ -1464,7 +1464,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererName(value:String):Void
+	public function set_singleItemRendererName(value:String):String
 	{
 		if(this._singleItemRendererName == value)
 		{
@@ -1502,7 +1502,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererType(value:Class<Dynamic>):Void
+	public function set_headerRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._headerRendererType == value)
 		{
@@ -1554,7 +1554,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererFactory(value:Dynamic):Void
+	public function set_headerRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._headerRendererFactory == value)
 		{
@@ -1598,7 +1598,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererName(value:String):Void
+	public function set_headerRendererName(value:String):String
 	{
 		if(this._headerRendererName == value)
 		{
@@ -1659,7 +1659,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererProperties(value:Dynamic):Void
+	public function set_headerRendererProperties(value:Dynamic):Dynamic
 	{
 		if(this._headerRendererProperties == value)
 		{
@@ -1718,7 +1718,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererType(value:Class<Dynamic>):Void
+	public function set_footerRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._footerRendererType == value)
 		{
@@ -1770,7 +1770,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererFactory(value:Dynamic):Void
+	public function set_footerRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._footerRendererFactory == value)
 		{
@@ -1814,7 +1814,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererName(value:String):Void
+	public function set_footerRendererName(value:String):String
 	{
 		if(this._footerRendererName == value)
 		{
@@ -1875,7 +1875,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererProperties(value:Dynamic):Void
+	public function set_footerRendererProperties(value:Dynamic):Dynamic
 	{
 		if(this._footerRendererProperties == value)
 		{
@@ -1941,7 +1941,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerField(value:String):Void
+	public function set_headerField(value:String):String
 	{
 		if(this._headerField == value)
 		{
@@ -1991,7 +1991,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerFunction(value:Dynamic):Void
+	public function set_headerFunction(value:Dynamic):Dynamic
 	{
 		if(this._headerFunction == value)
 		{
@@ -2036,7 +2036,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerField(value:String):Void
+	public function set_footerField(value:String):String
 	{
 		if(this._footerField == value)
 		{
@@ -2086,7 +2086,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerFunction(value:Dynamic):Void
+	public function set_footerFunction(value:Dynamic):Dynamic
 	{
 		if(this._footerFunction == value)
 		{

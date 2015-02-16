@@ -219,7 +219,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function set_x(value:Float):Void
+	override public function set_x(value:Float):Float
 	{
 		if(super.x == value)
 		{
@@ -234,7 +234,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function set_y(value:Float):Void
+	override public function set_y(value:Float):Float
 	{
 		if(super.y == value)
 		{
@@ -292,7 +292,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(!value)
 		{
@@ -421,7 +421,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_autoCapitalize(value:String):Void
+	public function set_autoCapitalize(value:String):String
 	{
 		if(this._autoCapitalize == value)
 		{
@@ -460,7 +460,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_autoCorrect(value:Bool):Void
+	public function set_autoCorrect(value:Bool):Bool
 	{
 		if(this._autoCorrect == value)
 		{
@@ -498,7 +498,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_color(value:UInt):Void
+	public function set_color(value:UInt):UInt
 	{
 		if(this._color == value)
 		{
@@ -537,7 +537,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_disabledColor(value:UInt):Void
+	public function set_disabledColor(value:UInt):UInt
 	{
 		if(this._disabledColor == value)
 		{
@@ -574,7 +574,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -609,7 +609,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{
@@ -657,7 +657,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_fontFamily(value:String):Void
+	public function set_fontFamily(value:String):String
 	{
 		if(this._fontFamily == value)
 		{
@@ -695,7 +695,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_fontPosture(value:String):Void
+	public function set_fontPosture(value:String):String
 	{
 		if(this._fontPosture == value)
 		{
@@ -731,7 +731,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_fontSize(value:Int):Void
+	public function set_fontSize(value:Int):Int
 	{
 		if(this._fontSize == value)
 		{
@@ -769,7 +769,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_fontWeight(value:String):Void
+	public function set_fontWeight(value:String):String
 	{
 		if(this._fontWeight == value)
 		{
@@ -807,7 +807,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_locale(value:String):Void
+	public function set_locale(value:String):String
 	{
 		if(this._locale == value)
 		{
@@ -846,7 +846,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Int
 	{
 		if(this._maxChars == value)
 		{
@@ -891,7 +891,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_multiline(value:Bool):Void
+	public function set_multiline(value:Bool):Bool
 	{
 		if(this._multiline == value)
 		{
@@ -929,7 +929,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_restrict(value:String):Void
+	public function set_restrict(value:String):String
 	{
 		if(this._restrict == value)
 		{
@@ -970,7 +970,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_returnKeyLabel(value:String):Void
+	public function set_returnKeyLabel(value:String):String
 	{
 		if(this._returnKeyLabel == value)
 		{
@@ -1011,7 +1011,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_softKeyboardType(value:String):Void
+	public function set_softKeyboardType(value:String):String
 	{
 		if(this._softKeyboardType == value)
 		{
@@ -1049,7 +1049,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_textAlign(value:String):Void
+	public function set_textAlign(value:String):String
 	{
 		if(this._textAlign == value)
 		{

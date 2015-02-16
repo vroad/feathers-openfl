@@ -50,7 +50,7 @@ class ToggleScreen extends PanelScreen
 		return this._innerLayout;
 	}
 
-	public function set_innerLayout(value:ILayout):Void
+	public function set_innerLayout(value:ILayout):ILayout
 	{
 		if(this._innerLayout == value)
 		{

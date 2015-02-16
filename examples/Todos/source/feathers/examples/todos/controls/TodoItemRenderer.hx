@@ -27,7 +27,7 @@ class TodoItemRenderer extends DefaultListItemRenderer
 		return this._isEditable;
 	}
 
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{

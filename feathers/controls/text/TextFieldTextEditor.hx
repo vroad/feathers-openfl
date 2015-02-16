@@ -272,7 +272,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(!value)
 		{
@@ -338,7 +338,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_textFormat(value:TextFormat):Void
+	public function set_textFormat(value:TextFormat):TextFormat
 	{
 		if(this._textFormat == value)
 		{
@@ -380,7 +380,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_disabledTextFormat(value:TextFormat):Void
+	public function set_disabledTextFormat(value:TextFormat):TextFormat
 	{
 		if(this._disabledTextFormat == value)
 		{
@@ -417,7 +417,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_embedFonts(value:Bool):Void
+	public function set_embedFonts(value:Bool):Bool
 	{
 		if(this._embedFonts == value)
 		{
@@ -453,7 +453,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_wordWrap(value:Bool):Void
+	public function set_wordWrap(value:Bool):Bool
 	{
 		if(this._wordWrap == value)
 		{
@@ -489,7 +489,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_multiline(value:Bool):Void
+	public function set_multiline(value:Bool):Bool
 	{
 		if(this._multiline == value)
 		{
@@ -526,7 +526,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_isHTML(value:Bool):Void
+	public function set_isHTML(value:Bool):Bool
 	{
 		if(this._isHTML == value)
 		{
@@ -565,7 +565,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_alwaysShowSelection(value:Bool):Void
+	public function set_alwaysShowSelection(value:Bool):Bool
 	{
 		if(this._alwaysShowSelection == value)
 		{
@@ -603,7 +603,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -642,7 +642,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Int
 	{
 		if(this._maxChars == value)
 		{
@@ -680,7 +680,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_restrict(value:String):Void
+	public function set_restrict(value:String):String
 	{
 		if(this._restrict == value)
 		{
@@ -715,7 +715,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{
@@ -752,7 +752,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_useGutter(value:Bool):Void
+	public function set_useGutter(value:Bool):Bool
 	{
 		if(this._useGutter == value)
 		{

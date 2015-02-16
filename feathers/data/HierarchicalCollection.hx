@@ -196,7 +196,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -224,7 +224,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_dataDescriptor(value:IHierarchicalCollectionDataDescriptor):Void
+	public function set_dataDescriptor(value:IHierarchicalCollectionDataDescriptor):IHierarchicalCollectionDataDescriptor
 	{
 		if(this._dataDescriptor == value)
 		{

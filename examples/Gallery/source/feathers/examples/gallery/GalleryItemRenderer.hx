@@ -77,7 +77,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set_index(value:Int):Void
+	public function set_index(value:Int):Int
 	{
 		if(this._index == value)
 		{
@@ -104,7 +104,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set_owner(value:List):Void
+	public function set_owner(value:List):List
 	{
 		if(this._owner == value)
 		{
@@ -145,7 +145,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -173,7 +173,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	public function set_isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Bool
 	{
 		if(this._isSelected == value)
 		{

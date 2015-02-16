@@ -406,7 +406,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_direction(value:String):Void
+	public function set_direction(value:String):String
 	{
 		if(this._direction == value)
 		{
@@ -452,7 +452,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_value(newValue:Float):Void
+	public function set_value(newValue:Float):Float
 	{
 		if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 		{
@@ -502,7 +502,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimum(value:Float):Void
+	public function set_minimum(value:Float):Float
 	{
 		if(this._minimum == value)
 		{
@@ -545,7 +545,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximum(value:Float):Void
+	public function set_maximum(value:Float):Float
 	{
 		if(this._maximum == value)
 		{
@@ -589,7 +589,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_step(value:Float):Void
+	public function set_step(value:Float):Float
 	{
 		if(this._step == value)
 		{
@@ -637,7 +637,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_page(value:Float):Void
+	public function set_page(value:Float):Float
 	{
 		if(this._page == value)
 		{
@@ -688,7 +688,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_showThumb(value:Bool):Void
+	public function set_showThumb(value:Bool):Bool
 	{
 		if(this._showThumb == value)
 		{
@@ -724,7 +724,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumPadding(value:Float):Void
+	public function set_minimumPadding(value:Float):Float
 	{
 		if(this._minimumPadding == value)
 		{
@@ -760,7 +760,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumPadding(value:Float):Void
+	public function set_maximumPadding(value:Float):Float
 	{
 		if(this._maximumPadding == value)
 		{
@@ -799,7 +799,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_trackLayoutMode(value:String):Void
+	public function set_trackLayoutMode(value:String):String
 	{
 		if(this._trackLayoutMode == value)
 		{
@@ -839,7 +839,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_trackScaleMode(value:String):Void
+	public function set_trackScaleMode(value:String):String
 	{
 		if(this._trackScaleMode == value)
 		{
@@ -884,7 +884,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_trackInteractionMode(value:String):Void
+	public function set_trackInteractionMode(value:String):String
 	{
 		this._trackInteractionMode = value;
 	}
@@ -926,7 +926,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_repeatDelay(value:Float):Void
+	public function set_repeatDelay(value:Float):Float
 	{
 		if(this._repeatDelay == value)
 		{
@@ -978,7 +978,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackFactory(value:Dynamic):Void
+	public function set_minimumTrackFactory(value:Dynamic):Dynamic
 	{
 		if(this._minimumTrackFactory == value)
 		{
@@ -1025,7 +1025,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_customMinimumTrackName(value:String):Void
+	public function set_customMinimumTrackName(value:String):String
 	{
 		if(this._customMinimumTrackName == value)
 		{
@@ -1081,7 +1081,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackProperties(value:Dynamic):Void
+	public function set_minimumTrackProperties(value:Dynamic):Dynamic
 	{
 		if(this._minimumTrackProperties == value)
 		{
@@ -1154,7 +1154,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackFactory(value:Dynamic):Void
+	public function set_maximumTrackFactory(value:Dynamic):Dynamic
 	{
 		if(this._maximumTrackFactory == value)
 		{
@@ -1201,7 +1201,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_customMaximumTrackName(value:String):Void
+	public function set_customMaximumTrackName(value:String):String
 	{
 		if(this._customMaximumTrackName == value)
 		{
@@ -1257,7 +1257,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackProperties(value:Dynamic):Void
+	public function set_maximumTrackProperties(value:Dynamic):Dynamic
 	{
 		if(this._maximumTrackProperties == value)
 		{
@@ -1330,7 +1330,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbFactory(value:Dynamic):Void
+	public function set_thumbFactory(value:Dynamic):Dynamic
 	{
 		if(this._thumbFactory == value)
 		{
@@ -1377,7 +1377,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_customThumbName(value:String):Void
+	public function set_customThumbName(value:String):String
 	{
 		if(this._customThumbName == value)
 		{
@@ -1432,7 +1432,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbProperties(value:Dynamic):Void
+	public function set_thumbProperties(value:Dynamic):Dynamic
 	{
 		if(this._thumbProperties == value)
 		{

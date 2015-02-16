@@ -65,7 +65,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleWidth;
 	}
 
-	public function set_minVisibleWidth(value:Float):Void
+	public function set_minVisibleWidth(value:Float):Float
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -87,7 +87,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleWidth;
 	}
 
-	public function set_maxVisibleWidth(value:Float):Void
+	public function set_maxVisibleWidth(value:Float):Float
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -111,7 +111,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this.actualVisibleWidth;
 	}
 
-	public function set_visibleWidth(value:Float):Void
+	public function set_visibleWidth(value:Float):Float
 	{
 		if(this.explicitVisibleWidth == value ||
 			(value != value && this.explicitVisibleWidth != this.explicitVisibleWidth)) //isNaN
@@ -130,7 +130,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._minVisibleHeight;
 	}
 
-	public function set_minVisibleHeight(value:Float):Void
+	public function set_minVisibleHeight(value:Float):Float
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -152,7 +152,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._maxVisibleHeight;
 	}
 
-	public function set_maxVisibleHeight(value:Float):Void
+	public function set_maxVisibleHeight(value:Float):Float
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -176,7 +176,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this.actualVisibleHeight;
 	}
 
-	public function set_visibleHeight(value:Float):Void
+	public function set_visibleHeight(value:Float):Float
 	{
 		if(this.explicitVisibleHeight == value ||
 			(value != value && this.explicitVisibleHeight != this.explicitVisibleHeight)) //isNaN
@@ -223,7 +223,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._owner;
 	}
 
-	public function set_owner(value:List):Void
+	public function set_owner(value:List):List
 	{
 		if(this._owner == value)
 		{
@@ -250,7 +250,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._dataProvider;
 	}
 
-	public function set_dataProvider(value:ListCollection):Void
+	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		if(this._dataProvider == value)
 		{
@@ -291,7 +291,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererType;
 	}
 
-	public function set_itemRendererType(value:Class<Dynamic>):Void
+	public function set_itemRendererType(value:Class<Dynamic>):Class<Dynamic>
 	{
 		if(this._itemRendererType == value)
 		{
@@ -310,7 +310,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererFactory;
 	}
 
-	public function set_itemRendererFactory(value:Dynamic):Void
+	public function set_itemRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._itemRendererFactory == value)
 		{
@@ -329,7 +329,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererName;
 	}
 
-	public function set_itemRendererName(value:String):Void
+	public function set_itemRendererName(value:String):String
 	{
 		if(this._itemRendererName == value)
 		{
@@ -347,7 +347,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._typicalItem;
 	}
 
-	public function set_typicalItem(value:Dynamic):Void
+	public function set_typicalItem(value:Dynamic):Dynamic
 	{
 		if(this._typicalItem == value)
 		{
@@ -365,7 +365,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._itemRendererProperties;
 	}
 
-	public function set_itemRendererProperties(value:PropertyProxy):Void
+	public function set_itemRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._itemRendererProperties == value)
 		{
@@ -394,7 +394,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._layout;
 	}
 
-	public function set_layout(value:ILayout):Void
+	public function set_layout(value:ILayout):ILayout
 	{
 		if(this._layout == value)
 		{
@@ -458,7 +458,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._horizontalScrollPosition;
 	}
 
-	public function set_horizontalScrollPosition(value:Float):Void
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -476,7 +476,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._verticalScrollPosition;
 	}
 
-	public function set_verticalScrollPosition(value:Float):Void
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -496,7 +496,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._isSelectable;
 	}
 
-	public function set_isSelectable(value:Bool):Void
+	public function set_isSelectable(value:Bool):Bool
 	{
 		if(this._isSelectable == value)
 		{
@@ -517,7 +517,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._allowMultipleSelection;
 	}
 
-	public function set_allowMultipleSelection(value:Bool):Void
+	public function set_allowMultipleSelection(value:Bool):Bool
 	{
 		this._allowMultipleSelection = value;
 	}
@@ -530,7 +530,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		return this._selectedIndices;
 	}
 
-	public function set_selectedIndices(value:ListCollection):Void
+	public function set_selectedIndices(value:ListCollection):ListCollection
 	{
 		if(this._selectedIndices == value)
 		{

@@ -64,7 +64,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._data;
 	}
 
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -83,7 +83,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._index;
 	}
 
-	public function set_index(value:Int):Void
+	public function set_index(value:Int):Int
 	{
 		this._index = value;
 		if(this._owner && this._owner.dataProvider)
@@ -101,7 +101,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isFirstItem;
 	}
 
-	public function set_isFirstItem(value:Bool):Void
+	public function set_isFirstItem(value:Bool):Bool
 	{
 		if(this._isFirstItem == value)
 		{
@@ -119,7 +119,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isLastItem;
 	}
 
-	public function set_isLastItem(value:Bool):Void
+	public function set_isLastItem(value:Bool):Bool
 	{
 		if(this._isLastItem == value)
 		{
@@ -137,7 +137,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isInDestinationPhase;
 	}
 
-	public function set_isInDestinationPhase(value:Bool):Void
+	public function set_isInDestinationPhase(value:Bool):Bool
 	{
 		if(this._isInDestinationPhase == value)
 		{
@@ -155,7 +155,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._owner;
 	}
 
-	public function set_owner(value:List):Void
+	public function set_owner(value:List):List
 	{
 		if(this._owner == value)
 		{
@@ -187,7 +187,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._isSelected;
 	}
 
-	public function set_isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Bool
 	{
 		if(this._isSelected == value)
 		{
@@ -212,7 +212,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._normalIconTexture;
 	}
 
-	public function set_normalIconTexture(value:Texture):Void
+	public function set_normalIconTexture(value:Texture):Texture
 	{
 		if(this._normalIconTexture == value)
 		{
@@ -230,7 +230,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._firstNormalIconTexture;
 	}
 
-	public function set_firstNormalIconTexture(value:Texture):Void
+	public function set_firstNormalIconTexture(value:Texture):Texture
 	{
 		if(this._firstNormalIconTexture == value)
 		{
@@ -248,7 +248,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._lastNormalIconTexture;
 	}
 
-	public function set_lastNormalIconTexture(value:Texture):Void
+	public function set_lastNormalIconTexture(value:Texture):Texture
 	{
 		if(this._lastNormalIconTexture == value)
 		{
@@ -266,7 +266,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._selectedIconTexture;
 	}
 
-	public function set_selectedIconTexture(value:Texture):Void
+	public function set_selectedIconTexture(value:Texture):Texture
 	{
 		if(this._selectedIconTexture == value)
 		{
@@ -284,7 +284,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._firstSelectedIconTexture;
 	}
 
-	public function set_firstSelectedIconTexture(value:Texture):Void
+	public function set_firstSelectedIconTexture(value:Texture):Texture
 	{
 		if(this._firstSelectedIconTexture == value)
 		{
@@ -302,7 +302,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._lastSelectedIconTexture;
 	}
 
-	public function set_lastSelectedIconTexture(value:Texture):Void
+	public function set_lastSelectedIconTexture(value:Texture):Texture
 	{
 		if(this._lastSelectedIconTexture == value)
 		{
@@ -320,7 +320,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._iconLoaderFactory;
 	}
 
-	public function set_iconLoaderFactory(value:Dynamic):Void
+	public function set_iconLoaderFactory(value:Dynamic):Dynamic
 	{
 		if(this._iconLoaderFactory == value)
 		{
@@ -338,7 +338,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingTop;
 	}
 
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -356,7 +356,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingRight;
 	}
 
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -374,7 +374,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingBottom;
 	}
 
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -392,7 +392,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._paddingLeft;
 	}
 
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -410,7 +410,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return this._gap;
 	}
 
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{

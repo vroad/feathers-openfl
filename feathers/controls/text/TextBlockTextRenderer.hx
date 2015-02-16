@@ -261,7 +261,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(this._text == value)
 		{
@@ -313,7 +313,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_content(value:ContentElement):Void
+	public function set_content(value:ContentElement):ContentElement
 	{
 		if(this._content == value)
 		{
@@ -359,7 +359,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_elementFormat(value:ElementFormat):Void
+	public function set_elementFormat(value:ElementFormat):ElementFormat
 	{
 		if(this._elementFormat == value)
 		{
@@ -399,7 +399,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_disabledElementFormat(value:ElementFormat):Void
+	public function set_disabledElementFormat(value:ElementFormat):ElementFormat
 	{
 		if(this._disabledElementFormat == value)
 		{
@@ -433,7 +433,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_leading(value:Float):Void
+	public function set_leading(value:Float):Float
 	{
 		if(this._leading == value)
 		{
@@ -473,7 +473,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_textAlign(value:String):Void
+	public function set_textAlign(value:String):String
 	{
 		if(this._textAlign == value)
 		{
@@ -508,7 +508,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_wordWrap(value:Bool):Void
+	public function set_wordWrap(value:Bool):Bool
 	{
 		if(this._wordWrap == value)
 		{
@@ -558,7 +558,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_applyNonLinearFontScaling(value:Bool):Void
+	public function set_applyNonLinearFontScaling(value:Bool):Bool
 	{
 		if(this._applyNonLinearFontScaling == value)
 		{
@@ -595,7 +595,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_baselineFontDescription(value:FontDescription):Void
+	public function set_baselineFontDescription(value:FontDescription):FontDescription
 	{
 		if(this._baselineFontDescription == value)
 		{
@@ -633,7 +633,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_baselineFontSize(value:Float):Void
+	public function set_baselineFontSize(value:Float):Float
 	{
 		if(this._baselineFontSize == value)
 		{
@@ -670,7 +670,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_baselineZero(value:String):Void
+	public function set_baselineZero(value:String):String
 	{
 		if(this._baselineZero == value)
 		{
@@ -707,7 +707,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_bidiLevel(value:Int):Void
+	public function set_bidiLevel(value:Int):Int
 	{
 		if(this._bidiLevel == value)
 		{
@@ -744,7 +744,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_lineRotation(value:String):Void
+	public function set_lineRotation(value:String):String
 	{
 		if(this._lineRotation == value)
 		{
@@ -781,7 +781,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_tabStops(value:Array<TabStop>):Void
+	public function set_tabStops(value:Array<TabStop>):Array<TabStop>
 	{
 		if(this._tabStops == value)
 		{
@@ -815,7 +815,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_textJustifier(value:TextJustifier):Void
+	public function set_textJustifier(value:TextJustifier):TextJustifier
 	{
 		if(this._textJustifier == value)
 		{
@@ -850,7 +850,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_userData(value:*):Void
+	public function set_userData(value:*):*
 	{
 		if(this._userData == value)
 		{
@@ -887,7 +887,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_snapToPixels(value:Bool):Void
+	public function set_snapToPixels(value:Bool):Bool
 	{
 		this._snapToPixels = value;
 	}
@@ -920,7 +920,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_maxTextureDimensions(value:Int):Void
+	public function set_maxTextureDimensions(value:Int):Int
 	{
 		//check if we can use rectangle textures or not
 		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)
@@ -963,7 +963,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_nativeFilters(value:Array):Void
+	public function set_nativeFilters(value:Array):Array
 	{
 		if(this._nativeFilters == value)
 		{
@@ -999,7 +999,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_truncationText(value:String):Void
+	public function set_truncationText(value:String):String
 	{
 		if(this._truncationText == value)
 		{
@@ -1045,7 +1045,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_truncateToFit(value:Bool):Void
+	public function set_truncateToFit(value:Bool):Bool
 	{
 		if(this._truncateToFit == value)
 		{

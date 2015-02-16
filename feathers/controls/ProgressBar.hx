@@ -97,7 +97,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_direction(value:String):Void
+	public function set_direction(value:String):String
 	{
 		if(this._direction == value)
 		{
@@ -136,7 +136,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_value(newValue:Float):Void
+	public function set_value(newValue:Float):Float
 	{
 		newValue = clamp(newValue, this._minimum, this._maximum);
 		if(this._value == newValue)
@@ -176,7 +176,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_minimum(value:Float):Void
+	public function set_minimum(value:Float):Float
 	{
 		if(this._minimum == value)
 		{
@@ -215,7 +215,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_maximum(value:Float):Void
+	public function set_maximum(value:Float):Float
 	{
 		if(this._maximum == value)
 		{
@@ -265,7 +265,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -310,7 +310,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -383,7 +383,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_fillSkin(value:DisplayObject):Void
+	public function set_fillSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._fillSkin == value)
 		{
@@ -428,7 +428,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_fillDisabledSkin(value:DisplayObject):Void
+	public function set_fillDisabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._fillDisabledSkin == value)
 		{
@@ -475,7 +475,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -508,7 +508,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -543,7 +543,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -578,7 +578,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -613,7 +613,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{

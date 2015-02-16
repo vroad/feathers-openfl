@@ -131,7 +131,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(this._text == value)
 		{
@@ -166,7 +166,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_wordWrap(value:Bool):Void
+	public function set_wordWrap(value:Bool):Bool
 	{
 		if(this._wordWrap == value)
 		{
@@ -230,7 +230,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererFactory(value:Dynamic):Void
+	public function set_textRendererFactory(value:Dynamic):Dynamic
 	{
 		if(this._textRendererFactory == value)
 		{
@@ -291,7 +291,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererProperties(value:Dynamic):Void
+	public function set_textRendererProperties(value:Dynamic):Dynamic
 	{
 		if(this._textRendererProperties == value)
 		{

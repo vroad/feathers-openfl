@@ -288,7 +288,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_title(value:String):Void
+	public function set_title(value:String):String
 	{
 		if(this._title == value)
 		{
@@ -315,7 +315,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_message(value:String):Void
+	public function set_message(value:String):String
 	{
 		if(this._message == value)
 		{
@@ -342,7 +342,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_icon(value:DisplayObject):Void
+	public function set_icon(value:DisplayObject):DisplayObject
 	{
 		if(this._icon == value)
 		{
@@ -388,7 +388,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -415,7 +415,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonsDataProvider(value:ListCollection):Void
+	public function set_buttonsDataProvider(value:ListCollection):ListCollection
 	{
 		if(this._buttonsDataProvider == value)
 		{
@@ -475,7 +475,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageFactory(value:Dynamic):Void
+	public function set_messageFactory(value:Dynamic):Dynamic
 	{
 		if(this._messageFactory == value)
 		{
@@ -536,7 +536,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageProperties(value:Dynamic):Void
+	public function set_messageProperties(value:Dynamic):Dynamic
 	{
 		if(this._messageProperties == value)
 		{
@@ -592,7 +592,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupFactory(value:Dynamic):Void
+	public function set_buttonGroupFactory(value:Dynamic):Dynamic
 	{
 		super.footerFactory = value;
 	}
@@ -629,7 +629,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_customButtonGroupName(value:String):Void
+	public function set_customButtonGroupName(value:String):String
 	{
 		super.customFooterName = value;
 	}
@@ -668,7 +668,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupProperties(value:Dynamic):Void
+	public function set_buttonGroupProperties(value:Dynamic):Dynamic
 	{
 		super.footerProperties = value;
 	}

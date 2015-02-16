@@ -630,7 +630,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_viewPort(value:IViewPort):Void
+	public function set_viewPort(value:IViewPort):IViewPort
 	{
 		if(this._viewPort == value)
 		{
@@ -676,7 +676,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_measureViewPort(value:Bool):Void
+	public function set_measureViewPort(value:Bool):Bool
 	{
 		if(this._measureViewPort == value)
 		{
@@ -710,7 +710,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_snapToPages(value:Bool):Void
+	public function set_snapToPages(value:Bool):Bool
 	{
 		if(this._snapToPages == value)
 		{
@@ -760,7 +760,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollBarFactory(value:Dynamic):Void
+	public function set_horizontalScrollBarFactory(value:Dynamic):Dynamic
 	{
 		if(this._horizontalScrollBarFactory == value)
 		{
@@ -808,7 +808,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_customHorizontalScrollBarName(value:String):Void
+	public function set_customHorizontalScrollBarName(value:String):String
 	{
 		if(this._customHorizontalScrollBarName == value)
 		{
@@ -867,7 +867,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollBarProperties(value:Dynamic):Void
+	public function set_horizontalScrollBarProperties(value:Dynamic):Dynamic
 	{
 		if(this._horizontalScrollBarProperties == value)
 		{
@@ -926,7 +926,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollBarPosition(value:String):Void
+	public function set_verticalScrollBarPosition(value:String):String
 	{
 		if(this._verticalScrollBarPosition == value)
 		{
@@ -976,7 +976,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollBarFactory(value:Dynamic):Void
+	public function set_verticalScrollBarFactory(value:Dynamic):Dynamic
 	{
 		if(this._verticalScrollBarFactory == value)
 		{
@@ -1024,7 +1024,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_customVerticalScrollBarName(value:String):Void
+	public function set_customVerticalScrollBarName(value:String):String
 	{
 		if(this._customVerticalScrollBarName == value)
 		{
@@ -1083,7 +1083,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollBarProperties(value:Dynamic):Void
+	public function set_verticalScrollBarProperties(value:Dynamic):Dynamic
 	{
 		if(this._horizontalScrollBarProperties == value)
 		{
@@ -1145,7 +1145,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollStep(value:Float):Void
+	public function set_horizontalScrollStep(value:Float):Float
 	{
 		if(this.explicitHorizontalScrollStep == value)
 		{
@@ -1186,7 +1186,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollPosition(value:Float):Void
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		if(this._snapScrollPositionsToPixels)
 		{
@@ -1313,7 +1313,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollPolicy(value:String):Void
+	public function set_horizontalScrollPolicy(value:String):String
 	{
 		if(this._horizontalScrollPolicy == value)
 		{
@@ -1355,7 +1355,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollStep(value:Float):Void
+	public function set_verticalScrollStep(value:Float):Float
 	{
 		if(this.explicitVerticalScrollStep == value)
 		{
@@ -1392,7 +1392,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalMouseWheelScrollStep(value:Float):Void
+	public function set_verticalMouseWheelScrollStep(value:Float):Float
 	{
 		if(this._verticalMouseWheelScrollStep == value)
 		{
@@ -1430,7 +1430,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollPosition(value:Float):Void
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._snapScrollPositionsToPixels)
 		{
@@ -1557,7 +1557,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollPolicy(value:String):Void
+	public function set_verticalScrollPolicy(value:String):String
 	{
 		if(this._verticalScrollPolicy == value)
 		{
@@ -1598,7 +1598,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_clipContent(value:Bool):Void
+	public function set_clipContent(value:Bool):Bool
 	{
 		if(this._clipContent == value)
 		{
@@ -1638,7 +1638,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_pageWidth(value:Float):Void
+	public function set_pageWidth(value:Float):Float
 	{
 		if(this.explicitPageWidth == value)
 		{
@@ -1691,7 +1691,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_pageHeight(value:Float):Void
+	public function set_pageHeight(value:Float):Float
 	{
 		if(this.explicitPageHeight == value)
 		{
@@ -1741,7 +1741,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_hasElasticEdges(value:Bool):Void
+	public function set_hasElasticEdges(value:Bool):Bool
 	{
 		this._hasElasticEdges = value;
 	}
@@ -1779,7 +1779,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_elasticity(value:Float):Void
+	public function set_elasticity(value:Float):Float
 	{
 		this._elasticity = value;
 	}
@@ -1817,7 +1817,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_throwElasticity(value:Float):Void
+	public function set_throwElasticity(value:Float):Float
 	{
 		this._throwElasticity = value;
 	}
@@ -1851,7 +1851,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_scrollBarDisplayMode(value:String):Void
+	public function set_scrollBarDisplayMode(value:String):String
 	{
 		if(this._scrollBarDisplayMode == value)
 		{
@@ -1890,7 +1890,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_interactionMode(value:String):Void
+	public function set_interactionMode(value:String):String
 	{
 		if(this._interactionMode == value)
 		{
@@ -1939,7 +1939,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -1979,7 +1979,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -2029,7 +2029,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_autoHideBackground(value:Bool):Void
+	public function set_autoHideBackground(value:Bool):Bool
 	{
 		if(this._autoHideBackground == value)
 		{
@@ -2064,7 +2064,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_minimumDragDistance(value:Float):Void
+	public function set_minimumDragDistance(value:Float):Float
 	{
 		this._minimumDragDistance = value;
 	}
@@ -2095,7 +2095,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_minimumPageThrowVelocity(value:Float):Void
+	public function set_minimumPageThrowVelocity(value:Float):Float
 	{
 		this._minimumPageThrowVelocity = value;
 	}
@@ -2127,7 +2127,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -2160,7 +2160,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -2195,7 +2195,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -2230,7 +2230,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -2265,7 +2265,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -2311,7 +2311,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_hideScrollBarAnimationDuration(value:Float):Void
+	public function set_hideScrollBarAnimationDuration(value:Float):Float
 	{
 		this._hideScrollBarAnimationDuration = value;
 	}
@@ -2343,7 +2343,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_hideScrollBarAnimationEase(value:Dynamic):Void
+	public function set_hideScrollBarAnimationEase(value:Dynamic):Dynamic
 	{
 		this._hideScrollBarAnimationEase = value;
 	}
@@ -2375,7 +2375,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_elasticSnapDuration(value:Float):Void
+	public function set_elasticSnapDuration(value:Float):Float
 	{
 		this._elasticSnapDuration = value;
 	}
@@ -2418,7 +2418,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_decelerationRate(value:Float):Void
+	public function set_decelerationRate(value:Float):Float
 	{
 		if(this._decelerationRate == value)
 		{
@@ -2471,7 +2471,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_useFixedThrowDuration(value:Bool):Void
+	public function set_useFixedThrowDuration(value:Bool):Bool
 	{
 		this._useFixedThrowDuration = value;
 	}
@@ -2502,7 +2502,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_pageThrowDuration(value:Float):Void
+	public function set_pageThrowDuration(value:Float):Float
 	{
 		this._pageThrowDuration = value;
 	}
@@ -2533,7 +2533,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_mouseWheelScrollDuration(value:Float):Void
+	public function set_mouseWheelScrollDuration(value:Float):Float
 	{
 		this._mouseWheelScrollDuration = value;
 	}
@@ -2565,7 +2565,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_throwEase(value:Dynamic):Void
+	public function set_throwEase(value:Dynamic):Dynamic
 	{
 		this._throwEase = value;
 	}
@@ -2595,7 +2595,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_snapScrollPositionsToPixels(value:Bool):Void
+	public function set_snapScrollPositionsToPixels(value:Bool):Bool
 	{
 		if(this._snapScrollPositionsToPixels == value)
 		{
@@ -2699,7 +2699,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_revealScrollBarsDuration(value:Float):Void
+	public function set_revealScrollBarsDuration(value:Float):Float
 	{
 		this._revealScrollBarsDuration = value;
 	}

@@ -85,7 +85,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		this._gap = value;
 	}

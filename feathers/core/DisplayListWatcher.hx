@@ -145,7 +145,7 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	public function set_initializeOnce(value:Bool):Void
+	public function set_initializeOnce(value:Bool):Bool
 	{
 		if(this._initializeOnce == value)
 		{

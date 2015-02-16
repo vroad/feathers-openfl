@@ -365,7 +365,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function set_isEnabled(value:Bool):Void
+	override public function set_isEnabled(value:Bool):Bool
 	{
 		super.isEnabled = value;
 		if(this._isEnabled)
@@ -458,7 +458,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_text(value:String):Void
+	public function set_text(value:String):String
 	{
 		if(!value)
 		{
@@ -512,7 +512,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_prompt(value:String):Void
+	public function set_prompt(value:String):String
 	{
 		if(this._prompt == value)
 		{
@@ -548,7 +548,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_typicalText(value:String):Void
+	public function set_typicalText(value:String):String
 	{
 		if(this._typicalText == value)
 		{
@@ -584,7 +584,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Int
 	{
 		if(this._maxChars == value)
 		{
@@ -619,7 +619,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_restrict(value:String):Void
+	public function set_restrict(value:String):String
 	{
 		if(this._restrict == value)
 		{
@@ -655,7 +655,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -690,7 +690,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{
@@ -740,7 +740,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorFactory(value:Dynamic):Void
+	public function set_textEditorFactory(value:Dynamic):Dynamic
 	{
 		if(this._textEditorFactory == value)
 		{
@@ -796,7 +796,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_promptFactory(value:Dynamic):Void
+	public function set_promptFactory(value:Dynamic):Dynamic
 	{
 		if(this._promptFactory == value)
 		{
@@ -859,7 +859,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_promptProperties(value:Dynamic):Void
+	public function set_promptProperties(value:Dynamic):Dynamic
 	{
 		if(this._promptProperties == value)
 		{
@@ -932,7 +932,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.defaultValue == value)
 		{
@@ -965,7 +965,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundEnabledSkin(value:DisplayObject):Void
+	public function set_backgroundEnabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_ENABLED) == value)
 		{
@@ -995,7 +995,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundFocusedSkin(value:DisplayObject):Void
+	public function set_backgroundFocusedSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_FOCUSED) == value)
 		{
@@ -1025,7 +1025,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_backgroundDisabledSkin(value:DisplayObject):Void
+	public function set_backgroundDisabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_DISABLED) == value)
 		{
@@ -1057,7 +1057,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Dynamic):Void
+	public function set_stateToSkinFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToSkinFunction == value)
 		{
@@ -1098,7 +1098,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_defaultIcon(value:DisplayObject):Void
+	public function set_defaultIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.defaultValue == value)
 		{
@@ -1131,7 +1131,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_enabledIcon(value:DisplayObject):Void
+	public function set_enabledIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_ENABLED) == value)
 		{
@@ -1164,7 +1164,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_disabledIcon(value:DisplayObject):Void
+	public function set_disabledIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_DISABLED) == value)
 		{
@@ -1198,7 +1198,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_focusedIcon(value:DisplayObject):Void
+	public function set_focusedIcon(value:DisplayObject):DisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_FOCUSED) == value)
 		{
@@ -1230,7 +1230,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_stateToIconFunction(value:Dynamic):Void
+	public function set_stateToIconFunction(value:Dynamic):Dynamic
 	{
 		if(this._stateToIconFunction == value)
 		{
@@ -1267,7 +1267,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -1305,7 +1305,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -1339,7 +1339,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -1375,7 +1375,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -1411,7 +1411,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1447,7 +1447,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -1488,7 +1488,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -1566,7 +1566,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorProperties(value:Dynamic):Void
+	public function set_textEditorProperties(value:Dynamic):Dynamic
 	{
 		if(this._textEditorProperties == value)
 		{
@@ -1634,7 +1634,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function set_visible(value:Bool):Void
+	override public function set_visible(value:Bool):Bool
 	{
 		if(!value)
 		{

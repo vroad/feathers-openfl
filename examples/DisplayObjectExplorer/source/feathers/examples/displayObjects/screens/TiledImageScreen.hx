@@ -48,7 +48,7 @@ class TiledImageScreen extends Screen
 		return this._padding;
 	}
 
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		if(this._padding == value)
 		{

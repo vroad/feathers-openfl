@@ -200,7 +200,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_selectionSkin(value:DisplayObject):Void
+	public function set_selectionSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._selectionSkin == value)
 		{
@@ -236,7 +236,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_cursorSkin(value:DisplayObject):Void
+	public function set_cursorSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._cursorSkin == value)
 		{
@@ -287,7 +287,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Bool):Void
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -335,7 +335,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_passwordCharCode(value:Int):Void
+	public function set_passwordCharCode(value:Int):Int
 	{
 		if(this._passwordCharCode == value)
 		{
@@ -374,7 +374,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	public function set_isEditable(value:Bool):Void
+	public function set_isEditable(value:Bool):Bool
 	{
 		if(this._isEditable == value)
 		{
@@ -411,7 +411,7 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	override public function set_text(value:String):Void
+	override public function set_text(value:String):String
 	{
 		if(value == null)
 		{
@@ -466,7 +466,7 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	public function set_maxChars(value:Int):Void
+	public function set_maxChars(value:Int):Int
 	{
 		if(this._maxChars == value)
 		{
@@ -506,7 +506,7 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	public function set_restrict(value:String):Void
+	public function set_restrict(value:String):String
 	{
 		if(this._restrict && this._restrict.restrict == value)
 		{

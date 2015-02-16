@@ -753,7 +753,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_content(value:DisplayObject):Void
+	public function set_content(value:DisplayObject):DisplayObject
 	{
 		if(this._content == value)
 		{
@@ -819,7 +819,7 @@ class Callout extends FeathersControl
 		return this._origin;
 	}
 
-	public function set_origin(value:DisplayObject):Void
+	public function set_origin(value:DisplayObject):DisplayObject
 	{
 		if(this._origin == value)
 		{
@@ -884,7 +884,7 @@ class Callout extends FeathersControl
 		return this._supportedDirections;
 	}
 
-	public function set_supportedDirections(value:String):Void
+	public function set_supportedDirections(value:String):String
 	{
 		this._supportedDirections = value;
 	}
@@ -917,7 +917,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -951,7 +951,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -987,7 +987,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -1023,7 +1023,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -1059,7 +1059,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -1116,7 +1116,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_arrowPosition(value:String):Void
+	public function set_arrowPosition(value:String):String
 	{
 		if(this._arrowPosition == value)
 		{
@@ -1160,7 +1160,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_backgroundSkin(value:DisplayObject):Void
+	public function set_backgroundSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -1213,7 +1213,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_bottomArrowSkin(value:DisplayObject):Void
+	public function set_bottomArrowSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._bottomArrowSkin == value)
 		{
@@ -1268,7 +1268,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_topArrowSkin(value:DisplayObject):Void
+	public function set_topArrowSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._topArrowSkin == value)
 		{
@@ -1323,7 +1323,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_leftArrowSkin(value:DisplayObject):Void
+	public function set_leftArrowSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._leftArrowSkin == value)
 		{
@@ -1378,7 +1378,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_rightArrowSkin(value:DisplayObject):Void
+	public function set_rightArrowSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._rightArrowSkin == value)
 		{
@@ -1434,7 +1434,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_topArrowGap(value:Float):Void
+	public function set_topArrowGap(value:Float):Float
 	{
 		if(this._topArrowGap == value)
 		{
@@ -1472,7 +1472,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_bottomArrowGap(value:Float):Void
+	public function set_bottomArrowGap(value:Float):Float
 	{
 		if(this._bottomArrowGap == value)
 		{
@@ -1510,7 +1510,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_rightArrowGap(value:Float):Void
+	public function set_rightArrowGap(value:Float):Float
 	{
 		if(this._rightArrowGap == value)
 		{
@@ -1548,7 +1548,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_leftArrowGap(value:Float):Void
+	public function set_leftArrowGap(value:Float):Float
 	{
 		if(this._leftArrowGap == value)
 		{
@@ -1598,7 +1598,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_arrowOffset(value:Float):Void
+	public function set_arrowOffset(value:Float):Float
 	{
 		if(this._arrowOffset == value)
 		{

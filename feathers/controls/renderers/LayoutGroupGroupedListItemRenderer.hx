@@ -74,7 +74,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_groupIndex(value:Int):Void
+	public function set_groupIndex(value:Int):Int
 	{
 		this._groupIndex = value;
 	}
@@ -96,7 +96,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_itemIndex(value:Int):Void
+	public function set_itemIndex(value:Int):Int
 	{
 		this._itemIndex = value;
 	}
@@ -118,7 +118,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_layoutIndex(value:Int):Void
+	public function set_layoutIndex(value:Int):Int
 	{
 		this._layoutIndex = value;
 	}
@@ -140,7 +140,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_owner(value:GroupedList):Void
+	public function set_owner(value:GroupedList):GroupedList
 	{
 		if(this._owner == value)
 		{
@@ -167,7 +167,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_data(value:Dynamic):Void
+	public function set_data(value:Dynamic):Dynamic
 	{
 		if(this._data == value)
 		{
@@ -194,7 +194,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @private
 	 */
-	public function set_isSelected(value:Bool):Void
+	public function set_isSelected(value:Bool):Bool
 	{
 		if(this._isSelected == value)
 		{

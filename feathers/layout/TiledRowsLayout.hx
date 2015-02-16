@@ -211,7 +211,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Float):Void
+	public function set_gap(value:Float):Float
 	{
 		this.horizontalGap = value;
 		this.verticalGap = value;
@@ -236,7 +236,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_horizontalGap(value:Float):Void
+	public function set_horizontalGap(value:Float):Float
 	{
 		if(this._horizontalGap == value)
 		{
@@ -265,7 +265,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_verticalGap(value:Float):Void
+	public function set_verticalGap(value:Float):Float
 	{
 		if(this._verticalGap == value)
 		{
@@ -297,7 +297,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Float):Void
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -324,7 +324,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Float):Void
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -353,7 +353,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Float):Void
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -382,7 +382,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Float):Void
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -411,7 +411,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Float):Void
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -449,7 +449,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_requestedColumnCount(value:Int):Void
+	public function set_requestedColumnCount(value:Int):Int
 	{
 		if(value < 0)
 		{
@@ -491,7 +491,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_requestedRowCount(value:Int):Void
+	public function set_requestedRowCount(value:Int):Int
 	{
 		if(value < 0)
 		{
@@ -530,7 +530,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_verticalAlign(value:String):Void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -565,7 +565,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_horizontalAlign(value:String):Void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -601,7 +601,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_tileVerticalAlign(value:String):Void
+	public function set_tileVerticalAlign(value:String):String
 	{
 		if(this._tileVerticalAlign == value)
 		{
@@ -637,7 +637,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_tileHorizontalAlign(value:String):Void
+	public function set_tileHorizontalAlign(value:String):String
 	{
 		if(this._tileHorizontalAlign == value)
 		{
@@ -673,7 +673,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_paging(value:String):Void
+	public function set_paging(value:String):String
 	{
 		if(this._paging == value)
 		{
@@ -703,7 +703,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_useSquareTiles(value:Bool):Void
+	public function set_useSquareTiles(value:Bool):Bool
 	{
 		if(this._useSquareTiles == value)
 		{
@@ -744,7 +744,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_manageVisibility(value:Bool):Void
+	public function set_manageVisibility(value:Bool):Bool
 	{
 		if(this._manageVisibility == value)
 		{
@@ -773,7 +773,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_useVirtualLayout(value:Bool):Void
+	public function set_useVirtualLayout(value:Bool):Bool
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -800,7 +800,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_typicalItem(value:DisplayObject):Void
+	public function set_typicalItem(value:DisplayObject):DisplayObject
 	{
 		if(this._typicalItem == value)
 		{
@@ -839,7 +839,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_resetTypicalItemDimensionsOnMeasure(value:Bool):Void
+	public function set_resetTypicalItemDimensionsOnMeasure(value:Bool):Bool
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -887,7 +887,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_typicalItemWidth(value:Float):Void
+	public function set_typicalItemWidth(value:Float):Float
 	{
 		if(this._typicalItemWidth == value)
 		{
@@ -935,7 +935,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_typicalItemHeight(value:Float):Void
+	public function set_typicalItemHeight(value:Float):Float
 	{
 		if(this._typicalItemHeight == value)
 		{

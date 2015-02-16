@@ -198,7 +198,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	public function set_screenID(value:String):Void
+	public function set_screenID(value:String):String
 	{
 		this._screenID = value;
 	}
@@ -220,7 +220,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	public function set_owner(value:ScreenNavigator):Void
+	public function set_owner(value:ScreenNavigator):ScreenNavigator
 	{
 		this._owner = value;
 	}
