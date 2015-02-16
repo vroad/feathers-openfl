@@ -374,6 +374,7 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherFunction
 	 * @see #contentEventDispatcherChangeEventType
 	 */
+	public var content(get, set):DisplayObject;
 	public function get_content():DisplayObject
 	{
 		return this._content
@@ -453,6 +454,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var overlaySkin(get, set):DisplayObject;
 	public function get_overlaySkin():DisplayObject
 	{
 		return this._overlaySkin
@@ -502,6 +504,7 @@ class Drawers extends FeathersControl
 	 * @see #topDrawerDockMode
 	 * @see #topDrawerToggleEventType
 	 */
+	public var topDrawer(get, set):DisplayObject;
 	public function get_topDrawer():DisplayObject
 	{
 		return this._topDrawer
@@ -550,6 +553,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #topDrawer
 	 */
+	public var topDrawerDockMode(get, set):String;
 	public function get_topDrawerDockMode():String
 	{
 		return this._topDrawerDockMode;
@@ -588,6 +592,7 @@ class Drawers extends FeathersControl
 	 * @see #content
 	 * @see #topDrawer
 	 */
+	public var topDrawerToggleEventType(get, set):String;
 	public function get_topDrawerToggleEventType():String
 	{
 		return this._topDrawerToggleEventType;
@@ -641,6 +646,7 @@ class Drawers extends FeathersControl
 	 * @see #topDrawer
 	 * @see #toggleTopDrawer()
 	 */
+	public var isTopDrawerOpen(get, set):Bool;
 	public function get_isTopDrawerOpen():Bool
 	{
 		return this._topDrawer && this._isTopDrawerOpen;
@@ -669,6 +675,7 @@ class Drawers extends FeathersControl
 	 * @see #topDrawerDockMode
 	 * @see #isTopDrawerOpen
 	 */
+	public var isTopDrawerDocked(get, set):Bool;
 	public function get_isTopDrawerDocked():Bool
 	{
 		if(!this._topDrawer)
@@ -717,6 +724,7 @@ class Drawers extends FeathersControl
 	 * @see #rightDrawerDockMode
 	 * @see #rightDrawerToggleEventType
 	 */
+	public var rightDrawer(get, set):DisplayObject;
 	public function get_rightDrawer():DisplayObject
 	{
 		return this._rightDrawer
@@ -765,6 +773,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #rightDrawer
 	 */
+	public var rightDrawerDockMode(get, set):String;
 	public function get_rightDrawerDockMode():String
 	{
 		return this._rightDrawerDockMode;
@@ -803,6 +812,7 @@ class Drawers extends FeathersControl
 	 * @see #content
 	 * @see #rightDrawer
 	 */
+	public var rightDrawerToggleEventType(get, set):String;
 	public function get_rightDrawerToggleEventType():String
 	{
 		return this._rightDrawerToggleEventType;
@@ -856,6 +866,7 @@ class Drawers extends FeathersControl
 	 * @see #rightDrawerDockMode
 	 * @see #toggleRightDrawer()
 	 */
+	public var isRightDrawerOpen(get, set):Bool;
 	public function get_isRightDrawerOpen():Bool
 	{
 		return this._rightDrawer && this._isRightDrawerOpen;
@@ -884,6 +895,7 @@ class Drawers extends FeathersControl
 	 * @see #rightDrawerDockMode
 	 * @see #isRightDrawerOpen
 	 */
+	public var isRightDrawerDocked(get, set):Bool;
 	public function get_isRightDrawerDocked():Bool
 	{
 		if(!this._rightDrawer)
@@ -932,6 +944,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerDockMode
 	 * @see #bottomDrawerToggleEventType
 	 */
+	public var bottomDrawer(get, set):DisplayObject;
 	public function get_bottomDrawer():DisplayObject
 	{
 		return this._bottomDrawer
@@ -980,6 +993,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #bottomDrawer
 	 */
+	public var bottomDrawerDockMode(get, set):String;
 	public function get_bottomDrawerDockMode():String
 	{
 		return this._bottomDrawerDockMode;
@@ -1018,6 +1032,7 @@ class Drawers extends FeathersControl
 	 * @see #content
 	 * @see #bottomDrawer
 	 */
+	public var bottomDrawerToggleEventType(get, set):String;
 	public function get_bottomDrawerToggleEventType():String
 	{
 		return this._bottomDrawerToggleEventType;
@@ -1071,6 +1086,7 @@ class Drawers extends FeathersControl
 	 * @see #isBottomDrawerOpen
 	 * @see #toggleBottomDrawer()
 	 */
+	public var isBottomDrawerOpen(get, set):Bool;
 	public function get_isBottomDrawerOpen():Bool
 	{
 		return this._bottomDrawer && this._isBottomDrawerOpen;
@@ -1099,6 +1115,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerDockMode
 	 * @see #isBottomDrawerOpen
 	 */
+	public var isBottomDrawerDocked(get, set):Bool;
 	public function get_isBottomDrawerDocked():Bool
 	{
 		if(!this._bottomDrawer)
@@ -1147,6 +1164,7 @@ class Drawers extends FeathersControl
 	 * @see #leftDrawerDockMode
 	 * @see #leftDrawerToggleEventType
 	 */
+	public var leftDrawer(get, set):DisplayObject;
 	public function get_leftDrawer():DisplayObject
 	{
 		return this._leftDrawer;
@@ -1195,6 +1213,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #leftDrawer
 	 */
+	public var leftDrawerDockMode(get, set):String;
 	public function get_leftDrawerDockMode():String
 	{
 		return this._leftDrawerDockMode;
@@ -1233,6 +1252,7 @@ class Drawers extends FeathersControl
 	 * @see #content
 	 * @see #leftDrawer
 	 */
+	public var leftDrawerToggleEventType(get, set):String;
 	public function get_leftDrawerToggleEventType():String
 	{
 		return this._leftDrawerToggleEventType;
@@ -1286,6 +1306,7 @@ class Drawers extends FeathersControl
 	 * @see #isLeftDrawerDocked
 	 * @see #toggleLeftDrawer()
 	 */
+	public var isLeftDrawerOpen(get, set):Bool;
 	public function get_isLeftDrawerOpen():Bool
 	{
 		return this._leftDrawer && this._isLeftDrawerOpen;
@@ -1314,6 +1335,7 @@ class Drawers extends FeathersControl
 	 * @see #leftDrawerDockMode
 	 * @see #isLeftDrawerOpen
 	 */
+	public var isLeftDrawerDocked(get, set):Bool;
 	public function get_isLeftDrawerDocked():Bool
 	{
 		if(!this._leftDrawer)
@@ -1362,6 +1384,7 @@ class Drawers extends FeathersControl
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
+	public var autoSizeMode(get, set):String;
 	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;
@@ -1416,6 +1439,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawer
 	 * @see #leftDrawer
 	 */
+	public var clipDrawers(get, set):Bool;
 	public function get_clipDrawers():Bool
 	{
 		return this._clipDrawers;
@@ -1454,6 +1478,7 @@ class Drawers extends FeathersControl
 	 * @see #OPEN_GESTURE_DRAG_CONTENT
 	 * @see #OPEN_GESTURE_DRAG_CONTENT_EDGE
 	 */
+	public var openGesture(get, set):String;
 	public function get_openGesture():String
 	{
 		return this._openGesture;
@@ -1483,6 +1508,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 0.04
 	 */
+	public var minimumDragDistance(get, set):Float;
 	public function get_minimumDragDistance():Float
 	{
 		return this._minimumDragDistance;
@@ -1514,6 +1540,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 5
 	 */
+	public var minimumDrawerThrowVelocity(get, set):Float;
 	public function get_minimumDrawerThrowVelocity():Float
 	{
 		return this._minimumDrawerThrowVelocity;
@@ -1543,6 +1570,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @default 0.1
 	 */
+	public var openGestureEdgeSize(get, set):Float;
 	public function get_openGestureEdgeSize():Float
 	{
 		return this._openGestureEdgeSize;
@@ -1584,6 +1612,7 @@ class Drawers extends FeathersControl
 	 * @see #contentEventDispatcherField
 	 * @see #contentEventDispatcherFunction
 	 */
+	public var contentEventDispatcherChangeEventType(get, set):String;
 	public function get_contentEventDispatcherChangeEventType():String
 	{
 		return this._contentEventDispatcherChangeEventType;
@@ -1637,6 +1666,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerToggleEventType
 	 * @see #leftDrawerToggleEventType
 	 */
+	public var contentEventDispatcherField(get, set):String;
 	public function get_contentEventDispatcherField():String
 	{
 		return this._contentEventDispatcherField;
@@ -1686,6 +1716,7 @@ class Drawers extends FeathersControl
 	 * @see #bottomDrawerToggleEventType
 	 * @see #leftDrawerToggleEventType
 	 */
+	public var contentEventDispatcherFunction(get, set):Dynamic;
 	public function get_contentEventDispatcherFunction():Dynamic
 	{
 		return this._contentEventDispatcherFunction;
@@ -1728,6 +1759,7 @@ class Drawers extends FeathersControl
 	 *
 	 * @see #openOrCloseEase
 	 */
+	public var openOrCloseDuration(get, set):Float;
 	public function get_openOrCloseDuration():Float
 	{
 		return this._openOrCloseDuration;
@@ -1760,6 +1792,7 @@ class Drawers extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 * @see #openOrCloseDuration
 	 */
+	public var openOrCloseEase(get, set):Dynamic;
 	public function get_openOrCloseEase():Dynamic
 	{
 		return this._openOrCloseEase;

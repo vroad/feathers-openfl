@@ -229,6 +229,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var dataProvider(get, set):ListCollection;
 	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
@@ -303,6 +304,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedItem
 	 */
+	public var selectedIndex(get, set):Int;
 	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
@@ -352,6 +354,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #selectedIndex
 	 */
+	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
@@ -392,6 +395,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var prompt(get, set):String;
 	public function get_prompt():String
 	{
 		return this._prompt;
@@ -437,6 +441,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelFunction
 	 */
+	public var labelField(get, set):String;
 	public function get_labelField():String
 	{
 		return this._labelField;
@@ -491,6 +496,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelField
 	 */
+	public var labelFunction(get, set):Dynamic;
 	public function get_labelFunction():Dynamic
 	{
 		return this._labelFunction;
@@ -520,6 +526,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var popUpContentManager(get, set):IPopUpContentManager;
 	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
@@ -579,6 +586,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var typicalItem(get, set):Dynamic;
 	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
@@ -632,6 +640,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.Button
 	 * @see #buttonProperties
 	 */
+	public var buttonFactory(get, set):Dynamic;
 	public function get_buttonFactory():Dynamic
 	{
 		return this._buttonFactory;
@@ -678,6 +687,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see #buttonProperties
 	 */
+	public var customButtonName(get, set):String;
 	public function get_customButtonName():String
 	{
 		return this._customButtonName;
@@ -728,6 +738,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see feathers.controls.Button
 	 */
+	public var buttonProperties(get, set):Dynamic;
 	public function get_buttonProperties():Dynamic
 	{
 		if(!this._buttonProperties)
@@ -803,6 +814,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
+	public var listFactory(get, set):Dynamic;
 	public function get_listFactory():Dynamic
 	{
 		return this._listFactory;
@@ -849,6 +861,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
+	public var customListName(get, set):String;
 	public function get_customListName():String
 	{
 		return this._customListName;
@@ -899,6 +912,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
+	public var listProperties(get, set):Dynamic;
 	public function get_listProperties():Dynamic
 	{
 		if(!this._listProperties)
@@ -965,6 +979,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.core.IToggle
 	 * @see feathers.controls.ToggleButton
 	 */
+	public var toggleButtonOnOpenAndClose(get, set):Bool;
 	public function get_toggleButtonOnOpenAndClose():Bool
 	{
 		return this._toggleButtonOnOpenAndClose;

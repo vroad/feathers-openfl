@@ -109,6 +109,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #isSelected
 	 * @see #event:triggered Event.TRIGGERED
 	 */
+	public var isToggle(get, set):Bool;
 	public function get_isToggle():Bool
 	{
 		return this._isToggle;
@@ -147,6 +148,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #event:change Event.CHANGE
 	 * @see #isToggle
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;
@@ -187,6 +189,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #selectedHoverSkin
 	 * @see #selectedDisabledSkin
 	 */
+	public var defaultSelectedSkin(get, set):DisplayObject;
 	public function get_defaultSelectedSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.defaultSelectedValue);
@@ -221,6 +224,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSkin
 	 * @see #defaultSelectedSkin
 	 */
+	public var selectedUpSkin(get, set):DisplayObject;
 	public function get_selectedUpSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_UP, true));
@@ -255,6 +259,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSkin
 	 * @see #defaultSelectedSkin
 	 */
+	public var selectedDownSkin(get, set):DisplayObject;
 	public function get_selectedDownSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_DOWN, true));
@@ -289,6 +294,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSkin
 	 * @see #defaultSelectedSkin
 	 */
+	public var selectedHoverSkin(get, set):DisplayObject;
 	public function get_selectedHoverSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_HOVER, true));
@@ -323,6 +329,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSkin
 	 * @see #defaultSelectedSkin
 	 */
+	public var selectedDisabledSkin(get, set):DisplayObject;
 	public function get_selectedDisabledSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_DISABLED, true));
@@ -368,6 +375,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var defaultSelectedLabelProperties(get, set):Dynamic;
 	public function get_defaultSelectedLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultSelectedValue);
@@ -428,6 +436,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #upLabelProperties
 	 */
+	public var selectedUpLabelProperties(get, set):Dynamic;
 	public function get_selectedUpLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, true));
@@ -488,6 +497,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #downLabelProperties
 	 */
+	public var selectedDownLabelProperties(get, set):Dynamic;
 	public function get_selectedDownLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, true));
@@ -548,6 +558,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #hoverLabelProperties
 	 */
+	public var selectedHoverLabelProperties(get, set):Dynamic;
 	public function get_selectedHoverLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, true));
@@ -608,6 +619,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #disabledLabelProperties
 	 */
+	public var selectedDisabledLabelProperties(get, set):Dynamic;
 	public function get_selectedDisabledLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, true));
@@ -661,6 +673,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #selectedHoverIcon
 	 * @see #selectedDisabledIcon
 	 */
+	public var defaultSelectedIcon(get, set):DisplayObject;
 	public function get_defaultSelectedIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.defaultSelectedValue);
@@ -695,6 +708,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultIcon
 	 * @see #defaultSelectedIcon
 	 */
+	public var selectedUpIcon(get, set):DisplayObject;
 	public function get_selectedUpIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_UP, true));
@@ -729,6 +743,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultIcon
 	 * @see #defaultSelectedIcon
 	 */
+	public var selectedDownIcon(get, set):DisplayObject;
 	public function get_selectedDownIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_DOWN, true));
@@ -763,6 +778,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultIcon
 	 * @see #defaultSelectedIcon
 	 */
+	public var selectedHoverIcon(get, set):DisplayObject;
 	public function get_selectedHoverIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_HOVER, true));
@@ -797,6 +813,7 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultIcon
 	 * @see #defaultSelectedIcon
 	 */
+	public var selectedDisabledIcon(get, set):DisplayObject;
 	public function get_selectedDisabledIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_DISABLED, true));

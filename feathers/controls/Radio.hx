@@ -99,6 +99,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * @inheritDoc
 	 */
+	public var toggleGroup(get, set):ToggleGroup;
 	public function get_toggleGroup():ToggleGroup
 	{
 		return this._toggleGroup;

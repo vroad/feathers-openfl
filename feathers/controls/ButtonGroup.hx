@@ -370,6 +370,7 @@ class ButtonGroup extends FeathersControl
 	 * @see Button
 	 * @see #buttonInitializer
 	 */
+	public var dataProvider(get, set):ListCollection;
 	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
@@ -436,6 +437,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return _direction;
@@ -476,6 +478,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -516,6 +519,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
@@ -554,6 +558,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var distributeButtonSizes(get, set):Bool;
 	public function get_distributeButtonSizes():Bool
 	{
 		return this._distributeButtonSizes;
@@ -588,6 +593,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -627,6 +633,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #gap
 	 * @see #lastGap
 	 */
+	public var firstGap(get, set):Float;
 	public function get_firstGap():Float
 	{
 		return this._firstGap;
@@ -666,6 +673,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #gap
 	 * @see #firstGap
 	 */
+	public var lastGap(get, set):Float;
 	public function get_lastGap():Float
 	{
 		return this._lastGap;
@@ -703,6 +711,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -736,6 +745,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -771,6 +781,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -806,6 +817,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -841,6 +853,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -892,6 +905,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #firstButtonFactory
 	 * @see #lastButtonFactory
 	 */
+	public var buttonFactory(get, set):Dynamic;
 	public function get_buttonFactory():Dynamic
 	{
 		return this._buttonFactory;
@@ -945,6 +959,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #lastButtonFactory
 	 */
+	public var firstButtonFactory(get, set):Dynamic;
 	public function get_firstButtonFactory():Dynamic
 	{
 		return this._firstButtonFactory;
@@ -998,6 +1013,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #firstButtonFactory
 	 */
+	public var lastButtonFactory(get, set):Dynamic;
 	public function get_lastButtonFactory():Dynamic
 	{
 		return this._lastButtonFactory;
@@ -1044,6 +1060,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
+	public var buttonInitializer(get, set):Dynamic;
 	public function get_buttonInitializer():Dynamic
 	{
 		return this._buttonInitializer;
@@ -1087,6 +1104,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #DEFAULT_CHILD_NAME_BUTTON
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customButtonName(get, set):String;
 	public function get_customButtonName():String
 	{
 		return this._customButtonName;
@@ -1129,6 +1147,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customFirstButtonName(get, set):String;
 	public function get_customFirstButtonName():String
 	{
 		return this._customFirstButtonName;
@@ -1171,6 +1190,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customLastButtonName(get, set):String;
 	public function get_customLastButtonName():String
 	{
 		return this._customLastButtonName;
@@ -1225,6 +1245,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #lastButtonFactory
 	 * @see feathers.controls.Button
 	 */
+	public var buttonProperties(get, set):Dynamic;
 	public function get_buttonProperties():Dynamic
 	{
 		if(!this._buttonProperties)

@@ -261,6 +261,7 @@ class ImageLoader extends FeathersControl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Loader.html
 	 * @see http://wiki.starling-framework.org/manual/atf_textures
 	 */
+	public var source(get, set):Dynamic;
 	public function get_source():Dynamic
 	{
 		return this._source;
@@ -317,6 +318,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #errorTexture
 	 */
+	public var loadingTexture(get, set):Texture;
 	public function get_loadingTexture():Texture
 	{
 		return this._loadingTexture;
@@ -355,6 +357,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #loadingTexture
 	 */
+	public var errorTexture(get, set):Texture;
 	public function get_errorTexture():Texture
 	{
 		return this._errorTexture;
@@ -391,6 +394,7 @@ class ImageLoader extends FeathersControl
 	 *     //do something
 	 * }</listing>
 	 */
+	public var isLoaded(get, set):Bool;
 	public function get_isLoaded():Bool
 	{
 		return this._isLoaded;
@@ -413,6 +417,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 1
 	 */
+	public var textureScale(get, set):Float;
 	public function get_textureScale():Float
 	{
 		return this._textureScale;
@@ -450,6 +455,7 @@ class ImageLoader extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/textures/TextureSmoothing.html starling.textures.TextureSmoothing
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html#smoothing starling.display.Image.smoothing
 	 */
+	public var smoothing(get, set):String;
 	public function get_smoothing():String
 	{
 		return this._smoothing;
@@ -486,6 +492,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html#color starling.display.Image.color
 	 */
+	public var color(get, set):UInt;
 	public function get_color():UInt
 	{
 		return this._color;
@@ -522,6 +529,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display3D/Context3DTextureFormat.html openfl.display3d.Context3DTextureFormat
 	 */
+	public var textureFormat(get, set):String;
 	public function get_textureFormat():String
 	{
 		return this._textureFormat;
@@ -558,6 +566,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default false
 	 */
+	public var snapToPixels(get, set):Bool;
 	public function get_snapToPixels():Bool
 	{
 		return this._snapToPixels;
@@ -592,6 +601,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var maintainAspectRatio(get, set):Bool;
 	public function get_maintainAspectRatio():Bool
 	{
 		return this._maintainAspectRatio;
@@ -616,6 +626,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
+	public var originalSourceWidth(get, set):Float;
 	public function get_originalSourceWidth():Float
 	{
 		if(this._currentTextureWidth == this._currentTextureWidth) //!isNaN
@@ -631,6 +642,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
+	public var originalSourceHeight(get, set):Float;
 	public function get_originalSourceHeight():Float
 	{
 		if(this._currentTextureHeight == this._currentTextureHeight) //!isNaN
@@ -685,6 +697,7 @@ class ImageLoader extends FeathersControl
 	 * @see feathers.controls.Scroller#event:scrollComplete
 	 * @see feathers.controls.Scroller#isScrolling
 	 */
+	public var delayTextureCreation(get, set):Bool;
 	public function get_delayTextureCreation():Bool
 	{
 		return this._delayTextureCreation;
@@ -755,6 +768,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #delayTextureCreation
 	 */
+	public var textureQueueDuration(get, set):Float;
 	public function get_textureQueueDuration():Float
 	{
 		return this._textureQueueDuration;
@@ -804,6 +818,7 @@ class ImageLoader extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -838,6 +853,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -874,6 +890,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -910,6 +927,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -946,6 +964,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;

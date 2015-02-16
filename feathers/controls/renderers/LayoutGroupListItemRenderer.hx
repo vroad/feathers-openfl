@@ -65,6 +65,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
+	public var index(get, set):Int;
 	public function get_index():Int
 	{
 		return this._index;
@@ -86,6 +87,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):List;
 	public function get_owner():List
 	{
 		return this._owner;
@@ -112,6 +114,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -138,6 +141,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * @inheritDoc
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;

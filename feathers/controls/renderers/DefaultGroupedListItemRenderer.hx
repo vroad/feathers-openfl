@@ -197,6 +197,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
+	public var groupIndex(get, set):Int;
 	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
@@ -218,6 +219,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
+	public var itemIndex(get, set):Int;
 	public function get_itemIndex():Int
 	{
 		return this._itemIndex;
@@ -239,6 +241,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
+	public var layoutIndex(get, set):Int;
 	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
@@ -255,6 +258,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):GroupedList;
 	public function get_owner():GroupedList
 	{
 		return GroupedList(this._owner);

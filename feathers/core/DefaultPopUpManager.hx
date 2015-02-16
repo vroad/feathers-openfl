@@ -70,6 +70,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#overlayFactory
 	 */
+	public var overlayFactory(get, set):Dynamic;
 	public function get_overlayFactory():Dynamic
 	{
 		return this._overlayFactory;
@@ -96,6 +97,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * @copy PopUpManager#root
 	 */
+	public var root(get, set):DisplayObjectContainer;
 	public function get_root():DisplayObjectContainer
 	{
 		return this._root;

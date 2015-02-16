@@ -84,6 +84,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @inheritDoc
 	 */
+	public var screenID(get, set):String;
 	public function get_screenID():String
 	{
 		return this._screenID;
@@ -105,6 +106,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):ScreenNavigator;
 	public function get_owner():ScreenNavigator
 	{
 		return this._owner;

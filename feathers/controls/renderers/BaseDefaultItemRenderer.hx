@@ -329,6 +329,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * The item displayed by this renderer. This property is set by the
 	 * list, and should not be set manually.
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -378,6 +379,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default true
 	 */
+	public var useStateDelayTimer(get, set):Bool;
 	public function get_useStateDelayTimer():Bool
 	{
 		return this._useStateDelayTimer;
@@ -415,6 +417,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default true
 	 */
+	public var itemHasLabel(get, set):Bool;
 	public function get_itemHasLabel():Bool
 	{
 		return this._itemHasLabel;
@@ -450,6 +453,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default true
 	 */
+	public var itemHasIcon(get, set):Bool;
 	public function get_itemHasIcon():Bool
 	{
 		return this._itemHasIcon;
@@ -485,6 +489,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default true
 	 */
+	public var itemHasAccessory(get, set):Bool;
 	public function get_itemHasAccessory():Bool
 	{
 		return this._itemHasAccessory;
@@ -521,6 +526,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default false
 	 */
+	public var itemHasSkin(get, set):Bool;
 	public function get_itemHasSkin():Bool
 	{
 		return this._itemHasSkin;
@@ -557,6 +563,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default false
 	 */
+	public var itemHasSelectable(get, set):Bool;
 	public function get_itemHasSelectable():Bool
 	{
 		return this._itemHasSelectable;
@@ -592,6 +599,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default false
 	 */
+	public var itemHasEnabled(get, set):Bool;
 	public function get_itemHasEnabled():Bool
 	{
 		return this._itemHasEnabled;
@@ -635,6 +643,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #ACCESSORY_POSITION_MANUAL
 	 * @see #layoutOrder
 	 */
+	public var accessoryPosition(get, set):String;
 	public function get_accessoryPosition():String
 	{
 		return this._accessoryPosition;
@@ -678,6 +687,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryPosition
 	 * @see #iconPosition
 	 */
+	public var layoutOrder(get, set):String;
 	public function get_layoutOrder():String
 	{
 		return this._layoutOrder;
@@ -713,6 +723,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryOffsetY
 	 */
+	public var accessoryOffsetX(get, set):Float;
 	public function get_accessoryOffsetX():Float
 	{
 		return this._accessoryOffsetX;
@@ -748,6 +759,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryOffsetX
 	 */
+	public var accessoryOffsetY(get, set):Float;
 	public function get_accessoryOffsetY():Float
 	{
 		return this._accessoryOffsetY;
@@ -792,6 +804,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #gap
 	 * @see #accessoryPosition
 	 */
+	public var accessoryGap(get, set):Float;
 	public function get_accessoryGap():Float
 	{
 		return this._accessoryGap;
@@ -837,6 +850,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #accessoryGap
 	 */
+	public var minAccessoryGap(get, set):Float;
 	public function get_minAccessoryGap():Float
 	{
 		return this._minAccessoryGap;
@@ -917,6 +931,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default true
 	 */
+	public var stopScrollingOnAccessoryTouch(get, set):Bool;
 	public function get_stopScrollingOnAccessoryTouch():Bool
 	{
 		return this._stopScrollingOnAccessoryTouch;
@@ -948,6 +963,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default false
 	 */
+	public var isSelectableOnAccessoryTouch(get, set):Bool;
 	public function get_isSelectableOnAccessoryTouch():Bool
 	{
 		return this._isSelectableOnAccessoryTouch;
@@ -982,6 +998,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @default false
 	 */
+	public var delayTextureCreationOnScroll(get, set):Bool;
 	public function get_delayTextureCreationOnScroll():Bool
 	{
 		return this._delayTextureCreationOnScroll;
@@ -1024,6 +1041,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #labelFunction
 	 */
+	public var labelField(get, set):String;
 	public function get_labelField():String
 	{
 		return this._labelField;
@@ -1073,6 +1091,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #labelField
 	 */
+	public var labelFunction(get, set):Dynamic;
 	public function get_labelFunction():Dynamic
 	{
 		return this._labelFunction;
@@ -1128,6 +1147,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
+	public var iconField(get, set):String;
 	public function get_iconField():String
 	{
 		return this._iconField;
@@ -1203,6 +1223,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
+	public var iconFunction(get, set):Dynamic;
 	public function get_iconFunction():Dynamic
 	{
 		return this._iconFunction;
@@ -1263,6 +1284,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconField
 	 * @see #iconFunction
 	 */
+	public var iconSourceField(get, set):String;
 	public function get_iconSourceField():String
 	{
 		return this._iconSourceField;
@@ -1345,6 +1367,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconField
 	 * @see #iconFunction
 	 */
+	public var iconSourceFunction(get, set):Dynamic;
 	public function get_iconSourceFunction():Dynamic
 	{
 		return this._iconSourceFunction;
@@ -1406,6 +1429,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconySourceField
 	 * @see #iconSourceFunction
 	 */
+	public var iconLabelField(get, set):String;
 	public function get_iconLabelField():String
 	{
 		return this._iconLabelField;
@@ -1473,6 +1497,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
+	public var iconLabelFunction(get, set):Dynamic;
 	public function get_iconLabelFunction():Dynamic
 	{
 		return this._iconLabelFunction;
@@ -1532,6 +1557,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessoryField(get, set):String;
 	public function get_accessoryField():String
 	{
 		return this._accessoryField;
@@ -1612,6 +1638,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessoryFunction(get, set):Dynamic;
 	public function get_accessoryFunction():Dynamic
 	{
 		return this._accessoryFunction;
@@ -1674,6 +1701,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessorySourceField(get, set):String;
 	public function get_accessorySourceField():String
 	{
 		return this._accessorySourceField;
@@ -1758,6 +1786,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessorySourceFunction(get, set):Dynamic;
 	public function get_accessorySourceFunction():Dynamic
 	{
 		return this._accessorySourceFunction;
@@ -1819,6 +1848,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessorySourceField
 	 * @see #accessorySourceFunction
 	 */
+	public var accessoryLabelField(get, set):String;
 	public function get_accessoryLabelField():String
 	{
 		return this._accessoryLabelField;
@@ -1886,6 +1916,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessorySourceField
 	 * @see #accessorySourceFunction
 	 */
+	public var accessoryLabelFunction(get, set):Dynamic;
 	public function get_accessoryLabelFunction():Dynamic
 	{
 		return this._accessoryLabelFunction;
@@ -1934,6 +1965,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
+	public var skinField(get, set):String;
 	public function get_skinField():String
 	{
 		return this._skinField;
@@ -2002,6 +2034,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
+	public var skinFunction(get, set):Dynamic;
 	public function get_skinFunction():Dynamic
 	{
 		return this._skinFunction;
@@ -2061,6 +2094,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinField
 	 * @see #skinFunction
 	 */
+	public var skinSourceField(get, set):String;
 	public function get_skinSourceField():String
 	{
 		return this._skinSourceField;
@@ -2142,6 +2176,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinField
 	 * @see #skinFunction
 	 */
+	public var skinSourceFunction(get, set):Dynamic;
 	public function get_skinSourceFunction():Dynamic
 	{
 		return this._skinSourceFunction;
@@ -2187,6 +2222,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #selectableFunction
 	 */
+	public var selectableField(get, set):String;
 	public function get_selectableField():String
 	{
 		return this._selectableField;
@@ -2237,6 +2273,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #selectableField
 	 */
+	public var selectableFunction(get, set):Dynamic;
 	public function get_selectableFunction():Dynamic
 	{
 		return this._selectableFunction;
@@ -2282,6 +2319,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #enabledFunction
 	 */
+	public var enabledField(get, set):String;
 	public function get_enabledField():String
 	{
 		return this._enabledField;
@@ -2332,6 +2370,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #enabledField
 	 */
+	public var enabledFunction(get, set):Dynamic;
 	public function get_enabledFunction():Dynamic
 	{
 		return this._enabledFunction;
@@ -2420,6 +2459,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
+	public var iconLoaderFactory(get, set):Dynamic;
 	public function get_iconLoaderFactory():Dynamic
 	{
 		return this._iconLoaderFactory;
@@ -2471,6 +2511,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
+	public var iconLabelFactory(get, set):Dynamic;
 	public function get_iconLabelFactory():Dynamic
 	{
 		return this._iconLabelFactory;
@@ -2525,6 +2566,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
+	public var iconLabelProperties(get, set):Dynamic;
 	public function get_iconLabelProperties():Dynamic
 	{
 		if(!this._iconLabelProperties)
@@ -2599,6 +2641,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessorySourceField;
 	 * @see #accessorySourceFunction;
 	 */
+	public var accessoryLoaderFactory(get, set):Dynamic;
 	public function get_accessoryLoaderFactory():Dynamic
 	{
 		return this._accessoryLoaderFactory;
@@ -2650,6 +2693,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessoryLabelFactory(get, set):Dynamic;
 	public function get_accessoryLabelFactory():Dynamic
 	{
 		return this._accessoryLabelFactory;
@@ -2704,6 +2748,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
+	public var accessoryLabelProperties(get, set):Dynamic;
 	public function get_accessoryLabelProperties():Dynamic
 	{
 		if(!this._accessoryLabelProperties)
@@ -2778,6 +2823,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
+	public var skinLoaderFactory(get, set):Dynamic;
 	public function get_skinLoaderFactory():Dynamic
 	{
 		return this._skinLoaderFactory;

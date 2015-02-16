@@ -54,6 +54,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#text
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._text;
@@ -84,6 +85,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#isHTML
 	 */
+	public var isHTML(get, set):Bool;
 	public function get_isHTML():Bool
 	{
 		return this._isHTML;
@@ -110,6 +112,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#textFormat
 	 */
+	public var textFormat(get, set):TextFormat;
 	public function get_textFormat():TextFormat
 	{
 		return this._textFormat;
@@ -136,6 +139,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#disabledTextFormat
 	 */
+	public var disabledTextFormat(get, set):TextFormat;
 	public function get_disabledTextFormat():TextFormat
 	{
 		return this._disabledTextFormat;
@@ -162,6 +166,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#styleSheet
 	 */
+	public var styleSheet(get, set):StyleSheet;
 	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
@@ -188,6 +193,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#embedFonts
 	 */
+	public var embedFonts(get, set):Bool;
 	public function get_embedFonts():Bool
 	{
 		return this._embedFonts;
@@ -214,6 +220,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#antiAliasType
 	 */
+	public var antiAliasType(get, set):String;
 	public function get_antiAliasType():String
 	{
 		return this._antiAliasType;
@@ -240,6 +247,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#background
 	 */
+	public var background(get, set):Bool;
 	public function get_background():Bool
 	{
 		return this._background;
@@ -266,6 +274,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#backgroundColor
 	 */
+	public var backgroundColor(get, set):UInt;
 	public function get_backgroundColor():UInt
 	{
 		return this._backgroundColor;
@@ -292,6 +301,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#border
 	 */
+	public var border(get, set):Bool;
 	public function get_border():Bool
 	{
 		return this._border;
@@ -318,6 +328,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#borderColor
 	 */
+	public var borderColor(get, set):UInt;
 	public function get_borderColor():UInt
 	{
 		return this._borderColor;
@@ -344,6 +355,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#condenseWhite
 	 */
+	public var condenseWhite(get, set):Bool;
 	public function get_condenseWhite():Bool
 	{
 		return this._condenseWhite;
@@ -370,6 +382,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#displayAsPassword
 	 */
+	public var displayAsPassword(get, set):Bool;
 	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
@@ -396,6 +409,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#gridFitType
 	 */
+	public var gridFitType(get, set):String;
 	public function get_gridFitType():String
 	{
 		return this._gridFitType;
@@ -422,6 +436,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#sharpness
 	 */
+	public var sharpness(get, set):Float;
 	public function get_sharpness():Float
 	{
 		return this._sharpness;
@@ -448,6 +463,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @see feathers.controls.ScrollText#thickness
 	 */
+	public var thickness(get, set):Float;
 	public function get_thickness():Float
 	{
 		return this._thickness;
@@ -468,6 +484,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _minVisibleWidth:Float = 0;
 
+	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
@@ -489,6 +506,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
+	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
@@ -512,6 +530,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _explicitVisibleWidth:Float = NaN;
 
+	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float
 	{
 		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
@@ -534,6 +553,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _minVisibleHeight:Float = 0;
 
+	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
@@ -555,6 +575,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
+	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
@@ -578,6 +599,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _explicitVisibleHeight:Float = NaN;
 
+	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float
 	{
 		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
@@ -598,11 +620,13 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
+	public var contentX(get, set):Float;
 	public function get_contentX():Float
 	{
 		return 0;
 	}
 
+	public var contentY(get, set):Float;
 	public function get_contentY():Float
 	{
 		return 0;
@@ -610,11 +634,13 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _scrollStep:Float;
 
+	public var horizontalScrollStep(get, set):Float;
 	public function get_horizontalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
 
+	public var verticalScrollStep(get, set):Float;
 	public function get_verticalScrollStep():Float
 	{
 		return this._scrollStep;
@@ -622,6 +648,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _horizontalScrollPosition:Float = 0;
 
+	public var horizontalScrollPosition(get, set):Float;
 	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
@@ -639,6 +666,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _verticalScrollPosition:Float = 0;
 
+	public var verticalScrollPosition(get, set):Float;
 	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
@@ -656,6 +684,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _paddingTop:Float = 0;
 
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -673,6 +702,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _paddingRight:Float = 0;
 
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -690,6 +720,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _paddingBottom:Float = 0;
 
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -707,6 +738,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _paddingLeft:Float = 0;
 
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -744,7 +776,8 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _hasPendingRenderChange:Bool = false;
 
-	override public function get_hasVisibleArea():Bool
+	override public var hasVisibleArea(get, set):Bool;
+public function get_hasVisibleArea():Bool
 	{
 		if(this._hasPendingRenderChange)
 		{

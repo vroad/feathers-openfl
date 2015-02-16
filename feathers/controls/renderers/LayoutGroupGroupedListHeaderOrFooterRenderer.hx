@@ -65,6 +65,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
+	public var groupIndex(get, set):Int;
 	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
@@ -86,6 +87,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
+	public var layoutIndex(get, set):Int;
 	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
@@ -107,6 +109,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):GroupedList;
 	public function get_owner():GroupedList
 	{
 		return this._owner;
@@ -133,6 +136,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -159,6 +163,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * @inheritDoc
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;

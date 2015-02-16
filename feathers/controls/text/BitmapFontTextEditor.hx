@@ -164,6 +164,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
+	public var selectionSkin(get, set):DisplayObject;
 	public function get_selectionSkin():DisplayObject
 	{
 		return this._selectionSkin;
@@ -199,6 +200,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
+	public var cursorSkin(get, set):DisplayObject;
 	public function get_cursorSkin():DisplayObject
 	{
 		return this._cursorSkin;
@@ -249,6 +251,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @see #passwordCharCode
 	 */
+	public var displayAsPassword(get, set):Bool;
 	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
@@ -296,6 +299,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @see #displayAsPassword
 	 */
+	public var passwordCharCode(get, set):Int;
 	public function get_passwordCharCode():Int
 	{
 		return this._passwordCharCode;
@@ -334,6 +338,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default true
 	 */
+	public var isEditable(get, set):Bool;
 	public function get_isEditable():Bool
 	{
 		return this._isEditable;
@@ -357,6 +362,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
+	public var setTouchFocusOnEndedPhase(get, set):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
@@ -365,7 +371,8 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function get_text():String
+	override public var text(get, set):String;
+public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -424,6 +431,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default 0
 	 */
+	public var maxChars(get, set):Int;
 	public function get_maxChars():Int
 	{
 		return this._maxChars;
@@ -459,6 +467,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default null
 	 */
+	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
 		if(!this._restrict)
@@ -508,6 +517,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionBeginIndex(get, set):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
@@ -521,6 +531,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionEndIndex(get, set):Int;
 	public function get_selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;

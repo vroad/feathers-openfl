@@ -271,7 +271,8 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get_isFocusEnabled():Bool
+	override public var isFocusEnabled(get, set):Bool;
+public function get_isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -299,6 +300,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var layout(get, set):ILayout;
 	public function get_layout():ILayout
 	{
 		return this._layout;
@@ -367,6 +369,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.data.ListCollection#dispose()
 	 */
+	public var dataProvider(get, set):ListCollection;
 	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
@@ -426,6 +429,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #allowMultipleSelection
 	 */
+	public var isSelectable(get, set):Bool;
 	public function get_isSelectable():Bool
 	{
 		return this._isSelectable;
@@ -486,6 +490,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
+	public var selectedIndex(get, set):Int;
 	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
@@ -544,6 +549,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedItems
 	 * @see #selectedIndices
 	 */
+	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
 		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
@@ -589,6 +595,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndices
 	 * @see #selectedItems
 	 */
+	public var allowMultipleSelection(get, set):Bool;
 	public function get_allowMultipleSelection():Bool
 	{
 		return this._allowMultipleSelection;
@@ -644,6 +651,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
+	public var selectedIndices(get, set):Array<Int>;
 	public function get_selectedIndices():Array<Int>
 	{
 		return this._selectedIndices.data as Array<Int>;
@@ -712,6 +720,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
+	public var selectedItems(get, set):Array<Object>;
 	public function get_selectedItems():Array<Object>
 	{
 		return this.getSelectedItems(new Array());
@@ -795,6 +804,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererFactory
 	 */
+	public var itemRendererType(get, set):Class;
 	public function get_itemRendererType():Class
 	{
 		return this._itemRendererType;
@@ -845,6 +855,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererType
 	 */
+	public var itemRendererFactory(get, set):Dynamic;
 	public function get_itemRendererFactory():Dynamic
 	{
 		return this._itemRendererFactory;
@@ -885,6 +896,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var typicalItem(get, set):Dynamic;
 	public function get_typicalItem():Dynamic
 	{
 		return this._typicalItem;
@@ -927,6 +939,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var itemRendererName(get, set):String;
 	public function get_itemRendererName():String
 	{
 		return this._itemRendererName;
@@ -984,6 +997,7 @@ class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see feathers.controls.renderers.DefaultListItemRenderer
 	 */
+	public var itemRendererProperties(get, set):Dynamic;
 	public function get_itemRendererProperties():Dynamic
 	{
 		if(!this._itemRendererProperties)

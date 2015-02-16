@@ -285,6 +285,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see feathers.controls.Header
 	 * @see #headerProperties
 	 */
+	public var headerFactory(get, set):Dynamic;
 	public function get_headerFactory():Dynamic
 	{
 		return this._headerFactory;
@@ -336,6 +337,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #headerProperties
 	 */
+	public var customHeaderName(get, set):String;
 	public function get_customHeaderName():String
 	{
 		return this._customHeaderName;
@@ -390,6 +392,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see feathers.controls.Header
 	 */
+	public var headerProperties(get, set):Dynamic;
 	public function get_headerProperties():Dynamic
 	{
 		if(!this._headerProperties)
@@ -463,6 +466,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see feathers.core.FeathersControl
 	 * @see #footerProperties
 	 */
+	public var footerFactory(get, set):Dynamic;
 	public function get_footerFactory():Dynamic
 	{
 		return this._footerFactory;
@@ -514,6 +518,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #footerProperties
 	 */
+	public var customFooterName(get, set):String;
 	public function get_customFooterName():String
 	{
 		return this._customFooterName;
@@ -566,6 +571,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footerFactory
 	 */
+	public var footerProperties(get, set):Dynamic;
 	public function get_footerProperties():Dynamic
 	{
 		if(!this._footerProperties)
@@ -617,6 +623,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
+	public var focusExtrasBefore(get, set):Array<DisplayObject>;
 	public function get_focusExtrasBefore():Array<DisplayObject>
 	{
 		return this._focusExtrasBefore;
@@ -630,6 +637,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
+	public var focusExtrasAfter(get, set):Array<DisplayObject>;
 	public function get_focusExtrasAfter():Array<DisplayObject>
 	{
 		return this._focusExtrasAfter;
@@ -654,6 +662,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #outerPaddingLeft
 	 * @see feathers.controls.Scroller#padding
 	 */
+	public var outerPadding(get, set):Float;
 	public function get_outerPadding():Float
 	{
 		return this._outerPaddingTop;
@@ -695,6 +704,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingTop
 	 */
+	public var outerPaddingTop(get, set):Float;
 	public function get_outerPaddingTop():Float
 	{
 		return this._outerPaddingTop;
@@ -739,6 +749,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingRight
 	 */
+	public var outerPaddingRight(get, set):Float;
 	public function get_outerPaddingRight():Float
 	{
 		return this._outerPaddingRight;
@@ -782,6 +793,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingBottom
 	 */
+	public var outerPaddingBottom(get, set):Float;
 	public function get_outerPaddingBottom():Float
 	{
 		return this._outerPaddingBottom;
@@ -826,6 +838,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#paddingLeft
 	 */
+	public var outerPaddingLeft(get, set):Float;
 	public function get_outerPaddingLeft():Float
 	{
 		return this._outerPaddingLeft;

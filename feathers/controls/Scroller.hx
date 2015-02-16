@@ -621,6 +621,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var viewPort(get, set):IViewPort;
 	public function get_viewPort():IViewPort
 	{
 		return this._viewPort;
@@ -666,6 +667,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var measureViewPort(get, set):Bool;
 	public function get_measureViewPort():Bool
 	{
 		return this._measureViewPort;
@@ -699,6 +701,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
+	public var snapToPages(get, set):Bool;
 	public function get_snapToPages():Bool
 	{
 		return this._snapToPages;
@@ -748,6 +751,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.IScrollBar
 	 * @see #horizontalScrollBarProperties
 	 */
+	public var horizontalScrollBarFactory(get, set):Dynamic;
 	public function get_horizontalScrollBarFactory():Dynamic
 	{
 		return this._horizontalScrollBarFactory;
@@ -795,6 +799,7 @@ class Scroller extends FeathersControl
 	 * @see #horizontalScrollBarFactory
 	 * @see #horizontalScrollBarProperties
 	 */
+	public var customHorizontalScrollBarName(get, set):String;
 	public function get_customHorizontalScrollBarName():String
 	{
 		return this._customHorizontalScrollBarName;
@@ -849,6 +854,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.SimpleScrollBar
 	 * @see feathers.controls.ScrollBar
 	 */
+	public var horizontalScrollBarProperties(get, set):Dynamic;
 	public function get_horizontalScrollBarProperties():Dynamic
 	{
 		if(!this._horizontalScrollBarProperties)
@@ -911,6 +917,7 @@ class Scroller extends FeathersControl
 	 * @see #VERTICAL_SCROLL_BAR_POSITION_RIGHT
 	 * @see #VERTICAL_SCROLL_BAR_POSITION_LEFT
 	 */
+	public var verticalScrollBarPosition(get, set):String;
 	public function get_verticalScrollBarPosition():String
 	{
 		return this._verticalScrollBarPosition;
@@ -960,6 +967,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.IScrollBar
 	 * @see #verticalScrollBarProperties
 	 */
+	public var verticalScrollBarFactory(get, set):Dynamic;
 	public function get_verticalScrollBarFactory():Dynamic
 	{
 		return this._verticalScrollBarFactory;
@@ -1007,6 +1015,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollBarFactory
 	 * @see #verticalScrollBarProperties
 	 */
+	public var customVerticalScrollBarName(get, set):String;
 	public function get_customVerticalScrollBarName():String
 	{
 		return this._customVerticalScrollBarName;
@@ -1061,6 +1070,7 @@ class Scroller extends FeathersControl
 	 * @see feathers.controls.SimpleScrollBar
 	 * @see feathers.controls.ScrollBar
 	 */
+	public var verticalScrollBarProperties(get, set):Dynamic;
 	public function get_verticalScrollBarProperties():Dynamic
 	{
 		if(!this._verticalScrollBarProperties)
@@ -1126,6 +1136,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
+	public var horizontalScrollStep(get, set):Float;
 	public function get_horizontalScrollStep():Float
 	{
 		return this.actualHorizontalScrollStep;
@@ -1166,6 +1177,7 @@ class Scroller extends FeathersControl
 	 * @see #minHorizontalScrollPosition
 	 * @see #maxHorizontalScrollPosition
 	 */
+	public var horizontalScrollPosition(get, set):Float;
 	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
@@ -1209,6 +1221,7 @@ class Scroller extends FeathersControl
 	 * @see #horizontalScrollPosition
 	 * @see #maxHorizontalScrollPosition
 	 */
+	public var minHorizontalScrollPosition(get, set):Float;
 	public function get_minHorizontalScrollPosition():Float
 	{
 		return this._minHorizontalScrollPosition;
@@ -1230,6 +1243,7 @@ class Scroller extends FeathersControl
 	 * @see #horizontalScrollPosition
 	 * @see #minHorizontalScrollPosition
 	 */
+	public var maxHorizontalScrollPosition(get, set):Float;
 	public function get_maxHorizontalScrollPosition():Float
 	{
 		return this._maxHorizontalScrollPosition;
@@ -1244,6 +1258,7 @@ class Scroller extends FeathersControl
 	 * The index of the horizontal page, if snapping is enabled. If snapping
 	 * is disabled, the index will always be <code>0</code>.
 	 */
+	public var horizontalPageIndex(get, set):Int;
 	public function get_horizontalPageIndex():Int
 	{
 		if(this.pendingHorizontalPageIndex >= 0)
@@ -1262,6 +1277,7 @@ class Scroller extends FeathersControl
 	 * The number of horizontal pages, if snapping is enabled. If snapping
 	 * is disabled, the page count will always be <code>1</code>.
 	 */
+	public var horizontalPageCount(get, set):Int;
 	public function get_horizontalPageCount():Int
 	{
 		return this._horizontalPageCount;
@@ -1288,6 +1304,7 @@ class Scroller extends FeathersControl
 	 * @see #SCROLL_POLICY_ON
 	 * @see #SCROLL_POLICY_OFF
 	 */
+	public var horizontalScrollPolicy(get, set):String;
 	public function get_horizontalScrollPolicy():String
 	{
 		return this._horizontalScrollPolicy;
@@ -1329,6 +1346,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
+	public var verticalScrollStep(get, set):Float;
 	public function get_verticalScrollStep():Float
 	{
 		return this.actualVerticalScrollStep;
@@ -1365,6 +1383,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default NaN
 	 */
+	public var verticalMouseWheelScrollStep(get, set):Float;
 	public function get_verticalMouseWheelScrollStep():Float
 	{
 		return this._verticalMouseWheelScrollStep;
@@ -1402,6 +1421,7 @@ class Scroller extends FeathersControl
 	 * <listing version="3.0">
 	 * scroller.verticalScrollPosition = scroller.maxVerticalScrollPosition;</listing>
 	 */
+	public var verticalScrollPosition(get, set):Float;
 	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
@@ -1445,6 +1465,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #maxVerticalScrollPosition
 	 */
+	public var minVerticalScrollPosition(get, set):Float;
 	public function get_minVerticalScrollPosition():Float
 	{
 		return this._minVerticalScrollPosition;
@@ -1466,6 +1487,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #minVerticalScrollPosition
 	 */
+	public var maxVerticalScrollPosition(get, set):Float;
 	public function get_maxVerticalScrollPosition():Float
 	{
 		return this._maxVerticalScrollPosition;
@@ -1480,6 +1502,7 @@ class Scroller extends FeathersControl
 	 * The index of the vertical page, if snapping is enabled. If snapping
 	 * is disabled, the index will always be <code>0</code>.
 	 */
+	public var verticalPageIndex(get, set):Int;
 	public function get_verticalPageIndex():Int
 	{
 		if(this.pendingVerticalPageIndex >= 0)
@@ -1498,6 +1521,7 @@ class Scroller extends FeathersControl
 	 * The number of vertical pages, if snapping is enabled. If snapping
 	 * is disabled, the page count will always be <code>1</code>.
 	 */
+	public var verticalPageCount(get, set):Int;
 	public function get_verticalPageCount():Int
 	{
 		return this._verticalPageCount;
@@ -1524,6 +1548,7 @@ class Scroller extends FeathersControl
 	 * @see #SCROLL_POLICY_ON
 	 * @see #SCROLL_POLICY_OFF
 	 */
+	public var verticalScrollPolicy(get, set):String;
 	public function get_verticalScrollPolicy():String
 	{
 		return this._verticalScrollPolicy;
@@ -1564,6 +1589,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var clipContent(get, set):Bool;
 	public function get_clipContent():Bool
 	{
 		return this._clipContent;
@@ -1603,6 +1629,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #snapToPages
 	 */
+	public var pageWidth(get, set):Float;
 	public function get_pageWidth():Float
 	{
 		return this.actualPageWidth;
@@ -1655,6 +1682,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #snapToPages
 	 */
+	public var pageHeight(get, set):Float;
 	public function get_pageHeight():Float
 	{
 		return this.actualPageHeight;
@@ -1704,6 +1732,7 @@ class Scroller extends FeathersControl
 	 * @see #elasticity
 	 * @see #throwElasticity
 	 */
+	public var hasElasticEdges(get, set):Bool;
 	public function get_hasElasticEdges():Bool
 	{
 		return this._hasElasticEdges;
@@ -1741,6 +1770,7 @@ class Scroller extends FeathersControl
 	 * @see #hasElasticEdges
 	 * @see #throwElasticity
 	 */
+	public var elasticity(get, set):Float;
 	public function get_elasticity():Float
 	{
 		return this._elasticity;
@@ -1778,6 +1808,7 @@ class Scroller extends FeathersControl
 	 * @see #hasElasticEdges
 	 * @see #elasticity
 	 */
+	public var throwElasticity(get, set):Float;
 	public function get_throwElasticity():Float
 	{
 		return this._throwElasticity;
@@ -1811,6 +1842,7 @@ class Scroller extends FeathersControl
 	 * @see #SCROLL_BAR_DISPLAY_MODE_FIXED
 	 * @see #SCROLL_BAR_DISPLAY_MODE_NONE
 	 */
+	public var scrollBarDisplayMode(get, set):String;
 	public function get_scrollBarDisplayMode():String
 	{
 		return this._scrollBarDisplayMode;
@@ -1849,6 +1881,7 @@ class Scroller extends FeathersControl
 	 * @see #INTERACTION_MODE_MOUSE
 	 * @see #INTERACTION_MODE_TOUCH_AND_SCROLL_BARS
 	 */
+	public var interactionMode(get, set):String;
 	public function get_interactionMode():String
 	{
 		return this._interactionMode;
@@ -1897,6 +1930,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
@@ -1936,6 +1970,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundDisabledSkin(get, set):DisplayObject;
 	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
@@ -1985,6 +2020,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
+	public var autoHideBackground(get, set):Bool;
 	public function get_autoHideBackground():Bool
 	{
 		return this._autoHideBackground;
@@ -2019,6 +2055,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.04
 	 */
+	public var minimumDragDistance(get, set):Float;
 	public function get_minimumDragDistance():Float
 	{
 		return this._minimumDragDistance;
@@ -2049,6 +2086,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 5
 	 */
+	public var minimumPageThrowVelocity(get, set):Float;
 	public function get_minimumPageThrowVelocity():Float
 	{
 		return this._minimumPageThrowVelocity;
@@ -2080,6 +2118,7 @@ class Scroller extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -2112,6 +2151,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -2146,6 +2186,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -2180,6 +2221,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -2214,6 +2256,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -2259,6 +2302,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.2
 	 */
+	public var hideScrollBarAnimationDuration(get, set):Float;
 	public function get_hideScrollBarAnimationDuration():Float
 	{
 		return this._hideScrollBarAnimationDuration;
@@ -2290,6 +2334,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
+	public var hideScrollBarAnimationEase(get, set):Dynamic;
 	public function get_hideScrollBarAnimationEase():Dynamic
 	{
 		return this._hideScrollBarAnimationEase;
@@ -2321,6 +2366,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.5
 	 */
+	public var elasticSnapDuration(get, set):Float;
 	public function get_elasticSnapDuration():Float
 	{
 		return this._elasticSnapDuration;
@@ -2363,6 +2409,7 @@ class Scroller extends FeathersControl
 	 * @see #DECELERATION_RATE_NORMAL
 	 * @see #DECELERATION_RATE_FAST
 	 */
+	public var decelerationRate(get, set):Float;
 	public function get_decelerationRate():Float
 	{
 		return this._decelerationRate;
@@ -2415,6 +2462,7 @@ class Scroller extends FeathersControl
 	 * @see #decelerationRate
 	 * @see #pageThrowDuration
 	 */
+	public var useFixedThrowDuration(get, set):Bool;
 	public function get_useFixedThrowDuration():Bool
 	{
 		return this._useFixedThrowDuration;
@@ -2445,6 +2493,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.5
 	 */
+	public var pageThrowDuration(get, set):Float;
 	public function get_pageThrowDuration():Float
 	{
 		return this._pageThrowDuration;
@@ -2475,6 +2524,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default 0.35
 	 */
+	public var mouseWheelScrollDuration(get, set):Float;
 	public function get_mouseWheelScrollDuration():Float
 	{
 		return this._mouseWheelScrollDuration;
@@ -2506,6 +2556,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
+	public var throwEase(get, set):Dynamic;
 	public function get_throwEase():Dynamic
 	{
 		return this._throwEase;
@@ -2535,6 +2586,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @default false
 	 */
+	public var snapScrollPositionsToPixels(get, set):Bool;
 	public function get_snapScrollPositionsToPixels():Bool
 	{
 		return this._snapScrollPositionsToPixels;
@@ -2576,6 +2628,7 @@ class Scroller extends FeathersControl
 	 * Determines if the scroller is currently scrolling with user
 	 * interaction or with animation.
 	 */
+	public var isScrolling(get, set):Bool;
 	public function get_isScrolling():Bool
 	{
 		return this._isScrolling;
@@ -2637,6 +2690,7 @@ class Scroller extends FeathersControl
 	 *
 	 * @see #revealScrollBars()
 	 */
+	public var revealScrollBarsDuration(get, set):Float;
 	public function get_revealScrollBarsDuration():Float
 	{
 		return this._revealScrollBarsDuration;

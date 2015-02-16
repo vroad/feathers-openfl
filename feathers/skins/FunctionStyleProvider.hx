@@ -46,6 +46,7 @@ class FunctionStyleProvider implements IStyleProvider
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function( item:IFeathersControl ):Void</pre>
 	 */
+	public var styleFunction(get, set):Dynamic;
 	public function get_styleFunction():Dynamic
 	{
 		return this._styleFunction;

@@ -187,6 +187,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * the data source's APIs to something that can be understood by
 	 * <code>HierarchicalCollection</code>.
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return _data;
@@ -214,6 +215,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Describes the underlying data source by translating APIs.
 	 */
+	public var dataDescriptor(get, set):IHierarchicalCollectionDataDescriptor;
 	public function get_dataDescriptor():IHierarchicalCollectionDataDescriptor
 	{
 		return this._dataDescriptor;

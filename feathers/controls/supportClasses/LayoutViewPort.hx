@@ -23,6 +23,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _minVisibleWidth:Float = 0;
 
+	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
@@ -44,6 +45,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
+	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
@@ -67,6 +69,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _explicitVisibleWidth:Float = NaN;
 
+	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float
 	{
 		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
@@ -89,6 +92,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _minVisibleHeight:Float = 0;
 
+	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
@@ -110,6 +114,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
+	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
@@ -133,6 +138,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _explicitVisibleHeight:Float = NaN;
 
+	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float
 	{
 		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
@@ -155,6 +161,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _contentX:Float = 0;
 
+	public var contentX(get, set):Float;
 	public function get_contentX():Float
 	{
 		return this._contentX;
@@ -162,11 +169,13 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _contentY:Float = 0;
 
+	public var contentY(get, set):Float;
 	public function get_contentY():Float
 	{
 		return this._contentY;
 	}
 
+	public var horizontalScrollStep(get, set):Float;
 	public function get_horizontalScrollStep():Float
 	{
 		if(this.actualWidth < this.actualHeight)
@@ -176,6 +185,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this.actualHeight / 10;
 	}
 
+	public var verticalScrollStep(get, set):Float;
 	public function get_verticalScrollStep():Float
 	{
 		if(this.actualWidth < this.actualHeight)
@@ -187,6 +197,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _horizontalScrollPosition:Float = 0;
 
+	public var horizontalScrollPosition(get, set):Float;
 	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
@@ -204,6 +215,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _verticalScrollPosition:Float = 0;
 
+	public var verticalScrollPosition(get, set):Float;
 	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;

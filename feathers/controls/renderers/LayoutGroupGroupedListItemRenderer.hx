@@ -65,6 +65,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var groupIndex(get, set):Int;
 	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
@@ -86,6 +87,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var itemIndex(get, set):Int;
 	public function get_itemIndex():Int
 	{
 		return this._itemIndex;
@@ -107,6 +109,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var layoutIndex(get, set):Int;
 	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
@@ -128,6 +131,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):GroupedList;
 	public function get_owner():GroupedList
 	{
 		return this._owner;
@@ -154,6 +158,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -180,6 +185,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * @inheritDoc
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;

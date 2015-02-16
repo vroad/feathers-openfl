@@ -68,6 +68,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var index(get, set):Int;
 	public function get_index():Int
 	{
 		return this._index;
@@ -94,6 +95,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):List;
 	public function get_owner():List
 	{
 		return List(this._owner);
@@ -134,6 +136,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -161,6 +164,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;

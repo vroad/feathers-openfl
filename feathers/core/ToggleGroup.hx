@@ -80,6 +80,7 @@ class ToggleGroup extends EventDispatcher
 	 *
 	 * @default true
 	 */
+	public var isSelectionRequired(get, set):Bool;
 	public function get_isSelectionRequired():Bool
 	{
 		return this._isSelectionRequired;
@@ -111,6 +112,7 @@ class ToggleGroup extends EventDispatcher
 	 *
 	 * @default null
 	 */
+	public var selectedItem(get, set):IToggle;
 	public function get_selectedItem():IToggle
 	{
 		if(this._selectedIndex < 0)
@@ -143,6 +145,7 @@ class ToggleGroup extends EventDispatcher
 	 *
 	 * @default -1
 	 */
+	public var selectedIndex(get, set):Int;
 	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;

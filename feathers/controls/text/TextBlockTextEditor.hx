@@ -191,6 +191,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
+	public var selectionSkin(get, set):DisplayObject;
 	public function get_selectionSkin():DisplayObject
 	{
 		return this._selectionSkin;
@@ -226,6 +227,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 *
 	 */
+	public var cursorSkin(get, set):DisplayObject;
 	public function get_cursorSkin():DisplayObject
 	{
 		return this._cursorSkin;
@@ -276,6 +278,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @see #passwordCharCode
 	 */
+	public var displayAsPassword(get, set):Bool;
 	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
@@ -323,6 +326,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @see #displayAsPassword
 	 */
+	public var passwordCharCode(get, set):Int;
 	public function get_passwordCharCode():Int
 	{
 		return this._passwordCharCode;
@@ -361,6 +365,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default true
 	 */
+	public var isEditable(get, set):Bool;
 	public function get_isEditable():Bool
 	{
 		return this._isEditable;
@@ -384,6 +389,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
+	public var setTouchFocusOnEndedPhase(get, set):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
@@ -392,7 +398,8 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public function get_text():String
+	override public var text(get, set):String;
+public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -450,6 +457,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default 0
 	 */
+	public var maxChars(get, set):Int;
 	public function get_maxChars():Int
 	{
 		return this._maxChars;
@@ -485,6 +493,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default null
 	 */
+	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
 		if(!this._restrict)
@@ -534,6 +543,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionBeginIndex(get, set):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
@@ -547,6 +557,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionEndIndex(get, set):Int;
 	public function get_selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;

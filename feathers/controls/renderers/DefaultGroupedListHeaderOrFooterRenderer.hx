@@ -155,6 +155,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return this._data;
@@ -181,6 +182,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
+	public var groupIndex(get, set):Int;
 	public function get_groupIndex():Int
 	{
 		return this._groupIndex;
@@ -202,6 +204,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
+	public var layoutIndex(get, set):Int;
 	public function get_layoutIndex():Int
 	{
 		return this._layoutIndex;
@@ -223,6 +226,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):GroupedList;
 	public function get_owner():GroupedList
 	{
 		return this._owner;
@@ -264,6 +268,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -305,6 +310,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
@@ -357,6 +363,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentField(get, set):String;
 	public function get_contentField():String
 	{
 		return this._contentField;
@@ -421,6 +428,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentFunction(get, set):Dynamic;
 	public function get_contentFunction():Dynamic
 	{
 		return this._contentFunction;
@@ -482,6 +490,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentSourceField(get, set):String;
 	public function get_contentSourceField():String
 	{
 		return this._contentSourceField;
@@ -552,6 +561,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentSourceFunction(get, set):Dynamic;
 	public function get_contentSourceFunction():Dynamic
 	{
 		return this._contentSourceFunction;
@@ -612,6 +622,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
+	public var contentLabelField(get, set):String;
 	public function get_contentLabelField():String
 	{
 		return this._contentLabelField;
@@ -678,6 +689,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
+	public var contentLabelFunction(get, set):Dynamic;
 	public function get_contentLabelFunction():Dynamic
 	{
 		return this._contentLabelFunction;
@@ -725,6 +737,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
+	public var contentLoaderFactory(get, set):Dynamic;
 	public function get_contentLoaderFactory():Dynamic
 	{
 		return this._contentLoaderFactory;
@@ -772,6 +785,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentLabelFactory(get, set):Dynamic;
 	public function get_contentLabelFactory():Dynamic
 	{
 		return this._contentLabelFactory;
@@ -817,6 +831,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
+	public var contentLabelProperties(get, set):Dynamic;
 	public function get_contentLabelProperties():Dynamic
 	{
 		if(!this._contentLabelProperties)
@@ -891,6 +906,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default null
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
@@ -935,6 +951,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default null
 	 */
+	public var backgroundDisabledSkin(get, set):DisplayObject;
 	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
@@ -976,6 +993,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -1008,6 +1026,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -1042,6 +1061,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -1076,6 +1096,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -1110,6 +1131,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * 
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;

@@ -198,6 +198,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * The string identifier for the currently active screen.
 	 */
+	public var activeScreenID(get, set):String;
 	public function get_activeScreenID():String
 	{
 		return this._activeScreenID;
@@ -211,6 +212,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * A reference to the currently active screen.
 	 */
+	public var activeScreen(get, set):DisplayObject;
 	public function get_activeScreen():DisplayObject
 	{
 		return this._activeScreen;
@@ -232,6 +234,7 @@ class ScreenNavigator extends FeathersControl
 	 *
 	 * @default false
 	 */
+	public var clipContent(get, set):Bool;
 	public function get_clipContent():Bool
 	{
 		return this._clipContent;
@@ -339,6 +342,7 @@ class ScreenNavigator extends FeathersControl
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
+	public var autoSizeMode(get, set):String;
 	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;

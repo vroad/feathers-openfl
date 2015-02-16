@@ -251,6 +251,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleFactory
 	 */
+	public var title(get, set):String;
 	public function get_title():String
 	{
 		return this._title;
@@ -314,6 +315,7 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var titleFactory(get, set):Dynamic;
 	public function get_titleFactory():Dynamic
 	{
 		return this._titleFactory;
@@ -359,6 +361,7 @@ class Header extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var disposeItems(get, set):Bool;
 	public function get_disposeItems():Bool
 	{
 		return this._disposeItems;
@@ -392,6 +395,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var leftItems(get, set):Array<DisplayObject>;
 	public function get_leftItems():Array<DisplayObject>
 	{
 		return this._leftItems;
@@ -454,6 +458,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var centerItems(get, set):Array<DisplayObject>;
 	public function get_centerItems():Array<DisplayObject>
 	{
 		return this._centerItems;
@@ -513,6 +518,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var rightItems(get, set):Array<DisplayObject>;
 	public function get_rightItems():Array<DisplayObject>
 	{
 		return this._rightItems;
@@ -571,6 +577,7 @@ class Header extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -604,6 +611,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -639,6 +647,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -674,6 +683,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -709,6 +719,7 @@ class Header extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -751,6 +762,7 @@ class Header extends FeathersControl
 	 * @see #leftItems
 	 * @see #rightItems
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return _gap;
@@ -789,6 +801,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #gap
 	 */
+	public var titleGap(get, set):Float;
 	public function get_titleGap():Float
 	{
 		return _titleGap;
@@ -831,6 +844,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #paddingTop
 	 */
+	public var useExtraPaddingForOSStatusBar(get, set):Bool;
 	public function get_useExtraPaddingForOSStatusBar():Bool
 	{
 		return this._useExtraPaddingForOSStatusBar;
@@ -870,6 +884,7 @@ class Header extends FeathersControl
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
@@ -919,6 +934,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
@@ -963,6 +979,7 @@ class Header extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundDisabledSkin(get, set):DisplayObject;
 	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
@@ -1029,6 +1046,7 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var titleProperties(get, set):Dynamic;
 	public function get_titleProperties():Dynamic
 	{
 		if(!this._titleProperties)
@@ -1088,6 +1106,7 @@ class Header extends FeathersControl
 	 * @see #TITLE_ALIGN_PREFER_LEFT
 	 * @see #TITLE_ALIGN_PREFER_RIGHT
 	 */
+	public var titleAlign(get, set):String;
 	public function get_titleAlign():String
 	{
 		return this._titleAlign;

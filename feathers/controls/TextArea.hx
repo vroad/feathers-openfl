@@ -300,7 +300,8 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get_isFocusEnabled():Bool
+	override public var isFocusEnabled(get, set):Bool;
+public function get_isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -310,6 +311,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * can be used instead of <code>FocusManager.focus == textArea</code>
 	 * to determine if the text area has focus.
 	 */
+	public var hasFocus(get, set):Bool;
 	public function get_hasFocus():Bool
 	{
 		if(!this._focusManager)
@@ -406,6 +408,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default ""
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._text;
@@ -446,6 +449,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
+	public var maxChars(get, set):Int;
 	public function get_maxChars():Int
 	{
 		return this._maxChars;
@@ -480,6 +484,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
 		return this._restrict;
@@ -514,6 +519,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
+	public var isEditable(get, set):Bool;
 	public function get_isEditable():Bool
 	{
 		return this._isEditable;
@@ -549,6 +555,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var backgroundFocusedSkin(get, set):DisplayObject;
 	public function get_backgroundFocusedSkin():DisplayObject
 	{
 		return this._backgroundFocusedSkin;
@@ -592,6 +599,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var stateToSkinFunction(get, set):Dynamic;
 	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
@@ -642,6 +650,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
+	public var textEditorFactory(get, set):Dynamic;
 	public function get_textEditorFactory():Dynamic
 	{
 		return this._textEditorFactory;
@@ -694,6 +703,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
+	public var textEditorProperties(get, set):Dynamic;
 	public function get_textEditorProperties():Dynamic
 	{
 		if(!this._textEditorProperties)

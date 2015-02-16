@@ -240,6 +240,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -289,6 +290,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #page
 	 * @see #event:change
 	 */
+	public var value(get, set):Float;
 	public function get_value():Float
 	{
 		return this._value;
@@ -328,6 +330,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #maximum
 	 */
+	public var minimum(get, set):Float;
 	public function get_minimum():Float
 	{
 		return this._minimum;
@@ -359,6 +362,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #minimum
 	 */
+	public var maximum(get, set):Float;
 	public function get_maximum():Float
 	{
 		return this._maximum;
@@ -390,6 +394,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #page
 	 */
+	public var step(get, set):Float;
 	public function get_step():Float
 	{
 		return this._step;
@@ -416,6 +421,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #value
 	 * @see #step
 	 */
+	public var page(get, set):Float;
 	public function get_page():Float
 	{
 		return this._page;
@@ -452,6 +458,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -483,6 +490,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -516,6 +524,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -549,6 +558,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -582,6 +592,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -627,6 +638,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @default 0.05
 	 */
+	public var repeatDelay(get, set):Float;
 	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
@@ -696,6 +708,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
+	public var thumbFactory(get, set):Dynamic;
 	public function get_thumbFactory():Dynamic
 	{
 		return this._thumbFactory;
@@ -742,6 +755,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public var customThumbName(get, set):String;
 	public function get_customThumbName():String
 	{
 		return this._customThumbName;
@@ -792,6 +806,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see feathers.controls.Button
 	 */
+	public var thumbProperties(get, set):Dynamic;
 	public function get_thumbProperties():Dynamic
 	{
 		if(!this._thumbProperties)

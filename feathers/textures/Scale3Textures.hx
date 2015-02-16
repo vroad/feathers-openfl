@@ -90,6 +90,7 @@ class Scale3Textures
 	/**
 	 * The original texture.
 	 */
+	public var texture(get, set):Texture;
 	public function get_texture():Texture
 	{
 		return this._texture;
@@ -103,6 +104,7 @@ class Scale3Textures
 	/**
 	 * The size of the first region, in pixels.
 	 */
+	public var firstRegionSize(get, set):Float;
 	public function get_firstRegionSize():Float
 	{
 		return this._firstRegionSize;
@@ -116,6 +118,7 @@ class Scale3Textures
 	/**
 	 * The size of the second region, in pixels.
 	 */
+	public var secondRegionSize(get, set):Float;
 	public function get_secondRegionSize():Float
 	{
 		return this._secondRegionSize;
@@ -134,6 +137,7 @@ class Scale3Textures
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -147,6 +151,7 @@ class Scale3Textures
 	/**
 	 * The texture for the first region.
 	 */
+	public var first(get, set):Texture;
 	public function get_first():Texture
 	{
 		return this._first;
@@ -160,6 +165,7 @@ class Scale3Textures
 	/**
 	 * The texture for the second region.
 	 */
+	public var second(get, set):Texture;
 	public function get_second():Texture
 	{
 		return this._second;
@@ -173,6 +179,7 @@ class Scale3Textures
 	/**
 	 * The texture for the third region.
 	 */
+	public var third(get, set):Texture;
 	public function get_third():Texture
 	{
 		return this._third;

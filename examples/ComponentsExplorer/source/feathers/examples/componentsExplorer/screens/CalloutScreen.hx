@@ -38,6 +38,7 @@ class CalloutScreen extends PanelScreen
 
 	private var _layoutPadding:Float = 0;
 
+	public var layoutPadding(get, set):Float;
 	public function get_layoutPadding():Float
 	{
 		return this._layoutPadding;

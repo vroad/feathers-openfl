@@ -197,6 +197,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @inheritDoc
 	 */
+	public var index(get, set):Int;
 	public function get_index():Int
 	{
 		return this._index;
@@ -213,6 +214,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * @inheritDoc
 	 */
+	public var owner(get, set):List;
 	public function get_owner():List
 	{
 		return List(this._owner);

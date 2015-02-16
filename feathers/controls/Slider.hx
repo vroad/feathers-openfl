@@ -397,6 +397,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -442,6 +443,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #step
 	 * @see #page
 	 */
+	public var value(get, set):Float;
 	public function get_value():Float
 	{
 		return this._value;
@@ -491,6 +493,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #maximum
 	 */
+	public var minimum(get, set):Float;
 	public function get_minimum():Float
 	{
 		return this._minimum;
@@ -533,6 +536,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #minimum
 	 */
+	public var maximum(get, set):Float;
 	public function get_maximum():Float
 	{
 		return this._maximum;
@@ -576,6 +580,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #value
 	 * @see #page
 	 */
+	public var step(get, set):Float;
 	public function get_step():Float
 	{
 		return this._step;
@@ -623,6 +628,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #page
 	 * @see #trackInteractionMode
 	 */
+	public var page(get, set):Float;
 	public function get_page():Float
 	{
 		return this._page;
@@ -673,6 +679,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default true
 	 */
+	public var showThumb(get, set):Bool;
 	public function get_showThumb():Bool
 	{
 		return this._showThumb;
@@ -708,6 +715,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
+	public var minimumPadding(get, set):Float;
 	public function get_minimumPadding():Float
 	{
 		return this._minimumPadding;
@@ -743,6 +751,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0
 	 */
+	public var maximumPadding(get, set):Float;
 	public function get_maximumPadding():Float
 	{
 		return this._maximumPadding;
@@ -781,6 +790,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_LAYOUT_MODE_SINGLE
 	 * @see #TRACK_LAYOUT_MODE_MIN_MAX
 	 */
+	public var trackLayoutMode(get, set):String;
 	public function get_trackLayoutMode():String
 	{
 		return this._trackLayoutMode;
@@ -820,6 +830,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_SCALE_MODE_EXACT_FIT
 	 * @see #trackLayoutMode
 	 */
+	public var trackScaleMode(get, set):String;
 	public function get_trackScaleMode():String
 	{
 		return this._trackScaleMode;
@@ -864,6 +875,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #TRACK_INTERACTION_MODE_BY_PAGE
 	 * @see #page
 	 */
+	public var trackInteractionMode(get, set):String;
 	public function get_trackInteractionMode():String
 	{
 		return this._trackInteractionMode;
@@ -905,6 +917,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 *
 	 * @default 0.05
 	 */
+	public var repeatDelay(get, set):Float;
 	public function get_repeatDelay():Float
 	{
 		return this._repeatDelay;
@@ -956,6 +969,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #minimumTrackProperties
 	 */
+	public var minimumTrackFactory(get, set):Dynamic;
 	public function get_minimumTrackFactory():Dynamic
 	{
 		return this._minimumTrackFactory;
@@ -1002,6 +1016,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
+	public var customMinimumTrackName(get, set):String;
 	public function get_customMinimumTrackName():String
 	{
 		return this._customMinimumTrackName;
@@ -1053,6 +1068,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see feathers.controls.Button
 	 */
+	public var minimumTrackProperties(get, set):Dynamic;
 	public function get_minimumTrackProperties():Dynamic
 	{
 		if(!this._minimumTrackProperties)
@@ -1129,6 +1145,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #maximumTrackProperties
 	 */
+	public var maximumTrackFactory(get, set):Dynamic;
 	public function get_maximumTrackFactory():Dynamic
 	{
 		return this._maximumTrackFactory;
@@ -1175,6 +1192,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
+	public var customMaximumTrackName(get, set):String;
 	public function get_customMaximumTrackName():String
 	{
 		return this._customMaximumTrackName;
@@ -1226,6 +1244,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see feathers.controls.Button
 	 */
+	public var maximumTrackProperties(get, set):Dynamic;
 	public function get_maximumTrackProperties():Dynamic
 	{
 		if(!this._maximumTrackProperties)
@@ -1302,6 +1321,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
+	public var thumbFactory(get, set):Dynamic;
 	public function get_thumbFactory():Dynamic
 	{
 		return this._thumbFactory;
@@ -1348,6 +1368,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public var customThumbName(get, set):String;
 	public function get_customThumbName():String
 	{
 		return this._customThumbName;
@@ -1398,6 +1419,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
+	public var thumbProperties(get, set):Dynamic;
 	public function get_thumbProperties():Dynamic
 	{
 		if(!this._thumbProperties)

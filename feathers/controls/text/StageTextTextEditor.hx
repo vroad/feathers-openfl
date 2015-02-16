@@ -283,6 +283,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default ""
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._text;
@@ -338,6 +339,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionBeginIndex(get, set):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
@@ -359,6 +361,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
+	public var selectionEndIndex(get, set):Int;
 	public function get_selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
@@ -380,6 +383,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
+	public var baseline(get, set):Float;
 	public function get_baseline():Float
 	{
 		if(!this._measureTextField)
@@ -408,6 +412,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCapitalize Full description of openfl.text.StageText.autoCapitalize in Adobe's Flash Platform API Reference
 	 */
+	public var autoCapitalize(get, set):String;
 	public function get_autoCapitalize():String
 	{
 		return this._autoCapitalize;
@@ -446,6 +451,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#autoCorrect Full description of openfl.text.StageText.autoCorrect in Adobe's Flash Platform API Reference
 	 */
+	public var autoCorrect(get, set):Bool;
 	public function get_autoCorrect():Bool
 	{
 		return this._autoCorrect;
@@ -483,6 +489,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see #disabledColor
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of openfl.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
+	public var color(get, set):UInt;
 	public function get_color():UInt
 	{
 		return this._color;
@@ -521,6 +528,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see #disabledColor
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#color Full description of openfl.text.StageText.color in Adobe's Flash Platform API Reference
 	 */
+	public var disabledColor(get, set):UInt;
 	public function get_disabledColor():UInt
 	{
 		return this._disabledColor;
@@ -557,6 +565,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#displayAsPassword Full description of openfl.text.StageText.displayAsPassword in Adobe's Flash Platform API Reference
 	 */
+	public var displayAsPassword(get, set):Bool;
 	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
@@ -591,6 +600,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default true
 	 */
+	public var isEditable(get, set):Bool;
 	public function get_isEditable():Bool
 	{
 		return this._isEditable;
@@ -614,6 +624,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default true
 	 */
+	public var setTouchFocusOnEndedPhase(get, set):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return true;
@@ -637,6 +648,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontFamily Full description of openfl.text.StageText.fontFamily in Adobe's Flash Platform API Reference
 	 */
+	public var fontFamily(get, set):String;
 	public function get_fontFamily():String
 	{
 		return this._fontFamily;
@@ -674,6 +686,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontPosture Full description of openfl.text.StageText.fontPosture in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontPosture.html openfl.text.engine.FontPosture
 	 */
+	public var fontPosture(get, set):String;
 	public function get_fontPosture():String
 	{
 		return this._fontPosture;
@@ -709,6 +722,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontSize Full description of openfl.text.StageText.fontSize in Adobe's Flash Platform API Reference
 	 */
+	public var fontSize(get, set):Int;
 	public function get_fontSize():Int
 	{
 		return this._fontSize;
@@ -746,6 +760,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontWeight Full description of openfl.text.StageText.fontWeight in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontWeight.html openfl.text.engine.FontWeight
 	 */
+	public var fontWeight(get, set):String;
 	public function get_fontWeight():String
 	{
 		return this._fontWeight;
@@ -783,6 +798,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#locale Full description of openfl.text.StageText.locale in Adobe's Flash Platform API Reference
 	 */
+	public var locale(get, set):String;
 	public function get_locale():String
 	{
 		return this._locale;
@@ -821,6 +837,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#maxChars Full description of openfl.text.StageText.maxChars in Adobe's Flash Platform API Reference
 	 */
+	public var maxChars(get, set):Int;
 	public function get_maxChars():Int
 	{
 		return this._maxChars;
@@ -865,6 +882,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#multiline Full description of openfl.text.StageText.multiline in Adobe's Flash Platform API Reference
 	 */
+	public var multiline(get, set):Bool;
 	public function get_multiline():Bool
 	{
 		return this._multiline;
@@ -902,6 +920,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#restrict Full description of openfl.text.StageText.restrict in Adobe's Flash Platform API Reference
 	 */
+	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
 		return this._restrict;
@@ -942,6 +961,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#returnKeyLabel Full description of openfl.text.StageText.returnKeyLabel in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/ReturnKeyLabel.html openfl.text.ReturnKeyLabel
 	 */
+	public var returnKeyLabel(get, set):String;
 	public function get_returnKeyLabel():String
 	{
 		return this._returnKeyLabel;
@@ -982,6 +1002,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#softKeyboardType Full description of openfl.text.StageText.softKeyboardType in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/SoftKeyboardType.html openfl.text.SoftKeyboardType
 	 */
+	public var softKeyboardType(get, set):String;
 	public function get_softKeyboardType():String
 	{
 		return this._softKeyboardType;
@@ -1019,6 +1040,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#textAlign Full description of openfl.text.StageText.textAlign in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormatAlign.html openfl.text.TextFormatAlign
 	 */
+	public var textAlign(get, set):String;
 	public function get_textAlign():String
 	{
 		return this._textAlign;

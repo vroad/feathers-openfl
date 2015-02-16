@@ -244,6 +244,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 *
 	 * @default null
 	 */
+	public var layout(get, set):ILayout;
 	public function get_layout():ILayout
 	{
 		return this._layout;
@@ -276,6 +277,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
+	public var mxmlContent(get, set):Array;
 	public function get_mxmlContent():Array
 	{
 		return this._mxmlContent;
@@ -307,7 +309,8 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function get_numChildren():Int
+	override public var numChildren(get, set):Int;
+public function get_numChildren():Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -319,6 +322,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @inheritDoc
 	 */
+	public var numRawChildren(get, set):Int;
 	public function get_numRawChildren():Int
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;

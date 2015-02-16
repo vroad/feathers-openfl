@@ -744,6 +744,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var content(get, set):DisplayObject;
 	public function get_content():DisplayObject
 	{
 		return this._content;
@@ -812,6 +813,7 @@ class Callout extends FeathersControl
 	 * @see #arrowPosition
 	 * @see #arrowOffset
 	 */
+	public var origin(get, set):DisplayObject;
 	public function get_origin():DisplayObject
 	{
 		return this._origin;
@@ -876,6 +878,7 @@ class Callout extends FeathersControl
 	 * @see #DIRECTION_RIGHT
 	 * @see #arrowPosition
 	 */
+	public var supportedDirections(get, set):String;
 	public function get_supportedDirections():String
 	{
 		return this._supportedDirections;
@@ -905,6 +908,7 @@ class Callout extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -938,6 +942,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -973,6 +978,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -1008,6 +1014,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -1043,6 +1050,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -1099,6 +1107,7 @@ class Callout extends FeathersControl
 	 * @see #supportedDirections
 	 * @see #arrowOffset
 	 */
+	public var arrowPosition(get, set):String;
 	public function get_arrowPosition():String
 	{
 		return this._arrowPosition;
@@ -1142,6 +1151,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
@@ -1194,6 +1204,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var bottomArrowSkin(get, set):DisplayObject;
 	public function get_bottomArrowSkin():DisplayObject
 	{
 		return this._bottomArrowSkin;
@@ -1248,6 +1259,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var topArrowSkin(get, set):DisplayObject;
 	public function get_topArrowSkin():DisplayObject
 	{
 		return this._topArrowSkin;
@@ -1302,6 +1314,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var leftArrowSkin(get, set):DisplayObject;
 	public function get_leftArrowSkin():DisplayObject
 	{
 		return this._leftArrowSkin;
@@ -1356,6 +1369,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var rightArrowSkin(get, set):DisplayObject;
 	public function get_rightArrowSkin():DisplayObject
 	{
 		return this._rightArrowSkin;
@@ -1411,6 +1425,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var topArrowGap(get, set):Float;
 	public function get_topArrowGap():Float
 	{
 		return this._topArrowGap;
@@ -1448,6 +1463,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var bottomArrowGap(get, set):Float;
 	public function get_bottomArrowGap():Float
 	{
 		return this._bottomArrowGap;
@@ -1485,6 +1501,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var rightArrowGap(get, set):Float;
 	public function get_rightArrowGap():Float
 	{
 		return this._rightArrowGap;
@@ -1522,6 +1539,7 @@ class Callout extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var leftArrowGap(get, set):Float;
 	public function get_leftArrowGap():Float
 	{
 		return this._leftArrowGap;
@@ -1571,6 +1589,7 @@ class Callout extends FeathersControl
 	 * @see #arrowPosition
 	 * @see #origin
 	 */
+	public var arrowOffset(get, set):Float;
 	public function get_arrowOffset():Float
 	{
 		return this._arrowOffset;

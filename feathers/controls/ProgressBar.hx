@@ -88,6 +88,7 @@ class ProgressBar extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -126,6 +127,7 @@ class ProgressBar extends FeathersControl
 	 * @see #minimum
 	 * @see #maximum
 	 */
+	public var value(get, set):Float;
 	public function get_value():Float
 	{
 		return this._value;
@@ -165,6 +167,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #maximum
 	 */
+	public var minimum(get, set):Float;
 	public function get_minimum():Float
 	{
 		return this._minimum;
@@ -203,6 +206,7 @@ class ProgressBar extends FeathersControl
 	 * @see #value
 	 * @see #minimum
 	 */
+	public var maximum(get, set):Float;
 	public function get_maximum():Float
 	{
 		return this._maximum;
@@ -252,6 +256,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
@@ -296,6 +301,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var backgroundDisabledSkin(get, set):DisplayObject;
 	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
@@ -368,6 +374,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var fillSkin(get, set):DisplayObject;
 	public function get_fillSkin():DisplayObject
 	{
 		return this._fillSkin;
@@ -412,6 +419,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default null
 	 */
+	public var fillDisabledSkin(get, set):DisplayObject;
 	public function get_fillDisabledSkin():DisplayObject
 	{
 		return this._fillDisabledSkin;
@@ -458,6 +466,7 @@ class ProgressBar extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -490,6 +499,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -524,6 +534,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -558,6 +569,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -592,6 +604,7 @@ class ProgressBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;

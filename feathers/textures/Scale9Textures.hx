@@ -93,6 +93,7 @@ class Scale9Textures
 	/**
 	 * The original texture.
 	 */
+	public var texture(get, set):Texture;
 	public function get_texture():Texture
 	{
 		return this._texture;
@@ -106,6 +107,7 @@ class Scale9Textures
 	/**
 	 * The grid representing the nine sub-regions of the texture.
 	 */
+	public var scale9Grid(get, set):Rectangle;
 	public function get_scale9Grid():Rectangle
 	{
 		return this._scale9Grid;
@@ -119,6 +121,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the top Left.
 	 */
+	public var topLeft(get, set):Texture;
 	public function get_topLeft():Texture
 	{
 		return this._topLeft;
@@ -132,6 +135,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the top center.
 	 */
+	public var topCenter(get, set):Texture;
 	public function get_topCenter():Texture
 	{
 		return this._topCenter;
@@ -145,6 +149,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the top right.
 	 */
+	public var topRight(get, set):Texture;
 	public function get_topRight():Texture
 	{
 		return this._topRight;
@@ -158,6 +163,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the middle left.
 	 */
+	public var middleLeft(get, set):Texture;
 	public function get_middleLeft():Texture
 	{
 		return this._middleLeft;
@@ -171,6 +177,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the middle center.
 	 */
+	public var middleCenter(get, set):Texture;
 	public function get_middleCenter():Texture
 	{
 		return this._middleCenter;
@@ -184,6 +191,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the middle right.
 	 */
+	public var middleRight(get, set):Texture;
 	public function get_middleRight():Texture
 	{
 		return this._middleRight;
@@ -197,6 +205,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the bottom left.
 	 */
+	public var bottomLeft(get, set):Texture;
 	public function get_bottomLeft():Texture
 	{
 		return this._bottomLeft;
@@ -210,6 +219,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the bottom center.
 	 */
+	public var bottomCenter(get, set):Texture;
 	public function get_bottomCenter():Texture
 	{
 		return this._bottomCenter;
@@ -223,6 +233,7 @@ class Scale9Textures
 	/**
 	 * The texture for the region in the bottom right.
 	 */
+	public var bottomRight(get, set):Texture;
 	public function get_bottomRight():Texture
 	{
 		return this._bottomRight;

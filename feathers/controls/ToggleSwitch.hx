@@ -334,6 +334,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -372,6 +373,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -406,6 +408,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default true
 	 */
+	public var showLabels(get, set):Bool;
 	public function get_showLabels():Bool
 	{
 		return _showLabels;
@@ -440,6 +443,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default true
 	 */
+	public var showThumb(get, set):Bool;
 	public function get_showThumb():Bool
 	{
 		return this._showThumb;
@@ -478,6 +482,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #TRACK_LAYOUT_MODE_SINGLE
 	 * @see #TRACK_LAYOUT_MODE_ON_OFF
 	 */
+	public var trackLayoutMode(get, set):String;
 	public function get_trackLayoutMode():String
 	{
 		return this._trackLayoutMode;
@@ -529,6 +534,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #offLabelProperties
 	 * @see #disabledLabelProperties
 	 */
+	public var defaultLabelProperties(get, set):Dynamic;
 	public function get_defaultLabelProperties():Dynamic
 	{
 		if(!this._defaultLabelProperties)
@@ -589,6 +595,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var disabledLabelProperties(get, set):Dynamic;
 	public function get_disabledLabelProperties():Dynamic
 	{
 		if(!this._disabledLabelProperties)
@@ -650,6 +657,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var onLabelProperties(get, set):Dynamic;
 	public function get_onLabelProperties():Dynamic
 	{
 		if(!this._onLabelProperties)
@@ -711,6 +719,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var offLabelProperties(get, set):Dynamic;
 	public function get_offLabelProperties():Dynamic
 	{
 		if(!this._offLabelProperties)
@@ -761,6 +770,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #LABEL_ALIGN_BASELINE
 	 * @see #LABEL_ALIGN_MIDDLE
 	 */
+	public var labelAlign(get, set):String;
 	public function get_labelAlign():String
 	{
 		return this._labelAlign;
@@ -813,6 +823,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
+	public var labelFactory(get, set):Dynamic;
 	public function get_labelFactory():Dynamic
 	{
 		return this._labelFactory;
@@ -867,6 +878,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
+	public var onLabelFactory(get, set):Dynamic;
 	public function get_onLabelFactory():Dynamic
 	{
 		return this._onLabelFactory;
@@ -921,6 +933,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
+	public var offLabelFactory(get, set):Dynamic;
 	public function get_offLabelFactory():Dynamic
 	{
 		return this._offLabelFactory;
@@ -976,6 +989,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #setSelectionWithAnimation()
 	 */
+	public var isSelected(get, set):Bool;
 	public function get_isSelected():Bool
 	{
 		return this._isSelected;
@@ -1019,6 +1033,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.core.IToggle
 	 * @see feathers.controls.ToggleButton
 	 */
+	public var toggleThumbSelection(get, set):Bool;
 	public function get_toggleThumbSelection():Bool
 	{
 		return this._toggleThumbSelection;
@@ -1054,6 +1069,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default 0.15
 	 */
+	public var toggleDuration(get, set):Float;
 	public function get_toggleDuration():Float
 	{
 		return this._toggleDuration;
@@ -1085,6 +1101,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
+	public var toggleEase(get, set):Dynamic;
 	public function get_toggleEase():Dynamic
 	{
 		return this._toggleEase;
@@ -1114,6 +1131,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default "ON"
 	 */
+	public var onText(get, set):String;
 	public function get_onText():String
 	{
 		return this._onText;
@@ -1152,6 +1170,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @default "OFF"
 	 */
+	public var offText(get, set):String;
 	public function get_offText():String
 	{
 		return this._offText;
@@ -1236,6 +1255,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #onTrackProperties
 	 */
+	public var onTrackFactory(get, set):Dynamic;
 	public function get_onTrackFactory():Dynamic
 	{
 		return this._onTrackFactory;
@@ -1282,6 +1302,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #onTrackFactory
 	 * @see #onTrackProperties
 	 */
+	public var customOnTrackName(get, set):String;
 	public function get_customOnTrackName():String
 	{
 		return this._customOnTrackName;
@@ -1331,6 +1352,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #onTrackFactory
 	 */
+	public var onTrackProperties(get, set):Dynamic;
 	public function get_onTrackProperties():Dynamic
 	{
 		if(!this._onTrackProperties)
@@ -1406,6 +1428,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #offTrackProperties
 	 */
+	public var offTrackFactory(get, set):Dynamic;
 	public function get_offTrackFactory():Dynamic
 	{
 		return this._offTrackFactory;
@@ -1452,6 +1475,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #offTrackFactory
 	 * @see #offTrackProperties
 	 */
+	public var customOffTrackName(get, set):String;
 	public function get_customOffTrackName():String
 	{
 		return this._customOffTrackName;
@@ -1501,6 +1525,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #offTrackFactory
 	 */
+	public var offTrackProperties(get, set):Dynamic;
 	public function get_offTrackProperties():Dynamic
 	{
 		if(!this._offTrackProperties)
@@ -1574,6 +1599,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 *
 	 * @see #thumbProperties
 	 */
+	public var thumbFactory(get, set):Dynamic;
 	public function get_thumbFactory():Dynamic
 	{
 		return this._thumbFactory;
@@ -1620,6 +1646,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public var customThumbName(get, set):String;
 	public function get_customThumbName():String
 	{
 		return this._customThumbName;
@@ -1669,6 +1696,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
+	public var thumbProperties(get, set):Dynamic;
 	public function get_thumbProperties():Dynamic
 	{
 		if(!this._thumbProperties)

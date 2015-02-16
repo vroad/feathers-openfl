@@ -34,6 +34,7 @@ class ItemRendererScreen extends PanelScreen
 
 	private var _itemRendererGap:Float = 0;
 
+	public var itemRendererGap(get, set):Float;
 	public function get_itemRendererGap():Float
 	{
 		return this._itemRendererGap;
@@ -51,6 +52,7 @@ class ItemRendererScreen extends PanelScreen
 
 	private var _settings:ItemRendererSettings;
 
+	public var settings(get, set):ItemRendererSettings;
 	public function get_settings():ItemRendererSettings
 	{
 		return this._settings;

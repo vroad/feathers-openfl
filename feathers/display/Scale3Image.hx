@@ -122,6 +122,7 @@ class Scale3Image extends Sprite implements IValidating
 	 * <listing version="3.0">
 	 * image.textures = new Scale3Textures( texture, firstRegionWidth, secondRegionWidth, Scale3Textures.DIRECTION_HORIZONTAL );</listing>
 	 */
+	public var textures(get, set):Scale3Textures;
 	public function get_textures():Scale3Textures
 	{
 		return this._textures;
@@ -160,7 +161,8 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function get_width():Float
+	override public var width(get, set):Float;
+public function get_width():Float
 	{
 		return this._width;
 	}
@@ -187,7 +189,8 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public function get_height():Float
+	override public var height(get, set):Float;
+public function get_height():Float
 	{
 		return this._height;
 	}
@@ -222,6 +225,7 @@ class Scale3Image extends Sprite implements IValidating
 	 *
 	 * @default 1
 	 */
+	public var textureScale(get, set):Float;
 	public function get_textureScale():Float
 	{
 		return this._textureScale;
@@ -258,6 +262,7 @@ class Scale3Image extends Sprite implements IValidating
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/textures/TextureSmoothing.html starling.textures.TextureSmoothing
 	 */
+	public var smoothing(get, set):String;
 	public function get_smoothing():String
 	{
 		return this._smoothing;
@@ -292,6 +297,7 @@ class Scale3Image extends Sprite implements IValidating
 	 *
 	 * @default 0xffffff
 	 */
+	public var color(get, set):UInt;
 	public function get_color():UInt
 	{
 		return this._color;
@@ -327,6 +333,7 @@ class Scale3Image extends Sprite implements IValidating
 	 *
 	 * @default true
 	 */
+	public var useSeparateBatch(get, set):Bool;
 	public function get_useSeparateBatch():Bool
 	{
 		return this._useSeparateBatch;
@@ -379,6 +386,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
+	public var depth(get, set):Int;
 	public function get_depth():Int
 	{
 		return this._depth;

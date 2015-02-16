@@ -331,6 +331,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #tabInitializer
 	 */
+	public var dataProvider(get, set):ListCollection;
 	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
@@ -421,6 +422,7 @@ class TabBar extends FeathersControl
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
+	public var direction(get, set):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -461,6 +463,7 @@ class TabBar extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -501,6 +504,7 @@ class TabBar extends FeathersControl
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
@@ -540,6 +544,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default true
 	 */
+	public var distributeTabSizes(get, set):Bool;
 	public function get_distributeTabSizes():Bool
 	{
 		return this._distributeTabSizes;
@@ -573,6 +578,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -612,6 +618,7 @@ class TabBar extends FeathersControl
 	 * @see #gap
 	 * @see #lastGap
 	 */
+	public var firstGap(get, set):Float;
 	public function get_firstGap():Float
 	{
 		return this._firstGap;
@@ -651,6 +658,7 @@ class TabBar extends FeathersControl
 	 * @see #gap
 	 * @see #firstGap
 	 */
+	public var lastGap(get, set):Float;
 	public function get_lastGap():Float
 	{
 		return this._lastGap;
@@ -688,6 +696,7 @@ class TabBar extends FeathersControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -721,6 +730,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -756,6 +766,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -791,6 +802,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -826,6 +838,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -879,6 +892,7 @@ class TabBar extends FeathersControl
 	 * @see #firstTabFactory
 	 * @see #lastTabFactory
 	 */
+	public var tabFactory(get, set):Dynamic;
 	public function get_tabFactory():Dynamic
 	{
 		return this._tabFactory;
@@ -934,6 +948,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #lastTabFactory
 	 */
+	public var firstTabFactory(get, set):Dynamic;
 	public function get_firstTabFactory():Dynamic
 	{
 		return this._firstTabFactory;
@@ -989,6 +1004,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #firstTabFactory
 	 */
+	public var lastTabFactory(get, set):Dynamic;
 	public function get_lastTabFactory():Dynamic
 	{
 		return this._lastTabFactory;
@@ -1033,6 +1049,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
+	public var tabInitializer(get, set):Dynamic;
 	public function get_tabInitializer():Dynamic
 	{
 		return this._tabInitializer;
@@ -1086,6 +1103,7 @@ class TabBar extends FeathersControl
 	 * 
 	 * @see #selectedItem
 	 */
+	public var selectedIndex(get, set):Int;
 	public function get_selectedIndex():Int
 	{
 		if(this._pendingSelectedIndex != NOT_PENDING_INDEX)
@@ -1138,6 +1156,7 @@ class TabBar extends FeathersControl
 	 * 
 	 * @see #selectedIndex
 	 */
+	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
 		var index:Int = this.selectedIndex;
@@ -1187,6 +1206,7 @@ class TabBar extends FeathersControl
 	 * @see #DEFAULT_CHILD_NAME_TAB
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customTabName(get, set):String;
 	public function get_customTabName():String
 	{
 		return this._customTabName;
@@ -1230,6 +1250,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customFirstTabName(get, set):String;
 	public function get_customFirstTabName():String
 	{
 		return this._customFirstTabName;
@@ -1273,6 +1294,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customLastTabName(get, set):String;
 	public function get_customLastTabName():String
 	{
 		return this._customLastTabName;
@@ -1325,6 +1347,7 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see feathers.controls.Button
 	 */
+	public var tabProperties(get, set):Dynamic;
 	public function get_tabProperties():Dynamic
 	{
 		if(!this._tabProperties)

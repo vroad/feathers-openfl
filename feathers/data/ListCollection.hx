@@ -196,6 +196,7 @@ class ListCollection extends EventDispatcher
 	 * detected, and no <code>dataDescriptor</code> needs to be set if the
 	 * <code>ListCollection</code> uses one of these types.</p>
 	 */
+	public var data(get, set):Dynamic;
 	public function get_data():Dynamic
 	{
 		return _data;
@@ -255,6 +256,7 @@ class ListCollection extends EventDispatcher
 	 * 
 	 * @see IListCollectionDataDescriptor
 	 */
+	public var dataDescriptor(get, set):IListCollectionDataDescriptor;
 	public function get_dataDescriptor():IListCollectionDataDescriptor
 	{
 		return this._dataDescriptor;
@@ -277,6 +279,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * The number of items in the collection.
 	 */
+	public var length(get, set):Int;
 	public function get_length():Int
 	{
 		return this._dataDescriptor.getLength(this._data);

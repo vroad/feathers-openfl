@@ -279,6 +279,7 @@ class Alert extends Panel
 	/**
 	 * The title text displayed in the alert's header.
 	 */
+	public var title(get, set):String;
 	public function get_title():String
 	{
 		return this._title;
@@ -305,6 +306,7 @@ class Alert extends Panel
 	/**
 	 * The alert's main text content.
 	 */
+	public var message(get, set):String;
 	public function get_message():String
 	{
 		return this._message;
@@ -331,6 +333,7 @@ class Alert extends Panel
 	/**
 	 * The alert's optional icon content to display next to the text.
 	 */
+	public var icon(get, set):DisplayObject;
 	public function get_icon():DisplayObject
 	{
 		return this._icon;
@@ -376,6 +379,7 @@ class Alert extends Panel
 	 *
 	 * @default 0
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -402,6 +406,7 @@ class Alert extends Panel
 	/**
 	 * The data provider of the alert's <code>ButtonGroup</code>.
 	 */
+	public var buttonsDataProvider(get, set):ListCollection;
 	public function get_buttonsDataProvider():ListCollection
 	{
 		return this._buttonsDataProvider;
@@ -461,6 +466,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var messageFactory(get, set):Dynamic;
 	public function get_messageFactory():Dynamic
 	{
 		return this._messageFactory;
@@ -517,6 +523,7 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var messageProperties(get, set):Dynamic;
 	public function get_messageProperties():Dynamic
 	{
 		if(!this._messageProperties)
@@ -576,6 +583,7 @@ class Alert extends Panel
 	 * @see feathers.controls.ButtonGroup
 	 * @see #buttonGroupProperties
 	 */
+	public var buttonGroupFactory(get, set):Dynamic;
 	public function get_buttonGroupFactory():Dynamic
 	{
 		return super.footerFactory;
@@ -612,6 +620,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #buttonGroupProperties
 	 */
+	public var customButtonGroupName(get, set):String;
 	public function get_customButtonGroupName():String
 	{
 		return super.customFooterName;
@@ -650,6 +659,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see feathers.controls.ButtonGroup
 	 */
+	public var buttonGroupProperties(get, set):Dynamic;
 	public function get_buttonGroupProperties():Dynamic
 	{
 		return super.footerProperties;

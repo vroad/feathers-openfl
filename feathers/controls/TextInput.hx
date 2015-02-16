@@ -341,7 +341,8 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	override public function get_isFocusEnabled():Bool
+	override public var isFocusEnabled(get, set):Bool;
+public function get_isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -351,6 +352,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * can be used instead of <code>FocusManager.focus == textInput</code>
 	 * to determine if the text input has focus.
 	 */
+	public var hasFocus(get, set):Bool;
 	public function get_hasFocus():Bool
 	{
 		if(!this._focusManager)
@@ -447,6 +449,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default ""
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._text;
@@ -474,6 +477,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * The baseline measurement of the text, in pixels.
 	 */
+	public var baseline(get, set):Float;
 	public function get_baseline():Float
 	{
 		if(!this.textEditor)
@@ -499,6 +503,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var prompt(get, set):String;
 	public function get_prompt():String
 	{
 		return this._prompt;
@@ -534,6 +539,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var typicalText(get, set):String;
 	public function get_typicalText():String
 	{
 		return this._typicalText;
@@ -569,6 +575,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var maxChars(get, set):Int;
 	public function get_maxChars():Int
 	{
 		return this._maxChars;
@@ -603,6 +610,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
 		return this._restrict;
@@ -638,6 +646,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default false
 	 */
+	public var displayAsPassword(get, set):Bool;
 	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
@@ -672,6 +681,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default true
 	 */
+	public var isEditable(get, set):Bool;
 	public function get_isEditable():Bool
 	{
 		return this._isEditable;
@@ -721,6 +731,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.core.ITextEditor
 	 * @see feathers.core.FeathersControl#defaultTextEditorFactory
 	 */
+	public var textEditorFactory(get, set):Dynamic;
 	public function get_textEditorFactory():Dynamic
 	{
 		return this._textEditorFactory;
@@ -776,6 +787,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var promptFactory(get, set):Dynamic;
 	public function get_promptFactory():Dynamic
 	{
 		return this._promptFactory;
@@ -834,6 +846,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var promptProperties(get, set):Dynamic;
 	public function get_promptProperties():Dynamic
 	{
 		if(!this._promptProperties)
@@ -910,6 +923,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #backgroundDisabledSkin
 	 * @see #backgroundFocusedSkin
 	 */
+	public var backgroundSkin(get, set):DisplayObject;
 	public function get_backgroundSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.defaultValue);
@@ -942,6 +956,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #backgroundSkin
 	 * @see #backgroundDisabledSkin
 	 */
+	public var backgroundEnabledSkin(get, set):DisplayObject;
 	public function get_backgroundEnabledSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_ENABLED));
@@ -971,6 +986,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var backgroundFocusedSkin(get, set):DisplayObject;
 	public function get_backgroundFocusedSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_FOCUSED));
@@ -1000,6 +1016,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var backgroundDisabledSkin(get, set):DisplayObject;
 	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_DISABLED));
@@ -1031,6 +1048,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var stateToSkinFunction(get, set):Dynamic;
 	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
@@ -1071,6 +1089,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #disabledIcon
 	 * @see #focusedIcon
 	 */
+	public var defaultIcon(get, set):DisplayObject;
 	public function get_defaultIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.defaultValue);
@@ -1103,6 +1122,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #defaultIcon
 	 * @see #disabledIcon
 	 */
+	public var enabledIcon(get, set):DisplayObject;
 	public function get_enabledIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_ENABLED));
@@ -1135,6 +1155,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #defaultIcon
 	 * @see #enabledIcon
 	 */
+	public var disabledIcon(get, set):DisplayObject;
 	public function get_disabledIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_DISABLED));
@@ -1168,6 +1189,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #enabledIcon
 	 * @see #disabledIcon
 	 */
+	public var focusedIcon(get, set):DisplayObject;
 	public function get_focusedIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_FOCUSED));
@@ -1199,6 +1221,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default null
 	 */
+	public var stateToIconFunction(get, set):Dynamic;
 	public function get_stateToIconFunction():Dynamic
 	{
 		return this._stateToIconFunction;
@@ -1235,6 +1258,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -1272,6 +1296,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -1305,6 +1330,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -1340,6 +1366,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -1375,6 +1402,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -1410,6 +1438,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -1450,6 +1479,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 * @see #VERTICAL_ALIGN_JUSTIFY
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
@@ -1523,6 +1553,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * @see #textEditorFactory
 	 * @see feathers.core.ITextEditor
 	 */
+	public var textEditorProperties(get, set):Dynamic;
 	public function get_textEditorProperties():Dynamic
 	{
 		if(!this._textEditorProperties)
@@ -1569,6 +1600,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @copy feathers.core.ITextEditor#selectionBeginIndex
 	 */
+	public var selectionBeginIndex(get, set):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
@@ -1585,6 +1617,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @copy feathers.core.ITextEditor#selectionEndIndex
 	 */
+	public var selectionEndIndex(get, set):Int;
 	public function get_selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)

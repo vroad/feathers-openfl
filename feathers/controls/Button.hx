@@ -508,6 +508,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var label(get, set):String;
 	public function get_label():String
 	{
 		return this._label;
@@ -543,6 +544,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default true
 	 */
+	public var hasLabelTextRenderer(get, set):Bool;
 	public function get_hasLabelTextRenderer():Bool
 	{
 		return this._hasLabelTextRenderer;
@@ -588,6 +590,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #ICON_POSITION_LEFT_BASELINE
 	 * @see #ICON_POSITION_MANUAL
 	 */
+	public var iconPosition(get, set):String;
 	public function get_iconPosition():String
 	{
 		return this._iconPosition;
@@ -634,6 +637,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #iconPosition
 	 * @see #minGap
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -674,6 +678,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #gap
 	 */
+	public var minGap(get, set):Float;
 	public function get_minGap():Float
 	{
 		return this._minGap;
@@ -713,6 +718,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -752,6 +758,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
@@ -789,6 +796,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -822,6 +830,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -857,6 +866,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -892,6 +902,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -927,6 +938,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -966,6 +978,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelOffsetY
 	 */
+	public var labelOffsetX(get, set):Float;
 	public function get_labelOffsetX():Float
 	{
 		return this._labelOffsetX;
@@ -1005,6 +1018,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelOffsetX
 	 */
+	public var labelOffsetY(get, set):Float;
 	public function get_labelOffsetY():Float
 	{
 		return this._labelOffsetY;
@@ -1044,6 +1058,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconOffsetY
 	 */
+	public var iconOffsetX(get, set):Float;
 	public function get_iconOffsetX():Float
 	{
 		return this._iconOffsetX;
@@ -1083,6 +1098,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #iconOffsetX
 	 */
+	public var iconOffsetY(get, set):Float;
 	public function get_iconOffsetY():Float
 	{
 		return this._iconOffsetY;
@@ -1159,6 +1175,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var stateToSkinFunction(get, set):Dynamic;
 	public function get_stateToSkinFunction():Dynamic
 	{
 		return this._stateToSkinFunction;
@@ -1190,6 +1207,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var stateToIconFunction(get, set):Dynamic;
 	public function get_stateToIconFunction():Dynamic
 	{
 		return this._stateToIconFunction;
@@ -1221,6 +1239,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
+	public var stateToLabelPropertiesFunction(get, set):Dynamic;
 	public function get_stateToLabelPropertiesFunction():Dynamic
 	{
 		return this._stateToLabelPropertiesFunction;
@@ -1263,6 +1282,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #hoverSkin
 	 * @see #disabledSkin
 	 */
+	public var defaultSkin(get, set):DisplayObject;
 	public function get_defaultSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.defaultValue);
@@ -1294,6 +1314,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultSkin
 	 */
+	public var upSkin(get, set):DisplayObject;
 	public function get_upSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_UP, false));
@@ -1325,6 +1346,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultSkin
 	 */
+	public var downSkin(get, set):DisplayObject;
 	public function get_downSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_DOWN, false));
@@ -1356,6 +1378,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #defaultSkin
 	 */
+	public var hoverSkin(get, set):DisplayObject;
 	public function get_hoverSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_HOVER, false));
@@ -1387,6 +1410,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultSkin
 	 */
+	public var disabledSkin(get, set):DisplayObject;
 	public function get_disabledSkin():DisplayObject
 	{
 		return DisplayObject(this._skinSelector.getValueForState(STATE_DISABLED, false));
@@ -1439,6 +1463,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
+	public var labelFactory(get, set):Dynamic;
 	public function get_labelFactory():Dynamic
 	{
 		return this._labelFactory;
@@ -1489,6 +1514,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #stateToLabelPropertiesFunction
 	 */
+	public var defaultLabelProperties(get, set):Dynamic;
 	public function get_defaultLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultValue);
@@ -1545,6 +1571,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var upLabelProperties(get, set):Dynamic;
 	public function get_upLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, false));
@@ -1601,6 +1628,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var downLabelProperties(get, set):Dynamic;
 	public function get_downLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, false));
@@ -1657,6 +1685,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var hoverLabelProperties(get, set):Dynamic;
 	public function get_hoverLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, false));
@@ -1713,6 +1742,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
+	public var disabledLabelProperties(get, set):Dynamic;
 	public function get_disabledLabelProperties():Dynamic
 	{
 		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false));
@@ -1769,6 +1799,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #hoverIcon
 	 * @see #disabledIcon
 	 */
+	public var defaultIcon(get, set):DisplayObject;
 	public function get_defaultIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.defaultValue);
@@ -1800,6 +1831,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultIcon
 	 */
+	public var upIcon(get, set):DisplayObject;
 	public function get_upIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_UP, false));
@@ -1831,6 +1863,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultIcon
 	 */
+	public var downIcon(get, set):DisplayObject;
 	public function get_downIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_DOWN, false));
@@ -1862,6 +1895,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #defaultIcon
 	 */
+	public var hoverIcon(get, set):DisplayObject;
 	public function get_hoverIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_HOVER, false));
@@ -1893,6 +1927,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #defaultIcon
 	 */
+	public var disabledIcon(get, set):DisplayObject;
 	public function get_disabledIcon():DisplayObject
 	{
 		return DisplayObject(this._iconSelector.getValueForState(STATE_DISABLED, false));
@@ -1940,6 +1975,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #event:longPress
 	 * @see #isLongPressEnabled
 	 */
+	public var longPressDuration(get, set):Float;
 	public function get_longPressDuration():Float
 	{
 		return this._longPressDuration;
@@ -1976,6 +2012,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see #event:longPress
 	 * @see #longPressDuration
 	 */
+	public var isLongPressEnabled(get, set):Bool;
 	public function get_isLongPressEnabled():Bool
 	{
 		return this._isLongPressEnabled;

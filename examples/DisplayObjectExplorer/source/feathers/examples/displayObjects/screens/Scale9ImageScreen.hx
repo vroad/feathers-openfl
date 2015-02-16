@@ -45,6 +45,7 @@ class Scale9ImageScreen extends Screen
 
 	private var _padding:Float = 0;
 
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._padding;

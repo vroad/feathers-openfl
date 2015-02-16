@@ -84,6 +84,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
+	public var requiresLayoutOnScroll(get, set):Bool;
 	public function get_requiresLayoutOnScroll():Bool
 	{
 		return false;

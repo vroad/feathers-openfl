@@ -202,6 +202,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #horizontalGap
 	 * @see #verticalGap
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._horizontalGap;
@@ -226,6 +227,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var horizontalGap(get, set):Float;
 	public function get_horizontalGap():Float
 	{
 		return this._horizontalGap;
@@ -254,6 +256,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var verticalGap(get, set):Float;
 	public function get_verticalGap():Float
 	{
 		return this._verticalGap;
@@ -285,6 +288,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -311,6 +315,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -339,6 +344,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -367,6 +373,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -395,6 +402,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -432,6 +440,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var requestedColumnCount(get, set):Int;
 	public function get_requestedColumnCount():Int
 	{
 		return this._requestedColumnCount;
@@ -473,6 +482,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var requestedRowCount(get, set):Int;
 	public function get_requestedRowCount():Int
 	{
 		return this._requestedRowCount;
@@ -511,6 +521,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
@@ -545,6 +556,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -580,6 +592,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #TILE_VERTICAL_ALIGN_BOTTOM
 	 * @see #TILE_VERTICAL_ALIGN_JUSTIFY
 	 */
+	public var tileVerticalAlign(get, set):String;
 	public function get_tileVerticalAlign():String
 	{
 		return this._tileVerticalAlign;
@@ -615,6 +628,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #TILE_HORIZONTAL_ALIGN_RIGHT
 	 * @see #TILE_HORIZONTAL_ALIGN_JUSTIFY
 	 */
+	public var tileHorizontalAlign(get, set):String;
 	public function get_tileHorizontalAlign():String
 	{
 		return this._tileHorizontalAlign;
@@ -650,6 +664,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #PAGING_HORIZONTAL
 	 * @see #PAGING_VERTICAL
 	 */
+	public var paging(get, set):String;
 	public function get_paging():String
 	{
 		return this._paging;
@@ -679,6 +694,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default true
 	 */
+	public var useSquareTiles(get, set):Bool;
 	public function get_useSquareTiles():Bool
 	{
 		return this._useSquareTiles;
@@ -719,6 +735,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default false
 	 */
+	public var manageVisibility(get, set):Bool;
 	public function get_manageVisibility():Bool
 	{
 		return this._manageVisibility;
@@ -747,6 +764,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 *
 	 * @default true
 	 */
+	public var useVirtualLayout(get, set):Bool;
 	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
@@ -773,6 +791,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
+	public var typicalItem(get, set):DisplayObject;
 	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
@@ -811,6 +830,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
+	public var resetTypicalItemDimensionsOnMeasure(get, set):Bool;
 	public function get_resetTypicalItemDimensionsOnMeasure():Bool
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
@@ -858,6 +878,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
+	public var typicalItemWidth(get, set):Float;
 	public function get_typicalItemWidth():Float
 	{
 		return this._typicalItemWidth;
@@ -905,6 +926,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @see #typicalItemWidth
 	 * @see #typicalItem
 	 */
+	public var typicalItemHeight(get, set):Float;
 	public function get_typicalItemHeight():Float
 	{
 		return this._typicalItemHeight;
@@ -926,6 +948,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
+	public var requiresLayoutOnScroll(get, set):Bool;
 	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._manageVisibility || this._useVirtualLayout;

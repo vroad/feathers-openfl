@@ -147,6 +147,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 */
+	public var textFormat(get, set):BitmapFontTextFormat;
 	public function get_textFormat():BitmapFontTextFormat
 	{
 		return this._textFormat;
@@ -180,6 +181,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 */
+	public var disabledTextFormat(get, set):BitmapFontTextFormat;
 	public function get_disabledTextFormat():BitmapFontTextFormat
 	{
 		return this._disabledTextFormat;
@@ -213,6 +215,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._text;
@@ -249,6 +252,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/textures/TextureSmoothing.html starling.textures.TextureSmoothing
 	 */
+	public var smoothing(get, set):String;
 	public function get_smoothing():String
 	{
 		return this._smoothing;
@@ -283,6 +287,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
+	public var wordWrap(get, set):Bool;
 	public function get_wordWrap():Bool
 	{
 		return _wordWrap;
@@ -319,6 +324,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
+	public var snapToPixels(get, set):Bool;
 	public function get_snapToPixels():Bool
 	{
 		return _snapToPixels;
@@ -360,6 +366,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #truncationText
 	 */
+	public var truncateToFit(get, set):Bool;
 	public function get_truncateToFit():Bool
 	{
 		return _truncateToFit;
@@ -393,6 +400,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default "..."
 	 */
+	public var truncationText(get, set):String;
 	public function get_truncationText():String
 	{
 		return _truncationText;
@@ -429,6 +437,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
+	public var useSeparateBatch(get, set):Bool;
 	public function get_useSeparateBatch():Bool
 	{
 		return this._useSeparateBatch;
@@ -450,6 +459,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var baseline(get, set):Float;
 	public function get_baseline():Float
 	{
 		if(!this._textFormat)

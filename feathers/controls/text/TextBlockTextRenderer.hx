@@ -252,6 +252,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default ""
 	 */
+	public var text(get, set):String;
 	public function get_text():String
 	{
 		return this._textElement ? this._text : null;
@@ -303,6 +304,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #text
 	 */
+	public var content(get, set):ContentElement;
 	public function get_content():ContentElement
 	{
 		return this._content;
@@ -348,6 +350,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see #disabledElementFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html openfl.text.engine.ElementFormat
 	 */
+	public var elementFormat(get, set):ElementFormat;
 	public function get_elementFormat():ElementFormat
 	{
 		return this._elementFormat;
@@ -387,6 +390,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see #elementFormat
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ElementFormat.html openfl.text.engine.ElementFormat
 	 */
+	public var disabledElementFormat(get, set):ElementFormat;
 	public function get_disabledElementFormat():ElementFormat
 	{
 		return this._disabledElementFormat;
@@ -420,6 +424,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 0
 	 */
+	public var leading(get, set):Float;
 	public function get_leading():Float
 	{
 		return this._leading;
@@ -459,6 +464,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see #TEXT_ALIGN_RIGHT
 	 * @see #textJustifier
 	 */
+	public var textAlign(get, set):String;
 	public function get_textAlign():String
 	{
 		return this._textAlign;
@@ -493,6 +499,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
+	public var wordWrap(get, set):Bool;
 	public function get_wordWrap():Bool
 	{
 		return this._wordWrap;
@@ -514,6 +521,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @inheritDoc
 	 */
+	public var baseline(get, set):Float;
 	public function get_baseline():Float
 	{
 		if(this._textLines.length == 0)
@@ -541,6 +549,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#applyNonLinearFontScaling Full description of openfl.text.engine.TextBlock.applyNonLinearFontScaling in Adobe's Flash Platform API Reference
 	 */
+	public var applyNonLinearFontScaling(get, set):Bool;
 	public function get_applyNonLinearFontScaling():Bool
 	{
 		return this._applyNonLinearFontScaling;
@@ -577,6 +586,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontDescription Full description of openfl.text.engine.TextBlock.baselineFontDescription in Adobe's Flash Platform API Reference
 	 * @see #baselineFontSize
 	 */
+	public var baselineFontDescription(get, set):FontDescription;
 	public function get_baselineFontDescription():FontDescription
 	{
 		return this._baselineFontDescription;
@@ -614,6 +624,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineFontSize Full description of openfl.text.engine.TextBlock.baselineFontSize in Adobe's Flash Platform API Reference
 	 * @see #baselineFontDescription
 	 */
+	public var baselineFontSize(get, set):Float;
 	public function get_baselineFontSize():Float
 	{
 		return this._baselineFontSize;
@@ -650,6 +661,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#baselineZero Full description of openfl.text.engine.TextBlock.baselineZero in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBaseline.html openfl.text.engine.TextBaseline
 	 */
+	public var baselineZero(get, set):String;
 	public function get_baselineZero():String
 	{
 		return this._baselineZero;
@@ -686,6 +698,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#bidiLevel Full description of openfl.text.engine.TextBlock.bidiLevel in Adobe's Flash Platform API Reference
 	 */
+	public var bidiLevel(get, set):Int;
 	public function get_bidiLevel():Int
 	{
 		return this._bidiLevel;
@@ -722,6 +735,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#lineRotation Full description of openfl.text.engine.TextBlock.lineRotation in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextRotation.html openfl.text.engine.TextRotation
 	 */
+	public var lineRotation(get, set):String;
 	public function get_lineRotation():String
 	{
 		return this._lineRotation;
@@ -758,6 +772,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#tabStops Full description of openfl.text.engine.TextBlock.tabStops in Adobe's Flash Platform API Reference
 	 */
+	public var tabStops(get, set):Array<TabStop>;
 	public function get_tabStops():Array<TabStop>
 	{
 		return this._tabStops;
@@ -791,6 +806,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#textJustifier Full description of openfl.text.engine.TextBlock.textJustifier in Adobe's Flash Platform API Reference
 	 */
+	public var textJustifier(get, set):TextJustifier;
 	public function get_textJustifier():TextJustifier
 	{
 		return this._textJustifier;
@@ -825,6 +841,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html#userData Full description of openfl.text.engine.TextBlock.userData in Adobe's Flash Platform API Reference
 	 */
+	public var userData(get, set):*;
 	public function get_userData():*
 	{
 		return this._userData;
@@ -861,6 +878,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default true
 	 */
+	public var snapToPixels(get, set):Bool;
 	public function get_snapToPixels():Bool
 	{
 		return this._snapToPixels;
@@ -893,6 +911,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default 2048
 	 */
+	public var maxTextureDimensions(get, set):Int;
 	public function get_maxTextureDimensions():Int
 	{
 		return this._maxTextureDimensions;
@@ -935,6 +954,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of openfl.display.DisplayObject.filters in Adobe's Flash Platform API Reference
 	 */
+	public var nativeFilters(get, set):Array;
 	public function get_nativeFilters():Array
 	{
 		return this._nativeFilters;
@@ -970,6 +990,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #truncateToFit
 	 */
+	public var truncationText(get, set):String;
 	public function get_truncationText():String
 	{
 		return _truncationText;
@@ -1015,6 +1036,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see #truncationText
 	 */
+	public var truncateToFit(get, set):Bool;
 	public function get_truncateToFit():Bool
 	{
 		return _truncateToFit;

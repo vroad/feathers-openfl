@@ -140,6 +140,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
+	public var displayObjectProperties(get, set):Dynamic;
 	public function get_displayObjectProperties():Dynamic
 	{
 		if(!this._displayObjectProperties)

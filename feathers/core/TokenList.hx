@@ -55,6 +55,7 @@ class TokenList extends EventDispatcher
 	 *
 	 * @default ""
 	 */
+	public var value(get, set):String;
 	public function get_value():String
 	{
 		return names.join(" ");
@@ -77,6 +78,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * The number of tokens in the list.
 	 */
+	public var length(get, set):Int;
 	public function get_length():Int
 	{
 		return this.names.length;

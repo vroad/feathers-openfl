@@ -27,6 +27,7 @@ class VideoDetailsScreen extends PanelScreen
 
 	private var _model:YouTubeModel;
 
+	public var model(get, set):YouTubeModel;
 	public function get_model():YouTubeModel
 	{
 		return this._model;

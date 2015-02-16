@@ -61,6 +61,7 @@ class ValidationQueue implements IAnimatable
 	 *     // do something
 	 * }</listing>
 	 */
+	public var isValidating(get, set):Bool;
 	public function get_isValidating():Bool
 	{
 		return this._isValidating;
