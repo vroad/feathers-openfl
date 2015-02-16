@@ -1,2 +1,7 @@
 Thumbs.db
 /examples/HelloWorld/bin/
+/examples/TrainTimes/bin/
+/examples/TrainTimes/assets/fonts/*.eot
+/examples/TrainTimes/assets/fonts/*.svg
+/examples/TrainTimes/assets/fonts/*.woff
+*.bak
