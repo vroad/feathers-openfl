@@ -368,7 +368,7 @@ class PageIndicator extends FeathersControl
 			return;
 		}
 		this._direction = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -408,7 +408,7 @@ class PageIndicator extends FeathersControl
 			return;
 		}
 		this._horizontalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -448,7 +448,7 @@ class PageIndicator extends FeathersControl
 			return;
 		}
 		this._verticalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -482,7 +482,7 @@ class PageIndicator extends FeathersControl
 			return;
 		}
 		this._gap = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -754,7 +754,7 @@ class PageIndicator extends FeathersControl
 		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		if(dataInvalid || selectionInvalid || stylesInvalid)
 		{

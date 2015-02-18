@@ -395,7 +395,7 @@ class Alert extends Panel
 			return;
 		}
 		this._gap = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**

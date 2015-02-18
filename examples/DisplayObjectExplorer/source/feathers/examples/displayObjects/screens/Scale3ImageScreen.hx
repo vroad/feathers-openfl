@@ -56,7 +56,7 @@ class Scale3ImageScreen extends Screen
 			return;
 		}
 		this._padding = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider

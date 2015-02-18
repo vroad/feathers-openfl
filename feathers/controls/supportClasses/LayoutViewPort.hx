@@ -239,7 +239,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	override private function draw():Void
 	{
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 

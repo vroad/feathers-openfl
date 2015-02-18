@@ -413,7 +413,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			}
 			EventDispatcher(this._layout).addEventListener(Event.CHANGE, layout_changeHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	public var horizontalScrollStep(get, set):Float;
@@ -574,7 +574,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
 		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)
@@ -1224,8 +1224,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private function renderer_resizeHandler(event:Event):Void
@@ -1241,8 +1241,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
 		layout.resetVariableVirtualCacheAtIndex(renderer.index, DisplayObject(renderer));
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private function renderer_changeHandler(event:Event):Void

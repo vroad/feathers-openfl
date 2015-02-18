@@ -178,7 +178,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		if(dataInvalid)
 		{

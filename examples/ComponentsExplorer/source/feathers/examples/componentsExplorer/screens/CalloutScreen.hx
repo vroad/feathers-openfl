@@ -51,7 +51,7 @@ class CalloutScreen extends PanelScreen
 			return;
 		}
 		this._layoutPadding = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider
@@ -126,7 +126,7 @@ class CalloutScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		if(layoutInvalid)
 		{

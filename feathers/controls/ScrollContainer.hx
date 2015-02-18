@@ -260,7 +260,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 			return;
 		}
 		this._layout = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -606,7 +606,7 @@ public function get_numChildren():Int
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		var mxmlContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MXML_CONTENT);
 
 		if(mxmlContentInvalid)

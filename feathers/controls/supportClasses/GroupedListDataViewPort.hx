@@ -872,7 +872,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			}
 			this._layout.addEventListener(Event.CHANGE, layout_changeHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private var _horizontalScrollPosition:Float = 0;
@@ -964,7 +964,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
 		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)
@@ -2690,8 +2690,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private function itemRenderer_resizeHandler(event:Event):Void
@@ -2711,8 +2711,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		layout.resetVariableVirtualCacheAtIndex(renderer.layoutIndex, DisplayObject(renderer));
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private function headerOrFooterRenderer_resizeHandler(event:Event):Void
@@ -2732,8 +2732,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		layout.resetVariableVirtualCacheAtIndex(renderer.layoutIndex, DisplayObject(renderer));
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	private function renderer_changeHandler(event:Event):Void

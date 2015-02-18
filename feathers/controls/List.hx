@@ -316,7 +316,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._layout = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 	
 	/**

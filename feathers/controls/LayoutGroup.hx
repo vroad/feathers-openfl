@@ -160,9 +160,9 @@ class LayoutGroup extends FeathersControl
 			}
 			this._layout.addEventListener(Event.CHANGE, layout_changeHandler);
 			//if we don't have a layout, nothing will need to be redrawn
-			this.invalidate(INVALIDATION_FLAG_LAYOUT);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -371,7 +371,7 @@ class LayoutGroup extends FeathersControl
 		{
 			this.items.splice(index, 0, child);
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		return super.addChildAt(child, index);
 	}
 
@@ -390,7 +390,7 @@ class LayoutGroup extends FeathersControl
 			child.removeEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
 		this.items.splice(index, 1);
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		return child;
 	}
 
@@ -411,7 +411,7 @@ class LayoutGroup extends FeathersControl
 
 		this.items.splice(oldIndex, 1);
 		this.items.splice(index, 0, child);
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -424,7 +424,7 @@ class LayoutGroup extends FeathersControl
 		var child2:DisplayObject = this.items[index2];
 		this.items[index1] = child2;
 		this.items[index2] = child1;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -434,7 +434,7 @@ class LayoutGroup extends FeathersControl
 	{
 		super.sortChildren(compareFunction);
 		this.items.sort(compareFunction);
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -497,7 +497,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	public function readjustLayout():Void
 	{
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -513,7 +513,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		//we don't have scrolling, but a subclass might
@@ -739,7 +739,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	private function layout_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -751,7 +751,7 @@ class LayoutGroup extends FeathersControl
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	/**
@@ -763,6 +763,6 @@ class LayoutGroup extends FeathersControl
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 }

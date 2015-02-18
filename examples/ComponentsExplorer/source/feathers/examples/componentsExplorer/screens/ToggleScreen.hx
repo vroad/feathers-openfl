@@ -57,7 +57,7 @@ class ToggleScreen extends PanelScreen
 			return;
 		}
 		this._innerLayout = value;
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
 	override private function initialize():Void
@@ -132,7 +132,7 @@ class ToggleScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
 		if(layoutInvalid)
 		{
