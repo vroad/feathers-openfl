@@ -118,7 +118,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO

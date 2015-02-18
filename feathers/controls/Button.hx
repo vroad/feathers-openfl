@@ -106,7 +106,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the label.

@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.supportClasses;import feathers.core.FeathersControl;import feathers.utils.geom.matrixToRotation;import feathers.utils.geom.matrixToScaleX;import feathers.utils.geom.matrixToScaleY;
 import openfl.display.Sprite;import openfl.events.TextEvent;import openfl.geom.Matrix;import openfl.geom.Point;import openfl.geom.Rectangle;import openfl.text.AntiAliasType;import openfl.text.GridFitType;import openfl.text.StyleSheet;import openfl.text.TextField;import openfl.text.TextFieldAutoSize;import openfl.text.TextFormat;
 import starling.core.RenderSupport;import starling.core.Starling;import starling.events.Event;import starling.utils.MatrixUtil;
-/** * @private */class TextFieldViewPort extends FeathersControl implements IViewPort{	inline private static var HELPER_MATRIX:Matrix = new Matrix();	inline private static var HELPER_POINT:Point = new Point();
+/** * @private */class TextFieldViewPort extends FeathersControl implements IViewPort{	inline private static var HELPER_MATRIX:Matrix = new Matrix();	private static var HELPER_POINT:Point = new Point();
 	public function TextFieldViewPort()	{		super();		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);	}
 	private var _textFieldContainer:Sprite;	private var _textField:TextField;
 	/**	 * @private	 */	private var _text:String = "";

@@ -28,7 +28,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	inline public static var CHILD_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
 	inline public static var CHILD_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
 
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 	inline private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
 
 	inline private static var DEPART_FROM_TEXT:String = "DEPART FROM";

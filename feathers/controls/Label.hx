@@ -27,7 +27,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * An alternate name to use with <code>Label</code> to allow a theme to

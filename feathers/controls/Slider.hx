@@ -115,7 +115,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private

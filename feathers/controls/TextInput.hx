@@ -191,7 +191,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private

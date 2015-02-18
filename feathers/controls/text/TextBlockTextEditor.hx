@@ -146,7 +146,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The text will be positioned to the left edge.

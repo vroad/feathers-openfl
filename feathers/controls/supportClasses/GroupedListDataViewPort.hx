@@ -40,7 +40,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 {
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 	inline private static var HELPER_VECTOR:Array<int> = new Array();
 
 	public function GroupedListDataViewPort()

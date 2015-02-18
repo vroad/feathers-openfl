@@ -113,7 +113,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Flag to indicate that everything is invalid and should be redrawn.

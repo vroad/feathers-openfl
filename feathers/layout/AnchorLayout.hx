@@ -62,7 +62,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.

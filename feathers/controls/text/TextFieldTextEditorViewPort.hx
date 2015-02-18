@@ -9,7 +9,7 @@ package feathers.controls.text;import feathers.controls.Scroller;import feathe
 import openfl.events.Event;import openfl.events.FocusEvent;import openfl.geom.Matrix;import openfl.geom.Point;import openfl.geom.Rectangle;import openfl.text.TextField;
 import starling.core.Starling;import starling.utils.MatrixUtil;
 /** * A text editor view port for the <code>TextArea</code> component that uses * <code>openfl.text.TextField</code>. * * @see feathers.controls.TextArea */class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEditorViewPort{	/**	 * @private	 */	inline private static var HELPER_MATRIX:Matrix = new Matrix();
-	/**	 * @private	 */	inline private static var HELPER_POINT:Point = new Point();
+	/**	 * @private	 */	private static var HELPER_POINT:Point = new Point();
 	/**	 * Constructor.	 */	public function TextFieldTextEditorViewPort()	{		super();		this.multiline = true;		this.wordWrap = true;		this.resetScrollOnFocusOut = false;	}
 	/**	 * @private	 */	private var _ignoreScrolling:Bool = false;
 	/**	 * @private	 */	private var _minVisibleWidth:Float = 0;

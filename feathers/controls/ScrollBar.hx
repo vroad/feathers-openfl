@@ -119,7 +119,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private

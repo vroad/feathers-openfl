@@ -142,7 +142,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.

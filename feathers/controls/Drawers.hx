@@ -26,7 +26,7 @@ package feathers.controls;import feathers.core.FeathersControl;import feathers
 	/**	 * @private	 * The current velocity is given high importance.	 */	inline private static var CURRENT_VELOCITY_WEIGHT:Float = 2.33;
 	/**	 * @private	 * Older saved velocities are given less importance.	 */	inline private static var VELOCITY_WEIGHTS:Array<Float> = new <Float>[1, 1.33, 1.66, 2];
 	/**	 * @private	 */	inline private static var MAXIMUM_SAVED_VELOCITY_COUNT:Int = 4;
-	/**	 * @private	 */	inline private static var HELPER_POINT:Point = new Point();
+	/**	 * @private	 */	private static var HELPER_POINT:Point = new Point();
 	/**	 * Constructor.	 */	public function Drawers(content:DisplayObject = null)	{		super();		this.content = content;		this.addEventListener(Event.ADDED_TO_STAGE, drawers_addedToStageHandler);		this.addEventListener(Event.REMOVED_FROM_STAGE, drawers_removedFromStageHandler);		this.addEventListener(TouchEvent.TOUCH, drawers_touchHandler);	}
 	/**	 * The event dispatcher that controls opening and closing drawers with	 * events. Often, the event dispatcher is the content itself, but you	 * may specify a <code>contentEventDispatcherField</code> to access a	 * property of the content instead, or you may specify a	 * <code>contentEventDispatcherFunction</code> to run some more complex	 * code to access the event dispatcher.	 *	 * @see #contentEventDispatcherField	 * @see #contentEventDispatcherFunction	 */	private var contentEventDispatcher:EventDispatcher;
 	/**	 * @private	 */	override private function get_defaultStyleProvider():IStyleProvider	{		return Drawers.globalStyleProvider;	}

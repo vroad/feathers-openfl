@@ -67,7 +67,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The page indicator's symbols will be positioned vertically, from top

@@ -162,7 +162,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>GroupedList</code>

@@ -54,7 +54,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
