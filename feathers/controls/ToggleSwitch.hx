@@ -839,7 +839,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._labelFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -894,7 +894,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._onLabelFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -949,7 +949,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._offLabelFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -1767,7 +1767,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
-		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 		var thumbFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_THUMB_FACTORY);
 		var onTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ON_TRACK_FACTORY);
 		var offTrackFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_OFF_TRACK_FACTORY);

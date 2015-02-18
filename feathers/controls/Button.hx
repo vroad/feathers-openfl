@@ -560,7 +560,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._hasLabelTextRenderer = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 	
 	/**
@@ -1479,7 +1479,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._labelFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 	
 	/**
@@ -2039,7 +2039,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 
 		if(textRendererInvalid)

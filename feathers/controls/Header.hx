@@ -331,7 +331,7 @@ class Header extends FeathersControl
 			return;
 		}
 		this._titleFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -1176,7 +1176,7 @@ class Header extends FeathersControl
 		var leftContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LEFT_CONTENT);
 		var rightContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_RIGHT_CONTENT);
 		var centerContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CENTER_CONTENT);
-		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 
 		if(textRendererInvalid)
 		{

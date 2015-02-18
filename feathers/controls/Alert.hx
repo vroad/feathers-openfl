@@ -482,7 +482,7 @@ class Alert extends Panel
 			return;
 		}
 		this._messageFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -694,7 +694,7 @@ class Alert extends Panel
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES)
-		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
+		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 
 		if(textRendererInvalid)
 		{
