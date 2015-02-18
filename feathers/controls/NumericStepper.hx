@@ -303,7 +303,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._value = newValue;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 
@@ -345,7 +345,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._minimum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -386,7 +386,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._maximum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1202,7 +1202,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
@@ -1680,13 +1680,13 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		if(newValue == newValue) //!isNaN
 		{
 			this.value = newValue;
-			if(this.value != newValue && !this.isInvalid(INVALIDATION_FLAG_DATA))
+			if(this.value != newValue && !this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA))
 			{
 				//if the value setter modified the new value from the text
 				//input, and it returned because the modified value is equal
 				//to the current value, then we need to force invalidation
 				//so that the text input's text is accurate
-				this.invalidate(INVALIDATION_FLAG_DATA);
+				this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 			}
 		}
 	}

@@ -58,7 +58,7 @@ class ListVideosScreen extends PanelScreen
 			return;
 		}
 		this._model = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	public var savedVerticalScrollPosition:Float = 0;
@@ -121,7 +121,7 @@ class ListVideosScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
 		if(!this.savedDataProvider && dataInvalid)

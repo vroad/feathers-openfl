@@ -280,7 +280,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			IVariableVirtualLayout(this._layout).resetVariableVirtualCache();
 		}
 		this._updateForDataReset = true;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _itemRendererType:Class<Dynamic>;
@@ -354,7 +354,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this._typicalItem = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _itemRendererProperties:PropertyProxy;
@@ -567,7 +567,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -1111,7 +1111,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private function dataProvider_addItemHandler(event:Event, index:Int):Void

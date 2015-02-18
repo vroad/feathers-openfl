@@ -231,7 +231,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._text = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 	
 	/**
@@ -382,7 +382,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._truncateToFit = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -416,7 +416,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._truncationText = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -666,7 +666,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);

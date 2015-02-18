@@ -345,7 +345,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._data = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -433,7 +433,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasLabel = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -469,7 +469,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasIcon = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -505,7 +505,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasAccessory = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -542,7 +542,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasSkin = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -579,7 +579,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasSelectable = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -615,7 +615,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._itemHasEnabled = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1057,7 +1057,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._labelField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1107,7 +1107,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._labelFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1163,7 +1163,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1239,7 +1239,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1300,7 +1300,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconSourceField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1383,7 +1383,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconSourceFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1445,7 +1445,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconLabelField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1513,7 +1513,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._iconLabelFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1573,7 +1573,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1654,7 +1654,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1717,7 +1717,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessorySourceField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1802,7 +1802,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessorySourceFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1864,7 +1864,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryLabelField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1932,7 +1932,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryLabelFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1981,7 +1981,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._skinField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2050,7 +2050,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._skinFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2110,7 +2110,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._skinSourceField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2192,7 +2192,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._skinSourceFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2238,7 +2238,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._selectableField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2289,7 +2289,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._selectableFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2335,7 +2335,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._enabledField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2386,7 +2386,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._enabledFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2405,7 +2405,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		super.isToggle = value;
 		this._explicitIsToggle = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2424,7 +2424,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		this._explicitIsEnabled = value;
 		super.isEnabled = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.invalidate(INVALIDATION_FLAG_STATE);
 	}
 
@@ -2477,7 +2477,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._iconLoaderFactory = value;
 		this._iconIsFromItem = false;
 		this.replaceIcon(null);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2529,7 +2529,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._iconLabelFactory = value;
 		this._iconIsFromItem = false;
 		this.replaceIcon(null);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2659,7 +2659,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._accessoryLoaderFactory = value;
 		this._accessoryIsFromItem = false;
 		this.replaceAccessory(null);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2711,7 +2711,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._accessoryLabelFactory = value;
 		this._accessoryIsFromItem = false;
 		this.replaceAccessory(null);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2841,7 +2841,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._skinLoaderFactory = value;
 		this._skinIsFromItem = false;
 		this.replaceSkin(null);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -3143,7 +3143,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	override private function draw():Void
 	{
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		if(dataInvalid)
 		{

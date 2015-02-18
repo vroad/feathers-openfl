@@ -409,7 +409,7 @@ public function get_text():String
 		{
 			this._text = value;
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(starling.events.Event.CHANGE);
 	}
 

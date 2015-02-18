@@ -47,7 +47,7 @@ class ItemRendererScreen extends PanelScreen
 			return;
 		}
 		this._itemRendererGap = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _settings:ItemRendererSettings;
@@ -65,7 +65,7 @@ class ItemRendererScreen extends PanelScreen
 			return;
 		}
 		this._settings = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider

@@ -256,7 +256,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._direction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
 	}
 
@@ -310,7 +310,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._value = newValue;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		if(this.liveDragging || !this.isDragging)
 		{
 			this.dispatchEventWith(Event.CHANGE);
@@ -346,7 +346,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._minimum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -378,7 +378,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._maximum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -437,7 +437,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._page = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -899,7 +899,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA)
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA)
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);

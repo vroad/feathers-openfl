@@ -413,7 +413,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._direction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
 		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
@@ -464,7 +464,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._value = newValue;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		if(this.liveDragging || !this.isDragging)
 		{
 			this.dispatchEventWith(Event.CHANGE);
@@ -509,7 +509,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._minimum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 	
 	/**
@@ -552,7 +552,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._maximum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 	
 	/**

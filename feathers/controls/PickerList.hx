@@ -261,7 +261,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			this.dispatchEventWith(Event.CHANGE);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -457,7 +457,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._labelField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 	
 	/**
@@ -508,7 +508,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	public function set_labelFunction(value:Dynamic):Dynamic
 	{
 		this._labelFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 	
 	/**
@@ -1191,7 +1191,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);

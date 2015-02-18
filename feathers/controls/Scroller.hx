@@ -2902,7 +2902,7 @@ class Scroller extends FeathersControl
 		//we don't use this flag in this class, but subclasses will use it,
 		//and it's better to handle it here instead of having them
 		//invalidate unrelated flags
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);

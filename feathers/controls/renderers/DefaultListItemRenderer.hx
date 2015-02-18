@@ -247,7 +247,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 			this._owner.addEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.addEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**

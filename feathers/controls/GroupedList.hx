@@ -582,7 +582,7 @@ public function get_isFocusEnabled():Bool
 		//clear the selection for the same reason
 		this.setSelectedLocation(-1, -1);
 
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -895,7 +895,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._typicalItem = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1948,7 +1948,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._headerField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1998,7 +1998,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._headerFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2043,7 +2043,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._footerField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2093,7 +2093,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._footerFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -2480,7 +2480,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function dataProvider_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**

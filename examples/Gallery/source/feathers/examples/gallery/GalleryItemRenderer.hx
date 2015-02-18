@@ -84,7 +84,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 			return;
 		}
 		this._index = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 			this._owner.addEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.addEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -153,7 +153,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		}
 		this.touchPointID = -1;
 		this._data = GalleryItem(value);
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -200,7 +200,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 

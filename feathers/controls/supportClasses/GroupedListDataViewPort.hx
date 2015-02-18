@@ -367,7 +367,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			IVariableVirtualLayout(this._layout).resetVariableVirtualCache();
 		}
 		this._updateForDataReset = true;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _isSelectable:Bool = true;
@@ -479,7 +479,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this._typicalItem = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _itemRendererProperties:PropertyProxy;
@@ -957,7 +957,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -2516,7 +2516,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private function dataProvider_addItemHandler(event:Event, indices:Array):Void
@@ -2671,7 +2671,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			}
 
 			//we need to invalidate because the group may have more or fewer items
-			this.invalidate(INVALIDATION_FLAG_DATA);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 
 			var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 			if(!layout || !layout.hasVariableItemDimensions)

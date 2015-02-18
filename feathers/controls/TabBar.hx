@@ -379,7 +379,7 @@ class TabBar extends FeathersControl
 		{
 			this.dispatchEventWith(Event.CHANGE);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1065,7 +1065,7 @@ class TabBar extends FeathersControl
 			return;
 		}
 		this._tabInitializer = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1415,7 +1415,7 @@ class TabBar extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -1840,7 +1840,7 @@ class TabBar extends FeathersControl
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex + 1;
 			this.invalidate(INVALIDATION_FLAG_SELECTED);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1854,7 +1854,7 @@ class TabBar extends FeathersControl
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex - 1;
 			this.invalidate(INVALIDATION_FLAG_SELECTED);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1869,7 +1869,7 @@ class TabBar extends FeathersControl
 			this._pendingSelectedIndex = 0;
 			this.invalidate(INVALIDATION_FLAG_SELECTED);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1877,7 +1877,7 @@ class TabBar extends FeathersControl
 	 */
 	private function dataProvider_replaceItemHandler(event:Event, index:Int):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1885,6 +1885,6 @@ class TabBar extends FeathersControl
 	 */
 	private function dataProvider_updateItemHandler(event:Event, index:Int):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 }

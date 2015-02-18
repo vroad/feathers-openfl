@@ -104,7 +104,7 @@ class ProgressBar extends FeathersControl
 			return;
 		}
 		this._direction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -144,7 +144,7 @@ class ProgressBar extends FeathersControl
 			return;
 		}
 		this._value = newValue;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -183,7 +183,7 @@ class ProgressBar extends FeathersControl
 			return;
 		}
 		this._minimum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -222,7 +222,7 @@ class ProgressBar extends FeathersControl
 			return;
 		}
 		this._maximum = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -628,7 +628,7 @@ class ProgressBar extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);

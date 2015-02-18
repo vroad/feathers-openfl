@@ -40,7 +40,7 @@ class VideoDetailsScreen extends PanelScreen
 			return;
 		}
 		this._model = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	override private function initialize():Void
@@ -80,7 +80,7 @@ class VideoDetailsScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		if(dataInvalid)
 		{
 			if(this._model && this._model.selectedVideo)

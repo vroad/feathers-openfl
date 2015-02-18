@@ -296,7 +296,7 @@ class ImageLoader extends FeathersControl
 
 			this._isLoaded = false;
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -546,7 +546,7 @@ class ImageLoader extends FeathersControl
 		}
 		this._textureFormat = value;
 		this._lastURL = null;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1029,7 +1029,7 @@ class ImageLoader extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -1406,7 +1406,7 @@ class ImageLoader extends FeathersControl
 		}
 		this._isTextureOwner = true;
 		this._isLoaded = true;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}
 
@@ -1444,7 +1444,7 @@ class ImageLoader extends FeathersControl
 		}
 		this._isTextureOwner = true;
 		this._isLoaded = true;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}
 
@@ -1630,7 +1630,7 @@ class ImageLoader extends FeathersControl
 		this.loader = null;
 
 		this.cleanupTexture();
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(FeathersEventType.ERROR, false, event);
 	}
 
@@ -1671,7 +1671,7 @@ class ImageLoader extends FeathersControl
 		this.urlLoader = null;
 
 		this.cleanupTexture();
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(FeathersEventType.ERROR, false, event);
 	}
 }

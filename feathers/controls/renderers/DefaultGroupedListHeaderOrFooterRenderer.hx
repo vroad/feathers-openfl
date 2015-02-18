@@ -171,7 +171,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._data = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -242,7 +242,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._owner = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -379,7 +379,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -444,7 +444,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -506,7 +506,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentSourceField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -577,7 +577,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentSourceFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -638,7 +638,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentLabelField = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -705,7 +705,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentLabelFunction = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1259,7 +1259,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);

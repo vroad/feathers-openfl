@@ -34,7 +34,7 @@ class TodoItemRenderer extends DefaultListItemRenderer
 			return;
 		}
 		this._isEditable = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	override public function dispose():Void

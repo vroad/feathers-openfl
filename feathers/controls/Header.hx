@@ -271,7 +271,7 @@ class Header extends FeathersControl
 			return;
 		}
 		this._title = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1170,7 +1170,7 @@ class Header extends FeathersControl
 	override private function draw():Void
 	{
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var leftContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LEFT_CONTENT);

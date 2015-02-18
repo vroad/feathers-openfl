@@ -72,7 +72,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 		this._data = StationData(value);
 		this.isSelectionWaitingToBeAnimated = false;
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var _index:Int = -1;
@@ -174,7 +174,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		{
 			this.isLastItem = this._index == this._owner.dataProvider.length - 1;
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	private var isSelectionWaitingToBeAnimated:Bool = false;
@@ -199,7 +199,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			Starling.current.juggler.remove(this.selectionTween);
 			this.selectionTween = null;
 		}
-		this.isSelectionWaitingToBeAnimated = !this.isInvalid(INVALIDATION_FLAG_DATA) && !this._data.isDepartingFromHere;
+		this.isSelectionWaitingToBeAnimated = !this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA) && !this._data.isDepartingFromHere;
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
@@ -458,7 +458,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);

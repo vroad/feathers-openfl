@@ -394,7 +394,7 @@ class ButtonGroup extends FeathersControl
 		{
 			this._dataProvider.addEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1303,7 +1303,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var buttonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
@@ -1718,7 +1718,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function dataProvider_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_DATA);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
 	/**

@@ -897,7 +897,7 @@ public function get_text():String
 		}
 		if(this._textSnapshotScrollX != oldScrollX)
 		{
-			this.invalidate(INVALIDATION_FLAG_DATA);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		}
 	}
 

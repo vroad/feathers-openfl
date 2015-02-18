@@ -89,7 +89,7 @@ class MainMenuScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
 		if(!this.savedDataProvider && dataInvalid)
