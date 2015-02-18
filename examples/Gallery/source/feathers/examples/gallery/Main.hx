@@ -96,7 +96,7 @@ class Main extends Sprite
 		}
 		if(this.fadeTween)
 		{
-			Starling.juggler.remove(this.fadeTween);
+			Starling.current.juggler.remove(this.fadeTween);
 			this.fadeTween = null;
 		}
 		this.message.text = "Loading...";
@@ -200,7 +200,7 @@ class Main extends Sprite
 
 		this.fadeTween = new Tween(this.selectedImage, 0.5, Transitions.EASE_OUT);
 		this.fadeTween.fadeTo(1);
-		Starling.juggler.add(this.fadeTween);
+		Starling.current.juggler.add(this.fadeTween);
 
 		this.message.text = "";
 

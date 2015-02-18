@@ -137,7 +137,7 @@ class OldFadeNewSlideTransitionManager
 	{
 		if(this._activeTransition)
 		{
-			Starling.juggler.remove(this._activeTransition);
+			Starling.current.juggler.remove(this._activeTransition);
 			this._activeTransition = null;
 			this._savedOtherTarget = null;
 		}
@@ -166,7 +166,7 @@ class OldFadeNewSlideTransitionManager
 			this._activeTransition.fadeTo(0);
 			this._activeTransition.delay = this.delay;
 			this._activeTransition.onComplete = activeTransition_onComplete;
-			Starling.juggler.add(this._activeTransition);
+			Starling.current.juggler.add(this._activeTransition);
 			return;
 		}
 		var newScreenClassAndID:String = getQualifiedClassName(newScreen);
@@ -199,7 +199,7 @@ class OldFadeNewSlideTransitionManager
 		this._activeTransition.delay = this.delay;
 		this._activeTransition.onUpdate = activeTransition_onUpdate;
 		this._activeTransition.onComplete = activeTransition_onComplete;
-		Starling.juggler.add(this._activeTransition);
+		Starling.current.juggler.add(this._activeTransition);
 	}
 	
 	/**

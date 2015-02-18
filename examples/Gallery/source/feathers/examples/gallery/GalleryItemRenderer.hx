@@ -400,7 +400,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		this.fadeTween = new Tween(this.image, 1, Transitions.EASE_OUT);
 		this.fadeTween.fadeTo(1);
 		this.fadeTween.onComplete = fadeTween_onComplete;
-		Starling.juggler.add(this.fadeTween);
+		Starling.current.juggler.add(this.fadeTween);
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 

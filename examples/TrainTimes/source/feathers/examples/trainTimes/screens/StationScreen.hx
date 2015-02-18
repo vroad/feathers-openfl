@@ -114,14 +114,14 @@ class StationScreen extends Screen
 		this._departureHeader.visible = true;
 		if(this._headerTween)
 		{
-			Starling.juggler.remove(this._headerTween);
+			Starling.current.juggler.remove(this._headerTween);
 			this._headerTween = null;
 		}
 		this._headerTween = new Tween(this._departureHeader, 0.4, Transitions.EASE_OUT);
 		this._headerTween.animate("x", 0);
 		this._headerTween.onUpdate = headerTween_onUpdate;
 		this._headerTween.onComplete = headerTween_onDestinationHideComplete;
-		Starling.juggler.add(this._headerTween);
+		Starling.current.juggler.add(this._headerTween);
 	}
 
 	private function stationList_onConfirm():Void
@@ -144,14 +144,14 @@ class StationScreen extends Screen
 		this._destinationHeader.visible = true;
 		if(this._headerTween)
 		{
-			Starling.juggler.remove(this._headerTween);
+			Starling.current.juggler.remove(this._headerTween);
 			this._headerTween = null;
 		}
 		this._headerTween = new Tween(this._departureHeader, 0.4, Transitions.EASE_OUT);
 		this._headerTween.animate("x", this.actualWidth);
 		this._headerTween.onUpdate = headerTween_onUpdate;
 		this._headerTween.onComplete = headerTween_onDestinationShowComplete;
-		Starling.juggler.add(this._headerTween);
+		Starling.current.juggler.add(this._headerTween);
 	}
 
 	private function headerTween_onUpdate():Void

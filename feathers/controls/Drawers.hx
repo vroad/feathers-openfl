@@ -2478,7 +2478,7 @@ class Drawers extends FeathersControl
 		if(this._openOrCloseTween)
 		{
 			this._openOrCloseTween.advanceTime(this._openOrCloseTween.totalTime);
-			Starling.juggler.remove(this._openOrCloseTween);
+			Starling.current.juggler.remove(this._openOrCloseTween);
 			this._openOrCloseTween = null;
 		}
 		this.applyTopClipRect();
@@ -2506,7 +2506,7 @@ class Drawers extends FeathersControl
 		this._openOrCloseTween.animate("y", targetPosition);
 		this._openOrCloseTween.onUpdate = topDrawerOpenOrCloseTween_onUpdate;
 		this._openOrCloseTween.onComplete = topDrawerOpenOrCloseTween_onComplete;
-		Starling.juggler.add(this._openOrCloseTween);
+		Starling.current.juggler.add(this._openOrCloseTween);
 	}
 
 	/**
@@ -2521,7 +2521,7 @@ class Drawers extends FeathersControl
 		if(this._openOrCloseTween)
 		{
 			this._openOrCloseTween.advanceTime(this._openOrCloseTween.totalTime);
-			Starling.juggler.remove(this._openOrCloseTween);
+			Starling.current.juggler.remove(this._openOrCloseTween);
 			this._openOrCloseTween = null;
 		}
 		this.applyRightClipRect();
@@ -2557,7 +2557,7 @@ class Drawers extends FeathersControl
 		this._openOrCloseTween.animate("x", targetPosition);
 		this._openOrCloseTween.onUpdate = rightDrawerOpenOrCloseTween_onUpdate;
 		this._openOrCloseTween.onComplete = rightDrawerOpenOrCloseTween_onComplete;
-		Starling.juggler.add(this._openOrCloseTween);
+		Starling.current.juggler.add(this._openOrCloseTween);
 	}
 
 	/**
@@ -2572,7 +2572,7 @@ class Drawers extends FeathersControl
 		if(this._openOrCloseTween)
 		{
 			this._openOrCloseTween.advanceTime(this._openOrCloseTween.totalTime);
-			Starling.juggler.remove(this._openOrCloseTween);
+			Starling.current.juggler.remove(this._openOrCloseTween);
 			this._openOrCloseTween = null;
 		}
 		this.applyBottomClipRect();
@@ -2608,7 +2608,7 @@ class Drawers extends FeathersControl
 		this._openOrCloseTween.animate("y", targetPosition);
 		this._openOrCloseTween.onUpdate = bottomDrawerOpenOrCloseTween_onUpdate;
 		this._openOrCloseTween.onComplete = bottomDrawerOpenOrCloseTween_onComplete;
-		Starling.juggler.add(this._openOrCloseTween);
+		Starling.current.juggler.add(this._openOrCloseTween);
 	}
 
 	/**
@@ -2623,7 +2623,7 @@ class Drawers extends FeathersControl
 		if(this._openOrCloseTween)
 		{
 			this._openOrCloseTween.advanceTime(this._openOrCloseTween.totalTime);
-			Starling.juggler.remove(this._openOrCloseTween);
+			Starling.current.juggler.remove(this._openOrCloseTween);
 			this._openOrCloseTween = null;
 		}
 		this.applyLeftClipRect();
@@ -2651,7 +2651,7 @@ class Drawers extends FeathersControl
 		this._openOrCloseTween.animate("x", targetPosition);
 		this._openOrCloseTween.onUpdate = leftDrawerOpenOrCloseTween_onUpdate;
 		this._openOrCloseTween.onComplete = leftDrawerOpenOrCloseTween_onComplete;
-		Starling.juggler.add(this._openOrCloseTween);
+		Starling.current.juggler.add(this._openOrCloseTween);
 	}
 
 	/**

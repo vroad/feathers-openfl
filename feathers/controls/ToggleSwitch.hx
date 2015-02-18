@@ -2145,7 +2145,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		//stop the tween, no matter what
 		if(this._toggleTween)
 		{
-			Starling.juggler.remove(this._toggleTween);
+			Starling.current.juggler.remove(this._toggleTween);
 			this._toggleTween = null;
 		}
 
@@ -2155,7 +2155,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			this._toggleTween.animate("x", xPosition);
 			this._toggleTween.onUpdate = selectionTween_onUpdate;
 			this._toggleTween.onComplete = selectionTween_onComplete;
-			Starling.juggler.add(this._toggleTween);
+			Starling.current.juggler.add(this._toggleTween);
 		}
 		else
 		{

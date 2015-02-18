@@ -196,7 +196,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this._isSelected = value;
 		if(this.selectionTween)
 		{
-			Starling.juggler.remove(this.selectionTween);
+			Starling.current.juggler.remove(this.selectionTween);
 			this.selectionTween = null;
 		}
 		this.isSelectionWaitingToBeAnimated = !this.isInvalid(INVALIDATION_FLAG_DATA) && !this._data.isDepartingFromHere;
@@ -625,14 +625,14 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 				this.selectionTween.onComplete = selectionTween_onDeselectComplete;
 			}
 			this.selectionTween.onUpdate = selectionTween_onUpdate;
-			Starling.juggler.add(this.selectionTween);
+			Starling.current.juggler.add(this.selectionTween);
 		}
 		else if(this._data.isDepartingFromHere && this.actionContainer.visible)
 		{
 			this.selectionTween = new Tween(this.actionContainer, 0.35, Transitions.EASE_OUT);
 			this.selectionTween.fadeTo(0);
 			this.selectionTween.onComplete = selectionTween_onConfirmComplete;
-			Starling.juggler.add(this.selectionTween);
+			Starling.current.juggler.add(this.selectionTween);
 		}
 
 		this.nameLabel.y = (availableLabelHeight - this.nameLabel.height) / 2;

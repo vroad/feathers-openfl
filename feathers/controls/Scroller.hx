@@ -2745,12 +2745,12 @@ class Scroller extends FeathersControl
 	{
 		if(this._horizontalAutoScrollTween)
 		{
-			Starling.juggler.remove(this._horizontalAutoScrollTween);
+			Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 			this._horizontalAutoScrollTween = null;
 		}
 		if(this._verticalAutoScrollTween)
 		{
-			Starling.juggler.remove(this._verticalAutoScrollTween);
+			Starling.current.juggler.remove(this._verticalAutoScrollTween);
 			this._verticalAutoScrollTween = null;
 		}
 		this._isScrollingStopped = true;
@@ -3216,7 +3216,7 @@ class Scroller extends FeathersControl
 			}
 			if(this._horizontalScrollBarHideTween)
 			{
-				Starling.juggler.remove(this._horizontalScrollBarHideTween);
+				Starling.current.juggler.remove(this._horizontalScrollBarHideTween);
 				this._horizontalScrollBarHideTween = null;
 			}
 			this.horizontalScrollBar.alpha = this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FLOAT ? 0 : 1;
@@ -3231,7 +3231,7 @@ class Scroller extends FeathersControl
 			}
 			if(this._verticalScrollBarHideTween)
 			{
-				Starling.juggler.remove(this._verticalScrollBarHideTween);
+				Starling.current.juggler.remove(this._verticalScrollBarHideTween);
 				this._verticalScrollBarHideTween = null;
 			}
 			this.verticalScrollBar.alpha = this._scrollBarDisplayMode == SCROLL_BAR_DISPLAY_MODE_FLOAT ? 0 : 1;
@@ -4052,7 +4052,7 @@ class Scroller extends FeathersControl
 		{
 			if(this._horizontalAutoScrollTween)
 			{
-				Starling.juggler.remove(this._horizontalAutoScrollTween);
+				Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 				this._horizontalAutoScrollTween = null;
 			}
 			if(this._horizontalScrollPosition != targetHorizontalScrollPosition)
@@ -4073,7 +4073,7 @@ class Scroller extends FeathersControl
 					//warning: if you try to set onUpdate here, it may be
 					//replaced elsewhere.
 					this._horizontalAutoScrollTween.onComplete = horizontalAutoScrollTween_onComplete;
-					Starling.juggler.add(this._horizontalAutoScrollTween);
+					Starling.current.juggler.add(this._horizontalAutoScrollTween);
 				}
 			}
 			else
@@ -4086,7 +4086,7 @@ class Scroller extends FeathersControl
 		{
 			if(this._verticalAutoScrollTween)
 			{
-				Starling.juggler.remove(this._verticalAutoScrollTween);
+				Starling.current.juggler.remove(this._verticalAutoScrollTween);
 				this._verticalAutoScrollTween = null;
 			}
 			if(this._verticalScrollPosition != targetVerticalScrollPosition)
@@ -4107,7 +4107,7 @@ class Scroller extends FeathersControl
 					//warning: if you try to set onUpdate here, it may be
 					//replaced elsewhere.
 					this._verticalAutoScrollTween.onComplete = verticalAutoScrollTween_onComplete;
-					Starling.juggler.add(this._verticalAutoScrollTween);
+					Starling.current.juggler.add(this._verticalAutoScrollTween);
 				}
 			}
 			else
@@ -4418,7 +4418,7 @@ class Scroller extends FeathersControl
 					this._horizontalScrollPosition = this._maxHorizontalScrollPosition;
 				}
 			}
-			Starling.juggler.remove(this._horizontalAutoScrollTween);
+			Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 			this._horizontalAutoScrollTween = null;
 			this.finishScrollingHorizontally();
 		}
@@ -4443,7 +4443,7 @@ class Scroller extends FeathersControl
 					this._verticalScrollPosition = this._maxVerticalScrollPosition;
 				}
 			}
-			Starling.juggler.remove(this._verticalAutoScrollTween);
+			Starling.current.juggler.remove(this._verticalAutoScrollTween);
 			this._verticalAutoScrollTween = null;
 			this.finishScrollingVertically();
 		}
@@ -4558,7 +4558,7 @@ class Scroller extends FeathersControl
 			this._horizontalScrollBarHideTween.fadeTo(0);
 			this._horizontalScrollBarHideTween.delay = delay;
 			this._horizontalScrollBarHideTween.onComplete = horizontalScrollBarHideTween_onComplete;
-			Starling.juggler.add(this._horizontalScrollBarHideTween);
+			Starling.current.juggler.add(this._horizontalScrollBarHideTween);
 		}
 	}
 
@@ -4585,7 +4585,7 @@ class Scroller extends FeathersControl
 			this._verticalScrollBarHideTween.fadeTo(0);
 			this._verticalScrollBarHideTween.delay = delay;
 			this._verticalScrollBarHideTween.onComplete = verticalScrollBarHideTween_onComplete;
-			Starling.juggler.add(this._verticalScrollBarHideTween);
+			Starling.current.juggler.add(this._verticalScrollBarHideTween);
 		}
 	}
 
@@ -4600,7 +4600,7 @@ class Scroller extends FeathersControl
 		}
 		if(this._horizontalScrollBarHideTween)
 		{
-			Starling.juggler.remove(this._horizontalScrollBarHideTween);
+			Starling.current.juggler.remove(this._horizontalScrollBarHideTween);
 			this._horizontalScrollBarHideTween = null;
 		}
 		this.horizontalScrollBar.alpha = 1;
@@ -4617,7 +4617,7 @@ class Scroller extends FeathersControl
 		}
 		if(this._verticalScrollBarHideTween)
 		{
-			Starling.juggler.remove(this._verticalScrollBarHideTween);
+			Starling.current.juggler.remove(this._verticalScrollBarHideTween);
 			this._verticalScrollBarHideTween = null;
 		}
 		this.verticalScrollBar.alpha = 1;
@@ -4869,7 +4869,7 @@ class Scroller extends FeathersControl
 		//if the scroll policy is off, we shouldn't stop this animation
 		if(this._horizontalAutoScrollTween && this._horizontalScrollPolicy != Scroller.SCROLL_POLICY_OFF)
 		{
-			Starling.juggler.remove(this._horizontalAutoScrollTween);
+			Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 			this._horizontalAutoScrollTween = null;
 			if(this._isScrolling)
 			{
@@ -4879,7 +4879,7 @@ class Scroller extends FeathersControl
 		}
 		if(this._verticalAutoScrollTween && this._verticalScrollPolicy != Scroller.SCROLL_POLICY_OFF)
 		{
-			Starling.juggler.remove(this._verticalAutoScrollTween);
+			Starling.current.juggler.remove(this._verticalAutoScrollTween);
 			this._verticalAutoScrollTween = null;
 			if(this._isScrolling)
 			{
@@ -5306,12 +5306,12 @@ class Scroller extends FeathersControl
 		this.stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		if(this._verticalAutoScrollTween)
 		{
-			Starling.juggler.remove(this._verticalAutoScrollTween);
+			Starling.current.juggler.remove(this._verticalAutoScrollTween);
 			this._verticalAutoScrollTween = null;
 		}
 		if(this._horizontalAutoScrollTween)
 		{
-			Starling.juggler.remove(this._horizontalAutoScrollTween);
+			Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 			this._horizontalAutoScrollTween = null;
 		}
 

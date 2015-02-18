@@ -134,7 +134,7 @@ class ScreenFadeTransitionManager
 			this._activeTransition.delay = this.delay;
 			this._activeTransition.onUpdate = activeTransition_onUpdate;
 			this._activeTransition.onComplete = activeTransition_onComplete;
-			Starling.juggler.add(this._activeTransition);
+			Starling.current.juggler.add(this._activeTransition);
 		}
 		else //we only have the old screen
 		{
@@ -143,7 +143,7 @@ class ScreenFadeTransitionManager
 			this._activeTransition.fadeTo(0);
 			this._activeTransition.delay = this.delay;
 			this._activeTransition.onComplete = activeTransition_onComplete;
-			Starling.juggler.add(this._activeTransition);
+			Starling.current.juggler.add(this._activeTransition);
 		}
 	}
 	

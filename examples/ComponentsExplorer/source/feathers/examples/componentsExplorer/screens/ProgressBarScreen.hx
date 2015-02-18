@@ -71,24 +71,24 @@ class ProgressBarScreen extends PanelScreen
 		this._horizontalProgressTween = new Tween(this._horizontalProgress, 5);
 		this._horizontalProgressTween.animate("value", 1);
 		this._horizontalProgressTween.repeatCount = Int.MAX_VALUE;
-		Starling.juggler.add(this._horizontalProgressTween);
+		Starling.current.juggler.add(this._horizontalProgressTween);
 
 		this._verticalProgressTween = new Tween(this._verticalProgress, 8);
 		this._verticalProgressTween.animate("value", 100);
 		this._verticalProgressTween.repeatCount = Int.MAX_VALUE;
-		Starling.juggler.add(this._verticalProgressTween);
+		Starling.current.juggler.add(this._verticalProgressTween);
 	}
 
 	private function onBackButton():Void
 	{
 		if(this._horizontalProgressTween)
 		{
-			Starling.juggler.remove(this._horizontalProgressTween);
+			Starling.current.juggler.remove(this._horizontalProgressTween);
 			this._horizontalProgressTween = null;
 		}
 		if(this._verticalProgressTween)
 		{
-			Starling.juggler.remove(this._verticalProgressTween);
+			Starling.current.juggler.remove(this._verticalProgressTween);
 			this._verticalProgressTween = null;
 		}
 		this.dispatchEventWith(Event.COMPLETE);
