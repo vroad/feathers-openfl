@@ -747,7 +747,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._textEditorFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_EDITOR);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 	}
 
 	/**
@@ -1760,7 +1760,7 @@ public function get_isFocusEnabled():Bool
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
+		var textEditorInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 		var promptFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PROMPT_FACTORY);
 		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 

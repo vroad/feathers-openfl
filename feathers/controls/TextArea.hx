@@ -666,7 +666,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._textEditorFactory = value;
-		this.invalidate(INVALIDATION_FLAG_TEXT_EDITOR);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 	}
 
 	/**
@@ -833,7 +833,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	override private function draw():Void
 	{
-		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
+		var textEditorInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
