@@ -1209,7 +1209,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		var decrementButtonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY);
 		var incrementButtonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY);
 		var textInputFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_INPUT_FACTORY);
-		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 
 		if(decrementButtonFactoryInvalid)
 		{

@@ -1323,7 +1323,7 @@ public function get_height():Float
 			return;
 		}
 		this._focusPaddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1364,7 +1364,7 @@ public function get_height():Float
 			return;
 		}
 		this._focusPaddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1405,7 +1405,7 @@ public function get_height():Float
 			return;
 		}
 		this._focusPaddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1446,7 +1446,7 @@ public function get_height():Float
 			return;
 		}
 		this._focusPaddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1814,7 +1814,7 @@ public function get_height():Float
 		}
 
 		this._showFocus = true;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1832,7 +1832,7 @@ public function get_height():Float
 		}
 
 		this._showFocus = false;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -2073,7 +2073,7 @@ public function get_height():Float
 	private function focusInHandler(event:Event):Void
 	{
 		this._hasFocus = true;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -2085,7 +2085,7 @@ public function get_height():Float
 	{
 		this._hasFocus = false;
 		this._showFocus = false;
-		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**

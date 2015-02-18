@@ -2040,7 +2040,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var textRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_RENDERER);
-		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 
 		if(textRendererInvalid)
 		{

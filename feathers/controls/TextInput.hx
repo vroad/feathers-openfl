@@ -1762,7 +1762,7 @@ public function get_isFocusEnabled():Bool
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
 		var promptFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PROMPT_FACTORY);
-		var focusInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOCUS);
+		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
 
 		if(textEditorInvalid)
 		{
