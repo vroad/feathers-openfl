@@ -149,7 +149,7 @@ package feathers.themes
 			this.assetManager = assetManager;
 			if(!this.assetManager)
 			{
-				this.assetManager = new AssetManager(Starling.contentScaleFactor);
+				this.assetManager = new AssetManager(Starling.current.contentScaleFactor);
 			}
 			//add a trailing slash, if needed
 			if(assetsBasePath.lastIndexOf("/") != assetsBasePath.length - 1)

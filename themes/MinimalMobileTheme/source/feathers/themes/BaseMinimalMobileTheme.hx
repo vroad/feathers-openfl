@@ -463,7 +463,7 @@ package feathers.themes
 		 */
 		protected function initializeScale():void
 		{
-			var scaledDPI:Int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
+			var scaledDPI:Int = DeviceCapabilities.dpi / Starling.current.contentScaleFactor;
 			if(this._scaleToDPI)
 			{
 				if(DeviceCapabilities.isTablet(Starling.current.nativeStage))

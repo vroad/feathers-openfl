@@ -605,7 +605,7 @@ package feathers.themes
 		 */
 		protected function initializeScale():void
 		{
-			var scaledDPI:int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
+			var scaledDPI:int = DeviceCapabilities.dpi / Starling.current.contentScaleFactor;
 			this._originalDPI = scaledDPI;
 			if(this._scaleToDPI)
 			{

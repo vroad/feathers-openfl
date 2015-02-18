@@ -4252,7 +4252,7 @@ class Scroller extends FeathersControl
 	{
 		if(this._snapToPages)
 		{
-			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
 			if(inchesPerSecond > this._minimumPageThrowVelocity)
 			{
 				var snappedPageHorizontalScrollPosition:Float = roundDownToNearest(this._horizontalScrollPosition, this.actualPageWidth);
@@ -4329,7 +4329,7 @@ class Scroller extends FeathersControl
 	{
 		if(this._snapToPages)
 		{
-			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+			var inchesPerSecond:Float = 1000 * pixelsPerMS / (DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
 			if(inchesPerSecond > this._minimumPageThrowVelocity)
 			{
 				var snappedPageVerticalScrollPosition:Float = roundDownToNearest(this._verticalScrollPosition, this.actualPageHeight);
@@ -4947,8 +4947,8 @@ class Scroller extends FeathersControl
 			this._previousTouchX = this._currentTouchX;
 			this._previousTouchY = this._currentTouchY;
 		}
-		var horizontalInchesMoved:Float = Math.abs(this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
-		var verticalInchesMoved:Float = Math.abs(this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.contentScaleFactor);
+		var horizontalInchesMoved:Float = Math.abs(this._currentTouchX - this._startTouchX) / (DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
+		var verticalInchesMoved:Float = Math.abs(this._currentTouchY - this._startTouchY) / (DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
 		if((this._horizontalScrollPolicy == SCROLL_POLICY_ON ||
 			(this._horizontalScrollPolicy == SCROLL_POLICY_AUTO && this._minHorizontalScrollPosition != this._maxHorizontalScrollPosition)) &&
 			!this._isDraggingHorizontally && horizontalInchesMoved >= this._minimumDragDistance)
@@ -5129,7 +5129,7 @@ class Scroller extends FeathersControl
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var scaleFactor:Float = nativeScaleFactor / Starling.contentScaleFactor;
+		var scaleFactor:Float = nativeScaleFactor / Starling.current.contentScaleFactor;
 		HELPER_POINT.x = (event.stageX - starlingViewPort.x) * scaleFactor;
 		HELPER_POINT.y = (event.stageY - starlingViewPort.y) * scaleFactor;
 		if(this.contains(this.stage.hitTest(HELPER_POINT, true)))
