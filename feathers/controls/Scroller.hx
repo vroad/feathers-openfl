@@ -717,7 +717,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._snapToPages = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1152,7 +1152,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this.explicitHorizontalScrollStep = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1202,7 +1202,7 @@ class Scroller extends FeathersControl
 			throw new ArgumentError("horizontalScrollPosition cannot be NaN.");
 		}
 		this._horizontalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1320,7 +1320,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._horizontalScrollPolicy = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 	}
 
@@ -1362,7 +1362,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this.explicitVerticalScrollStep = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1399,7 +1399,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._verticalMouseWheelScrollStep = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1446,7 +1446,7 @@ class Scroller extends FeathersControl
 			throw new ArgumentError("verticalScrollPosition cannot be NaN.");
 		}
 		this._verticalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -1564,7 +1564,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._verticalScrollPolicy = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 	}
 
@@ -2903,7 +2903,7 @@ class Scroller extends FeathersControl
 		//and it's better to handle it here instead of having them
 		//invalidate unrelated flags
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);

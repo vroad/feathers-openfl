@@ -210,7 +210,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			return;
 		}
 		this._horizontalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	private var _verticalScrollPosition:Float = 0;
@@ -228,7 +228,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			return;
 		}
 		this._verticalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	override public function dispose():Void
@@ -241,7 +241,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 
 		super.draw();
 

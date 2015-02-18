@@ -890,7 +890,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this._horizontalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	private var _verticalScrollPosition:Float = 0;
@@ -908,7 +908,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this._verticalScrollPosition = value;
-		this.invalidate(INVALIDATION_FLAG_SCROLL);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
 	}
 
 	private var _minimumItemCount:Int;
@@ -958,7 +958,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);

@@ -517,7 +517,7 @@ class LayoutGroup extends FeathersControl
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		//we don't have scrolling, but a subclass might
-		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
