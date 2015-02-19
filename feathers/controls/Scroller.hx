@@ -1122,7 +1122,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var explicitHorizontalScrollStep:Float = NaN;
+	private var explicitHorizontalScrollStep:Float = Math.NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped horizontally. Passed
@@ -1134,7 +1134,7 @@ class Scroller extends FeathersControl
 	 * <listing version="3.0">
 	 * scroller.horizontalScrollStep = 0;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var horizontalScrollStep(get, set):Float;
 	public function get_horizontalScrollStep():Float
@@ -1199,7 +1199,7 @@ class Scroller extends FeathersControl
 		if(value != value) //isNaN
 		{
 			//there isn't any recovery from this, so stop it early
-			throw new ArgumentError("horizontalScrollPosition cannot be NaN.");
+			throw new ArgumentError("horizontalScrollPosition cannot be Math.NaN.");
 		}
 		this._horizontalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
@@ -1332,7 +1332,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var explicitVerticalScrollStep:Float = NaN;
+	private var explicitVerticalScrollStep:Float = Math.NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped vertically. Passed
@@ -1344,7 +1344,7 @@ class Scroller extends FeathersControl
 	 * <listing version="3.0">
 	 * scroller.verticalScrollStep = 0;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var verticalScrollStep(get, set):Float;
 	public function get_verticalScrollStep():Float
@@ -1368,11 +1368,11 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _verticalMouseWheelScrollStep:Float = NaN;
+	private var _verticalMouseWheelScrollStep:Float = Math.NaN;
 
 	/**
 	 * The number of pixels the scroller can be stepped vertically when
-	 * using the mouse wheel. If this value is <code>NaN</code>, the mouse
+	 * using the mouse wheel. If this value is <code>Math.NaN</code>, the mouse
 	 * wheel will use the same scroll step as the scroll bars.
 	 *
 	 * <p>In the following example, the vertical mouse wheel scroll step is
@@ -1381,7 +1381,7 @@ class Scroller extends FeathersControl
 	 * <listing version="3.0">
 	 * scroller.verticalMouseWheelScrollStep = 10;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var verticalMouseWheelScrollStep(get, set):Float;
 	public function get_verticalMouseWheelScrollStep():Float
@@ -1443,7 +1443,7 @@ class Scroller extends FeathersControl
 		if(value != value) //isNaN
 		{
 			//there isn't any recovery from this, so stop it early
-			throw new ArgumentError("verticalScrollPosition cannot be NaN.");
+			throw new ArgumentError("verticalScrollPosition cannot be Math.NaN.");
 		}
 		this._verticalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
@@ -1616,7 +1616,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var explicitPageWidth:Float = NaN;
+	private var explicitPageWidth:Float = Math.NaN;
 
 	/**
 	 * When set, the horizontal pages snap to this width value instead of
@@ -1669,7 +1669,7 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var explicitPageHeight:Float = NaN;
+	private var explicitPageHeight:Float = Math.NaN;
 
 	/**
 	 * When set, the vertical pages snap to this height value instead of
@@ -1903,12 +1903,12 @@ class Scroller extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Float = NaN;
+	private var originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Float = NaN;
+	private var originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -2641,17 +2641,17 @@ class Scroller extends FeathersControl
 
 	/**
 	 * The pending horizontal scroll position to scroll to after validating.
-	 * A value of <code>NaN</code> means that the scroller won't scroll to a
+	 * A value of <code>Math.NaN</code> means that the scroller won't scroll to a
 	 * horizontal position after validating.
 	 */
-	private var pendingHorizontalScrollPosition:Float = NaN;
+	private var pendingHorizontalScrollPosition:Float = Math.NaN;
 
 	/**
 	 * The pending vertical scroll position to scroll to after validating.
-	 * A value of <code>NaN</code> means that the scroller won't scroll to a
+	 * A value of <code>Math.NaN</code> means that the scroller won't scroll to a
 	 * vertical position after validating.
 	 */
-	private var pendingVerticalScrollPosition:Float = NaN;
+	private var pendingVerticalScrollPosition:Float = Math.NaN;
 
 	/**
 	 * The pending horizontal page index to scroll to after validating. A
@@ -2765,8 +2765,8 @@ class Scroller extends FeathersControl
 	/**
 	 * After the next validation, animates the scroll positions to a
 	 * specific location. May scroll in only one direction by passing in a
-	 * value of <code>NaN</code> for either scroll position. If the
-	 * <code>animationDuration</code> argument is <code>NaN</code> (the
+	 * value of <code>Math.NaN</code> for either scroll position. If the
+	 * <code>animationDuration</code> argument is <code>Math.NaN</code> (the
 	 * default value), the duration of a standard throw is used. The
 	 * duration is in seconds.
 	 *
@@ -2784,7 +2784,7 @@ class Scroller extends FeathersControl
 	 * @see #verticalScrollPosition
 	 * @see #throwEase
 	 */
-	public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = NaN):Void
+	public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = Math.NaN):Void
 	{
 		if(animationDuration != animationDuration) //isNaN
 		{
@@ -2816,7 +2816,7 @@ class Scroller extends FeathersControl
 	 * After the next validation, animates the scroll position to a specific
 	 * page index. May scroll in only one direction by passing in a value of
 	 * <code>-1</code> for either page index. If the
-	 * <code>animationDuration</code> argument is <code>NaN</code> (the
+	 * <code>animationDuration</code> argument is <code>Math.NaN</code> (the
 	 * default value) the value of the <code>pageThrowDuration</code>
 	 * property is used for the duration. The duration is in seconds.
 	 *
@@ -2832,14 +2832,14 @@ class Scroller extends FeathersControl
 	 * @see #pageThrowDuration
 	 * @see #throwEase
 	 */
-	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = NaN):Void
+	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = Math.NaN):Void
 	{
 		if(animationDuration != animationDuration) //isNaN
 		{
 			animationDuration = this._pageThrowDuration;
 		}
-		this.pendingHorizontalScrollPosition = NaN;
-		this.pendingVerticalScrollPosition = NaN;
+		this.pendingHorizontalScrollPosition = Math.NaN;
+		this.pendingVerticalScrollPosition = Math.NaN;
 		var horizontalPageHasChanged:Bool = (this.pendingHorizontalPageIndex >= 0 && this.pendingHorizontalPageIndex != horizontalPageIndex) ||
 			(this.pendingHorizontalPageIndex < 0 && this._horizontalPageIndex != horizontalPageIndex);
 		var verticalPageHasChanged:Bool = (this.pendingVerticalPageIndex >= 0 && this.pendingVerticalPageIndex != verticalPageIndex) ||
@@ -3357,13 +3357,13 @@ class Scroller extends FeathersControl
 				oldMaxHSP > this._maxHorizontalScrollPosition)
 			{
 				this._targetHorizontalScrollPosition -= (oldMaxHSP - this._maxHorizontalScrollPosition);
-				this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
+				this.throwTo(this._targetHorizontalScrollPosition, Math.NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
 			}
 			if(this._verticalAutoScrollTween && this._targetVerticalScrollPosition > this._maxVerticalScrollPosition &&
 				oldMaxVSP > this._maxVerticalScrollPosition)
 			{
 				this._targetVerticalScrollPosition -= (oldMaxVSP - this._maxVerticalScrollPosition);
-				this.throwTo(NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
+				this.throwTo(Math.NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
 			}
 		}
 	}
@@ -4040,12 +4040,12 @@ class Scroller extends FeathersControl
 	/**
 	 * Immediately throws the scroller to the specified position, with
 	 * optional animation. If you want to throw in only one direction, pass
-	 * in <code>NaN</code> for the value that you do not want to change. The
+	 * in <code>Math.NaN</code> for the value that you do not want to change. The
 	 * scroller should be validated before throwing.
 	 *
 	 * @see #scrollToPosition()
 	 */
-	private function throwTo(targetHorizontalScrollPosition:Float = NaN, targetVerticalScrollPosition:Float = NaN, duration:Float = 0.5):Void
+	private function throwTo(targetHorizontalScrollPosition:Float = Math.NaN, targetVerticalScrollPosition:Float = Math.NaN, duration:Float = 0.5):Void
 	{
 		var changedPosition:Bool = false;
 		if(targetHorizontalScrollPosition == targetHorizontalScrollPosition) //!isNaN
@@ -4198,7 +4198,7 @@ class Scroller extends FeathersControl
 	 */
 	private function finishScrollingHorizontally():Void
 	{
-		var targetHorizontalScrollPosition:Float = NaN;
+		var targetHorizontalScrollPosition:Float = Math.NaN;
 		if(this._horizontalScrollPosition < this._minHorizontalScrollPosition)
 		{
 			targetHorizontalScrollPosition = this._minHorizontalScrollPosition;
@@ -4215,7 +4215,7 @@ class Scroller extends FeathersControl
 		}
 		else
 		{
-			this.throwTo(targetHorizontalScrollPosition, NaN, this._elasticSnapDuration);
+			this.throwTo(targetHorizontalScrollPosition, Math.NaN, this._elasticSnapDuration);
 		}
 	}
 
@@ -4224,7 +4224,7 @@ class Scroller extends FeathersControl
 	 */
 	private function finishScrollingVertically():Void
 	{
-		var targetVerticalScrollPosition:Float = NaN;
+		var targetVerticalScrollPosition:Float = Math.NaN;
 		if(this._verticalScrollPosition < this._minVerticalScrollPosition)
 		{
 			targetVerticalScrollPosition = this._minVerticalScrollPosition;
@@ -4241,7 +4241,7 @@ class Scroller extends FeathersControl
 		}
 		else
 		{
-			this.throwTo(NaN, targetVerticalScrollPosition, this._elasticSnapDuration);
+			this.throwTo(Math.NaN, targetVerticalScrollPosition, this._elasticSnapDuration);
 		}
 	}
 
@@ -4318,7 +4318,7 @@ class Scroller extends FeathersControl
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
 		}
-		this.throwTo(this._horizontalScrollPosition + this.calculateThrowDistance(pixelsPerMS), NaN, duration);
+		this.throwTo(this._horizontalScrollPosition + this.calculateThrowDistance(pixelsPerMS), Math.NaN, duration);
 		this.refreshHorizontalAutoScrollTweenEndRatio();
 	}
 
@@ -4395,7 +4395,7 @@ class Scroller extends FeathersControl
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
 		}
-		this.throwTo(NaN, this._verticalScrollPosition + this.calculateThrowDistance(pixelsPerMS), duration);
+		this.throwTo(Math.NaN, this._verticalScrollPosition + this.calculateThrowDistance(pixelsPerMS), duration);
 		this.refreshVerticalAutoScrollTweenEndRatio();
 	}
 
@@ -4675,8 +4675,8 @@ class Scroller extends FeathersControl
 			this.pendingVerticalScrollPosition == this.pendingVerticalScrollPosition) //!isNaN
 		{
 			this.throwTo(this.pendingHorizontalScrollPosition, this.pendingVerticalScrollPosition, this.pendingScrollDuration);
-			this.pendingHorizontalScrollPosition = NaN;
-			this.pendingVerticalScrollPosition = NaN;
+			this.pendingHorizontalScrollPosition = Math.NaN;
+			this.pendingVerticalScrollPosition = Math.NaN;
 		}
 		if(this.pendingHorizontalPageIndex >= 0 || this.pendingVerticalPageIndex >= 0)
 		{
@@ -5157,7 +5157,7 @@ class Scroller extends FeathersControl
 			{
 				targetVerticalScrollPosition = this._maxVerticalScrollPosition;
 			}
-			this.throwTo(NaN, targetVerticalScrollPosition, this._mouseWheelScrollDuration);
+			this.throwTo(Math.NaN, targetVerticalScrollPosition, this._mouseWheelScrollDuration);
 		}
 	}
 

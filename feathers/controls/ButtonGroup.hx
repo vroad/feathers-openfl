@@ -615,10 +615,10 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _firstGap:Float = NaN;
+	private var _firstGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the first two buttons. If <code>NaN</code>,
+	 * Space, in pixels, between the first two buttons. If <code>Math.NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the first and second
@@ -628,7 +628,7 @@ class ButtonGroup extends FeathersControl
 	 * group.firstGap = 30;
 	 * group.gap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 * @see #lastGap
@@ -655,10 +655,10 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastGap:Float = NaN;
+	private var _lastGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the last two buttons. If <code>NaN</code>,
+	 * Space, in pixels, between the last two buttons. If <code>Math.NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the last and next to last
@@ -668,7 +668,7 @@ class ButtonGroup extends FeathersControl
 	 * group.lastGap = 30;
 	 * group.gap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 * @see #firstGap

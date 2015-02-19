@@ -41,16 +41,16 @@ class ViewPortBounds
 	public var scrollY:Float = 0;
 
 	/**
-	 * The explicit width of the view port, in pixels. If <code>NaN</code>,
+	 * The explicit width of the view port, in pixels. If <code>Math.NaN</code>,
 	 * there is no explicit width value.
 	 */
-	public var explicitWidth:Float = NaN;
+	public var explicitWidth:Float = Math.NaN;
 
 	/**
-	 * The explicit height of the view port, in pixels. If <code>NaN</code>,
+	 * The explicit height of the view port, in pixels. If <code>Math.NaN</code>,
 	 * there is no explicit height value.
 	 */
-	public var explicitHeight:Float = NaN;
+	public var explicitHeight:Float = Math.NaN;
 
 	/**
 	 * The minimum width of the view port, in pixels. Should be 0 or

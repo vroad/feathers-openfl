@@ -27,9 +27,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function AnchorLayoutData(top:Float = NaN, right:Float = NaN,
-		bottom:Float = NaN, left:Float = NaN, horizontalCenter:Float = NaN,
-		verticalCenter:Float = NaN)
+	public function AnchorLayoutData(top:Float = Math.NaN, right:Float = Math.NaN,
+		bottom:Float = Math.NaN, left:Float = Math.NaN, horizontalCenter:Float = Math.NaN,
+		verticalCenter:Float = Math.NaN)
 	{
 		this.top = top;
 		this.right = right;
@@ -42,15 +42,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentWidth:Float = NaN;
+	private var _percentWidth:Float = Math.NaN;
 
 	/**
 	 * The width of the layout object, as a percentage of the container's
 	 * width.
 	 *
-	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentWidth(get, set):Float;
 	public function get_percentWidth():Float
@@ -74,15 +74,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _percentHeight:Float = NaN;
+	private var _percentHeight:Float = Math.NaN;
 
 	/**
 	 * The height of the layout object, as a percentage of the container's
 	 * height.
 	 *
-	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentHeight(get, set):Float;
 	public function get_percentHeight():Float
@@ -139,15 +139,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _top:Float = NaN;
+	private var _top:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the top edge relative to the top
 	 * anchor, or, if there is no top anchor, then the position is relative
 	 * to the top edge of the parent container. If this value is
-	 * <code>NaN</code>, the object's top edge will not be anchored.
+	 * <code>Math.NaN</code>, the object's top edge will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #topAnchorDisplayObject
 	 */
@@ -206,15 +206,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _right:Float = NaN;
+	private var _right:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the right edge relative to the right
 	 * anchor, or, if there is no right anchor, then the position is relative
 	 * to the right edge of the parent container. If this value is
-	 * <code>NaN</code>, the object's right edge will not be anchored.
+	 * <code>Math.NaN</code>, the object's right edge will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #rightAnchorDisplayObject
 	 */
@@ -273,15 +273,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _bottom:Float = NaN;
+	private var _bottom:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the bottom edge relative to the bottom
 	 * anchor, or, if there is no bottom anchor, then the position is relative
 	 * to the bottom edge of the parent container. If this value is
-	 * <code>NaN</code>, the object's bottom edge will not be anchored.
+	 * <code>Math.NaN</code>, the object's bottom edge will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #bottomAnchorDisplayObject
 	 */
@@ -340,15 +340,15 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _left:Float = NaN;
+	private var _left:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the left edge relative to the left
 	 * anchor, or, if there is no left anchor, then the position is relative
 	 * to the left edge of the parent container. If this value is
-	 * <code>NaN</code>, the object's left edge will not be anchored.
+	 * <code>Math.NaN</code>, the object's left edge will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #leftAnchorDisplayObject
 	 */
@@ -407,16 +407,16 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _horizontalCenter:Float = NaN;
+	private var _horizontalCenter:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the horizontal center relative to the
 	 * horizontal center anchor, or, if there is no horizontal center
 	 * anchor, then the position is relative to the horizontal center of the
-	 * parent container. If this value is <code>NaN</code>, the object's
+	 * parent container. If this value is <code>Math.NaN</code>, the object's
 	 * horizontal center will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #horizontalCenterAnchorDisplayObject
 	 */
@@ -475,16 +475,16 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * @private
 	 */
-	private var _verticalCenter:Float = NaN;
+	private var _verticalCenter:Float = Math.NaN;
 
 	/**
 	 * The position, in pixels, of the vertical center relative to the
 	 * vertical center anchor, or, if there is no vertical center anchor,
 	 * then the position is relative to the vertical center of the parent
-	 * container. If this value is <code>NaN</code>, the object's vertical
+	 * container. If this value is <code>Math.NaN</code>, the object's vertical
 	 * center will not be anchored.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #verticalCenterAnchorDisplayObject
 	 */

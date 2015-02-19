@@ -1155,12 +1155,12 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _originalSkinWidth:Float = NaN;
+	private var _originalSkinWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalSkinHeight:Float = NaN;
+	private var _originalSkinHeight:Float = Math.NaN;
 
 	/**
 	 * @private

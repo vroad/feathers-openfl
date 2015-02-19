@@ -920,7 +920,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		var oldHeaderHeight:Float = this.header.height;
 		this.header.width = this.explicitWidth;
 		this.header.maxWidth = this._maxWidth;
-		this.header.height = NaN;
+		this.header.height = Math.NaN;
 		this.header.validate();
 
 		if(this.footer)
@@ -929,7 +929,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			var oldFooterHeight:Float = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
-			this.footer.height = NaN;
+			this.footer.height = Math.NaN;
 			this.footer.validate();
 		}
 
@@ -1082,7 +1082,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			this.header.width = this.explicitWidth - this._outerPaddingLeft - this._outerPaddingRight;
 		}
 		this.header.maxWidth = this._maxWidth - this._outerPaddingLeft - this._outerPaddingRight;
-		this.header.height = NaN;
+		this.header.height = Math.NaN;
 		this.header.validate();
 		this._topViewPortOffset += this.header.height + this._outerPaddingTop;
 		this.header.width = oldHeaderWidth;
@@ -1104,7 +1104,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 				this.header.width = this.explicitWidth - this._outerPaddingLeft - this._outerPaddingRight;
 			}
 			this.footer.maxWidth = this._maxWidth - this._outerPaddingLeft - this._outerPaddingRight;
-			this.footer.height = NaN;
+			this.footer.height = Math.NaN;
 			this.footer.validate();
 			this._bottomViewPortOffset += this.footer.height + this._outerPaddingBottom;
 			this.footer.width = oldFooterWidth;
@@ -1125,7 +1125,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.header.x = this._outerPaddingLeft;
 		this.header.y = this._outerPaddingTop;
 		this.header.width = this.actualWidth - this._outerPaddingLeft - this._outerPaddingRight;
-		this.header.height = NaN;
+		this.header.height = Math.NaN;
 		this.header.validate();
 		this._ignoreHeaderResizing = oldIgnoreHeaderResizing;
 
@@ -1135,7 +1135,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			this._ignoreFooterResizing = true;
 			this.footer.x = this._outerPaddingLeft;
 			this.footer.width = this.actualWidth - this._outerPaddingLeft - this._outerPaddingRight;
-			this.footer.height = NaN;
+			this.footer.height = Math.NaN;
 			this.footer.validate();
 			this.footer.y = this.actualHeight - this.footer.height - this._outerPaddingBottom;
 			this._ignoreFooterResizing = oldIgnoreFooterResizing;

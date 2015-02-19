@@ -28,23 +28,23 @@ class DeviceCapabilities
 
 	/**
 	 * A custom width, in pixels, to use for calculations of the device's
-	 * physical screen size. Set to NaN to use the actual width.
+	 * physical screen size. Set to Math.NaN to use the actual width.
 	 *
 	 * @default openfl.display.Stage.fullScreenWidth
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html#fullScreenWidth Full description of openfl.display.Stage.fullScreenWidth in Adobe's Flash Platform API Reference
 	 */
-	public static var screenPixelWidth:Float = NaN;
+	public static var screenPixelWidth:Float = Math.NaN;
 
 	/**
 	 * A custom height, in pixels, to use for calculations of the device's
-	 * physical screen size. Set to NaN to use the actual height.
+	 * physical screen size. Set to Math.NaN to use the actual height.
 	 *
 	 * @default openfl.display.Stage.fullScreenHeight
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html#fullScreenWidth Full description of openfl.display.Stage.fullScreenWidth in Adobe's Flash Platform API Reference
 	 */
-	public static var screenPixelHeight:Float = NaN;
+	public static var screenPixelHeight:Float = Math.NaN;
 	
 	/**
 	 * The screen density to be used by Feathers. Defaults to the value of

@@ -1129,12 +1129,12 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundWidth:Float = NaN;
+	private var _originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundHeight:Float = NaN;
+	private var _originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private

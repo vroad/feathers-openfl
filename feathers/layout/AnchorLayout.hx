@@ -101,8 +101,8 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
 		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
 		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
 
 		var viewPortWidth:Float = explicitWidth;
 		var viewPortHeight:Float = explicitHeight;

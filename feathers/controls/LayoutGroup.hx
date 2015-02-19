@@ -250,12 +250,12 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Float = NaN;
+	private var originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Float = NaN;
+	private var originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private

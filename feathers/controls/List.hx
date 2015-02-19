@@ -1051,7 +1051,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = NaN):Void
+	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = Math.NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPosition(horizontalScrollPosition, verticalScrollPosition, animationDuration);
@@ -1060,7 +1060,7 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = Math.NaN):Void
 	{
 		this.pendingItemIndex = -1;
 		super.scrollToPageIndex(horizontalPageIndex, verticalPageIndex, animationDuration);
@@ -1094,8 +1094,8 @@ public function get_isFocusEnabled():Bool
 	{
 		this.pendingHorizontalPageIndex = -1;
 		this.pendingVerticalPageIndex = -1;
-		this.pendingHorizontalScrollPosition = NaN;
-		this.pendingVerticalScrollPosition = NaN;
+		this.pendingHorizontalScrollPosition = Math.NaN;
+		this.pendingVerticalScrollPosition = Math.NaN;
 		if(this.pendingItemIndex == index &&
 			this.pendingScrollDuration == animationDuration)
 		{

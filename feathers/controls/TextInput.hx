@@ -894,13 +894,13 @@ public function get_isFocusEnabled():Bool
 	 * @private
 	 * The width of the first skin that was displayed.
 	 */
-	private var _originalSkinWidth:Float = NaN;
+	private var _originalSkinWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 * The height of the first skin that was displayed.
 	 */
-	private var _originalSkinHeight:Float = NaN;
+	private var _originalSkinHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -1869,7 +1869,7 @@ public function get_isFocusEnabled():Bool
 			var oldTextEditorHeight:Float = this.textEditor.height;
 			var oldIgnoreTextChanges:Bool = this._ignoreTextChanges;
 			this._ignoreTextChanges = true;
-			this.textEditor.setSize(NaN, NaN);
+			this.textEditor.setSize(Math.NaN, Math.NaN);
 			this.textEditor.text = this._typicalText;
 			this.textEditor.measureText(HELPER_POINT);
 			this.textEditor.text = this._text;
@@ -1879,7 +1879,7 @@ public function get_isFocusEnabled():Bool
 		}
 		if(this._prompt != null)
 		{
-			this.promptTextRenderer.setSize(NaN, NaN);
+			this.promptTextRenderer.setSize(Math.NaN, Math.NaN);
 			this.promptTextRenderer.measureText(HELPER_POINT);
 			typicalTextWidth = Math.max(typicalTextWidth, HELPER_POINT.x);
 			typicalTextHeight = Math.max(typicalTextHeight, HELPER_POINT.y);
@@ -2158,7 +2158,7 @@ public function get_isFocusEnabled():Bool
 		else
 		{
 			//clear the height and auto-size instead
-			this.textEditor.height = NaN;
+			this.textEditor.height = Math.NaN;
 		}
 		this.textEditor.validate();
 		if(this.promptTextRenderer)

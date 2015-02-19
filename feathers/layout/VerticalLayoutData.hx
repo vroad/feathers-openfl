@@ -26,7 +26,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function VerticalLayoutData(percentWidth:Float = NaN, percentHeight:Float = NaN)
+	public function VerticalLayoutData(percentWidth:Float = Math.NaN, percentHeight:Float = Math.NaN)
 	{
 		this._percentWidth = percentWidth;
 		this._percentHeight = percentHeight;
@@ -41,9 +41,9 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	 * The width of the layout object, as a percentage of the container's
 	 * width.
 	 *
-	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentWidth(get, set):Float;
 	public function get_percentWidth():Float
@@ -76,11 +76,11 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	 * distributed to children with percent heights.
 	 *
 	 * <p>The <code>percentHeight</code> property is ignored when its value
-	 * is <code>NaN</code> or when the <code>useVirtualLayout</code>
+	 * is <code>Math.NaN</code> or when the <code>useVirtualLayout</code>
 	 * property of the <code>VerticalLayout</code> is set to
 	 * <code>false</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentHeight(get, set):Float;
 	public function get_percentHeight():Float

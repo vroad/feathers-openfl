@@ -26,7 +26,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function HorizontalLayoutData(percentWidth:Float = NaN, percentHeight:Float = NaN)
+	public function HorizontalLayoutData(percentWidth:Float = Math.NaN, percentHeight:Float = Math.NaN)
 	{
 		this._percentWidth = percentWidth;
 		this._percentHeight = percentHeight;
@@ -44,11 +44,11 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 * distributed to children with percent widths.
 	 *
 	 * <p>The <code>percentWidth</code> property is ignored when its value
-	 * is <code>NaN</code> or when the <code>useVirtualLayout</code>
+	 * is <code>Math.NaN</code> or when the <code>useVirtualLayout</code>
 	 * property of the <code>HorizontalLayout</code> is set to
 	 * <code>false</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentWidth(get, set):Float;
 	public function get_percentWidth():Float
@@ -79,9 +79,9 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 * The height of the layout object, as a percentage of the container's
 	 * height.
 	 *
-	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var percentHeight(get, set):Float;
 	public function get_percentHeight():Float

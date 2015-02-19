@@ -228,12 +228,12 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundWidth:Float = NaN;
+	private var _originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalBackgroundHeight:Float = NaN;
+	private var _originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -333,12 +333,12 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _originalFillWidth:Float = NaN;
+	private var _originalFillWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _originalFillHeight:Float = NaN;
+	private var _originalFillHeight:Float = Math.NaN;
 
 	/**
 	 * @private

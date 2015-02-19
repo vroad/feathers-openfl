@@ -15,24 +15,24 @@ package feathers.controls.text;import feathers.controls.Scroller;import feathe
 	/**	 * @private	 */	private var _minVisibleWidth:Float = 0;
 	/**	 * @inheritDoc	 */	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float	{		return this._minVisibleWidth;	}
-	/**	 * @private	 */	public function set_minVisibleWidth(value:Float):Float	{		if(this._minVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleWidth cannot be NaN");		}		this._minVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	/**	 * @private	 */	public function set_minVisibleWidth(value:Float):Float	{		if(this._minVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");		}		this._minVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	/**	 * @private	 */	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
 	/**	 * @inheritDoc	 */	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float	{		return this._maxVisibleWidth;	}
-	/**	 * @private	 */	public function set_maxVisibleWidth(value:Float):Float	{		if(this._maxVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleWidth cannot be NaN");		}		this._maxVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
-	/**	 * @private	 */	private var _visibleWidth:Float = NaN;
+	/**	 * @private	 */	public function set_maxVisibleWidth(value:Float):Float	{		if(this._maxVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");		}		this._maxVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	/**	 * @private	 */	private var _visibleWidth:Float = Math.NaN;
 	/**	 * @inheritDoc	 */	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float	{		return this._visibleWidth;	}
 	/**	 * @private	 */	public function set_visibleWidth(value:Float):Float	{		if(this._visibleWidth == value ||			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN		{			return;		}		this._visibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	/**	 * @private	 */	private var _minVisibleHeight:Float = 0;
 	/**	 * @inheritDoc	 */	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float	{		return this._minVisibleHeight;	}
-	/**	 * @private	 */	public function set_minVisibleHeight(value:Float):Float	{		if(this._minVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleHeight cannot be NaN");		}		this._minVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	/**	 * @private	 */	public function set_minVisibleHeight(value:Float):Float	{		if(this._minVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");		}		this._minVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	/**	 * @private	 */	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
 	/**	 * @inheritDoc	 */	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float	{		return this._maxVisibleHeight;	}
-	/**	 * @private	 */	public function set_maxVisibleHeight(value:Float):Float	{		if(this._maxVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleHeight cannot be NaN");		}		this._maxVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
-	/**	 * @private	 */	private var _visibleHeight:Float = NaN;
+	/**	 * @private	 */	public function set_maxVisibleHeight(value:Float):Float	{		if(this._maxVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");		}		this._maxVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	/**	 * @private	 */	private var _visibleHeight:Float = Math.NaN;
 	/**	 * @inheritDoc	 */	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float	{		return this._visibleHeight;	}
 	/**	 * @private	 */	public function set_visibleHeight(value:Float):Float	{		if(this._visibleHeight == value ||			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN		{			return;		}		this._visibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}

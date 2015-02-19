@@ -193,12 +193,12 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _currentTextureWidth:Float = NaN;
+	private var _currentTextureWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _currentTextureHeight:Float = NaN;
+	private var _currentTextureHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -1343,8 +1343,8 @@ class ImageLoader extends FeathersControl
 			this._pendingRawTextureData.clear();
 		}
 		this._currentTexture = null;
-		this._currentTextureWidth = NaN;
-		this._currentTextureHeight = NaN;
+		this._currentTextureWidth = Math.NaN;
+		this._currentTextureHeight = Math.NaN;
 		this._pendingBitmapDataTexture = null;
 		this._pendingRawTextureData = null;
 		this._textureBitmapData = null;

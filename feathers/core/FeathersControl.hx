@@ -188,12 +188,12 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	inline private static var ILLEGAL_WIDTH_ERROR:String = "A component's width cannot be NaN.";
+	inline private static var ILLEGAL_WIDTH_ERROR:String = "A component's width cannot be Math.NaN.";
 
 	/**
 	 * @private
 	 */
-	inline private static var ILLEGAL_HEIGHT_ERROR:String = "A component's height cannot be NaN.";
+	inline private static var ILLEGAL_HEIGHT_ERROR:String = "A component's height cannot be Math.NaN.";
 
 	/**
 	 * @private
@@ -514,7 +514,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * The width value explicitly set by calling the width setter or
 	 * setSize().
 	 */
-	private var explicitWidth:Float = NaN;
+	private var explicitWidth:Float = Math.NaN;
 
 	/**
 	 * The final width value that should be used for layout. If the width
@@ -559,7 +559,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * component can automatically measure its own width:</p>
 	 *
 	 * <listing version="3.0">
-	 * control.width = NaN;</listing>
+	 * control.width = Math.NaN;</listing>
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
@@ -599,7 +599,7 @@ public function get_width():Float
 	 * The height value explicitly set by calling the height setter or
 	 * setSize().
 	 */
-	private var explicitHeight:Float = NaN;
+	private var explicitHeight:Float = Math.NaN;
 
 	/**
 	 * The final height value that should be used for layout. If the height
@@ -644,7 +644,7 @@ public function get_width():Float
 	 * component can automatically measure its own height:</p>
 	 *
 	 * <listing version="3.0">
-	 * control.height = NaN;</listing>
+	 * control.height = Math.NaN;</listing>
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
@@ -789,7 +789,7 @@ public function get_height():Float
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minWidth cannot be NaN");
+			throw new ArgumentError("minWidth cannot be Math.NaN");
 		}
 		this._minWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -832,7 +832,7 @@ public function get_height():Float
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minHeight cannot be NaN");
+			throw new ArgumentError("minHeight cannot be Math.NaN");
 		}
 		this._minHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -875,7 +875,7 @@ public function get_height():Float
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxWidth cannot be NaN");
+			throw new ArgumentError("maxWidth cannot be Math.NaN");
 		}
 		this._maxWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -918,7 +918,7 @@ public function get_height():Float
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxHeight cannot be NaN");
+			throw new ArgumentError("maxHeight cannot be Math.NaN");
 		}
 		this._maxHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);

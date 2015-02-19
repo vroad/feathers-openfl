@@ -32,8 +32,8 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 	/**	 * @private	 */	private var _textLines:Array<TextLine> = new Array();
 	/**	 * @private	 */	private var _measurementTextLineContainer:Sprite;
 	/**	 * @private	 */	private var _measurementTextLines:Array<TextLine> = new Array();
-	/**	 * @private	 */	private var _previousContentWidth:Float = NaN;
-	/**	 * @private	 */	private var _previousContentHeight:Float = NaN;
+	/**	 * @private	 */	private var _previousContentWidth:Float = Math.NaN;
+	/**	 * @private	 */	private var _previousContentHeight:Float = Math.NaN;
 	/**	 * @private	 */	private var _snapshotWidth:Int = 0;
 	/**	 * @private	 */	private var _snapshotHeight:Int = 0;
 	/**	 * @private	 */	private var _needsNewTexture:Bool = false;
@@ -127,7 +127,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 	public function get_truncateToFit():Bool	{		return _truncateToFit;	}
 	/**	 * @private	 */	public function set_truncateToFit(value:Bool):Bool	{		if(this._truncateToFit == value)		{			return;		}		this._truncateToFit = value;		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);	}
 	/**	 * @private	 */	override public function dispose():Void	{		if(this.textSnapshot)		{			this.textSnapshot.texture.dispose();			this.removeChild(this.textSnapshot, true);			this.textSnapshot = null;		}		if(this.textSnapshots)		{			var snapshotCount:Int = this.textSnapshots.length;			for(i in 0 ... snapshotCount)			{				var snapshot:Image = this.textSnapshots[i];				snapshot.texture.dispose();				this.removeChild(snapshot, true);			}			this.textSnapshots = null;		}		//this isn't necessary, but if a memory leak keeps the text renderer		//from being garbage collected, freeing up these things may help		//ease memory pressure from native filters and other expensive stuff		this.textBlock = null;		this._textLineContainer = null;		this._textLines = null;		this._measurementTextLineContainer = null;		this._measurementTextLines = null;		this._textElement = null;		this._content = null;
-		this._previousContentWidth = NaN;		this._previousContentHeight = NaN;
+		this._previousContentWidth = Math.NaN;		this._previousContentHeight = Math.NaN;
 		this._needsNewTexture = false;		this._snapshotWidth = 0;		this._snapshotHeight = 0;
 		super.dispose();	}
 	/**	 * @private	 */	override public function render(support:RenderSupport, parentAlpha:Float):Void	{		if(this.textSnapshot)		{			if(this._snapToPixels)			{				this.getTransformationMatrix(this.stage, HELPER_MATRIX);				this.textSnapshot.x = this._textSnapshotOffsetX + Math.round(HELPER_MATRIX.tx) - HELPER_MATRIX.tx;				this.textSnapshot.y = this._textSnapshotOffsetY + Math.round(HELPER_MATRIX.ty) - HELPER_MATRIX.ty;			}			else			{				this.textSnapshot.x = this._textSnapshotOffsetX;				this.textSnapshot.y = this._textSnapshotOffsetY;			}		}		super.render(support, parentAlpha);	}

@@ -18,8 +18,8 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 	/**	 * If multiple snapshots are needed due to texture size limits, the	 * snapshots appearing after the first are stored here.	 */	private var textSnapshots:Array<Image>;
 	/**	 * @private	 */	private var _textSnapshotOffsetX:Float = 0;
 	/**	 * @private	 */	private var _textSnapshotOffsetY:Float = 0;
-	/**	 * @private	 */	private var _previousActualWidth:Float = NaN;
-	/**	 * @private	 */	private var _previousActualHeight:Float = NaN;
+	/**	 * @private	 */	private var _previousActualWidth:Float = Math.NaN;
+	/**	 * @private	 */	private var _previousActualHeight:Float = Math.NaN;
 	/**	 * @private	 */	private var _snapshotWidth:Int = 0;
 	/**	 * @private	 */	private var _snapshotHeight:Int = 0;
 	/**	 * @private	 */	private var _needsNewTexture:Bool = false;
@@ -112,7 +112,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 	public function get_useGutter():Bool	{		return this._useGutter;	}
 	/**	 * @private	 */	public function set_useGutter(value:Bool):Bool	{		if(this._useGutter == value)		{			return;		}		this._useGutter = value;		this.invalidate(INVALIDATION_FLAG_STYLES);	}
 	/**	 * @private	 */	override public function dispose():Void	{		if(this.textSnapshot)		{			this.textSnapshot.texture.dispose();			this.removeChild(this.textSnapshot, true);			this.textSnapshot = null;		}		if(this.textSnapshots)		{			var snapshotCount:Int = this.textSnapshots.length;			for(i in 0 ... snapshotCount)			{				var snapshot:Image = this.textSnapshots[i];				snapshot.texture.dispose();				this.removeChild(snapshot, true);			}			this.textSnapshots = null;		}		//this isn't necessary, but if a memory leak keeps the text renderer		//from being garbage collected, freeing up the text field may help		//ease major memory pressure from native filters		this.textField = null;
-		this._previousActualWidth = NaN;		this._previousActualHeight = NaN;
+		this._previousActualWidth = Math.NaN;		this._previousActualHeight = Math.NaN;
 		this._needsNewTexture = false;		this._snapshotWidth = 0;		this._snapshotHeight = 0;
 		super.dispose();	}
 	/**	 * @private	 */	override public function render(support:RenderSupport, parentAlpha:Float):Void	{		if(this.textSnapshot)		{			if(this._snapToPixels)			{				this.getTransformationMatrix(this.stage, HELPER_MATRIX);				this.textSnapshot.x = this._textSnapshotOffsetX + Math.round(HELPER_MATRIX.tx) - HELPER_MATRIX.tx;				this.textSnapshot.y = this._textSnapshotOffsetY + Math.round(HELPER_MATRIX.ty) - HELPER_MATRIX.ty;			}			else			{				this.textSnapshot.x = this._textSnapshotOffsetX;				this.textSnapshot.y = this._textSnapshotOffsetY;			}		}		super.render(support, parentAlpha);	}

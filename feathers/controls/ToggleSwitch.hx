@@ -955,22 +955,22 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * @private
 	 */
-	private var onTrackSkinOriginalWidth:Float = NaN;
+	private var onTrackSkinOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var onTrackSkinOriginalHeight:Float = NaN;
+	private var onTrackSkinOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var offTrackSkinOriginalWidth:Float = NaN;
+	private var offTrackSkinOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var offTrackSkinOriginalHeight:Float = NaN;
+	private var offTrackSkinOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private

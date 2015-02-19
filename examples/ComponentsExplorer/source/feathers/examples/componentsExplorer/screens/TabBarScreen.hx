@@ -39,7 +39,7 @@ class TabBarScreen extends PanelScreen
 			{ label: "Three" },
 		]);
 		this._tabBar.addEventListener(Event.CHANGE, tabBar_changeHandler);
-		this._tabBar.layoutData = new AnchorLayoutData(NaN, 0, 0, 0);
+		this._tabBar.layoutData = new AnchorLayoutData(Math.NaN, 0, 0, 0);
 		this.addChild(this._tabBar);
 
 		this._label = new Label();

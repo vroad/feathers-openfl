@@ -351,22 +351,22 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalWidth:Float = NaN;
+	private var minimumTrackOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalHeight:Float = NaN;
+	private var minimumTrackOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalWidth:Float = NaN;
+	private var maximumTrackOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalHeight:Float = NaN;
+	private var maximumTrackOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -563,7 +563,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * As the slider's thumb is dragged, the value is snapped to a multiple
 	 * of the step. Paging using the slider's track will use the <code>step</code>
-	 * value if the <code>page</code> value is <code>NaN</code>. If the
+	 * value if the <code>page</code> value is <code>Math.NaN</code>. If the
 	 * <code>step</code> is zero (<code>0</code>), paging with the track will not be possible.
 	 *
 	 * <p>In the following example, the step is changed to 1:</p>
@@ -601,7 +601,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _page:Float = NaN;
+	private var _page:Float = Math.NaN;
 
 	/**
 	 * If the <code>trackInteractionMode</code> property is set to
@@ -609,7 +609,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * track is touched, and the thumb is shown, the slider value will be
 	 * incremented or decremented by the page value.
 	 *
-	 * <p>If this value is <code>NaN</code>, the <code>step</code> value
+	 * <p>If this value is <code>Math.NaN</code>, the <code>step</code> value
 	 * will be used instead. If the <code>step</code> value is zero, paging
 	 * with the track is not possible.</p>
 	 *
@@ -622,7 +622,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * slider.page = 10
 	 * slider.value = 12;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #value
 	 * @see #page
@@ -1471,22 +1471,22 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Float = NaN;
+	private var _touchStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartY:Float = NaN;
+	private var _touchStartY:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Float = NaN;
+	private var _thumbStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartY:Float = NaN;
+	private var _thumbStartY:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -1844,10 +1844,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 
 			if(this._trackScaleMode == TRACK_SCALE_MODE_DIRECTIONAL)
 			{
-				this.maximumTrack.width = NaN;
+				this.maximumTrack.width = Math.NaN;
 				this.maximumTrack.validate();
 				this.maximumTrack.x = (this.actualWidth - this.maximumTrack.width) / 2;
-				this.minimumTrack.width = NaN;
+				this.minimumTrack.width = Math.NaN;
 				this.minimumTrack.validate();
 				this.minimumTrack.x = (this.actualWidth - this.minimumTrack.width) / 2;
 			}
@@ -1872,10 +1872,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 
 			if(this._trackScaleMode == TRACK_SCALE_MODE_DIRECTIONAL)
 			{
-				this.minimumTrack.height = NaN;
+				this.minimumTrack.height = Math.NaN;
 				this.minimumTrack.validate();
 				this.minimumTrack.y = (this.actualHeight - this.minimumTrack.height) / 2;
-				this.maximumTrack.height = NaN;
+				this.maximumTrack.height = Math.NaN;
 				this.maximumTrack.validate();
 				this.maximumTrack.y = (this.actualHeight - this.maximumTrack.height) / 2;
 			}
@@ -1903,7 +1903,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			if(this._direction == DIRECTION_VERTICAL)
 			{
 				this.minimumTrack.y = 0;
-				this.minimumTrack.width = NaN;
+				this.minimumTrack.width = Math.NaN;
 				this.minimumTrack.height = this.actualHeight;
 				this.minimumTrack.validate();
 				this.minimumTrack.x = (this.actualWidth - this.minimumTrack.width) / 2;
@@ -1912,7 +1912,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			{
 				this.minimumTrack.x = 0;
 				this.minimumTrack.width = this.actualWidth;
-				this.minimumTrack.height = NaN;
+				this.minimumTrack.height = Math.NaN;
 				this.minimumTrack.validate();
 				this.minimumTrack.y = (this.actualHeight - this.minimumTrack.height) / 2;
 			}

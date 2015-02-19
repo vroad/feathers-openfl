@@ -784,11 +784,11 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _titleGap:Float = NaN;
+	private var _titleGap:Float = Math.NaN;
 
 	/**
 	 * Space, in pixels, between the title and the left or right groups of
-	 * items. If <code>NaN</code> (the default), the default <code>gap</code>
+	 * items. If <code>Math.NaN</code> (the default), the default <code>gap</code>
 	 * property is used instead.
 	 *
 	 * <p>In the following example, the header's title gap is set to 20
@@ -797,7 +797,7 @@ class Header extends FeathersControl
 	 * <listing version="3.0">
 	 * header.titleGap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 */
@@ -906,12 +906,12 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Float = NaN;
+	private var originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Float = NaN;
+	private var originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private

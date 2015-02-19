@@ -360,32 +360,32 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var thumbOriginalWidth:Float = NaN;
+	private var thumbOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var thumbOriginalHeight:Float = NaN;
+	private var thumbOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalWidth:Float = NaN;
+	private var minimumTrackOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var minimumTrackOriginalHeight:Float = NaN;
+	private var minimumTrackOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalWidth:Float = NaN;
+	private var maximumTrackOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var maximumTrackOriginalHeight:Float = NaN;
+	private var maximumTrackOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * The scroll bar's decrement button sub-component.
@@ -1818,22 +1818,22 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Float = NaN;
+	private var _touchStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartY:Float = NaN;
+	private var _touchStartY:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Float = NaN;
+	private var _thumbStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartY:Float = NaN;
+	private var _thumbStartY:Float = Math.NaN;
 
 	/**
 	 * @private

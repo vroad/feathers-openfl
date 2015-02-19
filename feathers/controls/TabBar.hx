@@ -600,10 +600,10 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _firstGap:Float = NaN;
+	private var _firstGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the first two tabs. If <code>NaN</code>,
+	 * Space, in pixels, between the first two tabs. If <code>Math.NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the first and second
@@ -613,7 +613,7 @@ class TabBar extends FeathersControl
 	 * tabs.firstGap = 30;
 	 * tabs.gap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 * @see #lastGap
@@ -640,10 +640,10 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _lastGap:Float = NaN;
+	private var _lastGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the last two tabs. If <code>NaN</code>,
+	 * Space, in pixels, between the last two tabs. If <code>Math.NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the last and next to last
@@ -653,7 +653,7 @@ class TabBar extends FeathersControl
 	 * tabs.lastGap = 30;
 	 * tabs.gap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 * @see #firstGap

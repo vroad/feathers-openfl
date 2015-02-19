@@ -548,7 +548,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var maxX:Float = 0;
 		var currentX:Float = 0;
 		var currentY:Float = 0;
-		var previousCharID:Float = NaN;
+		var previousCharID:Float = Math.NaN;
 		var charCount:Int = this._text.length;
 		var startXOfPreviousWord:Float = 0;
 		var widthOfWhitespaceAfterWord:Float = 0;
@@ -569,7 +569,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					maxX = currentX;
 				}
-				previousCharID = NaN;
+				previousCharID = Math.NaN;
 				currentX = 0;
 				currentY += lineHeight;
 				startXOfPreviousWord = 0;
@@ -620,7 +620,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 					{
 						maxX = widthOfWhitespaceAfterWord;
 					}
-					previousCharID = NaN;
+					previousCharID = Math.NaN;
 					currentX -= startXOfPreviousWord;
 					currentY += lineHeight;
 					startXOfPreviousWord = 0;
@@ -731,7 +731,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var maxX:Float = 0;
 		var currentX:Float = 0;
 		var currentY:Float = 0;
-		var previousCharID:Float = NaN;
+		var previousCharID:Float = Math.NaN;
 		var isWordComplete:Bool = false;
 		var startXOfPreviousWord:Float = 0;
 		var widthOfWhitespaceAfterWord:Float = 0;
@@ -758,7 +758,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					maxX = currentX;
 				}
-				previousCharID = NaN;
+				previousCharID = Math.NaN;
 				currentX = 0;
 				currentY += lineHeight;
 				startXOfPreviousWord = 0;
@@ -826,7 +826,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 					{
 						maxX = widthOfWhitespaceAfterWord;
 					}
-					previousCharID = NaN;
+					previousCharID = Math.NaN;
 					currentX -= startXOfPreviousWord;
 					currentY += lineHeight;
 					startXOfPreviousWord = 0;
@@ -1019,7 +1019,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					TextField.registerBitmapFont(new BitmapFont());
 				}
-				this._textFormat = new BitmapFontTextFormat(BitmapFont.MINI, NaN, 0x000000);
+				this._textFormat = new BitmapFontTextFormat(BitmapFont.MINI, Math.NaN, 0x000000);
 			}
 			this.currentTextFormat = this._textFormat;
 		}
@@ -1052,7 +1052,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			scale = 1;
 		}
 		var currentX:Float = 0;
-		var previousCharID:Float = NaN;
+		var previousCharID:Float = Math.NaN;
 		var charCount:Int = this._text.length;
 		var truncationIndex:Int = -1;
 		for(var i:Int = 0; i < charCount; i++)
@@ -1113,7 +1113,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			for(i = truncationIndex; i >= 0; i--)
 			{
 				charID = this._text.charCodeAt(i);
-				previousCharID = i > 0 ? this._text.charCodeAt(i - 1) : NaN;
+				previousCharID = i > 0 ? this._text.charCodeAt(i - 1) : Math.NaN;
 				charData = font.getChar(charID);
 				if(!charData)
 				{

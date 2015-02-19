@@ -189,12 +189,12 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var thumbOriginalWidth:Float = NaN;
+	private var thumbOriginalWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var thumbOriginalHeight:Float = NaN;
+	private var thumbOriginalHeight:Float = Math.NaN;
 
 	/**
 	 * The thumb sub-component.
@@ -858,22 +858,22 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private var _touchStartX:Float = NaN;
+	private var _touchStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _touchStartY:Float = NaN;
+	private var _touchStartY:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartX:Float = NaN;
+	private var _thumbStartX:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _thumbStartY:Float = NaN;
+	private var _thumbStartY:Float = Math.NaN;
 
 	/**
 	 * @private

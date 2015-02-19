@@ -68,7 +68,7 @@ class DragDropEvent extends Event
 	/**
 	 * Constructor.
 	 */
-	public function DragDropEvent(type:String, dragData:DragData, isDropped:Bool, localX:Float = NaN, localY:Float = NaN)
+	public function DragDropEvent(type:String, dragData:DragData, isDropped:Bool, localX:Float = Math.NaN, localY:Float = Math.NaN)
 	{
 		super(type, false, dragData);
 		this.isDropped = isDropped;

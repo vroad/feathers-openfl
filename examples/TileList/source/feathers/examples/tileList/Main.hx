@@ -169,7 +169,7 @@ class Main extends LayoutGroup
 		renderer.labelField = "label";
 		renderer.iconSourceField = "texture";
 		renderer.iconPosition = Button.ICON_POSITION_TOP;
-		renderer.defaultLabelProperties.textFormat = new BitmapFontTextFormat(this._font, NaN, 0x000000);
+		renderer.defaultLabelProperties.textFormat = new BitmapFontTextFormat(this._font, Math.NaN, 0x000000);
 		return renderer;
 	}
 

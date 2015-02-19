@@ -745,7 +745,7 @@ class Alert extends Panel
 		var oldHeaderHeight:Float = this.header.height;
 		this.header.width = this.explicitWidth;
 		this.header.maxWidth = this._maxWidth;
-		this.header.height = NaN;
+		this.header.height = Math.NaN;
 		this.header.validate();
 
 		if(this.footer)
@@ -754,7 +754,7 @@ class Alert extends Panel
 			var oldFooterHeight:Float = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
-			this.footer.height = NaN;
+			this.footer.height = Math.NaN;
 			this.footer.validate();
 		}
 

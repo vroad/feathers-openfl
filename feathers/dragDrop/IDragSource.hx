@@ -23,8 +23,8 @@ import starling.events.Event;
  * <tr><td><code>dragData</code></td><td>The <code>feathers.dragDrop.DragData</code>
  *   instance associated with this drag.</td></tr>
  * <tr><td><code>isDropped</code></td><td>false</td></tr>
- * <tr><td><code>localX</code></td><td>NaN</td></tr>
- * <tr><td><code>localY</code></td><td>NaN</td></tr>
+ * <tr><td><code>localX</code></td><td>Math.NaN</td></tr>
+ * <tr><td><code>localY</code></td><td>Math.NaN</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object
@@ -50,8 +50,8 @@ import starling.events.Event;
  * <tr><td><code>dragData</code></td><td>The <code>feathers.dragDrop.DragData</code>
  *   instance associated with this drag.</td></tr>
  * <tr><td><code>isDropped</code></td><td>true, if the dragged object was dropped; false, if it was not.</td></tr>
- * <tr><td><code>localX</code></td><td>NaN</td></tr>
- * <tr><td><code>localY</code></td><td>NaN</td></tr>
+ * <tr><td><code>localX</code></td><td>Math.NaN</td></tr>
+ * <tr><td><code>localY</code></td><td>Math.NaN</td></tr>
  * <tr><td><code>target</code></td><td>The Object that dispatched the event;
  *   it is not always the Object listening for the event. Use the
  *   <code>currentTarget</code> property to always access the Object

@@ -21,7 +21,7 @@ class BitmapFontTextFormat
 	/**
 	 * Constructor.
 	 */
-	public function BitmapFontTextFormat(font:Dynamic, size:Float = NaN, color:UInt = 0xffffff, align:String = TextFormatAlign.LEFT)
+	public function BitmapFontTextFormat(font:Dynamic, size:Float = Math.NaN, color:UInt = 0xffffff, align:String = TextFormatAlign.LEFT)
 	{
 		if(font is String)
 		{
@@ -59,10 +59,10 @@ class BitmapFontTextFormat
 	public var color:UInt;
 	
 	/**
-	 * The size at which to display the bitmap font. Set to <code>NaN</code>
+	 * The size at which to display the bitmap font. Set to <code>Math.NaN</code>
 	 * to use the default size in the BitmapFont instance.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var size:Float;
 	

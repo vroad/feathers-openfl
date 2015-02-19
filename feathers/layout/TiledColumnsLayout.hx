@@ -851,7 +851,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemWidth:Float = NaN;
+	private var _typicalItemWidth:Float = Math.NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -865,13 +865,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemWidth</code> is set to <code>NaN</code>, the
+	 * <p>If <code>typicalItemWidth</code> is set to <code>Math.NaN</code>, the
 	 * typical item will auto-size itself to its preferred width. If you
 	 * pass a valid <code>Float</code> value, the typical item's width will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemHeight</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemHeight
@@ -899,7 +899,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemHeight:Float = NaN;
+	private var _typicalItemHeight:Float = Math.NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -913,13 +913,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemHeight</code> is set to <code>NaN</code>, the
+	 * <p>If <code>typicalItemHeight</code> is set to <code>Math.NaN</code>, the
 	 * typical item will auto-size itself to its preferred height. If you
 	 * pass a valid <code>Float</code> value, the typical item's height will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemWidth</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemWidth
@@ -981,8 +981,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
 		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
 		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
 
 		if(this._useVirtualLayout)
 		{
@@ -1044,8 +1044,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			}
 		}
 
-		var availableWidth:Float = NaN;
-		var availableHeight:Float = NaN;
+		var availableWidth:Float = Math.NaN;
+		var availableHeight:Float = Math.NaN;
 
 		var verticalTileCount:Int;
 		if(explicitHeight == explicitHeight) //!isNaN
@@ -1176,7 +1176,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				nextPageStartIndex += perPage;
 
 				//we can use availableWidth and availableHeight here without
-				//checking if they're NaN because we will never reach a
+				//checking if they're Math.NaN because we will never reach a
 				//new page without them already being calculated.
 				if(this._paging == PAGING_HORIZONTAL)
 				{
@@ -1338,8 +1338,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.")
 		}
 
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
 		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
 		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
@@ -1380,8 +1380,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var availableWidth:Float = NaN;
-		var availableHeight:Float = NaN;
+		var availableWidth:Float = Math.NaN;
+		var availableHeight:Float = Math.NaN;
 
 		var verticalTileCount:Int;
 		if(explicitHeight == explicitHeight) //!isNaN
@@ -1468,7 +1468,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				nextPageStartIndex += perPage;
 
 				//we can use availableWidth and availableHeight here without
-				//checking if they're NaN because we will never reach a
+				//checking if they're Math.NaN because we will never reach a
 				//new page without them already being calculated.
 				if(this._paging == PAGING_HORIZONTAL)
 				{

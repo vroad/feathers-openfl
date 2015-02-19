@@ -132,14 +132,14 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _firstGap:Float = NaN;
+	private var _firstGap:Float = Math.NaN;
 
 	/**
 	 * The space, in pixels, between the first and second items. If the
-	 * value of <code>firstGap</code> is <code>NaN</code>, the value of the
+	 * value of <code>firstGap</code> is <code>Math.NaN</code>, the value of the
 	 * <code>gap</code> property will be used instead.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var firstGap(get, set):Float;
 	public function get_firstGap():Float
@@ -163,14 +163,14 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _lastGap:Float = NaN;
+	private var _lastGap:Float = Math.NaN;
 
 	/**
 	 * The space, in pixels, between the last and second to last items. If
-	 * the value of <code>lastGap</code> is <code>NaN</code>, the value of
+	 * the value of <code>lastGap</code> is <code>Math.NaN</code>, the value of
 	 * the <code>gap</code> property will be used instead.
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 */
 	public var lastGap(get, set):Float;
 	public function get_lastGap():Float
@@ -669,7 +669,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemWidth:Float = NaN;
+	private var _typicalItemWidth:Float = Math.NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -683,13 +683,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemWidth</code> is set to <code>NaN</code>, the
+	 * <p>If <code>typicalItemWidth</code> is set to <code>Math.NaN</code>, the
 	 * typical item will auto-size itself to its preferred width. If you
 	 * pass a valid <code>Float</code> value, the typical item's width will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemHeight</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemHeight
@@ -717,7 +717,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _typicalItemHeight:Float = NaN;
+	private var _typicalItemHeight:Float = Math.NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -731,13 +731,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemHeight</code> is set to <code>NaN</code>, the
+	 * <p>If <code>typicalItemHeight</code> is set to <code>Math.NaN</code>, the
 	 * typical item will auto-size itself to its preferred height. If you
 	 * pass a valid <code>Float</code> value, the typical item's height will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemWidth</code>.</p>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemWidth
@@ -814,8 +814,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
 		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
 		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
 
 		if(this._useVirtualLayout)
 		{
@@ -1103,8 +1103,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.")
 		}
 
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
 		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
 		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)

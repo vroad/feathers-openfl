@@ -242,7 +242,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 			return false;
 		}
 
-		this.image.width = this.image.height = NaN;
+		this.image.width = this.image.height = Math.NaN;
 		this.image.validate();
 		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)

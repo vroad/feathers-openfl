@@ -78,26 +78,26 @@ package feathers.controls.supportClasses;import feathers.core.FeathersControl;
 	private var _minVisibleWidth:Float = 0;
 	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float	{		return this._minVisibleWidth;	}
-	public function set_minVisibleWidth(value:Float):Float	{		if(this._minVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleWidth cannot be NaN");		}		this._minVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	public function set_minVisibleWidth(value:Float):Float	{		if(this._minVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");		}		this._minVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
 	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float	{		return this._maxVisibleWidth;	}
-	public function set_maxVisibleWidth(value:Float):Float	{		if(this._maxVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleWidth cannot be NaN");		}		this._maxVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	public function set_maxVisibleWidth(value:Float):Float	{		if(this._maxVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");		}		this._maxVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	private var _actualVisibleWidth:Float = 0;
-	private var _explicitVisibleWidth:Float = NaN;
+	private var _explicitVisibleWidth:Float = Math.NaN;
 	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float	{		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN		{			return this._actualVisibleWidth;		}		return this._explicitVisibleWidth;	}
 	public function set_visibleWidth(value:Float):Float	{		if(this._explicitVisibleWidth == value ||			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN		{			return;		}		this._explicitVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	private var _minVisibleHeight:Float = 0;
 	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float	{		return this._minVisibleHeight;	}
-	public function set_minVisibleHeight(value:Float):Float	{		if(this._minVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleHeight cannot be NaN");		}		this._minVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	public function set_minVisibleHeight(value:Float):Float	{		if(this._minVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");		}		this._minVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
 	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float	{		return this._maxVisibleHeight;	}
-	public function set_maxVisibleHeight(value:Float):Float	{		if(this._maxVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleHeight cannot be NaN");		}		this._maxVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	public function set_maxVisibleHeight(value:Float):Float	{		if(this._maxVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");		}		this._maxVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
 	private var _actualVisibleHeight:Float = 0;
-	private var _explicitVisibleHeight:Float = NaN;
+	private var _explicitVisibleHeight:Float = Math.NaN;
 	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float	{		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN		{			return this._actualVisibleHeight;		}		return this._explicitVisibleHeight;	}
 	public function set_visibleHeight(value:Float):Float	{		if(this._explicitVisibleHeight == value ||			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN		{			return;		}		this._explicitVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}

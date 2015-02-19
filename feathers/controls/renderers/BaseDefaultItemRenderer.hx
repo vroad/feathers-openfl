@@ -781,13 +781,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _accessoryGap:Float = NaN;
+	private var _accessoryGap:Float = Math.NaN;
 
 	/**
 	 * The space, in pixels, between the accessory and the other child it is
 	 * positioned relative to. Applies to either horizontal or vertical
 	 * spacing, depending on the value of <code>accessoryPosition</code>. If
-	 * the value is <code>NaN</code>, the value of the <code>gap</code>
+	 * the value is <code>Math.NaN</code>, the value of the <code>gap</code>
 	 * property will be used instead.
 	 *
 	 * <p>If <code>accessoryGap</code> is set to <code>Math.POSITIVE_INFINITY</code>,
@@ -799,7 +799,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <listing version="3.0">
 	 * renderer.accessoryGap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #gap
 	 * @see #accessoryPosition
@@ -826,14 +826,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	private var _minAccessoryGap:Float = NaN;
+	private var _minAccessoryGap:Float = Math.NaN;
 
 	/**
 	 * If the value of the <code>accessoryGap</code> property is
 	 * <code>Math.POSITIVE_INFINITY</code>, meaning that the gap will
 	 * fill as much space as possible, the final calculated value will not be
 	 * smaller than the value of the <code>minAccessoryGap</code> property.
-	 * If the value of <code>minAccessoryGap</code> is <code>NaN</code>, the
+	 * If the value of <code>minAccessoryGap</code> is <code>Math.NaN</code>, the
 	 * value of the <code>minGap</code> property will be used instead.
 	 *
 	 * <p>The following example ensures that the gap is never smaller than
@@ -846,7 +846,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <listing version="3.0">
 	 * renderer.accessoryGap = 20;</listing>
 	 *
-	 * @default NaN
+	 * @default Math.NaN
 	 *
 	 * @see #accessoryGap
 	 */

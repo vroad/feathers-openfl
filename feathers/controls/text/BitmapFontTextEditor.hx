@@ -849,7 +849,7 @@ public function get_text():String
 			}
 		}
 		var currentX:Float = 0;
-		var previousCharID:Float = NaN;
+		var previousCharID:Float = Math.NaN;
 		var charCount:Int = this._text.length;
 		for(i in 0 ... charCount)
 		{
@@ -918,7 +918,7 @@ public function get_text():String
 			}
 		}
 		var currentX:Float = 0;
-		var previousCharID:Float = NaN;
+		var previousCharID:Float = Math.NaN;
 		var charCount:Int = this._text.length;
 		if(index < charCount)
 		{

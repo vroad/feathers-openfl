@@ -73,7 +73,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleWidth cannot be NaN");
+			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");
 		}
 		this._minVisibleWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -95,7 +95,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleWidth cannot be NaN");
+			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");
 		}
 		this._maxVisibleWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -103,7 +103,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var actualVisibleWidth:Float = 0;
 
-	private var explicitVisibleWidth:Float = NaN;
+	private var explicitVisibleWidth:Float = Math.NaN;
 
 	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float
@@ -138,7 +138,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleHeight cannot be NaN");
+			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");
 		}
 		this._minVisibleHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -160,7 +160,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleHeight cannot be NaN");
+			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");
 		}
 		this._maxVisibleHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
@@ -168,7 +168,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var actualVisibleHeight:Float = 0;
 
-	private var explicitVisibleHeight:Float = NaN;
+	private var explicitVisibleHeight:Float = Math.NaN;
 
 	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float

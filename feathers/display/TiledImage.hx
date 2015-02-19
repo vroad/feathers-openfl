@@ -93,7 +93,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	private var _width:Float = NaN;
+	private var _width:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -121,7 +121,7 @@ public function get_width():Float
 	/**
 	 * @private
 	 */
-	private var _height:Float = NaN;
+	private var _height:Float = Math.NaN;
 
 	/**
 	 * @private

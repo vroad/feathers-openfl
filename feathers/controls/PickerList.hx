@@ -560,12 +560,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _typicalItemWidth:Float = NaN;
+	private var _typicalItemWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var _typicalItemHeight:Float = NaN;
+	private var _typicalItemHeight:Float = Math.NaN;
 	
 	/**
 	 * @private
@@ -573,7 +573,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	private var _typicalItem:Dynamic = null;
 	
 	/**
-	 * Used to auto-size the list. If the list's width or height is NaN, the
+	 * Used to auto-size the list. If the list's width or height is Math.NaN, the
 	 * list will try to automatically pick an ideal size. This item is
 	 * used in that process to create a sample item renderer.
 	 *
@@ -602,8 +602,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._typicalItem = value;
-		this._typicalItemWidth = NaN;
-		this._typicalItemHeight = NaN;
+		this._typicalItemWidth = Math.NaN;
+		this._typicalItemHeight = Math.NaN;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
@@ -1217,18 +1217,18 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			//contain width or height changes.
 			if(this.explicitWidth != this.explicitWidth) //isNaN
 			{
-				this.button.width = NaN;
+				this.button.width = Math.NaN;
 			}
 			if(this.explicitHeight != this.explicitHeight) //isNaN
 			{
-				this.button.height = NaN;
+				this.button.height = Math.NaN;
 			}
 		}
 
 		if(buttonFactoryInvalid || stylesInvalid)
 		{
-			this._typicalItemWidth = NaN;
-			this._typicalItemHeight = NaN;
+			this._typicalItemWidth = Math.NaN;
+			this._typicalItemHeight = Math.NaN;
 			this.refreshButtonProperties();
 		}
 
@@ -1307,8 +1307,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			{
 				var oldWidth:Float = this.button.width;
 				var oldHeight:Float = this.button.height;
-				this.button.width = NaN;
-				this.button.height = NaN;
+				this.button.width = Math.NaN;
+				this.button.height = Math.NaN;
 				if(this._typicalItem)
 				{
 					this.button.label = this.itemToLabel(this._typicalItem);

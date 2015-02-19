@@ -99,7 +99,7 @@ class ListVideosScreen extends PanelScreen
 
 		this._message = new Label();
 		this._message.text = "Loading...";
-		this._message.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
+		this._message.layoutData = new AnchorLayoutData(Math.NaN, Math.NaN, Math.NaN, Math.NaN, 0, 0);
 		//hide the loading message if we're using restored results
 		this._message.visible = this.savedDataProvider == null;
 		this.addChild(this._message);
