@@ -203,7 +203,7 @@ class ItemRendererScreen extends PanelScreen
 		}
 		if(this.settings.useInfiniteGap)
 		{
-			this._list.itemRendererProperties.gap = Float.POSITIVE_INFINITY;
+			this._list.itemRendererProperties.gap = Math.POSITIVE_INFINITY;
 		}
 		else
 		{
@@ -211,7 +211,7 @@ class ItemRendererScreen extends PanelScreen
 		}
 		if(this.settings.useInfiniteAccessoryGap)
 		{
-			this._list.itemRendererProperties.accessoryGap = Float.POSITIVE_INFINITY;
+			this._list.itemRendererProperties.accessoryGap = Math.POSITIVE_INFINITY;
 		}
 		else
 		{

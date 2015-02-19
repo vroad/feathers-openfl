@@ -43,7 +43,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
 
 	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float
@@ -112,7 +112,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
 
 	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float

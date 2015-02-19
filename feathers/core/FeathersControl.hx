@@ -841,7 +841,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	private var _maxWidth:Float = Float.POSITIVE_INFINITY;
+	private var _maxWidth:Float = Math.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended width to be used for self-measurement and,
@@ -856,7 +856,7 @@ public function get_height():Float
 	 * <listing version="3.0">
 	 * control.maxWidth = 120;</listing>
 	 *
-	 * @default Float.POSITIVE_INFINITY
+	 * @default Math.POSITIVE_INFINITY
 	 */
 	public var maxWidth(get, set):Float;
 	public function get_maxWidth():Float
@@ -884,7 +884,7 @@ public function get_height():Float
 	/**
 	 * @private
 	 */
-	private var _maxHeight:Float = Float.POSITIVE_INFINITY;
+	private var _maxHeight:Float = Math.POSITIVE_INFINITY;
 
 	/**
 	 * The maximum recommended height to be used for self-measurement and,
@@ -899,7 +899,7 @@ public function get_height():Float
 	 * <listing version="3.0">
 	 * control.maxWidth = 120;</listing>
 	 *
-	 * @default Float.POSITIVE_INFINITY
+	 * @default Math.POSITIVE_INFINITY
 	 */
 	public var maxHeight(get, set):Float;
 	public function get_maxHeight():Float

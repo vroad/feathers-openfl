@@ -1206,7 +1206,7 @@ package feathers.themes
 			renderer.paddingLeft = this.smallGutterSize;
 			renderer.gap = this.extraSmallGutterSize;
 			renderer.minGap = this.extraSmallGutterSize;
-			renderer.accessoryGap = Float.POSITIVE_INFINITY;
+			renderer.accessoryGap = Math.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.smallGutterSize;
 			renderer.minWidth = this.controlSize;
 			renderer.minHeight = this.controlSize;
@@ -1374,7 +1374,7 @@ package feathers.themes
 			}
 			button.stateToIconFunction = iconSelector.updateValue;
 
-			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Math.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.smallGutterSize;
 			button.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;

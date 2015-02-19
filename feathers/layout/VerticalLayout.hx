@@ -827,8 +827,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
 		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
@@ -1132,8 +1132,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 		}
 		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
 		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
+		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
 
 		this.prepareTypicalItem(explicitWidth - this._paddingLeft - this._paddingRight);
 		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;

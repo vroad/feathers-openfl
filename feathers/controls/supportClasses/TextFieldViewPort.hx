@@ -79,7 +79,7 @@ package feathers.controls.supportClasses;import feathers.core.FeathersControl;
 	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float	{		return this._minVisibleWidth;	}
 	public function set_minVisibleWidth(value:Float):Float	{		if(this._minVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleWidth cannot be NaN");		}		this._minVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
-	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
 	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float	{		return this._maxVisibleWidth;	}
 	public function set_maxVisibleWidth(value:Float):Float	{		if(this._maxVisibleWidth == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleWidth cannot be NaN");		}		this._maxVisibleWidth = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
@@ -92,7 +92,7 @@ package feathers.controls.supportClasses;import feathers.core.FeathersControl;
 	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float	{		return this._minVisibleHeight;	}
 	public function set_minVisibleHeight(value:Float):Float	{		if(this._minVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("minVisibleHeight cannot be NaN");		}		this._minVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
-	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
 	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float	{		return this._maxVisibleHeight;	}
 	public function set_maxVisibleHeight(value:Float):Float	{		if(this._maxVisibleHeight == value)		{			return;		}		if(value != value) //isNaN		{			throw new ArgumentError("maxVisibleHeight cannot be NaN");		}		this._maxVisibleHeight = value;		this.invalidate(INVALIDATION_FLAG_SIZE);	}

@@ -1231,7 +1231,7 @@ package feathers.themes
 			renderer.gap = this.smallGutterSize;
 			renderer.minGap = this.smallGutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_LEFT;
-			renderer.accessoryGap = Float.POSITIVE_INFINITY;
+			renderer.accessoryGap = Math.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.smallGutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.controlSize;
@@ -1420,7 +1420,7 @@ package feathers.themes
 			this.setBaseButtonStyles(button);
 
 			button.minWidth = this.buttonMinWidth;
-			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Math.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.gutterSize;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 			button.horizontalAlign =  Button.HORIZONTAL_ALIGN_LEFT;

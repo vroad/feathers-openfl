@@ -1209,7 +1209,7 @@ package feathers.themes
 			renderer.paddingRight = this.gutterSize;
 			renderer.gap = this.gutterSize;
 			renderer.minGap = this.gutterSize;
-			renderer.accessoryGap = Float.POSITIVE_INFINITY;
+			renderer.accessoryGap = Math.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.minWidth = this.gridSize;
 			renderer.minHeight = this.gridSize;
@@ -1417,11 +1417,11 @@ package feathers.themes
 			renderer.paddingBottom = this.smallGutterSize;
 			renderer.paddingLeft = this.gutterSize;
 			renderer.paddingRight = this.gutterSize;
-			renderer.gap = Float.POSITIVE_INFINITY;
+			renderer.gap = Math.POSITIVE_INFINITY;
 			renderer.minGap = this.gutterSize;
 			renderer.iconPosition = Button.ICON_POSITION_RIGHT;
 			renderer.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
-			renderer.accessoryGap = Float.POSITIVE_INFINITY;
+			renderer.accessoryGap = Math.POSITIVE_INFINITY;
 			renderer.minAccessoryGap = this.gutterSize;
 			renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 			renderer.minWidth = this.gridSize;
@@ -1450,7 +1450,7 @@ package feathers.themes
 			};
 			button.stateToIconFunction = iconSelector.updateValue;
 
-			button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
+			button.gap = Math.POSITIVE_INFINITY; //fill as completely as possible
 			button.minGap = this.gutterSize;
 			button.iconPosition = Button.ICON_POSITION_RIGHT;
 			button.horizontalAlign =  Button.HORIZONTAL_ALIGN_LEFT;
