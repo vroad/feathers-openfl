@@ -369,7 +369,7 @@ class ScreenNavigator extends FeathersControl
 				this._activeScreen.removeEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -644,7 +644,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
@@ -845,7 +845,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -853,7 +853,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	private function stage_resizeHandler(event:ResizeEvent):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 }
 

@@ -40,7 +40,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");
 		}
 		this._minVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
@@ -62,7 +62,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");
 		}
 		this._maxVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _actualVisibleWidth:Float = 0;
@@ -87,7 +87,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			return;
 		}
 		this._explicitVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _minVisibleHeight:Float = 0;
@@ -109,7 +109,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");
 		}
 		this._minVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
@@ -131,7 +131,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");
 		}
 		this._maxVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _actualVisibleHeight:Float = 0;
@@ -156,7 +156,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			return;
 		}
 		this._explicitVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _contentX:Float = 0;
@@ -240,7 +240,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	override private function draw():Void
 	{
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 
 		super.draw();

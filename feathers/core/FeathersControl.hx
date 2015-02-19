@@ -587,7 +587,7 @@ public function get_width():Float
 		if(valueIsNaN)
 		{
 			this.actualWidth = this.scaledActualWidth = 0;
-			this.invalidate(INVALIDATION_FLAG_SIZE);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		}
 		else
 		{
@@ -672,7 +672,7 @@ public function get_height():Float
 		if(valueIsNaN)
 		{
 			this.actualHeight = this.scaledActualHeight = 0;
-			this.invalidate(INVALIDATION_FLAG_SIZE);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		}
 		else
 		{
@@ -792,7 +792,7 @@ public function get_height():Float
 			throw new ArgumentError("minWidth cannot be Math.NaN");
 		}
 		this._minWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -835,7 +835,7 @@ public function get_height():Float
 			throw new ArgumentError("minHeight cannot be Math.NaN");
 		}
 		this._minHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -878,7 +878,7 @@ public function get_height():Float
 			throw new ArgumentError("maxWidth cannot be Math.NaN");
 		}
 		this._maxWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -921,7 +921,7 @@ public function get_height():Float
 			throw new ArgumentError("maxHeight cannot be Math.NaN");
 		}
 		this._maxHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -1791,7 +1791,7 @@ public function get_height():Float
 
 		if(widthIsNaN || heightIsNaN)
 		{
-			this.invalidate(INVALIDATION_FLAG_SIZE);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		}
 		else
 		{
@@ -1906,7 +1906,7 @@ public function get_height():Float
 		{
 			if(canInvalidate)
 			{
-				this.invalidate(INVALIDATION_FLAG_SIZE);
+				this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 			}
 			this.dispatchEventWith(FeathersEventType.RESIZE);
 		}

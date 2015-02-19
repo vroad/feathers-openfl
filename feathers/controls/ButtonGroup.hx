@@ -1307,7 +1307,7 @@ class ButtonGroup extends FeathersControl
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var buttonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid || stateInvalid || buttonFactoryInvalid)
 		{

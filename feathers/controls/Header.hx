@@ -1169,7 +1169,7 @@ class Header extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
@@ -1757,7 +1757,7 @@ class Header extends FeathersControl
 	 */
 	private function nativeStage_fullScreenHandler(event:FullScreenEvent):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -1773,6 +1773,6 @@ class Header extends FeathersControl
 	 */
 	private function item_resizeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 }

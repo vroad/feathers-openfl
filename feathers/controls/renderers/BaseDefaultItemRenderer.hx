@@ -4446,7 +4446,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -4454,6 +4454,6 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function loader_completeOrErrorHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 }

@@ -202,7 +202,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid)
 		{
@@ -401,12 +401,12 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		this.fadeTween.fadeTo(1);
 		this.fadeTween.onComplete = fadeTween_onComplete;
 		Starling.current.juggler.add(this.fadeTween);
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private function image_errorHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 }

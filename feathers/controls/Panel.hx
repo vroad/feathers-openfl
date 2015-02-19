@@ -304,7 +304,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -356,7 +356,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -485,7 +485,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -537,7 +537,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -1151,7 +1151,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -1163,6 +1163,6 @@ class Panel extends ScrollContainer implements IFocusExtras
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 }

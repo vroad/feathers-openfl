@@ -76,7 +76,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");
 		}
 		this._minVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
@@ -98,7 +98,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");
 		}
 		this._maxVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var actualVisibleWidth:Float = 0;
@@ -119,7 +119,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this.explicitVisibleWidth = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _minVisibleHeight:Float = 0;
@@ -141,7 +141,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");
 		}
 		this._minVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
@@ -163,7 +163,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");
 		}
 		this._maxVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var actualVisibleHeight:Float = 0;
@@ -184,7 +184,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this.explicitVisibleHeight = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	private var _contentX:Float = 0;
@@ -569,7 +569,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);

@@ -109,7 +109,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 		return result;	}
 	/**	 * @private	 */	override private function initialize():Void	{		this.textField = new TextField();		this.textField.needsSoftKeyboard = true;		this.textField.addEventListener(openfl.events.Event.CHANGE, textField_changeHandler);		this.textField.addEventListener(FocusEvent.FOCUS_IN, textField_focusInHandler);		this.textField.addEventListener(FocusEvent.FOCUS_OUT, textField_focusOutHandler);		this.textField.addEventListener(KeyboardEvent.KEY_DOWN, textField_keyDownHandler);		this.textField.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, textField_softKeyboardActivateHandler);		this.textField.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, textField_softKeyboardDeactivateHandler);
 		this.measureTextField = new TextField();		this.measureTextField.autoSize = TextFieldAutoSize.LEFT;		this.measureTextField.selectable = false;		this.measureTextField.mouseWheelEnabled = false;		this.measureTextField.mouseEnabled = false;	}
-	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		this.commit();
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 		this.layout(sizeInvalid);	}

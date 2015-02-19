@@ -779,7 +779,7 @@ class Callout extends FeathersControl
 			}
 			this.addChild(this._content);
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 
@@ -1666,7 +1666,7 @@ class Callout extends FeathersControl
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var originInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ORIGIN);
@@ -2071,6 +2071,6 @@ class Callout extends FeathersControl
 		{
 			return;
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 }

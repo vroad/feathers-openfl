@@ -647,7 +647,7 @@ class Scroller extends FeathersControl
 			this._viewPort.addEventListener(FeathersEventType.RESIZE, viewPort_resizeHandler);
 			this.addRawChildAtInternal(DisplayObject(this._viewPort), 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -683,7 +683,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._measureViewPort = value;
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
@@ -2898,7 +2898,7 @@ class Scroller extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		//we don't use this flag in this class, but subclasses will use it,
 		//and it's better to handle it here instead of having them
 		//invalidate unrelated flags
@@ -4719,7 +4719,7 @@ class Scroller extends FeathersControl
 		}
 		else
 		{
-			this.invalidate(INVALIDATION_FLAG_SIZE);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		}
 	}
 

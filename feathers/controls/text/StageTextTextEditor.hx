@@ -132,7 +132,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 		return result;	}
 	/**	 * @private	 */	override private function initialize():Void	{		if(this._measureTextField && !this._measureTextField.parent)		{			Starling.current.nativeStage.addChild(this._measureTextField);		}		else if(!this._measureTextField)		{			this._measureTextField = new TextField();			this._measureTextField.visible = false;			this._measureTextField.mouseEnabled = this._measureTextField.mouseWheelEnabled = false;			this._measureTextField.autoSize = TextFieldAutoSize.LEFT;			this._measureTextField.multiline = false;			this._measureTextField.wordWrap = false;			this._measureTextField.embedFonts = false;			this._measureTextField.defaultTextFormat = new TextFormat(null, 11, 0x000000, false, false, false);			Starling.current.nativeStage.addChild(this._measureTextField);		}
 		this.createStageText();	}
-	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		this.commit();
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 		this.layout(sizeInvalid);	}

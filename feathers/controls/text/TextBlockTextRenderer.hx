@@ -113,7 +113,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 	/**	 * @private	 */	private var _maxTextureDimensions:Int = 2048;
 	/**	 * The maximum size of individual textures that are managed by this text	 * renderer. Must be a power of 2. A larger value will create fewer	 * individual textures, but a smaller value may use less overall texture	 * memory by incrementing over smaller powers of two.	 *	 * <p>In the following example, the maximum size of the textures is	 * changed:</p>	 *	 * <listing version="3.0">	 * renderer.maxTextureDimensions = 4096;</listing>	 *	 * @default 2048	 */	public var maxTextureDimensions(get, set):Int;
 	public function get_maxTextureDimensions():Int	{		return this._maxTextureDimensions;	}
-	/**	 * @private	 */	public function set_maxTextureDimensions(value:Int):Int	{		//check if we can use rectangle textures or not		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)		{			value = getNextPowerOfTwo(value);		}		if(this._maxTextureDimensions == value)		{			return;		}		this._maxTextureDimensions = value;		this._needsNewTexture = true;		this.invalidate(INVALIDATION_FLAG_SIZE);	}
+	/**	 * @private	 */	public function set_maxTextureDimensions(value:Int):Int	{		//check if we can use rectangle textures or not		if(Starling.current.profile == Context3DProfile.BASELINE_CONSTRAINED)		{			value = getNextPowerOfTwo(value);		}		if(this._maxTextureDimensions == value)		{			return;		}		this._maxTextureDimensions = value;		this._needsNewTexture = true;		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);	}
 	/**	 * @private	 */	private var _nativeFilters:Array;
 	/**	 * Native filters to pass to the <code>openfl.text.engine.TextLine</code>	 * instances before creating the texture snapshot.	 *	 * <p>In the following example, the native filters are changed:</p>	 *	 * <listing version="3.0">	 * renderer.nativeFilters = [ new GlowFilter() ];</listing>	 *	 * @default null	 *	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of openfl.display.DisplayObject.filters in Adobe's Flash Platform API Reference	 */	public var nativeFilters(get, set):Array;
 	public function get_nativeFilters():Array	{		return this._nativeFilters;	}
@@ -138,7 +138,7 @@ package feathers.controls.text;import feathers.core.FeathersControl;import fea
 		result = this.measure(result);
 		return result;	}
 	/**	 * @private	 */	override private function initialize():Void	{		if(!this.textBlock)		{			this.textBlock = new TextBlock();		}		if(!this._textLineContainer)		{			this._textLineContainer = new Sprite();		}		if(!this._measurementTextLineContainer)		{			this._measurementTextLineContainer = new Sprite();		}	}
-	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+	/**	 * @private	 */	override private function draw():Void	{		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		this.commit();
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 		this.layout(sizeInvalid);	}
