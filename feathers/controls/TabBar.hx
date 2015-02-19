@@ -1128,7 +1128,7 @@ class TabBar extends FeathersControl
 			return;
 		}
 		this._pendingSelectedIndex = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -1418,7 +1418,7 @@ class TabBar extends FeathersControl
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var tabFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TAB_FACTORY);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
@@ -1838,7 +1838,7 @@ class TabBar extends FeathersControl
 		{
 			//let's keep the same item selected
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex + 1;
-			this.invalidate(INVALIDATION_FLAG_SELECTED);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
@@ -1852,7 +1852,7 @@ class TabBar extends FeathersControl
 		{
 			//let's keep the same item selected
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex - 1;
-			this.invalidate(INVALIDATION_FLAG_SELECTED);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
@@ -1867,7 +1867,7 @@ class TabBar extends FeathersControl
 			//the data provider has changed drastically. we should reset the
 			//selection to the first item.
 			this._pendingSelectedIndex = 0;
-			this.invalidate(INVALIDATION_FLAG_SELECTED);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}

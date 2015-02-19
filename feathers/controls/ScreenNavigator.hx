@@ -460,7 +460,7 @@ class ScreenNavigator extends FeathersControl
 		}
 		this.addChild(this._activeScreen);
 
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		if(this._validationQueue && !this._validationQueue.isValidating)
 		{
 			//force a COMPLETE validation of everything
@@ -548,7 +548,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			this.transition(this._previousScreenInTransition, null, transitionComplete);
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -645,7 +645,7 @@ class ScreenNavigator extends FeathersControl
 	override private function draw():Void
 	{
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;

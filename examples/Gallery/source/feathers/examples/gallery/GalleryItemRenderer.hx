@@ -201,7 +201,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid)

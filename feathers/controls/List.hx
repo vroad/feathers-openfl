@@ -449,7 +449,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this.selectedIndex = -1;
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 	
 	/**
@@ -513,7 +513,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._selectedIndices.removeAll();
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -611,7 +611,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._allowMultipleSelection = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -683,7 +683,7 @@ public function get_isFocusEnabled():Bool
 			}
 			this._selectedIndices.data = value;
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**

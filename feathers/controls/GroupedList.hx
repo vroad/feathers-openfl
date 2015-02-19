@@ -620,7 +620,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this.setSelectedLocation(-1, -1);
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -2202,7 +2202,7 @@ public function get_isFocusEnabled():Bool
 		this._selectedGroupIndex = groupIndex;
 		this._selectedItemIndex = itemIndex;
 
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 

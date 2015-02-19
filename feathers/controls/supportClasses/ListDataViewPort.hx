@@ -545,7 +545,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._selectedIndices.addEventListener(Event.CHANGE, selectedIndices_changeHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	public function getScrollPositionForIndex(index:Int, result:Point = null):Point
@@ -570,7 +570,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
@@ -1283,7 +1283,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function selectedIndices_changeHandler(event:Event):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	private function removedFromStageHandler(event:Event):Void

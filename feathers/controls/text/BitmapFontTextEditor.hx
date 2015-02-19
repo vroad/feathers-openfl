@@ -678,7 +678,7 @@ public function get_text():String
 		}
 		this.positionCursorAtIndex(cursorIndex);
 		this.positionSelectionBackground();
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**

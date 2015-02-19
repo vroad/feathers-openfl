@@ -201,7 +201,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 			return;
 		}
 		this._isSelected = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 

@@ -1006,7 +1006,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._isSelected = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 
@@ -1049,7 +1049,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._toggleThumbSelection = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	/**
@@ -1761,7 +1761,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	override private function draw():Void
 	{
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
@@ -2423,7 +2423,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 					this.setSelectionWithAnimation(this.thumb.x > (this._paddingLeft + trackScrollableWidth / 2));
 					//we still need to invalidate, even if there's no change
 					//because the thumb may be in the middle!
-					this.invalidate(INVALIDATION_FLAG_SELECTED);
+					this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 				}
 			}
 		}

@@ -320,7 +320,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._selectedIndex = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 	
@@ -411,7 +411,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._prompt = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 	
 	/**
@@ -1194,7 +1194,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var buttonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_BUTTON_FACTORY);
 		var listFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);

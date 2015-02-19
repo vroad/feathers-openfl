@@ -108,7 +108,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._isFirstItem = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	private var _isLastItem:Bool = false;
@@ -126,7 +126,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._isLastItem = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	private var _isInDestinationPhase:Bool = false;
@@ -144,7 +144,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._isInDestinationPhase = value;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 	}
 
 	private var _owner:List;
@@ -200,7 +200,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			this.selectionTween = null;
 		}
 		this.isSelectionWaitingToBeAnimated = !this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA) && !this._data.isDepartingFromHere;
-		this.invalidate(INVALIDATION_FLAG_SELECTED);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 
@@ -459,7 +459,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 

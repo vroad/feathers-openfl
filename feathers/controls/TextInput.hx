@@ -1697,7 +1697,7 @@ public function get_isFocusEnabled():Bool
 		else
 		{
 			this._isWaitingToSetFocus = true;
-			this.invalidate(INVALIDATION_FLAG_SELECTED);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		}
 	}
 
@@ -1746,7 +1746,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._pendingSelectionBeginIndex = beginIndex;
 			this._pendingSelectionEndIndex = endIndex;
-			this.invalidate(INVALIDATION_FLAG_SELECTED);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		}
 	}
 
