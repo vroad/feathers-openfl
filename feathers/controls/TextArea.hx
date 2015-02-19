@@ -583,7 +583,7 @@ public function get_isFocusEnabled():Bool
 			this._backgroundFocusedSkin.touchable = false;
 			this.addChildAt(this._backgroundFocusedSkin, 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -615,7 +615,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._stateToSkinFunction = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**

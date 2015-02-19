@@ -219,7 +219,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._normalIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _firstNormalIconTexture:Texture;
@@ -237,7 +237,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._firstNormalIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _lastNormalIconTexture:Texture;
@@ -255,7 +255,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._lastNormalIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _selectedIconTexture:Texture;
@@ -273,7 +273,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._selectedIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _firstSelectedIconTexture:Texture;
@@ -291,7 +291,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._firstSelectedIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _lastSelectedIconTexture:Texture;
@@ -309,7 +309,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._lastSelectedIconTexture = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	private var _iconLoaderFactory:Dynamic = defaultLoaderFactory;

@@ -939,7 +939,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._skinSelector.defaultValue = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -972,7 +972,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_ENABLED);
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -1002,7 +1002,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_FOCUSED);
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -1032,7 +1032,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_DISABLED);
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -1064,7 +1064,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._stateToSkinFunction = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -1758,7 +1758,7 @@ public function get_isFocusEnabled():Bool
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var textEditorInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 		var promptFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PROMPT_FACTORY);

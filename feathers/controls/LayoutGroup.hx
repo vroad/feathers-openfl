@@ -295,7 +295,7 @@ class LayoutGroup extends FeathersControl
 			return;
 		}
 		this._backgroundSkin = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -331,7 +331,7 @@ class LayoutGroup extends FeathersControl
 			return;
 		}
 		this._backgroundDisabledSkin = value;
-		this.invalidate(INVALIDATION_FLAG_SKIN);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 	}
 
 	/**
@@ -518,7 +518,7 @@ class LayoutGroup extends FeathersControl
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		//we don't have scrolling, but a subclass might
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
-		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
