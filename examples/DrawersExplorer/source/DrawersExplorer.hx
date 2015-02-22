@@ -17,7 +17,7 @@ import openfl.utils.ByteArray;
 
 import starling.core.Starling;
 
-[SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
+//[SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
 class DrawersExplorer extends Sprite
 {
 	public function DrawersExplorer()

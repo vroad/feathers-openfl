@@ -10,7 +10,7 @@ import openfl.geom.Rectangle;
 
 import starling.core.Starling;
 
-[SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
+//[SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
 class DragAndDrop extends Sprite
 {
 	public function DragAndDrop()

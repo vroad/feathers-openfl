@@ -10,7 +10,7 @@ import openfl.geom.Rectangle;
 
 import starling.core.Starling;
 
-[SWF(width="960",height="640",frameRate="60",backgroundColor="#424254")]
+//[SWF(width="960",height="640",frameRate="60",backgroundColor="#424254")]
 class TrainTimes extends Sprite
 {
 	public function TrainTimes()
