@@ -14,7 +14,7 @@ class LayoutBoundsResult
 	/**
 	 * Constructor.
 	 */
-	public function LayoutBoundsResult()
+	public function new()
 	{
 
 	}

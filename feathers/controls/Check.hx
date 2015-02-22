@@ -43,7 +43,7 @@ class Check extends ToggleButton
 	/**
 	 * Constructor.
 	 */
-	public function Check()
+	public function new()
 	{
 		super();
 		super.isToggle = true;

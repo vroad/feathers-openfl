@@ -163,7 +163,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function ImageLoader()
+	public function new()
 	{
 		this.isQuickHitAreaEnabled = true;
 	}

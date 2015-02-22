@@ -67,7 +67,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * Constructor.
 	 */
-	public function AnchorLayout()
+	public function new()
 	{
 	}
 

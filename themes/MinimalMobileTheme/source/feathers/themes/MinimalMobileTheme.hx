@@ -62,7 +62,7 @@ public class MinimalMobileTheme extends BaseMinimalMobileTheme
 	/**
 	 * Constructor.
 	 */
-	public function MinimalMobileTheme(scaleToDPI:Bool = true)
+	public function new(scaleToDPI:Bool = true)
 	{
 		super(scaleToDPI);
 		this.initialize();

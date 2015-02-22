@@ -1,7 +1,7 @@
 package feathers.examples.trainTimes.model;
 class TimeData
 {
-	public function TimeData(trainNumber:Int, departureTime:Date, arrivalTime:Date)
+	public function new(trainNumber:Int, departureTime:Date, arrivalTime:Date)
 	{
 		this.trainNumber = trainNumber;
 		this.departureTime = departureTime;

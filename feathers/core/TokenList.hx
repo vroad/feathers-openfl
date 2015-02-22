@@ -40,7 +40,7 @@ class TokenList extends EventDispatcher
 	/**
 	 * Constructor.
 	 */
-	public function TokenList()
+	public function new()
 	{
 	}
 

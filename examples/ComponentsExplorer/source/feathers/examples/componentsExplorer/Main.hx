@@ -86,7 +86,7 @@ class Main extends Drawers
 		showToggles: TOGGLES
 	};
 	
-	public function Main()
+	public function new()
 	{
 		super();
 	}

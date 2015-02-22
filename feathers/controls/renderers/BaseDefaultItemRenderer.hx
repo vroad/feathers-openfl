@@ -223,7 +223,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * Constructor.
 	 */
-	public function BaseDefaultItemRenderer()
+	public function new()
 	{
 		super();
 		this.isFocusEnabled = false;

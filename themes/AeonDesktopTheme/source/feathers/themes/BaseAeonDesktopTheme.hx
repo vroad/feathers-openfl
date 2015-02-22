@@ -264,7 +264,7 @@ package feathers.themes
 		/**
 		 * Constructor.
 		 */
-		public function BaseAeonDesktopTheme()
+		public function new()
 		{
 			super();
 		}

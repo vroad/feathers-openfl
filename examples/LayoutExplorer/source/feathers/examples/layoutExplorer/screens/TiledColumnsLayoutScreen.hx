@@ -17,7 +17,7 @@ class TiledColumnsLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function TiledColumnsLayoutScreen()
+	public function new()
 	{
 		super();
 	}

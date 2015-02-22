@@ -214,7 +214,7 @@ public class BaseMinimalDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Constructor.
 	 */
-	public function BaseMinimalDesktopTheme()
+	public function new()
 	{
 	}
 

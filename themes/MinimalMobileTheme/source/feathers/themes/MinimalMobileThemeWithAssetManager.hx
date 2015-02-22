@@ -82,7 +82,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	 * @param assetsBasePath The root folder of the assets.
 	 * @param assetManager An optional pre-created asset manager.
 	 */
-	public function MinimalMobileThemeWithAssetManager(assetsBasePath:String, assetManager:AssetManager = null)
+	public function new(assetsBasePath:String, assetManager:AssetManager = null)
 	{
 		this.loadAssets(assetsBasePath, assetManager);
 	}

@@ -43,7 +43,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * Constructor.
 	 */
-	public function TextFieldTextEditorViewPort()
+	public function new()
 	{
 		super();
 		this.multiline = true;

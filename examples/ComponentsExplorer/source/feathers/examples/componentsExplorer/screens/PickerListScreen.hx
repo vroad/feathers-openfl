@@ -17,7 +17,7 @@ import starling.events.Event;
 
 class PickerListScreen extends PanelScreen
 {
-	public function PickerListScreen()
+	public function new()
 	{
 		super();
 	}

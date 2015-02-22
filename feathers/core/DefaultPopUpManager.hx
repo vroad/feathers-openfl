@@ -37,7 +37,7 @@ class DefaultPopUpManager implements IPopUpManager
 	/**
 	 * Constructor.
 	 */
-	public function DefaultPopUpManager(root:DisplayObjectContainer = null)
+	public function new(root:DisplayObjectContainer = null)
 	{
 		this.root = root;
 	}

@@ -13,7 +13,7 @@ import starling.events.TouchPhase;
 
 class DragSource extends LayoutGroup implements IDragSource
 {
-	public function DragSource(dragFormat:String)
+	public function new(dragFormat:String)
 	{
 		this._dragFormat = dragFormat;
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);

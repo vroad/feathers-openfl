@@ -41,7 +41,7 @@ class ValidationQueue implements IAnimatable
 	/**
 	 * Constructor.
 	 */
-	public function ValidationQueue(starling:Starling)
+	public function new(starling:Starling)
 	{
 		this._starling = starling;
 	}

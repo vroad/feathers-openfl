@@ -623,7 +623,7 @@ class Callout extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function Callout()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, callout_addedToStageHandler);

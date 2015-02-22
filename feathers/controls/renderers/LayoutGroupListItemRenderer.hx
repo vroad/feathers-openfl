@@ -44,7 +44,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	/**
 	 * Constructor.
 	 */
-	public function LayoutGroupListItemRenderer()
+	public function new()
 	{
 		super();
 	}

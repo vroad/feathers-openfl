@@ -237,7 +237,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * Constructor.
 	 */
-	public function FeathersControl()
+	public function new()
 	{
 		super();
 		if(Object(this).constructor == FeathersControl)

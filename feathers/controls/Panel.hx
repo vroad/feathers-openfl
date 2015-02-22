@@ -183,7 +183,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * Constructor.
 	 */
-	public function Panel()
+	public function new()
 	{
 		super();
 	}

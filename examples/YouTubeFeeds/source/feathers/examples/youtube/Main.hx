@@ -18,7 +18,7 @@ class Main extends ScreenNavigator
 	inline private static var LIST_VIDEOS:String = "listVideos";
 	inline private static var VIDEO_DETAILS:String = "videoDetails";
 
-	public function Main()
+	public function new()
 	{
 		super();
 	}

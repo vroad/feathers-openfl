@@ -17,7 +17,7 @@ import feathers.themes.MetalWorksMobileTheme;
 
 class ComponentsExplorerTheme extends MetalWorksMobileTheme
 {
-	public function ComponentsExplorerTheme()
+	public function new()
 	{
 		super();
 	}

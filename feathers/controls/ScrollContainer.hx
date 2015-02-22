@@ -198,7 +198,7 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * Constructor.
 	 */
-	public function ScrollContainer()
+	public function new()
 	{
 		super();
 		this.layoutViewPort = new LayoutViewPort();

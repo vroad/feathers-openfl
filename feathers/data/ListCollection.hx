@@ -171,7 +171,7 @@ class ListCollection extends EventDispatcher
 	/**
 	 * Constructor
 	 */
-	public function ListCollection(data:Dynamic = null)
+	public function new(data:Dynamic = null)
 	{
 		if(!data)
 		{

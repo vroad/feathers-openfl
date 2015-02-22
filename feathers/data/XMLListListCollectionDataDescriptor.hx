@@ -21,7 +21,7 @@ class XMLListListCollectionDataDescriptor implements IListCollectionDataDescript
 	/**
 	 * Constructor.
 	 */
-	public function XMLListListCollectionDataDescriptor()
+	public function new()
 	{
 	}
 	

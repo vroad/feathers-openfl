@@ -16,7 +16,7 @@ class NumericStepperScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function NumericStepperScreen()
+	public function new()
 	{
 		super();
 	}

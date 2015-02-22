@@ -15,7 +15,7 @@ class ProgressBarScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function ProgressBarScreen()
+	public function new()
 	{
 		super();
 	}

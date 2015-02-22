@@ -15,7 +15,7 @@ import starling.events.Event;
 
 class GroupedListSettingsScreen extends PanelScreen
 {
-	public function GroupedListSettingsScreen()
+	public function new()
 	{
 		super();
 	}

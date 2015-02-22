@@ -182,7 +182,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * Constructor.
 	 */
-	public function TiledColumnsLayout()
+	public function new()
 	{
 	}
 

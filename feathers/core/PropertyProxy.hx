@@ -36,7 +36,7 @@ dynamic class PropertyProxy extends Proxy
 	/**
 	 * Constructor.
 	 */
-	public function PropertyProxy(onChangeCallback:Dynamic = null)
+	public function new(onChangeCallback:Dynamic = null)
 	{
 		if(onChangeCallback != null)
 		{

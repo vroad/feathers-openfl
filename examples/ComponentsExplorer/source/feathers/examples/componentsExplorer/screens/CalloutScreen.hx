@@ -19,7 +19,7 @@ class CalloutScreen extends PanelScreen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function CalloutScreen()
+	public function new()
 	{
 		super();
 	}

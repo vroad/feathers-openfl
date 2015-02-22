@@ -18,7 +18,7 @@ class HorizontalLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function HorizontalLayoutScreen()
+	public function new()
 	{
 		super();
 	}

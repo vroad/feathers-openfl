@@ -20,7 +20,7 @@ import starling.core.Starling;
 //[SWF(width="960",height="640",frameRate="60",backgroundColor="#4a4137")]
 class Todos extends Sprite
 {
-	public function Todos()
+	public function new()
 	{
 		if(this.stage)
 		{

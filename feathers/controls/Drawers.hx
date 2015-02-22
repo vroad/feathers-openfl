@@ -314,7 +314,7 @@ class Drawers extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function Drawers(content:DisplayObject = null)
+	public function new(content:DisplayObject = null)
 	{
 		super();
 		this.content = content;

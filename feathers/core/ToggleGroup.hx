@@ -43,7 +43,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * Constructor.
 	 */
-	public function ToggleGroup()
+	public function new()
 	{
 	}
 

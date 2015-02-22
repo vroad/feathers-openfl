@@ -50,7 +50,7 @@ class Scale3Textures
 	 * @param secondRegionSize	The size, in pixels, of the second of the three regions. This value should be based on the original texture dimensions, with no adjustments for scale factor.
 	 * @param direction			Indicates if the regions should be positioned horizontally or vertically.
 	 */
-	public function Scale3Textures(texture:Texture, firstRegionSize:Float, secondRegionSize:Float, direction:String = DIRECTION_HORIZONTAL)
+	public function new(texture:Texture, firstRegionSize:Float, secondRegionSize:Float, direction:String = DIRECTION_HORIZONTAL)
 	{
 		if(secondRegionSize <= 0)
 		{

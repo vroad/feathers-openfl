@@ -119,7 +119,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Constructor.
 	 */
-	public function SmartDisplayObjectStateValueSelector()
+	public function new()
 	{
 		this.setValueTypeHandler(Texture, textureValueTypeHandler);
 		this.setValueTypeHandler(ConcreteTexture, textureValueTypeHandler);

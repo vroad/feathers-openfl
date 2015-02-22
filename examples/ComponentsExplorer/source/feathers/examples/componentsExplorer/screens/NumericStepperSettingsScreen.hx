@@ -14,7 +14,7 @@ import starling.events.Event;
 
 class NumericStepperSettingsScreen extends PanelScreen
 {
-	public function NumericStepperSettingsScreen()
+	public function new()
 	{
 		super();
 	}

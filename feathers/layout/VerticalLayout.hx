@@ -101,7 +101,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * Constructor.
 	 */
-	public function VerticalLayout()
+	public function new()
 	{
 	}
 

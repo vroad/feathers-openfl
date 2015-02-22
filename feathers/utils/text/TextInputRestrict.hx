@@ -37,7 +37,7 @@ class TextInputRestrict
 	/**
 	 * Constructor.
 	 */
-	public function TextInputRestrict(restrict:String = null)
+	public function new(restrict:String = null)
 	{
 		this.restrict = restrict;
 	}

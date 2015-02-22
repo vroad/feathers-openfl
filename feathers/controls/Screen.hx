@@ -28,7 +28,7 @@ import starling.events.Event;
  *
  *     class CustomScreen extends Screen
  *     {
- *         public function CustomScreen()
+ *         public function new()
  *         {
  *         }
  *
@@ -62,7 +62,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * Constructor.
 	 */
-	public function Screen()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, screen_addedToStageHandler);
 		super();

@@ -20,7 +20,7 @@ class ListScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function ListScreen()
+	public function new()
 	{
 		super();
 	}

@@ -164,7 +164,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function ScreenNavigator()
+	public function new()
 	{
 		super();
 		if(!SIGNAL_TYPE)

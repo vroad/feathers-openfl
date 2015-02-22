@@ -19,7 +19,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * Constructor.
 	 */
-	public function VectorIntListCollectionDataDescriptor()
+	public function new()
 	{
 	}
 	

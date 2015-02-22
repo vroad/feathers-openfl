@@ -79,7 +79,7 @@ public class MetalWorksMobileThemeWithAssetManager extends BaseMetalWorksMobileT
 	 * @param assetsBasePath The root folder of the assets.
 	 * @param assetManager An optional pre-created asset manager.
 	 */
-	public function MetalWorksMobileThemeWithAssetManager(assetsBasePath:String = null, assetManager:AssetManager = null)
+	public function new(assetsBasePath:String = null, assetManager:AssetManager = null)
 	{
 		this.loadAssets(assetsBasePath, assetManager);
 	}

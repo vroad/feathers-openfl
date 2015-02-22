@@ -27,7 +27,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function AnchorLayoutData(top:Float = Math.NaN, right:Float = Math.NaN,
+	public function new(top:Float = Math.NaN, right:Float = Math.NaN,
 		bottom:Float = Math.NaN, left:Float = Math.NaN, horizontalCenter:Float = Math.NaN,
 		verticalCenter:Float = Math.NaN)
 	{

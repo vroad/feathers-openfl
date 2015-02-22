@@ -16,7 +16,7 @@ class DragData
 	/**
 	 * Constructor.
 	 */
-	public function DragData()
+	public function new()
 	{
 	}
 

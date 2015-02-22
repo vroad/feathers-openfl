@@ -44,7 +44,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private static var HELPER_POINT:Point = new Point();
 	inline private static var HELPER_VECTOR:Array<Int> = new Array();
 
-	public function ListDataViewPort()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);

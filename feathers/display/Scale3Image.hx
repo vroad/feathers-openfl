@@ -73,7 +73,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function Scale3Image(textures:Scale3Textures, textureScale:Float = 1)
+	public function new(textures:Scale3Textures, textureScale:Float = 1)
 	{
 		super();
 		this.textures = textures;

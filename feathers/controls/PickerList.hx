@@ -138,7 +138,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function PickerList()
+	public function new()
 	{
 		super();
 	}

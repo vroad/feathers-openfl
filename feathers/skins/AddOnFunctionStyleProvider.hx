@@ -29,7 +29,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * Constructor.
 	 */
-	public function AddOnFunctionStyleProvider(originalStyleProvider:IStyleProvider = null, addOnFunction:Dynamic = null)
+	public function new(originalStyleProvider:IStyleProvider = null, addOnFunction:Dynamic = null)
 	{
 		this._originalStyleProvider = originalStyleProvider;
 		this._addOnFunction = addOnFunction;

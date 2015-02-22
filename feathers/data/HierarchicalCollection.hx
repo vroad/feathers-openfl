@@ -166,7 +166,7 @@ import starling.events.EventDispatcher;
  */
 class HierarchicalCollection extends EventDispatcher
 {
-	public function HierarchicalCollection(data:Dynamic = null)
+	public function new(data:Dynamic = null)
 	{
 		if(!data)
 		{

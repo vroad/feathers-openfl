@@ -67,7 +67,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	/**
 	 * Constructor.
 	 */
-	public function Radio()
+	public function new()
 	{
 		super();
 		super.isToggle = true;

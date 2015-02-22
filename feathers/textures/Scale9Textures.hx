@@ -48,7 +48,7 @@ class Scale9Textures
 	 * @param texture		A Starling Texture to slice up into nine regions. It is recommended to turn of mip-maps for best rendering results.
 	 * @param scale9Grid	The rectangle defining the region in the horizontal center and vertical middle, with other regions being calculated automatically. This value should be based on the original texture dimensions, with no adjustments for scale factor.
 	 */
-	public function Scale9Textures(texture:Texture, scale9Grid:Rectangle)
+	public function new(texture:Texture, scale9Grid:Rectangle)
 	{
 		if(scale9Grid.width <= 0)
 		{

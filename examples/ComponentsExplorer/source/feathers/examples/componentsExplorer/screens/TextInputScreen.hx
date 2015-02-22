@@ -14,7 +14,7 @@ class TextInputScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function TextInputScreen()
+	public function new()
 	{
 	}
 

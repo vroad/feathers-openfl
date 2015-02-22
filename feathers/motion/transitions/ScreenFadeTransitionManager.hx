@@ -24,7 +24,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * Constructor.
 	 */
-	public function ScreenFadeTransitionManager(navigator:ScreenNavigator)
+	public function new(navigator:ScreenNavigator)
 	{
 		if(!navigator)
 		{

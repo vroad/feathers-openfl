@@ -19,7 +19,7 @@ class ToggleScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function ToggleScreen()
+	public function new()
 	{
 		super();
 	}

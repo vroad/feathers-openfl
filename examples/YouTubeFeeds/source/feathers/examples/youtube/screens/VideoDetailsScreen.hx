@@ -16,7 +16,7 @@ import starling.events.Event;
 
 class VideoDetailsScreen extends PanelScreen
 {
-	public function VideoDetailsScreen()
+	public function new()
 	{
 		super();
 	}

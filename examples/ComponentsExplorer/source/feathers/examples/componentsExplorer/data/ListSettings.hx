@@ -1,7 +1,7 @@
 package feathers.examples.componentsExplorer.data;
 class ListSettings
 {
-	public function ListSettings()
+	public function new()
 	{
 	}
 

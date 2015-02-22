@@ -26,7 +26,7 @@ class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function VerticalLayoutData(percentWidth:Float = Math.NaN, percentHeight:Float = Math.NaN)
+	public function new(percentWidth:Float = Math.NaN, percentHeight:Float = Math.NaN)
 	{
 		this._percentWidth = percentWidth;
 		this._percentHeight = percentHeight;

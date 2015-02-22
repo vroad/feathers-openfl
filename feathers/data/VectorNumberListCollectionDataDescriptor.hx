@@ -19,7 +19,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * Constructor.
 	 */
-	public function VectorNumberListCollectionDataDescriptor()
+	public function new()
 	{
 	}
 	

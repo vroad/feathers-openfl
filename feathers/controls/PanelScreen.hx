@@ -32,7 +32,7 @@ import starling.events.Event;
  *
  *     class CustomScreen extends PanelScreen
  *     {
- *         public function CustomScreen()
+ *         public function new()
  *         {
  *             this.addEventListener( FeathersEventType.INITIALIZE, initializeHandler );
  *         }
@@ -166,7 +166,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * Constructor.
 	 */
-	public function PanelScreen()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, panelScreen_addedToStageHandler);
 		super();

@@ -12,7 +12,7 @@ class Main extends ScreenNavigator
 	inline private static var STATION_SCREEN:String = "stationScreen";
 	inline private static var TIMES_SCREEN:String = "timesScreen";
 
-	public function Main()
+	public function new()
 	{
 		super();
 	}

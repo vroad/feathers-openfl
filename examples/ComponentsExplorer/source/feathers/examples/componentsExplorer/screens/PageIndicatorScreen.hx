@@ -13,7 +13,7 @@ import starling.events.Event;
 
 class PageIndicatorScreen extends PanelScreen
 {
-	public function PageIndicatorScreen()
+	public function new()
 	{
 		super();
 	}

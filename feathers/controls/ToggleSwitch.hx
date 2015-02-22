@@ -194,7 +194,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	/**
 	 * Constructor.
 	 */
-	public function ToggleSwitch()
+	public function new()
 	{
 		super();
 		this.addEventListener(TouchEvent.TOUCH, toggleSwitch_touchHandler);

@@ -248,7 +248,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function List()
+	public function new()
 	{
 		super();
 		this._selectedIndices.addEventListener(Event.CHANGE, selectedIndices_changeHandler);

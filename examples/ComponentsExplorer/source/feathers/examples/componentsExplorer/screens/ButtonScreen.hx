@@ -17,7 +17,7 @@ class ButtonScreen extends PanelScreen
 
 	inline public static var CHILD_NAME_ICON_BUTTON:String = "components-explorer-button-screen-icon-button";
 	
-	public function ButtonScreen()
+	public function new()
 	{
 		super();
 	}

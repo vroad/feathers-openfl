@@ -18,7 +18,7 @@ class TiledImageScreen extends Screen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function TiledImageScreen()
+	public function new()
 	{
 	}
 

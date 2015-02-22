@@ -22,7 +22,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	/**
 	 * Constructor.
 	 */
-	public function StyleNameFunctionTheme()
+	public function new()
 	{
 		this._registry = new StyleProviderRegistry();
 	}

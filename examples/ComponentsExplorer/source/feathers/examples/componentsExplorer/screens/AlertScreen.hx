@@ -13,7 +13,7 @@ import starling.events.Event;
 
 class AlertScreen extends PanelScreen
 {
-	public function AlertScreen()
+	public function new()
 	{
 		super();
 	}

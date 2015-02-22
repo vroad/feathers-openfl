@@ -38,7 +38,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * Constructor.
 	 */
-	public function GalleryItemRenderer()
+	public function new()
 	{
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);

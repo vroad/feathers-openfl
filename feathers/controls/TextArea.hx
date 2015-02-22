@@ -241,7 +241,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function TextArea()
+	public function new()
 	{
 		super();
 		this._measureViewPort = false;

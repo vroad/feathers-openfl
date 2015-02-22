@@ -187,7 +187,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function ScrollText()
+	public function new()
 	{
 		super();
 		this.textViewPort = new TextFieldViewPort();

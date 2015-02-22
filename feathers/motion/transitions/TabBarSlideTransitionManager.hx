@@ -27,7 +27,7 @@ class TabBarSlideTransitionManager
 	/**
 	 * Constructor.
 	 */
-	public function TabBarSlideTransitionManager(navigator:ScreenNavigator, tabBar:TabBar)
+	public function new(navigator:ScreenNavigator, tabBar:TabBar)
 	{
 		if(!navigator)
 		{

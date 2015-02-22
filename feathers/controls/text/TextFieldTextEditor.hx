@@ -193,7 +193,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * Constructor.
 	 */
-	public function TextFieldTextEditor()
+	public function new()
 	{
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(Event.ADDED_TO_STAGE, textEditor_addedToStageHandler);

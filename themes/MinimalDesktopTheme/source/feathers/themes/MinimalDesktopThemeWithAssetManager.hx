@@ -82,7 +82,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	 * @param assetsBasePath The root folder of the assets.
 	 * @param assetManager An optional pre-created asset manager.
 	 */
-	public function MinimalDesktopThemeWithAssetManager(assetsBasePath:Dynamic = null, assetManager:AssetManager = null)
+	public function new(assetsBasePath:Dynamic = null, assetManager:AssetManager = null)
 	{
 		this.loadAssets(assetsBasePath, assetManager);
 	}

@@ -56,7 +56,7 @@ package feathers.themes
 		/**
 		 * Constructor.
 		 */
-		public function AeonDesktopTheme()
+		public function new()
 		{
 			super();
 			this.initialize();

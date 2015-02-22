@@ -1,7 +1,7 @@
 package feathers.examples.componentsExplorer.data;
 class NumericStepperSettings
 {
-	public function NumericStepperSettings()
+	public function new()
 	{
 	}
 

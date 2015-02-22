@@ -80,7 +80,7 @@ class DisplayListWatcher extends EventDispatcher
 	 *
 	 * @param topLevelContainer		The root display object to watch (not necessarily Starling's stage or root object)
 	 */
-	public function DisplayListWatcher(topLevelContainer:DisplayObjectContainer)
+	public function new(topLevelContainer:DisplayObjectContainer)
 	{
 		this.root = topLevelContainer;
 		this.root.addEventListener(Event.ADDED, addedHandler);

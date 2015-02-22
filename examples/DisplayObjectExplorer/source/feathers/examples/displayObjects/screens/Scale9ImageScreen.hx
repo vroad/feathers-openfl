@@ -21,7 +21,7 @@ class Scale9ImageScreen extends Screen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function Scale9ImageScreen()
+	public function new()
 	{
 	}
 

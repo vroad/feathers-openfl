@@ -130,7 +130,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * Constructor.
 	 */
-	public function TextBlockTextRenderer()
+	public function new()
 	{
 		super();
 		this.isQuickHitAreaEnabled = true;

@@ -75,7 +75,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * Constructor.
 	 */
-	public function TextFieldTextRenderer()
+	public function new()
 	{
 		super();
 		this.isQuickHitAreaEnabled = true;

@@ -295,7 +295,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Constructor.
 	 */
-	public function BaseMetalWorksDesktopTheme()
+	public function new()
 	{
 	}
 

@@ -228,7 +228,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function ButtonGroup()
+	public function new()
 	{
 		super();
 	}

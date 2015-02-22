@@ -29,7 +29,7 @@ public final class StageTextField extends EventDispatcher
 	/**
 	 * Constructor.
 	 */
-	public function StageTextField(initOptions:Dynamic = null)
+	public function new(initOptions:Dynamic = null)
 	{
 		this.initialize(initOptions);
 	}

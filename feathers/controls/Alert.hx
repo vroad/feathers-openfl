@@ -223,7 +223,7 @@ class Alert extends Panel
 	/**
 	 * Constructor.
 	 */
-	public function Alert()
+	public function new()
 	{
 		super();
 		this.headerName = DEFAULT_CHILD_NAME_HEADER;

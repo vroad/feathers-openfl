@@ -1,7 +1,7 @@
 package feathers.examples.trainTimes.model;
 class StationData
 {
-	public function StationData(name:String)
+	public function new(name:String)
 	{
 		this.name = name;
 	}

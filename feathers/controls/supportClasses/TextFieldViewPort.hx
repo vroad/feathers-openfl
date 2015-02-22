@@ -36,7 +36,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 	private static var HELPER_POINT:Point = new Point();
 
-	public function TextFieldViewPort()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);

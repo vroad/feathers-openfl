@@ -16,7 +16,7 @@ import starling.events.Event;
 
 class HorizontalLayoutSettingsScreen extends PanelScreen
 {
-	public function HorizontalLayoutSettingsScreen()
+	public function new()
 	{
 		super();
 	}

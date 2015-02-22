@@ -14,7 +14,7 @@ import starling.events.Event;
 
 class ListSettingsScreen extends PanelScreen
 {
-	public function ListSettingsScreen()
+	public function new()
 	{
 		super();
 	}

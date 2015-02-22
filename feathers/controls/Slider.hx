@@ -270,7 +270,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * Constructor.
 	 */
-	public function Slider()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.REMOVED_FROM_STAGE, slider_removedFromStageHandler);

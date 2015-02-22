@@ -86,7 +86,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * Constructor.
 	 */
-	public function HorizontalLayout()
+	public function new()
 	{
 	}
 

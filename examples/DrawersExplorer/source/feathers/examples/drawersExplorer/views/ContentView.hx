@@ -17,7 +17,7 @@ class ContentView extends ScrollContainer
 	inline public static var TOGGLE_BOTTOM_DRAWER:String = "toggleBottomDrawer";
 	inline public static var TOGGLE_LEFT_DRAWER:String = "toggleLeftDrawer";
 
-	public function ContentView()
+	public function new()
 	{
 
 	}

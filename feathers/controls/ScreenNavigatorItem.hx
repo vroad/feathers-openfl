@@ -36,7 +36,7 @@ class ScreenNavigatorItem
 	/**
 	 * Constructor.
 	 */
-	public function ScreenNavigatorItem(screen:Dynamic = null, events:Dynamic = null, properties:Dynamic = null)
+	public function new(screen:Dynamic = null, events:Dynamic = null, properties:Dynamic = null)
 	{
 		this.screen = screen;
 		this.events = events ? events : {};

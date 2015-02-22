@@ -71,7 +71,7 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * Constructor.
 	 */
-	public function ToggleButton()
+	public function new()
 	{
 		super();
 	}

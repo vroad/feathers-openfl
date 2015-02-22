@@ -32,7 +32,7 @@ import starling.events.Event;
  *
  *     class CustomScreen extends ScrollScreen
  *     {
- *         public function CustomScreen()
+ *         public function new()
  *         {
  *             this.addEventListener( FeathersEventType.INITIALIZE, initializeHandler );
  *         }
@@ -159,7 +159,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * Constructor.
 	 */
-	public function ScrollScreen()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, scrollScreen_addedToStageHandler);
 		super();

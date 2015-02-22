@@ -19,7 +19,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	/**
 	 * Constructor.
 	 */
-	public function ArrayListCollectionDataDescriptor()
+	public function new()
 	{
 	}
 	

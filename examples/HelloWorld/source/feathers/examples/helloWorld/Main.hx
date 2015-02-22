@@ -21,7 +21,7 @@ class Main extends Sprite
 	/**
 	 * Constructor.
 	 */
-	public function Main()
+	public function new()
 	{
 		//we'll initialize things after we've been added to the stage
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);

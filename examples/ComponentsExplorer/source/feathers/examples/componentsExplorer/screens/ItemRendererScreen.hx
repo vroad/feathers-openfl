@@ -22,7 +22,7 @@ class ItemRendererScreen extends PanelScreen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function ItemRendererScreen()
+	public function new()
 	{
 		super();
 	}

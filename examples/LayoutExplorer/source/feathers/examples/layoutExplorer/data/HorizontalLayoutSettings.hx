@@ -3,7 +3,7 @@ import feathers.layout.HorizontalLayout;
 
 class HorizontalLayoutSettings
 {
-	public function HorizontalLayoutSettings()
+	public function new()
 	{
 	}
 

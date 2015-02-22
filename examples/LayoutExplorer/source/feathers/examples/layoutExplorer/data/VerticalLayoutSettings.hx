@@ -3,7 +3,7 @@ import feathers.layout.VerticalLayout;
 
 class VerticalLayoutSettings
 {
-	public function VerticalLayoutSettings()
+	public function new()
 	{
 	}
 

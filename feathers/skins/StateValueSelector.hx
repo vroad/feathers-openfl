@@ -17,7 +17,7 @@ class StateValueSelector
 	/**
 	 * Constructor.
 	 */
-	public function StateValueSelector()
+	public function new()
 	{
 	}
 

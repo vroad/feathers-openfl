@@ -87,7 +87,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		return quad;
 	}
 
-	public function TrainTimesTheme(container:DisplayObjectContainer = null, scaleToDPI:Bool = true)
+	public function new(container:DisplayObjectContainer = null, scaleToDPI:Bool = true)
 	{
 		if(!container)
 		{

@@ -19,7 +19,7 @@ class Scale3ImageScreen extends Screen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function Scale3ImageScreen()
+	public function new()
 	{
 	}
 

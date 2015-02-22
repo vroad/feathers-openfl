@@ -20,7 +20,7 @@ class GroupedListScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function GroupedListScreen()
+	public function new()
 	{
 		super();
 	}

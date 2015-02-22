@@ -13,7 +13,7 @@ import starling.events.Event;
 
 class ScrollTextScreen extends PanelScreen
 {
-	public function ScrollTextScreen()
+	public function new()
 	{
 		super();
 	}

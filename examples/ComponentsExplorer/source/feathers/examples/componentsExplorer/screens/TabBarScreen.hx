@@ -15,7 +15,7 @@ import starling.events.Event;
 
 class TabBarScreen extends PanelScreen
 {
-	public function TabBarScreen()
+	public function new()
 	{
 		super();
 	}

@@ -51,7 +51,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * Constructor.
 	 */
-	public function VerticalCenteredPopUpContentManager()
+	public function new()
 	{
 	}
 

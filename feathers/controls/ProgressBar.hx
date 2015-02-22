@@ -54,7 +54,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function ProgressBar()
+	public function new()
 	{
 		super();
 	}

@@ -14,7 +14,7 @@ class LabelScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function LabelScreen()
+	public function new()
 	{
 		super();
 	}

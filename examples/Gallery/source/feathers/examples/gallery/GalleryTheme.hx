@@ -7,7 +7,7 @@ import feathers.themes.MetalWorksMobileTheme;
  */
 class GalleryTheme extends MetalWorksMobileTheme
 {
-	public function GalleryTheme()
+	public function new()
 	{
 		super(true)
 	}

@@ -55,7 +55,7 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * Constructor.
 	 */
-	public function MetalWorksDesktopTheme()
+	public function new()
 	{
 		super();
 		this.initialize();

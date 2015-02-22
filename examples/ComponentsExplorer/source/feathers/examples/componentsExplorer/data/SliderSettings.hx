@@ -1,7 +1,7 @@
 package feathers.examples.componentsExplorer.data;
 class SliderSettings
 {
-	public function SliderSettings()
+	public function new()
 	{
 	}
 

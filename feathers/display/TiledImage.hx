@@ -63,7 +63,7 @@ class TiledImage extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function TiledImage(texture:Texture, textureScale:Float = 1)
+	public function new(texture:Texture, textureScale:Float = 1)
 	{
 		super();
 		this._hitArea = new Rectangle();

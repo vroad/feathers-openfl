@@ -14,7 +14,7 @@ import starling.events.Event;
 
 class ButtonGroupScreen extends PanelScreen
 {
-	public function ButtonGroupScreen()
+	public function new()
 	{
 		super();
 	}

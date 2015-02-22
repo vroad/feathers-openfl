@@ -20,7 +20,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 	inline private static var GAP_LABEL_INFINITE:String = "Fill Available Space";
 	inline private static var GAP_LABEL_DEFAULT:String = "No Fill";
 
-	public function ItemRendererSettingsScreen()
+	public function new()
 	{
 		super();
 	}

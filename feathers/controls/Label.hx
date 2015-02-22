@@ -85,7 +85,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * Constructor.
 	 */
-	public function Label()
+	public function new()
 	{
 		super();
 		this.isQuickHitAreaEnabled = true;

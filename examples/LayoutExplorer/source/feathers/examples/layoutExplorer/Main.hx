@@ -45,7 +45,7 @@ class Main extends Drawers
 		showTiledColumns: TILED_COLUMNS
 	}
 
-	public function Main()
+	public function new()
 	{
 		super();
 	}

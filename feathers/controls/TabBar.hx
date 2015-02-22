@@ -198,7 +198,7 @@ class TabBar extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function TabBar()
+	public function new()
 	{
 		super();
 	}

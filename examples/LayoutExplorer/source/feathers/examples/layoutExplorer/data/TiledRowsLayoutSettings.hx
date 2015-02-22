@@ -3,7 +3,7 @@ import feathers.layout.TiledRowsLayout;
 
 class TiledRowsLayoutSettings
 {
-	public function TiledRowsLayoutSettings()
+	public function new()
 	{
 	}
 

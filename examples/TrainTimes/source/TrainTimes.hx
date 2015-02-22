@@ -13,7 +13,7 @@ import starling.core.Starling;
 //[SWF(width="960",height="640",frameRate="60",backgroundColor="#424254")]
 class TrainTimes extends Sprite
 {
-	public function TrainTimes()
+	public function new()
 	{
 		if(this.stage)
 		{

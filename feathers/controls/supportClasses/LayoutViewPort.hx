@@ -17,7 +17,7 @@ import starling.display.DisplayObject;
  */
 class LayoutViewPort extends LayoutGroup implements IViewPort
 {
-	public function LayoutViewPort()
+	public function new()
 	{
 	}
 

@@ -209,7 +209,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * Constructor.
 	 */
-	public function StageTextTextEditor()
+	public function new()
 	{
 		this._stageTextIsTextField = /^(Windows|Mac OS|Linux) .*/.exec(Capabilities.os);
 		this.isQuickHitAreaEnabled = true;

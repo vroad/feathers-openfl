@@ -147,7 +147,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * Constructor.
 	 */
-	public function BitmapFontTextEditor()
+	public function new()
 	{
 		super();
 		this._text = "";

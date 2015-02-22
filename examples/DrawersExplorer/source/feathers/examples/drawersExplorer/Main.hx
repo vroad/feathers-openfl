@@ -9,7 +9,7 @@ import starling.events.Event;
 
 class Main extends Sprite
 {
-	public function Main()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);

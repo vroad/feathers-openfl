@@ -39,7 +39,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * Constructor.
 	 */
-	public function ArrayChildrenHierarchicalCollectionDataDescriptor()
+	public function new()
 	{
 	}
 

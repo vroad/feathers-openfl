@@ -29,7 +29,7 @@ class FunctionStyleProvider implements IStyleProvider
 	/**
 	 * Constructor.
 	 */
-	public function FunctionStyleProvider(skinFunction:Dynamic)
+	public function new(skinFunction:Dynamic)
 	{
 		this._styleFunction = skinFunction;
 	}

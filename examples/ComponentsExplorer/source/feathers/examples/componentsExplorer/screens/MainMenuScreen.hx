@@ -36,7 +36,7 @@ class MainMenuScreen extends PanelScreen
 	inline public static var SHOW_TEXT_INPUT:String = "showTextInput";
 	inline public static var SHOW_TOGGLES:String = "showToggles";
 	
-	public function MainMenuScreen()
+	public function new()
 	{
 		super();
 	}

@@ -172,7 +172,7 @@ class PageIndicator extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function PageIndicator()
+	public function new()
 	{
 		super();
 		this.isQuickHitAreaEnabled = true;

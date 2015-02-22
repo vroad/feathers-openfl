@@ -62,7 +62,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * Constructor.
 	 */
-	public function MinimalDesktopTheme()
+	public function new()
 	{
 		super();
 		this.initialize();

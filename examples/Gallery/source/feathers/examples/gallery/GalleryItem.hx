@@ -1,7 +1,7 @@
 package feathers.examples.gallery;
 class GalleryItem
 {
-	public function GalleryItem(title:String, url:String, thumbURL:String)
+	public function new(title:String, url:String, thumbURL:String)
 	{
 		this.title = title;
 		this.url = url;

@@ -34,7 +34,7 @@ class TimesScreen extends PanelScreen
 		new TimeData(281, new Date(2013, 2, 6, 23, 41), new Date(2013, 2, 6, 23, 52)),
 	];
 
-	public function TimesScreen()
+	public function new()
 	{
 		super();
 	}

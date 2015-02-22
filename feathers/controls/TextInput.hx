@@ -279,7 +279,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	/**
 	 * Constructor.
 	 */
-	public function TextInput()
+	public function new()
 	{
 		super();
 		this.addEventListener(TouchEvent.TOUCH, textInput_touchHandler);

@@ -16,7 +16,7 @@ import starling.events.Event;
 
 class VerticalLayoutSettingsScreen extends PanelScreen
 {
-	public function VerticalLayoutSettingsScreen()
+	public function new()
 	{
 		super();
 	}

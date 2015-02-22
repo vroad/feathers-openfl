@@ -9,7 +9,7 @@ import starling.events.Event;
 
 class TodoItemRenderer extends DefaultListItemRenderer
 {
-	public function TodoItemRenderer()
+	public function new()
 	{
 		super();
 		this.itemHasIcon = false;

@@ -41,7 +41,7 @@ class StyleProviderRegistry
 	 * @param registerGlobally			Determines if the registry sets the static <code>globalStyleProvider</code> property.
 	 * @param styleProviderFactory		An optional function that creates a new style provider. If <code>null</code>, a <code>StyleNameFunctionStyleProvider</code> will be created.
 	 */
-	public function StyleProviderRegistry(registerGlobally:Bool = true, styleProviderFactory:Dynamic = null)
+	public function new(registerGlobally:Bool = true, styleProviderFactory:Dynamic = null)
 	{
 		this._registerGlobally = registerGlobally;
 		if(styleProviderFactory == null)

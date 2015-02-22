@@ -19,7 +19,7 @@ class StateWithToggleValueSelector
 	/**
 	 * Constructor.
 	 */
-	public function StateWithToggleValueSelector()
+	public function new()
 	{
 	}
 

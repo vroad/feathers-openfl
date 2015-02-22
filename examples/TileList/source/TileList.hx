@@ -20,7 +20,7 @@ import starling.core.Starling;
 //[SWF(width="960",height="640",frameRate="60",backgroundColor="#ffffff")]
 class TileList extends Sprite
 {
-	public function TileList()
+	public function new()
 	{
 		if(this.stage)
 		{

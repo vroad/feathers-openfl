@@ -172,7 +172,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	/**
 	 * Constructor.
 	 */
-	public function TextBlockTextEditor()
+	public function new()
 	{
 		super();
 		this._text = "";

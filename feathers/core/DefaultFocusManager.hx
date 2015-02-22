@@ -38,7 +38,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * Constructor.
 	 */
-	public function DefaultFocusManager(root:DisplayObjectContainer)
+	public function new(root:DisplayObjectContainer)
 	{
 		if(!root.stage)
 		{
@@ -725,7 +725,7 @@ import openfl.display.Sprite;
 
 class NativeFocusTarget extends Sprite
 {
-public function NativeFocusTarget()
+public function new()
 {
 	this.tabEnabled = true;
 	this.mouseEnabled = false;

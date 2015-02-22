@@ -19,7 +19,7 @@ class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 	inline public static var THEME_NAME_RIGHT_GRIP:String = "right-grip";
 	inline public static var THEME_NAME_BOTTOM_GRIP:String = "bottom-grip";
 
-	public function DisplayObjectExplorerTheme()
+	public function new()
 	{
 		super();
 	}

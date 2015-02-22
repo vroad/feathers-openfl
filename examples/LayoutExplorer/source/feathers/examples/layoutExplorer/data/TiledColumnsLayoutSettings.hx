@@ -3,7 +3,7 @@ import feathers.layout.TiledColumnsLayout;
 
 class TiledColumnsLayoutSettings
 {
-	public function TiledColumnsLayoutSettings()
+	public function new()
 	{
 	}
 

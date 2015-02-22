@@ -31,7 +31,7 @@ class MainMenuScreen extends PanelScreen
 	inline private static var FEED_URL_BEFORE:String = "http://gdata.youtube.com/feeds/api/standardfeeds/US/most_popular_";
 	inline private static var FEED_URL_AFTER:String = "?v=2";
 
-	public function MainMenuScreen()
+	public function new()
 	{
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}

@@ -61,7 +61,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	/**
 	 * Constructor.
 	 */
-	public function StyleNameFunctionStyleProvider(styleFunction:Dynamic = null)
+	public function new(styleFunction:Dynamic = null)
 	{
 		this._defaultStyleFunction = styleFunction;
 	}

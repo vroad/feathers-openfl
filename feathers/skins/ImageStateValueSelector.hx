@@ -19,7 +19,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Constructor.
 	 */
-	public function ImageStateValueSelector()
+	public function new()
 	{
 	}
 

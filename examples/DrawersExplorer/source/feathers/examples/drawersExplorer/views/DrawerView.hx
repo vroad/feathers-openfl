@@ -13,7 +13,7 @@ class DrawerView extends ScrollContainer
 	inline public static var CHANGE_DOCK_MODE_TO_NONE:String = "changeDockModeToNone";
 	inline public static var CHANGE_DOCK_MODE_TO_BOTH:String = "changeDockModeToBoth";
 
-	public function DrawerView(title:String)
+	public function new(title:String)
 	{
 		super();
 		this._title = title;

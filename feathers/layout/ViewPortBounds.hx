@@ -15,7 +15,7 @@ class ViewPortBounds
 	/**
 	 * Constructor.
 	 */
-	public function ViewPortBounds()
+	public function new()
 	{
 
 	}

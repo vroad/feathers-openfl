@@ -400,7 +400,7 @@ class Scroller extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function Scroller()
+	public function new()
 	{
 		super();
 

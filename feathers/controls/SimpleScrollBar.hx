@@ -166,7 +166,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * Constructor.
 	 */
-	public function SimpleScrollBar()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);

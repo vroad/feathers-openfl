@@ -20,7 +20,7 @@ class StationScreen extends Screen
 {
 	inline public static var CHILD_NAME_STATION_LIST:String = "stationList";
 
-	public function StationScreen()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);

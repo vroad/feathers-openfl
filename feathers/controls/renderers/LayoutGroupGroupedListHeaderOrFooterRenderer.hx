@@ -44,7 +44,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	/**
 	 * Constructor.
 	 */
-	public function LayoutGroupGroupedListHeaderOrFooterRenderer()
+	public function new()
 	{
 		super();
 	}

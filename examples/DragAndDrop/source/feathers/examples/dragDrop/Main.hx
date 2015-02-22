@@ -13,7 +13,7 @@ class Main extends Sprite implements IDragSource, IDropTarget
 {
 	inline private static var DRAG_FORMAT:String = "draggableQuad";
 
-	public function Main()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}

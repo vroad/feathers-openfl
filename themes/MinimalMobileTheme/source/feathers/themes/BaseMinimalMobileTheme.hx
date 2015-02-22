@@ -225,7 +225,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 *
 	 * @param scaleToDPI Determines if the theme's skins will be scaled based on the screen density and content scale factor.
 	 */
-	public function BaseMinimalMobileTheme(scaleToDPI:Bool = true)
+	public function new(scaleToDPI:Bool = true)
 	{
 		super();
 		this._scaleToDPI = scaleToDPI;

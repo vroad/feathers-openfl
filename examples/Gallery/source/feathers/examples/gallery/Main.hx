@@ -31,7 +31,7 @@ class Main extends Sprite
 	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
 	inline private static var FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
 
-	public function Main()
+	public function new()
 	{
 		this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 	}

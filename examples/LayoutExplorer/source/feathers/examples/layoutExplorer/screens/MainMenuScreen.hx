@@ -28,7 +28,7 @@ class MainMenuScreen extends PanelScreen
 	inline public static var SHOW_TILED_ROWS:String = "showTiledRows";
 	inline public static var SHOW_TILED_COLUMNS:String = "showTiledColumns";
 
-	public function MainMenuScreen()
+	public function new()
 	{
 		super();
 	}

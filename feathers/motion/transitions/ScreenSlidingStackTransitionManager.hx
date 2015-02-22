@@ -40,7 +40,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * Constructor.
 	 */
-	public function ScreenSlidingStackTransitionManager(navigator:ScreenNavigator, quickStackScreenClass:Class<Dynamic> = null, quickStackScreenID:String = null)
+	public function new(navigator:ScreenNavigator, quickStackScreenClass:Class<Dynamic> = null, quickStackScreenID:String = null)
 	{
 		if(!navigator)
 		{

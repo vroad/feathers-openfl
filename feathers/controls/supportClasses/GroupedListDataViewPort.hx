@@ -43,7 +43,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	private static var HELPER_POINT:Point = new Point();
 	inline private static var HELPER_VECTOR:Array<Int> = new Array();
 
-	public function GroupedListDataViewPort()
+	public function new()
 	{
 		super();
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);

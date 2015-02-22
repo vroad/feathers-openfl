@@ -21,7 +21,7 @@ class Main extends LayoutGroup
 	inline private static var SCALE_3_IMAGE:String = "scale3Image";
 	inline private static var TILED_IMAGE:String = "tiledImage";
 
-	public function Main()
+	public function new()
 	{
 	}
 

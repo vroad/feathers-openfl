@@ -183,7 +183,7 @@ class Header extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function Header()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, header_addedToStageHandler);

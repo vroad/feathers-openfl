@@ -93,7 +93,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * Constructor.
 	 */
-	public function BitmapFontTextRenderer()
+	public function new()
 	{
 		super();
 		if(!CHAR_LOCATION_POOL)
@@ -1141,7 +1141,7 @@ import starling.text.BitmapChar;
 
 class CharLocation
 {
-public function CharLocation()
+public function new()
 {
 
 }

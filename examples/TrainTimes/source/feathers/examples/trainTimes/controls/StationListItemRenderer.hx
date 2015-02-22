@@ -41,7 +41,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return new ImageLoader();
 	}
 
-	public function StationListItemRenderer()
+	public function new()
 	{
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}

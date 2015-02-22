@@ -4,7 +4,7 @@ class GroupedListSettings
 	inline public static var STYLE_NORMAL:String = "normal";
 	inline public static var STYLE_INSET:String = "inset";
 
-	public function GroupedListSettings()
+	public function new()
 	{
 	}
 

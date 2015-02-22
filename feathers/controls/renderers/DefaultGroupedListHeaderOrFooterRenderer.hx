@@ -111,7 +111,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * Constructor.
 	 */
-	public function DefaultGroupedListHeaderOrFooterRenderer()
+	public function new()
 	{
 		super();
 	}

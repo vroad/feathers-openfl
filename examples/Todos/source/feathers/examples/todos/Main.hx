@@ -17,7 +17,7 @@ import starling.events.Event;
 
 class Main extends PanelScreen
 {
-	public function Main()
+	public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);

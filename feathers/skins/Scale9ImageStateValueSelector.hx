@@ -19,7 +19,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * Constructor.
 	 */
-	public function Scale9ImageStateValueSelector()
+	public function new()
 	{
 	}
 

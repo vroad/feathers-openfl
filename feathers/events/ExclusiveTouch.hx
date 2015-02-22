@@ -75,7 +75,7 @@ class ExclusiveTouch extends EventDispatcher
 	 * Constructor.
 	 * @param stage
 	 */
-	public function ExclusiveTouch(stage:Stage)
+	public function new(stage:Stage)
 	{
 		if(!stage)
 		{

@@ -55,7 +55,7 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	/**
 	 * Constructor.
 	 */
-	public function MetalWorksMobileTheme(scaleToDPI:Bool = true)
+	public function new(scaleToDPI:Bool = true)
 	{
 		super(scaleToDPI);
 		this.initialize();

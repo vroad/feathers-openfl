@@ -29,7 +29,7 @@ class Main extends LayoutGroup
 	[Embed(source="/../assets/images/arial20.fnt",mimeType="application/octet-stream")]
 	inline private static var FONT_XML:Class<Dynamic>;
 
-	public function Main()
+	public function new()
 	{
 	}
 

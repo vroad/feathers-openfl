@@ -16,7 +16,7 @@ import starling.events.Event;
 
 class TiledRowsLayoutSettingsScreen extends PanelScreen
 {
-	public function TiledRowsLayoutSettingsScreen()
+	public function new()
 	{
 		super();
 	}

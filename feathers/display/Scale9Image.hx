@@ -73,7 +73,7 @@ class Scale9Image extends Sprite implements IValidating
 	/**
 	 * Constructor.
 	 */
-	public function Scale9Image(textures:Scale9Textures, textureScale:Float = 1)
+	public function new(textures:Scale9Textures, textureScale:Float = 1)
 	{
 		super();
 		this.textures = textures;

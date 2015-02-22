@@ -20,7 +20,7 @@ import starling.core.Starling;
 //[SWF(width="640",height="960",frameRate="60",backgroundColor="#4a4137")]
 class DisplayObjectExplorer extends Sprite
 {
-	public function DisplayObjectExplorer()
+	public function new()
 	{
 		if(this.stage)
 		{

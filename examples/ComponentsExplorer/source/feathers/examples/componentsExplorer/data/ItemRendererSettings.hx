@@ -8,7 +8,7 @@ class ItemRendererSettings
 	inline public static var ICON_ACCESSORY_TYPE_TEXTURE:String = "Texture";
 	inline public static var ICON_ACCESSORY_TYPE_LABEL:String = "Label";
 
-	public function ItemRendererSettings()
+	public function new()
 	{
 	}
 

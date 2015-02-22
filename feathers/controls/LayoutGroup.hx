@@ -85,7 +85,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * Constructor.
 	 */
-	public function LayoutGroup()
+	public function new()
 	{
 		super();
 	}

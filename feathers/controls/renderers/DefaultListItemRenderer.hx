@@ -176,7 +176,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	/**
 	 * Constructor.
 	 */
-	public function DefaultListItemRenderer()
+	public function new()
 	{
 		super();
 	}

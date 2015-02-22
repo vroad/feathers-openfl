@@ -31,7 +31,7 @@ class ListVideosScreen extends PanelScreen
 {
 	inline public static var SHOW_VIDEO_DETAILS:String = "showVideoDetails";
 
-	public function ListVideosScreen()
+	public function new()
 	{
 		super();
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);

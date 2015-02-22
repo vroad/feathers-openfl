@@ -169,7 +169,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	/**
 	 * Constructor.
 	 */
-	public function NumericStepper()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.REMOVED_FROM_STAGE, numericStepper_removedFromStageHandler);

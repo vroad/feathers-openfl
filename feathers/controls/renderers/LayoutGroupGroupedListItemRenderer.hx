@@ -44,7 +44,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 	/**
 	 * Constructor.
 	 */
-	public function LayoutGroupGroupedListItemRenderer()
+	public function new()
 	{
 		super();
 	}

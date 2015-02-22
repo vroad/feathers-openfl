@@ -392,7 +392,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function GroupedList()
+	public function new()
 	{
 		super();
 	}

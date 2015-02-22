@@ -13,7 +13,7 @@ import starling.events.Event;
 
 class AnchorLayoutScreen extends PanelScreen
 {
-	public function AnchorLayoutScreen()
+	public function new()
 	{
 		super();
 	}

@@ -17,7 +17,7 @@ class TiledRowsLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function TiledRowsLayoutScreen()
+	public function new()
 	{
 		super();
 	}

@@ -372,7 +372,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * Constructor.
 	 */
-	public function Button()
+	public function new()
 	{
 		super();
 		this.isQuickHitAreaEnabled = true;

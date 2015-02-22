@@ -176,7 +176,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	/**
 	 * Constructor.
 	 */
-	public function DefaultGroupedListItemRenderer()
+	public function new()
 	{
 		super();
 	}

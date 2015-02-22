@@ -17,7 +17,7 @@ class SliderScreen extends PanelScreen
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function SliderScreen()
+	public function new()
 	{
 		super();
 	}
