@@ -77,5 +77,5 @@ interface IVirtualLayout extends ILayout
 	 * not call this function. It is meant for developers creating custom
 	 * components only.</p>
 	 */
-	function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int> = null):Array<int>;
+	function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>;
 }

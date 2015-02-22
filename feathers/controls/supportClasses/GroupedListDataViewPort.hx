@@ -41,7 +41,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
 	private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_VECTOR:Array<int> = new Array();
+	inline private static var HELPER_VECTOR:Array<Int> = new Array();
 
 	public function GroupedListDataViewPort()
 	{
@@ -267,38 +267,38 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IGroupedListItemRenderer;
 
-	private var _unrenderedItems:Array<int> = new Array();
+	private var _unrenderedItems:Array<Int> = new Array();
 	private var _inactiveItemRenderers:Array<IGroupedListItemRenderer> = new Array();
 	private var _activeItemRenderers:Array<IGroupedListItemRenderer> = new Array();
 	private var _itemRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedFirstItems:Array<int>;
+	private var _unrenderedFirstItems:Array<Int>;
 	private var _inactiveFirstItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _activeFirstItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _firstItemRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedLastItems:Array<int>;
+	private var _unrenderedLastItems:Array<Int>;
 	private var _inactiveLastItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _activeLastItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _lastItemRendererMap:Dictionary;
 
-	private var _unrenderedSingleItems:Array<int>;
+	private var _unrenderedSingleItems:Array<Int>;
 	private var _inactiveSingleItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _activeSingleItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _singleItemRendererMap:Dictionary;
 
-	private var _unrenderedHeaders:Array<int> = new Array();
+	private var _unrenderedHeaders:Array<Int> = new Array();
 	private var _inactiveHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _activeHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _headerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedFooters:Array<int> = new Array();
+	private var _unrenderedFooters:Array<Int> = new Array();
 	private var _inactiveFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _activeFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new Array();
 	private var _footerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _headerIndices:Array<int> = new Array();
-	private var _footerIndices:Array<int> = new Array();
+	private var _headerIndices:Array<Int> = new Array();
+	private var _footerIndices:Array<Int> = new Array();
 
 	private var _isScrolling:Bool = false;
 
@@ -1848,7 +1848,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function findRendererForItem(item:Dynamic, groupIndex:Int, itemIndex:Int, layoutIndex:Int,
 		rendererMap:Dictionary, inactiveRenderers:Array<IGroupedListItemRenderer>,
-		activeRenderers:Array<IGroupedListItemRenderer>, unrenderedItems:Array<int>):Void
+		activeRenderers:Array<IGroupedListItemRenderer>, unrenderedItems:Array<Int>):Void
 	{
 		var itemRenderer:IGroupedListItemRenderer = IGroupedListItemRenderer(rendererMap[item]);
 		if(itemRenderer)

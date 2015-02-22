@@ -735,7 +735,7 @@ public function get_isFocusEnabled():Bool
 			this.setSelectedLocation(-1, -1);
 			return;
 		}
-		var result:Array<int> = this._dataProvider.getItemLocation(value);
+		var result:Array<Int> = this._dataProvider.getItemLocation(value);
 		if(result.length == 2)
 		{
 			this.setSelectedLocation(result[0], result[1]);

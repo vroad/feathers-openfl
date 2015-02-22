@@ -278,7 +278,7 @@ class HierarchicalCollection extends EventDispatcher
 	 * Determines which location the item appears at within the collection. If
 	 * the item isn't in the collection, returns <code>null</code>.
 	 */
-	public function getItemLocation(item:Dynamic, result:Array<int> = null):Array<int>
+	public function getItemLocation(item:Dynamic, result:Array<Int> = null):Array<Int>
 	{
 		return this._dataDescriptor.getItemLocation(this._data, item, result);
 	}
@@ -318,7 +318,7 @@ class HierarchicalCollection extends EventDispatcher
 	 */
 	public function removeItem(item:Dynamic):Void
 	{
-		var location:Array<int> = this.getItemLocation(item);
+		var location:Array<Int> = this.getItemLocation(item);
 		if(location)
 		{
 			//this is hacky. a future version probably won't use rest args.

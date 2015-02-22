@@ -1260,7 +1260,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<int> = null):Array<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
 		if(result)
 		{
