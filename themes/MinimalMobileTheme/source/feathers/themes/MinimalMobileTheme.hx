@@ -22,78 +22,77 @@
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
  */
-package feathers.themes
-{
-	import openfl.display.Bitmap;
-	import openfl.display.BitmapData;
+package feathers.themes;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
 
-	import starling.text.BitmapFont;
-	import starling.text.TextField;
-	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
+import starling.text.BitmapFont;
+import starling.text.TextField;
+import starling.textures.Texture;
+import starling.textures.TextureAtlas;
+
+/**
+ * The "Minimal" theme for mobile Feathers apps.
+ *
+ * <p>This version of the theme embeds its assets. To load assets at
+ * runtime, see <code>MinimalMobileThemeWithAssetManager</code> instead.</p>
+ *
+ * @see http://wiki.starling-framework.org/feathers/theme-assets
+ */
+public class MinimalMobileTheme extends BaseMinimalMobileTheme
+{
+	/**
+	 * @private
+	 */
+	[Embed(source="/../assets/images/minimal_mobile.xml",mimeType="application/octet-stream")]
+	protected static const ATLAS_XML:Class<Dynamic>;
 
 	/**
-	 * The "Minimal" theme for mobile Feathers apps.
-	 *
-	 * <p>This version of the theme embeds its assets. To load assets at
-	 * runtime, see <code>MinimalMobileThemeWithAssetManager</code> instead.</p>
-	 *
-	 * @see http://wiki.starling-framework.org/feathers/theme-assets
+	 * @private
 	 */
-	public class MinimalMobileTheme extends BaseMinimalMobileTheme
+	[Embed(source="/../assets/images/minimal_mobile.png")]
+	protected static const ATLAS_BITMAP:Class<Dynamic>;
+
+	/**
+	 * @private
+	 */
+	[Embed(source="/../assets/fonts/pf_ronda_seven.fnt",mimeType="application/octet-stream")]
+	protected static const FONT_XML:Class<Dynamic>;
+
+	/**
+	 * Constructor.
+	 */
+	public function MinimalMobileTheme(scaleToDPI:Bool = true)
 	{
-		/**
-		 * @private
-		 */
-		[Embed(source="/../assets/images/minimal_mobile.xml",mimeType="application/octet-stream")]
-		protected static const ATLAS_XML:Class<Dynamic>;
-
-		/**
-		 * @private
-		 */
-		[Embed(source="/../assets/images/minimal_mobile.png")]
-		protected static const ATLAS_BITMAP:Class<Dynamic>;
-
-		/**
-		 * @private
-		 */
-		[Embed(source="/../assets/fonts/pf_ronda_seven.fnt",mimeType="application/octet-stream")]
-		protected static const FONT_XML:Class<Dynamic>;
-
-		/**
-		 * Constructor.
-		 */
-		public function MinimalMobileTheme(scaleToDPI:Bool = true)
-		{
-			super(scaleToDPI);
-			this.initialize();
-		}
-
-		/**
-		 * @private
-		 */
-		override protected function initialize():void
-		{
-			var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
-			var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
-			atlasTexture.root.onRestore = this.atlasTexture_onRestore;
-			atlasBitmapData.dispose();
-			this.atlas = new TextureAtlas(atlasTexture, XML(new ATLAS_XML()));
-
-			var bitmapFont:BitmapFont = new BitmapFont(this.atlas.getTexture(FONT_TEXTURE_NAME), XML(new FONT_XML()));
-			TextField.registerBitmapFont(bitmapFont, FONT_NAME);
-
-			super.initialize();
-		}
-
-		/**
-		 * @private
-		 */
-		protected function atlasTexture_onRestore():void
-		{
-			var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
-			this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
-			atlasBitmapData.dispose();
-		}
+		super(scaleToDPI);
+		this.initialize();
 	}
+
+	/**
+	 * @private
+	 */
+	override protected function initialize():void
+	{
+		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
+		atlasTexture.root.onRestore = this.atlasTexture_onRestore;
+		atlasBitmapData.dispose();
+		this.atlas = new TextureAtlas(atlasTexture, XML(new ATLAS_XML()));
+
+		var bitmapFont:BitmapFont = new BitmapFont(this.atlas.getTexture(FONT_TEXTURE_NAME), XML(new FONT_XML()));
+		TextField.registerBitmapFont(bitmapFont, FONT_NAME);
+
+		super.initialize();
+	}
+
+	/**
+	 * @private
+	 */
+	protected function atlasTexture_onRestore():void
+	{
+		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
+		atlasBitmapData.dispose();
+	}
+}
 }

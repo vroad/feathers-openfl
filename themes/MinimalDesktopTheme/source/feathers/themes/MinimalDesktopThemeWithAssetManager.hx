@@ -22,148 +22,146 @@
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
  */
-package feathers.themes
-{
-	import starling.core.Starling;
-	import starling.events.Event;
-	import starling.text.BitmapFont;
-	import starling.text.TextField;
-	import starling.utils.AssetManager;
+package feathers.themes;
+import starling.core.Starling;
+import starling.events.Event;
+import starling.text.BitmapFont;
+import starling.text.TextField;
+import starling.utils.AssetManager;
 
-	/**
-	 * Dispatched when the theme's assets are loaded, and the theme has
-	 * initialized. Feathers component will not be skinned automatically by the
-	 * theme until this event is dispatched.
-	 *
-	 * <p>The properties of the event object have the following values:</p>
-	 * <table class="innertable">
-	 * <tr><th>Property</th><th>Value</th></tr>
-	 * <tr><td><code>bubbles</code></td><td>false</td></tr>
-	 * <tr><td><code>currentTarget</code></td><td>The Object that defines the
-	 *   event listener that handles the event. For example, if you use
-	 *   <code>myButton.addEventListener()</code> to register an event listener,
-	 *   myButton is the value of the <code>currentTarget</code>.</td></tr>
-	 * <tr><td><code>data</code></td><td>null</td></tr>
-	 * <tr><td><code>target</code></td><td>The Object that dispatched the event;
-	 *   it is not always the Object listening for the event. Use the
-	 *   <code>currentTarget</code> property to always access the Object
-	 *   listening for the event.</td></tr>
-	 * </table>
-	 *
-	 * @eventType starling.events.Event.COMPLETE
-	 */
+/**
+ * Dispatched when the theme's assets are loaded, and the theme has
+ * initialized. Feathers component will not be skinned automatically by the
+ * theme until this event is dispatched.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType starling.events.Event.COMPLETE
+ */
 //[Event(name="complete",type="starling.events.Event")]
 
+/**
+ * The "Minimal" theme for desktop Feathers apps.
+ *
+ * <p>This version of the theme requires loading assets at runtime. To use
+ * embedded assets, see <code>MinimalDesktopTheme</code> instead.</p>
+ *
+ * <p>To use this theme, the following files must be included when packaging
+ * your app:</p>
+ * <ul>
+ *     <li>images/minimal_desktop.png</li>
+ *     <li>images/minimal_desktop.xml</li>
+ *     <li>fonts/pf_ronda_seven.fnt</li>
+ * </ul>
+ *
+ * @see http://wiki.starling-framework.org/feathers/theme-assets
+ */
+public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
+{
 	/**
-	 * The "Minimal" theme for desktop Feathers apps.
-	 *
-	 * <p>This version of the theme requires loading assets at runtime. To use
-	 * embedded assets, see <code>MinimalDesktopTheme</code> instead.</p>
-	 *
-	 * <p>To use this theme, the following files must be included when packaging
-	 * your app:</p>
-	 * <ul>
-	 *     <li>images/minimal_desktop.png</li>
-	 *     <li>images/minimal_desktop.xml</li>
-	 *     <li>fonts/pf_ronda_seven.fnt</li>
-	 * </ul>
-	 *
-	 * @see http://wiki.starling-framework.org/feathers/theme-assets
+	 * @private
+	 * The name of the texture atlas in the asset manager.
 	 */
-	public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
+	protected static const ATLAS_NAME:String = "minimal_desktop";
+
+	/**
+	 * Constructor.
+	 * @param assetsBasePath The root folder of the assets.
+	 * @param assetManager An optional pre-created asset manager.
+	 */
+	public function MinimalDesktopThemeWithAssetManager(assetsBasePath:Dynamic = null, assetManager:AssetManager = null)
 	{
-		/**
-		 * @private
-		 * The name of the texture atlas in the asset manager.
-		 */
-		protected static const ATLAS_NAME:String = "minimal_desktop";
+		this.loadAssets(assetsBasePath, assetManager);
+	}
 
-		/**
-		 * Constructor.
-		 * @param assetsBasePath The root folder of the assets.
-		 * @param assetManager An optional pre-created asset manager.
-		 */
-		public function MinimalDesktopThemeWithAssetManager(assetsBasePath:Dynamic = null, assetManager:AssetManager = null)
+	/**
+	 * @private
+	 * The paths to each of the assets, relative to the base path.
+	 */
+	protected var assetPaths:Vector.<String> = new <String>
+	[
+		"images/minimal_desktop.xml",
+		"images/minimal_desktop.png",
+		"fonts/pf_ronda_seven.fnt"
+	];
+
+	/**
+	 * @private
+	 */
+	protected var assetManager:AssetManager;
+
+	/**
+	 * @private
+	 */
+	override public function dispose():void
+	{
+		super.dispose();
+		if(this.assetManager)
 		{
-			this.loadAssets(assetsBasePath, assetManager);
+			this.assetManager.removeTextureAtlas(ATLAS_NAME);
+			this.assetManager = null;
 		}
+	}
 
-		/**
-		 * @private
-		 * The paths to each of the assets, relative to the base path.
-		 */
-		protected var assetPaths:Vector.<String> = new <String>
-		[
-			"images/minimal_desktop.xml",
-			"images/minimal_desktop.png",
-			"fonts/pf_ronda_seven.fnt"
-		];
+	/**
+	 * @private
+	 */
+	override protected function initialize():void
+	{
+		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
+		var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
+		TextField.registerBitmapFont(font, FONT_NAME);
+		super.initialize();
+	}
 
-		/**
-		 * @private
-		 */
-		protected var assetManager:AssetManager;
-
-		/**
-		 * @private
-		 */
-		override public function dispose():void
+	/**
+	 * @private
+	 */
+	protected function assetManager_onProgress(progress:Float):void
+	{
+		if(progress < 1)
 		{
-			super.dispose();
-			if(this.assetManager)
-			{
-				this.assetManager.removeTextureAtlas(ATLAS_NAME);
-				this.assetManager = null;
-			}
+			return;
 		}
+		this.initialize();
+		this.dispatchEventWith(Event.COMPLETE);
+	}
 
-		/**
-		 * @private
-		 */
-		override protected function initialize():void
+	/**
+	 * @private
+	 */
+	protected function loadAssets(assetsBasePath:Dynamic, assetManager:AssetManager):void
+	{
+		this.assetManager = assetManager;
+		if(!this.assetManager)
 		{
-			this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
-			var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
-			TextField.registerBitmapFont(font, FONT_NAME);
-			super.initialize();
+			this.assetManager = new AssetManager(Starling.current.contentScaleFactor);
 		}
-
-		/**
-		 * @private
-		 */
-		protected function assetManager_onProgress(progress:Float):void
+		//add a trailing slash, if needed
+		if(assetsBasePath.lastIndexOf("/") != assetsBasePath.length - 1)
 		{
-			if(progress < 1)
-			{
-				return;
-			}
-			this.initialize();
-			this.dispatchEventWith(Event.COMPLETE);
+			assetsBasePath += "/";
 		}
-
-		/**
-		 * @private
-		 */
-		protected function loadAssets(assetsBasePath:Dynamic, assetManager:AssetManager):void
+		var assetPaths:Vector.<String> = this.assetPaths;
+		var assetCount:Int = assetPaths.length;
+		for(i in 0 ... assetCount)
 		{
-			this.assetManager = assetManager;
-			if(!this.assetManager)
-			{
-				this.assetManager = new AssetManager(Starling.current.contentScaleFactor);
-			}
-			//add a trailing slash, if needed
-			if(assetsBasePath.lastIndexOf("/") != assetsBasePath.length - 1)
-			{
-				assetsBasePath += "/";
-			}
-			var assetPaths:Vector.<String> = this.assetPaths;
-			var assetCount:Int = assetPaths.length;
-			for(i in 0 ... assetCount)
-			{
-				var asset:String = assetPaths[i];
-				this.assetManager.enqueue(assetsBasePath + asset);
-			}
-			this.assetManager.loadQueue(assetManager_onProgress);
+			var asset:String = assetPaths[i];
+			this.assetManager.enqueue(assetsBasePath + asset);
 		}
+		this.assetManager.loadQueue(assetManager_onProgress);
 	}
 }
