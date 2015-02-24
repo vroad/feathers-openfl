@@ -250,7 +250,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
-	[Inspectable(type="String",enumeration="left,center,right,justify")]
+	//[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
 	 * The location where the renderer's content is aligned horizontally
 	 * (on the x-axis).
@@ -292,7 +292,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
 	 * The location where the renderer's content is aligned vertically (on
 	 * the y-axis).

@@ -1368,7 +1368,7 @@ class Drawers extends FeathersControl
 	 */
 	private var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
 
-	[Inspectable(type="String",enumeration="stage,content")]
+	//[Inspectable(type="String",enumeration="stage,content")]
 	/**
 	 * Determines how the drawers container will set its own size when its
 	 * dimensions (width and height) aren't set explicitly.

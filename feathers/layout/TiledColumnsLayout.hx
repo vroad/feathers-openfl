@@ -510,7 +510,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
 	 * If the total column height is less than the bounds, the items in the
 	 * column can be aligned vertically.
@@ -545,7 +545,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
-	[Inspectable(type="String",enumeration="left,center,right")]
+	//[Inspectable(type="String",enumeration="left,center,right")]
 	/**
 	 * If the total row width is less than the bounds, the items in the row
 	 * can be aligned horizontally.
@@ -580,7 +580,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	private var _tileVerticalAlign:String = TILE_VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
 	 * If an item's height is less than the tile bounds, the position of the
 	 * item can be aligned vertically.
@@ -616,7 +616,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	private var _tileHorizontalAlign:String = TILE_HORIZONTAL_ALIGN_CENTER;
 
-	[Inspectable(type="String",enumeration="left,center,right,justify")]
+	//[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
 	 * If the item's width is less than the tile bounds, the position of the
 	 * item can be aligned horizontally.

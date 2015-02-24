@@ -74,7 +74,7 @@ class BitmapFontTextFormat
 	 */
 	public var letterSpacing:Float = 0;
 
-	[Inspectable(type="String",enumeration="left,center,right")]
+	//[Inspectable(type="String",enumeration="left,center,right")]
 	/**
 	 * Determines the alignment of the text, either left, center, or right.
 	 *

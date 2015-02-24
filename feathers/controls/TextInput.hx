@@ -1462,7 +1462,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
 	 * The location where the text editor is aligned vertically (on
 	 * the y-axis).

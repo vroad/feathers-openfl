@@ -407,7 +407,7 @@ class TabBar extends FeathersControl
 	 */
 	private var _direction:String = DIRECTION_HORIZONTAL;
 
-	[Inspectable(type="String",enumeration="horizontal,vertical")]
+	//[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
 	 * The tab bar layout is either vertical or horizontal.
 	 *
@@ -446,7 +446,7 @@ class TabBar extends FeathersControl
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
 
-	[Inspectable(type="String",enumeration="left,center,right,justify")]
+	//[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
 	 * Determines how the tabs are horizontally aligned within the bounds
 	 * of the tab bar (on the x-axis).
@@ -487,7 +487,7 @@ class TabBar extends FeathersControl
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
 	 * Determines how the tabs are vertically aligned within the bounds
 	 * of the tab bar (on the y-axis).

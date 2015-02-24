@@ -359,7 +359,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
 	 * If the total item height is less than the bounds, the positions of
 	 * the items can be aligned vertically.
@@ -394,7 +394,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
-	[Inspectable(type="String",enumeration="left,center,right,justify")]
+	//[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
 	 * The alignment of the items horizontally, on the x-axis.
 	 *
@@ -782,7 +782,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, 
 	 */
 	private var _scrollPositionVerticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
 	 * When the scroll position is calculated for an item, an attempt will
 	 * be made to align the item to this position.

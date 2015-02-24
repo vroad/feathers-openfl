@@ -482,7 +482,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private var _buttonLayoutMode:String = BUTTON_LAYOUT_MODE_SPLIT_HORIZONTAL;
 
-	[Inspectable(type="String",enumeration="splitHorizontal,splitVertical,rightSideVertical")]
+	//[Inspectable(type="String",enumeration="splitHorizontal,splitVertical,rightSideVertical")]
 	/**
 	 * How the buttons are positioned relative to the text input.
 	 *

@@ -903,7 +903,7 @@ class Scroller extends FeathersControl
 	 */
 	private var _verticalScrollBarPosition:String = VERTICAL_SCROLL_BAR_POSITION_RIGHT;
 
-	[Inspectable(type="String",enumeration="right,left")]
+	//[Inspectable(type="String",enumeration="right,left")]
 	/**
 	 * Determines where the vertical scroll bar will be positioned.
 	 *
@@ -1288,7 +1288,7 @@ class Scroller extends FeathersControl
 	 */
 	private var _horizontalScrollPolicy:String = SCROLL_POLICY_AUTO;
 
-	[Inspectable(type="String",enumeration="auto,on,off")]
+	//[Inspectable(type="String",enumeration="auto,on,off")]
 	/**
 	 * Determines whether the scroller may scroll horizontally (on the
 	 * x-axis) or not.
@@ -1532,7 +1532,7 @@ class Scroller extends FeathersControl
 	 */
 	private var _verticalScrollPolicy:String = SCROLL_POLICY_AUTO;
 
-	[Inspectable(type="String",enumeration="auto,on,off")]
+	//[Inspectable(type="String",enumeration="auto,on,off")]
 	/**
 	 * Determines whether the scroller may scroll vertically (on the
 	 * y-axis) or not.
@@ -1827,7 +1827,7 @@ class Scroller extends FeathersControl
 	 */
 	private var _scrollBarDisplayMode:String = SCROLL_BAR_DISPLAY_MODE_FLOAT;
 
-	[Inspectable(type="String",enumeration="float,fixed,none")]
+	//[Inspectable(type="String",enumeration="float,fixed,none")]
 	/**
 	 * Determines how the scroll bars are displayed.
 	 *
@@ -1866,7 +1866,7 @@ class Scroller extends FeathersControl
 	 */
 	private var _interactionMode:String = INTERACTION_MODE_TOUCH;
 
-	[Inspectable(type="String",enumeration="touch,mouse,touchAndScrollBars")]
+	//[Inspectable(type="String",enumeration="touch,mouse,touchAndScrollBars")]
 	/**
 	 * Determines how the user may interact with the scroller.
 	 *

@@ -868,7 +868,7 @@ class Header extends FeathersControl
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
 	 * The alignment of the items vertically, on the y-axis.
 	 *
@@ -1086,7 +1086,7 @@ class Header extends FeathersControl
 	 */
 	private var _titleAlign:String = TITLE_ALIGN_CENTER;
 
-	[Inspectable(type="String",enumeration="center,preferLeft,preferRight")]
+	//[Inspectable(type="String",enumeration="center,preferLeft,preferRight")]
 	/**
 	 * The preferred position of the title. If <code>leftItems</code> and/or
 	 * <code>rightItems</code> are not <code>null</code>, the title may be

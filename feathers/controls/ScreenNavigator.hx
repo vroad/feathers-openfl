@@ -326,7 +326,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	private var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
 
-	[Inspectable(type="String",enumeration="stage,content")]
+	//[Inspectable(type="String",enumeration="stage,content")]
 	/**
 	 * Determines how the screen navigator will set its own size when its
 	 * dimensions (width and height) aren't set explicitly.

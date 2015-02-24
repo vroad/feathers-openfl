@@ -623,7 +623,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private var _accessoryPosition:String = ACCESSORY_POSITION_RIGHT;
 
-	[Inspectable(type="String",enumeration="top,right,bottom,left,manual")]
+	//[Inspectable(type="String",enumeration="top,right,bottom,left,manual")]
 	/**
 	 * The location of the accessory, relative to one of the other children.
 	 * Use <code>ACCESSORY_POSITION_MANUAL</code> to position the accessory
@@ -667,7 +667,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private var _layoutOrder:String = LAYOUT_ORDER_LABEL_ICON_ACCESSORY;
 
-	[Inspectable(type="String",enumeration="labelIconAccessory,labelAccessoryIcon")]
+	//[Inspectable(type="String",enumeration="labelIconAccessory,labelAccessoryIcon")]
 	/**
 	 * The accessory's position will be based on which other child (the
 	 * label or the icon) the accessory should be relative to.

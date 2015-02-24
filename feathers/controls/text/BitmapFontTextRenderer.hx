@@ -239,7 +239,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private var _smoothing:String = TextureSmoothing.BILINEAR;
 
-	[Inspectable(type="String",enumeration="bilinear,trilinear,none")]
+	//[Inspectable(type="String",enumeration="bilinear,trilinear,none")]
 	/**
 	 * A smoothing value passed to each character image.
 	 *

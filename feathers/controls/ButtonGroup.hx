@@ -422,7 +422,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private var _direction:String = DIRECTION_VERTICAL;
 
-	[Inspectable(type="String",enumeration="horizontal,vertical")]
+	//[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
 	 * The button group layout is either vertical or horizontal.
 	 *
@@ -461,7 +461,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
 
-	[Inspectable(type="String",enumeration="left,center,right,justify")]
+	//[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
 	 * Determines how the buttons are horizontally aligned within the bounds
 	 * of the button group (on the x-axis).
@@ -502,7 +502,7 @@ class ButtonGroup extends FeathersControl
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
 	 * Determines how the buttons are vertically aligned within the bounds
 	 * of the button group (on the y-axis).

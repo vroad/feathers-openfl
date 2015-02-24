@@ -568,7 +568,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private var _iconPosition:String = ICON_POSITION_LEFT;
 
-	[Inspectable(type="String",enumeration="top,right,bottom,left,rightBaseline,leftBaseline,manual")]
+	//[Inspectable(type="String",enumeration="top,right,bottom,left,rightBaseline,leftBaseline,manual")]
 	/**
 	 * The location of the icon, relative to the label.
 	 *
@@ -702,7 +702,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
-	[Inspectable(type="String",enumeration="left,center,right")]
+	//[Inspectable(type="String",enumeration="left,center,right")]
 	/**
 	 * The location where the button's content is aligned horizontally (on
 	 * the x-axis).
@@ -742,7 +742,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_MIDDLE;
 
-	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	//[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
 	 * The location where the button's content is aligned vertically (on
 	 * the y-axis).

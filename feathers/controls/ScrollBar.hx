@@ -450,7 +450,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private var _direction:String = DIRECTION_HORIZONTAL;
 
-	[Inspectable(type="String",enumeration="horizontal,vertical")]
+	//[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
 	 * Determines if the scroll bar's thumb can be dragged horizontally or
 	 * vertically. When this value changes, the scroll bar's width and
@@ -897,7 +897,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private var _trackLayoutMode:String = TRACK_LAYOUT_MODE_SINGLE;
 
-	[Inspectable(type="String",enumeration="single,minMax")]
+	//[Inspectable(type="String",enumeration="single,minMax")]
 	/**
 	 * Determines how the minimum and maximum track skins are positioned and
 	 * sized.

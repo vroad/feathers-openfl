@@ -381,7 +381,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private var _direction:String = DIRECTION_HORIZONTAL;
 
-	[Inspectable(type="String",enumeration="horizontal,vertical")]
+	//[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
 	 * Determines if the slider's thumb can be dragged horizontally or
 	 * vertically. When this value changes, the slider's width and height
@@ -775,7 +775,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private var _trackLayoutMode:String = TRACK_LAYOUT_MODE_SINGLE;
 
-	[Inspectable(type="String",enumeration="single,minMax")]
+	//[Inspectable(type="String",enumeration="single,minMax")]
 	/**
 	 * Determines how the minimum and maximum track skins are positioned and
 	 * sized.
@@ -814,7 +814,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private var _trackScaleMode:String = TRACK_SCALE_MODE_DIRECTIONAL;
 
-	[Inspectable(type="String",enumeration="exactFit,directional")]
+	//[Inspectable(type="String",enumeration="exactFit,directional")]
 	/**
 	 * Determines how the minimum and maximum track skins are positioned and
 	 * sized.
@@ -854,7 +854,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private var _trackInteractionMode:String = TRACK_INTERACTION_MODE_TO_VALUE;
 
-	[Inspectable(type="String",enumeration="toValue,byPage")]
+	//[Inspectable(type="String",enumeration="toValue,byPage")]
 	/**
 	 * Determines how the slider's value changes when the track is touched.
 	 *

@@ -849,7 +849,7 @@ class Callout extends FeathersControl
 	 */
 	private var _supportedDirections:String = DIRECTION_ANY;
 
-	[Inspectable(type="String",enumeration="any,vertical,horizontal,up,down,left,right")]
+	//[Inspectable(type="String",enumeration="any,vertical,horizontal,up,down,left,right")]
 	/**
 	 * The directions that the callout may be positioned, relative to its
 	 * origin. If the callout's origin is not set, this value will be
@@ -1074,7 +1074,7 @@ class Callout extends FeathersControl
 	 */
 	private var _arrowPosition:String = ARROW_POSITION_TOP;
 
-	[Inspectable(type="String",enumeration="top,right,bottom,left")]
+	//[Inspectable(type="String",enumeration="top,right,bottom,left")]
 	/**
 	 * The position of the callout's arrow relative to the callout's
 	 * background. If the callout's <code>origin</code> is set, this value

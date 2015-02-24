@@ -467,7 +467,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private var _trackLayoutMode:String = TRACK_LAYOUT_MODE_SINGLE;
 
-	[Inspectable(type="String",enumeration="single,onOff")]
+	//[Inspectable(type="String",enumeration="single,onOff")]
 	/**
 	 * Determines how the on and off track skins are positioned and sized.
 	 *
@@ -755,7 +755,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private var _labelAlign:String = LABEL_ALIGN_BASELINE;
 
-	[Inspectable(type="String",enumeration="baseline,middle")]
+	//[Inspectable(type="String",enumeration="baseline,middle")]
 	/**
 	 * The vertical alignment of the label.
 	 *

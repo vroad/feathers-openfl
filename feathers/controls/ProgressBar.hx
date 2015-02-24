@@ -72,7 +72,7 @@ class ProgressBar extends FeathersControl
 	 */
 	private var _direction:String = DIRECTION_HORIZONTAL;
 
-	[Inspectable(type="String",enumeration="horizontal,vertical")]
+	//[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
 	 * Determines the direction that the progress bar fills. When this value
 	 * changes, the progress bar's width and height values do not change
