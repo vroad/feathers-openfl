@@ -11,7 +11,7 @@ import openfl.utils.Dictionary;
 import starling.animation.IAnimatable;
 import starling.core.Starling;
 
-[ExcludeClass]
+//[ExcludeClass]
 class ValidationQueue implements IAnimatable
 {
 	/**

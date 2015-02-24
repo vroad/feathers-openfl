@@ -19,12 +19,12 @@ import feathers.skins.IStyleProvider;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-[Exclude(name="layout",kind="property")]
-[Exclude(name="footer",kind="property")]
-[Exclude(name="footerFactory",kind="property")]
-[Exclude(name="footerProperties",kind="property")]
-[Exclude(name="customFooterName",kind="property")]
-[Exclude(name="createFooter",kind="method")]
+//[Exclude(name="layout",kind="property")]
+//[Exclude(name="footer",kind="property")]
+//[Exclude(name="footerFactory",kind="property")]
+//[Exclude(name="footerProperties",kind="property")]
+//[Exclude(name="customFooterName",kind="property")]
+//[Exclude(name="createFooter",kind="method")]
 
 /**
  * Dispatched when the alert is closed. The <code>data</code> property of

@@ -14,7 +14,7 @@ import openfl.errors.IllegalOperationError;
 
 import starling.events.Event;
 
-[Exclude(name="isToggle",kind="property")]
+//[Exclude(name="isToggle",kind="property")]
 
 /**
  * A toggleable control that exists in a set that requires a single,

@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.supportClasses;
 import feathers.core.IFeathersControl;
 
-[ExcludeClass]
+//[ExcludeClass]
 interface IViewPort extends IFeathersControl
 {
 	function get_visibleWidth():Float;

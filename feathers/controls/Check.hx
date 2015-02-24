@@ -10,7 +10,7 @@ import feathers.skins.IStyleProvider;
 
 import openfl.errors.IllegalOperationError;
 
-[Exclude(name="isToggle",kind="property")]
+//[Exclude(name="isToggle",kind="property")]
 
 /**
  * A toggle control that contains a label and a box that may be checked
