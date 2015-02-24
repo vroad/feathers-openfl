@@ -895,7 +895,7 @@ class Scroller extends FeathersControl
 		{
 			this._horizontalScrollBarProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -933,7 +933,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._verticalScrollBarPosition = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1111,7 +1111,7 @@ class Scroller extends FeathersControl
 		{
 			this._verticalScrollBarProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1858,7 +1858,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._scrollBarDisplayMode = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1897,7 +1897,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._interactionMode = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1952,7 +1952,7 @@ class Scroller extends FeathersControl
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundSkin = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1992,7 +1992,7 @@ class Scroller extends FeathersControl
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundDisabledSkin = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2036,7 +2036,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._autoHideBackground = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2167,7 +2167,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2202,7 +2202,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2237,7 +2237,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2272,7 +2272,7 @@ class Scroller extends FeathersControl
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2905,7 +2905,7 @@ class Scroller extends FeathersControl
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var scrollBarInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 		var pendingScrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_SCROLL);
@@ -4728,7 +4728,7 @@ class Scroller extends FeathersControl
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

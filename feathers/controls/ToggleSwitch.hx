@@ -350,7 +350,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -389,7 +389,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -424,7 +424,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._showLabels = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -459,7 +459,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._showThumb = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -562,7 +562,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._defaultLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -623,7 +623,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._disabledLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -685,7 +685,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._onLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -747,7 +747,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._offLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -786,7 +786,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._labelAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1151,7 +1151,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._onText = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1190,7 +1190,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 			return;
 		}
 		this._offText = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1393,7 +1393,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._onTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1566,7 +1566,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._offTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1737,7 +1737,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 		{
 			this._thumbProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1762,7 +1762,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	override private function draw():Void
 	{
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
@@ -2324,7 +2324,7 @@ class ToggleSwitch extends FeathersControl implements IToggle, IFocusDisplayObje
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

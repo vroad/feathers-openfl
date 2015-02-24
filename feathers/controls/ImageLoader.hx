@@ -334,7 +334,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._loadingTexture = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -373,7 +373,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._errorTexture = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -471,7 +471,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._smoothing = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -508,7 +508,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._color = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -869,7 +869,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -906,7 +906,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -943,7 +943,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -980,7 +980,7 @@ class ImageLoader extends FeathersControl
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1031,7 +1031,7 @@ class ImageLoader extends FeathersControl
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid)

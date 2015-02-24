@@ -958,7 +958,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -994,7 +994,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1030,7 +1030,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1066,7 +1066,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1123,7 +1123,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._arrowPosition = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1178,7 +1178,7 @@ class Callout extends FeathersControl
 			this._originalBackgroundHeight = this._backgroundSkin.height;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1238,7 +1238,7 @@ class Callout extends FeathersControl
 				this.addChildAt(this._bottomArrowSkin, index);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1293,7 +1293,7 @@ class Callout extends FeathersControl
 				this.addChildAt(this._topArrowSkin, index);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1348,7 +1348,7 @@ class Callout extends FeathersControl
 				this.addChildAt(this._leftArrowSkin, index);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1403,7 +1403,7 @@ class Callout extends FeathersControl
 				this.addChildAt(this._rightArrowSkin, index);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1441,7 +1441,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._topArrowGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1479,7 +1479,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._bottomArrowGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1517,7 +1517,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._rightArrowGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1555,7 +1555,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._leftArrowGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1605,7 +1605,7 @@ class Callout extends FeathersControl
 			return;
 		}
 		this._arrowOffset = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1668,7 +1668,7 @@ class Callout extends FeathersControl
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var originInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ORIGIN);
 
 		if(sizeInvalid)

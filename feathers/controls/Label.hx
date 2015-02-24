@@ -173,7 +173,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 			return;
 		}
 		this._wordWrap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -310,7 +310,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		{
 			this._textRendererProperties.addOnChangeCallback(textRendererProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -319,7 +319,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
@@ -477,6 +477,6 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 */
 	private function textRendererProperties_onChange(proxy:PropertyProxy, propertyName:String):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 }

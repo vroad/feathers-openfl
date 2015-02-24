@@ -216,7 +216,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			this._selectionSkin.visible = false;
 			this.addChildAt(this._selectionSkin, 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -252,7 +252,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			this._cursorSkin.visible = false;
 			this.addChild(this._cursorSkin);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -304,7 +304,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			this._text = this._unmaskedText;
 			this._unmaskedText = null;
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -346,7 +346,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 		{
 			this.refreshMaskedText();
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -381,7 +381,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			return;
 		}
 		this._isEditable = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -473,7 +473,7 @@ public function get_text():String
 			return;
 		}
 		this._maxChars = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -532,7 +532,7 @@ public function get_text():String
 				this._restrict = new TextInputRestrict(value);
 			}
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

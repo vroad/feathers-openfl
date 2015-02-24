@@ -821,7 +821,7 @@ public function get_isFocusEnabled():Bool
 		}
 		
 		this._itemRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -872,7 +872,7 @@ public function get_isFocusEnabled():Bool
 		}
 		
 		this._itemRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -955,7 +955,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._itemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1038,7 +1038,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

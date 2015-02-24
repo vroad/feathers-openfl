@@ -205,7 +205,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._skinSelector.defaultSelectedValue = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -240,7 +240,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_UP, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -275,7 +275,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_DOWN, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -310,7 +310,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_HOVER, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -345,7 +345,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_DISABLED, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -406,7 +406,7 @@ class ToggleButton extends Button implements IToggle
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -467,7 +467,7 @@ class ToggleButton extends Button implements IToggle
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -528,7 +528,7 @@ class ToggleButton extends Button implements IToggle
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -589,7 +589,7 @@ class ToggleButton extends Button implements IToggle
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -650,7 +650,7 @@ class ToggleButton extends Button implements IToggle
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -689,7 +689,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._iconSelector.defaultSelectedValue = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -724,7 +724,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_UP, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -759,7 +759,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_DOWN, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -794,7 +794,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_HOVER, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -829,7 +829,7 @@ class ToggleButton extends Button implements IToggle
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_DISABLED, true);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

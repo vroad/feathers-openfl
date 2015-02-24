@@ -795,7 +795,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._itemRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -855,7 +855,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._itemRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -941,7 +941,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._itemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1024,7 +1024,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1066,7 +1066,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._firstItemRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1122,7 +1122,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._firstItemRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1172,7 +1172,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._firstItemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1215,7 +1215,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._lastItemRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1271,7 +1271,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._lastItemRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1321,7 +1321,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._lastItemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1364,7 +1364,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._singleItemRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1420,7 +1420,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._singleItemRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1471,7 +1471,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._singleItemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1510,7 +1510,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._headerRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1562,7 +1562,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._headerRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1605,7 +1605,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._headerRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1687,7 +1687,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._headerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1726,7 +1726,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._footerRendererType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1778,7 +1778,7 @@ public function get_isFocusEnabled():Bool
 		}
 
 		this._footerRendererFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1821,7 +1821,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._footerRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1903,7 +1903,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._footerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

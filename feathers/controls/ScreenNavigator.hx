@@ -250,7 +250,7 @@ class ScreenNavigator extends FeathersControl
 			return;
 		}
 		this._clipContent = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -646,7 +646,7 @@ class ScreenNavigator extends FeathersControl
 	{
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 

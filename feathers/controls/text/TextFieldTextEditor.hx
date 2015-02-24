@@ -349,7 +349,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		//false whether we use the real previous format or null. might as
 		//well remove the reference to an object we don't need anymore.
 		this._previousTextFormat = null;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -387,7 +387,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._disabledTextFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -424,7 +424,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._embedFonts = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -460,7 +460,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._wordWrap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -496,7 +496,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._multiline = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -572,7 +572,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._alwaysShowSelection = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -610,7 +610,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._displayAsPassword = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -649,7 +649,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._maxChars = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -687,7 +687,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._restrict = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -722,7 +722,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._isEditable = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -759,7 +759,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			return;
 		}
 		this._useGutter = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1078,7 +1078,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
@@ -1251,7 +1251,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 

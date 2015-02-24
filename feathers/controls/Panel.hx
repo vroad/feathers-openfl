@@ -433,7 +433,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		{
 			this._headerProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -612,7 +612,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		{
 			this._footerProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -720,7 +720,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			return;
 		}
 		this._outerPaddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -765,7 +765,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			return;
 		}
 		this._outerPaddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -809,7 +809,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			return;
 		}
 		this._outerPaddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -854,7 +854,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 			return;
 		}
 		this._outerPaddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -874,7 +874,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		var headerFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_HEADER_FACTORY);
 		var footerFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_FOOTER_FACTORY);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 
 		if(headerFactoryInvalid)
 		{

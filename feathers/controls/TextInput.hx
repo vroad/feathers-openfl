@@ -519,7 +519,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._prompt = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -591,7 +591,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._maxChars = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -626,7 +626,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._restrict = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -662,7 +662,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._displayAsPassword = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -697,7 +697,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._isEditable = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -887,7 +887,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._promptProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1105,7 +1105,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._iconSelector.defaultValue = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1138,7 +1138,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_ENABLED);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1171,7 +1171,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_DISABLED);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1205,7 +1205,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_FOCUSED);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1237,7 +1237,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._stateToIconFunction = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1274,7 +1274,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._gap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1346,7 +1346,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1382,7 +1382,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1418,7 +1418,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1454,7 +1454,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1495,7 +1495,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._verticalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1594,7 +1594,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this._textEditorProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1756,7 +1756,7 @@ public function get_isFocusEnabled():Bool
 	override private function draw():Void
 	{
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
@@ -2279,7 +2279,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

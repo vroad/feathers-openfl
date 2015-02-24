@@ -695,7 +695,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._showThumb = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -731,7 +731,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._minimumPadding = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -767,7 +767,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._maximumPadding = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -806,7 +806,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._trackLayoutMode = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -846,7 +846,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._trackScaleMode = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -933,7 +933,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 		this._repeatDelay = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1109,7 +1109,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this._minimumTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1285,7 +1285,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this._maximumTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1460,7 +1460,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this._thumbProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1498,7 +1498,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	override private function draw():Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var focusInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_FOCUS);
@@ -2000,7 +2000,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

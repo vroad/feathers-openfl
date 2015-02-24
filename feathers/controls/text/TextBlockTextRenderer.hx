@@ -366,7 +366,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._elementFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -406,7 +406,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._disabledElementFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -440,7 +440,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._leading = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -480,7 +480,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._textAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -515,7 +515,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._wordWrap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -565,7 +565,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._applyNonLinearFontScaling = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -602,7 +602,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._baselineFontDescription = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -640,7 +640,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._baselineFontSize = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -677,7 +677,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._baselineZero = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -714,7 +714,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._bidiLevel = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -751,7 +751,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._lineRotation = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -788,7 +788,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._tabStops = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -822,7 +822,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._textJustifier = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -857,7 +857,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._userData = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -970,7 +970,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._nativeFilters = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1192,7 +1192,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
@@ -1289,7 +1289,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 

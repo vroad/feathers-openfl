@@ -284,7 +284,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._horizontalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -326,7 +326,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._verticalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -753,7 +753,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentLoaderFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -801,7 +801,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._contentLabelFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -872,7 +872,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		{
 			this._contentLabelProperties.addOnChangeCallback(contentLabelProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -932,7 +932,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			this._backgroundSkin.visible = false;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -977,7 +977,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			this._backgroundDisabledSkin.visible = false;
 			this.addChildAt(this._backgroundDisabledSkin, 0);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1042,7 +1042,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1077,7 +1077,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1112,7 +1112,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1147,7 +1147,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1260,7 +1260,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 
@@ -1567,6 +1567,6 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function contentLabelProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 }

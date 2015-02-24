@@ -505,7 +505,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _firstItemRendererType:Class<Dynamic>;
@@ -755,7 +755,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._headerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _footerRendererType:Class<Dynamic>;
@@ -837,7 +837,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._footerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _ignoreLayoutChanges:Bool = false;
@@ -962,7 +962,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var itemRendererInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 
@@ -2506,7 +2506,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private function owner_scrollStartHandler(event:Event):Void

@@ -163,7 +163,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._textFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -197,7 +197,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._disabledTextFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -268,7 +268,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._smoothing = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -303,7 +303,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._wordWrap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -340,7 +340,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._snapToPixels = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -453,7 +453,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._useSeparateBatch = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -518,7 +518,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return result;
 		}
 
-		if(this.isInvalid(INVALIDATION_FLAG_STYLES) || this.isInvalid(INVALIDATION_FLAG_STATE))
+		if(this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES) || this.isInvalid(INVALIDATION_FLAG_STATE))
 		{
 			this.refreshTextFormat();
 		}
@@ -667,7 +667,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 

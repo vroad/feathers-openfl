@@ -428,7 +428,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._autoCapitalize = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -467,7 +467,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._autoCorrect = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -505,7 +505,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._color = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -544,7 +544,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._disabledColor = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -581,7 +581,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._displayAsPassword = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -616,7 +616,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._isEditable = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -664,7 +664,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._fontFamily = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -702,7 +702,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._fontPosture = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -738,7 +738,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._fontSize = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -776,7 +776,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._fontWeight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -814,7 +814,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._locale = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -853,7 +853,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._maxChars = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -898,7 +898,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._multiline = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -936,7 +936,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._restrict = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -977,7 +977,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._returnKeyLabel = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1018,7 +1018,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._softKeyboardType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1056,7 +1056,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		this._textAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1283,7 +1283,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			this.initializeInternal();
 		}
 
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		if(stylesInvalid || dataInvalid)
@@ -1341,7 +1341,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function commit():Void
 	{
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		if(stylesInvalid || dataInvalid)
@@ -1447,7 +1447,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function layout(sizeInvalid:Bool):Void
 	{
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var positionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_POSITION);
 		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);

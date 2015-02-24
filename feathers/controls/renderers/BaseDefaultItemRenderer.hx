@@ -659,7 +659,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryPosition = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -703,7 +703,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._layoutOrder = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -739,7 +739,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryOffsetX = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -775,7 +775,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryOffsetY = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -820,7 +820,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._accessoryGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -866,7 +866,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this._minAccessoryGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2607,7 +2607,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			this._iconLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2789,7 +2789,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			this._accessoryLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -3144,7 +3144,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		if(dataInvalid)
 		{
 			this.commitData();
@@ -3632,7 +3632,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this._stateToIconFunction = null;
 			//we don't need to do a full invalidation. the superclass will
 			//correctly see this flag when we call super.draw().
-			this.setInvalidationFlag(INVALIDATION_FLAG_STYLES);
+			this.setInvalidationFlag(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
 
 		if(this.iconLoader)
@@ -3741,7 +3741,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this._stateToSkinFunction = null;
 			//we don't need to do a full invalidation. the superclass will
 			//correctly see this flag when we call super.draw().
-			this.setInvalidationFlag(INVALIDATION_FLAG_STYLES);
+			this.setInvalidationFlag(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
 
 		if(this.skinLoader)

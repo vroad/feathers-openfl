@@ -606,7 +606,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconPosition = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -653,7 +653,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._gap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -694,7 +694,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._minGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -734,7 +734,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._horizontalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -774,7 +774,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._verticalAlign = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -846,7 +846,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -882,7 +882,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -918,7 +918,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -954,7 +954,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -994,7 +994,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._labelOffsetX = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1034,7 +1034,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._labelOffsetY = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1074,7 +1074,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconOffsetX = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1114,7 +1114,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconOffsetY = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1191,7 +1191,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._stateToSkinFunction = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1223,7 +1223,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._stateToIconFunction = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1255,7 +1255,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._stateToLabelPropertiesFunction = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1298,7 +1298,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._skinSelector.defaultValue = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1330,7 +1330,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_UP, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1362,7 +1362,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_DOWN, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1394,7 +1394,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_HOVER, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1426,7 +1426,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._skinSelector.setValueForState(value, STATE_DISABLED, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1545,7 +1545,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1602,7 +1602,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1659,7 +1659,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1716,7 +1716,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1773,7 +1773,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1815,7 +1815,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconSelector.defaultValue = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1847,7 +1847,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_UP, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1879,7 +1879,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_DOWN, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1911,7 +1911,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_HOVER, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 	
 	/**
@@ -1943,7 +1943,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		this._iconSelector.setValueForState(value, STATE_DISABLED, false);
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2036,7 +2036,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
@@ -2647,7 +2647,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

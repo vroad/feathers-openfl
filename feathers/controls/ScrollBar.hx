@@ -720,7 +720,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -755,7 +755,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -790,7 +790,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -825,7 +825,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -871,7 +871,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			return;
 		}
 		this._repeatDelay = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1104,7 +1104,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			this._minimumTrackProperties.addOnChangeCallback(minimumTrackProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1280,7 +1280,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			this._maximumTrackProperties.addOnChangeCallback(maximumTrackProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1455,7 +1455,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			this._thumbProperties.addOnChangeCallback(thumbProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1631,7 +1631,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			this._decrementButtonProperties.addOnChangeCallback(decrementButtonProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1807,7 +1807,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			this._incrementButtonProperties.addOnChangeCallback(incrementButtonProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1846,7 +1846,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
@@ -2554,7 +2554,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function thumbProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2562,7 +2562,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function minimumTrackProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2570,7 +2570,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function maximumTrackProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2578,7 +2578,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function decrementButtonProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -2586,7 +2586,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function incrementButtonProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

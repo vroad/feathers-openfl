@@ -554,7 +554,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			dispatcher.addEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.addEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -604,7 +604,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		this._typicalItem = value;
 		this._typicalItemWidth = Math.NaN;
 		this._typicalItemHeight = Math.NaN;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -779,7 +779,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			this._buttonProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -953,7 +953,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			this._listProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1192,7 +1192,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
@@ -1517,7 +1517,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

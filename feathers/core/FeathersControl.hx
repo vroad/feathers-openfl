@@ -1241,7 +1241,7 @@ public function get_height():Float
 		}
 		if(this._focusManager && this._focusManager.focus == this)
 		{
-			this.invalidate(INVALIDATION_FLAG_STYLES);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
 	}
 

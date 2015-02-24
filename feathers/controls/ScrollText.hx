@@ -331,7 +331,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._textFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -369,7 +369,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._disabledTextFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -420,7 +420,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._styleSheet = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -459,7 +459,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._embedFonts = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -497,7 +497,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._antiAliasType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -537,7 +537,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._background = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -576,7 +576,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._backgroundColor = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -615,7 +615,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._border = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -654,7 +654,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._borderColor = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -692,7 +692,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._condenseWhite = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -730,7 +730,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._displayAsPassword = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -772,7 +772,7 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 		this._gridFitType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -900,7 +900,7 @@ public function get_paddingTop():Float
 			return;
 		}
 		this._textPaddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -933,7 +933,7 @@ public function get_paddingRight():Float
 			return;
 		}
 		this._textPaddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -966,7 +966,7 @@ public function get_paddingBottom():Float
 			return;
 		}
 		this._textPaddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -999,7 +999,7 @@ public function get_paddingLeft():Float
 			return;
 		}
 		this._textPaddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1026,7 +1026,7 @@ public function get_visible():Bool
 			return;
 		}
 		this._visible = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1053,7 +1053,7 @@ public function get_alpha():Float
 			return;
 		}
 		this._alpha = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1073,7 +1073,7 @@ public function get_hasVisibleArea():Bool
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 
 		if(dataInvalid)
 		{

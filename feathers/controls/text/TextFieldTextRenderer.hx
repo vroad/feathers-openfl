@@ -260,7 +260,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._textFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -298,7 +298,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._disabledTextFormat = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -349,7 +349,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._styleSheet = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -386,7 +386,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._embedFonts = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -440,7 +440,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._wordWrap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -510,7 +510,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._antiAliasType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -550,7 +550,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._background = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -589,7 +589,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._backgroundColor = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -631,7 +631,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._border = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -670,7 +670,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._borderColor = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -708,7 +708,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._condenseWhite = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -746,7 +746,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._displayAsPassword = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -788,7 +788,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._gridFitType = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -951,7 +951,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._nativeFilters = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -988,7 +988,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			return;
 		}
 		this._useGutter = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1121,7 +1121,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function commit():Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
@@ -1255,7 +1255,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 

@@ -474,7 +474,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._repeatDelay = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -515,7 +515,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._buttonLayoutMode = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -555,7 +555,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._buttonGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -595,7 +595,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._textInputGap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -772,7 +772,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			this._decrementButtonProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -807,7 +807,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._decrementButtonLabel = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -984,7 +984,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			this._incrementButtonProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1019,7 +1019,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 			return;
 		}
 		this._incrementButtonLabel = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1194,7 +1194,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 		{
 			this._textInputProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -1203,7 +1203,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var decrementButtonFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY);
@@ -1696,7 +1696,7 @@ class NumericStepper extends FeathersControl implements IRange, IFocusDisplayObj
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:Dynamic):Void
 	{
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	/**

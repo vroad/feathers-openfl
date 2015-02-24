@@ -327,7 +327,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._iconLoaderFactory = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _paddingTop:Float = 0;
@@ -345,7 +345,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._paddingTop = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _paddingRight:Float = 0;
@@ -363,7 +363,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._paddingRight = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _paddingBottom:Float = 0;
@@ -381,7 +381,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._paddingBottom = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _paddingLeft:Float = 0;
@@ -399,7 +399,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._paddingLeft = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	private var _gap:Float = 0;
@@ -417,7 +417,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 			return;
 		}
 		this._gap = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
 
 	public var confirmCallback:Dynamic;
@@ -460,7 +460,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 
 		if(stylesInvalid)

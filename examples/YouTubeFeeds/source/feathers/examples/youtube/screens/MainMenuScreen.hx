@@ -217,7 +217,7 @@ class MainMenuScreen extends PanelScreen
 		{
 			this._message.text = "Unable to load data. Please try again later.";
 			this._message.visible = true;
-			this.invalidate(INVALIDATION_FLAG_STYLES);
+			this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 			trace(error.toString());
 		}
 		this.cleanUpLoader();
@@ -228,7 +228,7 @@ class MainMenuScreen extends PanelScreen
 		this.cleanUpLoader();
 		this._message.text = "Unable to load data. Please try again later.";
 		this._message.visible = true;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 		trace(event.toString());
 	}
 }
