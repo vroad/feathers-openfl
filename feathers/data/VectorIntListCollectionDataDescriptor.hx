@@ -83,7 +83,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array<Int>).indexOfcast(item, Int);
+		return (data as Array<Int>).indexOf(item as Int);
 	}
 	
 	/**

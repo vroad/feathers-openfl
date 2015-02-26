@@ -29,7 +29,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return cast(data, Array).length;
+		return (data as Array).length;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return cast(data, Array)[index];
+		return (data as Array)[index];
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		cast(data, Array)[index] = item;
+		(data as Array)[index] = item;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		cast(data, Array).splice(index, 0, item);
+		(data as Array).splice(index, 0, item);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return cast(data, Array).splice(index, 1)[0];
+		return (data as Array).splice(index, 1)[0];
 	}
 
 	/**
@@ -74,7 +74,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
-		cast(data, Array).length = 0;
+		(data as Array).length = 0;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return cast(data, Array).indexOf(item);
+		return (data as Array).indexOf(item);
 	}
 	
 	/**
