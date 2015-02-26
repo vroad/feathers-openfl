@@ -8,3 +8,9 @@ Thumbs.db
 /examples/Gallery/bin/
 /examples/DragAndDrop/bin/
 /examples/Todos/bin/
+/examples/YouTubeFeeds/bin
+/examples/LayoutExplorer/bin
+/examples/ComponentsExplorer/bin
+/examples/DrawersExplorer/bin
+/examples/DisplayObjectExplorer/bin
+/examples/TileList/bin
