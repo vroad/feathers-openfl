@@ -1340,7 +1340,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function commit():Void
 	{
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
@@ -1446,7 +1446,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var positionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_POSITION);

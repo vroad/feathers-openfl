@@ -427,7 +427,7 @@ public function get_isFocusEnabled():Bool
 			throw new ArgumentError("Invalid state: " + value + ".");
 		}
 		this._currentState = value;
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**
@@ -1755,7 +1755,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	override private function draw():Void
 	{
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);

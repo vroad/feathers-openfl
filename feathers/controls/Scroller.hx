@@ -2906,7 +2906,7 @@ class Scroller extends FeathersControl
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var clippingInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CLIPPING);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var scrollBarInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 		var pendingScrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_SCROLL);
 		var pendingRevealScrollBarsInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS);

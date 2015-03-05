@@ -1172,7 +1172,7 @@ class Header extends FeathersControl
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var leftContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LEFT_CONTENT);
 		var rightContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_RIGHT_CONTENT);
 		var centerContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_CENTER_CONTENT);

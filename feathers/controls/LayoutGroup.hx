@@ -519,7 +519,7 @@ class LayoutGroup extends FeathersControl
 		//we don't have scrolling, but a subclass might
 		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
 		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
 		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)

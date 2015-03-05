@@ -386,7 +386,7 @@ public function get_isFocusEnabled():Bool
 			throw new ArgumentError("Invalid state: " + value + ".");
 		}
 		this._currentState = value;
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**
@@ -836,7 +836,7 @@ public function get_isFocusEnabled():Bool
 		var textEditorInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 
 		if(textEditorInvalid)
 		{
@@ -1136,7 +1136,7 @@ public function get_isFocusEnabled():Bool
 		}
 		super.focusOutHandler(event);
 		this.textEditorViewPort.clearFocus();
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**
@@ -1159,7 +1159,7 @@ public function get_isFocusEnabled():Bool
 		this._textEditorHasFocus = true;
 		this.currentState = STATE_FOCUSED;
 		this._touchPointID = -1;
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 		if(this._focusManager)
 		{
 			this._focusManager.focus = this;
@@ -1177,7 +1177,7 @@ public function get_isFocusEnabled():Bool
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 		if(this._focusManager)
 		{
 			return;

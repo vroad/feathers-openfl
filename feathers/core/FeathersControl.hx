@@ -507,7 +507,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			return;
 		}
 		this._isEnabled = value;
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**

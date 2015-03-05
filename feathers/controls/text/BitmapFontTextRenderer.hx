@@ -518,7 +518,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			return result;
 		}
 
-		if(this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES) || this.isInvalid(INVALIDATION_FLAG_STATE))
+		if(this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES) || this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE))
 		{
 			this.refreshTextFormat();
 		}
@@ -669,7 +669,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 
 		if(stylesInvalid || stateInvalid)
 		{

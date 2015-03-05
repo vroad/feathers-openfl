@@ -165,7 +165,7 @@ class ToggleButton extends Button implements IToggle
 		}
 		this._isSelected = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 		this.dispatchEventWith(Event.CHANGE);
 	}
 

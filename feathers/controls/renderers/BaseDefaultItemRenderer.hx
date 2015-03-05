@@ -2425,7 +2425,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		this._explicitIsEnabled = value;
 		super.isEnabled = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
-		this.invalidate(INVALIDATION_FLAG_STATE);
+		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**
@@ -3142,7 +3142,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	override private function draw():Void
 	{
-		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		if(dataInvalid)
@@ -3585,7 +3585,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 			this.touchable = true;
 		}
-		this.setInvalidationFlag(INVALIDATION_FLAG_STATE);
+		this.setInvalidationFlag(FeathersControl.INVALIDATION_FLAG_STATE);
 	}
 
 	/**
