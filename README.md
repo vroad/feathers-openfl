@@ -24,3 +24,4 @@ Current Limitations
   * Texts on html5 may look diffrent from that of native targets.
 * On native targets, Texts are rendered with BitmapFontTextRenderer.
   * Outline fonts are rendered with FreeType renderer implemented top of BitmapFont.
+* If you move the mouse cursor outside of the window, touch processor still think that cursor is inside.
