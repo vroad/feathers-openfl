@@ -9,13 +9,14 @@ import feathers.data.ListCollection;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.system.DeviceCapabilities;
+import haxe.ds.Vector;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class PickerListScreen extends PanelScreen
+@:keep class PickerListScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -32,13 +33,13 @@ class PickerListScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		var items:Array = [];
+		var items:Vector<Dynamic> = new Vector(150);
 		for(i in 0 ... 150)
 		{
-			var item:Dynamic = {text: "Item " + (i + 1).toString()};
+			var item:Dynamic = {text: "Item " + (i + 1)};
 			items[i] = item;
 		}
-		items.fixed = true;
+		//items.fixed = true;
 
 		this._list = new PickerList();
 		this._list.prompt = "Select an Item";
@@ -78,7 +79,7 @@ class PickerListScreen extends PanelScreen
 			return list;
 		};
 
-		this.headerProperties.title = "Picker List";
+		this.headerProperties.setProperty("title", "Picker List");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -87,10 +88,10 @@ class PickerListScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

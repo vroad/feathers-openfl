@@ -17,6 +17,7 @@ import feathers.core.ITextRenderer;
 import feathers.core.IValidating;
 import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
+import feathers.utils.type.SafeCast.safe_cast;
 
 import openfl.events.TimerEvent;
 import openfl.geom.Point;
@@ -299,11 +300,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconSelector.defaultValue == value)
 		{
-			return;
+			return get_defaultIcon();
 		}
 		this.replaceIcon(null);
 		this._iconIsFromItem = false;
 		super.defaultIcon = value;
+		return get_defaultIcon();
 	}
 
 	/**
@@ -313,11 +315,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._skinSelector.defaultValue == value)
 		{
-			return;
+			return get_defaultSkin();
 		}
 		this.replaceSkin(null);
 		this._skinIsFromItem = false;
 		super.defaultSkin = value;
+		return get_defaultSkin();
 	}
 
 	/**
@@ -342,10 +345,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._data == value)
 		{
-			return;
+			return this._data;
 		}
 		this._data = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._data;
 	}
 
 	/**
@@ -390,7 +394,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function set_useStateDelayTimer(value:Bool):Bool
 	{
-		this._useStateDelayTimer = value;
+		return this._useStateDelayTimer = value;
 	}
 
 	/**
@@ -430,10 +434,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasLabel == value)
 		{
-			return;
+			return this._itemHasLabel;
 		}
 		this._itemHasLabel = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasLabel;
 	}
 
 	/**
@@ -466,10 +471,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasIcon == value)
 		{
-			return;
+			return this._itemHasIcon;
 		}
 		this._itemHasIcon = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasIcon;
 	}
 
 	/**
@@ -502,10 +508,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasAccessory == value)
 		{
-			return;
+			return this._itemHasAccessory;
 		}
 		this._itemHasAccessory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasAccessory;
 	}
 
 	/**
@@ -539,10 +546,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasSkin == value)
 		{
-			return;
+			return this._itemHasSkin;
 		}
 		this._itemHasSkin = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasSkin;
 	}
 
 	/**
@@ -576,10 +584,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasSelectable == value)
 		{
-			return;
+			return this._itemHasSelectable;
 		}
 		this._itemHasSelectable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasSelectable;
 	}
 
 	/**
@@ -612,10 +621,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._itemHasEnabled == value)
 		{
-			return;
+			return this._itemHasEnabled;
 		}
 		this._itemHasEnabled = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._itemHasEnabled;
 	}
 
 	/**
@@ -656,10 +666,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryPosition == value)
 		{
-			return;
+			return this._accessoryPosition;
 		}
 		this._accessoryPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._accessoryPosition;
 	}
 
 	/**
@@ -700,10 +711,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._layoutOrder == value)
 		{
-			return;
+			return this._layoutOrder;
 		}
 		this._layoutOrder = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._layoutOrder;
 	}
 
 	/**
@@ -736,10 +748,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryOffsetX == value)
 		{
-			return;
+			return this._accessoryOffsetX;
 		}
 		this._accessoryOffsetX = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._accessoryOffsetX;
 	}
 
 	/**
@@ -772,10 +785,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryOffsetY == value)
 		{
-			return;
+			return this._accessoryOffsetY;
 		}
 		this._accessoryOffsetY = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._accessoryOffsetY;
 	}
 
 	/**
@@ -787,7 +801,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * The space, in pixels, between the accessory and the other child it is
 	 * positioned relative to. Applies to either horizontal or vertical
 	 * spacing, depending on the value of <code>accessoryPosition</code>. If
-	 * the value is <code>Math.NaN</code>, the value of the <code>gap</code>
+	 * the value is <code>NaN</code>, the value of the <code>gap</code>
 	 * property will be used instead.
 	 *
 	 * <p>If <code>accessoryGap</code> is set to <code>Math.POSITIVE_INFINITY</code>,
@@ -799,7 +813,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <listing version="3.0">
 	 * renderer.accessoryGap = 20;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #gap
 	 * @see #accessoryPosition
@@ -817,10 +831,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryGap == value)
 		{
-			return;
+			return this._accessoryGap;
 		}
 		this._accessoryGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._accessoryGap;
 	}
 
 	/**
@@ -833,7 +848,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <code>Math.POSITIVE_INFINITY</code>, meaning that the gap will
 	 * fill as much space as possible, the final calculated value will not be
 	 * smaller than the value of the <code>minAccessoryGap</code> property.
-	 * If the value of <code>minAccessoryGap</code> is <code>Math.NaN</code>, the
+	 * If the value of <code>minAccessoryGap</code> is <code>NaN</code>, the
 	 * value of the <code>minGap</code> property will be used instead.
 	 *
 	 * <p>The following example ensures that the gap is never smaller than
@@ -846,7 +861,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * <listing version="3.0">
 	 * renderer.accessoryGap = 20;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #accessoryGap
 	 */
@@ -863,37 +878,38 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._minAccessoryGap == value)
 		{
-			return;
+			return this._minAccessoryGap;
 		}
 		this._minAccessoryGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._minAccessoryGap;
 	}
 
 	/**
 	 * @private
 	 */
-	override private function set_currentState(value:String):Void
+	override private function set_currentState(value:String):String
 	{
 		if(this._isEnabled && !this._isToggle && (!this.isSelectableWithoutToggle || (this._itemHasSelectable && !this.itemToSelectable(this._data))))
 		{
-			value = STATE_UP;
+			value = Button.STATE_UP;
 		}
 		if(this._useStateDelayTimer)
 		{
-			if(this._stateDelayTimer && this._stateDelayTimer.running)
+			if(this._stateDelayTimer != null && this._stateDelayTimer.running)
 			{
 				this._delayedCurrentState = value;
-				return;
+				return this._currentState;
 			}
 
 			if(value == Button.STATE_DOWN)
 			{
 				if(this._currentState == value)
 				{
-					return;
+					return this._currentState;
 				}
 				this._delayedCurrentState = value;
-				if(this._stateDelayTimer)
+				if(this._stateDelayTimer != null)
 				{
 					this._stateDelayTimer.reset();
 				}
@@ -903,10 +919,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 					this._stateDelayTimer.addEventListener(TimerEvent.TIMER_COMPLETE, stateDelayTimer_timerCompleteHandler);
 				}
 				this._stateDelayTimer.start();
-				return;
+				return this._currentState;
 			}
 		}
 		super.currentState = value;
+		return this._currentState;
 	}
 
 	/**
@@ -942,7 +959,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function set_stopScrollingOnAccessoryTouch(value:Bool):Bool
 	{
-		this._stopScrollingOnAccessoryTouch = value;
+		return this._stopScrollingOnAccessoryTouch = value;
 	}
 
 	/**
@@ -974,7 +991,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function set_isSelectableOnAccessoryTouch(value:Bool):Bool
 	{
-		this._isSelectableOnAccessoryTouch = value;
+		return this._isSelectableOnAccessoryTouch = value;
 	}
 
 	/**
@@ -1009,7 +1026,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function set_delayTextureCreationOnScroll(value:Bool):Bool
 	{
-		this._delayTextureCreationOnScroll = value;
+		return this._delayTextureCreationOnScroll = value;
 	}
 
 	/**
@@ -1054,16 +1071,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._labelField == value)
 		{
-			return;
+			return this._labelField;
 		}
 		this._labelField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._labelField;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _labelFunction:Dynamic;
+	private var _labelFunction:Dynamic->String;
 
 	/**
 	 * A function used to generate label text for a specific item. If this
@@ -1091,8 +1109,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #labelField
 	 */
-	public var labelFunction(get, set):Dynamic;
-	public function get_labelFunction():Dynamic
+	public var labelFunction(get, set):Dynamic->String;
+	public function get_labelFunction():Dynamic->String
 	{
 		return this._labelFunction;
 	}
@@ -1100,14 +1118,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Dynamic):Dynamic
+	public function set_labelFunction(value:Dynamic->String):Dynamic->String
 	{
 		if(this._labelFunction == value)
 		{
-			return;
+			return this._labelFunction;
 		}
 		this._labelFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._labelFunction;
 	}
 
 	/**
@@ -1160,10 +1179,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconField == value)
 		{
-			return;
+			return this._iconField;
 		}
 		this._iconField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconField;
 	}
 
 	/**
@@ -1223,8 +1243,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
-	public var iconFunction(get, set):Dynamic;
-	public function get_iconFunction():Dynamic
+	public var iconFunction(get, set):Dynamic->DisplayObject;
+	public function get_iconFunction():Dynamic->DisplayObject
 	{
 		return this._iconFunction;
 	}
@@ -1232,14 +1252,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconFunction(value:Dynamic):Dynamic
+	public function set_iconFunction(value:Dynamic->DisplayObject):Dynamic->DisplayObject
 	{
 		if(this._iconFunction == value)
 		{
-			return;
+			return this._iconFunction;
 		}
 		this._iconFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconFunction;
 	}
 
 	/**
@@ -1297,10 +1318,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconSourceField == value)
 		{
-			return;
+			return this._iconSourceField;
 		}
 		this._iconSourceField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconSourceField;
 	}
 
 	/**
@@ -1380,10 +1402,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconSourceFunction == value)
 		{
-			return;
+			return this._iconSourceFunction;
 		}
 		this._iconSourceFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconSourceFunction;
 	}
 
 	/**
@@ -1442,10 +1465,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconLabelField == value)
 		{
-			return;
+			return this._iconLabelField;
 		}
 		this._iconLabelField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconLabelField;
 	}
 
 	/**
@@ -1497,8 +1521,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconSourceField
 	 * @see #iconSourceFunction
 	 */
-	public var iconLabelFunction(get, set):Dynamic;
-	public function get_iconLabelFunction():Dynamic
+	public var iconLabelFunction(get, set):Dynamic->String;
+	public function get_iconLabelFunction():Dynamic->String
 	{
 		return this._iconLabelFunction;
 	}
@@ -1506,14 +1530,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFunction(value:Dynamic):Dynamic
+	public function set_iconLabelFunction(value:Dynamic->String):Dynamic->String
 	{
 		if(this._iconLabelFunction == value)
 		{
-			return;
+			return this._iconLabelFunction;
 		}
 		this._iconLabelFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconLabelFunction;
 	}
 
 	/**
@@ -1570,10 +1595,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryField == value)
 		{
-			return;
+			return this._accessoryField;
 		}
 		this._accessoryField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryField;
 	}
 
 	/**
@@ -1651,10 +1677,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryFunction == value)
 		{
-			return;
+			return this._accessoryFunction;
 		}
 		this._accessoryFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryFunction;
 	}
 
 	/**
@@ -1714,16 +1741,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessorySourceField == value)
 		{
-			return;
+			return this._accessorySourceField;
 		}
 		this._accessorySourceField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessorySourceField;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _accessorySourceFunction:Dynamic;
+	private var _accessorySourceFunction:Dynamic->Dynamic;
 
 	/**
 	 * A function that generates a <code>starling.textures.Texture</code>
@@ -1786,8 +1814,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public var accessorySourceFunction(get, set):Dynamic;
-	public function get_accessorySourceFunction():Dynamic
+	public var accessorySourceFunction(get, set):Dynamic->Dynamic;
+	public function get_accessorySourceFunction():Dynamic->Dynamic
 	{
 		return this._accessorySourceFunction;
 	}
@@ -1795,14 +1823,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessorySourceFunction(value:Dynamic):Dynamic
+	public function set_accessorySourceFunction(value:Dynamic->Dynamic):Dynamic->Dynamic
 	{
 		if(this._accessorySourceFunction == value)
 		{
-			return;
+			return this._accessorySourceFunction;
 		}
 		this._accessorySourceFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessorySourceFunction;
 	}
 
 	/**
@@ -1861,10 +1890,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryLabelField == value)
 		{
-			return;
+			return this._accessoryLabelField;
 		}
 		this._accessoryLabelField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryLabelField;
 	}
 
 	/**
@@ -1929,10 +1959,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryLabelFunction == value)
 		{
-			return;
+			return this._accessoryLabelFunction;
 		}
 		this._accessoryLabelFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryLabelFunction;
 	}
 
 	/**
@@ -1978,10 +2009,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._skinField == value)
 		{
-			return;
+			return this._skinField;
 		}
 		this._skinField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._skinField;
 	}
 
 	/**
@@ -2034,8 +2066,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
-	public var skinFunction(get, set):Dynamic;
-	public function get_skinFunction():Dynamic
+	public var skinFunction(get, set):Dynamic->DisplayObject;
+	public function get_skinFunction():Dynamic->DisplayObject
 	{
 		return this._skinFunction;
 	}
@@ -2043,14 +2075,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinFunction(value:Dynamic):Dynamic
+	public function set_skinFunction(value:Dynamic->DisplayObject):Dynamic->DisplayObject
 	{
 		if(this._skinFunction == value)
 		{
-			return;
+			return this._skinFunction;
 		}
 		this._skinFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._skinFunction;
 	}
 
 	/**
@@ -2107,10 +2140,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconSourceField == value)
 		{
-			return;
+			return this._skinSourceField;
 		}
 		this._skinSourceField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._skinSourceField;
 	}
 
 	/**
@@ -2176,8 +2210,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinField
 	 * @see #skinFunction
 	 */
-	public var skinSourceFunction(get, set):Dynamic;
-	public function get_skinSourceFunction():Dynamic
+	public var skinSourceFunction(get, set):Dynamic->Dynamic;
+	public function get_skinSourceFunction():Dynamic->Dynamic
 	{
 		return this._skinSourceFunction;
 	}
@@ -2185,14 +2219,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinSourceFunction(value:Dynamic):Dynamic
+	public function set_skinSourceFunction(value:Dynamic->Dynamic):Dynamic->Dynamic
 	{
 		if(this._skinSourceFunction == value)
 		{
-			return;
+			return this._skinSourceFunction;
 		}
 		this._skinSourceFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._skinSourceFunction;
 	}
 
 	/**
@@ -2235,10 +2270,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._selectableField == value)
 		{
-			return;
+			return this._selectableField;
 		}
 		this._selectableField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._selectableField;
 	}
 
 	/**
@@ -2273,8 +2309,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see #selectableField
 	 */
-	public var selectableFunction(get, set):Dynamic;
-	public function get_selectableFunction():Dynamic
+	public var selectableFunction(get, set):Dynamic->Bool;
+	public function get_selectableFunction():Dynamic->Bool
 	{
 		return this._selectableFunction;
 	}
@@ -2282,14 +2318,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_selectableFunction(value:Dynamic):Dynamic
+	public function set_selectableFunction(value:Dynamic->Bool):Dynamic->Bool
 	{
 		if(this._selectableFunction == value)
 		{
-			return;
+			return this._selectableFunction;
 		}
 		this._selectableFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._selectableFunction;
 	}
 
 	/**
@@ -2332,10 +2369,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._enabledField == value)
 		{
-			return;
+			return this._enabledField;
 		}
 		this._enabledField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._enabledField;
 	}
 
 	/**
@@ -2383,10 +2421,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._enabledFunction == value)
 		{
-			return;
+			return this._enabledFunction;
 		}
 		this._enabledFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._enabledFunction;
 	}
 
 	/**
@@ -2401,11 +2440,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._explicitIsToggle == value)
 		{
-			return;
+			return get_isToggle();
 		}
 		super.isToggle = value;
 		this._explicitIsToggle = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_isToggle();
 	}
 
 	/**
@@ -2420,12 +2460,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._explicitIsEnabled == value)
 		{
-			return;
+			return get_isEnabled();
 		}
 		this._explicitIsEnabled = value;
 		super.isEnabled = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		return get_isEnabled();
 	}
 
 	/**
@@ -2472,18 +2513,19 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._iconLoaderFactory == value)
 		{
-			return;
+			return this._iconLoaderFactory;
 		}
 		this._iconLoaderFactory = value;
 		this._iconIsFromItem = false;
 		this.replaceIcon(null);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconLoaderFactory;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _iconLabelFactory:Dynamic;
+	private var _iconLabelFactory:Void->ITextRenderer;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2511,8 +2553,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
-	public var iconLabelFactory(get, set):Dynamic;
-	public function get_iconLabelFactory():Dynamic
+	public var iconLabelFactory(get, set):Void->ITextRenderer;
+	public function get_iconLabelFactory():Void->ITextRenderer
 	{
 		return this._iconLabelFactory;
 	}
@@ -2520,16 +2562,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelFactory(value:Dynamic):Dynamic
+	public function set_iconLabelFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._iconLabelFactory == value)
 		{
-			return;
+			return this._iconLabelFactory;
 		}
 		this._iconLabelFactory = value;
 		this._iconIsFromItem = false;
 		this.replaceIcon(null);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._iconLabelFactory;
 	}
 
 	/**
@@ -2566,10 +2609,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #iconLabelField
 	 * @see #iconLabelFunction
 	 */
-	public var iconLabelProperties(get, set):Dynamic;
-	public function get_iconLabelProperties():Dynamic
+	public var iconLabelProperties(get, set):PropertyProxy;
+	public function get_iconLabelProperties():PropertyProxy
 	{
-		if(!this._iconLabelProperties)
+		if(this._iconLabelProperties == null)
 		{
 			this._iconLabelProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -2579,35 +2622,36 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_iconLabelProperties(value:Dynamic):Dynamic
+	public function set_iconLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._iconLabelProperties == value)
 		{
-			return;
+			return this._iconLabelProperties;
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._iconLabelProperties)
+		if(this._iconLabelProperties != null)
 		{
 			this._iconLabelProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._iconLabelProperties = PropertyProxy(value);
-		if(this._iconLabelProperties)
+		this._iconLabelProperties = value;
+		if(this._iconLabelProperties != null)
 		{
 			this._iconLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconLabelProperties;
 	}
 
 	/**
@@ -2654,18 +2698,19 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._accessoryLoaderFactory == value)
 		{
-			return;
+			return this._accessoryLoaderFactory;
 		}
 		this._accessoryLoaderFactory = value;
 		this._accessoryIsFromItem = false;
 		this.replaceAccessory(null);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryLoaderFactory;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _accessoryLabelFactory:Dynamic;
+	private var _accessoryLabelFactory:Void->ITextRenderer;
 
 	/**
 	 * A function that generates <code>ITextRenderer</code> that uses the result
@@ -2693,8 +2738,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public var accessoryLabelFactory(get, set):Dynamic;
-	public function get_accessoryLabelFactory():Dynamic
+	public var accessoryLabelFactory(get, set):Void->ITextRenderer;
+	public function get_accessoryLabelFactory():Void->ITextRenderer
 	{
 		return this._accessoryLabelFactory;
 	}
@@ -2702,16 +2747,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelFactory(value:Dynamic):Dynamic
+	public function set_accessoryLabelFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._accessoryLabelFactory == value)
 		{
-			return;
+			return this._accessoryLabelFactory;
 		}
 		this._accessoryLabelFactory = value;
 		this._accessoryIsFromItem = false;
 		this.replaceAccessory(null);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._accessoryLabelFactory;
 	}
 
 	/**
@@ -2748,10 +2794,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #accessoryLabelField
 	 * @see #accessoryLabelFunction
 	 */
-	public var accessoryLabelProperties(get, set):Dynamic;
-	public function get_accessoryLabelProperties():Dynamic
+	public var accessoryLabelProperties(get, set):PropertyProxy;
+	public function get_accessoryLabelProperties():PropertyProxy
 	{
-		if(!this._accessoryLabelProperties)
+		if(this._accessoryLabelProperties == null)
 		{
 			this._accessoryLabelProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -2761,41 +2807,42 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_accessoryLabelProperties(value:Dynamic):Dynamic
+	public function set_accessoryLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._accessoryLabelProperties == value)
 		{
-			return;
+			return this._accessoryLabelProperties;
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._accessoryLabelProperties)
+		if(this._accessoryLabelProperties != null)
 		{
 			this._accessoryLabelProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._accessoryLabelProperties = PropertyProxy(value);
-		if(this._accessoryLabelProperties)
+		this._accessoryLabelProperties = value;
+		if(this._accessoryLabelProperties != null)
 		{
 			this._accessoryLabelProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._accessoryLabelProperties;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _skinLoaderFactory:Dynamic = defaultLoaderFactory;
+	private var _skinLoaderFactory:Void->ImageLoader = defaultLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -2823,8 +2870,8 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 * @see #skinSourceField
 	 * @see #skinSourceFunction
 	 */
-	public var skinLoaderFactory(get, set):Dynamic;
-	public function get_skinLoaderFactory():Dynamic
+	public var skinLoaderFactory(get, set):Void->ImageLoader;
+	public function get_skinLoaderFactory():Void->ImageLoader
 	{
 		return this._skinLoaderFactory;
 	}
@@ -2832,16 +2879,17 @@ class BaseDefaultItemRenderer extends ToggleButton
 	/**
 	 * @private
 	 */
-	public function set_skinLoaderFactory(value:Dynamic):Dynamic
+	public function set_skinLoaderFactory(value:Void->ImageLoader):Void->ImageLoader
 	{
 		if(this._skinLoaderFactory == value)
 		{
-			return;
+			return this._skinLoaderFactory;
 		}
 		this._skinLoaderFactory = value;
 		this._skinIsFromItem = false;
 		this.replaceSkin(null);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._skinLoaderFactory;
 	}
 
 	/**
@@ -2866,7 +2914,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			this.replaceSkin(null);
 		}
-		if(this._stateDelayTimer)
+		if(this._stateDelayTimer != null)
 		{
 			if(this._stateDelayTimer.running)
 			{
@@ -2890,27 +2938,28 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function itemToLabel(item:Dynamic):String
 	{
+		var labelResult:Dynamic;
 		if(this._labelFunction != null)
 		{
-			var labelResult:Dynamic = this._labelFunction(item);
+			labelResult = this._labelFunction(item);
 			if(Std.is(labelResult, String))
 			{
-				return labelResult as String;
+				return cast(labelResult, String);
 			}
 			return labelResult.toString();
 		}
 		else if(this._labelField != null && item && item.hasOwnProperty(this._labelField))
 		{
-			labelResult = item[this._labelField];
+			labelResult = Reflect.getProperty(item, this._labelField);
 			if(Std.is(labelResult, String))
 			{
-				return labelResult as String;
+				return cast(labelResult, String);
 			}
 			return labelResult.toString();
 		}
 		else if(Std.is(item, String))
 		{
-			return item as String;
+			return cast(item, String);
 		}
 		else if(item)
 		{
@@ -2935,51 +2984,53 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function itemToIcon(item:Dynamic):DisplayObject
 	{
+		var source:Dynamic;
+		var labelResult:Dynamic;
 		if(this._iconSourceFunction != null)
 		{
-			var source:Dynamic = this._iconSourceFunction(item);
+			source = this._iconSourceFunction(item);
 			this.refreshIconSource(source);
 			return this.iconLoader;
 		}
 		else if(this._iconSourceField != null && item && item.hasOwnProperty(this._iconSourceField))
 		{
-			source = item[this._iconSourceField];
+			source = Reflect.getProperty(item, this._iconSourceField);
 			this.refreshIconSource(source);
 			return this.iconLoader;
 		}
 		else if(this._iconLabelFunction != null)
 		{
-			var labelResult:Dynamic = this._iconLabelFunction(item);
+			labelResult = this._iconLabelFunction(item);
 			if(Std.is(labelResult, String))
 			{
-				this.refreshIconLabel(labelResult as String);
+				this.refreshIconLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshIconLabel(labelResult.toString());
 			}
-			return DisplayObject(this.iconLabel);
+			return cast(this.iconLabel, DisplayObject);
 		}
 		else if(this._iconLabelField != null && item && item.hasOwnProperty(this._iconLabelField))
 		{
-			labelResult = item[this._iconLabelField];
+			labelResult = Reflect.getProperty(item, this._iconLabelField);
 			if(Std.is(labelResult, String))
 			{
-				this.refreshIconLabel(labelResult as String);
+				this.refreshIconLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshIconLabel(labelResult.toString());
 			}
-			return DisplayObject(this.iconLabel);
+			return cast(this.iconLabel, DisplayObject);
 		}
 		else if(this._iconFunction != null)
 		{
-			return this._iconFunction(item) as DisplayObject;
+			return cast(this._iconFunction(item), DisplayObject);
 		}
 		else if(this._iconField != null && item && item.hasOwnProperty(this._iconField))
 		{
-			return item[this._iconField] as DisplayObject;
+			return cast(Reflect.getProperty(item, this._iconField), DisplayObject);
 		}
 
 		return null;
@@ -3001,51 +3052,53 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function itemToAccessory(item:Dynamic):DisplayObject
 	{
+		var source:Dynamic;
+		var labelResult:Dynamic;
 		if(this._accessorySourceFunction != null)
 		{
-			var source:Dynamic = this._accessorySourceFunction(item);
+			source = this._accessorySourceFunction(item);
 			this.refreshAccessorySource(source);
 			return this.accessoryLoader;
 		}
 		else if(this._accessorySourceField != null && item && item.hasOwnProperty(this._accessorySourceField))
 		{
-			source = item[this._accessorySourceField];
+			source = Reflect.getProperty(item, this._accessorySourceField);
 			this.refreshAccessorySource(source);
 			return this.accessoryLoader;
 		}
 		else if(this._accessoryLabelFunction != null)
 		{
-			var labelResult:Dynamic = this._accessoryLabelFunction(item);
+			labelResult = this._accessoryLabelFunction(item);
 			if(Std.is(labelResult, String))
 			{
-				this.refreshAccessoryLabel(labelResult as String);
+				this.refreshAccessoryLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshAccessoryLabel(labelResult.toString());
 			}
-			return DisplayObject(this.accessoryLabel);
+			return cast(this.accessoryLabel, DisplayObject);
 		}
 		else if(this._accessoryLabelField != null && item && item.hasOwnProperty(this._accessoryLabelField))
 		{
-			labelResult = item[this._accessoryLabelField];
+			labelResult = Reflect.getProperty(item, this._accessoryLabelField);
 			if(Std.is(labelResult, String))
 			{
-				this.refreshAccessoryLabel(labelResult as String);
+				this.refreshAccessoryLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshAccessoryLabel(labelResult.toString());
 			}
-			return DisplayObject(this.accessoryLabel);
+			return cast(this.accessoryLabel, DisplayObject);
 		}
 		else if(this._accessoryFunction != null)
 		{
-			return this._accessoryFunction(item) as DisplayObject;
+			return cast(this._accessoryFunction(item), DisplayObject);
 		}
 		else if(this._accessoryField != null && item && item.hasOwnProperty(this._accessoryField))
 		{
-			return item[this._accessoryField] as DisplayObject;
+			return cast(Reflect.getProperty(item, this._accessoryField), DisplayObject);
 		}
 
 		return null;
@@ -3065,25 +3118,26 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function itemToSkin(item:Dynamic):DisplayObject
 	{
+		var source:Dynamic;
 		if(this._skinSourceFunction != null)
 		{
-			var source:Dynamic = this._skinSourceFunction(item);
+			source = this._skinSourceFunction(item);
 			this.refreshSkinSource(source);
 			return this.skinLoader;
 		}
 		else if(this._skinSourceField != null && item && item.hasOwnProperty(this._skinSourceField))
 		{
-			source = item[this._skinSourceField];
+			source = Reflect.getProperty(item, this._skinSourceField);
 			this.refreshSkinSource(source);
 			return this.skinLoader;
 		}
 		else if(this._skinFunction != null)
 		{
-			return this._skinFunction(item) as DisplayObject;
+			return cast(this._skinFunction(item), DisplayObject);
 		}
 		else if(this._skinField != null && item && item.hasOwnProperty(this._skinField))
 		{
-			return item[this._skinField] as DisplayObject;
+			return cast(Reflect.getProperty(item, this._skinField), DisplayObject);
 		}
 
 		return null;
@@ -3103,11 +3157,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._selectableFunction != null)
 		{
-			return this._selectableFunction(item) as Bool;
+			return cast(this._selectableFunction(item), Bool);
 		}
 		else if(this._selectableField != null && item && item.hasOwnProperty(this._selectableField))
 		{
-			return item[this._selectableField] as Bool;
+			return cast(Reflect.getProperty(item, this._selectableField), Bool);
 		}
 
 		return true;
@@ -3127,11 +3181,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._enabledFunction != null)
 		{
-			return this._enabledFunction(item) as Bool;
+			return cast(this._enabledFunction(item), Bool);
 		}
 		else if(this._enabledField != null && item && item.hasOwnProperty(this._enabledField))
 		{
-			return item[this._enabledField] as Bool;
+			return cast(Reflect.getProperty(item, this._enabledField), Bool);
 		}
 
 		return true;
@@ -3170,7 +3224,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var oldIgnoreAccessoryResizes:Bool = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
 		this.refreshMaxLabelWidth(true);
-		if(this.labelTextRenderer)
+		if(this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.measureText(HELPER_POINT);
 		}
@@ -3181,7 +3235,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
-			if(this._label)
+			if(this._label != null)
 			{
 				newWidth = HELPER_POINT.x;
 			}
@@ -3216,7 +3270,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			if(this._label)
+			if(this._label != null)
 			{
 				newHeight = HELPER_POINT.y;
 			}
@@ -3257,7 +3311,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function addIconWidth(width:Float):Float
 	{
-		if(!this.currentIcon)
+		if(this.currentIcon == null)
 		{
 			return width;
 		}
@@ -3298,7 +3352,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function addAccessoryWidth(width:Float):Float
 	{
-		if(!this.accessory)
+		if(this.accessory == null)
 		{
 			return width;
 		}
@@ -3358,7 +3412,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function addIconHeight(height:Float):Float
 	{
-		if(!this.currentIcon)
+		if(this.currentIcon == null)
 		{
 			return height;
 		}
@@ -3399,7 +3453,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function addAccessoryHeight(height:Float):Float
 	{
-		if(!this.accessory)
+		if(this.accessory == null)
 		{
 			return height;
 		}
@@ -3468,7 +3522,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function commitData():Void
 	{
-		if(this._data && this._owner)
+		if(this._data != null && this._owner != null)
 		{
 			if(this._itemHasLabel)
 			{
@@ -3572,16 +3626,16 @@ class BaseDefaultItemRenderer extends ToggleButton
 		if(!this._isEnabled)
 		{
 			this.touchable = false;
-			this._currentState = STATE_DISABLED;
+			this._currentState = Button.STATE_DISABLED;
 			this.touchPointID = -1;
 		}
 		else
 		{
 			//might be in another state for some reason
 			//let's only change to up if needed
-			if(this._currentState == STATE_DISABLED)
+			if(this._currentState == Button.STATE_DISABLED)
 			{
-				this._currentState = STATE_UP;
+				this._currentState = Button.STATE_UP;
 			}
 			this.touchable = true;
 		}
@@ -3593,7 +3647,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function replaceIcon(newIcon:DisplayObject):Void
 	{
-		if(this.iconLoader && this.iconLoader != newIcon)
+		if(this.iconLoader != null && this.iconLoader != newIcon)
 		{
 			this.iconLoader.removeEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
 			this.iconLoader.removeEventListener(FeathersEventType.ERROR, loader_completeOrErrorHandler);
@@ -3601,14 +3655,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.iconLoader = null;
 		}
 
-		if(this.iconLabel && this.iconLabel != newIcon)
+		if(this.iconLabel != null && this.iconLabel != cast(newIcon, ITextRenderer))
 		{
 			//we can dispose this one, though, since we created it
 			this.iconLabel.dispose();
 			this.iconLabel = null;
 		}
 
-		if(this._itemHasIcon && this.currentIcon && this.currentIcon != newIcon && this.currentIcon.parent == this)
+		if(this._itemHasIcon && this.currentIcon != null && this.currentIcon != newIcon && this.currentIcon.parent == this)
 		{
 			//the icon is created using the data provider, and it is not
 			//created inside this class, so it is not our responsibility to
@@ -3635,7 +3689,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.setInvalidationFlag(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
 
-		if(this.iconLoader)
+		if(this.iconLoader != null)
 		{
 			this.iconLoader.delayTextureCreation = this._delayTextureCreationOnScroll && this._owner.isScrolling;
 		}
@@ -3651,7 +3705,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 
-		if(this.accessory)
+		if(this.accessory != null)
 		{
 			this.accessory.removeEventListener(FeathersEventType.RESIZE, accessory_resizeHandler);
 			this.accessory.removeEventListener(TouchEvent.TOUCH, accessory_touchHandler);
@@ -3666,14 +3720,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 		}
 
-		if(this.accessoryLabel && this.accessoryLabel != newAccessory)
+		if(this.accessoryLabel != null && this.accessoryLabel != cast(newAccessory, ITextRenderer))
 		{
 			//we can dispose this one, though, since we created it
 			this.accessoryLabel.dispose();
 			this.accessoryLabel = null;
 		}
 
-		if(this.accessoryLoader && this.accessoryLoader != newAccessory)
+		if(this.accessoryLoader != null && this.accessoryLoader != newAccessory)
 		{
 			this.accessoryLoader.removeEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
 			this.accessoryLoader.removeEventListener(FeathersEventType.ERROR, loader_completeOrErrorHandler);
@@ -3685,7 +3739,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 		this.accessory = newAccessory;
 
-		if(this.accessory)
+		if(this.accessory != null)
 		{
 			if(Std.is(this.accessory, IFeathersControl))
 			{
@@ -3698,7 +3752,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.addChild(this.accessory);
 		}
 		
-		if(this.accessoryLoader)
+		if(this.accessoryLoader != null)
 		{
 			this.accessoryLoader.delayTextureCreation = this._delayTextureCreationOnScroll && this._owner.isScrolling;
 		}
@@ -3709,7 +3763,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function replaceSkin(newSkin:DisplayObject):Void
 	{
-		if(this.skinLoader && this.skinLoader != newSkin)
+		if(this.skinLoader != null && this.skinLoader != newSkin)
 		{
 			this.skinLoader.removeEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
 			this.skinLoader.removeEventListener(FeathersEventType.ERROR, loader_completeOrErrorHandler);
@@ -3717,7 +3771,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.skinLoader = null;
 		}
 
-		if(this._itemHasSkin && this.currentSkin && this.currentSkin != newSkin && this.currentSkin.parent == this)
+		if(this._itemHasSkin && this.currentSkin != null && this.currentSkin != newSkin && this.currentSkin.parent == this)
 		{
 			//the icon is created using the data provider, and it is not
 			//created inside this class, so it is not our responsibility to
@@ -3744,7 +3798,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.setInvalidationFlag(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
 
-		if(this.skinLoader)
+		if(this.skinLoader != null)
 		{
 			this.skinLoader.delayTextureCreation = this._delayTextureCreationOnScroll && this._owner.isScrolling;
 		}
@@ -3756,13 +3810,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 	override private function refreshIcon():Void
 	{
 		super.refreshIcon();
-		if(this.iconLabel)
+		if(this.iconLabel != null)
 		{
-			var displayIconLabel:DisplayObject = DisplayObject(this.iconLabel);
-			for (propertyName in this._iconLabelProperties)
+			var displayIconLabel:DisplayObject = cast(this.iconLabel, DisplayObject);
+			for (propertyName in Reflect.fields(this._iconLabelProperties.storage))
 			{
-				var propertyValue:Dynamic = this._iconLabelProperties[propertyName];
-				displayIconLabel[propertyName] = propertyValue;
+				var propertyValue:Dynamic = Reflect.getProperty(this._iconLabelProperties.storage, propertyName);
+				Reflect.setProperty(displayIconLabel, propertyName, propertyValue);
 			}
 		}
 	}
@@ -3774,15 +3828,15 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(Std.is(this.accessory, IFeathersControl))
 		{
-			IFeathersControl(this.accessory).isEnabled = this._isEnabled;
+			cast(this.accessory, IFeathersControl).isEnabled = this._isEnabled;
 		}
-		if(this.accessoryLabel)
+		if(this.accessoryLabel != null)
 		{
-			var displayAccessoryLabel:DisplayObject = DisplayObject(this.accessoryLabel);
-			for (propertyName in this._accessoryLabelProperties)
+			var displayAccessoryLabel:DisplayObject = cast(this.accessoryLabel, DisplayObject);
+			for (propertyName in Reflect.fields(this._accessoryLabelProperties.storage))
 			{
-				var propertyValue:Dynamic = this._accessoryLabelProperties[propertyName];
-				displayAccessoryLabel[propertyName] = propertyValue;
+				var propertyValue:Dynamic = Reflect.field(this._accessoryLabelProperties.storage, propertyName);
+				Reflect.setProperty(displayAccessoryLabel, propertyName, propertyValue);
 			}
 		}
 	}
@@ -3792,7 +3846,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshIconSource(source:Dynamic):Void
 	{
-		if(!this.iconLoader)
+		if(this.iconLoader == null)
 		{
 			this.iconLoader = this._iconLoaderFactory();
 			this.iconLoader.addEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
@@ -3806,10 +3860,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshIconLabel(label:String):Void
 	{
-		if(!this.iconLabel)
+		if(this.iconLabel == null)
 		{
 			var factory:Dynamic = this._iconLabelFactory != null ? this._iconLabelFactory : FeathersControl.defaultTextRendererFactory;
-			this.iconLabel = ITextRenderer(factory());
+			this.iconLabel = factory();
 			this.iconLabel.styleNameList.add(this.iconLabelName);
 		}
 		this.iconLabel.text = label;
@@ -3820,7 +3874,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshAccessorySource(source:Dynamic):Void
 	{
-		if(!this.accessoryLoader)
+		if(this.accessoryLoader == null)
 		{
 			this.accessoryLoader = this._accessoryLoaderFactory();
 			this.accessoryLoader.addEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
@@ -3834,10 +3888,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshAccessoryLabel(label:String):Void
 	{
-		if(!this.accessoryLabel)
+		if(this.accessoryLabel == null)
 		{
-			var factory:Dynamic = this._accessoryLabelFactory != null ? this._accessoryLabelFactory : FeathersControl.defaultTextRendererFactory;
-			this.accessoryLabel = ITextRenderer(factory());
+			var factory:Void->ITextRenderer = this._accessoryLabelFactory != null ? this._accessoryLabelFactory : FeathersControl.defaultTextRendererFactory;
+			this.accessoryLabel = factory();
 			this.accessoryLabel.styleNameList.add(this.accessoryLabelName);
 		}
 		this.accessoryLabel.text = label;
@@ -3848,7 +3902,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function refreshSkinSource(source:Dynamic):Void
 	{
-		if(!this.skinLoader)
+		if(this.skinLoader == null)
 		{
 			this.skinLoader = this._skinLoaderFactory();
 			this.skinLoader.addEventListener(Event.COMPLETE, loader_completeOrErrorHandler);
@@ -3865,19 +3919,20 @@ class BaseDefaultItemRenderer extends ToggleButton
 		var oldIgnoreAccessoryResizes:Bool = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
 		this.refreshMaxLabelWidth(false);
-		if(this._label && this.labelTextRenderer)
+		var labelRenderer:DisplayObject = null;
+		if(this._label != null && this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.validate();
-			var labelRenderer:DisplayObject = DisplayObject(this.labelTextRenderer);
+			labelRenderer = cast(this.labelTextRenderer, DisplayObject);
 		}
-		var iconIsInLayout:Bool = this.currentIcon && this._iconPosition != ICON_POSITION_MANUAL;
-		var accessoryIsInLayout:Bool = this.accessory && this._accessoryPosition != ACCESSORY_POSITION_MANUAL;
+		var iconIsInLayout:Bool = this.currentIcon != null && this._iconPosition != ICON_POSITION_MANUAL;
+		var accessoryIsInLayout:Bool = this.accessory != null && this._accessoryPosition != ACCESSORY_POSITION_MANUAL;
 		var accessoryGap:Float = this._accessoryGap;
 		if(accessoryGap != accessoryGap) //isNaN
 		{
 			accessoryGap = this._gap;
 		}
-		if(this._label && this.labelTextRenderer && iconIsInLayout && accessoryIsInLayout)
+		if(this._label != null && this.labelTextRenderer != null && iconIsInLayout && accessoryIsInLayout)
 		{
 			this.positionSingleChild(labelRenderer);
 			if(this._layoutOrder == LAYOUT_ORDER_LABEL_ACCESSORY_ICON)
@@ -3900,7 +3955,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				this.positionRelativeToOthers(this.accessory, labelRenderer, this.currentIcon, this._accessoryPosition, accessoryGap, this._iconPosition, this._gap);
 			}
 		}
-		else if(this._label && this.labelTextRenderer)
+		else if(this._label != null && this.labelTextRenderer != null)
 		{
 			this.positionSingleChild(labelRenderer);
 			//we won't position both the icon and accessory here, otherwise
@@ -3927,7 +3982,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.positionSingleChild(this.accessory);
 		}
 
-		if(this.accessory)
+		if(this.accessory != null)
 		{
 			if(!accessoryIsInLayout)
 			{
@@ -3937,7 +3992,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.accessory.x += this._accessoryOffsetX;
 			this.accessory.y += this._accessoryOffsetY;
 		}
-		if(this.currentIcon)
+		if(this.currentIcon != null)
 		{
 			if(!iconIsInLayout)
 			{
@@ -3947,7 +4002,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.currentIcon.x += this._iconOffsetX;
 			this.currentIcon.y += this._iconOffsetY;
 		}
-		if(this._label && this.labelTextRenderer)
+		if(this._label  != null&& this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.x += this._labelOffsetX;
 			this.labelTextRenderer.y += this._labelOffsetY;
@@ -3990,14 +4045,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 		}
 
-		var hasIconToLeftOrRight:Bool = this.currentIcon && (this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
+		var hasIconToLeftOrRight:Bool = this.currentIcon != null && (this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 			this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE);
-		var hasAccessoryToLeftOrRight:Bool = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
+		var hasAccessoryToLeftOrRight:Bool = this.accessory != null && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
 
-		if(this.accessoryLabel)
+		if(this.accessoryLabel != null)
 		{
 			var iconAffectsAccessoryLabelMaxWidth:Bool = hasIconToLeftOrRight && (hasAccessoryToLeftOrRight || this._layoutOrder == LAYOUT_ORDER_LABEL_ACCESSORY_ICON);
-			if(this.iconLabel)
+			if(this.iconLabel != null)
 			{
 				this.iconLabel.maxWidth = calculatedWidth - adjustedGap;
 				if(this.iconLabel.maxWidth < 0)
@@ -4007,7 +4062,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 			if(Std.is(this.currentIcon, IValidating))
 			{
-				IValidating(this.currentIcon).validate();
+				cast(this.currentIcon, IValidating).validate();
 			}
 			if(iconAffectsAccessoryLabelMaxWidth)
 			{
@@ -4022,25 +4077,25 @@ class BaseDefaultItemRenderer extends ToggleButton
 				calculatedWidth = 0;
 			}
 			this.accessoryLabel.maxWidth = calculatedWidth;
-			if(this.currentIcon && !iconAffectsAccessoryLabelMaxWidth)
+			if(this.currentIcon != null && !iconAffectsAccessoryLabelMaxWidth)
 			{
 				calculatedWidth -= (this.currentIcon.width + adjustedGap);
 			}
 			if(Std.is(this.accessory, IValidating))
 			{
-				IValidating(this.accessory).validate();
+				cast(this.accessory, IValidating).validate();
 			}
 			if(hasAccessoryToLeftOrRight)
 			{
 				calculatedWidth -= this.accessory.width;
 			}
 		}
-		else if(this.iconLabel)
+		else if(this.iconLabel != null)
 		{
 			var accessoryAffectsIconLabelMaxWidth:Bool = hasAccessoryToLeftOrRight && (hasIconToLeftOrRight || this._layoutOrder == LAYOUT_ORDER_LABEL_ICON_ACCESSORY);
 			if(Std.is(this.accessory, IValidating))
 			{
-				IValidating(this.accessory).validate();
+				cast(this.accessory, IValidating).validate();
 			}
 			if(accessoryAffectsIconLabelMaxWidth)
 			{
@@ -4055,13 +4110,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 				calculatedWidth = 0;
 			}
 			this.iconLabel.maxWidth = calculatedWidth;
-			if(this.accessory && !accessoryAffectsIconLabelMaxWidth)
+			if(this.accessory != null && !accessoryAffectsIconLabelMaxWidth)
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
 			if(Std.is(this.currentIcon, IValidating))
 			{
-				IValidating(this.currentIcon).validate();
+				cast(this.currentIcon, IValidating).validate();
 			}
 			if(hasIconToLeftOrRight)
 			{
@@ -4072,7 +4127,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			if(Std.is(this.currentIcon, IValidating))
 			{
-				IValidating(this.currentIcon).validate();
+				cast(this.currentIcon, IValidating).validate();
 			}
 			if(hasIconToLeftOrRight)
 			{
@@ -4080,7 +4135,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 			if(Std.is(this.accessory, IValidating))
 			{
-				IValidating(this.accessory).validate();
+				cast(this.accessory, IValidating).validate();
 			}
 			if(hasAccessoryToLeftOrRight)
 			{
@@ -4091,7 +4146,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			calculatedWidth = 0;
 		}
-		if(this.labelTextRenderer)
+		if(this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.maxWidth = calculatedWidth;
 		}
@@ -4102,10 +4157,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function positionRelativeToOthers(object:DisplayObject, relativeTo:DisplayObject, relativeTo2:DisplayObject, position:String, gap:Float, otherPosition:String, otherGap:Float):Void
 	{
-		var relativeToX:Float = relativeTo2 ? Math.min(relativeTo.x, relativeTo2.x) : relativeTo.x;
-		var relativeToY:Float = relativeTo2 ? Math.min(relativeTo.y, relativeTo2.y) : relativeTo.y;
-		var relativeToWidth:Float = relativeTo2 ? (Math.max(relativeTo.x + relativeTo.width, relativeTo2.x + relativeTo2.width) - relativeToX) : relativeTo.width;
-		var relativeToHeight:Float = relativeTo2 ? (Math.max(relativeTo.y + relativeTo.height, relativeTo2.y + relativeTo2.height) - relativeToY) : relativeTo.height;
+		var relativeToX:Float = relativeTo2 != null ? Math.min(relativeTo.x, relativeTo2.x) : relativeTo.x;
+		var relativeToY:Float = relativeTo2 != null ? Math.min(relativeTo.y, relativeTo2.y) : relativeTo.y;
+		var relativeToWidth:Float = relativeTo2 != null ? (Math.max(relativeTo.x + relativeTo.width, relativeTo2.x + relativeTo2.width) - relativeToX) : relativeTo.width;
+		var relativeToHeight:Float = relativeTo2 != null ? (Math.max(relativeTo.y + relativeTo.height, relativeTo2.y + relativeTo2.height) - relativeToY) : relativeTo.height;
 		var newRelativeToX:Float = relativeToX;
 		var newRelativeToY:Float = relativeToY;
 		if(position == ACCESSORY_POSITION_TOP)
@@ -4125,7 +4180,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					newRelativeToY += Math.round((object.height + gap) / 2);
 				}
-				if(relativeTo2)
+				if(relativeTo2 != null)
 				{
 					newRelativeToY = Math.max(newRelativeToY, this._paddingTop + object.height + gap);
 				}
@@ -4149,7 +4204,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					newRelativeToX -= Math.round((object.width + gap) / 2);
 				}
-				if(relativeTo2)
+				if(relativeTo2 != null)
 				{
 					newRelativeToX = Math.min(newRelativeToX, this.actualWidth - this._paddingRight - object.width - relativeToWidth - gap);
 				}
@@ -4173,7 +4228,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					newRelativeToY -= Math.round((object.height + gap) / 2);
 				}
-				if(relativeTo2)
+				if(relativeTo2 != null)
 				{
 					newRelativeToY = Math.min(newRelativeToY, this.actualHeight - this._paddingBottom - object.height - relativeToHeight - gap);
 				}
@@ -4197,7 +4252,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 				{
 					newRelativeToX += Math.round((gap + object.width) / 2);
 				}
-				if(relativeTo2)
+				if(relativeTo2 != null)
 				{
 					newRelativeToX = Math.max(newRelativeToX, this._paddingLeft + object.width + gap);
 				}
@@ -4207,7 +4262,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 		var offsetX:Float = newRelativeToX - relativeToX;
 		var offsetY:Float = newRelativeToY - relativeToY;
-		if(!relativeTo2 || otherGap != Math.POSITIVE_INFINITY || !(
+		if(relativeTo2 == null || otherGap != Math.POSITIVE_INFINITY || !(
 			(position == ACCESSORY_POSITION_TOP && otherPosition == ACCESSORY_POSITION_TOP) ||
 			(position == ACCESSORY_POSITION_RIGHT && otherPosition == ACCESSORY_POSITION_RIGHT) ||
 			(position == ACCESSORY_POSITION_BOTTOM && otherPosition == ACCESSORY_POSITION_BOTTOM) ||
@@ -4217,7 +4272,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			relativeTo.x += offsetX;
 			relativeTo.y += offsetY;
 		}
-		if(relativeTo2)
+		if(relativeTo2 != null)
 		{
 			if(otherGap != Math.POSITIVE_INFINITY || !(
 				(position == ACCESSORY_POSITION_LEFT && otherPosition == ACCESSORY_POSITION_RIGHT) ||
@@ -4305,11 +4360,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._delayTextureCreationOnScroll)
 		{
-			if(this.accessoryLoader)
+			if(this.accessoryLoader != null)
 			{
 				this.accessoryLoader.delayTextureCreation = true;
 			}
-			if(this.iconLoader)
+			if(this.iconLoader != null)
 			{
 				this.iconLoader.delayTextureCreation = true;
 			}
@@ -4320,7 +4375,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		this.resetTouchState();
-		if(this._stateDelayTimer && this._stateDelayTimer.running)
+		if(this._stateDelayTimer != null && this._stateDelayTimer.running)
 		{
 			this._stateDelayTimer.stop();
 		}
@@ -4339,11 +4394,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		if(this._delayTextureCreationOnScroll)
 		{
-			if(this.accessoryLoader)
+			if(this.accessoryLoader != null)
 			{
 				this.accessoryLoader.delayTextureCreation = false;
 			}
-			if(this.iconLoader)
+			if(this.iconLoader != null)
 			{
 				this.iconLoader.delayTextureCreation = false;
 			}
@@ -4385,12 +4440,12 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	override private function button_touchHandler(event:TouchEvent):Void
 	{
-		if(this.accessory && !this._isSelectableOnAccessoryTouch && this.accessory != this.accessoryLabel && this.accessory != this.accessoryLoader && this.touchPointID < 0)
+		if(this.accessory != null && !this._isSelectableOnAccessoryTouch && safe_cast(this.accessory, ITextRenderer) != this.accessoryLabel && this.accessory != this.accessoryLoader && this.touchPointID < 0)
 		{
 			//ignore all touches on accessories that are not labels or
 			//loaders. return to up state.
 			var touch:Touch = event.getTouch(this.accessory);
-			if(touch)
+			if(touch != null)
 			{
 				this.currentState = Button.STATE_UP;
 				return;
@@ -4410,17 +4465,18 @@ class BaseDefaultItemRenderer extends ToggleButton
 			return;
 		}
 		if(!this._stopScrollingOnAccessoryTouch ||
-			this.accessory == this.accessoryLabel ||
+			safe_cast(this.accessory, ITextRenderer) == this.accessoryLabel ||
 			this.accessory == this.accessoryLoader)
 		{
 			//do nothing
 			return;
 		}
 
+		var touch:Touch;
 		if(this.accessoryTouchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this.accessory, TouchPhase.ENDED, this.accessoryTouchPointID);
-			if(!touch)
+			touch = event.getTouch(this.accessory, TouchPhase.ENDED, this.accessoryTouchPointID);
+			if(touch == null)
 			{
 				return;
 			}
@@ -4429,7 +4485,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this.accessory, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}

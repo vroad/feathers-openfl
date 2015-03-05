@@ -8,14 +8,19 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls;
 import feathers.controls.text.ITextEditorViewPort;
 import feathers.controls.text.TextFieldTextEditorViewPort;
+import feathers.core.FeathersControl;
 import feathers.core.IFocusDisplayObject;
 import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+import openfl.errors.ArgumentError;
+import openfl.errors.RangeError;
 
 import openfl.geom.Point;
 import openfl.ui.Mouse;
+#if flash
 import openfl.ui.MouseCursor;
+#end
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -300,8 +305,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public var isFocusEnabled(get, set):Bool;
-public function get_isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -311,10 +315,10 @@ public function get_isFocusEnabled():Bool
 	 * can be used instead of <code>FocusManager.focus == textArea</code>
 	 * to determine if the text area has focus.
 	 */
-	public var hasFocus(get, set):Bool;
+	public var hasFocus(get, never):Bool;
 	public function get_hasFocus():Bool
 	{
-		if(!this._focusManager)
+		if(this._focusManager == null)
 		{
 			return this._textEditorHasFocus;
 		}
@@ -335,12 +339,13 @@ public function get_isFocusEnabled():Bool
 		{
 			this.currentState = STATE_DISABLED;
 		}
+		return get_isEnabled();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _stateNames:Array<String> = new <String>
+	private var _stateNames:Array<String> = 
 	[
 		STATE_ENABLED, STATE_DISABLED, STATE_FOCUSED
 	];
@@ -352,6 +357,7 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * @see #currentState
 	 */
+	private var stateNames(get, never):Array<String>;
 	private function get_stateNames():Array<String>
 	{
 		return this._stateNames;
@@ -367,6 +373,7 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
+	private var currentState(get, set):String;
 	private function get_currentState():String
 	{
 		return this._currentState;
@@ -375,11 +382,11 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	private function set_currentState(value:String):Void
+	private function set_currentState(value:String):String
 	{
 		if(this._currentState == value)
 		{
-			return;
+			return get_currentState();
 		}
 		if(this.stateNames.indexOf(value) < 0)
 		{
@@ -387,6 +394,7 @@ public function get_isFocusEnabled():Bool
 		}
 		this._currentState = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		return get_currentState();
 	}
 
 	/**
@@ -419,18 +427,19 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function set_text(value:String):String
 	{
-		if(!value)
+		if(value == null)
 		{
 			//don't allow null or undefined
 			value = "";
 		}
 		if(this._text == value)
 		{
-			return;
+			return get_text();
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_text();
 	}
 
 	/**
@@ -462,10 +471,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._maxChars == value)
 		{
-			return;
+			return get_maxChars();
 		}
 		this._maxChars = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_maxChars();
 	}
 
 	/**
@@ -497,10 +507,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._restrict == value)
 		{
-			return;
+			return get_restrict();
 		}
 		this._restrict = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_restrict();
 	}
 
 	/**
@@ -532,10 +543,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._isEditable == value)
 		{
-			return;
+			return get_isEditable();
 		}
 		this._isEditable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_isEditable();
 	}
 
 	/**
@@ -568,28 +580,29 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._backgroundFocusedSkin == value)
 		{
-			return;
+			return get_backgroundFocusedSkin();
 		}
 
-		if(this._backgroundFocusedSkin && this._backgroundFocusedSkin != this._backgroundSkin &&
+		if(this._backgroundFocusedSkin != null && this._backgroundFocusedSkin != this._backgroundSkin &&
 			this._backgroundFocusedSkin != this._backgroundDisabledSkin)
 		{
 			this.removeChild(this._backgroundFocusedSkin);
 		}
 		this._backgroundFocusedSkin = value;
-		if(this._backgroundFocusedSkin && this._backgroundFocusedSkin.parent != this)
+		if(this._backgroundFocusedSkin != null && this._backgroundFocusedSkin.parent != this)
 		{
 			this._backgroundFocusedSkin.visible = false;
 			this._backgroundFocusedSkin.touchable = false;
 			this.addChildAt(this._backgroundFocusedSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_backgroundFocusedSkin();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _stateToSkinFunction:Dynamic;
+	private var _stateToSkinFunction:TextArea->Dynamic->DisplayObject->DisplayObject;
 
 	/**
 	 * Returns a skin for the current state.
@@ -599,8 +612,8 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * @default null
 	 */
-	public var stateToSkinFunction(get, set):Dynamic;
-	public function get_stateToSkinFunction():Dynamic
+	public var stateToSkinFunction(get, set):TextArea->Dynamic->DisplayObject->DisplayObject;
+	public function get_stateToSkinFunction():TextArea->Dynamic->DisplayObject->DisplayObject
 	{
 		return this._stateToSkinFunction;
 	}
@@ -608,20 +621,21 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Dynamic):Dynamic
+	public function set_stateToSkinFunction(value:TextArea->Dynamic->DisplayObject->DisplayObject):TextArea->Dynamic->DisplayObject->DisplayObject
 	{
 		if(this._stateToSkinFunction == value)
 		{
-			return;
+			return get_stateToSkinFunction();
 		}
 		this._stateToSkinFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_stateToSkinFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _textEditorFactory:Dynamic;
+	private var _textEditorFactory:Void->ITextEditorViewPort;
 
 	/**
 	 * A function used to instantiate the text editor view port. If
@@ -650,8 +664,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public var textEditorFactory(get, set):Dynamic;
-	public function get_textEditorFactory():Dynamic
+	public var textEditorFactory(get, set):Void->ITextEditorViewPort;
+	public function get_textEditorFactory():Void->ITextEditorViewPort
 	{
 		return this._textEditorFactory;
 	}
@@ -659,14 +673,15 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorFactory(value:Dynamic):Dynamic
+	public function set_textEditorFactory(value:Void->ITextEditorViewPort):Void->ITextEditorViewPort
 	{
 		if(this._textEditorFactory == value)
 		{
-			return;
+			return get_textEditorFactory();
 		}
 		this._textEditorFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
+		return get_textEditorFactory();
 	}
 
 	/**
@@ -703,10 +718,10 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.text.ITextEditorViewPort
 	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
-	public var textEditorProperties(get, set):Dynamic;
-	public function get_textEditorProperties():Dynamic
+	public var textEditorProperties(get, set):PropertyProxy;
+	public function get_textEditorProperties():PropertyProxy
 	{
-		if(!this._textEditorProperties)
+		if(this._textEditorProperties == null)
 		{
 			this._textEditorProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -716,35 +731,36 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_textEditorProperties(value:Dynamic):Dynamic
+	public function set_textEditorProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._textEditorProperties == value)
 		{
-			return;
+			return get_textEditorProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._textEditorProperties)
+		if(this._textEditorProperties != null)
 		{
 			this._textEditorProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._textEditorProperties = PropertyProxy(value);
-		if(this._textEditorProperties)
+		this._textEditorProperties = value;
+		if(this._textEditorProperties != null)
 		{
 			this._textEditorProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_textEditorProperties();
 	}
 
 	/**
@@ -752,7 +768,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	override public function showFocus():Void
 	{
-		if(!this._focusManager || this._focusManager.focus != this)
+		if(this._focusManager == null || this._focusManager.focus != this)
 		{
 			return;
 		}
@@ -769,7 +785,7 @@ public function get_isFocusEnabled():Bool
 		{
 			return;
 		}
-		if(this.textEditorViewPort)
+		if(this.textEditorViewPort != null)
 		{
 			this._isWaitingToSetFocus = false;
 			this.textEditorViewPort.setFocus();
@@ -787,7 +803,7 @@ public function get_isFocusEnabled():Bool
 	public function clearFocus():Void
 	{
 		this._isWaitingToSetFocus = false;
-		if(!this.textEditorViewPort || !this._textEditorHasFocus)
+		if(this.textEditorViewPort == null || !this._textEditorHasFocus)
 		{
 			return;
 		}
@@ -807,14 +823,14 @@ public function get_isFocusEnabled():Bool
 		}
 		if(startIndex < 0)
 		{
-			throw new RangeError("Expected start index greater than or equal to 0. Received " + startIndex + ".");
+			throw new ArgumentError("Expected start index greater than or equal to 0. Received " + startIndex + ".");
 		}
 		if(endIndex > this._text.length)
 		{
 			throw new RangeError("Expected start index less than " + this._text.length + ". Received " + endIndex + ".");
 		}
 
-		if(this.textEditorViewPort)
+		if(this.textEditorViewPort != null)
 		{
 			this._pendingSelectionStartIndex = -1;
 			this._pendingSelectionEndIndex = -1;
@@ -859,11 +875,13 @@ public function get_isFocusEnabled():Bool
 		if(textEditorInvalid || stateInvalid)
 		{
 			this.textEditorViewPort.isEnabled = this._isEnabled;
+			#if flash
 			if(!this._isEnabled && Mouse.supportsNativeCursor && this._oldMouseCursor)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
 			}
+			#end
 		}
 
 		super.draw();
@@ -885,7 +903,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function createTextEditor():Void
 	{
-		if(this.textEditorViewPort)
+		if(this.textEditorViewPort != null)
 		{
 			this.textEditorViewPort.removeEventListener(Event.CHANGE, textEditor_changeHandler);
 			this.textEditorViewPort.removeEventListener(FeathersEventType.FOCUS_IN, textEditor_focusInHandler);
@@ -895,7 +913,7 @@ public function get_isFocusEnabled():Bool
 
 		if(this._textEditorFactory != null)
 		{
-			this.textEditorViewPort = ITextEditorViewPort(this._textEditorFactory());
+			this.textEditorViewPort = this._textEditorFactory();
 		}
 		else
 		{
@@ -905,9 +923,9 @@ public function get_isFocusEnabled():Bool
 		this.textEditorViewPort.addEventListener(FeathersEventType.FOCUS_IN, textEditor_focusInHandler);
 		this.textEditorViewPort.addEventListener(FeathersEventType.FOCUS_OUT, textEditor_focusOutHandler);
 
-		var oldViewPort:ITextEditorViewPort = ITextEditorViewPort(this._viewPort);
+		var oldViewPort:ITextEditorViewPort = cast(this._viewPort, ITextEditorViewPort);
 		this.viewPort = this.textEditorViewPort;
-		if(oldViewPort)
+		if(oldViewPort != null)
 		{
 			//the view port setter won't do this
 			oldViewPort.dispose();
@@ -919,7 +937,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function doPendingActions():Void
 	{
-		if(this._isWaitingToSetFocus || (this._focusManager && this._focusManager.focus == this))
+		if(this._isWaitingToSetFocus || (this._focusManager != null && this._focusManager.focus == this))
 		{
 			this._isWaitingToSetFocus = false;
 			if(!this._textEditorHasFocus)
@@ -945,10 +963,10 @@ public function get_isFocusEnabled():Bool
 		this.textEditorViewPort.maxChars = this._maxChars;
 		this.textEditorViewPort.restrict = this._restrict;
 		this.textEditorViewPort.isEditable = this._isEditable;
-		for (propertyName in this._textEditorProperties)
+		for (propertyName in Reflect.fields(this._textEditorProperties.storage))
 		{
-			var propertyValue:Dynamic = this._textEditorProperties[propertyName];
-			this.textEditorViewPort[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._textEditorProperties.storage, propertyName);
+			Reflect.setProperty(this.textEditorViewPort, propertyName, propertyValue);
 		}
 	}
 
@@ -960,13 +978,13 @@ public function get_isFocusEnabled():Bool
 		var oldSkin:DisplayObject = this.currentBackgroundSkin;
 		if(this._stateToSkinFunction != null)
 		{
-			this.currentBackgroundSkin = DisplayObject(this._stateToSkinFunction(this, this._currentState, oldSkin));
+			this.currentBackgroundSkin = this._stateToSkinFunction(this, this._currentState, oldSkin);
 		}
-		else if(!this._isEnabled && this._backgroundDisabledSkin)
+		else if(!this._isEnabled && this._backgroundDisabledSkin != null)
 		{
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
-		else if(this._hasFocus && this._backgroundFocusedSkin)
+		else if(this._hasFocus && this._backgroundFocusedSkin != null)
 		{
 			this.currentBackgroundSkin = this._backgroundFocusedSkin;
 		}
@@ -976,11 +994,11 @@ public function get_isFocusEnabled():Bool
 		}
 		if(oldSkin != this.currentBackgroundSkin)
 		{
-			if(oldSkin)
+			if(oldSkin != null)
 			{
 				this.removeChild(oldSkin, false);
 			}
-			if(this.currentBackgroundSkin)
+			if(this.currentBackgroundSkin != null)
 			{
 				this.addChildAt(this.currentBackgroundSkin, 0);
 				if(this.originalBackgroundWidth != this.originalBackgroundWidth) //isNaN
@@ -1027,12 +1045,13 @@ public function get_isFocusEnabled():Bool
 			return;
 		}
 
-		var horizontalScrollBar:DisplayObject = DisplayObject(this.horizontalScrollBar);
-		var verticalScrollBar:DisplayObject = DisplayObject(this.verticalScrollBar);
+		var horizontalScrollBar:DisplayObject = cast(this.horizontalScrollBar, DisplayObject);
+		var verticalScrollBar:DisplayObject = cast(this.verticalScrollBar, DisplayObject);
+		var touch:Touch;
 		if(this._textAreaTouchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, TouchPhase.ENDED, this._textAreaTouchPointID);
-			if(!touch || touch.isTouching(verticalScrollBar) || touch.isTouching(horizontalScrollBar))
+			touch = event.getTouch(this, TouchPhase.ENDED, this._textAreaTouchPointID);
+			if(touch == null || touch.isTouching(verticalScrollBar) || touch.isTouching(horizontalScrollBar))
 			{
 				return;
 			}
@@ -1046,7 +1065,7 @@ public function get_isFocusEnabled():Bool
 		else
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(touch)
+			if(touch != null)
 			{
 				if(touch.isTouching(verticalScrollBar) || touch.isTouching(horizontalScrollBar))
 				{
@@ -1061,25 +1080,29 @@ public function get_isFocusEnabled():Bool
 				return;
 			}
 			touch = event.getTouch(this, TouchPhase.HOVER);
-			if(touch)
+			if(touch != null)
 			{
 				if(touch.isTouching(verticalScrollBar) || touch.isTouching(horizontalScrollBar))
 				{
 					return;
 				}
+				#if flash
 				if(Mouse.supportsNativeCursor && !this._oldMouseCursor)
 				{
 					this._oldMouseCursor = Mouse.cursor;
 					Mouse.cursor = MouseCursor.IBEAM;
 				}
+				#end
 				return;
 			}
 			//end hover
+			#if flash
 			if(Mouse.supportsNativeCursor && this._oldMouseCursor)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
 			}
+			#end
 		}
 	}
 
@@ -1097,7 +1120,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function textArea_removedFromStageHandler(event:Event):Void
 	{
-		if(!this._focusManager && this._textEditorHasFocus)
+		if(this._focusManager == null && this._textEditorHasFocus)
 		{
 			this.clearFocus();
 		}
@@ -1105,11 +1128,13 @@ public function get_isFocusEnabled():Bool
 		this._textEditorHasFocus = false;
 		this._textAreaTouchPointID = -1;
 		this.removeEventListener(Event.SCROLL, textArea_scrollHandler);
+		#if flash
 		if(Mouse.supportsNativeCursor && this._oldMouseCursor)
 		{
 			Mouse.cursor = this._oldMouseCursor;
 			this._oldMouseCursor = null;
 		}
+		#end
 	}
 
 	/**
@@ -1117,7 +1142,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	override private function focusInHandler(event:Event):Void
 	{
-		if(!this._focusManager)
+		if(this._focusManager == null)
 		{
 			return;
 		}
@@ -1130,7 +1155,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	override private function focusOutHandler(event:Event):Void
 	{
-		if(!this._focusManager)
+		if(this._focusManager == null)
 		{
 			return;
 		}
@@ -1160,7 +1185,7 @@ public function get_isFocusEnabled():Bool
 		this.currentState = STATE_FOCUSED;
 		this._touchPointID = -1;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this._focusManager.focus = this;
 		}
@@ -1178,7 +1203,7 @@ public function get_isFocusEnabled():Bool
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			return;
 		}

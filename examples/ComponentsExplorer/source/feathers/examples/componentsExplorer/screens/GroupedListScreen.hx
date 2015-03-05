@@ -16,7 +16,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
-class GroupedListScreen extends PanelScreen
+@:keep class GroupedListScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -38,7 +38,7 @@ class GroupedListScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		var groups:Array =
+		var groups:Array<Dynamic> =
 		[
 			{
 				header: "A",
@@ -99,7 +99,7 @@ class GroupedListScreen extends PanelScreen
 				]
 			}
 		];
-		groups.fixed = true;
+		//groups.fixed = true;
 		
 		this._list = new GroupedList();
 		if(this.settings.style == GroupedListSettings.STYLE_INSET)
@@ -127,7 +127,7 @@ class GroupedListScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChildAt(this._list, 0);
 
-		this.headerProperties.title = "Grouped List";
+		this.headerProperties.setProperty("title", "Grouped List");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -136,10 +136,10 @@ class GroupedListScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -148,10 +148,10 @@ class GroupedListScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}

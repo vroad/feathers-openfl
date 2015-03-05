@@ -8,6 +8,8 @@ accordance with the terms of the accompanying license agreement.
 package feathers.core;
 import feathers.controls.supportClasses.LayoutViewPort;
 import feathers.events.FeathersEventType;
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
 
 import openfl.display.InteractiveObject;
 import openfl.display.Stage;
@@ -23,6 +25,8 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+import openfl.display.Sprite;
+
 /**
  * The default <code>IPopUpManager</code> implementation.
  *
@@ -33,14 +37,18 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private static var NATIVE_STAGE_TO_FOCUS_TARGET:Dictionary = new Dictionary(true);
+	#if flash
+	private static var NATIVE_STAGE_TO_FOCUS_TARGET:WeakMap<Stage, NativeFocusTarget> = new WeakMap();
+	#else
+	private static var NATIVE_STAGE_TO_FOCUS_TARGET:Map<Stage, NativeFocusTarget> = new Map();
+	#end
 
 	/**
 	 * Constructor.
 	 */
 	public function new(root:DisplayObjectContainer)
 	{
-		if(!root.stage)
+		if(root.stage == null)
 		{
 			throw new ArgumentError("Focus manager root must be added to the stage.");
 		}
@@ -74,7 +82,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @inheritDoc
 	 */
-	public var root(get, set):DisplayObjectContainer;
+	public var root(get, never):DisplayObjectContainer;
 	public function get_root():DisplayObjectContainer
 	{
 		return this._root;
@@ -103,13 +111,13 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(this._isEnabled == value)
 		{
-			return;
+			return this._isEnabled;
 		}
 		this._isEnabled = value;
 		if(this._isEnabled)
 		{
-			this._nativeFocusTarget = NATIVE_STAGE_TO_FOCUS_TARGET[this._starling.nativeStage] as NativeFocusTarget;
-			if(!this._nativeFocusTarget)
+			this._nativeFocusTarget = NATIVE_STAGE_TO_FOCUS_TARGET.get(this._starling.nativeStage);
+			if(this._nativeFocusTarget == null)
 			{
 				this._nativeFocusTarget = new NativeFocusTarget();
 				this._starling.nativeOverlay.addChild(_nativeFocusTarget);
@@ -132,7 +140,7 @@ class DefaultFocusManager implements IFocusManager
 			if(this._nativeFocusTarget.referenceCount <= 0)
 			{
 				this._nativeFocusTarget.parent.removeChild(this._nativeFocusTarget);
-				delete NATIVE_STAGE_TO_FOCUS_TARGET[this._starling.nativeStage];
+				NATIVE_STAGE_TO_FOCUS_TARGET.remove(this._starling.nativeStage);
 			}
 			this._nativeFocusTarget = null;
 			this._root.removeEventListener(Event.ADDED, topLevelContainer_addedHandler);
@@ -144,6 +152,7 @@ class DefaultFocusManager implements IFocusManager
 			this.focus = null;
 			this._savedFocus = focusToSave;
 		}
+		return this._isEnabled;
 	}
 
 	/**
@@ -174,10 +183,10 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(this._focus == value)
 		{
-			return;
+			return this._focus;
 		}
 		var oldFocus:IFeathersDisplayObject = this._focus;
-		if(this._isEnabled && value && value.isFocusEnabled && value.focusManager == this)
+		if(this._isEnabled && value != null && value.isFocusEnabled && value.focusManager == this)
 		{
 			this._focus = value;
 		}
@@ -185,7 +194,7 @@ class DefaultFocusManager implements IFocusManager
 		{
 			this._focus = null;
 		}
-		if(oldFocus)
+		if(oldFocus != null)
 		{
 			//this event should be dispatched after setting the new value of
 			//_focus because we want to be able to access it in the event
@@ -195,9 +204,9 @@ class DefaultFocusManager implements IFocusManager
 		if(this._isEnabled)
 		{
 			var nativeStage:Stage = this._starling.nativeStage;
-			if(this._focus)
+			if(this._focus != null)
 			{
-				if(!nativeStage.focus)
+				if(nativeStage.focus == null)
 				{
 					nativeStage.focus = this._nativeFocusTarget;
 				}
@@ -213,6 +222,7 @@ class DefaultFocusManager implements IFocusManager
 		{
 			this._savedFocus = value;
 		}
+		return this._focus;
 	}
 
 	/**
@@ -222,12 +232,12 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(Std.is(target, IFocusDisplayObject))
 		{
-			var targetWithFocus:IFocusDisplayObject = IFocusDisplayObject(target);
+			var targetWithFocus:IFocusDisplayObject = cast target;
 			targetWithFocus.focusManager = this;
 		}
 		else if(Std.is(target, DisplayObjectContainer))
 		{
-			var container:DisplayObjectContainer = DisplayObjectContainer(target);
+			var container:DisplayObjectContainer = cast target;
 			var childCount:Int = container.numChildren;
 			for(i in 0 ... childCount)
 			{
@@ -236,24 +246,26 @@ class DefaultFocusManager implements IFocusManager
 			}
 			if(Std.is(container, IFocusExtras))
 			{
-				var containerWithExtras:IFocusExtras = IFocusExtras(container);
+				var containerWithExtras:IFocusExtras = cast container;
 				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
-				if(extras)
+				if(extras != null)
 				{
 					childCount = extras.length;
-					for(i = 0; i < childCount; i++)
+					//for(i = 0; i < childCount; i++)
+					for(i in 0 ... childCount)
 					{
-						child = extras[i];
+						var child:DisplayObject = extras[i];
 						this.setFocusManager(child);
 					}
 				}
 				extras = containerWithExtras.focusExtrasAfter;
-				if(extras)
+				if(extras != null)
 				{
 					childCount = extras.length;
-					for(i = 0; i < childCount; i++)
+					//for(i = 0; i < childCount; i++)
+					for(i in 0 ... childCount)
 					{
-						child = extras[i];
+						var child:DisplayObject = extras[i];
 						this.setFocusManager(child);
 					}
 				}
@@ -268,7 +280,7 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(Std.is(target, IFocusDisplayObject))
 		{
-			var targetWithFocus:IFocusDisplayObject = IFocusDisplayObject(target);
+			var targetWithFocus:IFocusDisplayObject = cast target;
 			if(targetWithFocus.focusManager == this)
 			{
 				if(this._focus == targetWithFocus)
@@ -281,31 +293,34 @@ class DefaultFocusManager implements IFocusManager
 		}
 		if(Std.is(target, DisplayObjectContainer))
 		{
-			var container:DisplayObjectContainer = DisplayObjectContainer(target);
+			var container:DisplayObjectContainer = cast target;
 			var childCount:Int = container.numChildren;
+			var child:DisplayObject;
 			for(i in 0 ... childCount)
 			{
-				var child:DisplayObject = container.getChildAt(i);
+				child = container.getChildAt(i);
 				this.clearFocusManager(child);
 			}
 			if(Std.is(container, IFocusExtras))
 			{
-				var containerWithExtras:IFocusExtras = IFocusExtras(container);
+				var containerWithExtras:IFocusExtras = cast container;
 				var extras:Array<DisplayObject> = containerWithExtras.focusExtrasBefore;
-				if(extras)
+				if(extras != null)
 				{
 					childCount = extras.length;
-					for(i = 0; i < childCount; i++)
+					//for(i = 0; i < childCount; i++)
+					for(i in 0 ... childCount)
 					{
 						child = extras[i];
 						this.clearFocusManager(child);
 					}
 				}
 				extras = containerWithExtras.focusExtrasAfter;
-				if(extras)
+				if(extras != null)
 				{
 					childCount = extras.length;
-					for(i = 0; i < childCount; i++)
+					//for(i = 0; i < childCount; i++)
+					for(i in 0 ... childCount)
 					{
 						child = extras[i];
 						this.clearFocusManager(child);
@@ -325,62 +340,20 @@ class DefaultFocusManager implements IFocusManager
 			container = container.parent;
 		}
 		var hasProcessedBeforeChild:Bool = beforeChild == null;
+		var startIndex:Int;
+		var child:DisplayObject;
+		var foundChild:IFocusDisplayObject;
+		var extras:Array<DisplayObject>;
+		var focusContainer:IFocusExtras = null;
+		var skip:Bool;
 		if(Std.is(container, IFocusExtras))
 		{
-			var focusContainer:IFocusExtras = IFocusExtras(container);
-			var extras:Array<DisplayObject> = focusContainer.focusExtrasAfter;
-			if(extras)
-			{
-				var skip:Bool = false;
-				if(beforeChild)
-				{
-					var startIndex:Int = extras.indexOf(beforeChild) - 1;
-					hasProcessedBeforeChild = startIndex >= -1;
-					skip = !hasProcessedBeforeChild;
-				}
-				else
-				{
-					startIndex = extras.length - 1;
-				}
-				if(!skip)
-				{
-					for(var i:Int = startIndex; i >= 0; i--)
-					{
-						var child:DisplayObject = extras[i];
-						var foundChild:IFocusDisplayObject = this.findPreviousChildFocus(child);
-						if(this.isValidFocus(foundChild))
-						{
-							return foundChild;
-						}
-					}
-				}
-			}
-		}
-		if(beforeChild && !hasProcessedBeforeChild)
-		{
-			startIndex = container.getChildIndex(beforeChild) - 1;
-			hasProcessedBeforeChild = startIndex >= -1;
-		}
-		else
-		{
-			startIndex = container.numChildren - 1;
-		}
-		for(i = startIndex; i >= 0; i--)
-		{
-			child = container.getChildAt(i);
-			foundChild = this.findPreviousChildFocus(child);
-			if(this.isValidFocus(foundChild))
-			{
-				return foundChild;
-			}
-		}
-		if(Std.is(container, IFocusExtras))
-		{
-			extras = focusContainer.focusExtrasBefore;
-			if(extras)
+			focusContainer = cast container;
+			extras = focusContainer.focusExtrasAfter;
+			if(extras != null)
 			{
 				skip = false;
-				if(beforeChild && !hasProcessedBeforeChild)
+				if(beforeChild != null)
 				{
 					startIndex = extras.indexOf(beforeChild) - 1;
 					hasProcessedBeforeChild = startIndex >= -1;
@@ -392,7 +365,9 @@ class DefaultFocusManager implements IFocusManager
 				}
 				if(!skip)
 				{
-					for(i = startIndex; i >= 0; i--)
+					//for(var i:Int = startIndex; i >= 0; i--)
+					var i:Int = startIndex;
+					while(i >= 0)
 					{
 						child = extras[i];
 						foundChild = this.findPreviousChildFocus(child);
@@ -400,12 +375,67 @@ class DefaultFocusManager implements IFocusManager
 						{
 							return foundChild;
 						}
+						i--;
+					}
+				}
+			}
+		}
+		if(beforeChild != null && !hasProcessedBeforeChild)
+		{
+			startIndex = container.getChildIndex(beforeChild) - 1;
+			hasProcessedBeforeChild = startIndex >= -1;
+		}
+		else
+		{
+			startIndex = container.numChildren - 1;
+		}
+		//for(i = startIndex; i >= 0; i--)
+		var i:Int = startIndex;
+		while(i >= 0)
+		{
+			child = container.getChildAt(i);
+			foundChild = this.findPreviousChildFocus(child);
+			if(this.isValidFocus(foundChild))
+			{
+				return foundChild;
+			}
+			i--;
+		}
+		if(Std.is(container, IFocusExtras))
+		{
+			extras = focusContainer.focusExtrasBefore;
+			if(extras != null)
+			{
+				skip = false;
+				if(beforeChild != null && !hasProcessedBeforeChild)
+				{
+					startIndex = extras.indexOf(beforeChild) - 1;
+					hasProcessedBeforeChild = startIndex >= -1;
+					skip = !hasProcessedBeforeChild;
+				}
+				else
+				{
+					startIndex = extras.length - 1;
+				}
+				if(!skip)
+				{
+					//for(i = startIndex; i >= 0; i--)
+					i = startIndex;
+					while(i >= 0)
+					{
+						child = extras[i];
+						foundChild = this.findPreviousChildFocus(child);
+						if(this.isValidFocus(foundChild))
+						{
+							return foundChild;
+						}
+						i--;
 					}
 				}
 			}
 		}
 
-		if(beforeChild && container != this._root)
+		if(beforeChild != null && container != this._root)
 		{
 			return this.findPreviousFocus(container.parent, container);
 		}
@@ -422,64 +452,22 @@ class DefaultFocusManager implements IFocusManager
 			container = container.parent;
 		}
 		var hasProcessedAfterChild:Bool = afterChild == null;
+		
+		var startIndex:Int;
+		var childCount:Int;
+		var child:DisplayObject;
+		var foundChild:IFocusDisplayObject;
+		var extras:Array<DisplayObject>;
+		var focusContainer:IFocusExtras = null;
+		var skip:Bool;
 		if(Std.is(container, IFocusExtras))
 		{
-			var focusContainer:IFocusExtras = IFocusExtras(container);
-			var extras:Array<DisplayObject> = focusContainer.focusExtrasBefore;
-			if(extras)
-			{
-				var skip:Bool = false;
-				if(afterChild)
-				{
-					var startIndex:Int = extras.indexOf(afterChild) + 1;
-					hasProcessedAfterChild = startIndex > 0;
-					skip = !hasProcessedAfterChild;
-				}
-				else
-				{
-					startIndex = 0;
-				}
-				if(!skip)
-				{
-					var childCount:Int = extras.length;
-					for(i in startIndex ... childCount)
-					{
-						var child:DisplayObject = extras[i];
-						var foundChild:IFocusDisplayObject = this.findNextChildFocus(child);
-						if(this.isValidFocus(foundChild))
-						{
-							return foundChild;
-						}
-					}
-				}
-			}
-		}
-		if(afterChild && !hasProcessedAfterChild)
-		{
-			startIndex = container.getChildIndex(afterChild) + 1;
-			hasProcessedAfterChild = startIndex > 0;
-		}
-		else
-		{
-			startIndex = 0;
-		}
-		childCount = container.numChildren;
-		for(i = startIndex; i < childCount; i++)
-		{
-			child = container.getChildAt(i);
-			foundChild = this.findNextChildFocus(child);
-			if(this.isValidFocus(foundChild))
-			{
-				return foundChild;
-			}
-		}
-		if(Std.is(container, IFocusExtras))
-		{
-			extras = focusContainer.focusExtrasAfter;
-			if(extras)
+			focusContainer = cast container;
+			extras = focusContainer.focusExtrasBefore;
+			if(extras != null)
 			{
 				skip = false;
-				if(afterChild && !hasProcessedAfterChild)
+				if(afterChild != null)
 				{
 					startIndex = extras.indexOf(afterChild) + 1;
 					hasProcessedAfterChild = startIndex > 0;
@@ -492,7 +480,59 @@ class DefaultFocusManager implements IFocusManager
 				if(!skip)
 				{
 					childCount = extras.length;
-					for(i = startIndex; i < childCount; i++)
+					for(i in startIndex ... childCount)
+					{
+						child = extras[i];
+						foundChild = this.findNextChildFocus(child);
+						if(this.isValidFocus(foundChild))
+						{
+							return foundChild;
+						}
+					}
+				}
+			}
+		}
+		if(afterChild != null && !hasProcessedAfterChild)
+		{
+			startIndex = container.getChildIndex(afterChild) + 1;
+			hasProcessedAfterChild = startIndex > 0;
+		}
+		else
+		{
+			startIndex = 0;
+		}
+		childCount = container.numChildren;
+		//for(i = startIndex; i < childCount; i++)
+		for(i in startIndex ... childCount)
+		{
+			child = container.getChildAt(i);
+			foundChild = this.findNextChildFocus(child);
+			if(this.isValidFocus(foundChild))
+			{
+				return foundChild;
+			}
+		}
+		if(Std.is(container, IFocusExtras))
+		{
+			extras = focusContainer.focusExtrasAfter;
+			if(extras != null)
+			{
+				skip = false;
+				if(afterChild != null && !hasProcessedAfterChild)
+				{
+					startIndex = extras.indexOf(afterChild) + 1;
+					hasProcessedAfterChild = startIndex > 0;
+					skip = !hasProcessedAfterChild;
+				}
+				else
+				{
+					startIndex = 0;
+				}
+				if(!skip)
+				{
+					childCount = extras.length;
+					//for(i = startIndex; i < childCount; i++)
+					for(i in startIndex ... childCount)
 					{
 						child = extras[i];
 						foundChild = this.findNextChildFocus(child);
@@ -505,7 +545,7 @@ class DefaultFocusManager implements IFocusManager
 			}
 		}
 
-		if(afterChild && container != this._root)
+		if(afterChild != null && container != this._root)
 		{
 			return this.findNextFocus(container.parent, container);
 		}
@@ -519,7 +559,7 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(Std.is(child, IFocusDisplayObject))
 		{
-			var childWithFocus:IFocusDisplayObject = IFocusDisplayObject(child);
+			var childWithFocus:IFocusDisplayObject = cast child;
 			if(this.isValidFocus(childWithFocus))
 			{
 				return childWithFocus;
@@ -527,9 +567,9 @@ class DefaultFocusManager implements IFocusManager
 		}
 		else if(Std.is(child, DisplayObjectContainer))
 		{
-			var childContainer:DisplayObjectContainer = DisplayObjectContainer(child);
+			var childContainer:DisplayObjectContainer = cast child;
 			var foundChild:IFocusDisplayObject = this.findPreviousFocus(childContainer);
-			if(foundChild)
+			if(foundChild != null)
 			{
 				return foundChild;
 			}
@@ -544,7 +584,7 @@ class DefaultFocusManager implements IFocusManager
 	{
 		if(Std.is(child, IFocusDisplayObject))
 		{
-			var childWithFocus:IFocusDisplayObject = IFocusDisplayObject(child);
+			var childWithFocus:IFocusDisplayObject = cast child;
 			if(this.isValidFocus(childWithFocus))
 			{
 				return childWithFocus;
@@ -552,9 +592,9 @@ class DefaultFocusManager implements IFocusManager
 		}
 		else if(Std.is(child, DisplayObjectContainer))
 		{
-			var childContainer:DisplayObjectContainer = DisplayObjectContainer(child);
+			var childContainer:DisplayObjectContainer = cast child;
 			var foundChild:IFocusDisplayObject = this.findNextFocus(childContainer);
-			if(foundChild)
+			if(foundChild != null)
 			{
 				return foundChild;
 			}
@@ -567,12 +607,12 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function isValidFocus(child:IFocusDisplayObject):Bool
 	{
-		if(!child || !child.isFocusEnabled || child.focusManager != this)
+		if(child != null || !child.isFocusEnabled || child.focusManager != this)
 		{
 			return false;
 		}
-		var uiChild:IFeathersControl = child as IFeathersControl;
-		if(uiChild && !uiChild.isEnabled)
+		var uiChild:IFeathersControl = Std.is(child, IFeathersControl) ? cast(child, IFeathersControl) : null;
+		if(uiChild != null && !uiChild.isEnabled)
 		{
 			return false;
 		}
@@ -584,7 +624,9 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function stage_mouseFocusChangeHandler(event:FocusEvent):Void
 	{
+#if flash
 		event.preventDefault();
+#end
 	}
 
 	/**
@@ -598,54 +640,56 @@ class DefaultFocusManager implements IFocusManager
 			return;
 		}
 
-		var newFocus:IFocusDisplayObject;
+		var newFocus:IFocusDisplayObject = null;
 		var currentFocus:IFocusDisplayObject = this._focus;
-		if(currentFocus && currentFocus.focusOwner)
+		if(currentFocus != null && currentFocus.focusOwner != null)
 		{
 			newFocus = currentFocus.focusOwner;
 		}
 		else if(event.shiftKey)
 		{
-			if(currentFocus)
+			if(currentFocus != null)
 			{
-				if(currentFocus.previousTabFocus)
+				if(currentFocus.previousTabFocus != null)
 				{
 					newFocus = currentFocus.previousTabFocus;
 				}
 				else
 				{
-					newFocus = this.findPreviousFocus(currentFocus.parent, DisplayObject(currentFocus));
+					newFocus = this.findPreviousFocus(currentFocus.parent, cast currentFocus);
 				}
 			}
-			if(!newFocus)
+			if(newFocus == null)
 			{
 				newFocus = this.findPreviousFocus(this._root);
 			}
 		}
 		else
 		{
-			if(currentFocus)
+			if(currentFocus != null)
 			{
-				if(currentFocus.nextTabFocus)
+				if(currentFocus.nextTabFocus != null)
 				{
 					newFocus = currentFocus.nextTabFocus;
 				}
 				else
 				{
-					newFocus = this.findNextFocus(currentFocus.parent, DisplayObject(currentFocus));
+					newFocus = this.findNextFocus(currentFocus.parent, cast currentFocus);
 				}
 			}
-			if(!newFocus)
+			if(newFocus == null)
 			{
 				newFocus = this.findNextFocus(this._root);
 			}
 		}
-		if(newFocus)
+		if(newFocus != null)
 		{
+#if flash
 			event.preventDefault();
+#end
 		}
 		this.focus = newFocus;
-		if(this._focus)
+		if(this._focus != null)
 		{
 			this._focus.showFocus();
 		}
@@ -657,7 +701,7 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function topLevelContainer_addedHandler(event:Event):Void
 	{
-		this.setFocusManager(DisplayObject(event.target));
+		this.setFocusManager(cast event.target);
 
 	}
 
@@ -666,7 +710,7 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function topLevelContainer_removedHandler(event:Event):Void
 	{
-		this.clearFocusManager(DisplayObject(event.target));
+		this.clearFocusManager(cast event.target);
 	}
 
 	/**
@@ -675,7 +719,7 @@ class DefaultFocusManager implements IFocusManager
 	private function topLevelContainer_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._root, TouchPhase.BEGAN);
-		if(!touch)
+		if(touch == null)
 		{
 			return;
 		}
@@ -686,7 +730,7 @@ class DefaultFocusManager implements IFocusManager
 		{
 			if(Std.is(target, IFocusDisplayObject))
 			{
-				var tempFocusTarget:IFocusDisplayObject = IFocusDisplayObject(target);
+				var tempFocusTarget:IFocusDisplayObject = cast target;
 				if(this.isValidFocus(tempFocusTarget))
 				{
 					focusTarget = tempFocusTarget;
@@ -694,7 +738,7 @@ class DefaultFocusManager implements IFocusManager
 			}
 			target = target.parent;
 		}
-		while(target)
+		while (target != null);
 		this.focus = focusTarget;
 	}
 
@@ -703,9 +747,9 @@ class DefaultFocusManager implements IFocusManager
 	 */
 	private function nativeFocus_focusOutHandler(event:FocusEvent):Void
 	{
-		var nativeFocus:InteractiveObject = InteractiveObject(event.currentTarget);
+		var nativeFocus:InteractiveObject = cast event.currentTarget;
 		var nativeStage:Stage = this._starling.nativeStage;
-		if(this._focus && !nativeStage.focus)
+		if(this._focus != null && nativeStage.focus == null)
 		{
 			//if there's still a feathers focus, but the native stage object has
 			//lost focus for some reason, and there's no focus at all, force it
@@ -721,17 +765,16 @@ class DefaultFocusManager implements IFocusManager
 	}
 }
 
-import openfl.display.Sprite;
-
 class NativeFocusTarget extends Sprite
 {
-public function new()
-{
-	this.tabEnabled = true;
-	this.mouseEnabled = false;
-	this.mouseChildren = false;
-	this.alpha = 0;
-}
+	public function new()
+	{
+		super();
+		this.tabEnabled = true;
+		this.mouseEnabled = false;
+		this.mouseChildren = false;
+		this.alpha = 0;
+	}
 
-public var referenceCount:Int = 1;
+	public var referenceCount:Int = 1;
 }

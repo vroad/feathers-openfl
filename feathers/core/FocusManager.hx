@@ -7,6 +7,9 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
 import openfl.utils.Dictionary;
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
+import openfl.errors.Error;
 
 import starling.core.Starling;
 import starling.display.DisplayObjectContainer;
@@ -35,8 +38,11 @@ class FocusManager
 	/**
 	 * @private
 	 */
-	inline private static var STAGE_TO_STACK:Dictionary = new Dictionary(true);
-
+#if flash
+	private static var STAGE_TO_STACK:WeakMap<Stage, Array<IFocusManager>> = new WeakMap();
+#else
+	private static var STAGE_TO_STACK:Map<Stage, Array<IFocusManager>> = new Map();
+#end
 	/**
 	 * Returns the active focus manager for the specified Starling stage.
 	 * May return <code>null</code> if focus management has not been enabled
@@ -47,8 +53,8 @@ class FocusManager
 	 */
 	public static function getFocusManagerForStage(stage:Stage):IFocusManager
 	{
-		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
-		if(!stack)
+		var stack:Array<Dynamic> = cast(STAGE_TO_STACK.get(stage), Array<Dynamic>);
+		if(stack == null)
 		{
 			return null;
 		}
@@ -93,7 +99,7 @@ class FocusManager
 	 */
 	public static function isEnabledForStage(stage:Stage):Bool
 	{
-		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
+		var stack:Array<IFocusManager> = STAGE_TO_STACK.get(stage);
 		return stack != null;
 	}
 
@@ -113,14 +119,14 @@ class FocusManager
 	 */
 	public static function setEnabledForStage(stage:Stage, isEnabled:Bool):Void
 	{
-		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
-		if((isEnabled && stack) || (!isEnabled && !stack))
+		var stack:Array<IFocusManager> = STAGE_TO_STACK.get(stage);
+		if((isEnabled && stack != null) || (!isEnabled && stack == null))
 		{
 			return;
 		}
 		if(isEnabled)
 		{
-			STAGE_TO_STACK[stage] = new Array();
+			STAGE_TO_STACK.set(stage, new Array());
 			pushFocusManager(stage);
 		}
 		else
@@ -130,7 +136,7 @@ class FocusManager
 				var manager:IFocusManager = stack.pop();
 				manager.isEnabled = false;
 			}
-			delete STAGE_TO_STACK[stage];
+			STAGE_TO_STACK.remove(stage);
 		}
 	}
 
@@ -142,14 +148,14 @@ class FocusManager
 	{
 		for (key in STAGE_TO_STACK)
 		{
-			var stage:Stage = Stage(key);
-			var stack:Array<IFocusManager> = STAGE_TO_STACK[stage];
+			var stage:Stage = cast key;
+			var stack:Array<IFocusManager> = STAGE_TO_STACK.get(stage);
 			while(stack.length > 0)
 			{
 				var manager:IFocusManager = stack.pop();
 				manager.isEnabled = false;
 			}
-			delete STAGE_TO_STACK[stage];
+			STAGE_TO_STACK.remove(stage);
 		}
 	}
 
@@ -171,7 +177,7 @@ class FocusManager
 	public static function get_focus():IFocusDisplayObject
 	{
 		var manager:IFocusManager = getFocusManagerForStage(Starling.current.stage);
-		if(manager)
+		if(manager != null)
 		{
 			return manager.focus;
 		}
@@ -184,7 +190,7 @@ class FocusManager
 	public static function set_focus(value:IFocusDisplayObject):Void
 	{
 		var manager:IFocusManager = getFocusManagerForStage(Starling.current.stage);
-		if(!manager)
+		if(manager == null)
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);
 		}
@@ -200,12 +206,12 @@ class FocusManager
 	public static function pushFocusManager(root:DisplayObjectContainer):IFocusManager
 	{
 		var stage:Stage = root.stage;
-		if(!stage)
+		if(stage == null)
 		{
 			throw new ArgumentError(FOCUS_MANAGER_ROOT_MUST_BE_ON_STAGE_ERROR);
 		}
-		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
-		if(!stack)
+		var stack:Array<IFocusManager> = STAGE_TO_STACK.get(stage);
+		if(stack == null)
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);
 		}
@@ -228,8 +234,8 @@ class FocusManager
 	public static function removeFocusManager(manager:IFocusManager):Void
 	{
 		var stage:Stage = manager.root.stage;
-		var stack:Array<IFocusManager> = STAGE_TO_STACK[stage] as Array<IFocusManager>;
-		if(!stack)
+		var stack:Array<IFocusManager> = STAGE_TO_STACK.get(stage);
+		if(stack == null)
 		{
 			throw new Error(FOCUS_MANAGER_NOT_ENABLED_ERROR);
 		}

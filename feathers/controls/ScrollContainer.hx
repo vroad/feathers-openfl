@@ -7,9 +7,12 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
 import feathers.controls.supportClasses.LayoutViewPort;
+import feathers.core.FeathersControl;
 import feathers.layout.ILayout;
 import feathers.layout.IVirtualLayout;
 import feathers.skins.IStyleProvider;
+
+import openfl.errors.ArgumentError;
 
 import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;
@@ -35,7 +38,7 @@ import starling.display.DisplayObjectContainer;
  * @eventType starling.events.Event.SCROLL
  *///[Event(name="change",type="starling.events.Event")]
 
-[DefaultProperty("mxmlContent")]
+//[DefaultProperty("mxmlContent")]
 /**
  * A generic container that supports layout, scrolling, and a background
  * skin. For a lighter container, see <code>LayoutGroup</code>, which
@@ -257,10 +260,11 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	{
 		if(this._layout == value)
 		{
-			return;
+			return get_layout();
 		}
 		this._layout = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 
 	/**
@@ -271,14 +275,14 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	private var _mxmlContent:Array;
+	private var _mxmlContent:Array<DisplayObject>;
 
-	[ArrayElementType("feathers.core.IFeathersControl")]
+	//[ArrayElementType("feathers.core.IFeathersControl")]
 	/**
 	 * @private
 	 */
-	public var mxmlContent(get, set):Array;
-	public function get_mxmlContent():Array
+	public var mxmlContent(get, set):Array<DisplayObject>;
+	public function get_mxmlContent():Array<DisplayObject>
 	{
 		return this._mxmlContent;
 	}
@@ -286,43 +290,43 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	public function set_mxmlContent(value:Array):Array
+	public function set_mxmlContent(value:Array<DisplayObject>):Array<DisplayObject>
 	{
 		if(this._mxmlContent == value)
 		{
-			return;
+			return get_mxmlContent();
 		}
-		if(this._mxmlContent && this._mxmlContentIsReady)
+		if(this._mxmlContent != null && this._mxmlContentIsReady)
 		{
 			var childCount:Int = this._mxmlContent.length;
 			for(i in 0 ... childCount)
 			{
-				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
+				var child:DisplayObject = this._mxmlContent[i];
 				this.removeChild(child, true);
 			}
 		}
 		this._mxmlContent = value;
 		this._mxmlContentIsReady = false;
 		this.invalidate(INVALIDATION_FLAG_MXML_CONTENT);
+		return get_mxmlContent();
 	}
 
 	/**
 	 * @private
 	 */
-	override public var numChildren(get, set):Int;
-public function get_numChildren():Int
+	override public function get_numChildren():Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
 			return super.numChildren;
 		}
-		return DisplayObjectContainer(this.viewPort).numChildren;
+		return cast(this.viewPort, DisplayObjectContainer).numChildren;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var numRawChildren(get, set):Int;
+	public var numRawChildren(get, never):Int;
 	public function get_numRawChildren():Int
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;
@@ -341,7 +345,7 @@ public function get_numChildren():Int
 		{
 			return super.getChildByName(name);
 		}
-		return DisplayObjectContainer(this.viewPort).getChildByName(name);
+		return cast(this.viewPort, DisplayObjectContainer).getChildByName(name);
 	}
 
 	/**
@@ -365,7 +369,7 @@ public function get_numChildren():Int
 		{
 			return super.getChildAt(index);
 		}
-		return DisplayObjectContainer(this.viewPort).getChildAt(index);
+		return cast(this.viewPort, DisplayObjectContainer).getChildAt(index);
 	}
 
 	/**
@@ -408,7 +412,7 @@ public function get_numChildren():Int
 		{
 			return super.addChildAt(child, index);
 		}
-		return DisplayObjectContainer(this.viewPort).addChildAt(child, index);
+		return cast(this.viewPort, DisplayObjectContainer).addChildAt(child, index);
 	}
 
 	/**
@@ -448,7 +452,7 @@ public function get_numChildren():Int
 		{
 			return super.removeChildAt(index, dispose);
 		}
-		return DisplayObjectContainer(this.viewPort).removeChildAt(index, dispose);
+		return cast(this.viewPort, DisplayObjectContainer).removeChildAt(index, dispose);
 	}
 
 	/**
@@ -472,7 +476,7 @@ public function get_numChildren():Int
 		{
 			return super.getChildIndex(child);
 		}
-		return DisplayObjectContainer(this.viewPort).getChildIndex(child);
+		return cast(this.viewPort, DisplayObjectContainer).getChildIndex(child);
 	}
 
 	/**
@@ -496,7 +500,7 @@ public function get_numChildren():Int
 			super.setChildIndex(child, index);
 			return;
 		}
-		DisplayObjectContainer(this.viewPort).setChildIndex(child, index);
+		cast(this.viewPort, DisplayObjectContainer).setChildIndex(child, index);
 	}
 
 	/**
@@ -537,7 +541,7 @@ public function get_numChildren():Int
 			super.swapChildrenAt(index1, index2);
 			return;
 		}
-		DisplayObjectContainer(this.viewPort).swapChildrenAt(index1, index2);
+		cast(this.viewPort, DisplayObjectContainer).swapChildrenAt(index1, index2);
 	}
 
 	/**
@@ -561,7 +565,7 @@ public function get_numChildren():Int
 			super.sortChildren(compareFunction);
 			return;
 		}
-		DisplayObjectContainer(this.viewPort).sortChildren(compareFunction);
+		cast(this.viewPort, DisplayObjectContainer).sortChildren(compareFunction);
 	}
 
 	/**
@@ -618,7 +622,7 @@ public function get_numChildren():Int
 		{
 			if(Std.is(this._layout, IVirtualLayout))
 			{
-				IVirtualLayout(this._layout).useVirtualLayout = false;
+				cast(this._layout, IVirtualLayout).useVirtualLayout = false;
 			}
 			this.layoutViewPort.layout = this._layout;
 		}
@@ -631,14 +635,14 @@ public function get_numChildren():Int
 	 */
 	private function refreshMXMLContent():Void
 	{
-		if(!this._mxmlContent || this._mxmlContentIsReady)
+		if(this._mxmlContent == null || this._mxmlContentIsReady)
 		{
 			return;
 		}
 		var childCount:Int = this._mxmlContent.length;
 		for(i in 0 ... childCount)
 		{
-			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
+			var child:DisplayObject = cast(this._mxmlContent[i], DisplayObject);
 			this.addChild(child);
 		}
 		this._mxmlContentIsReady = true;

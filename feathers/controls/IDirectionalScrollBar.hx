@@ -21,10 +21,11 @@ interface IDirectionalScrollBar extends IScrollBar
 	 * @see feathers.controls.SimpleScrollBar#DIRECTION_HORIZONTAL
 	 * @see feathers.controls.SimpleScrollBar#DIRECTION_VERTICAL
 	 */
-	function get_direction():String;
+	var direction(get, set):String;
+	//function get_direction():String;
 
 	/**
 	 * @private
 	 */
-	function set_direction(value:String):Void;
+	//function set_direction(value:String):Void;
 }

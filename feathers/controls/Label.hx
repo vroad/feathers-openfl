@@ -135,10 +135,11 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._text == value)
 		{
-			return;
+			return get_text();
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_text();
 	}
 
 	/**
@@ -170,19 +171,20 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._wordWrap == value)
 		{
-			return;
+			return get_wordWrap();
 		}
 		this._wordWrap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_wordWrap();
 	}
 
 	/**
 	 * The baseline measurement of the text, in pixels.
 	 */
-	public var baseline(get, set):Float;
+	public var baseline(get, never):Float;
 	public function get_baseline():Float
 	{
-		if(!this.textRenderer)
+		if(this.textRenderer == null)
 		{
 			return 0;
 		}
@@ -192,7 +194,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _textRendererFactory:Dynamic;
+	private var _textRendererFactory:Void->ITextRenderer;
 
 	/**
 	 * A function used to instantiate the label's text renderer
@@ -221,8 +223,8 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
 	 */
-	public var textRendererFactory(get, set):Dynamic;
-	public function get_textRendererFactory():Dynamic
+	public var textRendererFactory(get, set):Void->ITextRenderer;
+	public function get_textRendererFactory():Void->ITextRenderer
 	{
 		return this._textRendererFactory;
 	}
@@ -230,14 +232,15 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererFactory(value:Dynamic):Dynamic
+	public function set_textRendererFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._textRendererFactory == value)
 		{
-			return;
+			return get_textRendererFactory();
 		}
 		this._textRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_textRendererFactory();
 	}
 
 	/**
@@ -278,10 +281,10 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var textRendererProperties(get, set):Dynamic;
-	public function get_textRendererProperties():Dynamic
+	public var textRendererProperties(get, set):PropertyProxy;
+	public function get_textRendererProperties():PropertyProxy
 	{
-		if(!this._textRendererProperties)
+		if(this._textRendererProperties == null)
 		{
 			this._textRendererProperties = new PropertyProxy(textRendererProperties_onChange);
 		}
@@ -291,26 +294,27 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_textRendererProperties(value:Dynamic):Dynamic
+	public function set_textRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._textRendererProperties == value)
 		{
-			return;
+			return get_textRendererProperties();
 		}
-		if(value && !(value is PropertyProxy))
+		if(value != null && !Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		if(this._textRendererProperties)
+		if(this._textRendererProperties != null)
 		{
 			this._textRendererProperties.removeOnChangeCallback(textRendererProperties_onChange);
 		}
-		this._textRendererProperties = PropertyProxy(value);
-		if(this._textRendererProperties)
+		this._textRendererProperties = value;
+		if(this._textRendererProperties != null)
 		{
 			this._textRendererProperties.addOnChangeCallback(textRendererProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_textRendererProperties();
 	}
 
 	/**
@@ -383,7 +387,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
-			if(this._text)
+			if(this._text != null)
 			{
 				newWidth = HELPER_POINT.x;
 			}
@@ -396,7 +400,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			if(this._text)
+			if(this._text != null)
 			{
 				newHeight = HELPER_POINT.y;
 			}
@@ -421,15 +425,15 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 */
 	private function createTextRenderer():Void
 	{
-		if(this.textRenderer)
+		if(this.textRenderer != null)
 		{
-			this.removeChild(DisplayObject(this.textRenderer), true);
+			this.removeChild(cast(this.textRenderer, DisplayObject), true);
 			this.textRenderer = null;
 		}
 
-		var factory:Dynamic = this._textRendererFactory != null ? this._textRendererFactory : FeathersControl.defaultTextRendererFactory;
-		this.textRenderer = ITextRenderer(factory());
-		this.addChild(DisplayObject(this.textRenderer));
+		var factory:Void->ITextRenderer = this._textRendererFactory != null ? this._textRendererFactory : FeathersControl.defaultTextRendererFactory;
+		this.textRenderer = factory();
+		this.addChild(cast(this.textRenderer, DisplayObject));
 	}
 
 	/**
@@ -446,7 +450,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	private function refreshTextRendererData():Void
 	{
 		this.textRenderer.text = this._text;
-		this.textRenderer.visible = this._text && this._text.length > 0;
+		this.textRenderer.visible = this._text != null && this._text.length > 0;
 	}
 
 	/**
@@ -455,10 +459,10 @@ class Label extends FeathersControl implements ITextBaselineControl
 	private function refreshTextRendererStyles():Void
 	{
 		this.textRenderer.wordWrap = this._wordWrap;
-		for(var propertyName:String in this._textRendererProperties)
+		for(propertyName in Reflect.fields(this._textRendererProperties.storage))
 		{
-			var propertyValue:Dynamic = this._textRendererProperties[propertyName];
-			this.textRenderer[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._textRendererProperties.storage, propertyName);
+			Reflect.setProperty(this.textRenderer, propertyName, propertyValue);
 		}
 	}
 

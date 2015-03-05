@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class PageIndicatorScreen extends PanelScreen
+@:keep class PageIndicatorScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -38,7 +38,7 @@ class PageIndicatorScreen extends PanelScreen
 		this._pageIndicator.layoutData = pageIndicatorLayoutData;
 		this.addChild(this._pageIndicator);
 
-		this.headerProperties.title = "Page Indicator";
+		this.headerProperties.setProperty("title", "Page Indicator");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -47,10 +47,10 @@ class PageIndicatorScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

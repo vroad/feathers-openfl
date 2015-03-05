@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class AnchorLayoutScreen extends PanelScreen
+@:keep class AnchorLayoutScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -61,7 +61,7 @@ class AnchorLayoutScreen extends PanelScreen
 		label2.layoutData = relativeLayoutData;
 		this.addChild(label2);
 
-		this.headerProperties.title = "Anchor Layout";
+		this.headerProperties.setProperty("title", "Anchor Layout");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -70,10 +70,10 @@ class AnchorLayoutScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

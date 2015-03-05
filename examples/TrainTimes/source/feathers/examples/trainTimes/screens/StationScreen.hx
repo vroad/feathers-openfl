@@ -20,8 +20,9 @@ class StationScreen extends Screen
 {
 	inline public static var CHILD_NAME_STATION_LIST:String = "stationList";
 
-	public function new()
+	@:keep public function new()
 	{
+		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
@@ -49,9 +50,9 @@ class StationScreen extends Screen
 			new StationData("Timber Ridge"),
 			new StationData("Old Mine Heights"),
 			new StationData("Granite Estates"),
-		])
-		this._stationList.itemRendererProperties.confirmCallback = stationList_onConfirm;
-		this._stationList.itemRendererProperties.isInDestinationPhase = false;
+		]);
+		this._stationList.itemRendererProperties.setProperty("confirmCallback", stationList_onConfirm);
+		this._stationList.itemRendererProperties.setProperty("isInDestinationPhase", false);
 		this.addChild(this._stationList);
 
 		this._backButton = new Button();
@@ -64,7 +65,7 @@ class StationScreen extends Screen
 
 		this._destinationHeader = new Header();
 		this._destinationHeader.title = "Choose Destination Station";
-		this._destinationHeader.leftItems = new <DisplayObject>
+		this._destinationHeader.leftItems = 
 		[
 			this._backButton
 		];
@@ -77,7 +78,7 @@ class StationScreen extends Screen
 		this._destinationHeader.width = this.actualWidth;
 
 		var currentHeader:Header;
-		if(this.selectedDepartureStation)
+		if(this.selectedDepartureStation != null)
 		{
 			currentHeader = this._destinationHeader;
 			this._destinationHeader.x = 0;
@@ -103,16 +104,16 @@ class StationScreen extends Screen
 	private function onBackButton():Void
 	{
 		this.selectedDepartureStation.isDepartingFromHere = false;
-		var index:Int = this._stationList.dataProvider.getItemIndex(this.selectedDepartureStation);
+		var index:Int = this._stationList.dataProvider.getItemIndex(this.selectedDepartureStation != null);
 		this._stationList.dataProvider.updateItemAt(index);
 		this._stationList.selectedItem = this.selectedDepartureStation;
 		this.selectedDepartureStation = null;
 		this._backButton.visible = false;
 		this._departureHeader.title = "Choose Departure Station";
-		this._stationList.itemRendererProperties.isInDestinationPhase = false;
+		this._stationList.itemRendererProperties.setProperty("isInDestinationPhase", false);
 
 		this._departureHeader.visible = true;
-		if(this._headerTween)
+		if(this._headerTween != null)
 		{
 			Starling.current.juggler.remove(this._headerTween);
 			this._headerTween = null;
@@ -126,23 +127,23 @@ class StationScreen extends Screen
 
 	private function stationList_onConfirm():Void
 	{
-		if(this.selectedDepartureStation)
+		if(this.selectedDepartureStation != null)
 		{
-			this.selectedDestinationStation = StationData(this._stationList.selectedItem);
+			this.selectedDestinationStation = cast(this._stationList.selectedItem, StationData);
 			this.dispatchEventWith(Event.COMPLETE);
 			return;
 		}
-		this.selectedDepartureStation = StationData(this._stationList.selectedItem);
+		this.selectedDepartureStation = cast(this._stationList.selectedItem, StationData);
 		this.selectedDepartureStation.isDepartingFromHere = true;
 
 		this._departureHeader.title = "Choose Destination Station";
 		this._backButton.visible = true;
 
 		this._stationList.selectedIndex = -1;
-		this._stationList.itemRendererProperties.isInDestinationPhase = true;
+		this._stationList.itemRendererProperties.setProperty("isInDestinationPhase", true);
 
 		this._destinationHeader.visible = true;
-		if(this._headerTween)
+		if(this._headerTween != null)
 		{
 			Starling.current.juggler.remove(this._headerTween);
 			this._headerTween = null;
@@ -188,10 +189,12 @@ class StationScreen extends Screen
 
 	private function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
+		#if flash
 		if(event.keyCode == Keyboard.BACK && this.selectedDepartureStation)
 		{
 			event.preventDefault();
 			this.onBackButton();
 		}
+		#end
 	}
 }

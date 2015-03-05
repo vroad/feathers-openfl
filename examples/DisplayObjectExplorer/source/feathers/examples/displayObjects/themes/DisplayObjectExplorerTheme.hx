@@ -4,24 +4,27 @@ import feathers.examples.displayObjects.screens.Scale3ImageScreen;
 import feathers.examples.displayObjects.screens.Scale9ImageScreen;
 import feathers.examples.displayObjects.screens.TiledImageScreen;
 import feathers.themes.MetalWorksMobileTheme;
+import openfl.Assets;
 
 import starling.display.Image;
 import starling.textures.Texture;
 
 class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 {
-	[Embed(source="/../assets/images/horizontal-grip.png")]
-	inline private static var HORIZONTAL_GRIP:Class<Dynamic>;
+	//[Embed(source="/../assets/images/horizontal-grip.png")]
+	//inline private static var HORIZONTAL_GRIP:Class<Dynamic>;
+	inline private static var HORIZONTAL_GRIP_FILE_NAME = "assets/images/horizontal-grip.png";
 
-	[Embed(source="/../assets/images/vertical-grip.png")]
-	inline private static var VERTICAL_GRIP:Class<Dynamic>;
+	//[Embed(source="/../assets/images/vertical-grip.png")]
+	//inline private static var VERTICAL_GRIP:Class<Dynamic>;
+	inline private static var VERTICAL_GRIP_FILE_NAME = "assets/images/vertical-grip.png";
 
 	inline public static var THEME_NAME_RIGHT_GRIP:String = "right-grip";
 	inline public static var THEME_NAME_BOTTOM_GRIP:String = "bottom-grip";
 
 	public function new()
 	{
-		super();
+		super(false);
 	}
 
 	private var _rightGripTexture:Texture;
@@ -30,8 +33,8 @@ class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 	override private function initializeTextures():Void
 	{
 		super.initializeTextures();
-		this._rightGripTexture = Texture.fromEmbeddedAsset(VERTICAL_GRIP, false);
-		this._bottomGripTexture = Texture.fromEmbeddedAsset(HORIZONTAL_GRIP, false);
+		this._rightGripTexture = Texture.fromBitmapData(Assets.getBitmapData(VERTICAL_GRIP_FILE_NAME), false);
+		this._bottomGripTexture = Texture.fromBitmapData(Assets.getBitmapData(HORIZONTAL_GRIP_FILE_NAME), false);
 	}
 
 	override private function initializeStyleProviders():Void

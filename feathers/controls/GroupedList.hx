@@ -6,8 +6,11 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
+import feathers.core.FeathersControl;
 import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
 import feathers.controls.renderers.DefaultGroupedListItemRenderer;
+import feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer;
+import feathers.controls.renderers.IGroupedListItemRenderer;
 import feathers.controls.supportClasses.GroupedListDataViewPort;
 import feathers.core.IFocusDisplayObject;
 import feathers.core.PropertyProxy;
@@ -16,6 +19,7 @@ import feathers.events.CollectionEventType;
 import feathers.layout.ILayout;
 import feathers.layout.VerticalLayout;
 import feathers.skins.IStyleProvider;
+import openfl.errors.ArgumentError;
 
 import openfl.geom.Point;
 import openfl.ui.Keyboard;
@@ -95,7 +99,7 @@ import starling.events.KeyboardEvent;
  */
 //[Event(name="rendererRemove",type="starling.events.Event")]
 
-[DefaultProperty("dataProvider")]
+//[DefaultProperty("dataProvider")]
 /**
  * Displays a list of items divided into groups or sections. Takes a
  * hierarchical provider limited to two levels of hierarchy. This component
@@ -414,8 +418,7 @@ class GroupedList extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public var isFocusEnabled(get, set):Bool;
-public function get_isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -454,10 +457,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._layout == value)
 		{
-			return;
+			return get_layout();
 		}
 		this._layout = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 
 	/**
@@ -560,15 +564,15 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._dataProvider == value)
 		{
-			return;
+			return get_dataProvider();
 		}
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.removeEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
 		this._dataProvider = value;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.addEventListener(Event.CHANGE, dataProvider_changeHandler);
@@ -583,6 +587,7 @@ public function get_isFocusEnabled():Bool
 		this.setSelectedLocation(-1, -1);
 
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_dataProvider();
 	}
 
 	/**
@@ -613,7 +618,7 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._isSelectable == value)
 		{
-			return;
+			return get_isSelectable();
 		}
 		this._isSelectable = value;
 		if(!this._isSelectable)
@@ -621,6 +626,7 @@ public function get_isFocusEnabled():Bool
 			this.setSelectedLocation(-1, -1);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_isSelectable();
 	}
 
 	/**
@@ -654,7 +660,7 @@ public function get_isFocusEnabled():Bool
 	 * @see #selectedItemIndex
 	 * @see #setSelectedLocation()
 	 */
-	public var selectedGroupIndex(get, set):Int;
+	public var selectedGroupIndex(get, never):Int;
 	public function get_selectedGroupIndex():Int
 	{
 		return this._selectedGroupIndex;
@@ -691,7 +697,7 @@ public function get_isFocusEnabled():Bool
 	 * @see #selectedGroupIndex
 	 * @see #setSelectedLocation()
 	 */
-	public var selectedItemIndex(get, set):Int;
+	public var selectedItemIndex(get, never):Int;
 	public function get_selectedItemIndex():Int
 	{
 		return this._selectedItemIndex;
@@ -718,11 +724,11 @@ public function get_isFocusEnabled():Bool
 	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
-		if(!this._dataProvider || this._selectedGroupIndex < 0 || this._selectedItemIndex < 0)
+		if(this._dataProvider == null || this._selectedGroupIndex < 0 || this._selectedItemIndex < 0)
 		{
 			return null;
 		}
-		return this._dataProvider.getItemAt(this._selectedGroupIndex, this._selectedItemIndex);
+		return this._dataProvider.getItemAt([this._selectedGroupIndex, this._selectedItemIndex]);
 	}
 
 	/**
@@ -730,10 +736,10 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function set_selectedItem(value:Dynamic):Dynamic
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			this.setSelectedLocation(-1, -1);
-			return;
+			return get_selectedItem();
 		}
 		var result:Array<Int> = this._dataProvider.getItemLocation(value);
 		if(result.length == 2)
@@ -744,6 +750,7 @@ public function get_isFocusEnabled():Bool
 		{
 			this.setSelectedLocation(-1, -1);
 		}
+		return get_selectedItem();
 	}
 
 	/**
@@ -778,8 +785,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #lastItemRendererType
 	 * @see #singleItemRendererType
 	 */
-	public var itemRendererType(get, set):Class;
-	public function get_itemRendererType():Class
+	public var itemRendererType(get, set):Class<Dynamic>;
+	public function get_itemRendererType():Class<Dynamic>
 	{
 		return this._itemRendererType;
 	}
@@ -791,17 +798,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._itemRendererType == value)
 		{
-			return;
+			return get_itemRendererType();
 		}
 
 		this._itemRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _itemRendererFactory:Dynamic;
+	private var _itemRendererFactory:Void->IGroupedListItemRenderer;
 
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -838,8 +846,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #lastItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public var itemRendererFactory(get, set):Dynamic;
-	public function get_itemRendererFactory():Dynamic
+	public var itemRendererFactory(get, set):Void->IGroupedListItemRenderer;
+	public function get_itemRendererFactory():Void->IGroupedListItemRenderer
 	{
 		return this._itemRendererFactory;
 	}
@@ -847,15 +855,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Dynamic):Dynamic
+	public function set_itemRendererFactory(value:Void->IGroupedListItemRenderer):Void->IGroupedListItemRenderer
 	{
 		if(this._itemRendererFactory == value)
 		{
-			return;
+			return get_itemRendererFactory();
 		}
 
 		this._itemRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererFactory();
 	}
 
 	/**
@@ -892,10 +901,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._typicalItem == value)
 		{
-			return;
+			return get_typicalItem();
 		}
 		this._typicalItem = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_typicalItem();
 	}
 
 	/**
@@ -938,10 +948,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._itemRendererName == value)
 		{
-			return;
+			return get_itemRendererName();
 		}
 		this._itemRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererName();
 	}
 
 	/**
@@ -983,10 +994,10 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListItemRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListItemRenderer
 	 */
-	public var itemRendererProperties(get, set):Dynamic;
-	public function get_itemRendererProperties():Dynamic
+	public var itemRendererProperties(get, set):PropertyProxy;
+	public function get_itemRendererProperties():PropertyProxy
 	{
-		if(!this._itemRendererProperties)
+		if(this._itemRendererProperties == null)
 		{
 			this._itemRendererProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -996,35 +1007,36 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Dynamic):Dynamic
+	public function set_itemRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._itemRendererProperties == value)
 		{
-			return;
+			return get_itemRendererProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._itemRendererProperties)
+		if(this._itemRendererProperties != null)
 		{
 			this._itemRendererProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._itemRendererProperties = PropertyProxy(value);
-		if(this._itemRendererProperties)
+		this._itemRendererProperties = value;
+		if(this._itemRendererProperties != null)
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererProperties();
 	}
 
 	/**
@@ -1049,8 +1061,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #lastItemRendererType
 	 * @see #singleItemRendererType
 	 */
-	public var firstItemRendererType(get, set):Class;
-	public function get_firstItemRendererType():Class
+	public var firstItemRendererType(get, set):Class<Dynamic>;
+	public function get_firstItemRendererType():Class<Dynamic>
 	{
 		return this._firstItemRendererType;
 	}
@@ -1062,17 +1074,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._firstItemRendererType == value)
 		{
-			return;
+			return get_firstItemRendererType();
 		}
 
 		this._firstItemRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_firstItemRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _firstItemRendererFactory:Dynamic;
+	private var _firstItemRendererFactory:Void->IGroupedListItemRenderer;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1105,8 +1118,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #lastItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public var firstItemRendererFactory(get, set):Dynamic;
-	public function get_firstItemRendererFactory():Dynamic
+	public var firstItemRendererFactory(get, set):Void->IGroupedListItemRenderer;
+	public function get_firstItemRendererFactory():Void->IGroupedListItemRenderer
 	{
 		return this._firstItemRendererFactory;
 	}
@@ -1114,15 +1127,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_firstItemRendererFactory(value:Dynamic):Dynamic
+	public function set_firstItemRendererFactory(value:Void->IGroupedListItemRenderer):Void->IGroupedListItemRenderer
 	{
 		if(this._firstItemRendererFactory == value)
 		{
-			return;
+			return get_firstItemRendererFactory();
 		}
 
 		this._firstItemRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_firstItemRendererFactory();
 	}
 
 	/**
@@ -1169,10 +1183,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._firstItemRendererName == value)
 		{
-			return;
+			return get_firstItemRendererName();
 		}
 		this._firstItemRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_firstItemRendererName();
 	}
 
 	/**
@@ -1198,8 +1213,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #firstItemRendererType
 	 * @see #singleItemRendererType
 	 */
-	public var lastItemRendererType(get, set):Class;
-	public function get_lastItemRendererType():Class
+	public var lastItemRendererType(get, set):Class<Dynamic>;
+	public function get_lastItemRendererType():Class<Dynamic>
 	{
 		return this._lastItemRendererType;
 	}
@@ -1211,17 +1226,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._lastItemRendererType == value)
 		{
-			return;
+			return get_lastItemRendererType();
 		}
 
 		this._lastItemRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_lastItemRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _lastItemRendererFactory:Dynamic;
+	private var _lastItemRendererFactory:Void->IGroupedListItemRenderer;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1254,8 +1270,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #firstItemRendererFactory
 	 * @see #singleItemRendererFactory
 	 */
-	public var lastItemRendererFactory(get, set):Dynamic;
-	public function get_lastItemRendererFactory():Dynamic
+	public var lastItemRendererFactory(get, set):Void->IGroupedListItemRenderer;
+	public function get_lastItemRendererFactory():Void->IGroupedListItemRenderer
 	{
 		return this._lastItemRendererFactory;
 	}
@@ -1263,15 +1279,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_lastItemRendererFactory(value:Dynamic):Dynamic
+	public function set_lastItemRendererFactory(value:Void->IGroupedListItemRenderer):Void->IGroupedListItemRenderer
 	{
 		if(this._lastItemRendererFactory == value)
 		{
-			return;
+			return get_lastItemRendererFactory();
 		}
 
 		this._lastItemRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_lastItemRendererFactory();
 	}
 
 	/**
@@ -1318,10 +1335,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._lastItemRendererName == value)
 		{
-			return;
+			return get_lastItemRendererName();
 		}
 		this._lastItemRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_lastItemRendererName();
 	}
 
 	/**
@@ -1347,8 +1365,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #firstItemRendererType
 	 * @see #lastItemRendererType
 	 */
-	public var singleItemRendererType(get, set):Class;
-	public function get_singleItemRendererType():Class
+	public var singleItemRendererType(get, set):Class<Dynamic>;
+	public function get_singleItemRendererType():Class<Dynamic>
 	{
 		return this._singleItemRendererType;
 	}
@@ -1360,17 +1378,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._singleItemRendererType == value)
 		{
-			return;
+			return get_singleItemRendererType();
 		}
 
 		this._singleItemRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_singleItemRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _singleItemRendererFactory:Dynamic;
+	private var _singleItemRendererFactory:Void->IGroupedListItemRenderer;
 
 	/**
 	 * A function called that is expected to return a new item renderer for
@@ -1403,8 +1422,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #firstItemRendererFactory
 	 * @see #lastItemRendererFactory
 	 */
-	public var singleItemRendererFactory(get, set):Dynamic;
-	public function get_singleItemRendererFactory():Dynamic
+	public var singleItemRendererFactory(get, set):Void->IGroupedListItemRenderer;
+	public function get_singleItemRendererFactory():Void->IGroupedListItemRenderer
 	{
 		return this._singleItemRendererFactory;
 	}
@@ -1412,15 +1431,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_singleItemRendererFactory(value:Dynamic):Dynamic
+	public function set_singleItemRendererFactory(value:Void->IGroupedListItemRenderer):Void->IGroupedListItemRenderer
 	{
 		if(this._singleItemRendererFactory == value)
 		{
-			return;
+			return get_singleItemRendererFactory();
 		}
 
 		this._singleItemRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_singleItemRendererFactory();
 	}
 
 	/**
@@ -1468,10 +1488,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._singleItemRendererName == value)
 		{
-			return;
+			return get_singleItemRendererName();
 		}
 		this._singleItemRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_singleItemRendererName();
 	}
 
 	/**
@@ -1493,8 +1514,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #headerRendererFactory
 	 */
-	public var headerRendererType(get, set):Class;
-	public function get_headerRendererType():Class
+	public var headerRendererType(get, set):Class<Dynamic>;
+	public function get_headerRendererType():Class<Dynamic>
 	{
 		return this._headerRendererType;
 	}
@@ -1506,17 +1527,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._headerRendererType == value)
 		{
-			return;
+			return get_headerRendererType();
 		}
 
 		this._headerRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_headerRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _headerRendererFactory:Dynamic;
+	private var _headerRendererFactory:Void->IGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * A function called that is expected to return a new header renderer.
@@ -1545,8 +1567,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #headerRendererType
 	 */
-	public var headerRendererFactory(get, set):Dynamic;
-	public function get_headerRendererFactory():Dynamic
+	public var headerRendererFactory(get, set):Void->IGroupedListHeaderOrFooterRenderer;
+	public function get_headerRendererFactory():Void->IGroupedListHeaderOrFooterRenderer
 	{
 		return this._headerRendererFactory;
 	}
@@ -1554,15 +1576,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererFactory(value:Dynamic):Dynamic
+	public function set_headerRendererFactory(value:Void->IGroupedListHeaderOrFooterRenderer):Void->IGroupedListHeaderOrFooterRenderer
 	{
 		if(this._headerRendererFactory == value)
 		{
-			return;
+			return get_headerRendererFactory();
 		}
 
 		this._headerRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_headerRendererFactory();
 	}
 
 	/**
@@ -1602,10 +1625,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._headerRendererName == value)
 		{
-			return;
+			return get_headerRendererName();
 		}
 		this._headerRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_headerRendererName();
 	}
 
 	/**
@@ -1646,10 +1670,10 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer
 	 */
-	public var headerRendererProperties(get, set):Dynamic;
-	public function get_headerRendererProperties():Dynamic
+	public var headerRendererProperties(get, set):PropertyProxy;
+	public function get_headerRendererProperties():PropertyProxy
 	{
-		if(!this._headerRendererProperties)
+		if(this._headerRendererProperties == null)
 		{
 			this._headerRendererProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1659,35 +1683,36 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerRendererProperties(value:Dynamic):Dynamic
+	public function set_headerRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._headerRendererProperties == value)
 		{
-			return;
+			return get_headerRendererProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._headerRendererProperties)
+		if(this._headerRendererProperties != null)
 		{
 			this._headerRendererProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._headerRendererProperties = PropertyProxy(value);
-		if(this._headerRendererProperties)
+		this._headerRendererProperties = value;
+		if(this._headerRendererProperties != null)
 		{
 			this._headerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_headerRendererProperties();
 	}
 
 	/**
@@ -1709,8 +1734,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #footerRendererFactory
 	 */
-	public var footerRendererType(get, set):Class;
-	public function get_footerRendererType():Class
+	public var footerRendererType(get, set):Class<Dynamic>;
+	public function get_footerRendererType():Class<Dynamic>
 	{
 		return this._footerRendererType;
 	}
@@ -1722,17 +1747,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._footerRendererType == value)
 		{
-			return;
+			return get_footerRendererType();
 		}
 
 		this._footerRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_footerRendererType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _footerRendererFactory:Dynamic;
+	private var _footerRendererFactory:Void->IGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * A function called that is expected to return a new footer renderer.
@@ -1761,8 +1787,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see #footerRendererType
 	 */
-	public var footerRendererFactory(get, set):Dynamic;
-	public function get_footerRendererFactory():Dynamic
+	public var footerRendererFactory(get, set):Void->IGroupedListHeaderOrFooterRenderer;
+	public function get_footerRendererFactory():Void->IGroupedListHeaderOrFooterRenderer
 	{
 		return this._footerRendererFactory;
 	}
@@ -1770,15 +1796,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererFactory(value:Dynamic):Dynamic
+	public function set_footerRendererFactory(value:Void->IGroupedListHeaderOrFooterRenderer):Void->IGroupedListHeaderOrFooterRenderer
 	{
 		if(this._footerRendererFactory == value)
 		{
-			return;
+			return get_footerRendererFactory();
 		}
 
 		this._footerRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_footerRendererFactory();
 	}
 
 	/**
@@ -1818,10 +1845,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._footerRendererName == value)
 		{
-			return;
+			return get_footerRendererName();
 		}
 		this._footerRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_footerRendererName();
 	}
 
 	/**
@@ -1862,10 +1890,10 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IGroupedListHeaderOrFooterRenderer
 	 * @see feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer
 	 */
-	public var footerRendererProperties(get, set):Dynamic;
-	public function get_footerRendererProperties():Dynamic
+	public var footerRendererProperties(get, set):PropertyProxy;
+	public function get_footerRendererProperties():PropertyProxy
 	{
-		if(!this._footerRendererProperties)
+		if(this._footerRendererProperties == null)
 		{
 			this._footerRendererProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1875,35 +1903,36 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerRendererProperties(value:Dynamic):Dynamic
+	public function set_footerRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._footerRendererProperties == value)
 		{
-			return;
+			return get_footerRendererProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._footerRendererProperties)
+		if(this._footerRendererProperties != null)
 		{
 			this._footerRendererProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._footerRendererProperties = PropertyProxy(value);
-		if(this._footerRendererProperties)
+		this._footerRendererProperties = value;
+		if(this._footerRendererProperties != null)
 		{
 			this._footerRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_footerRendererProperties();
 	}
 
 	/**
@@ -1945,16 +1974,17 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._headerField == value)
 		{
-			return;
+			return get_headerField();
 		}
 		this._headerField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_headerField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _headerFunction:Dynamic;
+	private var _headerFunction:Dynamic->Dynamic;
 
 	/**
 	 * A function used to generate header data for a specific group. If this
@@ -1982,8 +2012,8 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * @see #headerField
 	 */
-	public var headerFunction(get, set):Dynamic;
-	public function get_headerFunction():Dynamic
+	public var headerFunction(get, set):Dynamic->Dynamic;
+	public function get_headerFunction():Dynamic->Dynamic
 	{
 		return this._headerFunction;
 	}
@@ -1991,14 +2021,15 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_headerFunction(value:Dynamic):Dynamic
+	public function set_headerFunction(value:Dynamic->Dynamic):Dynamic->Dynamic
 	{
 		if(this._headerFunction == value)
 		{
-			return;
+			return get_headerFunction();
 		}
 		this._headerFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_headerFunction();
 	}
 
 	/**
@@ -2040,16 +2071,17 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._footerField == value)
 		{
-			return;
+			return get_footerField();
 		}
 		this._footerField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_footerField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _footerFunction:Dynamic;
+	private var _footerFunction:Dynamic->Dynamic;
 
 	/**
 	 * A function used to generate footer data for a specific group. If this
@@ -2077,8 +2109,8 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * @see #footerField
 	 */
-	public var footerFunction(get, set):Dynamic;
-	public function get_footerFunction():Dynamic
+	public var footerFunction(get, set):Dynamic->Dynamic;
+	public function get_footerFunction():Dynamic->Dynamic
 	{
 		return this._footerFunction;
 	}
@@ -2086,14 +2118,15 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_footerFunction(value:Dynamic):Dynamic
+	public function set_footerFunction(value:Dynamic->Dynamic):Dynamic->Dynamic
 	{
 		if(this._footerFunction == value)
 		{
-			return;
+			return get_footerFunction();
 		}
 		this._footerFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_footerFunction();
 	}
 
 	/**
@@ -2126,8 +2159,9 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = Math.NaN):Void
+	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Null<Float> = null):Void
 	{
+		if (animationDuration == null) animationDuration = Math.NaN;
 		this.pendingItemIndex = -1;
 		super.scrollToPosition(horizontalScrollPosition, verticalScrollPosition, animationDuration);
 	}
@@ -2135,8 +2169,9 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = Math.NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Null<Float> = null):Void
 	{
+		if (animationDuration == null) animationDuration = Math.NaN;
 		this.pendingGroupIndex = -1;
 		this.pendingItemIndex = -1;
 		super.scrollToPageIndex(horizontalPageIndex, verticalPageIndex, animationDuration);
@@ -2168,7 +2203,7 @@ public function get_isFocusEnabled():Bool
 		this.pendingGroupIndex = groupIndex;
 		this.pendingItemIndex = itemIndex;
 		this.pendingScrollDuration = animationDuration;
-		this.invalidate(INVALIDATION_FLAG_PENDING_SCROLL);
+		this.invalidate(Scroller.INVALIDATION_FLAG_PENDING_SCROLL);
 	}
 
 	/**
@@ -2211,13 +2246,14 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function groupToHeaderData(group:Dynamic):Dynamic
 	{
+		var prop:Dynamic;
 		if(this._headerFunction != null)
 		{
 			return this._headerFunction(group);
 		}
-		else if(this._headerField != null && group && group.hasOwnProperty(this._headerField))
+		else if(this._headerField != null && group != null && (prop = Reflect.getProperty(group, this._headerField)) != null)
 		{
-			return group[this._headerField];
+			return prop;
 		}
 
 		return null;
@@ -2228,13 +2264,14 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function groupToFooterData(group:Dynamic):Dynamic
 	{
+		var prop:Dynamic;
 		if(this._footerFunction != null)
 		{
 			return this._footerFunction(group);
 		}
-		else if(this._footerField != null && group && group.hasOwnProperty(this._footerField))
+		else if(this._footerField != null && group != null && (prop = Reflect.getProperty(group, this._footerField)) != null)
 		{
-			return group[this._footerField];
+			return prop;
 		}
 
 		return null;
@@ -2249,7 +2286,7 @@ public function get_isFocusEnabled():Bool
 
 		super.initialize();
 
-		if(!this.dataViewPort)
+		if(this.dataViewPort == null)
 		{
 			this.viewPort = this.dataViewPort = new GroupedListDataViewPort();
 			this.dataViewPort.owner = this;
@@ -2336,8 +2373,8 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this.pendingGroupIndex >= 0 && this.pendingItemIndex >= 0)
 		{
-			var item:Dynamic = this._dataProvider.getItemAt(this.pendingGroupIndex, this.pendingItemIndex);
-			if(item is Object)
+			var item:Dynamic = this._dataProvider.getItemAt([this.pendingGroupIndex, this.pendingItemIndex]);
+			//if(item is Object)
 			{
 				this.dataViewPort.getScrollPositionForIndex(this.pendingGroupIndex, this.pendingItemIndex, HELPER_POINT);
 				this.pendingGroupIndex = -1;
@@ -2390,7 +2427,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			return;
 		}
@@ -2401,10 +2438,12 @@ public function get_isFocusEnabled():Bool
 				this.setSelectedLocation(0, 0);
 			}
 		}
+		var groupIndex:Int;
+		var itemIndex:Int;
 		if(event.keyCode == Keyboard.END)
 		{
-			var groupIndex:Int = this._dataProvider.getLength();
-			var itemIndex:Int = -1;
+			groupIndex = this._dataProvider.getLength();
+			itemIndex = -1;
 			do
 			{
 				groupIndex--;
@@ -2413,7 +2452,7 @@ public function get_isFocusEnabled():Bool
 					itemIndex = this._dataProvider.getLength(groupIndex) - 1;
 				}
 			}
-			while(groupIndex > 0 && itemIndex < 0)
+			while(groupIndex > 0 && itemIndex < 0);
 			if(groupIndex >= 0 && itemIndex >= 0)
 			{
 				this.setSelectedLocation(groupIndex, itemIndex);
@@ -2433,7 +2472,7 @@ public function get_isFocusEnabled():Bool
 						itemIndex = this._dataProvider.getLength(groupIndex) - 1;
 					}
 				}
-				while(groupIndex > 0 && itemIndex < 0)
+				while(groupIndex > 0 && itemIndex < 0);
 			}
 			if(groupIndex >= 0 && itemIndex >= 0)
 			{

@@ -7,6 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
 import openfl.utils.Dictionary;
+import haxe.ds.WeakMap;
 
 import starling.animation.IAnimatable;
 import starling.core.Starling;
@@ -17,7 +18,11 @@ class ValidationQueue implements IAnimatable
 	/**
 	 * @private
 	 */
-	inline private static var STARLING_TO_VALIDATION_QUEUE:Dictionary = new Dictionary(true);
+#if flash
+	private static var STARLING_TO_VALIDATION_QUEUE:WeakMap<Starling, ValidationQueue> = new WeakMap();
+#else
+	private static var STARLING_TO_VALIDATION_QUEUE:Map<Starling, ValidationQueue> = new Map();
+#end
 
 	/**
 	 * Gets the validation queue for the specified Starling instance. If
@@ -26,14 +31,14 @@ class ValidationQueue implements IAnimatable
 	 */
 	public static function forStarling(starling:Starling):ValidationQueue
 	{
-		if(!starling)
+		if(starling == null)
 		{
 			return null;
 		}
-		var queue:ValidationQueue = STARLING_TO_VALIDATION_QUEUE[starling];
-		if(!queue)
+		var queue:ValidationQueue = STARLING_TO_VALIDATION_QUEUE.get(starling);
+		if(queue == null)
 		{
-			STARLING_TO_VALIDATION_QUEUE[starling] = queue = new ValidationQueue(starling);
+			STARLING_TO_VALIDATION_QUEUE.set(starling, queue = new ValidationQueue(starling));
 		}
 		return queue;
 	}
@@ -61,7 +66,7 @@ class ValidationQueue implements IAnimatable
 	 *     // do something
 	 * }</listing>
 	 */
-	public var isValidating(get, set):Bool;
+	public var isValidating(get, never):Bool;
 	public function get_isValidating():Bool
 	{
 		return this._isValidating;
@@ -75,7 +80,7 @@ class ValidationQueue implements IAnimatable
 	 */
 	public function dispose():Void
 	{
-		if(this._starling)
+		if(this._starling != null)
 		{
 			this._starling.juggler.remove(this);
 			this._starling = null;
@@ -108,9 +113,11 @@ class ValidationQueue implements IAnimatable
 			//significantly more likely that we're going to push than that
 			//we're going to splice, so there's no point to iterating over
 			//the whole queue
-			for(var i:Int = queueLength - 1; i >= 0; i--)
+			//for(var i:Int = queueLength - 1; i >= 0; i--)
+			var i:Int = queueLength - 1;
+			while(i >= 0)
 			{
-				var otherControl:IValidating = IValidating(currentQueue[i]);
+				var otherControl:IValidating = currentQueue[i];
 				var otherDepth:Int = otherControl.depth;
 				//we can skip the overhead of calling queueSortFunction and
 				//of looking up the value we've already stored in the depth
@@ -119,6 +126,7 @@ class ValidationQueue implements IAnimatable
 				{
 					break;
 				}
+				i--;
 			}
 			//add one because we're going after the last item we checked
 			//if we made it through all of them, i will be -1, and we want 0
@@ -129,7 +137,7 @@ class ValidationQueue implements IAnimatable
 			}
 			else
 			{
-				currentQueue.splice(i, 0, control);
+				currentQueue.insert(i, control);
 			}
 		}
 		else
@@ -153,7 +161,7 @@ class ValidationQueue implements IAnimatable
 			return;
 		}
 		this._isValidating = true;
-		this._queue = this._queue.sort(queueSortFunction);
+		this._queue.sort(queueSortFunction);
 		while(this._queue.length > 0) //rechecking length after the shift
 		{
 			var item:IValidating = this._queue.shift();

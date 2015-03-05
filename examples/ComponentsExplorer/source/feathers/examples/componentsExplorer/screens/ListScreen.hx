@@ -10,13 +10,14 @@ import feathers.examples.componentsExplorer.data.ListSettings;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.system.DeviceCapabilities;
+import haxe.ds.Vector;
 
 import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
-class ListScreen extends PanelScreen
+@:keep class ListScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -38,13 +39,13 @@ class ListScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		var items:Array = [];
+		var items:Vector<Dynamic> = new Vector(150);
 		for(i in 0 ... 150)
 		{
-			var item:Dynamic = {text: "Item " + (i + 1).toString()};
+			var item:Dynamic = {text: "Item " + (i + 1)};
 			items[i] = item;
 		}
-		items.fixed = true;
+		//items.fixed = true;
 		
 		this._list = new List();
 		this._list.dataProvider = new ListCollection(items);
@@ -73,7 +74,7 @@ class ListScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChild(this._list);
 
-		this.headerProperties.title = "List";
+		this.headerProperties.setProperty("title", "List");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -82,10 +83,10 @@ class ListScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -94,10 +95,10 @@ class ListScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}

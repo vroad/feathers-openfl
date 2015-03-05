@@ -33,8 +33,8 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
-	public var imageProperties(get, set):Dynamic;
-	public function get_imageProperties():Dynamic
+	public var imageProperties(get, set):PropertyProxy;
+	public function get_imageProperties():PropertyProxy
 	{
 		if(!this._imageProperties)
 		{
@@ -46,7 +46,7 @@ class Scale9ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set_imageProperties(value:Dynamic):Dynamic
+	public function set_imageProperties(value:PropertyProxy):PropertyProxy
 	{
 		this._imageProperties = value;
 	}

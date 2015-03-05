@@ -23,6 +23,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 package feathers.themes;
+import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 
@@ -38,19 +39,21 @@ import starling.textures.TextureAtlas;
  *
  * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
+class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 {
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_desktop.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class<Dynamic>;
+	//[Embed(source="/../assets/images/metalworks_desktop.xml",mimeType="application/octet-stream")]
+	//private static const ATLAS_XML:Class<Dynamic>;
+	inline private static var ATLAS_XML_FILE_NAME = "assets/images/metalworks_desktop.xml";
 
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_desktop.png")]
-	protected static const ATLAS_BITMAP:Class<Dynamic>;
+	//[Embed(source="/../assets/images/metalworks_desktop.png")]
+	//private static const ATLAS_BITMAP:Class<Dynamic>;
+	inline private static var ATLAS_BITMAP_FILE_NAME = "assets/images/metalworks_desktop.png";
 
 	/**
 	 * Constructor.
@@ -65,13 +68,13 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():Void
 	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_FILE_NAME);
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, 1);
 		atlasTexture.root.onRestore = this.atlasTexture_onRestore;
 		atlasBitmapData.dispose();
-		this.atlas = new TextureAtlas(atlasTexture, XML(new ATLAS_XML()));
+		this.atlas = new TextureAtlas(atlasTexture, Xml.parse(Assets.getText(ATLAS_XML_FILE_NAME)).firstElement());
 
 		super.initialize();
 	}
@@ -79,9 +82,9 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():Void
 	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_FILE_NAME);
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
 		atlasBitmapData.dispose();
 	}

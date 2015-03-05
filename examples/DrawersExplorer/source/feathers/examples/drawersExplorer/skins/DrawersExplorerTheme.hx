@@ -3,6 +3,7 @@ import feathers.examples.drawersExplorer.views.ContentView;
 import feathers.examples.drawersExplorer.views.DrawerView;
 import feathers.layout.HorizontalLayout;
 import feathers.layout.VerticalLayout;
+import feathers.themes.BaseMetalWorksMobileTheme;
 import feathers.themes.MetalWorksMobileTheme;
 
 import starling.display.Quad;
@@ -14,7 +15,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	public function new()
 	{
-		super();
+		super(false);
 	}
 
 	override private function initializeStyleProviders():Void
@@ -35,7 +36,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	private function setLeftAndRightDrawerViewStyles(view:DrawerView):Void
 	{
-		view.backgroundSkin = new Quad(10, 10, LIST_BACKGROUND_COLOR);
+		view.backgroundSkin = new Quad(10, 10, BaseMetalWorksMobileTheme.LIST_BACKGROUND_COLOR);
 
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -47,7 +48,7 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	private function setTopAndBottomDrawerViewStyles(view:DrawerView):Void
 	{
-		view.backgroundSkin = new Quad(10, 10, GROUPED_LIST_HEADER_BACKGROUND_COLOR);
+		view.backgroundSkin = new Quad(10, 10, BaseMetalWorksMobileTheme.GROUPED_LIST_HEADER_BACKGROUND_COLOR);
 
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;

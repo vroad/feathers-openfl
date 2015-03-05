@@ -36,11 +36,11 @@ class ScreenNavigatorItem
 	/**
 	 * Constructor.
 	 */
-	public function new(screen:Dynamic = null, events:Dynamic = null, properties:Dynamic = null)
+	public function new(screen:Dynamic = null, events:Dynamic= null, properties:Dynamic = null)
 	{
 		this.screen = screen;
-		this.events = events ? events : {};
-		this.properties = properties ? properties : {};
+		this.events = events != null ? events : {};
+		this.properties = properties != null ? properties : {};
 	}
 	
 	/**
@@ -75,32 +75,32 @@ class ScreenNavigatorItem
 	 * Creates and instance of the screen type (or uses the screen directly
 	 * if it isn't a class).
 	 */
-	internal function getScreen():DisplayObject
+	private function getScreen():DisplayObject
 	{
 		var screenInstance:DisplayObject;
 		if(Std.is(this.screen, Class))
 		{
-			var ScreenType:Class<Dynamic> = Class(this.screen);
-			screenInstance = new ScreenType();
+			var ScreenType:Class<Dynamic> = this.screen;
+			screenInstance = Type.createInstance(ScreenType, []);
 		}
-		else if(Std.is(this.screen, Function))
+		else if(Reflect.isFunction(this.screen))
 		{
-			screenInstance = DisplayObject((this.screen as Function)());
+			screenInstance = this.screen();
 		}
 		else if(Std.is(this.screen, DisplayObject))
 		{
-			screenInstance = DisplayObject(this.screen);
+			screenInstance = cast(this.screen, DisplayObject);
 		}
 		else
 		{
 			throw new IllegalOperationError("ScreenNavigatorItem \"screen\" must be a Class, a Function, or a Starling display object.");
 		}
 		
-		if(this.properties)
+		if(this.properties != null)
 		{
-			for (property in this.properties)
+			for (property in Reflect.fields(this.properties))
 			{
-				screenInstance[property] = this.properties[property];
+				Reflect.setProperty(screenInstance, property, Reflect.field(this.properties, property));
 			}
 		}
 		

@@ -19,28 +19,25 @@ class Main extends Sprite
 
 	private function changeDockMode(drawer:DrawerView, dockMode:String):Void
 	{
-		switch(drawer)
+		if(drawer == this._drawers.topDrawer)
 		{
-			case this._drawers.topDrawer:
-			{
-				this._drawers.topDrawerDockMode = dockMode;
-				break;
-			}
-			case this._drawers.rightDrawer:
-			{
-				this._drawers.rightDrawerDockMode = dockMode;
-				break;
-			}
-			case this._drawers.bottomDrawer:
-			{
-				this._drawers.bottomDrawerDockMode = dockMode;
-				break;
-			}
-			case this._drawers.leftDrawer:
-			{
-				this._drawers.leftDrawerDockMode = dockMode;
-				break;
-			}
+			this._drawers.topDrawerDockMode = dockMode;
+			//break;
+		}
+		else if(drawer == this._drawers.rightDrawer)
+		{
+			this._drawers.rightDrawerDockMode = dockMode;
+			//break;
+		}
+		else if(drawer == this._drawers.bottomDrawer)
+		{
+			this._drawers.bottomDrawerDockMode = dockMode;
+			//break;
+		}
+		else if(drawer == this._drawers.leftDrawer)
+		{
+			this._drawers.leftDrawerDockMode = dockMode;
+			//break;
 		}
 	}
 	
@@ -102,13 +99,13 @@ class Main extends Sprite
 
 	private function drawer_dockNoneHandler(event:Event):Void
 	{
-		var drawer:DrawerView = DrawerView(event.currentTarget);
+		var drawer:DrawerView = cast event.currentTarget;
 		this.changeDockMode(drawer, Drawers.DOCK_MODE_NONE);
 	}
 
 	private function drawer_dockBothHandler(event:Event):Void
 	{
-		var drawer:DrawerView = DrawerView(event.currentTarget);
+		var drawer:DrawerView = cast event.currentTarget;
 		this.changeDockMode(drawer, Drawers.DOCK_MODE_BOTH);
 	}
 }

@@ -7,7 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
 import feathers.skins.IStyleProvider;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
 
 import openfl.events.KeyboardEvent;
 import openfl.ui.Keyboard;
@@ -166,7 +166,7 @@ class PanelScreen extends Panel implements IScreen
 	/**
 	 * Constructor.
 	 */
-	public function new()
+	@:keep public function new()
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, panelScreen_addedToStageHandler);
 		super();
@@ -201,6 +201,7 @@ class PanelScreen extends Panel implements IScreen
 	public function set_screenID(value:String):String
 	{
 		this._screenID = value;
+		return get_screenID();
 	}
 
 	/**
@@ -223,6 +224,7 @@ class PanelScreen extends Panel implements IScreen
 	public function set_owner(value:ScreenNavigator):ScreenNavigator
 	{
 		this._owner = value;
+		return get_owner();
 	}
 
 	/**
@@ -325,6 +327,7 @@ class PanelScreen extends Panel implements IScreen
 			//someone else already handled this one
 			return;
 		}
+		#if flash
 		if(this.backButtonHandler != null &&
 			event.keyCode == Keyboard.BACK)
 		{
@@ -345,5 +348,6 @@ class PanelScreen extends Panel implements IScreen
 			event.preventDefault();
 			this.searchButtonHandler();
 		}
+		#end
 	}
 }

@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ButtonScreen extends PanelScreen
+@:keep class ButtonScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
@@ -92,12 +92,12 @@ class ButtonScreen extends PanelScreen
 		this._quietButton = new Button();
 		this._quietButton.styleNameList.add(Button.ALTERNATE_NAME_QUIET_BUTTON);
 		this._quietButton.label = "Quiet Button";
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems",
 		[
 			this._quietButton
-		];
+		]);
 
-		this.headerProperties.title = "Button";
+		this.headerProperties.setProperty("title", "Button");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -106,10 +106,10 @@ class ButtonScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -122,7 +122,7 @@ class ButtonScreen extends PanelScreen
 
 	private function normalButton_triggeredHandler(event:Event):Void
 	{
-		trace("normal button triggered.")
+		trace("normal button triggered.");
 	}
 
 	private function toggleButton_changeHandler(event:Event):Void

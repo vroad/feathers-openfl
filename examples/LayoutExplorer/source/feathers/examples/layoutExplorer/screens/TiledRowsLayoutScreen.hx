@@ -13,7 +13,7 @@ import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 //[Event(name="showSettings",type="starling.events.Event")]
 
-class TiledRowsLayoutScreen extends PanelScreen
+@:keep class TiledRowsLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -50,14 +50,15 @@ class TiledRowsLayoutScreen extends PanelScreen
 		this.snapScrollPositionsToPixels = true;
 
 		var minQuadSize:Float = Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 15;
-		for(var i:Int = 0; i < this.settings.itemCount; i++)
+		//for(var i:Int = 0; i < this.settings.itemCount; i++)
+		for(i in 0 ... this.settings.itemCount)
 		{
 			var size:Float = (minQuadSize + minQuadSize * 2 * Math.random());
 			var quad:Quad = new Quad(size, size, 0xff8800);
 			this.addChild(quad);
 		}
 
-		this.headerProperties.title = "Tiled Rows Layout";
+		this.headerProperties.setProperty("title", "Tiled Rows Layout");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -66,10 +67,10 @@ class TiledRowsLayoutScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems",
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -78,10 +79,10 @@ class TiledRowsLayoutScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}

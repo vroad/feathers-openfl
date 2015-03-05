@@ -26,7 +26,7 @@ import feathers.core.IFeathersEventDispatcher;
  *   listening for the event.</td></tr>
  * </table>
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Extra data used by layout algorithms.

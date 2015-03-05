@@ -6,7 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.utils.text;
-import openfl.utils.Dictionary;
+//import openfl.utils.Dictionary;
 
 /**
  * Duplicates the functionality of the <code>restrict</code> property on
@@ -19,20 +19,21 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	inline private static var REQUIRES_ESCAPE:Dictionary = new Dictionary();
-	REQUIRES_ESCAPE[/\[/g] = "\\[";
-	REQUIRES_ESCAPE[/\]/g] = "\\]";
-	REQUIRES_ESCAPE[/\{/g] = "\\{";
-	REQUIRES_ESCAPE[/\}/g] = "\\}";
-	REQUIRES_ESCAPE[/\(/g] = "\\(";
-	REQUIRES_ESCAPE[/\)/g] = "\\)";
-	REQUIRES_ESCAPE[/\|/g] = "\\|";
-	REQUIRES_ESCAPE[/\//g] = "\\/";
-	REQUIRES_ESCAPE[/\./g] = "\\.";
-	REQUIRES_ESCAPE[/\+/g] = "\\+";
-	REQUIRES_ESCAPE[/\*/g] = "\\*";
-	REQUIRES_ESCAPE[/\?/g] = "\\?";
-	REQUIRES_ESCAPE[/\$/g] = "\\$";
+	private static var REQUIRES_ESCAPE:Map<EReg, String> = [
+		~/\[/g => "\\[",
+		~/\]/g => "\\]",
+		~/\{/g => "\\{",
+		~/\}/g => "\\}",
+		~/\(/g => "\\(",
+		~/\)/g => "\\)",
+		~/\|/g => "\\|",
+		~/\//g => "\\/",
+		~/\./g => "\\.",
+		~/\+/g => "\\+",
+		~/\*/g => "\\*",
+		~/\?/g => "\\?",
+		~/\$/g => "\\$",
+	];
 
 	/**
 	 * Constructor.
@@ -50,7 +51,7 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	private var _restricts:Array<RegExp>
+	private var _restricts:Array<EReg>;
 
 	/**
 	 * @private
@@ -82,14 +83,14 @@ class TextInputRestrict
 	{
 		if(this._restrict == value)
 		{
-			return;
+			return this._restrict;
 		}
 		this._restrict = value;
-		if(value)
+		if(value != null)
 		{
-			if(this._restricts)
+			if(this._restricts != null)
 			{
-				this._restricts.length = 0;
+				this._restricts = [];
 			}
 			else
 			{
@@ -97,37 +98,39 @@ class TextInputRestrict
 			}
 			if(this._restrict == "")
 			{
-				this._restricts.push(/^$/);
+				this._restricts.push(~/^$/);
 			}
-			else if(this._restrict)
+			else if(this._restrict != null)
 			{
 				var startIndex:Int = 0;
 				var isExcluding:Bool = value.indexOf("^") == 0;
+				var partialRestrict:String;
 				this._restrictStartsWithExclude = isExcluding;
 				do
 				{
 					var nextStartIndex:Int = value.indexOf("^", startIndex + 1);
 					if(nextStartIndex >= 0)
 					{
-						var partialRestrict:String = value.substr(startIndex, nextStartIndex - startIndex);
+						partialRestrict = value.substr(startIndex, nextStartIndex - startIndex);
 						this._restricts.push(this.createRestrictRegExp(partialRestrict, isExcluding));
 					}
 					else
 					{
-						partialRestrict = value.substr(startIndex)
+						partialRestrict = value.substr(startIndex);
 						this._restricts.push(this.createRestrictRegExp(partialRestrict, isExcluding));
 						break;
 					}
 					startIndex = nextStartIndex;
 					isExcluding = !isExcluding;
 				}
-				while(true)
+				while (true);
 			}
 		}
 		else
 		{
 			this._restricts = null;
 		}
+		return this._restrict;
 	}
 
 	/**
@@ -135,7 +138,7 @@ class TextInputRestrict
 	 */
 	public function isCharacterAllowed(charCode:Int):Bool
 	{
-		if(!this._restricts)
+		if(this._restricts == null)
 		{
 			return true;
 		}
@@ -145,14 +148,14 @@ class TextInputRestrict
 		var restrictCount:Int = this._restricts.length;
 		for(i in 0 ... restrictCount)
 		{
-			var restrict:RegExp = this._restricts[i];
+			var restrict:EReg = this._restricts[i];
 			if(isExcluding)
 			{
-				isIncluded = isIncluded && restrict.test(character);
+				isIncluded = isIncluded && restrict.match(character);
 			}
 			else
 			{
-				isIncluded = isIncluded || restrict.test(character);
+				isIncluded = isIncluded || restrict.match(character);
 			}
 			isExcluding = !isExcluding;
 		}
@@ -165,27 +168,29 @@ class TextInputRestrict
 	 */
 	public function filterText(value:String):String
 	{
-		if(!this._restricts)
+		if(this._restricts == null)
 		{
 			return value;
 		}
 		var textLength:Int = value.length;
 		var restrictCount:Int = this._restricts.length;
-		for(i in 0 ... textLength)
+		var i:Int = 0;
+		while(i < textLength)
 		{
 			var character:String = value.charAt(i);
 			var isExcluding:Bool = this._restrictStartsWithExclude;
 			var isIncluded:Bool = isExcluding;
-			for(var j:Int = 0; j < restrictCount; j++)
+			//for(var j:Int = 0; j < restrictCount; j++)
+			for(j in 0 ... restrictCount)
 			{
-				var restrict:RegExp = this._restricts[j];
+				var restrict:EReg = this._restricts[j];
 				if(isExcluding)
 				{
-					isIncluded = isIncluded && restrict.test(character);
+					isIncluded = isIncluded && restrict.match(character);
 				}
 				else
 				{
-					isIncluded = isIncluded || restrict.test(character);
+					isIncluded = isIncluded || restrict.match(character);
 				}
 				isExcluding = !isExcluding;
 			}
@@ -195,6 +200,7 @@ class TextInputRestrict
 				i--;
 				textLength--;
 			}
+			i++;
 		}
 		return value;
 	}
@@ -202,7 +208,7 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	private function createRestrictRegExp(restrict:String, isExcluding:Bool):RegExp
+	private function createRestrictRegExp(restrict:String, isExcluding:Bool):EReg
 	{
 		if(!isExcluding && restrict.indexOf("^") == 0)
 		{
@@ -212,13 +218,13 @@ class TextInputRestrict
 			restrict = restrict.substr(1);
 		}
 		//we need to do backslash first. otherwise, we'll get duplicates
-		restrict = restrict.replace(/\\/g, "\\\\");
-		for (key in REQUIRES_ESCAPE)
+		restrict = (~/\\/g).replace(restrict, "\\\\");
+		for (key in REQUIRES_ESCAPE.keys())
 		{
-			var keyRegExp:RegExp = key as RegExp;
-			var value:String = REQUIRES_ESCAPE[keyRegExp] as String;
-			restrict = restrict.replace(keyRegExp, value);
+			var keyRegExp:EReg = key;
+			var value:String = REQUIRES_ESCAPE[keyRegExp];
+			restrict = keyRegExp.replace(restrict, value);
 		}
-		return new RegExp("[" + restrict + "]");
+		return new EReg("[" + restrict + "]", "g");
 	}
 }

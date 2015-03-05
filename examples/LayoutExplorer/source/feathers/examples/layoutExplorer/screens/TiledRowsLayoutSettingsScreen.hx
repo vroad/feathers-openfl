@@ -14,7 +14,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class TiledRowsLayoutSettingsScreen extends PanelScreen
+@:keep class TiledRowsLayoutSettingsScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -69,7 +69,7 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 		this._pagingPicker = new PickerList();
 		this._pagingPicker.typicalItem = TiledRowsLayout.PAGING_HORIZONTAL;
-		this._pagingPicker.dataProvider = new ListCollection(new <String>
+		this._pagingPicker.dataProvider = new ListCollection(
 		[
 			TiledRowsLayout.PAGING_NONE,
 			TiledRowsLayout.PAGING_HORIZONTAL,
@@ -80,7 +80,7 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 		this._horizontalAlignPicker = new PickerList();
 		this._horizontalAlignPicker.typicalItem = TiledRowsLayout.HORIZONTAL_ALIGN_CENTER;
-		this._horizontalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._horizontalAlignPicker.dataProvider = new ListCollection(
 		[
 			TiledRowsLayout.HORIZONTAL_ALIGN_LEFT,
 			TiledRowsLayout.HORIZONTAL_ALIGN_CENTER,
@@ -91,7 +91,7 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 		this._verticalAlignPicker = new PickerList();
 		this._verticalAlignPicker.typicalItem = TiledRowsLayout.VERTICAL_ALIGN_BOTTOM;
-		this._verticalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._verticalAlignPicker.dataProvider = new ListCollection(
 		[
 			TiledRowsLayout.VERTICAL_ALIGN_TOP,
 			TiledRowsLayout.VERTICAL_ALIGN_MIDDLE,
@@ -102,7 +102,7 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 		this._tileHorizontalAlignPicker = new PickerList();
 		this._tileHorizontalAlignPicker.typicalItem = TiledRowsLayout.TILE_HORIZONTAL_ALIGN_CENTER;
-		this._tileHorizontalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._tileHorizontalAlignPicker.dataProvider = new ListCollection(
 		[
 			TiledRowsLayout.TILE_HORIZONTAL_ALIGN_LEFT,
 			TiledRowsLayout.TILE_HORIZONTAL_ALIGN_CENTER,
@@ -114,7 +114,7 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 		this._tileVerticalAlignPicker = new PickerList();
 		this._tileVerticalAlignPicker.typicalItem = TiledRowsLayout.TILE_VERTICAL_ALIGN_BOTTOM;
-		this._tileVerticalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._tileVerticalAlignPicker.dataProvider = new ListCollection(
 		[
 			TiledRowsLayout.TILE_VERTICAL_ALIGN_TOP,
 			TiledRowsLayout.TILE_VERTICAL_ALIGN_MIDDLE,
@@ -192,18 +192,18 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Tiled Rows Layout Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Tiled Rows Layout Settings");
+		this.headerProperties.setProperty("leftItems", 
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void
@@ -218,32 +218,32 @@ class TiledRowsLayoutSettingsScreen extends PanelScreen
 
 	private function itemCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.itemCount = this._itemCountStepper.value;
+		this.settings.itemCount = Std.int(this._itemCountStepper.value);
 	}
 
 	private function pagingPicker_changeHandler(event:Event):Void
 	{
-		this.settings.paging = this._pagingPicker.selectedItem as String;
+		this.settings.paging = cast(this._pagingPicker.selectedItem, String);
 	}
 
 	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
+		this.settings.horizontalAlign = cast(this._horizontalAlignPicker.selectedItem, String);
 	}
 
 	private function verticalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.verticalAlign = this._verticalAlignPicker.selectedItem as String;
+		this.settings.verticalAlign = cast(this._verticalAlignPicker.selectedItem, String);
 	}
 
 	private function tileHorizontalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.tileHorizontalAlign = this._tileHorizontalAlignPicker.selectedItem as String;
+		this.settings.tileHorizontalAlign = cast(this._tileHorizontalAlignPicker.selectedItem, String);
 	}
 
 	private function tileVerticalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.tileVerticalAlign = this._tileVerticalAlignPicker.selectedItem as String;
+		this.settings.tileVerticalAlign = cast(this._tileVerticalAlignPicker.selectedItem, String);
 	}
 
 	private function horizontalGapStepper_changeHandler(event:Event):Void

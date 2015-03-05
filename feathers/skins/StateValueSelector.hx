@@ -6,13 +6,14 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
+import haxe.ds.WeakMap;
 import openfl.utils.Dictionary;
 
 /**
  * Maps a component's states to values, perhaps for one of the component's
  * properties such as a skin or text format.
  */
-class StateValueSelector
+class StateValueSelector<V>
 {
 	/**
 	 * Constructor.
@@ -25,19 +26,23 @@ class StateValueSelector
 	 * @private
 	 * Stores the values for each state.
 	 */
-	private var stateToValue:Dictionary = new Dictionary(true);
+	#if flash
+	private var stateToValue:WeakMap<String, V> = new WeakMap();
+	#else
+	private var stateToValue:Map<String, V> = new Map();
+	#end
 
 	/**
 	 * If there is no value for the specified state, a default value can
 	 * be used as a fallback.
 	 */
-	public var defaultValue:Dynamic;
+	public var defaultValue:V;
 
 	/**
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Dynamic, state:Dynamic):Void
+	public function setValueForState(value:V, state:String):Void
 	{
 		this.stateToValue[state] = value;
 	}
@@ -45,17 +50,17 @@ class StateValueSelector
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Dynamic):Dynamic
+	public function clearValueForState(state:String):V
 	{
 		var value:Dynamic = this.stateToValue[state];
-		delete this.stateToValue[state];
+		this.stateToValue.remove(state);
 		return value;
 	}
 
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Dynamic):Dynamic
+	public function getValueForState(state:String):V
 	{
 		return this.stateToValue[state];
 	}
@@ -68,10 +73,10 @@ class StateValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
+	public function updateValue(target:Dynamic, state:String, oldValue:V = null):V
 	{
 		var value:Dynamic = this.stateToValue[state];
-		if(!value)
+		if(value == null)
 		{
 			value = this.defaultValue;
 		}

@@ -6,14 +6,17 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.text;
+import feathers.core.FeathersControl;
 import feathers.core.FocusManager;
 import feathers.core.ITextEditor;
 import feathers.events.FeathersEventType;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
 
+#if flash
 import openfl.desktop.Clipboard;
 import openfl.desktop.ClipboardFormats;
+#end
 import openfl.display.InteractiveObject;
 import openfl.display.Stage;
 import openfl.events.Event;
@@ -177,19 +180,20 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	{
 		if(this._selectionSkin == value)
 		{
-			return;
+			return get_selectionSkin();
 		}
-		if(this._selectionSkin && this._selectionSkin.parent == this)
+		if(this._selectionSkin != null && this._selectionSkin.parent == this)
 		{
 			this._selectionSkin.removeFromParent();
 		}
 		this._selectionSkin = value;
-		if(this._selectionSkin)
+		if(this._selectionSkin != null)
 		{
 			this._selectionSkin.visible = false;
 			this.addChildAt(this._selectionSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectionSkin();
 	}
 
 	/**
@@ -213,19 +217,20 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	{
 		if(this._cursorSkin == value)
 		{
-			return;
+			return get_cursorSkin();
 		}
-		if(this._cursorSkin && this._cursorSkin.parent == this)
+		if(this._cursorSkin != null && this._cursorSkin.parent == this)
 		{
 			this._cursorSkin.removeFromParent();
 		}
 		this._cursorSkin = value;
-		if(this._cursorSkin)
+		if(this._cursorSkin != null)
 		{
 			this._cursorSkin.visible = false;
 			this.addChild(this._cursorSkin);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_cursorSkin();
 	}
 
 	/**
@@ -264,7 +269,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return get_displayAsPassword();
 		}
 		this._displayAsPassword = value;
 		if(this._displayAsPassword)
@@ -278,6 +283,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			this._unmaskedText = null;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_displayAsPassword();
 	}
 
 	/**
@@ -312,7 +318,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	{
 		if(this._passwordCharCode == value)
 		{
-			return;
+			return get_passwordCharCode();
 		}
 		this._passwordCharCode = value;
 		if(this._displayAsPassword)
@@ -320,6 +326,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			this.refreshMaskedText();
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_passwordCharCode();
 	}
 
 	/**
@@ -351,10 +358,11 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	{
 		if(this._isEditable == value)
 		{
-			return;
+			return get_isEditable();
 		}
 		this._isEditable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_isEditable();
 	}
 
 	/**
@@ -362,7 +370,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public var setTouchFocusOnEndedPhase(get, set):Bool;
+	public var setTouchFocusOnEndedPhase(get, never):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
@@ -371,8 +379,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	override public var text(get, set):String;
-public function get_text():String
+	override public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -398,7 +405,7 @@ public function get_text():String
 		}
 		if(currentValue == value)
 		{
-			return;
+			return get_text();
 		}
 		if(this._displayAsPassword)
 		{
@@ -411,6 +418,7 @@ public function get_text():String
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(starling.events.Event.CHANGE);
+		return get_text();
 	}
 
 	/**
@@ -444,10 +452,11 @@ public function get_text():String
 	{
 		if(this._maxChars == value)
 		{
-			return;
+			return get_maxChars();
 		}
 		this._maxChars = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_maxChars();
 	}
 
 	/**
@@ -470,7 +479,7 @@ public function get_text():String
 	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
-		if(!this._restrict)
+		if(this._restrict == null)
 		{
 			return null;
 		}
@@ -482,13 +491,13 @@ public function get_text():String
 	 */
 	public function set_restrict(value:String):String
 	{
-		if(this._restrict && this._restrict.restrict == value)
+		if(this._restrict != null && this._restrict.restrict == value)
 		{
-			return;
+			return get_restrict();
 		}
-		if(!this._restrict && value == null)
+		if(this._restrict == null && value == null)
 		{
-			return;
+			return get_restrict();
 		}
 		if(value == null)
 		{
@@ -496,7 +505,7 @@ public function get_text():String
 		}
 		else
 		{
-			if(this._restrict)
+			if(this._restrict != null)
 			{
 				this._restrict.restrict = value;
 			}
@@ -507,6 +516,7 @@ public function get_text():String
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_restrict();
 	}
 
 	/**
@@ -517,7 +527,7 @@ public function get_text():String
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionBeginIndex(get, set):Int;
+	public var selectionBeginIndex(get, never):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
@@ -531,7 +541,7 @@ public function get_text():String
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionEndIndex(get, set):Int;
+	public var selectionEndIndex(get, never):Int;
 	public function get_selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;
@@ -560,6 +570,7 @@ public function get_text():String
 	/**
 	 * @private
 	 */
+	private var nativeFocus(get, set):InteractiveObject;
 	private function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
@@ -568,25 +579,30 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	private function set_nativeFocus(value:InteractiveObject):Void
+	private function set_nativeFocus(value:InteractiveObject):InteractiveObject
 	{
 		if(this._nativeFocus == value)
 		{
-			return;
+			return get_nativeFocus();
 		}
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
+			#if flash
 			this._nativeFocus.removeEventListener(openfl.events.Event.CUT, nativeStage_cutHandler);
 			this._nativeFocus.removeEventListener(openfl.events.Event.COPY, nativeStage_copyHandler);
 			this._nativeFocus.removeEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler);
+			#end
 		}
 		this._nativeFocus = value;
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
+			#if flash
 			this._nativeFocus.addEventListener(openfl.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
 			this._nativeFocus.addEventListener(openfl.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
 			this._nativeFocus.addEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
+			#end
 		}
+		return get_nativeFocus();
 	}
 
 	/**
@@ -600,14 +616,14 @@ public function get_text():String
 	public function setFocus(position:Point = null):Void
 	{
 		//we already have focus, so there's no reason to change
-		if(this._hasFocus && !position)
+		if(this._hasFocus && position == null)
 		{
 			return;
 		}
 		if(this.isCreated)
 		{
 			var newIndex:Int = -1;
-			if(position)
+			if(position != null)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
 			}
@@ -700,11 +716,11 @@ public function get_text():String
 	 */
 	override private function initialize():Void
 	{
-		if(!this._cursorSkin)
+		if(this._cursorSkin == null)
 		{
 			this.cursorSkin = new Quad(1, 1, 0x000000);
 		}
-		if(!this._selectionSkin)
+		if(this._selectionSkin == null)
 		{
 			this.selectionSkin = new Quad(1, 1, 0x000000);
 		}
@@ -719,13 +735,13 @@ public function get_text():String
 		super.draw();
 
 		var clipRect:Rectangle = this.clipRect;
-		if(clipRect)
+		if(clipRect != null)
 		{
 			clipRect.setTo(0, 0, this.actualWidth, this.actualHeight);
 		}
 		else
 		{
-			this.clipRect = new Rectangle(0, 0, this.actualWidth, this.actualHeight)
+			this.clipRect = new Rectangle(0, 0, this.actualWidth, this.actualHeight);
 		}
 	}
 
@@ -739,7 +755,7 @@ public function get_text():String
 			result.x > this.explicitWidth)
 		{
 			this._characterBatch.reset();
-			var oldTextAlign:String = this.currentTextFormat.align;
+			var oldTextAlign:TextFormatAlign = this.currentTextFormat.align;
 			this.currentTextFormat.align = TextFormatAlign.LEFT;
 			result = super.layoutCharacters(result);
 			this.currentTextFormat.align = oldTextAlign;
@@ -753,7 +769,7 @@ public function get_text():String
 	override private function refreshTextFormat():Void
 	{
 		super.refreshTextFormat();
-		if(this._cursorSkin)
+		if(this._cursorSkin != null)
 		{
 			var font:BitmapFont = this.currentTextFormat.font;
 			var customSize:Float = this.currentTextFormat.size;
@@ -792,7 +808,7 @@ public function get_text():String
 		//this is before the hasFocus check because the native stage may
 		//have lost focus when clicking on the text editor, so we may need
 		//to put it back in focus
-		if(!FocusManager.isEnabledForStage(this.stage) && !nativeStage.focus)
+		if(!FocusManager.isEnabledForStage(this.stage) && nativeStage.focus == null)
 		{
 			//something needs to be focused so that we can receive cut,
 			//copy, and paste events
@@ -817,7 +833,7 @@ public function get_text():String
 	 */
 	private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
-		if(!this._text || pointX <= 0)
+		if(this._text == null || pointX <= 0)
 		{
 			return 0;
 		}
@@ -830,7 +846,7 @@ public function get_text():String
 		{
 			scale = 1;
 		}
-		var align:String = this.currentTextFormat.align;
+		var align:TextFormatAlign = this.currentTextFormat.align;
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
@@ -849,13 +865,13 @@ public function get_text():String
 			}
 		}
 		var currentX:Float = 0;
-		var previousCharID:Float = Math.NaN;
+		var previousCharID:Int = 0xffffffff;
 		var charCount:Int = this._text.length;
 		for(i in 0 ... charCount)
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
-			if(!charData)
+			if(charData == null)
 			{
 				continue;
 			}
@@ -899,7 +915,7 @@ public function get_text():String
 			scale = 1;
 		}
 		var xPositionOffset:Float = 0;
-		var align:String = this.currentTextFormat.align;
+		var align:TextFormatAlign = this.currentTextFormat.align;
 		if(align != TextFormatAlign.LEFT)
 		{
 			var lineWidth:Float = this.measureText(HELPER_POINT).x;
@@ -918,7 +934,7 @@ public function get_text():String
 			}
 		}
 		var currentX:Float = 0;
-		var previousCharID:Float = Math.NaN;
+		var previousCharID:Int = 0xffffffff;
 		var charCount:Int = this._text.length;
 		if(index < charCount)
 		{
@@ -928,7 +944,7 @@ public function get_text():String
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
-			if(!charData)
+			if(charData == null)
 			{
 				continue;
 			}
@@ -954,7 +970,7 @@ public function get_text():String
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfIndex(index);
-		cursorX = Int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Std.int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 
@@ -1064,9 +1080,10 @@ public function get_text():String
 			this.touchPointID = -1;
 			return;
 		}
+		var touch:Touch;
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, null, this.touchPointID);
+			touch = event.getTouch(this, null, this.touchPointID);
 			touch.getLocation(this, HELPER_POINT);
 			HELPER_POINT.x += this._scrollX;
 			this.selectRange(this._selectionAnchorIndex, this.getSelectionIndexAtPoint(HELPER_POINT.x, HELPER_POINT.y));
@@ -1086,7 +1103,7 @@ public function get_text():String
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -1115,7 +1132,7 @@ public function get_text():String
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
-		if(!touch) //we only care about began touches
+		if(touch == null) //we only care about began touches
 		{
 			return;
 		}
@@ -1299,7 +1316,7 @@ public function get_text():String
 			}
 			else if(charCode >= 32 && !event.ctrlKey && !event.altKey) //ignore control characters
 			{
-				if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
+				if(this._restrict == null || this._restrict.isCharacterAllowed(charCode))
 				{
 					this.replaceSelectedText(String.fromCharCode(charCode));
 				}
@@ -1320,12 +1337,14 @@ public function get_text():String
 	 */
 	private function nativeStage_cutHandler(event:openfl.events.Event):Void
 	{
+		#if flash
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
 			return;
 		}
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
 		this.deleteSelectedText();
+		#end
 	}
 
 	/**
@@ -1333,11 +1352,13 @@ public function get_text():String
 	 */
 	private function nativeStage_copyHandler(event:openfl.events.Event):Void
 	{
+		#if flash
 		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
 			return;
 		}
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+		#end
 	}
 
 	/**
@@ -1345,15 +1366,17 @@ public function get_text():String
 	 */
 	private function nativeStage_pasteHandler(event:openfl.events.Event):Void
 	{
+		#if flash
 		if(!this._isEditable || !this._isEnabled)
 		{
 			return;
 		}
-		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
-		if(this._restrict)
+		var pastedText:String = cast(Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT), String);
+		if(this._restrict != null)
 		{
 			pastedText = this._restrict.filterText(pastedText);
 		}
 		this.replaceSelectedText(pastedText);
+		#end
 	}
 }

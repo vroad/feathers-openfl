@@ -6,8 +6,10 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
-import openfl.utils.Dictionary;
+//import openfl.utils.Dictionary;
 
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
 import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;
@@ -20,7 +22,11 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	inline private static var _starlingToPopUpManager:Dictionary = new Dictionary(true);
+#if flash
+	private static var _starlingToPopUpManager:WeakMap<Starling, IPopUpManager> = new WeakMap();
+#else
+	private static var _starlingToPopUpManager:Map<Starling, IPopUpManager> = new Map();
+#end
 
 	/**
 	 * The default factory that creates a pop-up manager.
@@ -46,12 +52,12 @@ class PopUpManager
 	 */
 	public static function forStarling(starling:Starling):IPopUpManager
 	{
-		if(!starling)
+		if(starling == null)
 		{
 			throw new ArgumentError("PopUpManager not found. Starling cannot be null.");
 		}
-		var popUpManager:IPopUpManager = _starlingToPopUpManager[starling];
-		if(!popUpManager)
+		var popUpManager:IPopUpManager = _starlingToPopUpManager.get(starling);
+		if(popUpManager == null)
 		{
 			var factory:Dynamic = PopUpManager.popUpManagerFactory;
 			if(factory == null)
@@ -61,11 +67,11 @@ class PopUpManager
 			popUpManager = factory();
 			//this allows the factory to optionally set the root, but it
 			//also enforces the root being on the correct stage.
-			if(!popUpManager.root || !starling.stage.contains(popUpManager.root))
+			if(popUpManager.root == null || !starling.stage.contains(popUpManager.root))
 			{
 				popUpManager.root = Starling.current.stage;
 			}
-			PopUpManager._starlingToPopUpManager[starling] = popUpManager;
+			PopUpManager._starlingToPopUpManager.set(starling, popUpManager);
 		}
 		return popUpManager;
 	}
@@ -93,7 +99,7 @@ class PopUpManager
 	 *
 	 * @see feathers.core.IPopUpManager
 	 */
-	public static var popUpManagerFactory:Dynamic = defaultPopUpManagerFactory;
+	public static var popUpManagerFactory:Void->IPopUpManager = defaultPopUpManagerFactory;
 	
 	/**
 	 * A function that returns a display object to use as an overlay for
@@ -112,7 +118,8 @@ class PopUpManager
 	 *     return overlay;
 	 * };</listing>
 	 */
-	public static function get_overlayFactory():Dynamic
+	public static var overlayFactory(get, set):Void->DisplayObject;
+	public static function get_overlayFactory():Void->DisplayObject
 	{
 		return PopUpManager.forStarling(Starling.current).overlayFactory;
 	}
@@ -120,9 +127,9 @@ class PopUpManager
 	/**
 	 * @private
 	 */
-	public static function set_overlayFactory(value:Dynamic):Void
+	public static function set_overlayFactory(value:Void->DisplayObject):Void->DisplayObject
 	{
-		PopUpManager.forStarling(Starling.current).overlayFactory = value;
+		return PopUpManager.forStarling(Starling.current).overlayFactory = value;
 	}
 
 	/**
@@ -182,7 +189,7 @@ class PopUpManager
 	 * Regular Starling display objects do not dispatch a proper resize
 	 * event that the pop-up manager can listen to.</p>
 	 */
-	public static function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Dynamic = null):DisplayObject
+	public static function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Void->DisplayObject = null):DisplayObject
 	{
 		return PopUpManager.forStarling(Starling.current).addPopUp(popUp, isModal, isCentered, customOverlayFactory);
 	}

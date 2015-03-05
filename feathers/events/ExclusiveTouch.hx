@@ -6,7 +6,8 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.events;
-import openfl.utils.Dictionary;
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
 
 import starling.display.DisplayObject;
 import starling.display.Stage;
@@ -22,7 +23,7 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.CHANGE
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Allows a component to claim exclusive access to a touch to avoid
@@ -42,19 +43,23 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	inline private static var stageToObject:Dictionary = new Dictionary(true);
+	#if flash
+	private static var stageToObject:WeakMap<Stage, ExclusiveTouch> = new WeakMap();
+	#else
+	private static var stageToObject:Map<Stage, ExclusiveTouch> = new Map();
+	#end
 
 	/**
 	 * Retrieves the exclusive touch manager for the specified stage.
 	 */
 	public static function forStage(stage:Stage):ExclusiveTouch
 	{
-		if(!stage)
+		if(stage == null)
 		{
 			throw new ArgumentError("Stage cannot be null.");
 		}
-		var object:ExclusiveTouch = ExclusiveTouch(stageToObject[stage]);
-		if(object)
+		var object:ExclusiveTouch = stageToObject[stage];
+		if(object != null)
 		{
 			return object;
 		}
@@ -68,7 +73,7 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	public static function disposeForStage(stage:Stage):Void
 	{
-		delete stageToObject[stage];
+		stageToObject.remove(stage);
 	}
 
 	/**
@@ -77,7 +82,7 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	public function new(stage:Stage)
 	{
-		if(!stage)
+		if(stage == null)
 		{
 			throw new ArgumentError("Stage cannot be null.");
 		}
@@ -97,7 +102,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _claims:Dictionary = new Dictionary();
+	private var _claims:Map<Int, DisplayObject> = new Map();
 
 	/**
 	 * Allows a display object to claim a touch by its ID. Returns
@@ -106,7 +111,7 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	public function claimTouch(touchID:Int, target:DisplayObject):Bool
 	{
-		if(!target)
+		if(target == null)
 		{
 			throw new ArgumentError("Target cannot be null.");
 		}
@@ -118,8 +123,8 @@ class ExclusiveTouch extends EventDispatcher
 		{
 			throw new ArgumentError("Invalid touch. Touch ID must be >= 0.");
 		}
-		var existingTarget:DisplayObject = DisplayObject(this._claims[touchID]);
-		if(existingTarget)
+		var existingTarget:DisplayObject = this._claims[touchID];
+		if(existingTarget != null)
 		{
 			return false;
 		}
@@ -138,12 +143,12 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	public function removeClaim(touchID:Int):Void
 	{
-		var existingTarget:DisplayObject = DisplayObject(this._claims[touchID]);
-		if(!existingTarget)
+		var existingTarget:DisplayObject = this._claims[touchID];
+		if(existingTarget == null)
 		{
 			return;
 		}
-		delete this._claims[touchID];
+		this._claims.remove(touchID);
 		this.dispatchEventWith(Event.CHANGE, false, touchID);
 	}
 
@@ -158,7 +163,7 @@ class ExclusiveTouch extends EventDispatcher
 		{
 			throw new ArgumentError("Invalid touch. Touch ID must be >= 0.");
 		}
-		return DisplayObject(this._claims[touchID]);
+		return this._claims[touchID];
 	}
 
 	/**
@@ -166,15 +171,15 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
-		for(var key:Dynamic in this._claims)
+		for(key in this._claims.keys())
 		{
-			var touchID:Int = key as int;
+			var touchID:Int = key;
 			var touch:Touch = event.getTouch(this._stage, TouchPhase.ENDED, touchID);
-			if(!touch)
+			if(touch == null)
 			{
 				continue;
 			}
-			delete this._claims[key];
+			this._claims.remove(key);
 			this._stageListenerCount--;
 		}
 		if(this._stageListenerCount == 0)

@@ -6,6 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.data;
+import feathers.utils.type.AcceptEither;
 /**
  * An adapter interface to support any kind of data source in
  * hierarchical collections.
@@ -26,28 +27,28 @@ interface IHierarchicalCollectionDataDescriptor
 	 * a location is omitted, the length returned will be for the root level
 	 * of the collection.</p>
 	 */
-	function getLength(data:Dynamic, ...rest:Array):Int;
+	function getLength(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Int;
 
 	/**
 	 * Returns the item at the specified location in the data source.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function getItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic;
+	function getItemAt(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Dynamic;
 
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function setItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void;
+	function setItemAt(data:Dynamic, item:Dynamic, indices:AcceptEither<Int, Array<Int>>):Void;
 
 	/**
 	 * Adds an item to the data source, at the specified location.
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function addItemAt(data:Dynamic, item:Dynamic, index:Int, ...rest:Array):Void;
+	function addItemAt(data:Dynamic, item:Dynamic, indices:AcceptEither<Int, Array<Int>>):Void;
 
 	/**
 	 * Removes the item at the specified location from the data source and
@@ -55,7 +56,7 @@ interface IHierarchicalCollectionDataDescriptor
 	 *
 	 * <p>The rest arguments are the indices that make up the location.</p>
 	 */
-	function removeItemAt(data:Dynamic, index:Int, ...rest:Array):Dynamic;
+	function removeItemAt(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Dynamic;
 
 	/**
 	 * Determines which location the item appears at within the data source.
@@ -64,5 +65,5 @@ interface IHierarchicalCollectionDataDescriptor
 	 * <p>The <code>rest</code> arguments are optional indices to narrow
 	 * the search.</p>
 	 */
-	function getItemLocation(data:Dynamic, item:Dynamic, result:Array<Int> = null, ...rest:Array):Array<Int>;
+	function getItemLocation(data:Dynamic, item:Dynamic, result:Array<Int> = null, indices:AcceptEither<Int, Array<Int>> = null):Array<Int>;
 }

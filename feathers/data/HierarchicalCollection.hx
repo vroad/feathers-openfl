@@ -7,6 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.data;
 import feathers.events.CollectionEventType;
+import feathers.utils.type.AcceptEither;
 
 import starling.events.Event;
 import starling.events.EventDispatcher;
@@ -159,7 +160,7 @@ import starling.events.EventDispatcher;
  */
 //[Event(name="updateItem",type="starling.events.Event")]
 
-[DefaultProperty("data")]
+//[DefaultProperty("data")]
 /**
  * Wraps a two-dimensional data source with a common API for use with UI
  * controls that support this type of data.
@@ -168,7 +169,7 @@ class HierarchicalCollection extends EventDispatcher
 {
 	public function new(data:Dynamic = null)
 	{
-		if(!data)
+		if(data == null)
 		{
 			//default to an array if no data is provided
 			data = [];
@@ -200,11 +201,12 @@ class HierarchicalCollection extends EventDispatcher
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
 		this._data = value;
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_data();
 	}
 
 	/**
@@ -228,11 +230,12 @@ class HierarchicalCollection extends EventDispatcher
 	{
 		if(this._dataDescriptor == value)
 		{
-			return;
+			return get_dataDescriptor();
 		}
 		this._dataDescriptor = value;
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_dataDescriptor();
 	}
 
 	/**
@@ -246,10 +249,9 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * The number of items at the specified location in the collection.
 	 */
-	public function getLength(...rest:Array):Int
+	public function getLength(index:AcceptEither<Int, Array<Int>> = null):Int
 	{
-		rest.unshift(this._data);
-		return this._dataDescriptor.getLength.apply(null, rest);
+		return this._dataDescriptor.getLength(this._data, index);
 	}
 
 	/**
@@ -258,20 +260,17 @@ class HierarchicalCollection extends EventDispatcher
 	 * and the collection will dispatch the <code>CollectionEventType.UPDATE_ITEM</code>
 	 * event to manually notify the component that renders the data.
 	 */
-	public function updateItemAt(index:Int, ...rest:Array):Void
+	public function updateItemAt(index:AcceptEither<Int, Array<Int>>):Void
 	{
-		rest.unshift(index);
-		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, rest);
+		this.dispatchEventWith(CollectionEventType.UPDATE_ITEM, false, getIndicesFromEither(index));
 	}
 
 	/**
 	 * Returns the item at the specified location in the collection.
 	 */
-	public function getItemAt(index:Int, ...rest:Array):Dynamic
+	public function getItemAt(index:AcceptEither<Int, Array<Int>>):Dynamic
 	{
-		rest.unshift(index);
-		rest.unshift(this._data);
-		return this._dataDescriptor.getItemAt.apply(null, rest);
+		return this._dataDescriptor.getItemAt(this._data, index);
 	}
 
 	/**
@@ -286,30 +285,22 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Adds an item to the collection, at the specified location.
 	 */
-	public function addItemAt(item:Dynamic, index:Int, ...rest:Array):Void
+	public function addItemAt(item:Dynamic, index:AcceptEither<Int, Array<Int>>):Void
 	{
-		rest.unshift(index);
-		rest.unshift(item);
-		rest.unshift(this._data);
-		this._dataDescriptor.addItemAt.apply(null, rest);
+		this._dataDescriptor.addItemAt(this._data, item, index);
 		this.dispatchEventWith(Event.CHANGE);
-		rest.shift();
-		rest.shift();
-		this.dispatchEventWith(CollectionEventType.ADD_ITEM, false, rest);
+		this.dispatchEventWith(CollectionEventType.ADD_ITEM, false, getIndicesFromEither(index));
 	}
 
 	/**
 	 * Removes the item at the specified location from the collection and
 	 * returns it.
 	 */
-	public function removeItemAt(index:Int, ...rest:Array):Dynamic
+	public function removeItemAt(index:AcceptEither<Int, Array<Int>>):Dynamic
 	{
-		rest.unshift(index);
-		rest.unshift(this._data);
-		var item:Dynamic = this._dataDescriptor.removeItemAt.apply(null, rest);
+		var item:Dynamic = this._dataDescriptor.removeItemAt(this._data, index);
 		this.dispatchEventWith(Event.CHANGE);
-		rest.shift();
-		this.dispatchEventWith(CollectionEventType.REMOVE_ITEM, false, rest);
+		this.dispatchEventWith(CollectionEventType.REMOVE_ITEM, false, getIndicesFromEither(index));
 		return item;
 	}
 
@@ -319,31 +310,27 @@ class HierarchicalCollection extends EventDispatcher
 	public function removeItem(item:Dynamic):Void
 	{
 		var location:Array<Int> = this.getItemLocation(item);
-		if(location)
+		if(location != null)
 		{
 			//this is hacky. a future version probably won't use rest args.
-			var locationAsArray:Array = [];
+			var locationAsArray:Array<Int> = [];
 			var indexCount:Int = location.length;
-			for(var i:Int = 0; i < indexCount; i++)
+			//for(var i:Int = 0; i < indexCount; i++)
+			for(i in 0 ... indexCount)
 			{
 				locationAsArray.push(location[i]);
 			}
-			this.removeItemAt.apply(this, locationAsArray);
+			this.removeItemAt(locationAsArray);
 		}
 	}
 
 	/**
 	 * Replaces the item at the specified location with a new item.
 	 */
-	public function setItemAt(item:Dynamic, index:Int, ...rest:Array):Void
+	public function setItemAt(item:Dynamic, index:AcceptEither<Int, Array<Int>>):Void
 	{
-		rest.unshift(index);
-		rest.unshift(item);
-		rest.unshift(this._data);
-		this._dataDescriptor.setItemAt.apply(null, rest);
-		rest.shift();
-		rest.shift();
-		this.dispatchEventWith(CollectionEventType.REPLACE_ITEM, false, rest);
+		this._dataDescriptor.setItemAt(this._data, item, index);
+		this.dispatchEventWith(CollectionEventType.REPLACE_ITEM, false, getIndicesFromEither(index));
 		this.dispatchEventWith(Event.CHANGE);
 	}
 
@@ -380,32 +367,34 @@ class HierarchicalCollection extends EventDispatcher
 	 */
 	public function dispose(disposeGroup:Dynamic, disposeItem:Dynamic):Void
 	{
-		var groupCount:Int = this.getLength();
-		var path:Array = [];
-		for(var i:Int = 0; i < groupCount; i++)
+		var groupCount:Int = this.getLength(null);
+		var path:Array<Int> = [];
+		//for(var i:Int = 0; i < groupCount; i++)
+		for(i in 0 ... groupCount)
 		{
 			var group:Dynamic = this.getItemAt(i);
 			path[0] = i;
 			this.disposeGroupInternal(group, path, disposeGroup, disposeItem);
-			path.length = 0;
+			path.splice(0, path.length);
 		}
 	}
 
 	/**
 	 * @private
 	 */
-	private function disposeGroupInternal(group:Dynamic, path:Array, disposeGroup:Dynamic, disposeItem:Dynamic):Void
+	private function disposeGroupInternal(group:Dynamic, path:Array<Int>, disposeGroup:Dynamic, disposeItem:Dynamic):Void
 	{
 		if(disposeGroup != null)
 		{
 			disposeGroup(group);
 		}
 
-		var itemCount:Int = this.getLength.apply(this, path);
-		for(var i:Int = 0; i < itemCount; i++)
+		var itemCount:Int = this.getLength(path);
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			path[path.length] = i;
-			var item:Dynamic = this.getItemAt.apply(this, path);
+			var item:Dynamic = this.getItemAt(path);
 			if(this.isBranch(item))
 			{
 				this.disposeGroupInternal(item, path, disposeGroup, disposeItem);
@@ -414,7 +403,18 @@ class HierarchicalCollection extends EventDispatcher
 			{
 				disposeItem(item);
 			}
-			path.length--;
+			path.splice(path.length - 1, 1);
 		}
+	}
+	
+	private static function getIndicesFromEither(index:AcceptEither<Int, Array<Int>>):Array<Int>
+	{
+		var ret:Array<Int> = [];
+		if(index != null)
+			switch index.type {
+				case Left(intIndex) : ret = [intIndex];
+				case Right(indices) : ret = indices;
+			}
+		return ret;
 	}
 }

@@ -6,6 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
+import feathers.core.FeathersControl;
 import feathers.core.IFeathersControl;
 import feathers.core.IFocusExtras;
 import feathers.core.PropertyProxy;
@@ -247,7 +248,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private var _headerFactory:Dynamic;
+	private var _headerFactory:Void->IFeathersControl;
 
 	/**
 	 * A function used to generate the panel's header sub-component.
@@ -285,8 +286,8 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see feathers.controls.Header
 	 * @see #headerProperties
 	 */
-	public var headerFactory(get, set):Dynamic;
-	public function get_headerFactory():Dynamic
+	public var headerFactory(get, set):Void->IFeathersControl;
+	public function get_headerFactory():Void->IFeathersControl
 	{
 		return this._headerFactory;
 	}
@@ -294,17 +295,18 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_headerFactory(value:Dynamic):Dynamic
+	public function set_headerFactory(value:Void->IFeathersControl):Void->IFeathersControl
 	{
 		if(this._headerFactory == value)
 		{
-			return;
+			return get_headerFactory();
 		}
 		this._headerFactory = value;
 		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_headerFactory();
 	}
 
 	/**
@@ -350,13 +352,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._customHeaderName == value)
 		{
-			return;
+			return get_customHeaderName();
 		}
 		this._customHeaderName = value;
 		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_customHeaderName();
 	}
 
 	/**
@@ -392,10 +395,10 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see feathers.controls.Header
 	 */
-	public var headerProperties(get, set):Dynamic;
-	public function get_headerProperties():Dynamic
+	public var headerProperties(get, set):PropertyProxy;
+	public function get_headerProperties():PropertyProxy
 	{
-		if(!this._headerProperties)
+		if(this._headerProperties == null)
 		{
 			this._headerProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -405,41 +408,42 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_headerProperties(value:Dynamic):Dynamic
+	public function set_headerProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._headerProperties == value)
 		{
-			return;
+			return get_headerProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._headerProperties)
+		if(this._headerProperties != null)
 		{
 			this._headerProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._headerProperties = PropertyProxy(value);
-		if(this._headerProperties)
+		this._headerProperties = value;
+		if(this._headerProperties != null)
 		{
 			this._headerProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_headerProperties();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _footerFactory:Dynamic;
+	private var _footerFactory:Void->IFeathersControl;
 
 	/**
 	 * A function used to generate the panel's footer sub-component.
@@ -466,8 +470,8 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see feathers.core.FeathersControl
 	 * @see #footerProperties
 	 */
-	public var footerFactory(get, set):Dynamic;
-	public function get_footerFactory():Dynamic
+	public var footerFactory(get, set):Void->IFeathersControl;
+	public function get_footerFactory():Void->IFeathersControl
 	{
 		return this._footerFactory;
 	}
@@ -475,17 +479,18 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_footerFactory(value:Dynamic):Dynamic
+	public function set_footerFactory(value:Void->IFeathersControl):Void->IFeathersControl
 	{
 		if(this._footerFactory == value)
 		{
-			return;
+			return get_footerFactory();
 		}
 		this._footerFactory = value;
 		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_footerFactory();
 	}
 
 	/**
@@ -531,13 +536,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._customFooterName == value)
 		{
-			return;
+			return get_customFooterName();
 		}
 		this._customFooterName = value;
 		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_customFooterName();
 	}
 
 	/**
@@ -571,10 +577,10 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footerFactory
 	 */
-	public var footerProperties(get, set):Dynamic;
-	public function get_footerProperties():Dynamic
+	public var footerProperties(get, set):PropertyProxy;
+	public function get_footerProperties():PropertyProxy
 	{
-		if(!this._footerProperties)
+		if(this._footerProperties == null)
 		{
 			this._footerProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -584,35 +590,36 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set_footerProperties(value:Dynamic):Dynamic
+	public function set_footerProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._footerProperties == value)
 		{
-			return;
+			return get_footerProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._footerProperties)
+		if(this._footerProperties != null)
 		{
 			this._footerProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._footerProperties = PropertyProxy(value);
-		if(this._footerProperties)
+		this._footerProperties = value;
+		if(this._footerProperties != null)
 		{
 			this._footerProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_footerProperties();
 	}
 
 	/**
@@ -623,7 +630,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
-	public var focusExtrasBefore(get, set):Array<DisplayObject>;
+	public var focusExtrasBefore(get, never):Array<DisplayObject>;
 	public function get_focusExtrasBefore():Array<DisplayObject>
 	{
 		return this._focusExtrasBefore;
@@ -637,7 +644,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @inheritDoc
 	 */
-	public var focusExtrasAfter(get, set):Array<DisplayObject>;
+	public var focusExtrasAfter(get, never):Array<DisplayObject>;
 	public function get_focusExtrasAfter():Array<DisplayObject>
 	{
 		return this._focusExtrasAfter;
@@ -677,6 +684,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.outerPaddingRight = value;
 		this.outerPaddingBottom = value;
 		this.outerPaddingLeft = value;
+		return get_outerPadding();
 	}
 
 	/**
@@ -717,10 +725,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._outerPaddingTop == value)
 		{
-			return;
+			return get_outerPaddingTop();
 		}
 		this._outerPaddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_outerPaddingTop();
 	}
 
 	/**
@@ -762,10 +771,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._outerPaddingRight == value)
 		{
-			return;
+			return get_outerPaddingRight();
 		}
 		this._outerPaddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_outerPaddingRight();
 	}
 
 	/**
@@ -806,10 +816,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._outerPaddingBottom == value)
 		{
-			return;
+			return get_outerPaddingBottom();
 		}
 		this._outerPaddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_outerPaddingBottom();
 	}
 
 	/**
@@ -851,10 +862,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._outerPaddingLeft == value)
 		{
-			return;
+			return get_outerPaddingLeft();
 		}
 		this._outerPaddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_outerPaddingLeft();
 	}
 
 	/**
@@ -923,10 +935,12 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.header.height = Math.NaN;
 		this.header.validate();
 
-		if(this.footer)
+		var oldFooterWidth:Float = 0;
+		var oldFooterHeight:Float = 0;
+		if(this.footer != null)
 		{
-			var oldFooterWidth:Float = this.footer.width;
-			var oldFooterHeight:Float = this.footer.height;
+			oldFooterWidth = this.footer.width;
+			oldFooterHeight = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
 			this.footer.height = Math.NaN;
@@ -938,7 +952,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		if(needsWidth)
 		{
 			newWidth = Math.max(this.header.width, this._viewPort.width + this._rightViewPortOffset + this._leftViewPortOffset);
-			if(this.footer)
+			if(this.footer != null)
 			{
 				newWidth = Math.max(newWidth, this.footer.width);
 			}
@@ -958,7 +972,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 
 		this.header.width = oldHeaderWidth;
 		this.header.height = oldHeaderHeight;
-		if(this.footer)
+		if(this.footer != null)
 		{
 			this.footer.width = oldFooterWidth;
 			this.footer.height = oldFooterHeight;
@@ -981,21 +995,22 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function createHeader():Void
 	{
-		if(this.header)
+		var displayHeader:DisplayObject;
+		if(this.header != null)
 		{
 			this.header.removeEventListener(FeathersEventType.RESIZE, header_resizeHandler);
-			var displayHeader:DisplayObject = DisplayObject(this.header);
+			displayHeader = cast(this.header, DisplayObject);
 			this._focusExtrasBefore.splice(this._focusExtrasBefore.indexOf(displayHeader), 1);
 			this.removeRawChild(displayHeader, true);
 			this.header = null;
 		}
 
-		var factory:Dynamic = this._headerFactory != null ? this._headerFactory : defaultHeaderFactory;
+		var factory:Void->IFeathersControl = this._headerFactory != null ? this._headerFactory : defaultHeaderFactory;
 		var headerName:String = this._customHeaderName != null ? this._customHeaderName : this.headerName;
-		this.header = IFeathersControl(factory());
+		this.header = factory();
 		this.header.styleNameList.add(headerName);
 		this.header.addEventListener(FeathersEventType.RESIZE, header_resizeHandler);
-		displayHeader = DisplayObject(this.header);
+		displayHeader = cast(this.header, DisplayObject);
 		this.addRawChild(displayHeader);
 		this._focusExtrasBefore.push(displayHeader);
 	}
@@ -1013,10 +1028,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function createFooter():Void
 	{
-		if(this.footer)
+		var displayFooter:DisplayObject;
+		if(this.footer != null)
 		{
 			this.footer.removeEventListener(FeathersEventType.RESIZE, footer_resizeHandler);
-			var displayFooter:DisplayObject = DisplayObject(this.footer);
+			displayFooter = cast(this.footer, DisplayObject);
 			this._focusExtrasAfter.splice(this._focusExtrasAfter.indexOf(displayFooter), 1);
 			this.removeRawChild(displayFooter, true);
 			this.footer = null;
@@ -1027,10 +1043,10 @@ class Panel extends ScrollContainer implements IFocusExtras
 			return;
 		}
 		var footerName:String = this._customFooterName != null ? this._customFooterName : this.footerName;
-		this.footer = IFeathersControl(this._footerFactory());
+		this.footer = this._footerFactory();
 		this.footer.styleNameList.add(footerName);
 		this.footer.addEventListener(FeathersEventType.RESIZE, footer_resizeHandler);
-		displayFooter = DisplayObject(this.footer);
+		displayFooter = cast(this.footer, DisplayObject);
 		this.addRawChild(displayFooter);
 		this._focusExtrasAfter.push(displayFooter);
 	}
@@ -1040,10 +1056,12 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function refreshHeaderStyles():Void
 	{
-		for (propertyName in this._headerProperties)
+		if (this._headerProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._headerProperties.storage))
 		{
-			var propertyValue:Dynamic = this._headerProperties[propertyName];
-			this.header[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._headerProperties.storage, propertyName);
+			Reflect.setProperty(this.header, propertyName, propertyValue);
 		}
 	}
 
@@ -1052,10 +1070,12 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function refreshFooterStyles():Void
 	{
-		for (propertyName in this._footerProperties)
+		if (this._footerProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._footerProperties.storage))
 		{
-			var propertyValue:Dynamic = this._footerProperties[propertyName];
-			this.footer[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._footerProperties.storage, propertyName);
+			Reflect.setProperty(this.footer, propertyName, propertyValue);
 		}
 	}
 
@@ -1089,7 +1109,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.header.height = oldHeaderHeight;
 		this._ignoreHeaderResizing = oldIgnoreHeaderResizing;
 
-		if(this.footer)
+		if(this.footer != null)
 		{
 			var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 			this._ignoreFooterResizing = true;
@@ -1129,7 +1149,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 		this.header.validate();
 		this._ignoreHeaderResizing = oldIgnoreHeaderResizing;
 
-		if(this.footer)
+		if(this.footer != null)
 		{
 			var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 			this._ignoreFooterResizing = true;

@@ -9,7 +9,7 @@ class GalleryTheme extends MetalWorksMobileTheme
 {
 	public function new()
 	{
-		super(true)
+		super(false);
 	}
 
 	override private function initializeStyleProviders():Void

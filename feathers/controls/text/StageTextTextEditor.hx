@@ -10,14 +10,18 @@ import feathers.core.FeathersControl;
 import feathers.core.IMultilineTextEditor;
 import feathers.events.FeathersEventType;
 import feathers.text.StageTextField;
-import feathers.utils.geom.matrixToScaleX;
-import feathers.utils.geom.matrixToScaleY;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+import feathers.utils.text.OpenFLTextFormat;
+import openfl.errors.Error;
 
 import openfl.display.BitmapData;
 import openfl.events.Event;
 import openfl.events.FocusEvent;
 import openfl.events.KeyboardEvent;
+#if flash
 import openfl.events.SoftKeyboardEvent;
+#end
 import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
@@ -26,10 +30,12 @@ import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;
+#if flash
 import openfl.text.engine.FontPosture;
 import openfl.text.engine.FontWeight;
+#end
 import openfl.ui.Keyboard;
-import openfl.utils.getDefinitionByName;
+//import openfl.utils.getDefinitionByName;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -57,7 +63,7 @@ import starling.utils.MatrixUtil;
  *   listening for the event.</td></tr>
  * </table>
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the user presses the Enter key while the editor has
@@ -83,7 +89,7 @@ import starling.utils.MatrixUtil;
  * @eventType feathers.events.FeathersEventType.ENTER
  * @see #returnKeyLabel
  */
-//[Event(name="enter",type="starling.events.Event")]
+///[Event(name="enter",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor receives focus.
@@ -105,7 +111,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
  */
-//[Event(name="focusIn",type="starling.events.Event")]
+///[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the text editor loses focus.
@@ -127,7 +133,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
  */
-//[Event(name="focusOut",type="starling.events.Event")]
+///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is activated. Not all text editors will
@@ -150,7 +156,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_ACTIVATE
  */
-//[Event(name="softKeyboardActivate",type="starling.events.Event")]
+///[Event(name="softKeyboardActivate",type="starling.events.Event")]
 
 /**
  * Dispatched when the soft keyboard is deactivated. Not all text editors
@@ -173,7 +179,7 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.SOFT_KEYBOARD_DEACTIVATE
  */
-//[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
+///[Event(name="softKeyboardDeactivate",type="starling.events.Event")]
 
 /**
  * A Feathers text editor that uses the native <code>openfl.text.StageText</code>
@@ -194,7 +200,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -211,7 +217,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function new()
 	{
-		this._stageTextIsTextField = /^(Windows|Mac OS|Linux) .*/.exec(Capabilities.os);
+		super();
+		// TODO: Check OS
+		//this._stageTextIsTextField = ~/^(Windows|Mac OS|Linux) .*/.match(Capabilities.os);
+		this._stageTextIsTextField = true;
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, textEditor_removedFromStageHandler);
 	}
@@ -223,12 +232,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(super.x == value)
 		{
-			return;
+			return super.x;
 		}
 		super.x = value;
 		//we need to know when the position changes to change the position
 		//of the StageText instance.
 		this.invalidate(INVALIDATION_FLAG_POSITION);
+		return super.x;
 	}
 
 	/**
@@ -238,12 +248,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(super.y == value)
 		{
-			return;
+			return super.y;
 		}
 		super.y = value;
 		//we need to know when the position changes to change the position
 		//of the StageText instance.
 		this.invalidate(INVALIDATION_FLAG_POSITION);
+		return super.y;
 	}
 
 	/**
@@ -294,18 +305,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function set_text(value:String):String
 	{
-		if(!value)
+		if(value == null)
 		{
 			//don't allow null or undefined
 			value = "";
 		}
 		if(this._text == value)
 		{
-			return;
+			return this._text;
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(starling.events.Event.CHANGE);
+		return this._text;
 	}
 
 	/**
@@ -339,14 +351,14 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionBeginIndex(get, set):Int;
+	public var selectionBeginIndex(get, never):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
 			return this._pendingSelectionBeginIndex;
 		}
-		if(this.stageText)
+		if(this.stageText != null)
 		{
 			return this.stageText.selectionAnchorIndex;
 		}
@@ -361,14 +373,14 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionEndIndex(get, set):Int;
+	public var selectionEndIndex(get, never):Int;
 	public function get_selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{
 			return this._pendingSelectionEndIndex;
 		}
-		if(this.stageText)
+		if(this.stageText != null)
 		{
 			return this.stageText.selectionActiveIndex;
 		}
@@ -383,10 +395,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @inheritDoc
 	 */
-	public var baseline(get, set):Float;
+	public var baseline(get, never):Float;
 	public function get_baseline():Float
 	{
-		if(!this._measureTextField)
+		if(this._measureTextField == null)
 		{
 			return 0;
 		}
@@ -425,10 +437,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._autoCapitalize == value)
 		{
-			return;
+			return this._autoCapitalize;
 		}
 		this._autoCapitalize = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._autoCapitalize;
 	}
 
 	/**
@@ -464,10 +477,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._autoCorrect == value)
 		{
-			return;
+			return this._autoCorrect;
 		}
 		this._autoCorrect = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._autoCorrect;
 	}
 
 	/**
@@ -502,10 +516,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._color == value)
 		{
-			return;
+			return this._color;
 		}
 		this._color = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._color;
 	}
 
 	/**
@@ -541,10 +556,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._disabledColor == value)
 		{
-			return;
+			return this._disabledColor;
 		}
 		this._disabledColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._disabledColor;
 	}
 
 	/**
@@ -578,10 +594,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return this._displayAsPassword;
 		}
 		this._displayAsPassword = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._displayAsPassword;
 	}
 
 	/**
@@ -613,10 +630,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._isEditable == value)
 		{
-			return;
+			return this._isEditable;
 		}
 		this._isEditable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._isEditable;
 	}
 
 	/**
@@ -624,7 +642,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default true
 	 */
-	public var setTouchFocusOnEndedPhase(get, set):Bool;
+	public var setTouchFocusOnEndedPhase(get, never):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return true;
@@ -661,17 +679,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._fontFamily == value)
 		{
-			return;
+			return this._fontFamily;
 		}
 		this._fontFamily = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._fontFamily;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _fontPosture:String = FontPosture.NORMAL;
-
+#if flash
+	private var _fontPosture:String = "normal"/*FontPosture.NORMAL*/;
+#end
 	/**
 	 * Specifies the font posture, using constants defined in the
 	 * <code>openfl.text.engine.FontPosture</code> class.
@@ -686,15 +706,16 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontPosture Full description of openfl.text.StageText.fontPosture in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontPosture.html openfl.text.engine.FontPosture
 	 */
-	public var fontPosture(get, set):String;
+#if flash
 	public function get_fontPosture():String
 	{
 		return this._fontPosture;
 	}
-
+#end
 	/**
 	 * @private
 	 */
+#if flash
 	public function set_fontPosture(value:String):String
 	{
 		if(this._fontPosture == value)
@@ -704,6 +725,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this._fontPosture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
+#end
 
 	/**
 	 * @private
@@ -735,16 +757,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._fontSize == value)
 		{
-			return;
+			return this._fontSize;
 		}
 		this._fontSize = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._fontSize;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _fontWeight:String = FontWeight.NORMAL;
+#if flash
+	private var _fontWeight:String = "normal"/*FontWeight.NORMAL*/;
+#end
 
 	/**
 	 * Specifies the font weight, using constants defined in the
@@ -760,15 +785,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html#fontWeight Full description of openfl.text.StageText.fontWeight in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/FontWeight.html openfl.text.engine.FontWeight
 	 */
-	public var fontWeight(get, set):String;
+#if flash
 	public function get_fontWeight():String
 	{
 		return this._fontWeight;
 	}
+#end
 
 	/**
 	 * @private
 	 */
+#if flash
 	public function set_fontWeight(value:String):String
 	{
 		if(this._fontWeight == value)
@@ -778,6 +805,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this._fontWeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
+#end
 
 	/**
 	 * @private
@@ -811,10 +839,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._locale == value)
 		{
-			return;
+			return this._locale;
 		}
 		this._locale = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._locale;
 	}
 
 	/**
@@ -850,10 +879,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._maxChars == value)
 		{
-			return;
+			return this._maxChars;
 		}
 		this._maxChars = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._maxChars;
 	}
 
 	/**
@@ -895,16 +925,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._multiline == value)
 		{
-			return;
+			return this._multiline;
 		}
 		this._multiline = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._multiline;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _restrict:String;
+	// variable named "_restrict" generates compile error on hxcpp 
+	// private var _restrict:String;
+	private var _restrict_:String;
 
 	/**
 	 * Restricts the set of characters that a user can enter into the text
@@ -923,7 +956,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
-		return this._restrict;
+		return this._restrict_;
 	}
 
 	/**
@@ -931,12 +964,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function set_restrict(value:String):String
 	{
-		if(this._restrict == value)
+		if(this._restrict_ == value)
 		{
-			return;
+			return this._restrict_;
 		}
-		this._restrict = value;
+		this._restrict_ = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._restrict_;
 	}
 
 	/**
@@ -974,10 +1008,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._returnKeyLabel == value)
 		{
-			return;
+			return this._returnKeyLabel;
 		}
 		this._returnKeyLabel = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._returnKeyLabel;
 	}
 
 	/**
@@ -1015,16 +1050,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._softKeyboardType == value)
 		{
-			return;
+			return this._softKeyboardType;
 		}
 		this._softKeyboardType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._softKeyboardType;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _textAlign:String = TextFormatAlign.START;
+	private var _textAlign:String = "start";
 
 	/**
 	 * Indicates the paragraph alignment. Valid values are defined as
@@ -1053,10 +1089,11 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this._textAlign == value)
 		{
-			return;
+			return this._textAlign;
 		}
 		this._textAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._textAlign;
 	}
 
 	/**
@@ -1064,18 +1101,18 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	override public function dispose():Void
 	{
-		if(this._measureTextField)
+		if(this._measureTextField != null)
 		{
 			Starling.current.nativeStage.removeChild(this._measureTextField);
 			this._measureTextField = null;
 		}
 
-		if(this.stageText)
+		if(this.stageText != null)
 		{
 			this.disposeStageText();
 		}
 
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			//avoid the need to call dispose(). we'll create a new snapshot
 			//when the renderer is added to stage again.
@@ -1104,15 +1141,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageTextViewPort:Rectangle = this.stageText.viewPort;
-		if(!stageTextViewPort)
+		if(stageTextViewPort == null)
 		{
 			stageTextViewPort = new Rectangle();
 		}
 		var nativeScaleFactor:Float = 1;
+#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+#end
 		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		stageTextViewPort.x = Math.round(starlingViewPort.x + (HELPER_POINT.x * scaleFactor));
 		stageTextViewPort.y = Math.round(starlingViewPort.y + (HELPER_POINT.y * scaleFactor));
@@ -1141,7 +1180,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			}
 		}
 
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.x = Math.round(HELPER_MATRIX.tx) - HELPER_MATRIX.tx - desktopGutterPositionOffset;
 			this.textSnapshot.y = Math.round(HELPER_MATRIX.ty) - HELPER_MATRIX.ty - desktopGutterPositionOffset;
@@ -1155,13 +1194,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function setFocus(position:Point = null):Void
 	{
-		if(this.stage && !this.stageText.stage)
+		if(this.stage != null && this.stageText.stage == null)
 		{
 			this.stageText.stage = Starling.current.nativeStage;
 		}
-		if(this.stageText && this._stageTextIsComplete)
+		if(this.stageText != null && this._stageTextIsComplete)
 		{
-			if(position)
+			if(position != null)
 			{
 				var positionX:Float = position.x + 2;
 				var positionY:Float = position.y + 2;
@@ -1176,10 +1215,15 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = Int(positionY / this._measureTextField.getLineMetrics(0).height);
+							var lineIndex:Int = Std.int(positionY / this._measureTextField.getLineMetrics(0).height);
 							try
 							{
+#if flash
 								this._pendingSelectionBeginIndex = this._measureTextField.getLineOffset(lineIndex) + this._measureTextField.getLineLength(lineIndex);
+#else
+								// TODO: Implement TextField.getLineLength
+								this._pendingSelectionBeginIndex = this._measureTextField.getLineOffset(lineIndex);
+#end
 								if(this._pendingSelectionBeginIndex != this._text.length)
 								{
 									this._pendingSelectionBeginIndex--;
@@ -1205,7 +1249,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					{
 						var bounds:Rectangle = this._measureTextField.getCharBoundaries(this._pendingSelectionBeginIndex);
 						var boundsX:Float = bounds.x;
-						if(bounds && (boundsX + bounds.width - positionX) < (positionX - boundsX))
+						if(bounds != null && (boundsX + bounds.width - positionX) < (positionX - boundsX))
 						{
 							this._pendingSelectionBeginIndex++;
 						}
@@ -1261,7 +1305,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function measureText(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1284,7 +1328,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		}
 
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_DATA));
 
 		if(stylesInvalid || dataInvalid)
 		{
@@ -1301,15 +1345,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	override private function initialize():Void
 	{
-		if(this._measureTextField && !this._measureTextField.parent)
+		if(this._measureTextField != null && this._measureTextField.parent == null)
 		{
 			Starling.current.nativeStage.addChild(this._measureTextField);
 		}
-		else if(!this._measureTextField)
+		else if(this._measureTextField == null)
 		{
 			this._measureTextField = new TextField();
 			this._measureTextField.visible = false;
+#if flash
 			this._measureTextField.mouseEnabled = this._measureTextField.mouseWheelEnabled = false;
+#else
+			this._measureTextField.mouseEnabled = false;
+#end
 			this._measureTextField.autoSize = TextFieldAutoSize.LEFT;
 			this._measureTextField.multiline = false;
 			this._measureTextField.wordWrap = false;
@@ -1340,9 +1388,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function commit():Void
 	{
-		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_STATE));
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_DATA));
 
 		if(stylesInvalid || dataInvalid)
 		{
@@ -1381,7 +1429,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function measure(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1446,9 +1494,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
+		var stateInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_STATE));
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_DATA));
 		var positionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_POSITION);
 		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
 
@@ -1456,8 +1504,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			this.refreshViewPort();
 			var viewPort:Rectangle = this.stageText.viewPort;
-			var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
-			this._needsNewTexture = this._needsNewTexture || !this.textSnapshot || viewPort.width != textureRoot.width || viewPort.height != textureRoot.height;
+			var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
+			this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null || viewPort.width != textureRoot.width || viewPort.height != textureRoot.height;
 		}
 
 		if(!this._stageTextHasFocus && (stylesInvalid || dataInvalid || sizeInvalid || this._needsNewTexture))
@@ -1467,7 +1515,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			{
 				this.refreshSnapshot();
 			}
-			if(this.textSnapshot)
+			if(this.textSnapshot != null)
 			{
 				this.textSnapshot.visible = !this._stageTextHasFocus;
 				this.textSnapshot.alpha = hasText ? 1 : 0;
@@ -1513,32 +1561,38 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function refreshMeasureProperties():Void
 	{
 		var nativeScaleFactor:Float = 1;
+#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+#end
 		
 		this._measureTextField.displayAsPassword = this._displayAsPassword;
 		this._measureTextField.maxChars = this._maxChars;
-		this._measureTextField.restrict = this._restrict;
+		this._measureTextField.restrict = this._restrict_;
 		this._measureTextField.multiline = this._measureTextField.wordWrap = this._multiline;
 
 		var format:TextFormat = this._measureTextField.defaultTextFormat;
 		format.color = this._color;
 		format.font = this._fontFamily;
-		format.italic = this._fontPosture == FontPosture.ITALIC;
+#if flash
+		format.italic = this._fontPosture == "italic"/*FontPosture.ITALIC*/;
+#end
 		format.size = this._fontSize * nativeScaleFactor;
-		format.bold = this._fontWeight == FontWeight.BOLD;
+#if flash
+		format.bold = this._fontWeight == "bold"/*FontWeight.BOLD*/;
+#end
 		var alignValue:String = this._textAlign;
-		if(alignValue == TextFormatAlign.START)
+		if(alignValue == "start")
 		{
-			alignValue = TextFormatAlign.LEFT;
+			alignValue = "left";
 		}
-		else if(alignValue == TextFormatAlign.END)
+		else if(alignValue == "end")
 		{
-			alignValue = TextFormatAlign.RIGHT;
+			alignValue = "right";
 		}
-		format.align = alignValue;
+		format.align = OpenFLTextFormat.toOpenFLTextAlign(alignValue);
 		this._measureTextField.defaultTextFormat = format;
 		this._measureTextField.setTextFormat(format);
 		if(this._text.length == 0)
@@ -1558,7 +1612,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		if(this.stageText.multiline != this._multiline)
 		{
-			if(this.stageText)
+			if(this.stageText != null)
 			{
 				this.disposeStageText();
 			}
@@ -1577,7 +1631,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		}
 		this.stageText.displayAsPassword = this._displayAsPassword;
 		this.stageText.fontFamily = this._fontFamily;
+#if flash
 		this.stageText.fontPosture = this._fontPosture;
+#end
 
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
@@ -1591,10 +1647,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var scaleFactor:Float = Starling.current.contentScaleFactor;
 		this.stageText.fontSize = this._fontSize * scaleFactor * smallerGlobalScale;
 
+#if flash
 		this.stageText.fontWeight = this._fontWeight;
+#end
 		this.stageText.locale = this._locale;
 		this.stageText.maxChars = this._maxChars;
-		this.stageText.restrict = this._restrict;
+		this.stageText.restrict = this._restrict_;
 		this.stageText.returnKeyLabel = this._returnKeyLabel;
 		this.stageText.softKeyboardType = this._softKeyboardType;
 		this.stageText.textAlign = this._textAlign;
@@ -1632,7 +1690,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function texture_onRestore():Void
 	{
 		this.refreshSnapshot();
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.visible = !this._stageTextHasFocus;
 			this.textSnapshot.alpha = this._text.length > 0 ? 1 : 0;
@@ -1650,7 +1708,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		//StageText's stage property cannot be null when we call
 		//drawViewPortToBitmapData()
-		if(this.stage && !this.stageText.stage)
+		if(this.stage != null && this.stageText.stage == null)
 		{
 			this.stageText.stage = Starling.current.nativeStage;
 		}
@@ -1658,7 +1716,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			//we need to keep a flag active so that the snapshot will be
 			//refreshed after the text editor is added to the stage
-			this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+			this.invalidate((FeathersControl.INVALIDATION_FLAG_DATA));
 			return;
 		}
 		var viewPort:Rectangle = this.stageText.viewPort;
@@ -1667,16 +1725,19 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			return;
 		}
 		var nativeScaleFactor:Float = 1;
+#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+#end
 		//StageText sucks because it requires that the BitmapData's width
 		//and height exactly match its view port width and height.
 		//(may be doubled on Retina Mac) 
+		var bitmapData:BitmapData = null;
 		try
 		{
-			var bitmapData:BitmapData = new BitmapData(viewPort.width * nativeScaleFactor, viewPort.height * nativeScaleFactor, true, 0x00ff00ff);
+			bitmapData= new BitmapData(Std.int(viewPort.width * nativeScaleFactor), Std.int(viewPort.height * nativeScaleFactor), true, 0x00ff00ff);
 			this.stageText.drawViewPortToBitmapData(bitmapData);
 		} 
 		catch(error:Error) 
@@ -1686,17 +1747,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			//snapshot that is half size. it's not ideal, but better than
 			//nothing.
 			bitmapData.dispose();
-			bitmapData = new BitmapData(viewPort.width, viewPort.height, true, 0x00ff00ff);
+			bitmapData = new BitmapData(Std.int(viewPort.width), Std.int(viewPort.height), true, 0x00ff00ff);
 			this.stageText.drawViewPortToBitmapData(bitmapData);
 		}
 
-		var newTexture:Texture;
-		if(!this.textSnapshot || this._needsNewTexture)
+		var newTexture:Texture = null;
+		if(this.textSnapshot == null || this._needsNewTexture)
 		{
 			newTexture = Texture.fromBitmapData(bitmapData, false, false, Starling.current.contentScaleFactor);
 			newTexture.root.onRestore = texture_onRestore;
 		}
-		if(!this.textSnapshot)
+		if(this.textSnapshot == null)
 		{
 			this.textSnapshot = new Image(newTexture);
 			this.addChild(this.textSnapshot);
@@ -1735,7 +1796,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageTextViewPort:Rectangle = this.stageText.viewPort;
-		if(!stageTextViewPort)
+		if(stageTextViewPort == null)
 		{
 			stageTextViewPort = new Rectangle();
 		}
@@ -1753,10 +1814,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
 		var nativeScaleFactor:Float = 1;
+#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+#end
 		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		stageTextViewPort.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
 		stageTextViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
@@ -1786,7 +1849,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function disposeStageText():Void
 	{
-		if(!this.stageText)
+		if(this.stageText == null)
 		{
 			return;
 		}
@@ -1796,8 +1859,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this.stageText.removeEventListener(FocusEvent.FOCUS_IN, stageText_focusInHandler);
 		this.stageText.removeEventListener(FocusEvent.FOCUS_OUT, stageText_focusOutHandler);
 		this.stageText.removeEventListener(openfl.events.Event.COMPLETE, stageText_completeHandler);
+#if flash
 		this.stageText.removeEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, stageText_softKeyboardActivateHandler);
 		this.stageText.removeEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, stageText_softKeyboardDeactivateHandler);
+#end
 		this.stageText.stage = null;
 		this.stageText.dispose();
 		this.stageText = null;
@@ -1814,26 +1879,30 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this._stageTextIsComplete = false;
 		var StageTextType:Class<Dynamic>;
 		var initOptions:Dynamic;
+		#if flash
 		try
 		{
-			StageTextType = Class(getDefinitionByName("openfl.text.StageText"));
-			var StageTextInitOptionsType:Class<Dynamic> = Class(getDefinitionByName("openfl.text.StageTextInitOptions"));
-			initOptions = new StageTextInitOptionsType(this._multiline);
+			StageTextType = Type.resolveClass("openfl.text.StageText");
+			var StageTextInitOptionsType:Class<Dynamic> = Type.resolveClass("openfl.text.StageTextInitOptions");
+			initOptions = Type.createInstance(StageTextInitOptionsType, [this._multiline]);
 		}
-		catch(error:Error)
+		catch (error:Error)
+		#end
 		{
 			StageTextType = StageTextField;
 			initOptions = { multiline: this._multiline };
 		}
-		this.stageText = new StageTextType(initOptions);
+		this.stageText = Type.createInstance(StageTextType, [initOptions]);
 		this.stageText.visible = false;
 		this.stageText.addEventListener(openfl.events.Event.CHANGE, stageText_changeHandler);
 		this.stageText.addEventListener(KeyboardEvent.KEY_DOWN, stageText_keyDownHandler);
 		this.stageText.addEventListener(KeyboardEvent.KEY_UP, stageText_keyUpHandler);
 		this.stageText.addEventListener(FocusEvent.FOCUS_IN, stageText_focusInHandler);
 		this.stageText.addEventListener(FocusEvent.FOCUS_OUT, stageText_focusOutHandler);
+#if flash
 		this.stageText.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, stageText_softKeyboardActivateHandler);
 		this.stageText.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, stageText_softKeyboardDeactivateHandler);
+#end
 		this.stageText.addEventListener(openfl.events.Event.COMPLETE, stageText_completeHandler);
 		this.invalidate();
 	}
@@ -1877,7 +1946,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function stageText_focusInHandler(event:FocusEvent):Void
 	{
 		this._stageTextHasFocus = true;
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.visible = false;
 		}
@@ -1897,7 +1966,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		//in other news, why won't 0,0 work here?
 		this.stageText.selectRange(1, 1);
 
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate((FeathersControl.INVALIDATION_FLAG_DATA));
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
 		this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 	}
@@ -1907,6 +1976,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function stageText_keyDownHandler(event:KeyboardEvent):Void
 	{
+#if flash
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))
 		{
 			event.preventDefault();
@@ -1920,6 +1990,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			event.preventDefault();
 			Starling.current.nativeStage.focus = Starling.current.nativeStage;
 		}
+#end
 	}
 
 	/**
@@ -1927,25 +1998,30 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function stageText_keyUpHandler(event:KeyboardEvent):Void
 	{
+#if flash
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))
 		{
 			event.preventDefault();
 		}
+#end
 	}
 
 	/**
 	 * @private
 	 */
+#if flash
 	private function stageText_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
 	}
-
+#end
 	/**
 	 * @private
 	 */
+#if flash
 	private function stageText_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
 	}
+#end
 }

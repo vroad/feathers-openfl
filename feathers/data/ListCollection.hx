@@ -32,7 +32,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.CHANGE
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Dispatched when the collection has changed drastically, such as when
@@ -55,7 +55,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.RESET
  */
-//[Event(name="reset",type="starling.events.Event")]
+///[Event(name="reset",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is added to the collection.
@@ -78,7 +78,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.ADD_ITEM
  */
-//[Event(name="addItem",type="starling.events.Event")]
+///[Event(name="addItem",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is removed from the collection.
@@ -101,7 +101,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.REMOVE_ITEM
  */
-//[Event(name="removeItem",type="starling.events.Event")]
+///[Event(name="removeItem",type="starling.events.Event")]
 
 /**
  * Dispatched when an item is replaced in the collection.
@@ -124,7 +124,7 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.REPLACE_ITEM
  */
-//[Event(name="replaceItem",type="starling.events.Event")]
+///[Event(name="replaceItem",type="starling.events.Event")]
 
 /**
  * Dispatched when a property of an item in the collection has changed
@@ -153,9 +153,9 @@ import starling.events.EventDispatcher;
  *
  * @eventType feathers.events.CollectionEventType.UPDATE_ITEM
  */
-//[Event(name="updateItem",type="starling.events.Event")]
+///[Event(name="updateItem",type="starling.events.Event")]
 
-[DefaultProperty("data")]
+//[DefaultProperty("data")]
 /**
  * Wraps a data source with a common API for use with UI controls, like
  * lists, that support one dimensional collections of data. Supports custom
@@ -209,41 +209,42 @@ class ListCollection extends EventDispatcher
 	{
 		if(this._data == value)
 		{
-			return;
+			return _data;
 		}
-		if(!value)
+		if(value == null)
 		{
 			this.removeAll();
-			return;
+			return _data;
 		}
 		this._data = value;
 		//we'll automatically detect an array, vector, or xmllist for convenience
-		if(this._data is Array && !(this._dataDescriptor is ArrayListCollectionDataDescriptor))
+		if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, ArrayListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new ArrayListCollectionDataDescriptor();
 		}
-		else if(this._data is Array<Float> && !(this._dataDescriptor is VectorNumberListCollectionDataDescriptor))
+		/*else if(Std.is(this._data, Array<Float>) && !Std.is(this._dataDescriptor, VectorFloatListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new VectorNumberListCollectionDataDescriptor();
+			this.dataDescriptor = new VectorFloatListCollectionDataDescriptor();
 		}
-		else if(this._data is Array<Int> && !(this._dataDescriptor is VectorIntListCollectionDataDescriptor))
+		else if(Std.is(this._data, Array<Int>) && !Std.is(this._dataDescriptor, VectorIntListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorIntListCollectionDataDescriptor();
 		}
-		else if(this._data is Array<uint> && !(this._dataDescriptor is VectorUintListCollectionDataDescriptor))
+		else if(Std.is(this._data, Array<UInt>) && !Std.is(this._dataDescriptor, VectorUintListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorUintListCollectionDataDescriptor();
-		}
-		else if(this._data is Vector.<*> && !(this._dataDescriptor is VectorListCollectionDataDescriptor))
+		}*/
+		else if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, VectorListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new VectorListCollectionDataDescriptor();
 		}
-		else if(this._data is XMLList && !(this._dataDescriptor is XMLListListCollectionDataDescriptor))
+		/*else if(Std.is(this._data, XMLList) && !Std.is(this._dataDescriptor, XMLListListCollectionDataDescriptor))
 		{
 			this.dataDescriptor = new XMLListListCollectionDataDescriptor();
-		}
+		}*/
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
+		return _data;
 	}
 	
 	/**
@@ -269,17 +270,18 @@ class ListCollection extends EventDispatcher
 	{
 		if(this._dataDescriptor == value)
 		{
-			return;
+			return this._dataDescriptor;
 		}
 		this._dataDescriptor = value;
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
+		return this._dataDescriptor;
 	}
 
 	/**
 	 * The number of items in the collection.
 	 */
-	public var length(get, set):Int;
+	public var length(get, never):Int;
 	public function get_length():Int
 	{
 		return this._dataDescriptor.getLength(this._data);
@@ -393,7 +395,8 @@ class ListCollection extends EventDispatcher
 	public function addAll(collection:ListCollection):Void
 	{
 		var otherCollectionLength:Int = collection.length;
-		for(var i:Int = 0; i < otherCollectionLength; i++)
+		//for(var i:Int = 0; i < otherCollectionLength; i++)
+		for(i in 0 ... otherCollectionLength)
 		{
 			var item:Dynamic = collection.getItemAt(i);
 			this.addItem(item);
@@ -408,7 +411,8 @@ class ListCollection extends EventDispatcher
 	{
 		var otherCollectionLength:Int = collection.length;
 		var currentIndex:Int = index;
-		for(var i:Int = 0; i < otherCollectionLength; i++)
+		//for(var i:Int = 0; i < otherCollectionLength; i++)
+		for(i in 0 ... otherCollectionLength)
 		{
 			var item:Dynamic = collection.getItemAt(i);
 			this.addItemAt(item, currentIndex);
@@ -471,7 +475,8 @@ class ListCollection extends EventDispatcher
 	public function dispose(disposeItem:Dynamic):Void
 	{
 		var itemCount:Int = this.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:Dynamic = this.getItemAt(i);
 			disposeItem(item);

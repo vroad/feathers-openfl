@@ -6,6 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
+import haxe.ds.WeakMap;
 import openfl.utils.Dictionary;
 
 import starling.display.DisplayObject;
@@ -119,7 +120,11 @@ class DisplayListWatcher extends EventDispatcher
 	 * Tracks the objects that have been initialized. Uses weak keys so that
 	 * the tracked objects can be garbage collected.
 	 */
-	private var initializedObjects:Dictionary = new Dictionary(true);
+	#if flash
+	private var initializedObjects:WeakMap<DisplayObject, Bool> = new WeakMap();
+	#else
+	private var initializedObjects:Map<DisplayObject, Bool> = new Map();
+	#end
 
 	/**
 	 * @private
@@ -149,17 +154,22 @@ class DisplayListWatcher extends EventDispatcher
 	{
 		if(this._initializeOnce == value)
 		{
-			return;
+			return this._initializeOnce;
 		}
 		this._initializeOnce = value;
 		if(value)
 		{
-			this.initializedObjects = new Dictionary(true);
+			#if flash
+			this.initializedObjects = new WeakMap();
+			#else
+			this.initializedObjects = new Map();
+			#end
 		}
 		else
 		{
 			this.initializedObjects = null;
 		}
+		return this._initializeOnce;
 	}
 
 	/**
@@ -170,22 +180,34 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _initializerNoNameTypeMap:Dictionary = new Dictionary(true);
+	#if flash
+	private var _initializerNoNameTypeMap:WeakMap<String, Dynamic->Void> = new WeakMap();
+	#else
+	private var _initializerNoNameTypeMap:Map<String, Dynamic->Void> = new Map();
+	#end
 
 	/**
 	 * @private
 	 */
-	private var _initializerNameTypeMap:Dictionary = new Dictionary(true);
+	#if flash
+	private var _initializerNameTypeMap:WeakMap<String, Map<String, Dynamic->Void>> = new WeakMap();
+	#else
+	private var _initializerNameTypeMap:Map<String, Map<String, Dynamic->Void>> = new Map();
+	#end
 
 	/**
 	 * @private
 	 */
-	private var _initializerSuperTypeMap:Dictionary = new Dictionary(true);
+	#if flash
+	private var _initializerSuperTypeMap:WeakMap<String, Dynamic->Void> = new WeakMap();
+	#else
+	private var _initializerSuperTypeMap:Map<String, Dynamic->Void> = new Map();
+	#end
 
 	/**
 	 * @private
 	 */
-	private var _initializerSuperTypes:Array<Class> = new Array();
+	private var _initializerSuperTypes:Array<Class<Dynamic>> = new Array();
 
 	/**
 	 * @private
@@ -199,33 +221,33 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function dispose():Void
 	{
-		if(this.root)
+		if(this.root != null)
 		{
 			this.root.removeEventListener(Event.ADDED, addedHandler);
 			this.root = null;
 		}
-		if(this._excludedObjects)
+		if(this._excludedObjects != null)
 		{
-			this._excludedObjects.length = 0;
+			this._excludedObjects.splice(0, this._excludedObjects.length);
 			this._excludedObjects = null;
 		}
-		for (key in this.initializedObjects)
+		for (key in this.initializedObjects.keys())
 		{
-			delete this.initializedObjects[key];
+			this.initializedObjects.remove(key);
 		}
-		for(key in this._initializerNameTypeMap)
+		for(key in this._initializerNameTypeMap.keys())
 		{
-			delete this._initializerNameTypeMap[key];
+			this._initializerNameTypeMap.remove(key);
 		}
-		for(key in this._initializerNoNameTypeMap)
+		for(key in this._initializerNoNameTypeMap.keys())
 		{
-			delete this._initializerNoNameTypeMap[key];
+			this._initializerNoNameTypeMap.remove(key);
 		}
-		for(key in this._initializerSuperTypeMap)
+		for(key in this._initializerSuperTypeMap.keys())
 		{
-			delete this._initializerSuperTypeMap[key];
+			this._initializerSuperTypeMap.remove(key);
 		}
-		this._initializerSuperTypes.length = 0;
+		this._initializerSuperTypes.splice(0, this._initializerSuperTypes.length);
 	}
 
 	/**
@@ -234,7 +256,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function exclude(target:DisplayObject):Void
 	{
-		if(!this._excludedObjects)
+		if(this._excludedObjects == null)
 		{
 			this._excludedObjects = new Array();
 		}
@@ -254,7 +276,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function isExcluded(target:DisplayObject):Bool
 	{
-		if(!this._excludedObjects)
+		if(this._excludedObjects == null)
 		{
 			return false;
 		}
@@ -265,7 +287,7 @@ class DisplayListWatcher extends EventDispatcher
 			var object:DisplayObject = this._excludedObjects[i];
 			if(Std.is(object, DisplayObjectContainer))
 			{
-				if(DisplayObjectContainer(object).contains(target))
+				if(cast(object, DisplayObjectContainer).contains(target))
 				{
 					return true;
 				}
@@ -281,17 +303,17 @@ class DisplayListWatcher extends EventDispatcher
 	/**
 	 * Sets the initializer for a specific class.
 	 */
-	public function setInitializerForClass(type:Class<Dynamic>, initializer:Dynamic, withName:String = null):Void
+	public function setInitializerForClass(type:Class<Dynamic>, initializer:Dynamic->Void, withName:String = null):Void
 	{
-		if(!withName)
+		if(withName == null)
 		{
-			this._initializerNoNameTypeMap[type] = initializer;
+			this._initializerNoNameTypeMap[Type.getClassName(type)] = initializer;
 			return;
 		}
-		var nameTable:Dynamic = this._initializerNameTypeMap[type];
-		if(!nameTable)
+		var nameTable:Map<String, Dynamic->Void> = this._initializerNameTypeMap[Type.getClassName(type)];
+		if(nameTable == null)
 		{
-			this._initializerNameTypeMap[type] = nameTable = {};
+			this._initializerNameTypeMap[Type.getClassName(type)] = nameTable = new Map();
 		}
 		nameTable[withName] = initializer;
 	}
@@ -300,39 +322,39 @@ class DisplayListWatcher extends EventDispatcher
 	 * Sets an initializer for a specific class and any subclasses. This
 	 * option can potentially hurt performance, so use sparingly.
 	 */
-	public function setInitializerForClassAndSubclasses(type:Class<Dynamic>, initializer:Dynamic):Void
+	public function setInitializerForClassAndSubclasses(type:Class<Dynamic>, initializer:Dynamic->Void):Void
 	{
 		var index:Int = this._initializerSuperTypes.indexOf(type);
 		if(index < 0)
 		{
 			this._initializerSuperTypes.push(type);
 		}
-		this._initializerSuperTypeMap[type] = initializer;
+		this._initializerSuperTypeMap[Type.getClassName(type)] = initializer;
 	}
 	
 	/**
 	 * If an initializer exists for a specific class, it will be returned.
 	 */
-	public function getInitializerForClass(type:Class<Dynamic>, withName:String = null):Dynamic
+	public function getInitializerForClass(type:Class<Dynamic>, withName:String = null):Dynamic->Void
 	{
-		if(!withName)
+		if(withName == null)
 		{
-			return this._initializerNoNameTypeMap[type] as Function;
+			return this._initializerNoNameTypeMap[Type.getClassName(type)];
 		}
-		var nameTable:Dynamic = this._initializerNameTypeMap[type];
-		if(!nameTable)
+		var nameTable:Map<String, Dynamic->Void> = this._initializerNameTypeMap[Type.getClassName(type)];
+		if(nameTable == null)
 		{
 			return null;
 		}
-		return nameTable[withName] as Function;
+		return nameTable[withName];
 	}
 
 	/**
 	 * If an initializer exists for a specific class and its subclasses, the initializer will be returned.
 	 */
-	public function getInitializerForClassAndSubclasses(type:Class<Dynamic>):Dynamic
+	public function getInitializerForClassAndSubclasses(type:Class<Dynamic>):Dynamic->Void
 	{
-		return this._initializerSuperTypeMap[type];
+		return this._initializerSuperTypeMap[Type.getClassName(type)];
 	}
 	
 	/**
@@ -341,18 +363,18 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function clearInitializerForClass(type:Class<Dynamic>, withName:String = null):Void
 	{
-		if(!withName)
+		if(withName == null)
 		{
-			delete this._initializerNoNameTypeMap[type];
+			this._initializerNoNameTypeMap.remove(Type.getClassName(type));
 			return;
 		}
 
-		var nameTable:Dynamic = this._initializerNameTypeMap[type];
-		if(!nameTable)
+		var nameTable:Map<String, Dynamic->Void> = this._initializerNameTypeMap[Type.getClassName(type)];
+		if(nameTable == null)
 		{
 			return;
 		}
-		delete nameTable[withName];
+		nameTable.remove(withName);
 		return;
 	}
 
@@ -362,7 +384,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function clearInitializerForClassAndSubclasses(type:Class<Dynamic>):Void
 	{
-		delete this._initializerSuperTypeMap[type];
+		this._initializerSuperTypeMap.remove(Type.getClassName(type));
 		var index:Int = this._initializerSuperTypes.indexOf(type);
 		if(index >= 0)
 		{
@@ -381,8 +403,8 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function initializeObject(target:DisplayObject):Void
 	{
-		var targetAsRequiredBaseClass:DisplayObject = DisplayObject(target as requiredBaseClass);
-		if(targetAsRequiredBaseClass)
+		var targetAsRequiredBaseClass:DisplayObject = cast(target, DisplayObject);
+		if(targetAsRequiredBaseClass != null)
 		{
 			var isInitialized:Bool = this._initializeOnce && this.initializedObjects[targetAsRequiredBaseClass];
 			if(!isInitialized)
@@ -402,8 +424,8 @@ class DisplayListWatcher extends EventDispatcher
 
 		if(this.processRecursively)
 		{
-			var targetAsContainer:DisplayObjectContainer = target as DisplayObjectContainer;
-			if(targetAsContainer)
+			var targetAsContainer:DisplayObjectContainer = Std.is(target, DisplayObjectContainer) ? cast(target, DisplayObjectContainer) : null;
+			if(targetAsContainer != null)
 			{
 				var childCount:Int = targetAsContainer.numChildren;
 				for(i in 0 ... childCount)
@@ -421,37 +443,38 @@ class DisplayListWatcher extends EventDispatcher
 	private function processAllInitializers(target:DisplayObject):Void
 	{
 		var superTypeCount:Int = this._initializerSuperTypes.length;
+		var type:Class<Dynamic>;
 		for(i in 0 ... superTypeCount)
 		{
-			var type:Class<Dynamic> = this._initializerSuperTypes[i];
+			type = this._initializerSuperTypes[i];
 			if(Std.is(target, type))
 			{
 				this.applyAllStylesForTypeFromMaps(target, type, this._initializerSuperTypeMap);
 			}
 		}
-		type = Class(Object(target).constructor);
+		type = Type.getClass(target);
 		this.applyAllStylesForTypeFromMaps(target, type, this._initializerNoNameTypeMap, this._initializerNameTypeMap);
 	}
 
 	/**
 	 * @private
 	 */
-	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class<Dynamic>, map:Dictionary, nameMap:Dictionary = null):Void
+	private function applyAllStylesForTypeFromMaps(target:DisplayObject, type:Class<Dynamic>, map:Map<String, Dynamic->Void>, nameMap:Map<String, Map<String, Dynamic->Void>> = null):Void
 	{
-		var initializer:Dynamic;
+		var initializer:Dynamic->Void;
 		var hasNameInitializer:Bool = false;
-		if(target is IFeathersControl && nameMap)
+		if(Std.is(target, IFeathersControl) && nameMap != null)
 		{
-			var nameTable:Dynamic = nameMap[type];
-			if(nameTable)
+			var nameTable:Map<String, Dynamic->Void> = nameMap[Type.getClassName(type)];
+			if(nameTable != null)
 			{
-				var uiControl:IFeathersControl = IFeathersControl(target);
+				var uiControl:IFeathersControl = cast(target, IFeathersControl);
 				var styleNameList:TokenList = uiControl.styleNameList;
 				var nameCount:Int = styleNameList.length;
 				for(i in 0 ... nameCount)
 				{
 					var name:String = styleNameList.item(i);
-					initializer = nameTable[name] as Function;
+					initializer = nameTable[name];
 					if(initializer != null)
 					{
 						hasNameInitializer = true;
@@ -465,7 +488,7 @@ class DisplayListWatcher extends EventDispatcher
 			return;
 		}
 
-		initializer = map[type] as Function;
+		initializer = map[Type.getClassName(type)];
 		if(initializer != null)
 		{
 			initializer(target);
@@ -477,6 +500,6 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	private function addedHandler(event:Event):Void
 	{
-		this.initializeObject(event.target as DisplayObject);
+		this.initializeObject(cast(event.target, DisplayObject));
 	}
 }

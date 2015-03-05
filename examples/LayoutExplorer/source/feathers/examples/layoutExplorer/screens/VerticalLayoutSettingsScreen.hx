@@ -14,7 +14,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class VerticalLayoutSettingsScreen extends PanelScreen
+@:keep class VerticalLayoutSettingsScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -65,7 +65,7 @@ class VerticalLayoutSettingsScreen extends PanelScreen
 
 		this._horizontalAlignPicker = new PickerList();
 		this._horizontalAlignPicker.typicalItem = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
-		this._horizontalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._horizontalAlignPicker.dataProvider = new ListCollection(
 		[
 			VerticalLayout.HORIZONTAL_ALIGN_LEFT,
 			VerticalLayout.HORIZONTAL_ALIGN_CENTER,
@@ -77,7 +77,7 @@ class VerticalLayoutSettingsScreen extends PanelScreen
 
 		this._verticalAlignPicker = new PickerList();
 		this._verticalAlignPicker.typicalItem = VerticalLayout.VERTICAL_ALIGN_BOTTOM;
-		this._verticalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._verticalAlignPicker.dataProvider = new ListCollection(
 		[
 			VerticalLayout.VERTICAL_ALIGN_TOP,
 			VerticalLayout.VERTICAL_ALIGN_MIDDLE,
@@ -143,18 +143,18 @@ class VerticalLayoutSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Vertical Layout Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Vertical Layout Settings");
+		this.headerProperties.setProperty("leftItems",
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void
@@ -169,17 +169,17 @@ class VerticalLayoutSettingsScreen extends PanelScreen
 
 	private function itemCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.itemCount = this._itemCountStepper.value;
+		this.settings.itemCount = Std.int(this._itemCountStepper.value);
 	}
 
 	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
+		this.settings.horizontalAlign = cast(this._horizontalAlignPicker.selectedItem, String);
 	}
 
 	private function verticalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.verticalAlign = this._verticalAlignPicker.selectedItem as String;
+		this.settings.verticalAlign = cast(this._verticalAlignPicker.selectedItem, String);
 	}
 
 	private function gapStepper_changeHandler(event:Event):Void

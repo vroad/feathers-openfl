@@ -10,7 +10,7 @@ import feathers.core.IFeathersControl;
 import feathers.core.IValidating;
 import feathers.core.PopUpManager;
 import feathers.events.FeathersEventType;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
 
 import openfl.errors.IllegalOperationError;
 import openfl.events.KeyboardEvent;
@@ -89,6 +89,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		this.marginRight = 0;
 		this.marginBottom = 0;
 		this.marginLeft = 0;
+		return get_margin();
 	}
 
 	/**
@@ -168,7 +169,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @inheritDoc
 	 */
-	public var isOpen(get, set):Bool;
+	public var isOpen(get, never):Bool;
 	public function get_isOpen():Bool
 	{
 		return this.content != null;
@@ -250,7 +251,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		{
 			//if it's a ui control that is able to auto-size, this section
 			//will ensure that the control stays within the required bounds.
-			var uiContent:IFeathersControl = IFeathersControl(this.content);
+			var uiContent:IFeathersControl = cast(this.content, IFeathersControl);
 			uiContent.minWidth = maxWidth;
 			uiContent.maxWidth = maxWidth;
 			uiContent.maxHeight = maxHeight;
@@ -258,7 +259,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		}
 		if(Std.is(this.content, IValidating))
 		{
-			IValidating(this.content).validate();
+			cast(this.content, IValidating).validate();
 		}
 		if(!hasSetBounds)
 		{
@@ -297,12 +298,14 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			//someone else already handled this one
 			return;
 		}
+		#if flash
 		if(event.keyCode != Keyboard.BACK && event.keyCode != Keyboard.ESCAPE)
 		{
 			return;
 		}
 		//don't let the OS handle the event
 		event.preventDefault();
+		#end
 
 		this.close();
 	}
@@ -325,19 +328,22 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			return;
 		}
 		var stage:Stage = Starling.current.stage;
+		var touch:Touch;
+		var hitTestResult:DisplayObject;
+		var isInBounds:Bool;
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(stage, TouchPhase.ENDED, this.touchPointID);
-			if(!touch)
+			touch = event.getTouch(stage, TouchPhase.ENDED, this.touchPointID);
+			if(touch == null)
 			{
 				return;
 			}
 			touch.getLocation(stage, HELPER_POINT);
-			var hitTestResult:DisplayObject = stage.hitTest(HELPER_POINT, true);
-			var isInBounds:Bool = false;
+			hitTestResult = stage.hitTest(HELPER_POINT, true);
+			isInBounds = false;
 			if(Std.is(this.content, DisplayObjectContainer))
 			{
-				isInBounds = DisplayObjectContainer(this.content).contains(hitTestResult);
+				isInBounds = cast(this.content, DisplayObjectContainer).contains(hitTestResult);
 			}
 			else
 			{
@@ -352,7 +358,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		else
 		{
 			touch = event.getTouch(stage, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -361,7 +367,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 			isInBounds = false;
 			if(Std.is(this.content, DisplayObjectContainer))
 			{
-				isInBounds = DisplayObjectContainer(this.content).contains(hitTestResult);
+				isInBounds = cast(this.content, DisplayObjectContainer).contains(hitTestResult);
 			}
 			else
 			{

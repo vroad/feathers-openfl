@@ -15,10 +15,11 @@ import feathers.themes.MetalWorksMobileTheme;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-class Main extends PanelScreen
+@:keep class Main extends PanelScreen
 {
 	public function new()
 	{
+		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
@@ -34,19 +35,19 @@ class Main extends PanelScreen
 		header.title = "TODOS";
 		header.titleAlign = Header.TITLE_ALIGN_PREFER_LEFT;
 
-		if(!this._input)
+		if(this._input == null)
 		{
 			this._input = new TextInput();
 			this._input.prompt = "What needs to be done?";
 
 			//we can't get an enter key event without changing the returnKeyLabel
 			//not using ReturnKeyLabel.GO here so that it will build for web
-			this._input.textEditorProperties.returnKeyLabel = "go";
+			this._input.textEditorProperties.setProperty("returnKeyLabel", "go");
 
 			this._input.addEventListener(FeathersEventType.ENTER, input_enterHandler);
 		}
 
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			this._input
 		];
@@ -56,7 +57,7 @@ class Main extends PanelScreen
 
 	private function customFooterFactory():ScrollContainer
 	{
-		if(!this._toolbar)
+		if(this._toolbar == null)
 		{
 			this._toolbar = new ScrollContainer();
 			this._toolbar.styleNameList.add(ScrollContainer.ALTERNATE_NAME_TOOLBAR);
@@ -66,7 +67,7 @@ class Main extends PanelScreen
 			this._toolbar.removeChildren();
 		}
 
-		if(!this._editButton)
+		if(this._editButton == null)
 		{
 			this._editButton = new ToggleButton();
 			this._editButton.label = "Edit";
@@ -82,7 +83,7 @@ class Main extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new MetalWorksMobileTheme();
+		new MetalWorksMobileTheme(false);
 
 		this.width = this.stage.stageWidth;
 		this.height = this.stage.stageHeight;
@@ -96,7 +97,7 @@ class Main extends PanelScreen
 		this._list.isSelectable = false;
 		this._list.dataProvider = new ListCollection();
 		this._list.itemRendererType = TodoItemRenderer;
-		this._list.itemRendererProperties.labelField = "description";
+		this._list.itemRendererProperties.setProperty("labelField", "description");
 		var listLayoutData:AnchorLayoutData = new AnchorLayoutData(0, 0, 0, 0);
 		listLayoutData.topAnchorDisplayObject = this._input;
 		this._list.layoutData = listLayoutData;
@@ -115,7 +116,7 @@ class Main extends PanelScreen
 
 	private function input_enterHandler():Void
 	{
-		if(!this._input.text)
+		if(this._input.text == null)
 		{
 			return;
 		}
@@ -127,7 +128,7 @@ class Main extends PanelScreen
 	private function editButton_changeHandler(event:Event):Void
 	{
 		var isEditing:Bool = this._editButton.isSelected;
-		this._list.itemRendererProperties.isEditable = isEditing;
+		this._list.itemRendererProperties.setProperty("isEditable", isEditing);
 		this._input.visible = !isEditing;
 	}
 

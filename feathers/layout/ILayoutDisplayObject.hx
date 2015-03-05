@@ -13,7 +13,7 @@ import feathers.core.IFeathersDisplayObject;
  *
  * @eventType feathers.events.FeathersEventType.LAYOUT_DATA_CHANGE
  */
-//[Event(name="layoutDataChange",type="starling.events.Event")]
+///[Event(name="layoutDataChange",type="starling.events.Event")]
 
 /**
  * A display object that may be associated with extra data for use with
@@ -25,12 +25,13 @@ interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 * Extra parameters associated with this display object that will be
 	 * used by the layout algorithm.
 	 */
-	function get_layoutData():ILayoutData;
+	var layoutData(get, set):ILayoutData;
+	//function get_layoutData():ILayoutData;
 
 	/**
 	 * @private
 	 */
-	function set_layoutData(value:ILayoutData):Void;
+	//function set_layoutData(value:ILayoutData):Void;
 
 	/**
 	 * Determines if the ILayout should use this object or ignore it.
@@ -41,10 +42,11 @@ interface ILayoutDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.includeInLayout = false;</listing>
 	 */
-	function get_includeInLayout():Bool;
+	var includeInLayout(get, set):Bool;
+	//function get_includeInLayout():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_includeInLayout(value:Bool):Void;
+	//function set_includeInLayout(value:Bool):Void;
 }

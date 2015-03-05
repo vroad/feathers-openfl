@@ -33,8 +33,8 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/display/Image.html starling.display.Image
 	 */
-	public var imageProperties(get, set):Dynamic;
-	public function get_imageProperties():Dynamic
+	public var imageProperties(get, set):PropertyProxy;
+	public function get_imageProperties():PropertyProxy
 	{
 		if(!this._imageProperties)
 		{
@@ -46,7 +46,7 @@ class ImageStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set_imageProperties(value:Dynamic):Dynamic
+	public function set_imageProperties(value:PropertyProxy):PropertyProxy
 	{
 		this._imageProperties = value;
 	}

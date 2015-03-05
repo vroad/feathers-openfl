@@ -16,7 +16,7 @@ import starling.events.Event;
 import starling.textures.Texture;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showAlert",type="starling.events.Event")]//[Event(name="showButton",type="starling.events.Event")]//[Event(name="showButtonGroup",type="starling.events.Event")]//[Event(name="showCallout",type="starling.events.Event")]//[Event(name="showGroupedList",type="starling.events.Event")]//[Event(name="showItemRenderer",type="starling.events.Event")]//[Event(name="showList",type="starling.events.Event")]//[Event(name="showNumericStepper",type="starling.events.Event")]//[Event(name="showPageIndicator",type="starling.events.Event")]//[Event(name="showPickerList",type="starling.events.Event")]//[Event(name="showProgressBar",type="starling.events.Event")]//[Event(name="showScrollText",type="starling.events.Event")]//[Event(name="showSlider",type="starling.events.Event")]//[Event(name="showTabBar",type="starling.events.Event")]//[Event(name="showTextInput",type="starling.events.Event")]//[Event(name="showToggles",type="starling.events.Event")]
 
-class MainMenuScreen extends PanelScreen
+@:keep class MainMenuScreen extends PanelScreen
 {
 	inline public static var SHOW_ALERT:String = "showAlert";
 	inline public static var SHOW_BUTTON:String = "showButton";
@@ -55,7 +55,7 @@ class MainMenuScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		this.headerProperties.title = "Feathers";
+		this.headerProperties.setProperty("title", "Feathers");
 
 		this._list = new List();
 		this._list.dataProvider = new ListCollection(
@@ -150,7 +150,7 @@ class MainMenuScreen extends PanelScreen
 			screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
 		}
 
-		var eventType:String = this._list.selectedItem.event as String;
+		var eventType:String = cast(this._list.selectedItem.event, String);
 		this.dispatchEventWith(eventType);
 	}
 }

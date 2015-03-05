@@ -2,13 +2,14 @@ package feathers.examples.youtube.screens;
 import feathers.controls.Button;
 import feathers.controls.PanelScreen;
 import feathers.controls.ScrollText;
+import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
 import feathers.examples.youtube.models.YouTubeModel;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 
 import openfl.net.URLRequest;
-import openfl.net.navigateToURL;
+//import openfl.net.navigateToURL;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -37,10 +38,11 @@ class VideoDetailsScreen extends PanelScreen
 	{
 		if(this._model == value)
 		{
-			return;
+			return get_model();
 		}
 		this._model = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_model();
 	}
 
 	override private function initialize():Void
@@ -60,18 +62,18 @@ class VideoDetailsScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, onBackButton);
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("leftItems",  
 		[
 			this._backButton
-		];
+		]);
 
 		this._watchButton = new Button();
 		this._watchButton.label = "Watch";
 		this._watchButton.addEventListener(Event.TRIGGERED, watchButton_triggeredHandler);
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._watchButton
-		];
+		]);
 
 		this.backButtonHandler = onBackButton;
 
@@ -83,17 +85,17 @@ class VideoDetailsScreen extends PanelScreen
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		if(dataInvalid)
 		{
-			if(this._model && this._model.selectedVideo)
+			if(this._model != null && this._model.selectedVideo != null)
 			{
-				this.headerProperties.title = this._model.selectedVideo.title;
+				this.headerProperties.setProperty("title", this._model.selectedVideo.title);
 				var content:String = '<p><b><font size="+2">' + this._model.selectedVideo.title + '</font></b></p>';
 				content += '<p><font size="-2" color="#999999">' + this._model.selectedVideo.author + '</font></p><br>';
-				content += this._model.selectedVideo.description.replace(/\r\n/g, "<br>");
+				content += (~/\r\n/g).replace(this._model.selectedVideo.description, "<br>");
 				this._scrollText.text = content;
 			}
 			else
 			{
-				this.headerProperties.title = null;
+				this.headerProperties.setProperty("title", null);
 				this._scrollText.text = "";
 			}
 		}
@@ -109,7 +111,7 @@ class VideoDetailsScreen extends PanelScreen
 
 	private function watchButton_triggeredHandler(event:Event):Void
 	{
-		navigateToURL(new URLRequest(this._model.selectedVideo.url), "_blank");
+		//navigateToURL(new URLRequest(this._model.selectedVideo.url), "_blank");
 	}
 
 	private function owner_transitionCompleteHandler(event:Event):Void

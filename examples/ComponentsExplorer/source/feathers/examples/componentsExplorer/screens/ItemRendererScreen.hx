@@ -3,6 +3,7 @@ import feathers.controls.Button;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.ToggleSwitch;
+import feathers.core.FeathersControl;
 import feathers.data.ListCollection;
 import feathers.examples.componentsExplorer.data.EmbeddedAssets;
 import feathers.examples.componentsExplorer.data.ItemRendererSettings;
@@ -16,7 +17,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
-class ItemRendererScreen extends PanelScreen
+@:keep class ItemRendererScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -44,10 +45,11 @@ class ItemRendererScreen extends PanelScreen
 	{
 		if(this._itemRendererGap == value)
 		{
-			return;
+			return get_itemRendererGap();
 		}
 		this._itemRendererGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_itemRendererGap();
 	}
 
 	private var _settings:ItemRendererSettings;
@@ -62,10 +64,11 @@ class ItemRendererScreen extends PanelScreen
 	{
 		if(this._settings == value)
 		{
-			return;
+			return get_settings();
 		}
 		this._settings = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_settings();
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider
@@ -96,7 +99,7 @@ class ItemRendererScreen extends PanelScreen
 		this._list = new List();
 
 		this._listItem = { text: "Primary Text" };
-		this._list.itemRendererProperties.labelField = "text";
+		this._list.itemRendererProperties.setProperty("labelField", "text");
 		this._list.dataProvider = new ListCollection([this._listItem]);
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this._list.isSelectable = false;
@@ -104,7 +107,7 @@ class ItemRendererScreen extends PanelScreen
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this.headerProperties.title = "Item Renderer";
+		this.headerProperties.setProperty("title", "Item Renderer");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -113,10 +116,10 @@ class ItemRendererScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -125,10 +128,10 @@ class ItemRendererScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 	}
 
 	override private function draw():Void
@@ -139,35 +142,35 @@ class ItemRendererScreen extends PanelScreen
 			case ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL:
 			{
 				this._listItem.iconText = "Icon Text";
-				this._list.itemRendererProperties.iconLabelField = "iconText";
+				this._list.itemRendererProperties.setProperty("iconLabelField", "iconText");
 
 				//clear these in case this setting has changed
-				delete this._listItem.iconTexture;
-				delete this._listItem.icon;
-				break;
+				Reflect.deleteField(this._listItem, "iconTexture");
+				Reflect.deleteField(this._listItem, "icon");
+				//break;
 			}
 			case ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE:
 			{
 				this._listItem.iconTexture = EmbeddedAssets.SKULL_ICON_LIGHT;
-				this._list.itemRendererProperties.iconSourceField = "iconTexture";
+				this._list.itemRendererProperties.setProperty("iconSourceField", "iconTexture");
 
 				//clear these in case this setting has changed
-				delete this._listItem.iconText;
-				delete this._listItem.icon;
-				break;
+				Reflect.deleteField(this._listItem, "iconText");
+				Reflect.deleteField(this._listItem, "icon");
+				//break;
 			}
 			default:
 			{
 				this._listItem.icon = new ToggleSwitch();
-				this._list.itemRendererProperties.iconField = "icon";
+				this._list.itemRendererProperties.setProperty("iconField", "icon");
 
 				//clear these in case this setting has changed
-				delete this._listItem.iconText;
-				delete this._listItem.iconTexture;
+				Reflect.deleteField(this._listItem, "iconText");
+				Reflect.deleteField(this._listItem, "iconTexture");
 
 			}
 		}
-		this._list.itemRendererProperties.iconPosition = this.settings.iconPosition;
+		this._list.itemRendererProperties.setProperty("iconPosition", this.settings.iconPosition);
 	}
 		if(this.settings.hasAccessory)
 		{
@@ -176,50 +179,50 @@ class ItemRendererScreen extends PanelScreen
 				case ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL:
 				{
 					this._listItem.accessoryText = "Accessory Text";
-					this._list.itemRendererProperties.accessoryLabelField = "accessoryText";
+					this._list.itemRendererProperties.setProperty("accessoryLabelField", "accessoryText");
 
 					//clear these in case this setting has changed
-					delete this._listItem.accessoryTexture;
-					delete this._listItem.accessory;
-					break;
+					Reflect.deleteField(this._listItem, "accessoryTexture");
+					Reflect.deleteField(this._listItem, "accessory");
+					//break;
 				}
 				case ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE:
 				{
 					this._listItem.accessoryTexture = EmbeddedAssets.SKULL_ICON_LIGHT;
-					this._list.itemRendererProperties.accessorySourceField = "accessoryTexture";
-					break;
+					this._list.itemRendererProperties.setProperty("accessorySourceField", "accessoryTexture");
+					//break;
 				}
 				default:
 				{
 					this._listItem.accessory = new ToggleSwitch();
-					this._list.itemRendererProperties.accessoryField = "accessory";
+					this._list.itemRendererProperties.setProperty("accessoryField", "accessory");
 
 					//clear these in case this setting has changed
-					delete this._listItem.accessoryText;
-					delete this._listItem.accessoryTexture;
+					Reflect.deleteField(this._listItem, "accessoryText");
+					Reflect.deleteField(this._listItem, "accessoryTexture");
 				}
 			}
-			this._list.itemRendererProperties.accessoryPosition = this.settings.accessoryPosition;
+			this._list.itemRendererProperties.setProperty("accessoryPosition", this.settings.accessoryPosition);
 		}
 		if(this.settings.useInfiniteGap)
 		{
-			this._list.itemRendererProperties.gap = Math.POSITIVE_INFINITY;
+			this._list.itemRendererProperties.setProperty("gap", Math.POSITIVE_INFINITY);
 		}
 		else
 		{
-			this._list.itemRendererProperties.gap = this._itemRendererGap;
+			this._list.itemRendererProperties.setProperty("gap", this._itemRendererGap);
 		}
 		if(this.settings.useInfiniteAccessoryGap)
 		{
-			this._list.itemRendererProperties.accessoryGap = Math.POSITIVE_INFINITY;
+			this._list.itemRendererProperties.setProperty("accessoryGap", Math.POSITIVE_INFINITY);
 		}
 		else
 		{
-			this._list.itemRendererProperties.accessoryGap = this._itemRendererGap;
+			this._list.itemRendererProperties.setProperty("accessoryGap", this._itemRendererGap);
 		}
-		this._list.itemRendererProperties.horizontalAlign = this.settings.horizontalAlign;
-		this._list.itemRendererProperties.verticalAlign = this.settings.verticalAlign;
-		this._list.itemRendererProperties.layoutOrder = this.settings.layoutOrder;
+		this._list.itemRendererProperties.setProperty("horizontalAlign", this.settings.horizontalAlign);
+		this._list.itemRendererProperties.setProperty("verticalAlign", this.settings.verticalAlign);
+		this._list.itemRendererProperties.setProperty("layoutOrder", this.settings.layoutOrder);
 
 		//ideally, styles like gap, accessoryGap, horizontalAlign,
 		//verticalAlign, layoutOrder, iconPosition, and accessoryPosition
@@ -235,11 +238,11 @@ class ItemRendererScreen extends PanelScreen
 	{
 		if(item.hasOwnProperty("icon"))
 		{
-			DisplayObject(item.icon).dispose();
+			cast(item.icon, DisplayObject).dispose();
 		}
 		if(item.hasOwnProperty("accessory"))
 		{
-			DisplayObject(item.accessory).dispose();
+			cast(item.accessory, DisplayObject).dispose();
 		}
 	}
 

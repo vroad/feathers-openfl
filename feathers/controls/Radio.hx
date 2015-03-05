@@ -53,7 +53,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * <code>toggleGroup</code> property is set to a different group, it
 	 * will be automatically removed from this group, if required.
 	 */
-	inline public static var defaultRadioGroup:ToggleGroup = new ToggleGroup();
+	public static var defaultRadioGroup:ToggleGroup = new ToggleGroup();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Radio</code>
@@ -88,7 +88,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 */
 	override public function set_isToggle(value:Bool):Bool
 	{
-		throw IllegalOperationError("Radio isToggle must always be true.");
+		throw new IllegalOperationError("Radio isToggle must always be true.");
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	{
 		if(this._toggleGroup == value)
 		{
-			return;
+			return get_toggleGroup();
 		}
 		//a null toggle group will automatically add it to
 		//defaultRadioGroup. however, if toggleGroup is already
@@ -120,19 +120,20 @@ class Radio extends ToggleButton implements IGroupedToggle
 		//otherwise we'd remove the radio from defaultRadioGroup and then
 		//immediately add it back because ToggleGroup sets the toggleGroup
 		//property to null when removing an item.
-		if(!value && this._toggleGroup != defaultRadioGroup && this.stage)
+		if(value == null && this._toggleGroup != defaultRadioGroup && this.stage != null)
 		{
 			value = defaultRadioGroup;
 		}
-		if(this._toggleGroup && this._toggleGroup.hasItem(this))
+		if(this._toggleGroup != null && this._toggleGroup.hasItem(this))
 		{
 			this._toggleGroup.removeItem(this);
 		}
 		this._toggleGroup = value;
-		if(this._toggleGroup && !this._toggleGroup.hasItem(this))
+		if(this._toggleGroup != null && !this._toggleGroup.hasItem(this))
 		{
 			this._toggleGroup.addItem(this);
 		}
+		return get_toggleGroup();
 	}
 
 	/**
@@ -140,7 +141,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 */
 	private function radio_addedToStageHandler(event:Event):Void
 	{
-		if(!this._toggleGroup)
+		if(this._toggleGroup == null)
 		{
 			this.toggleGroup = defaultRadioGroup;
 		}

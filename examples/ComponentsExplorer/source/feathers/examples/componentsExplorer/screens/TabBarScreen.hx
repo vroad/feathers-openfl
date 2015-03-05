@@ -13,7 +13,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class TabBarScreen extends PanelScreen
+@:keep class TabBarScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -43,14 +43,14 @@ class TabBarScreen extends PanelScreen
 		this.addChild(this._tabBar);
 
 		this._label = new Label();
-		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex.toString();
+		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex;
 		var labelLayoutData:AnchorLayoutData = new AnchorLayoutData();
 		labelLayoutData.horizontalCenter = 0;
 		labelLayoutData.verticalCenter = 0;
 		this._label.layoutData = labelLayoutData;
-		this.addChild(DisplayObject(this._label));
+		this.addChild(cast this._label);
 
-		this.headerProperties.title = "Tab Bar";
+		this.headerProperties.setProperty("title", "Tab Bar");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -59,10 +59,10 @@ class TabBarScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -80,6 +80,6 @@ class TabBarScreen extends PanelScreen
 
 	private function tabBar_changeHandler(event:Event):Void
 	{
-		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex.toString();
+		this._label.text = "selectedIndex: " + this._tabBar.selectedIndex;
 	}
 }

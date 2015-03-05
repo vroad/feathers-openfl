@@ -7,9 +7,10 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.supportClasses;
 import feathers.core.FeathersControl;
-import feathers.utils.geom.matrixToRotation;
-import feathers.utils.geom.matrixToScaleX;
-import feathers.utils.geom.matrixToScaleY;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToRotation;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+import openfl.errors.ArgumentError;
 
 import openfl.display.Sprite;
 import openfl.events.TextEvent;
@@ -18,7 +19,9 @@ import openfl.geom.Point;
 import openfl.geom.Rectangle;
 import openfl.text.AntiAliasType;
 import openfl.text.GridFitType;
+#if flash
 import openfl.text.StyleSheet;
+#end
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
@@ -33,7 +36,7 @@ import starling.utils.MatrixUtil;
  */
 class TextFieldViewPort extends FeathersControl implements IViewPort
 {
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 	private static var HELPER_POINT:Point = new Point();
 
 	public function new()
@@ -65,16 +68,17 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	 */
 	public function set_text(value:String):String
 	{
-		if(!value)
+		if(value == null)
 		{
 			value = "";
 		}
 		if(this._text == value)
 		{
-			return;
+			return get_text();
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_text();
 	}
 
 	/**
@@ -98,10 +102,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._isHTML == value)
 		{
-			return;
+			return get_isHTML();
 		}
 		this._isHTML = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_isHTML();
 	}
 
 	/**
@@ -125,10 +130,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._textFormat == value)
 		{
-			return;
+			return get_textFormat();
 		}
 		this._textFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_textFormat();
 	}
 
 	/**
@@ -152,29 +158,35 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._disabledTextFormat == value)
 		{
-			return;
+			return get_disabledTextFormat();
 		}
 		this._disabledTextFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledTextFormat();
 	}
 
 	/**
 	 * @private
 	 */
+	#if flash
 	private var _styleSheet:StyleSheet;
+	#end
 
 	/**
 	 * @see feathers.controls.ScrollText#styleSheet
 	 */
+	#if flash
 	public var styleSheet(get, set):StyleSheet;
 	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
 	}
+	#end
 
 	/**
 	 * @private
 	 */
+	#if flash
 	public function set_styleSheet(value:StyleSheet):StyleSheet
 	{
 		if(this._styleSheet == value)
@@ -184,6 +196,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._styleSheet = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
+	#end
 
 	/**
 	 * @private
@@ -206,22 +219,23 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._embedFonts == value)
 		{
-			return;
+			return get_embedFonts();
 		}
 		this._embedFonts = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_embedFonts();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _antiAliasType:String = AntiAliasType.ADVANCED;
+	private var _antiAliasType:AntiAliasType = AntiAliasType.ADVANCED;
 
 	/**
 	 * @see feathers.controls.ScrollText#antiAliasType
 	 */
-	public var antiAliasType(get, set):String;
-	public function get_antiAliasType():String
+	public var antiAliasType(get, set):AntiAliasType;
+	public function get_antiAliasType():AntiAliasType
 	{
 		return this._antiAliasType;
 	}
@@ -229,14 +243,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_antiAliasType(value:String):String
+	public function set_antiAliasType(value:AntiAliasType):AntiAliasType
 	{
 		if(this._antiAliasType == value)
 		{
-			return;
+			return get_antiAliasType();
 		}
 		this._antiAliasType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_antiAliasType();
 	}
 
 	/**
@@ -260,10 +275,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._background == value)
 		{
-			return;
+			return get_background();
 		}
 		this._background = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_background();
 	}
 
 	/**
@@ -287,10 +303,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._backgroundColor == value)
 		{
-			return;
+			return get_backgroundColor();
 		}
 		this._backgroundColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundColor();
 	}
 
 	/**
@@ -314,10 +331,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._border == value)
 		{
-			return;
+			return get_border();
 		}
 		this._border = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_border();
 	}
 
 	/**
@@ -341,10 +359,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._borderColor == value)
 		{
-			return;
+			return get_borderColor();
 		}
 		this._borderColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_borderColor();
 	}
 
 	/**
@@ -368,10 +387,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._condenseWhite == value)
 		{
-			return;
+			return get_condenseWhite();
 		}
 		this._condenseWhite = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_condenseWhite();
 	}
 
 	/**
@@ -395,22 +415,23 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return get_displayAsPassword();
 		}
 		this._displayAsPassword = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_displayAsPassword();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _gridFitType:String = GridFitType.PIXEL;
+	private var _gridFitType:GridFitType = GridFitType.PIXEL;
 
 	/**
 	 * @see feathers.controls.ScrollText#gridFitType
 	 */
-	public var gridFitType(get, set):String;
-	public function get_gridFitType():String
+	public var gridFitType(get, set):GridFitType;
+	public function get_gridFitType():GridFitType
 	{
 		return this._gridFitType;
 	}
@@ -418,14 +439,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_gridFitType(value:String):String
+	public function set_gridFitType(value:GridFitType):GridFitType
 	{
 		if(this._gridFitType == value)
 		{
-			return;
+			return get_gridFitType();
 		}
 		this._gridFitType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gridFitType();
 	}
 
 	/**
@@ -449,10 +471,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._sharpness == value)
 		{
-			return;
+			return get_sharpness();
 		}
 		this._sharpness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_sharpness();
 	}
 
 	/**
@@ -476,10 +499,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._thickness == value)
 		{
-			return;
+			return get_thickness();
 		}
 		this._thickness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_thickness();
 	}
 
 	private var _minVisibleWidth:Float = 0;
@@ -494,14 +518,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._minVisibleWidth == value)
 		{
-			return;
+			return get_minVisibleWidth();
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");
+			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
 		this._minVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_minVisibleWidth();
 	}
 
 	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
@@ -516,14 +541,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._maxVisibleWidth == value)
 		{
-			return;
+			return get_maxVisibleWidth();
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");
+			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
 		this._maxVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_maxVisibleWidth();
 	}
 
 	private var _actualVisibleWidth:Float = 0;
@@ -545,10 +571,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		if(this._explicitVisibleWidth == value ||
 			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
 		{
-			return;
+			return get_visibleWidth();
 		}
 		this._explicitVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_visibleWidth();
 	}
 
 	private var _minVisibleHeight:Float = 0;
@@ -563,14 +590,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._minVisibleHeight == value)
 		{
-			return;
+			return get_minVisibleHeight();
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");
+			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
 		this._minVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_minVisibleHeight();
 	}
 
 	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
@@ -585,14 +613,15 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._maxVisibleHeight == value)
 		{
-			return;
+			return get_maxVisibleHeight();
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");
+			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
 		this._maxVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_maxVisibleHeight();
 	}
 
 	private var _actualVisibleHeight:Float = 0;
@@ -614,19 +643,20 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 		if(this._explicitVisibleHeight == value ||
 			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
 		{
-			return;
+			return get_visibleHeight();
 		}
 		this._explicitVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_visibleHeight();
 	}
 
-	public var contentX(get, set):Float;
+	public var contentX(get, never):Float;
 	public function get_contentX():Float
 	{
 		return 0;
 	}
 
-	public var contentY(get, set):Float;
+	public var contentY(get, never):Float;
 	public function get_contentY():Float
 	{
 		return 0;
@@ -634,13 +664,13 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	private var _scrollStep:Float;
 
-	public var horizontalScrollStep(get, set):Float;
+	public var horizontalScrollStep(get, never):Float;
 	public function get_horizontalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
 
-	public var verticalScrollStep(get, set):Float;
+	public var verticalScrollStep(get, never):Float;
 	public function get_verticalScrollStep():Float
 	{
 		return this._scrollStep;
@@ -658,10 +688,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._horizontalScrollPosition == value)
 		{
-			return;
+			return get_horizontalScrollPosition();
 		}
 		this._horizontalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		return get_horizontalScrollPosition();
 	}
 
 	private var _verticalScrollPosition:Float = 0;
@@ -676,10 +707,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._verticalScrollPosition == value)
 		{
-			return;
+			return get_verticalScrollPosition();
 		}
 		this._verticalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		return get_verticalScrollPosition();
 	}
 
 	private var _paddingTop:Float = 0;
@@ -694,10 +726,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	private var _paddingRight:Float = 0;
@@ -712,10 +745,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	private var _paddingBottom:Float = 0;
@@ -730,10 +764,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	private var _paddingLeft:Float = 0;
@@ -748,36 +783,38 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	override public function set_visible(value:Bool):Bool
 	{
 		if(super.visible == value)
 		{
-			return;
+			return get_visible();
 		}
 		super.visible = value;
 		this._hasPendingRenderChange = true;
+		return get_visible();
 	}
 
 	override public function set_alpha(value:Float):Float
 	{
 		if(super.alpha == value)
 		{
-			return;
+			return get_alpha();
 		}
 		super.alpha = value;
 		this._hasPendingRenderChange = true;
+		return get_alpha();
 	}
 
 	private var _hasPendingRenderChange:Bool = false;
 
-	override public var hasVisibleArea(get, set):Bool;
-public function get_hasVisibleArea():Bool
+	override public function get_hasVisibleArea():Bool
 	{
 		if(this._hasPendingRenderChange)
 		{
@@ -793,10 +830,12 @@ public function get_hasVisibleArea():Bool
 		this.parent.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
 		var nativeScaleFactor:Float = 1;
+		#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+		#end
 		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		this._textFieldContainer.x = starlingViewPort.x + HELPER_POINT.x * scaleFactor;
 		this._textFieldContainer.y = starlingViewPort.y + HELPER_POINT.y * scaleFactor;
@@ -817,7 +856,9 @@ public function get_hasVisibleArea():Bool
 		this._textField = new TextField();
 		this._textField.autoSize = TextFieldAutoSize.LEFT;
 		this._textField.selectable = false;
+		#if flash
 		this._textField.mouseWheelEnabled = false;
+		#end
 		this._textField.wordWrap = true;
 		this._textField.multiline = true;
 		this._textField.addEventListener(TextEvent.LINK, textField_linkHandler);
@@ -839,30 +880,38 @@ public function get_hasVisibleArea():Bool
 			this._textField.backgroundColor = this._backgroundColor;
 			this._textField.border = this._border;
 			this._textField.borderColor = this._borderColor;
+			#if flash
 			this._textField.condenseWhite = this._condenseWhite;
+			#end
 			this._textField.displayAsPassword = this._displayAsPassword;
 			this._textField.embedFonts = this._embedFonts;
 			this._textField.gridFitType = this._gridFitType;
 			this._textField.sharpness = this._sharpness;
+			#if flash
 			this._textField.thickness = this._thickness;
+			#end
 			this._textField.x = this._paddingLeft;
 			this._textField.y = this._paddingTop;
 		}
 
 		if(dataInvalid || stylesInvalid || stateInvalid)
 		{
-			if(this._styleSheet)
+			#if flash
+			if(this._styleSheet != null)
 			{
 				this._textField.styleSheet = this._styleSheet;
 			}
 			else
+			#end
 			{
+				#if flash
 				this._textField.styleSheet = null;
-				if(!this._isEnabled && this._disabledTextFormat)
+				#end
+				if(!this._isEnabled && this._disabledTextFormat != null)
 				{
 					this._textField.defaultTextFormat = this._disabledTextFormat;
 				}
-				else if(this._textFormat)
+				else if(this._textFormat != null)
 				{
 					this._textField.defaultTextFormat = this._textFormat;
 				}
@@ -881,7 +930,7 @@ public function get_hasVisibleArea():Bool
 		var calculatedVisibleWidth:Float = this._explicitVisibleWidth;
 		if(calculatedVisibleWidth != calculatedVisibleWidth)
 		{
-			if(this.stage)
+			if(this.stage != null)
 			{
 				calculatedVisibleWidth = this.stage.stageWidth;
 			}
@@ -920,7 +969,7 @@ public function get_hasVisibleArea():Bool
 		if(sizeInvalid || scrollInvalid)
 		{
 			var scrollRect:Rectangle = this._textFieldContainer.scrollRect;
-			if(!scrollRect)
+			if(scrollRect == null)
 			{
 				scrollRect = new Rectangle();
 			}

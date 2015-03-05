@@ -9,7 +9,8 @@ package feathers.display;
 import feathers.core.IValidating;
 import feathers.core.ValidationQueue;
 import feathers.textures.Scale3Textures;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
+import starling.utils.Max;
 
 import openfl.errors.IllegalOperationError;
 import openfl.geom.Matrix;
@@ -58,7 +59,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -133,24 +134,25 @@ class Scale3Image extends Sprite implements IValidating
 	 */
 	public function set_textures(value:Scale3Textures):Scale3Textures
 	{
-		if(!value)
+		if(value == null)
 		{
 			throw new IllegalOperationError("Scale3Image textures cannot be null.");
 		}
 		if(this._textures == value)
 		{
-			return;
+			return this._textures;
 		}
 		this._textures = value;
 		var texture:Texture = this._textures.texture;
 		this._frame = texture.frame;
-		if(!this._frame)
+		if(this._frame == null)
 		{
 			this._frame = new Rectangle(0, 0, texture.width, texture.height);
 		}
 		this._layoutChanged = true;
 		this._renderingChanged = true;
 		this.invalidate();
+		return this._textures;
 	}
 
 	/**
@@ -161,8 +163,7 @@ class Scale3Image extends Sprite implements IValidating
 	/**
 	 * @private
 	 */
-	override public var width(get, set):Float;
-public function get_width():Float
+	override public function get_width():Float
 	{
 		return this._width;
 	}
@@ -174,11 +175,12 @@ public function get_width():Float
 	{
 		if(this._width == value)
 		{
-			return;
+			return this._width;
 		}
 		this._width = this._hitArea.width = value;
 		this._layoutChanged = true;
 		this.invalidate();
+		return this._width;
 	}
 
 	/**
@@ -189,8 +191,7 @@ public function get_width():Float
 	/**
 	 * @private
 	 */
-	override public var height(get, set):Float;
-public function get_height():Float
+	override public function get_height():Float
 	{
 		return this._height;
 	}
@@ -202,11 +203,12 @@ public function get_height():Float
 	{
 		if(this._height == value)
 		{
-			return;
+			return this._height;
 		}
 		this._height = this._hitArea.height = value;
 		this._layoutChanged = true;
 		this.invalidate();
+		return this._height;
 	}
 
 	/**
@@ -238,11 +240,12 @@ public function get_height():Float
 	{
 		if(this._textureScale == value)
 		{
-			return;
+			return this._textureScale;
 		}
 		this._textureScale = value;
 		this._layoutChanged = true;
 		this.invalidate();
+		return this._textureScale;
 	}
 
 	/**
@@ -275,11 +278,12 @@ public function get_height():Float
 	{
 		if(this._smoothing == value)
 		{
-			return;
+			return this._smoothing;
 		}
 		this._smoothing = value;
 		this._propertiesChanged = true;
 		this.invalidate();
+		return this._smoothing;
 	}
 
 	/**
@@ -310,11 +314,12 @@ public function get_height():Float
 	{
 		if(this._color == value)
 		{
-			return;
+			return this._color;
 		}
 		this._color = value;
 		this._propertiesChanged = true;
 		this.invalidate();
+		return this._color;
 	}
 
 	/**
@@ -346,11 +351,12 @@ public function get_height():Float
 	{
 		if(this._useSeparateBatch == value)
 		{
-			return;
+			return this._useSeparateBatch;
 		}
 		this._useSeparateBatch = value;
 		this._renderingChanged = true;
 		this.invalidate();
+		return this._useSeparateBatch;
 	}
 
 	/**
@@ -386,7 +392,7 @@ public function get_height():Float
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public var depth(get, set):Int;
+	public var depth(get, never):Int;
 	public function get_depth():Int
 	{
 		return this._depth;
@@ -397,13 +403,13 @@ public function get_height():Float
 	 */
 	public override function getBounds(targetSpace:DisplayObject, resultRect:Rectangle=null):Rectangle
 	{
-		if(!resultRect)
+		if(resultRect == null)
 		{
 			resultRect = new Rectangle();
 		}
 
-		var minX:Float = Float.MAX_VALUE, maxX:Float = -Float.MAX_VALUE;
-		var minY:Float = Float.MAX_VALUE, maxY:Float = -Float.MAX_VALUE;
+		var minX:Float = Max.MAX_VALUE, maxX:Float = -Max.MAX_VALUE;
+		var minY:Float = Max.MAX_VALUE, maxY:Float = -Max.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -484,7 +490,7 @@ public function get_height():Float
 		}
 		if(this._isValidating)
 		{
-			if(this._validationQueue)
+			if(this._validationQueue != null)
 			{
 				//we were already validating, and something else told us to
 				//validate. that's bad.
@@ -498,7 +504,7 @@ public function get_height():Float
 			this._batch.batchable = !this._useSeparateBatch;
 			this._batch.reset();
 
-			if(!helperImage)
+			if(helperImage == null)
 			{
 				//because Scale3Textures enforces it, we know for sure that
 				//this texture will have a size greater than zero, so there
@@ -509,21 +515,28 @@ public function get_height():Float
 			helperImage.color = this._color;
 
 			var image:Image;
+			var sumFirstAndThird:Float;
+			var scaledOppositeEdgeSize:Float;
+			var oppositeEdgeScale:Float;
+			var scaledFirstRegionSize:Float;
+			var scaledThirdRegionSize:Float;
+			var distortionScale:Float;
+			var scaledSecondRegionSize:Float;
 			if(this._textures.direction == Scale3Textures.DIRECTION_VERTICAL)
 			{
-				var scaledOppositeEdgeSize:Float = this._width;
-				var oppositeEdgeScale:Float = scaledOppositeEdgeSize / this._frame.width;
-				var scaledFirstRegionSize:Float = this._textures.firstRegionSize * oppositeEdgeScale;
-				var scaledThirdRegionSize:Float = (this._frame.height - this._textures.firstRegionSize - this._textures.secondRegionSize) * oppositeEdgeScale;sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
-				var sumFirstAndThird:Float = scaledFirstRegionSize + scaledThirdRegionSize;
+				scaledOppositeEdgeSize = this._width;
+				oppositeEdgeScale = scaledOppositeEdgeSize / this._frame.width;
+				scaledFirstRegionSize = this._textures.firstRegionSize * oppositeEdgeScale;
+				scaledThirdRegionSize = (this._frame.height - this._textures.firstRegionSize - this._textures.secondRegionSize) * oppositeEdgeScale;sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
+				sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
 				if(sumFirstAndThird > this._width)
 				{
-					var distortionScale:Float = (this._width / sumFirstAndThird);
+					distortionScale = (this._width / sumFirstAndThird);
 					scaledFirstRegionSize *= distortionScale;
 					scaledThirdRegionSize *= distortionScale;
 					sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
 				}
-				var scaledSecondRegionSize:Float = this._height - sumFirstAndThird;
+				scaledSecondRegionSize = this._height - sumFirstAndThird;
 
 				if(scaledOppositeEdgeSize > 0)
 				{
@@ -642,7 +655,7 @@ public function get_height():Float
 			return;
 		}
 		this._isInvalid = true;
-		if(!this._validationQueue)
+		if(this._validationQueue == null)
 		{
 			return;
 		}

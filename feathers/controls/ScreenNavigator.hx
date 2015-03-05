@@ -10,10 +10,12 @@ import feathers.core.FeathersControl;
 import feathers.core.IValidating;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+import openfl.errors.Error;
+import openfl.errors.TypeError;
 
 import openfl.errors.IllegalOperationError;
 import openfl.geom.Rectangle;
-import openfl.utils.getDefinitionByName;
+//import openfl.utils.getDefinitionByName;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -167,11 +169,11 @@ class ScreenNavigator extends FeathersControl
 	public function new()
 	{
 		super();
-		if(!SIGNAL_TYPE)
+		if(SIGNAL_TYPE == null)
 		{
 			try
 			{
-				SIGNAL_TYPE = Class(getDefinitionByName("org.osopenfl.signals.ISignal"));
+				SIGNAL_TYPE = Type.getClass("org.osflash.signals.ISignal");
 			}
 			catch(error:Error)
 			{
@@ -198,7 +200,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * The string identifier for the currently active screen.
 	 */
-	public var activeScreenID(get, set):String;
+	public var activeScreenID(get, never):String;
 	public function get_activeScreenID():String
 	{
 		return this._activeScreenID;
@@ -212,7 +214,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * A reference to the currently active screen.
 	 */
-	public var activeScreen(get, set):DisplayObject;
+	public var activeScreen(get, never):DisplayObject;
 	public function get_activeScreen():DisplayObject
 	{
 		return this._activeScreen;
@@ -247,10 +249,11 @@ class ScreenNavigator extends FeathersControl
 	{
 		if(this._clipContent == value)
 		{
-			return;
+			return get_clipContent();
 		}
 		this._clipContent = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_clipContent();
 	}
 
 	/**
@@ -289,12 +292,12 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _screens:Dynamic = {};
+	private var _screens:Map<String, ScreenNavigatorItem> = new Map();
 
 	/**
 	 * @private
 	 */
-	private var _screenEvents:Dynamic = {};
+	private var _screenEvents:Map<String, Map<String, Dynamic->Void>> = new Map();
 
 	/**
 	 * @private
@@ -355,10 +358,10 @@ class ScreenNavigator extends FeathersControl
 	{
 		if(this._autoSizeMode == value)
 		{
-			return;
+			return get_autoSizeMode();
 		}
 		this._autoSizeMode = value;
-		if(this._activeScreen)
+		if(this._activeScreen != null)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT)
 			{
@@ -370,6 +373,7 @@ class ScreenNavigator extends FeathersControl
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_autoSizeMode();
 	}
 
 	/**
@@ -379,7 +383,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function showScreen(id:String):DisplayObject
 	{
-		if(!this._screens.hasOwnProperty(id))
+		if(!this._screens.exists(id))
 		{
 			throw new IllegalOperationError("Screen with id '" + id + "' cannot be shown because it has not been defined.");
 		}
@@ -398,70 +402,71 @@ class ScreenNavigator extends FeathersControl
 
 		this._previousScreenInTransition = this._activeScreen;
 		this._previousScreenInTransitionID = this._activeScreenID;
-		if(this._activeScreen)
+		if(this._activeScreen != null)
 		{
 			this.clearScreenInternal(false);
 		}
 		
 		this._transitionIsActive = true;
 
-		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[id]);
-		this._activeScreen = item.getScreen();
+		var item:ScreenNavigatorItem = cast(this._screens[id], ScreenNavigatorItem);
+		this._activeScreen = @:privateAccess item.getScreen();
 		if(Std.is(this._activeScreen, IScreen))
 		{
-			var screen:IScreen = IScreen(this._activeScreen);
+			var screen:IScreen = cast(this._activeScreen, IScreen);
 			screen.screenID = id;
 			screen.owner = this;
 		}
 		this._activeScreenID = id;
 
 		var events:Dynamic = item.events;
-		var savedScreenEvents:Dynamic = {};
-		for (eventName in events)
+		var savedScreenEvents:Map<String, Dynamic->Void> = new Map();
+		for (eventName in Reflect.fields(events))
 		{
-			var signal:Dynamic = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
-			var eventAction:Dynamic = events[eventName];
-			if(Std.is(eventAction, Function))
+			var signal:Dynamic = Reflect.getProperty(this._activeScreen, eventName);
+			var eventAction:Dynamic = Reflect.getProperty(events, eventName);
+			var eventListener:Dynamic->Void;
+			if(Reflect.isFunction(eventAction))
 			{
-				if(signal)
+				if(signal != null)
 				{
-					signal.add(eventAction as Function);
+					signal.add(eventAction);
 				}
 				else
 				{
-					this._activeScreen.addEventListener(eventName, eventAction as Function);
+					this._activeScreen.addEventListener(eventName, eventAction);
 				}
 			}
 			else if(Std.is(eventAction, String))
 			{
-				if(signal)
+				if(signal != null)
 				{
-					var eventListener:Dynamic = this.createScreenSignalListener(eventAction as String, signal);
+					eventListener = this.createScreenSignalListener(cast(eventAction, String), signal);
 					signal.add(eventListener);
 				}
 				else
 				{
-					eventListener = this.createScreenEventListener(eventAction as String);
+					eventListener = this.createScreenEventListener(cast(eventAction, String));
 					this._activeScreen.addEventListener(eventName, eventListener);
 				}
 				savedScreenEvents[eventName] = eventListener;
 			}
 			else
 			{
-				throw new TypeError("Unknown event action defined for screen:", eventAction.toString());
+				throw new TypeError("Unknown event action defined for screen:" + eventAction.toString());
 			}
 		}
 
 		this._screenEvents[id] = savedScreenEvents;
 
-		if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
+		if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
 		{
 			this._activeScreen.addEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
 		}
 		this.addChild(this._activeScreen);
 
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		if(this._validationQueue && !this._validationQueue.isValidating)
+		if(this._validationQueue != null && !this._validationQueue.isValidating)
 		{
 			//force a COMPLETE validation of everything
 			//but only if we're not already doing that...
@@ -497,34 +502,34 @@ class ScreenNavigator extends FeathersControl
 	 */
 	private function clearScreenInternal(displayTransition:Bool):Void
 	{
-		if(!this._activeScreen)
+		if(this._activeScreen == null)
 		{
 			//no screen visible.
 			return;
 		}
 
-		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
+		var item:ScreenNavigatorItem = cast(this._screens[this._activeScreenID], ScreenNavigatorItem);
 		var events:Dynamic = item.events;
-		var savedScreenEvents:Dynamic = this._screenEvents[this._activeScreenID];
-		for (eventName in events)
+		var savedScreenEvents:Map<String, Dynamic->Void> = this._screenEvents[this._activeScreenID];
+		for (eventName in Reflect.fields(events))
 		{
-			var signal:Dynamic = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as SIGNAL_TYPE) : null;
-			var eventAction:Dynamic = events[eventName];
-			if(Std.is(eventAction, Function))
+			var signal:Dynamic = Reflect.getProperty(this._activeScreen, eventName);
+			var eventAction:Dynamic = Reflect.getProperty(events, eventName);
+			if(Reflect.isFunction(eventAction))
 			{
-				if(signal)
+				if(signal != null)
 				{
-					signal.remove(eventAction as Function);
+					signal.remove(eventAction);
 				}
 				else
 				{
-					this._activeScreen.removeEventListener(eventName, eventAction as Function);
+					this._activeScreen.removeEventListener(eventName, eventAction);
 				}
 			}
 			else if(Std.is(eventAction, String))
 			{
-				var eventListener:Dynamic = savedScreenEvents[eventName] as Function;
-				if(signal)
+				var eventListener:Dynamic = savedScreenEvents[eventName];
+				if(signal != null)
 				{
 					signal.remove(eventListener);
 				}
@@ -556,7 +561,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function addScreen(id:String, item:ScreenNavigatorItem):Void
 	{
-		if(this._screens.hasOwnProperty(id))
+		if(this._screens.exists(id))
 		{
 			throw new IllegalOperationError("Screen with id '" + id + "' already defined. Cannot add two screens with the same id.");
 		}
@@ -569,7 +574,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function removeScreen(id:String):Void
 	{
-		if(!this._screens.hasOwnProperty(id))
+		if(!this._screens.exists(id))
 		{
 			throw new IllegalOperationError("Screen '" + id + "' cannot be removed because it has not been added.");
 		}
@@ -577,7 +582,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			this.clearScreen();
 		}
-		delete this._screens[id];
+		this._screens.remove(id);
 	}
 
 	/**
@@ -586,9 +591,9 @@ class ScreenNavigator extends FeathersControl
 	public function removeAllScreens():Void
 	{
 		this.clearScreen();
-		for (id in this._screens)
+		for (id in this._screens.keys())
 		{
-			delete this._screens[id];
+			this._screens.remove(id);
 		}
 	}
 
@@ -597,7 +602,7 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function hasScreen(id:String):Bool
 	{
-		return this._screens.hasOwnProperty(id);
+		return this._screens.exists(id);
 	}
 
 	/**
@@ -606,9 +611,9 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function getScreen(id:String):ScreenNavigatorItem
 	{
-		if(this._screens.hasOwnProperty(id))
+		if(this._screens.exists(id))
 		{
-			return ScreenNavigatorItem(this._screens[id]);
+			return cast(this._screens[id], ScreenNavigatorItem);
 		}
 		return null;
 	}
@@ -618,12 +623,12 @@ class ScreenNavigator extends FeathersControl
 	 */
 	public function getScreenIDs(result:Array<String> = null):Array<String>
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Array();
 		}
 
-		for (id in this._screens)
+		for (id in this._screens.keys())
 		{
 			result.push(id);
 		}
@@ -652,7 +657,7 @@ class ScreenNavigator extends FeathersControl
 
 		if(sizeInvalid || selectionInvalid)
 		{
-			if(this._activeScreen)
+			if(this._activeScreen != null)
 			{
 				if(this._activeScreen.width != this.actualWidth)
 				{
@@ -670,7 +675,7 @@ class ScreenNavigator extends FeathersControl
 			if(this._clipContent)
 			{
 				var clipRect:Rectangle = this.clipRect;
-				if(!clipRect)
+				if(clipRect == null)
 				{
 					clipRect = new Rectangle();
 				}
@@ -710,18 +715,18 @@ class ScreenNavigator extends FeathersControl
 			return false;
 		}
 
-		if((this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage) &&
-			this._activeScreen is IValidating)
+		if((this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null) &&
+			Std.is(this._activeScreen, IValidating))
 		{
-			IValidating(this._activeScreen).validate();
+			cast(this._activeScreen, IValidating).validate();
 		}
 
 		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
-			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
+			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
 			{
-				newWidth = this._activeScreen ? this._activeScreen.width : 0;
+				newWidth = this._activeScreen != null ? this._activeScreen.width : 0;
 			}
 			else
 			{
@@ -732,9 +737,9 @@ class ScreenNavigator extends FeathersControl
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
+			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
 			{
-				newHeight = this._activeScreen ? this._activeScreen.height : 0;
+				newHeight = this._activeScreen != null ? this._activeScreen.height : 0;
 			}
 			else
 			{
@@ -752,13 +757,13 @@ class ScreenNavigator extends FeathersControl
 	{
 		this._transitionIsActive = false;
 		this.dispatchEventWith(FeathersEventType.TRANSITION_COMPLETE);
-		if(this._previousScreenInTransition)
+		if(this._previousScreenInTransition != null)
 		{
 			var item:ScreenNavigatorItem = this._screens[this._previousScreenInTransitionID];
 			var canBeDisposed:Bool = !(Std.is(item.screen, DisplayObject));
 			if(Std.is(this._previousScreenInTransition, IScreen))
 			{
-				var screen:IScreen = IScreen(this._previousScreenInTransition);
+				var screen:IScreen = cast(this._previousScreenInTransition, IScreen);
 				screen.screenID = null;
 				screen.owner = null;
 			}
@@ -772,7 +777,7 @@ class ScreenNavigator extends FeathersControl
 		{
 			this.clearScreen();
 		}
-		else if(this._nextScreenID)
+		else if(this._nextScreenID != null)
 		{
 			this.showScreen(this._nextScreenID);
 		}
@@ -784,7 +789,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenEventListener(screenID:String):Dynamic
+	private function createScreenEventListener(screenID:String):Event->Void
 	{
 		var self:ScreenNavigator = this;
 		var eventListener:Dynamic = function(event:Event):Void
@@ -798,20 +803,21 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenSignalListener(screenID:String, signal:Dynamic):Dynamic
+	private function createScreenSignalListener(screenID:String, signal:Dynamic):Dynamic->Void
 	{
 		var self:ScreenNavigator = this;
+		var signalListener:Dynamic->Void;
 		if(signal.valueClasses.length == 1)
 		{
 			//shortcut to avoid the allocation of the rest array
-			var signalListener:Dynamic = function(arg0:Dynamic):Void
+			signalListener = function(arg0:Dynamic):Void
 			{
 				self.showScreen(screenID);
 			};
 		}
 		else
 		{
-			signalListener = function(...rest:Array):Void
+			signalListener = function(rest:Array<Dynamic>):Void
 			{
 				self.showScreen(screenID);
 			};
@@ -855,6 +861,4 @@ class ScreenNavigator extends FeathersControl
 	{
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
-}
-
 }

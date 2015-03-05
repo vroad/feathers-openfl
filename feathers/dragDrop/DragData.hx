@@ -23,32 +23,28 @@ class DragData
 	/**
 	 * @private
 	 */
-	private var _data:Dynamic = {};
+	private var _data:Map<String, Dynamic> = new Map();
 
 	/**
 	 * Determines if the specified data format is available.
 	 */
 	public function hasDataForFormat(format:String):Bool
 	{
-		return this._data.hasOwnProperty(format);
+		return this._data.exists(format);
 	}
 
 	/**
 	 * Returns data for the specified format.
 	 */
-	public function getDataForFormat(format:String):*
+	public function getDataForFormat(format:String):Dynamic
 	{
-		if(this._data.hasOwnProperty(format))
-		{
-			return this._data[format];
-		}
-		return undefined;
+		return this._data[format];
 	}
 
 	/**
 	 * Saves data for the specified format.
 	 */
-	public function setDataForFormat(format:String, data:*):Void
+	public function setDataForFormat(format:String, data:Dynamic):Void
 	{
 		this._data[format] = data;
 	}
@@ -56,15 +52,14 @@ class DragData
 	/**
 	 * Removes all data for the specified format.
 	 */
-	public function clearDataForFormat(format:String):*
+	public function clearDataForFormat(format:String):Dynamic
 	{
-		var data:* = undefined;
-		if(this._data.hasOwnProperty(format))
+		var data:Dynamic = null;
+		if(this._data.exists(format))
 		{
 			data = this._data[format];
 		}
-		delete this._data[format];
+		this._data.remove(format);
 		return data;
-
 	}
 }

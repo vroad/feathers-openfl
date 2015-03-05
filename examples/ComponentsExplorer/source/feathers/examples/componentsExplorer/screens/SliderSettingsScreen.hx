@@ -13,7 +13,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class SliderSettingsScreen extends PanelScreen
+@:keep class SliderSettingsScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -23,7 +23,7 @@ class SliderSettingsScreen extends PanelScreen
 	public var settings:SliderSettings;
 
 	private var _list:List;
-	private var _backButton:Button
+	private var _backButton:Button;
 	private var _liveDraggingToggle:ToggleSwitch;
 	private var _stepStepper:NumericStepper;
 	private var _pageStepper:NumericStepper;
@@ -84,18 +84,18 @@ class SliderSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Slider Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Slider Settings");
+		this.headerProperties.setProperty("leftItems", 
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void

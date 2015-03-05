@@ -27,7 +27,8 @@ interface IFocusExtras
 	 *
 	 * <p>May return <code>null</code> if there are no extra children.</p>
 	 */
-	function get_focusExtrasBefore():Array<DisplayObject>;
+	var focusExtrasBefore(get, never):Array<DisplayObject>;
+	//function get_focusExtrasBefore():Array<DisplayObject>;
 
 	/**
 	 * Extra display objects that are not accessible through standard
@@ -38,5 +39,6 @@ interface IFocusExtras
 	 *
 	 * <p>May return <code>null</code> if there are no extra children.</p>
 	 */
-	function get_focusExtrasAfter():Array<DisplayObject>;
+	var focusExtrasAfter(get, never):Array<DisplayObject>;
+	//function get_focusExtrasAfter():Array<DisplayObject>;
 }

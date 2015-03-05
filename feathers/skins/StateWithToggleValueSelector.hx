@@ -7,6 +7,8 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
 import feathers.core.IToggle;
+import feathers.utils.type.SafeCast.safe_cast;
+import haxe.ds.WeakMap;
 
 import openfl.utils.Dictionary;
 
@@ -14,7 +16,7 @@ import openfl.utils.Dictionary;
  * Maps a component's states to values, perhaps for one of the component's
  * properties such as a skin or text format.
  */
-class StateWithToggleValueSelector
+class StateWithToggleValueSelector<T>
 {
 	/**
 	 * Constructor.
@@ -27,19 +29,25 @@ class StateWithToggleValueSelector
 	 * @private
 	 * Stores the values for each state.
 	 */
-	private var stateToValue:Dictionary = new Dictionary(true);
-
+#if flash
+	private var stateToValue:WeakMap<String, T> = new WeakMap();
+#else
+	private var stateToValue:Map<String, T> = new Map();
+#end
 	/**
 	 * @private
 	 * Stores the values for each state where isSelected is true.
 	 */
-	private var stateToSelectedValue:Dictionary = new Dictionary(true);
-
+#if flash
+	private var stateToSelectedValue:WeakMap<String, T> = new WeakMap();
+#else
+	private var stateToSelectedValue:Map<String, T> = new Map();
+#end
 	/**
 	 * If there is no value for the specified state, a default value can
 	 * be used as a fallback.
 	 */
-	public var defaultValue:Dynamic;
+	public var defaultValue:T;
 
 	/**
 	 * If the target is a selected IToggle instance, and if there is no
@@ -48,38 +56,39 @@ class StateWithToggleValueSelector
 	 *
 	 * @see feathers.core.IToggle
 	 */
-	public var defaultSelectedValue:Dynamic;
+	public var defaultSelectedValue:T;
 
 	/**
 	 * Stores a value for a specified state to be returned from
 	 * getValueForState().
 	 */
-	public function setValueForState(value:Dynamic, state:Dynamic, isSelected:Bool = false):Void
+	public function setValueForState(value:T, state:String, isSelected:Bool = false):Void
 	{
 		if(isSelected)
 		{
-			this.stateToSelectedValue[state] = value;
+			this.stateToSelectedValue.set(state, value);
 		}
 		else
 		{
-			this.stateToValue[state] = value;
+			this.stateToValue.set(state, value);
 		}
 	}
 
 	/**
 	 * Clears the value stored for a specific state.
 	 */
-	public function clearValueForState(state:Dynamic, isSelected:Bool = false):Dynamic
+	public function clearValueForState(state:String, isSelected:Bool = false):T
 	{
+		var value:T;
 		if(isSelected)
 		{
-			var value:Dynamic = this.stateToSelectedValue[state];
-			delete this.stateToSelectedValue[state];
+			value = this.stateToSelectedValue.get(state);
+			this.stateToSelectedValue.remove(state);
 		}
 		else
 		{
-			value = this.stateToValue[state];
-			delete this.stateToValue[state];
+			value = this.stateToValue.get(state);
+			this.stateToValue.remove(state);
 		}
 		return value;
 	}
@@ -87,13 +96,13 @@ class StateWithToggleValueSelector
 	/**
 	 * Returns the value stored for a specific state.
 	 */
-	public function getValueForState(state:Dynamic, isSelected:Bool = false):Dynamic
+	public function getValueForState(state:String, isSelected:Bool = false):T
 	{
 		if(isSelected)
 		{
-			return this.stateToSelectedValue[state];
+			return this.stateToSelectedValue.get(state);
 		}
-		return this.stateToValue[state];
+		return this.stateToValue.get(state);
 	}
 
 	/**
@@ -104,12 +113,13 @@ class StateWithToggleValueSelector
 	 * @param state			The current state.
 	 * @param oldValue		The previous value. May be reused for the new value.
 	 */
-	public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
+	public function updateValue(target:Dynamic, state:String, oldValue:T = null):T
 	{
-		var value:Dynamic;
-		if(target is IToggle && IToggle(target).isSelected)
+		var value:T;
+		var toggle:IToggle = safe_cast(target, IToggle);
+		if(toggle != null && toggle.isSelected)
 		{
-			value = this.stateToSelectedValue[state];
+			value = this.stateToSelectedValue.get(state);
 			if(value == null)
 			{
 				value = this.defaultSelectedValue;
@@ -117,7 +127,7 @@ class StateWithToggleValueSelector
 		}
 		else
 		{
-			value = this.stateToValue[state];
+			value = this.stateToValue.get(state);
 		}
 		if(value == null)
 		{

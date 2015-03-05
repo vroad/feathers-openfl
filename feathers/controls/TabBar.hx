@@ -41,7 +41,7 @@ import starling.events.Event;
  * @eventType starling.events.Event.CHANGE
  *///[Event(name="change",type="starling.events.Event")]
 
-[DefaultProperty("dataProvider")]
+//[DefaultProperty("dataProvider")]
 /**
  * A line of tabs (vertical or horizontal), where one may be selected at a
  * time.
@@ -78,7 +78,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_TAB_FIELDS:Array<String> = new <String>
+	private static var DEFAULT_TAB_FIELDS:Array<String> = 
 	[
 		"defaultIcon",
 		"upIcon",
@@ -201,6 +201,7 @@ class TabBar extends FeathersControl
 	public function new()
 	{
 		super();
+		this._tabInitializer = defaultTabInitializer;
 	}
 
 	/**
@@ -344,11 +345,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._dataProvider == value)
 		{
-			return;
+			return get_dataProvider();
 		}
 		var oldSelectedIndex:Int = this.selectedIndex;
 		var oldSelectedItem:Dynamic = this.selectedItem;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.removeEventListener(CollectionEventType.ADD_ITEM, dataProvider_addItemHandler);
 			this._dataProvider.removeEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_removeItemHandler);
@@ -357,7 +358,7 @@ class TabBar extends FeathersControl
 			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 		}
 		this._dataProvider = value;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.addEventListener(CollectionEventType.ADD_ITEM, dataProvider_addItemHandler);
 			this._dataProvider.addEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_removeItemHandler);
@@ -365,7 +366,7 @@ class TabBar extends FeathersControl
 			this._dataProvider.addEventListener(CollectionEventType.UPDATE_ITEM, dataProvider_updateItemHandler);
 			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 		}
-		if(!this._dataProvider || this._dataProvider.length == 0)
+		if(this._dataProvider == null || this._dataProvider.length == 0)
 		{
 			this.selectedIndex = -1;
 		}
@@ -380,6 +381,7 @@ class TabBar extends FeathersControl
 			this.dispatchEventWith(Event.CHANGE);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_dataProvider();
 	}
 
 	/**
@@ -435,10 +437,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._direction == value)
 		{
-			return;
+			return get_direction();
 		}
 		this._direction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_direction();
 	}
 
 	/**
@@ -476,10 +479,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -517,10 +521,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -557,10 +562,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._distributeTabSizes == value)
 		{
-			return;
+			return get_distributeTabSizes();
 		}
 		this._distributeTabSizes = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_distributeTabSizes();
 	}
 
 	/**
@@ -591,10 +597,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -603,7 +610,7 @@ class TabBar extends FeathersControl
 	private var _firstGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the first two tabs. If <code>Math.NaN</code>,
+	 * Space, in pixels, between the first two tabs. If <code>NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the first and second
@@ -613,7 +620,7 @@ class TabBar extends FeathersControl
 	 * tabs.firstGap = 30;
 	 * tabs.gap = 20;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #gap
 	 * @see #lastGap
@@ -631,10 +638,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._firstGap == value)
 		{
-			return;
+			return get_firstGap();
 		}
 		this._firstGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_firstGap();
 	}
 
 	/**
@@ -643,7 +651,7 @@ class TabBar extends FeathersControl
 	private var _lastGap:Float = Math.NaN;
 
 	/**
-	 * Space, in pixels, between the last two tabs. If <code>Math.NaN</code>,
+	 * Space, in pixels, between the last two tabs. If <code>NaN</code>,
 	 * the default <code>gap</code> property will be used.
 	 *
 	 * <p>The following example sets the gap between the last and next to last
@@ -653,7 +661,7 @@ class TabBar extends FeathersControl
 	 * tabs.lastGap = 30;
 	 * tabs.gap = 20;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #gap
 	 * @see #firstGap
@@ -671,10 +679,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._lastGap == value)
 		{
-			return;
+			return get_lastGap();
 		}
 		this._lastGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_lastGap();
 	}
 
 	/**
@@ -711,6 +720,7 @@ class TabBar extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -743,10 +753,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -779,10 +790,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -815,10 +827,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -851,10 +864,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -905,16 +919,17 @@ class TabBar extends FeathersControl
 	{
 		if(this._tabFactory == value)
 		{
-			return;
+			return get_tabFactory();
 		}
 		this._tabFactory = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_tabFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _firstTabFactory:Dynamic;
+	private var _firstTabFactory:Void->ToggleButton;
 
 	/**
 	 * Creates a new first tab. If the <code>firstTabFactory</code> is
@@ -948,8 +963,8 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #lastTabFactory
 	 */
-	public var firstTabFactory(get, set):Dynamic;
-	public function get_firstTabFactory():Dynamic
+	public var firstTabFactory(get, set):Void->ToggleButton;
+	public function get_firstTabFactory():Void->ToggleButton
 	{
 		return this._firstTabFactory;
 	}
@@ -957,20 +972,21 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_firstTabFactory(value:Dynamic):Dynamic
+	public function set_firstTabFactory(value:Void->ToggleButton):Void->ToggleButton
 	{
 		if(this._firstTabFactory == value)
 		{
-			return;
+			return get_firstTabFactory();
 		}
 		this._firstTabFactory = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_firstTabFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _lastTabFactory:Dynamic;
+	private var _lastTabFactory:Void->ToggleButton;
 
 	/**
 	 * Creates a new last tab. If the <code>lastTabFactory</code> is
@@ -1004,8 +1020,8 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see #firstTabFactory
 	 */
-	public var lastTabFactory(get, set):Dynamic;
-	public function get_lastTabFactory():Dynamic
+	public var lastTabFactory(get, set):Void->ToggleButton;
+	public function get_lastTabFactory():Void->ToggleButton
 	{
 		return this._lastTabFactory;
 	}
@@ -1013,20 +1029,21 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_lastTabFactory(value:Dynamic):Dynamic
+	public function set_lastTabFactory(value:Void->ToggleButton):Void->ToggleButton
 	{
 		if(this._lastTabFactory == value)
 		{
-			return;
+			return get_lastTabFactory();
 		}
 		this._lastTabFactory = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_lastTabFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _tabInitializer:Dynamic = defaultTabInitializer;
+	private var _tabInitializer:ToggleButton->Dynamic->Void;
 
 	/**
 	 * Modifies the properties of an individual tab, using an item from the
@@ -1049,8 +1066,8 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
-	public var tabInitializer(get, set):Dynamic;
-	public function get_tabInitializer():Dynamic
+	public var tabInitializer(get, set):ToggleButton->Dynamic->Void;
+	public function get_tabInitializer():ToggleButton->Dynamic->Void
 	{
 		return this._tabInitializer;
 	}
@@ -1058,14 +1075,15 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_tabInitializer(value:Dynamic):Dynamic
+	public function set_tabInitializer(value:ToggleButton->Dynamic->Void):ToggleButton->Dynamic->Void
 	{
 		if(this._tabInitializer == value)
 		{
-			return;
+			return get_tabInitializer();
 		}
 		this._tabInitializer = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_tabInitializer();
 	}
 
 	/**
@@ -1110,7 +1128,7 @@ class TabBar extends FeathersControl
 		{
 			return this._pendingSelectedIndex;
 		}
-		if(!this.toggleGroup)
+		if(this.toggleGroup == null)
 		{
 			return -1;
 		}
@@ -1123,12 +1141,13 @@ class TabBar extends FeathersControl
 	public function set_selectedIndex(value:Int):Int
 	{
 		if(this._pendingSelectedIndex == value ||
-			(this._pendingSelectedIndex == NOT_PENDING_INDEX && this.toggleGroup && this.toggleGroup.selectedIndex == value))
+			(this._pendingSelectedIndex == NOT_PENDING_INDEX && this.toggleGroup != null && this.toggleGroup.selectedIndex == value))
 		{
-			return;
+			return get_selectedIndex();
 		}
 		this._pendingSelectedIndex = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_selectedIndex();
 	}
 
 	/**
@@ -1160,7 +1179,7 @@ class TabBar extends FeathersControl
 	public function get_selectedItem():Dynamic
 	{
 		var index:Int = this.selectedIndex;
-		if(!this._dataProvider || index < 0 || index >= this._dataProvider.length)
+		if(this._dataProvider == null || index < 0 || index >= this._dataProvider.length)
 		{
 			return null;
 		}
@@ -1172,12 +1191,13 @@ class TabBar extends FeathersControl
 	 */
 	public function set_selectedItem(value:Dynamic):Dynamic
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			this.selectedIndex = -1;
-			return;
+			return get_selectedItem();
 		}
 		this.selectedIndex = this._dataProvider.getItemIndex(value);
+		return get_selectedItem();
 	}
 
 	/**
@@ -1219,10 +1239,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._customTabName == value)
 		{
-			return;
+			return get_customTabName();
 		}
 		this._customTabName = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_customTabName();
 	}
 
 	/**
@@ -1263,10 +1284,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._customFirstTabName == value)
 		{
-			return;
+			return get_customFirstTabName();
 		}
 		this._customFirstTabName = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_customFirstTabName();
 	}
 
 	/**
@@ -1307,10 +1329,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._customLastTabName == value)
 		{
-			return;
+			return get_customLastTabName();
 		}
 		this._customLastTabName = value;
 		this.invalidate(INVALIDATION_FLAG_TAB_FACTORY);
+		return get_customLastTabName();
 	}
 
 	/**
@@ -1347,10 +1370,10 @@ class TabBar extends FeathersControl
 	 * @see #tabFactory
 	 * @see feathers.controls.Button
 	 */
-	public var tabProperties(get, set):Dynamic;
-	public function get_tabProperties():Dynamic
+	public var tabProperties(get, set):PropertyProxy;
+	public function get_tabProperties():PropertyProxy
 	{
-		if(!this._tabProperties)
+		if(this._tabProperties == null)
 		{
 			this._tabProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1360,35 +1383,36 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_tabProperties(value:Dynamic):Dynamic
+	public function set_tabProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._tabProperties == value)
 		{
-			return;
+			return get_tabProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._tabProperties)
+		if(this._tabProperties != null)
 		{
 			this._tabProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._tabProperties = PropertyProxy(value);
-		if(this._tabProperties)
+		this._tabProperties = value;
+		if(this._tabProperties != null)
 		{
 			this._tabProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_tabProperties();
 	}
 
 	/**
@@ -1455,7 +1479,7 @@ class TabBar extends FeathersControl
 	 */
 	private function commitSelection():Void
 	{
-		if(this._pendingSelectedIndex == NOT_PENDING_INDEX || !this.toggleGroup)
+		if(this._pendingSelectedIndex == NOT_PENDING_INDEX || this.toggleGroup == null)
 		{
 			return;
 		}
@@ -1486,12 +1510,14 @@ class TabBar extends FeathersControl
 	 */
 	private function refreshTabStyles():Void
 	{
-		for (propertyName in this._tabProperties)
+		if (this._tabProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._tabProperties.storage))
 		{
-			var propertyValue:Dynamic = this._tabProperties[propertyName];
+			var propertyValue:Dynamic = Reflect.field(this._tabProperties.storage, propertyName);
 			for (tab in this.activeTabs)
 			{
-				tab[propertyName] = propertyValue;
+				Reflect.setProperty(tab, propertyName, propertyValue);
 			}
 		}
 	}
@@ -1503,11 +1529,11 @@ class TabBar extends FeathersControl
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			if(this.horizontalLayout)
+			if(this.horizontalLayout != null)
 			{
 				this.horizontalLayout = null;
 			}
-			if(!this.verticalLayout)
+			if(this.verticalLayout == null)
 			{
 				this.verticalLayout = new VerticalLayout();
 				this.verticalLayout.useVirtualLayout = false;
@@ -1525,11 +1551,11 @@ class TabBar extends FeathersControl
 		}
 		else //horizontal
 		{
-			if(this.verticalLayout)
+			if(this.verticalLayout != null)
 			{
 				this.verticalLayout = null;
 			}
-			if(!this.horizontalLayout)
+			if(this.horizontalLayout == null)
 			{
 				this.horizontalLayout = new HorizontalLayout();
 				this.horizontalLayout.useVirtualLayout = false;
@@ -1552,9 +1578,9 @@ class TabBar extends FeathersControl
 	 */
 	private function defaultTabInitializer(tab:ToggleButton, item:Dynamic):Void
 	{
-		if(Std.is(item, Object))
+		//if(Std.is(item, Object))
 		{
-			if(item.hasOwnProperty("label"))
+			if(Reflect.getProperty(item, "label") != null)
 			{
 				tab.label = item.label;
 			}
@@ -1564,16 +1590,17 @@ class TabBar extends FeathersControl
 			}
 			for (field in DEFAULT_TAB_FIELDS)
 			{
-				if(item.hasOwnProperty(field))
+				var value:Dynamic = Reflect.getProperty(item, field);
+				if(value != null)
 				{
-					tab[field] = item[field];
+					Reflect.setProperty(tab, field, value);
 				}
 			}
 		}
-		else
+		/*else
 		{
 			tab.label = "";
-		}
+		}*/
 
 	}
 
@@ -1589,8 +1616,8 @@ class TabBar extends FeathersControl
 		var temp:Array<ToggleButton> = this.inactiveTabs;
 		this.inactiveTabs = this.activeTabs;
 		this.activeTabs = temp;
-		this.activeTabs.length = 0;
-		this._layoutItems.length = 0;
+		this.activeTabs.splice(0, this.activeTabs.length);
+		this._layoutItems.splice(0, this._layoutItems.length);
 		temp = null;
 		if(isFactoryInvalid)
 		{
@@ -1598,13 +1625,13 @@ class TabBar extends FeathersControl
 		}
 		else
 		{
-			if(this.activeFirstTab)
+			if(this.activeFirstTab != null)
 			{
 				this.inactiveTabs.shift();
 			}
 			this.inactiveFirstTab = this.activeFirstTab;
 
-			if(this.activeLastTab)
+			if(this.activeLastTab != null)
 			{
 				this.inactiveTabs.pop();
 			}
@@ -1614,14 +1641,15 @@ class TabBar extends FeathersControl
 		this.activeLastTab = null;
 
 		var pushIndex:Int = 0;
-		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
+		var itemCount:Int = this._dataProvider != null ? this._dataProvider.length : 0;
 		var lastItemIndex:Int = itemCount - 1;
 		for(i in 0 ... itemCount)
 		{
 			var item:Dynamic = this._dataProvider.getItemAt(i);
+			var tab:ToggleButton;
 			if(i == 0)
 			{
-				var tab:ToggleButton = this.activeFirstTab = this.createFirstTab(item);
+				tab = this.activeFirstTab = this.createFirstTab(item);
 			}
 			else if(i == lastItemIndex)
 			{
@@ -1668,13 +1696,13 @@ class TabBar extends FeathersControl
 			this.destroyTab(tab);
 		}
 
-		if(this.inactiveFirstTab)
+		if(this.inactiveFirstTab != null)
 		{
 			this.destroyTab(this.inactiveFirstTab);
 			this.inactiveFirstTab = null;
 		}
 
-		if(this.inactiveLastTab)
+		if(this.inactiveLastTab != null)
 		{
 			this.destroyTab(this.inactiveLastTab);
 			this.inactiveLastTab = null;
@@ -1686,20 +1714,21 @@ class TabBar extends FeathersControl
 	 */
 	private function createFirstTab(item:Dynamic):ToggleButton
 	{
-		if(this.inactiveFirstTab)
+		var tab:ToggleButton;
+		if(this.inactiveFirstTab != null)
 		{
-			var tab:ToggleButton = this.inactiveFirstTab;
+			tab = this.inactiveFirstTab;
 			this.inactiveFirstTab = null;
 		}
 		else
 		{
-			var factory:Dynamic = this._firstTabFactory != null ? this._firstTabFactory : this._tabFactory;
-			tab = ToggleButton(factory());
-			if(this._customFirstTabName)
+			var factory:Void->ToggleButton = this._firstTabFactory != null ? this._firstTabFactory : this._tabFactory;
+			tab = factory();
+			if(this._customFirstTabName != null)
 			{
 				tab.styleNameList.add(this._customFirstTabName);
 			}
-			else if(this._customTabName)
+			else if(this._customTabName != null)
 			{
 				tab.styleNameList.add(this._customTabName);
 			}
@@ -1719,20 +1748,21 @@ class TabBar extends FeathersControl
 	 */
 	private function createLastTab(item:Dynamic):ToggleButton
 	{
-		if(this.inactiveLastTab)
+		var tab:ToggleButton;
+		if(this.inactiveLastTab != null)
 		{
-			var tab:ToggleButton = this.inactiveLastTab;
+			tab = this.inactiveLastTab;
 			this.inactiveLastTab = null;
 		}
 		else
 		{
-			var factory:Dynamic = this._lastTabFactory != null ? this._lastTabFactory : this._tabFactory;
-			tab = ToggleButton(factory());
-			if(this._customLastTabName)
+			var factory:Void->ToggleButton = this._lastTabFactory != null ? this._lastTabFactory : this._tabFactory;
+			tab = factory();
+			if(this._customLastTabName != null)
 			{
 				tab.styleNameList.add(this._customLastTabName);
 			}
-			else if(this._customTabName)
+			else if(this._customTabName != null)
 			{
 				tab.styleNameList.add(this._customTabName);
 			}
@@ -1752,10 +1782,11 @@ class TabBar extends FeathersControl
 	 */
 	private function createTab(item:Dynamic):ToggleButton
 	{
+		var tab:ToggleButton;
 		if(this.inactiveTabs.length == 0)
 		{
-			var tab:ToggleButton = this._tabFactory();
-			if(this._customTabName)
+			tab = this._tabFactory();
+			if(this._customTabName != null)
 			{
 				tab.styleNameList.add(this._customTabName);
 			}
@@ -1798,11 +1829,11 @@ class TabBar extends FeathersControl
 		this._viewPortBounds.minHeight = this._minHeight;
 		this._viewPortBounds.maxWidth = this._maxWidth;
 		this._viewPortBounds.maxHeight = this._maxHeight;
-		if(this.verticalLayout)
+		if(this.verticalLayout != null)
 		{
 			this.verticalLayout.layout(this._layoutItems, this._viewPortBounds, this._layoutResult);
 		}
-		else if(this.horizontalLayout)
+		else if(this.horizontalLayout != null)
 		{
 			this.horizontalLayout.layout(this._layoutItems, this._viewPortBounds, this._layoutResult);
 		}
@@ -1834,7 +1865,7 @@ class TabBar extends FeathersControl
 	 */
 	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
-		if(this.toggleGroup && this.toggleGroup.selectedIndex >= index)
+		if(this.toggleGroup != null && this.toggleGroup.selectedIndex >= index)
 		{
 			//let's keep the same item selected
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex + 1;
@@ -1848,7 +1879,7 @@ class TabBar extends FeathersControl
 	 */
 	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
-		if(this.toggleGroup && this.toggleGroup.selectedIndex > index)
+		if(this.toggleGroup != null && this.toggleGroup.selectedIndex > index)
 		{
 			//let's keep the same item selected
 			this._pendingSelectedIndex = this.toggleGroup.selectedIndex - 1;
@@ -1862,7 +1893,7 @@ class TabBar extends FeathersControl
 	 */
 	private function dataProvider_resetHandler(event:Event):Void
 	{
-		if(this.toggleGroup && this._dataProvider.length > 0)
+		if(this.toggleGroup != null && this._dataProvider.length > 0)
 		{
 			//the data provider has changed drastically. we should reset the
 			//selection to the first item.

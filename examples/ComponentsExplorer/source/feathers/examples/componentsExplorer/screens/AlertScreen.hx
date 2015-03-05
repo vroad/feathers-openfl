@@ -11,7 +11,7 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-class AlertScreen extends PanelScreen
+@:keep class AlertScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -37,7 +37,7 @@ class AlertScreen extends PanelScreen
 		this._showAlertButton.layoutData = buttonGroupLayoutData;
 		this.addChild(this._showAlertButton);
 
-		this.headerProperties.title = "Alert";
+		this.headerProperties.setProperty("title", "Alert");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -46,10 +46,10 @@ class AlertScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -77,9 +77,9 @@ class AlertScreen extends PanelScreen
 
 	private function alert_closeHandler(event:Event, data:Dynamic):Void
 	{
-		if(data)
+		if(data != null)
 		{
-			trace("alert closed with button:", data.label);
+			trace("alert closed with button:" + data.label);
 		}
 		else
 		{

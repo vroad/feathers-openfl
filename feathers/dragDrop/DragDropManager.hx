@@ -8,6 +8,8 @@ accordance with the terms of the accompanying license agreement.
 package feathers.dragDrop;
 import feathers.core.PopUpManager;
 import feathers.events.DragDropEvent;
+import feathers.utils.type.SafeCast.safe_cast;
+import openfl.errors.ArgumentError;
 
 import openfl.errors.IllegalOperationError;
 import openfl.events.KeyboardEvent;
@@ -73,6 +75,7 @@ class DragDropManager
 	 * Determines if the drag and drop manager is currently handling a drag.
 	 * Only one drag may be active at a time.
 	 */
+	public static var isDragging(get, never):Bool;
 	public static function get_isDragging():Bool
 	{
 		return _dragData != null;
@@ -82,6 +85,7 @@ class DragDropManager
 	 * The data associated with the current drag. Returns <code>null</code>
 	 * if there is not a current drag.
 	 */
+	public static var dragData(get, never):DragData;
 	public static function get_dragData():DragData
 	{
 		return _dragData;
@@ -141,11 +145,11 @@ class DragDropManager
 		{
 			cancelDrag();
 		}
-		if(!source)
+		if(source == null)
 		{
 			throw new ArgumentError("Drag source cannot be null.");
 		}
-		if(!data)
+		if(data == null)
 		{
 			throw new ArgumentError("Drag data cannot be null.");
 		}
@@ -156,7 +160,7 @@ class DragDropManager
 		avatarOffsetX = dragAvatarOffsetX;
 		avatarOffsetY = dragAvatarOffsetY;
 		touch.getLocation(Starling.current.stage, HELPER_POINT);
-		if(avatar)
+		if(avatar != null)
 		{
 			avatarOldTouchable = avatar.touchable;
 			avatar.touchable = false;
@@ -206,7 +210,7 @@ class DragDropManager
 		{
 			throw new IllegalOperationError("Drag cannot be completed because none is currently active.");
 		}
-		if(dropTarget)
+		if(dropTarget != null)
 		{
 			dropTarget.dispatchEvent(new DragDropEvent(DragDropEvent.DRAG_EXIT, _dragData, false, dropTargetLocalX, dropTargetLocalY));
 			dropTarget = null;
@@ -222,7 +226,7 @@ class DragDropManager
 	 */
 	private static function cleanup():Void
 	{
-		if(avatar)
+		if(avatar != null)
 		{
 			//may have been removed from parent already in the drop listener
 			if(PopUpManager.isPopUp(avatar))
@@ -244,31 +248,31 @@ class DragDropManager
 	private static function updateDropTarget(location:Point):Void
 	{
 		var target:DisplayObject = Starling.current.stage.hitTest(location, true);
-		while(target && !(Std.is(target, IDropTarget)))
+		while(target != null && !(Std.is(target, IDropTarget)))
 		{
 			target = target.parent;
 		}
-		if(target)
+		if(target != null)
 		{
 			target.globalToLocal(location, location);
 		}
-		if(target != dropTarget)
+		if(Std.is(target, DisplayObject))
 		{
-			if(dropTarget)
+			if(dropTarget != null)
 			{
 				//notice that we can reuse the previously saved location
 				dropTarget.dispatchEvent(new DragDropEvent(DragDropEvent.DRAG_EXIT, _dragData, false, dropTargetLocalX, dropTargetLocalY));
 			}
-			dropTarget = IDropTarget(target);
+			dropTarget = safe_cast(target, IDropTarget);
 			isAccepted = false;
-			if(dropTarget)
+			if(dropTarget != null)
 			{
 				dropTargetLocalX = location.x;
 				dropTargetLocalY = location.y;
 				dropTarget.dispatchEvent(new DragDropEvent(DragDropEvent.DRAG_ENTER, _dragData, false, dropTargetLocalX, dropTargetLocalY));
 			}
 		}
-		else if(dropTarget)
+		else if(dropTarget != null)
 		{
 			dropTargetLocalX = location.x;
 			dropTargetLocalY = location.y;
@@ -281,9 +285,11 @@ class DragDropManager
 	 */
 	private static function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
-		if(event.keyCode == Keyboard.ESCAPE || event.keyCode == Keyboard.BACK)
+		if(event.keyCode == Keyboard.ESCAPE #if flash || event.keyCode == Keyboard.BACK #end)
 		{
+			#if flash
 			event.preventDefault();
+			#end
 			cancelDrag();
 		}
 	}
@@ -295,14 +301,14 @@ class DragDropManager
 	{
 		var stage:Stage = Starling.current.stage;
 		var touch:Touch = event.getTouch(stage, null, _touchPointID);
-		if(!touch)
+		if(touch == null)
 		{
 			return;
 		}
 		if(touch.phase == TouchPhase.MOVED)
 		{
 			touch.getLocation(stage, HELPER_POINT);
-			if(avatar)
+			if(avatar != null)
 			{
 				avatar.x = HELPER_POINT.x + avatarOffsetX;
 				avatar.y = HELPER_POINT.y + avatarOffsetY;
@@ -313,7 +319,7 @@ class DragDropManager
 		{
 			_touchPointID = -1;
 			var isDropped:Bool = false;
-			if(dropTarget && isAccepted)
+			if(dropTarget != null && isAccepted)
 			{
 				dropTarget.dispatchEvent(new DragDropEvent(DragDropEvent.DRAG_DROP, _dragData, true, dropTargetLocalX, dropTargetLocalY));
 				isDropped = true;

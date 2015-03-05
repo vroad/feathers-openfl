@@ -23,7 +23,7 @@ import starling.display.DisplayObject;
  *
  * @see feathers.controls.GroupedList
  */
-class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implements IGroupedListHeaderOrFooterRenderer
+@:keep class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implements IGroupedListHeaderOrFooterRenderer
 {
 	/**
 	 * The content will be aligned horizontally to the left edge of the renderer.
@@ -168,10 +168,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
 		this._data = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_data();
 	}
 
 	/**
@@ -194,6 +195,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	public function set_groupIndex(value:Int):Int
 	{
 		this._groupIndex = value;
+		return get_groupIndex();
 	}
 
 	/**
@@ -216,6 +218,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	public function set_layoutIndex(value:Int):Int
 	{
 		this._layoutIndex = value;
+		return get_layoutIndex();
 	}
 
 	/**
@@ -239,10 +242,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
 		this._owner = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**
@@ -281,10 +285,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -323,10 +328,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -376,16 +382,17 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._contentField == value)
 		{
-			return;
+			return get_contentField();
 		}
 		this._contentField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _contentFunction:Dynamic;
+	private var _contentFunction:Dynamic->DisplayObject;
 
 	/**
 	 * A function that returns a display object to be positioned in the
@@ -428,8 +435,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public var contentFunction(get, set):Dynamic;
-	public function get_contentFunction():Dynamic
+	public var contentFunction(get, set):Dynamic->DisplayObject;
+	public function get_contentFunction():Dynamic->DisplayObject
 	{
 		return this._contentFunction;
 	}
@@ -437,14 +444,15 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentFunction(value:Dynamic):Dynamic
+	public function set_contentFunction(value:Dynamic->DisplayObject):Dynamic->DisplayObject
 	{
 		if(this._contentFunction == value)
 		{
-			return;
+			return get_contentFunction();
 		}
 		this._contentFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentFunction();
 	}
 
 	/**
@@ -503,16 +511,17 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._contentSourceField == value)
 		{
-			return;
+			return get_contentSourceField();
 		}
 		this._contentSourceField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentSourceField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _contentSourceFunction:Dynamic;
+	private var _contentSourceFunction:Dynamic->Dynamic;
 
 	/**
 	 * A function used to generate a <code>starling.textures.Texture</code>
@@ -561,8 +570,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public var contentSourceFunction(get, set):Dynamic;
-	public function get_contentSourceFunction():Dynamic
+	public var contentSourceFunction(get, set):Dynamic->Dynamic;
+	public function get_contentSourceFunction():Dynamic->Dynamic
 	{
 		return this._contentSourceFunction;
 	}
@@ -570,14 +579,15 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentSourceFunction(value:Dynamic):Dynamic
+	public function set_contentSourceFunction(value:Dynamic->Dynamic):Dynamic->Dynamic
 	{
 		if(this.contentSourceFunction == value)
 		{
-			return;
+			return get_contentSourceFunction();
 		}
 		this._contentSourceFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentSourceFunction();
 	}
 
 	/**
@@ -635,16 +645,17 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._contentLabelField == value)
 		{
-			return;
+			return get_contentLabelField();
 		}
 		this._contentLabelField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentLabelField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _contentLabelFunction:Dynamic;
+	private var _contentLabelFunction:Dynamic->String;
 
 	/**
 	 * A function that returns a string to be displayed in a
@@ -689,8 +700,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public var contentLabelFunction(get, set):Dynamic;
-	public function get_contentLabelFunction():Dynamic
+	public var contentLabelFunction(get, set):Dynamic->String;
+	public function get_contentLabelFunction():Dynamic->String
 	{
 		return this._contentLabelFunction;
 	}
@@ -698,20 +709,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelFunction(value:Dynamic):Dynamic
+	public function set_contentLabelFunction(value:Dynamic->String):Dynamic->String
 	{
 		if(this._contentLabelFunction == value)
 		{
-			return;
+			return get_contentLabelFunction();
 		}
 		this._contentLabelFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_contentLabelFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _contentLoaderFactory:Dynamic = defaultImageLoaderFactory;
+	private var _contentLoaderFactory:Void->ImageLoader = defaultImageLoaderFactory;
 
 	/**
 	 * A function that generates an <code>ImageLoader</code> that uses the result
@@ -737,8 +749,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentSourceField
 	 * @see #contentSourceFunction
 	 */
-	public var contentLoaderFactory(get, set):Dynamic;
-	public function get_contentLoaderFactory():Dynamic
+	public var contentLoaderFactory(get, set):Void->ImageLoader;
+	public function get_contentLoaderFactory():Void->ImageLoader
 	{
 		return this._contentLoaderFactory;
 	}
@@ -746,20 +758,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLoaderFactory(value:Dynamic):Dynamic
+	public function set_contentLoaderFactory(value:Void->ImageLoader):Void->ImageLoader
 	{
 		if(this._contentLoaderFactory == value)
 		{
-			return;
+			return get_contentLoaderFactory();
 		}
 		this._contentLoaderFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_contentLoaderFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _contentLabelFactory:Dynamic;
+	private var _contentLabelFactory:Void->ITextRenderer;
 
 	/**
 	 * A function that generates an <code>ITextRenderer</code> that uses the result
@@ -785,8 +798,8 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public var contentLabelFactory(get, set):Dynamic;
-	public function get_contentLabelFactory():Dynamic
+	public var contentLabelFactory(get, set):Void->ITextRenderer;
+	public function get_contentLabelFactory():Void->ITextRenderer
 	{
 		return this._contentLabelFactory;
 	}
@@ -794,14 +807,15 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelFactory(value:Dynamic):Dynamic
+	public function set_contentLabelFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._contentLabelFactory == value)
 		{
-			return;
+			return get_contentLabelFactory();
 		}
 		this._contentLabelFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_contentLabelFactory();
 	}
 
 	/**
@@ -831,10 +845,10 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 * @see #contentLabelField
 	 * @see #contentLabelFunction
 	 */
-	public var contentLabelProperties(get, set):Dynamic;
-	public function get_contentLabelProperties():Dynamic
+	public var contentLabelProperties(get, set):PropertyProxy;
+	public function get_contentLabelProperties():PropertyProxy
 	{
-		if(!this._contentLabelProperties)
+		if(this._contentLabelProperties == null)
 		{
 			this._contentLabelProperties = new PropertyProxy(contentLabelProperties_onChange);
 		}
@@ -844,35 +858,36 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	/**
 	 * @private
 	 */
-	public function set_contentLabelProperties(value:Dynamic):Dynamic
+	public function set_contentLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._contentLabelProperties == value)
 		{
-			return;
+			return this._contentLabelProperties;
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._contentLabelProperties)
+		if(this._contentLabelProperties != null)
 		{
 			this._contentLabelProperties.removeOnChangeCallback(contentLabelProperties_onChange);
 		}
-		this._contentLabelProperties = PropertyProxy(value);
-		if(this._contentLabelProperties)
+		this._contentLabelProperties = value;
+		if(this._contentLabelProperties != null)
 		{
 			this._contentLabelProperties.addOnChangeCallback(contentLabelProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._contentLabelProperties;
 	}
 
 	/**
@@ -919,20 +934,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 
-		if(this._backgroundSkin && this._backgroundSkin != this._backgroundDisabledSkin)
+		if(this._backgroundSkin != null && this._backgroundSkin != this._backgroundDisabledSkin)
 		{
 			this.removeChild(this._backgroundSkin);
 		}
 		this._backgroundSkin = value;
-		if(this._backgroundSkin && this._backgroundSkin.parent != this)
+		if(this._backgroundSkin != null && this._backgroundSkin.parent != this)
 		{
 			this._backgroundSkin.visible = false;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -964,20 +980,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
-			return;
+			return this._backgroundDisabledSkin;
 		}
 
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin != this._backgroundSkin)
+		if(this._backgroundDisabledSkin !=null && this._backgroundDisabledSkin != this._backgroundSkin)
 		{
 			this.removeChild(this._backgroundDisabledSkin);
 		}
 		this._backgroundDisabledSkin = value;
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin.parent != this)
+		if(this._backgroundDisabledSkin !=null && this._backgroundDisabledSkin.parent != this)
 		{
 			this._backgroundDisabledSkin.visible = false;
 			this.addChildAt(this._backgroundDisabledSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._backgroundDisabledSkin;
 	}
 
 	/**
@@ -1008,6 +1025,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -1039,10 +1057,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -1074,10 +1093,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -1109,10 +1129,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -1144,10 +1165,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -1158,21 +1180,21 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		//the content may have come from outside of this class. it's up
 		//to that code to dispose of the content. in fact, if we disposed
 		//of it here, we might screw something up!
-		if(this.content)
+		if(this.content != null)
 		{
 			this.content.removeFromParent();
 		}
 
 		//however, we need to dispose these, if they exist, since we made
 		//them here.
-		if(this.contentImage)
+		if(this.contentImage != null)
 		{
 			this.contentImage.dispose();
 			this.contentImage = null;
 		}
-		if(this.contentLabel)
+		if(this.contentLabel != null)
 		{
-			DisplayObject(this.contentLabel).dispose();
+			cast(this.contentLabel, DisplayObject).dispose();
 			this.contentLabel = null;
 		}
 		super.dispose();
@@ -1194,61 +1216,63 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function itemToContent(item:Dynamic):DisplayObject
 	{
+		var source:Dynamic;
+		var labelResult:Dynamic;
 		if(this._contentSourceFunction != null)
 		{
-			var source:Dynamic = this._contentSourceFunction(item);
+			source = this._contentSourceFunction(item);
 			this.refreshContentSource(source);
 			return this.contentImage;
 		}
 		else if(this._contentSourceField != null && item && item.hasOwnProperty(this._contentSourceField))
 		{
-			source = item[this._contentSourceField];
+			source = Reflect.getProperty(item, this._contentSourceField);
 			this.refreshContentSource(source);
 			return this.contentImage;
 		}
 		else if(this._contentLabelFunction != null)
 		{
-			var labelResult:Dynamic = this._contentLabelFunction(item);
-			if(labelResult is String)
+			labelResult = this._contentLabelFunction(item);
+			if(Std.is(labelResult, String))
 			{
-				this.refreshContentLabel(labelResult as String);
+				this.refreshContentLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshContentLabel(labelResult.toString());
 			}
-			return DisplayObject(this.contentLabel);
+			return cast(this.contentLabel, DisplayObject);
 		}
 		else if(this._contentLabelField != null && item && item.hasOwnProperty(this._contentLabelField))
 		{
-			labelResult = item[this._contentLabelField];
-			if(labelResult is String)
+			labelResult = Reflect.getProperty(item, this._contentLabelField);
+			if(Std.is(labelResult, String))
 			{
-				this.refreshContentLabel(labelResult as String);
+				this.refreshContentLabel(cast(labelResult, String));
 			}
 			else
 			{
 				this.refreshContentLabel(labelResult.toString());
 			}
-			return DisplayObject(this.contentLabel);
+			return cast(this.contentLabel, DisplayObject);
 		}
 		else if(this._contentFunction != null)
 		{
-			return this._contentFunction(item) as DisplayObject;
+			return cast(this._contentFunction(item), DisplayObject);
 		}
 		else if(this._contentField != null && item && item.hasOwnProperty(this._contentField))
 		{
-			return item[this._contentField] as DisplayObject;
+			return cast(Reflect.getProperty(item, this._contentField), DisplayObject);
 		}
-		else if(item is String)
+		else if(Std.is(item, String))
 		{
-			this.refreshContentLabel(item as String);
-			return DisplayObject(this.contentLabel);
+			this.refreshContentLabel(cast(item, String));
+			return cast(this.contentLabel, DisplayObject);
 		}
 		else if(item)
 		{
 			this.refreshContentLabel(item.toString());
-			return DisplayObject(this.contentLabel);
+			return cast(this.contentLabel, DisplayObject);
 		}
 
 		return null;
@@ -1293,7 +1317,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 
 		if(sizeInvalid || stylesInvalid || stateInvalid)
 		{
-			if(this.currentBackgroundSkin)
+			if(this.currentBackgroundSkin != null)
 			{
 				this.currentBackgroundSkin.width = this.actualWidth;
 				this.currentBackgroundSkin.height = this.actualHeight;
@@ -1325,11 +1349,11 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		{
 			return false;
 		}
-		if(!this.content)
+		if(this.content == null)
 		{
 			return this.setSizeInternal(0, 0, false);
 		}
-		if(this.contentLabel)
+		if(this.contentLabel != null)
 		{
 			//special case for label to allow word wrap
 			var labelMaxWidth:Float = this.explicitWidth;
@@ -1347,9 +1371,9 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		{
 			this.content.height = this.explicitHeight - this._paddingTop - this._paddingBottom;
 		}
-		if(this.content is IValidating)
+		if(Std.is(this.content, IValidating))
 		{
-			IValidating(this.content).validate();
+			cast(this.content, IValidating).validate();
 		}
 		var newWidth:Float = this.explicitWidth;
 		var newHeight:Float = this.explicitHeight;
@@ -1380,19 +1404,19 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	private function refreshBackgroundSkin():Void
 	{
 		this.currentBackgroundSkin = this._backgroundSkin;
-		if(!this._isEnabled && this._backgroundDisabledSkin)
+		if(!this._isEnabled && this._backgroundDisabledSkin != null)
 		{
-			if(this._backgroundSkin)
+			if(this._backgroundSkin != null)
 			{
 				this._backgroundSkin.visible = false;
 			}
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
-		else if(this._backgroundDisabledSkin)
+		else if(this._backgroundDisabledSkin != null)
 		{
 			this._backgroundDisabledSkin.visible = false;
 		}
-		if(this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin != null)
 		{
 			if(this.originalBackgroundWidth != this.originalBackgroundWidth) //isNaN
 			{
@@ -1411,17 +1435,17 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function commitData():Void
 	{
-		if(this._owner)
+		if(this._owner != null)
 		{
 			var newContent:DisplayObject = this.itemToContent(this._data);
 			if(newContent != this.content)
 			{
-				if(this.content)
+				if(this.content != null)
 				{
 					this.content.removeFromParent();
 				}
 				this.content = newContent;
-				if(this.content)
+				if(this.content != null)
 				{
 					this.addChild(this.content);
 				}
@@ -1429,7 +1453,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 		}
 		else
 		{
-			if(this.content)
+			if(this.content != null)
 			{
 				this.content.removeFromParent();
 				this.content = null;
@@ -1442,7 +1466,7 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function refreshContentSource(source:Dynamic):Void
 	{
-		if(!this.contentImage)
+		if(this.contentImage == null)
 		{
 			this.contentImage = this._contentLoaderFactory();
 		}
@@ -1456,17 +1480,17 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	{
 		if(label != null)
 		{
-			if(!this.contentLabel)
+			if(this.contentLabel == null)
 			{
-				var factory:Dynamic = this._contentLabelFactory != null ? this._contentLabelFactory : FeathersControl.defaultTextRendererFactory;
-				this.contentLabel = ITextRenderer(factory());
-				FeathersControl(this.contentLabel).styleNameList.add(this.contentLabelName);
+				var factory:Void->ITextRenderer = this._contentLabelFactory != null ? this._contentLabelFactory : FeathersControl.defaultTextRendererFactory;
+				this.contentLabel = factory();
+				cast(this.contentLabel, FeathersControl).styleNameList.add(this.contentLabelName);
 			}
 			this.contentLabel.text = label;
 		}
-		else if(this.contentLabel)
+		else if(this.contentLabel != null)
 		{
-			DisplayObject(this.contentLabel).removeFromParent(true);
+			cast(this.contentLabel, DisplayObject).removeFromParent(true);
 			this.contentLabel = null;
 		}
 	}
@@ -1476,9 +1500,9 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function refreshEnabled():Void
 	{
-		if(this.content is IFeathersControl)
+		if(Std.is(this.content, IFeathersControl))
 		{
-			IFeathersControl(this.content).isEnabled = this._isEnabled;
+			cast(this.content, IFeathersControl).isEnabled = this._isEnabled;
 		}
 	}
 
@@ -1487,14 +1511,14 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function refreshContentLabelStyles():Void
 	{
-		if(!this.contentLabel)
+		if(this.contentLabel == null || this._contentLabelProperties == null)
 		{
 			return;
 		}
-		for(var propertyName:String in this._contentLabelProperties)
+		for(propertyName in Reflect.fields(this._contentLabelProperties.storage))
 		{
-			var propertyValue:Dynamic = this._contentLabelProperties[propertyName];
-			this.contentLabel[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._contentLabelProperties.storage, propertyName);
+			Reflect.setProperty(this.contentLabel, propertyName, propertyValue);
 		}
 	}
 
@@ -1503,12 +1527,12 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 	 */
 	private function layout():Void
 	{
-		if(!this.content)
+		if(this.content == null)
 		{
 			return;
 		}
 
-		if(this.contentLabel)
+		if(this.contentLabel != null)
 		{
 			this.contentLabel.maxWidth = this.actualWidth - this._paddingLeft - this._paddingRight;
 		}
@@ -1517,18 +1541,18 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			case HORIZONTAL_ALIGN_CENTER:
 			{
 				this.content.x = this._paddingLeft + (this.actualWidth - this._paddingLeft - this._paddingRight - this.content.width) / 2;
-				break;
+				//break;
 			}
 			case HORIZONTAL_ALIGN_RIGHT:
 			{
 				this.content.x = this.actualWidth - this._paddingRight - this.content.width;
-				break;
+				//break;
 			}
 			case HORIZONTAL_ALIGN_JUSTIFY:
 			{
 				this.content.x = this._paddingLeft;
 				this.content.width = this.actualWidth - this._paddingLeft - this._paddingRight;
-				break;
+				//break;
 			}
 			default: //left
 			{
@@ -1541,18 +1565,18 @@ class DefaultGroupedListHeaderOrFooterRenderer extends FeathersControl implement
 			case VERTICAL_ALIGN_TOP:
 			{
 				this.content.y = this._paddingTop;
-				break;
+				//break;
 			}
 			case VERTICAL_ALIGN_BOTTOM:
 			{
 				this.content.y = this.actualHeight - this._paddingBottom - this.content.height;
-				break;
+				//break;
 			}
 			case VERTICAL_ALIGN_JUSTIFY:
 			{
 				this.content.y = this._paddingTop;
 				this.content.height = this.actualHeight - this._paddingTop - this._paddingBottom;
-				break;
+				//break;
 			}
 			default: //middle
 			{

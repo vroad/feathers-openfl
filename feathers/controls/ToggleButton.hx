@@ -6,6 +6,7 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
+import feathers.core.FeathersControl;
 import feathers.core.IToggle;
 import feathers.core.PropertyProxy;
 import feathers.skins.IStyleProvider;
@@ -81,7 +82,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
-		if(ToggleButton.globalStyleProvider)
+		if(ToggleButton.globalStyleProvider != null)
 		{
 			return ToggleButton.globalStyleProvider;
 		}
@@ -120,7 +121,7 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_isToggle(value:Bool):Bool
 	{
-		this._isToggle = value;
+		return this._isToggle = value;
 	}
 
 	/**
@@ -161,12 +162,13 @@ class ToggleButton extends Button implements IToggle
 	{
 		if(this._isSelected == value)
 		{
-			return;
+			return this._isSelected;
 		}
 		this._isSelected = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
 		this.dispatchEventWith(Event.CHANGE);
+		return this._isSelected;
 	}
 
 	/**
@@ -192,7 +194,7 @@ class ToggleButton extends Button implements IToggle
 	public var defaultSelectedSkin(get, set):DisplayObject;
 	public function get_defaultSelectedSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.defaultSelectedValue);
+		return this._skinSelector.defaultSelectedValue;
 	}
 
 	/**
@@ -202,10 +204,11 @@ class ToggleButton extends Button implements IToggle
 	{
 		if(this._skinSelector.defaultSelectedValue == value)
 		{
-			return;
+			return this._skinSelector.defaultSelectedValue;
 		}
 		this._skinSelector.defaultSelectedValue = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._skinSelector.defaultSelectedValue;
 	}
 
 	/**
@@ -227,7 +230,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedUpSkin(get, set):DisplayObject;
 	public function get_selectedUpSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_UP, true));
+		return this._skinSelector.getValueForState(Button.STATE_UP, true);
 	}
 
 	/**
@@ -235,12 +238,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedUpSkin(value:DisplayObject):DisplayObject
 	{
-		if(this._skinSelector.getValueForState(STATE_UP, true) == value)
+		if(this._skinSelector.getValueForState(Button.STATE_UP, true) == value)
 		{
-			return;
+			return this._skinSelector.getValueForState(Button.STATE_UP, true);
 		}
-		this._skinSelector.setValueForState(value, STATE_UP, true);
+		this._skinSelector.setValueForState(value, Button.STATE_UP, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._skinSelector.getValueForState(Button.STATE_UP, true);
 	}
 
 	/**
@@ -262,7 +266,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedDownSkin(get, set):DisplayObject;
 	public function get_selectedDownSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_DOWN, true));
+		return this._skinSelector.getValueForState(Button.STATE_DOWN, true);
 	}
 
 	/**
@@ -270,12 +274,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDownSkin(value:DisplayObject):DisplayObject
 	{
-		if(this._skinSelector.getValueForState(STATE_DOWN, true) == value)
+		if(this._skinSelector.getValueForState(Button.STATE_DOWN, true) == value)
 		{
-			return;
+			return this._skinSelector.getValueForState(Button.STATE_DOWN, true);
 		}
-		this._skinSelector.setValueForState(value, STATE_DOWN, true);
+		this._skinSelector.setValueForState(value, Button.STATE_DOWN, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._skinSelector.getValueForState(Button.STATE_DOWN, true);
 	}
 
 	/**
@@ -297,7 +302,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedHoverSkin(get, set):DisplayObject;
 	public function get_selectedHoverSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_HOVER, true));
+		return this._skinSelector.getValueForState(Button.STATE_HOVER, true);
 	}
 
 	/**
@@ -305,12 +310,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedHoverSkin(value:DisplayObject):DisplayObject
 	{
-		if(this._skinSelector.getValueForState(STATE_HOVER, true) == value)
+		if(this._skinSelector.getValueForState(Button.STATE_HOVER, true) == value)
 		{
-			return;
+			return this._skinSelector.getValueForState(Button.STATE_DOWN, true);
 		}
-		this._skinSelector.setValueForState(value, STATE_HOVER, true);
+		this._skinSelector.setValueForState(value, Button.STATE_HOVER, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._skinSelector.getValueForState(Button.STATE_DOWN, true);
 	}
 
 	/**
@@ -332,7 +338,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedDisabledSkin(get, set):DisplayObject;
 	public function get_selectedDisabledSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_DISABLED, true));
+		return this._skinSelector.getValueForState(Button.STATE_DISABLED, true);
 	}
 
 	/**
@@ -340,12 +346,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDisabledSkin(value:DisplayObject):DisplayObject
 	{
-		if(this._skinSelector.getValueForState(STATE_DISABLED, true) == value)
+		if(this._skinSelector.getValueForState(Button.STATE_DISABLED, true) == value)
 		{
-			return;
+			return this._skinSelector.getValueForState(Button.STATE_DISABLED, true);
 		}
-		this._skinSelector.setValueForState(value, STATE_DISABLED, true);
+		this._skinSelector.setValueForState(value, Button.STATE_DISABLED, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._skinSelector.getValueForState(Button.STATE_DISABLED, true);
 	}
 
 	/**
@@ -375,11 +382,11 @@ class ToggleButton extends Button implements IToggle
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public var defaultSelectedLabelProperties(get, set):Dynamic;
-	public function get_defaultSelectedLabelProperties():Dynamic
+	public var defaultSelectedLabelProperties(get, set):PropertyProxy;
+	public function get_defaultSelectedLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultSelectedValue);
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.defaultSelectedValue;
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.defaultSelectedValue = value;
@@ -390,23 +397,24 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_defaultSelectedLabelProperties(value:Dynamic):Dynamic
+	public function set_defaultSelectedLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultSelectedValue);
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.defaultSelectedValue;
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.defaultSelectedValue = value;
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_defaultSelectedLabelProperties();
 	}
 
 	/**
@@ -436,14 +444,14 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #upLabelProperties
 	 */
-	public var selectedUpLabelProperties(get, set):Dynamic;
-	public function get_selectedUpLabelProperties():Dynamic
+	public var selectedUpLabelProperties(get, set):PropertyProxy;
+	public function get_selectedUpLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, true));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_UP, true);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
-			this._labelPropertiesSelector.setValueForState(value, STATE_UP, true);
+			this._labelPropertiesSelector.setValueForState(value, Button.STATE_UP, true);
 		}
 		return value;
 	}
@@ -451,23 +459,24 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedUpLabelProperties(value:Dynamic):Dynamic
+	public function set_selectedUpLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, true));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_UP, true);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._labelPropertiesSelector.setValueForState(value, STATE_UP, true);
-		if(value)
+		this._labelPropertiesSelector.setValueForState(value, Button.STATE_UP, true);
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectedUpLabelProperties();
 	}
 
 	/**
@@ -497,14 +506,14 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #downLabelProperties
 	 */
-	public var selectedDownLabelProperties(get, set):Dynamic;
-	public function get_selectedDownLabelProperties():Dynamic
+	public var selectedDownLabelProperties(get, set):PropertyProxy;
+	public function get_selectedDownLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, true));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_DOWN, true);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
-			this._labelPropertiesSelector.setValueForState(value, STATE_DOWN, true);
+			this._labelPropertiesSelector.setValueForState(value, Button.STATE_DOWN, true);
 		}
 		return value;
 	}
@@ -512,23 +521,24 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedDownLabelProperties(value:Dynamic):Dynamic
+	public function set_selectedDownLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, true));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_DOWN, true);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._labelPropertiesSelector.setValueForState(value, STATE_DOWN, true);
-		if(value)
+		this._labelPropertiesSelector.setValueForState(value, Button.STATE_DOWN, true);
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectedDownLabelProperties();
 	}
 
 	/**
@@ -558,14 +568,14 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #hoverLabelProperties
 	 */
-	public var selectedHoverLabelProperties(get, set):Dynamic;
-	public function get_selectedHoverLabelProperties():Dynamic
+	public var selectedHoverLabelProperties(get, set):PropertyProxy;
+	public function get_selectedHoverLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, true));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_HOVER, true);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
-			this._labelPropertiesSelector.setValueForState(value, STATE_HOVER, true);
+			this._labelPropertiesSelector.setValueForState(value, Button.STATE_HOVER, true);
 		}
 		return value;
 	}
@@ -573,23 +583,24 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedHoverLabelProperties(value:Dynamic):Dynamic
+	public function set_selectedHoverLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, true));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_HOVER, true);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._labelPropertiesSelector.setValueForState(value, STATE_HOVER, true);
-		if(value)
+		this._labelPropertiesSelector.setValueForState(value, Button.STATE_HOVER, true);
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectedHoverLabelProperties();
 	}
 
 	/**
@@ -619,14 +630,14 @@ class ToggleButton extends Button implements IToggle
 	 * @see #defaultSelectedLabelProperties
 	 * @see #disabledLabelProperties
 	 */
-	public var selectedDisabledLabelProperties(get, set):Dynamic;
-	public function get_selectedDisabledLabelProperties():Dynamic
+	public var selectedDisabledLabelProperties(get, set):PropertyProxy;
+	public function get_selectedDisabledLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, true));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_DISABLED, true);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
-			this._labelPropertiesSelector.setValueForState(value, STATE_DISABLED, true);
+			this._labelPropertiesSelector.setValueForState(value, Button.STATE_DISABLED, true);
 		}
 		return value;
 	}
@@ -634,23 +645,24 @@ class ToggleButton extends Button implements IToggle
 	/**
 	 * @private
 	 */
-	public function set_selectedDisabledLabelProperties(value:Dynamic):Dynamic
+	public function set_selectedDisabledLabelProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, true));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(Button.STATE_DISABLED, true);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._labelPropertiesSelector.setValueForState(value, STATE_DISABLED, true);
-		if(value)
+		this._labelPropertiesSelector.setValueForState(value, Button.STATE_DISABLED, true);
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectedDisabledLabelProperties();
 	}
 
 	/**
@@ -676,7 +688,7 @@ class ToggleButton extends Button implements IToggle
 	public var defaultSelectedIcon(get, set):DisplayObject;
 	public function get_defaultSelectedIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.defaultSelectedValue);
+		return this._iconSelector.defaultSelectedValue;
 	}
 
 	/**
@@ -686,10 +698,11 @@ class ToggleButton extends Button implements IToggle
 	{
 		if(this._iconSelector.defaultSelectedValue == value)
 		{
-			return;
+			return this._iconSelector.defaultSelectedValue;
 		}
 		this._iconSelector.defaultSelectedValue = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconSelector.defaultSelectedValue;
 	}
 
 	/**
@@ -711,7 +724,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedUpIcon(get, set):DisplayObject;
 	public function get_selectedUpIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_UP, true));
+		return this._iconSelector.getValueForState(Button.STATE_UP, true);
 	}
 
 	/**
@@ -719,12 +732,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedUpIcon(value:DisplayObject):DisplayObject
 	{
-		if(this._iconSelector.getValueForState(STATE_UP, true) == value)
+		if(this._iconSelector.getValueForState(Button.STATE_UP, true) == value)
 		{
-			return;
+			return this._iconSelector.getValueForState(Button.STATE_UP, true);
 		}
-		this._iconSelector.setValueForState(value, STATE_UP, true);
+		this._iconSelector.setValueForState(value, Button.STATE_UP, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconSelector.getValueForState(Button.STATE_UP, true);
 	}
 
 	/**
@@ -746,7 +760,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedDownIcon(get, set):DisplayObject;
 	public function get_selectedDownIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_DOWN, true));
+		return this._iconSelector.getValueForState(Button.STATE_DOWN, true);
 	}
 
 	/**
@@ -754,12 +768,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDownIcon(value:DisplayObject):DisplayObject
 	{
-		if(this._iconSelector.getValueForState(STATE_DOWN, true) == value)
+		if(this._iconSelector.getValueForState(Button.STATE_DOWN, true) == value)
 		{
-			return;
+			return this._iconSelector.getValueForState(Button.STATE_DOWN, true);
 		}
-		this._iconSelector.setValueForState(value, STATE_DOWN, true);
+		this._iconSelector.setValueForState(value, Button.STATE_DOWN, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconSelector.getValueForState(Button.STATE_DOWN, true);
 	}
 
 	/**
@@ -781,7 +796,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedHoverIcon(get, set):DisplayObject;
 	public function get_selectedHoverIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_HOVER, true));
+		return this._iconSelector.getValueForState(Button.STATE_HOVER, true);
 	}
 
 	/**
@@ -789,12 +804,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedHoverIcon(value:DisplayObject):DisplayObject
 	{
-		if(this._iconSelector.getValueForState(STATE_HOVER, true) == value)
+		if(this._iconSelector.getValueForState(Button.STATE_HOVER, true) == value)
 		{
-			return;
+			return this._iconSelector.getValueForState(Button.STATE_HOVER, true);
 		}
-		this._iconSelector.setValueForState(value, STATE_HOVER, true);
+		this._iconSelector.setValueForState(value, Button.STATE_HOVER, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconSelector.getValueForState(Button.STATE_HOVER, true);
 	}
 
 	/**
@@ -816,7 +832,7 @@ class ToggleButton extends Button implements IToggle
 	public var selectedDisabledIcon(get, set):DisplayObject;
 	public function get_selectedDisabledIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_DISABLED, true));
+		return this._iconSelector.getValueForState(Button.STATE_DISABLED, true);
 	}
 
 	/**
@@ -824,12 +840,13 @@ class ToggleButton extends Button implements IToggle
 	 */
 	public function set_selectedDisabledIcon(value:DisplayObject):DisplayObject
 	{
-		if(this._iconSelector.getValueForState(STATE_DISABLED, true) == value)
+		if(this._iconSelector.getValueForState(Button.STATE_DISABLED, true) == value)
 		{
-			return;
+			return this._iconSelector.getValueForState(Button.STATE_DISABLED, true);
 		}
-		this._iconSelector.setValueForState(value, STATE_DISABLED, true);
+		this._iconSelector.setValueForState(value, Button.STATE_DISABLED, true);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._iconSelector.getValueForState(Button.STATE_DISABLED, true);
 	}
 
 	/**

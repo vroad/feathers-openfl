@@ -12,7 +12,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class NumericStepperSettingsScreen extends PanelScreen
+@:keep class NumericStepperSettingsScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -68,18 +68,18 @@ class NumericStepperSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Numeric Stepper Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Numeric Stepper Settings");
+		this.headerProperties.setProperty("leftItems",
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void

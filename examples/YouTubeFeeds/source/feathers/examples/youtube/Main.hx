@@ -31,7 +31,7 @@ class Main extends ScreenNavigator
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new MetalWorksMobileTheme();
+		new MetalWorksMobileTheme(false);
 
 		this._model = new YouTubeModel();
 
@@ -45,17 +45,17 @@ class Main extends ScreenNavigator
 			complete: MAIN_MENU,
 			showVideoDetails: listVideos_showVideoDetails
 		},
-		{
-			model: this._model
-		}));
+		[
+			"model" => this._model
+		]));
 
 		this.addScreen(VIDEO_DETAILS, new ScreenNavigatorItem(VideoDetailsScreen,
 		{
 			complete: LIST_VIDEOS
 		},
-		{
-			model: this._model
-		}));
+		[
+			"model" => this._model
+		]));
 
 		this.showScreen(MAIN_MENU);
 

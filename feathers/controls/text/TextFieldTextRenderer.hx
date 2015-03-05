@@ -18,7 +18,9 @@ import openfl.geom.Point;
 import openfl.geom.Rectangle;
 import openfl.text.AntiAliasType;
 import openfl.text.GridFitType;
+#if flash
 import openfl.text.StyleSheet;
+#end
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
@@ -29,7 +31,7 @@ import starling.display.Image;
 import starling.events.Event;
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
-import starling.utils.getNextPowerOfTwo;
+import starling.utils.PowerOfTwo.getNextPowerOfTwo;
 
 /**
  * Renders text with a native <code>openfl.text.TextField</code> and draws
@@ -56,12 +58,12 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>TextFieldTextRenderer</code>
@@ -177,7 +179,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._text == value)
 		{
-			return;
+			return this._text;
 		}
 		if(value == null)
 		{
@@ -186,6 +188,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._text;
 	}
 
 	/**
@@ -220,10 +223,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._isHTML == value)
 		{
-			return;
+			return this._isHTML;
 		}
 		this._isHTML = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._isHTML;
 	}
 
 	/**
@@ -245,7 +249,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html openfl.text.TextFormat
 	 */
 	public var textFormat(get, set):TextFormat;
-	public function get_textFormat():TextFormat
+	@:keep public function get_textFormat():TextFormat
 	{
 		return this._textFormat;
 	}
@@ -253,14 +257,15 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_textFormat(value:TextFormat):TextFormat
+	@:keep public function set_textFormat(value:TextFormat):TextFormat
 	{
 		if(this._textFormat == value)
 		{
-			return;
+			return this._textFormat;
 		}
 		this._textFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._textFormat;
 	}
 
 	/**
@@ -295,16 +300,19 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._disabledTextFormat == value)
 		{
-			return;
+			return this._disabledTextFormat;
 		}
 		this._disabledTextFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._disabledTextFormat;
 	}
 
 	/**
 	 * @private
 	 */
+	#if flash
 	private var _styleSheet:StyleSheet;
+	#end
 
 	/**
 	 * The <code>StyleSheet</code> object to pass to the TextField.
@@ -333,15 +341,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html openfl.text.StyleSheet
 	 * @see #isHTML
 	 */
-	public var styleSheet(get, set):StyleSheet;
+	#if flash
 	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
 	}
+	#end
 
 	/**
 	 * @private
 	 */
+	#if flash
 	public function set_styleSheet(value:StyleSheet):StyleSheet
 	{
 		if(this._styleSheet == value)
@@ -351,6 +361,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		this._styleSheet = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
+	#end
 
 	/**
 	 * @private
@@ -383,19 +394,20 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._embedFonts == value)
 		{
-			return;
+			return this._embedFonts;
 		}
 		this._embedFonts = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._embedFonts;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var baseline(get, set):Float;
+	public var baseline(get, never):Float;
 	public function get_baseline():Float
 	{
-		if(!this.textField)
+		if(this.textField == null)
 		{
 			return 0;
 		}
@@ -437,10 +449,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._wordWrap == value)
 		{
-			return;
+			return this._wordWrap;
 		}
 		this._wordWrap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._wordWrap;
 	}
 
 	/**
@@ -472,13 +485,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	public function set_snapToPixels(value:Bool):Bool
 	{
-		this._snapToPixels = value;
+		return this._snapToPixels = value;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _antiAliasType:String = AntiAliasType.ADVANCED;
+	private var _antiAliasType:AntiAliasType = AntiAliasType.ADVANCED;
 
 	/**
 	 * The type of anti-aliasing used for this text field, defined as
@@ -494,8 +507,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of openfl.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html openfl.text.AntiAliasType
 	 */
-	public var antiAliasType(get, set):String;
-	public function get_antiAliasType():String
+	public var antiAliasType(get, set):AntiAliasType;
+	public function get_antiAliasType():AntiAliasType
 	{
 		return this._antiAliasType;
 	}
@@ -503,14 +516,15 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_antiAliasType(value:String):String
+	public function set_antiAliasType(value:AntiAliasType):AntiAliasType
 	{
 		if(this._antiAliasType == value)
 		{
-			return;
+			return this._antiAliasType;
 		}
 		this._antiAliasType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._antiAliasType;
 	}
 
 	/**
@@ -547,10 +561,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._background == value)
 		{
-			return;
+			return this._background;
 		}
 		this._background = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._background;
 	}
 
 	/**
@@ -586,10 +601,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._backgroundColor == value)
 		{
-			return;
+			return this._backgroundColor;
 		}
 		this._backgroundColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._backgroundColor;
 	}
 
 	/**
@@ -628,10 +644,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._border == value)
 		{
-			return;
+			return this._border;
 		}
 		this._border = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._border;
 	}
 
 	/**
@@ -667,10 +684,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._borderColor == value)
 		{
-			return;
+			return this._borderColor;
 		}
 		this._borderColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._borderColor;
 	}
 
 	/**
@@ -705,10 +723,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._condenseWhite == value)
 		{
-			return;
+			return this._condenseWhite;
 		}
 		this._condenseWhite = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._condenseWhite;
 	}
 
 	/**
@@ -743,16 +762,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return this._displayAsPassword;
 		}
 		this._displayAsPassword = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._displayAsPassword;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _gridFitType:String = GridFitType.PIXEL;
+	private var _gridFitType:GridFitType = GridFitType.PIXEL;
 
 	/**
 	 * Determines whether Flash Player forces strong horizontal and vertical
@@ -772,8 +792,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html openfl.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public var gridFitType(get, set):String;
-	public function get_gridFitType():String
+	public var gridFitType(get, set):GridFitType;
+	public function get_gridFitType():GridFitType
 	{
 		return this._gridFitType;
 	}
@@ -781,14 +801,15 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_gridFitType(value:String):String
+	public function set_gridFitType(value:GridFitType):GridFitType
 	{
 		if(this._gridFitType == value)
 		{
-			return;
+			return this._gridFitType;
 		}
 		this._gridFitType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._gridFitType;
 	}
 
 	/**
@@ -826,10 +847,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._sharpness == value)
 		{
-			return;
+			return this._sharpness;
 		}
 		this._sharpness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._sharpness;
 	}
 
 	/**
@@ -867,10 +889,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._thickness == value)
 		{
-			return;
+			return this._thickness;
 		}
 		this._thickness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._thickness;
 	}
 
 	/**
@@ -910,17 +933,18 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		}
 		if(this._maxTextureDimensions == value)
 		{
-			return;
+			return this._maxTextureDimensions;
 		}
 		this._maxTextureDimensions = value;
 		this._needsNewTexture = true;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return this._maxTextureDimensions;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _nativeFilters:Array;
+	private var _nativeFilters:Array<BitmapFilter>;
 
 	/**
 	 * Native filters to pass to the <code>openfl.text.TextField</code>
@@ -935,8 +959,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#filters Full description of openfl.display.DisplayObject.filters in Adobe's Flash Platform API Reference
 	 */
-	public var nativeFilters(get, set):Array;
-	public function get_nativeFilters():Array
+	public var nativeFilters(get, set):Array<BitmapFilter>;
+	public function get_nativeFilters():Array<BitmapFilter>
 	{
 		return this._nativeFilters;
 	}
@@ -944,14 +968,15 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_nativeFilters(value:Array):Array
+	public function set_nativeFilters(value:Array<BitmapFilter>):Array<BitmapFilter>
 	{
 		if(this._nativeFilters == value)
 		{
-			return;
+			return this._nativeFilters;
 		}
 		this._nativeFilters = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._nativeFilters;
 	}
 
 	/**
@@ -985,10 +1010,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._useGutter == value)
 		{
-			return;
+			return this._useGutter;
 		}
 		this._useGutter = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._useGutter;
 	}
 
 	/**
@@ -996,13 +1022,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override public function dispose():Void
 	{
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.texture.dispose();
 			this.removeChild(this.textSnapshot, true);
 			this.textSnapshot = null;
 		}
-		if(this.textSnapshots)
+		if(this.textSnapshots != null)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;
 			for(i in 0 ... snapshotCount)
@@ -1033,7 +1059,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			if(this._snapToPixels)
 			{
@@ -1055,7 +1081,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	public function measureText(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1089,13 +1115,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function initialize():Void
 	{
-		if(!this.textField)
+		if(this.textField == null)
 		{
 			this.textField = new TextField();
 			var scaleFactor:Float = Starling.current.contentScaleFactor;
 			this.textField.scaleX = scaleFactor;
 			this.textField.scaleY = scaleFactor;
+			#if flash
 			this.textField.mouseEnabled = this.textField.mouseWheelEnabled = false;
+			#else
+			this.textField.mouseEnabled = false;
+			#end
 			this.textField.selectable = false;
 			this.textField.multiline = true;
 		}
@@ -1132,11 +1162,15 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			this.textField.backgroundColor = this._backgroundColor;
 			this.textField.border = this._border;
 			this.textField.borderColor = this._borderColor;
+			#if flash
 			this.textField.condenseWhite = this._condenseWhite;
+			#end
 			this.textField.displayAsPassword = this._displayAsPassword;
 			this.textField.gridFitType = this._gridFitType;
 			this.textField.sharpness = this._sharpness;
+			#if flash
 			this.textField.thickness = this._thickness;
+			#end
 			this.textField.filters = this._nativeFilters;
 		}
 
@@ -1144,18 +1178,22 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			this.textField.wordWrap = this._wordWrap;
 			this.textField.embedFonts = this._embedFonts;
+			#if flash
 			if(this._styleSheet)
 			{
 				this.textField.styleSheet = this._styleSheet;
 			}
 			else
+			#end
 			{
+				#if flash
 				this.textField.styleSheet = null;
-				if(!this._isEnabled && this._disabledTextFormat)
+				#end
+				if(!this._isEnabled && this._disabledTextFormat != null)
 				{
 					this.textField.defaultTextFormat = this._disabledTextFormat;
 				}
-				else if(this._textFormat)
+				else if(this._textFormat != null)
 				{
 					this.textField.defaultTextFormat = this._textFormat;
 				}
@@ -1176,7 +1214,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function measure(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1201,8 +1239,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			//in AIR for iOS where getting the value for textField.width the
 			//first time results in an incorrect value, but if you query it
 			//again, for some reason, it reports the correct width value.
+			#if flash
 			var hackWorkaround:Float = this.textField.width;
-			newWidth = (this.textField.width / scaleFactor) - gutterDimensionsOffset;
+			#end
+			var textWidth:Float = #if flash this.textField.width #else this.textField.textWidth #end;
+			newWidth = (textWidth / scaleFactor) - gutterDimensionsOffset;
 			if(newWidth < this._minWidth)
 			{
 				newWidth = this._minWidth;
@@ -1225,7 +1266,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			newHeight = (this.textField.height / scaleFactor) - gutterDimensionsOffset;
+			var textHeight:Float = #if flash this.textField.height #else this.textField.textHeight #end;
+			newHeight = (textHeight / scaleFactor) - gutterDimensionsOffset;
 			if(newHeight < this._minHeight)
 			{
 				newHeight = this._minHeight;
@@ -1289,22 +1331,22 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions);
+					this._snapshotWidth = Std.int(Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotWidth = rectangleSnapshotWidth;
+					this._snapshotWidth = Std.int(rectangleSnapshotWidth);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotWidth % this._maxTextureDimensions);
+					this._snapshotWidth = Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotWidth % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotWidth = getNextPowerOfTwo(rectangleSnapshotWidth);
+					this._snapshotWidth = getNextPowerOfTwo(Std.int(rectangleSnapshotWidth));
 				}
 			}
 			var rectangleSnapshotHeight:Float = this.actualHeight * scaleFactor;
@@ -1312,26 +1354,26 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions);
+					this._snapshotHeight = Std.int(Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = rectangleSnapshotHeight;
+					this._snapshotHeight = Std.int(rectangleSnapshotHeight);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(rectangleSnapshotHeight % this._maxTextureDimensions);
+					this._snapshotHeight = Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = getNextPowerOfTwo(rectangleSnapshotHeight);
+					this._snapshotHeight = getNextPowerOfTwo(Std.int(rectangleSnapshotHeight));
 				}
 			}
-			var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
-			this._needsNewTexture = this._needsNewTexture || !this.textSnapshot || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
+			var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
+			this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
 		}
 
 		//instead of checking sizeInvalid, which will often be triggered by
@@ -1350,7 +1392,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				//properly. sometimes two, and this is a known issue.
 				this.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
 			}
-			if(this.textSnapshot)
+			if(this.textSnapshot != null)
 			{
 				this.textSnapshot.visible = hasText && this._snapshotWidth > 0 && this._snapshotHeight > 0;
 			}
@@ -1391,7 +1433,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function measureNativeFilters(bitmapData:BitmapData, result:Rectangle = null):Rectangle
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Rectangle();
 		}
@@ -1453,9 +1495,9 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var totalBitmapHeight:Float = this._snapshotHeight;
 		var xPosition:Float = 0;
 		var yPosition:Float = 0;
-		var bitmapData:BitmapData;
+		var bitmapData:BitmapData = null;
 		var snapshotIndex:Int = -1;
-		var useNativeFilters:Bool = this._nativeFilters && this._nativeFilters.length > 0 &&
+		var useNativeFilters:Bool = this._nativeFilters != null && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
 		var gutterPositionOffset:Float = 2 * scaleFactor;
 		if(this._useGutter)
@@ -1476,13 +1518,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					currentBitmapHeight = this._maxTextureDimensions;
 				}
-				if(!bitmapData || bitmapData.width != currentBitmapWidth || bitmapData.height != currentBitmapHeight)
+				if(bitmapData == null || bitmapData.width != currentBitmapWidth || bitmapData.height != currentBitmapHeight)
 				{
-					if(bitmapData)
+					if(bitmapData != null)
 					{
 						bitmapData.dispose();
 					}
-					bitmapData = new BitmapData(currentBitmapWidth, currentBitmapHeight, true, 0x00ff00ff);
+					bitmapData = new BitmapData(Std.int(currentBitmapWidth), Std.int(currentBitmapHeight), true, 0x00ff00ff);
 				}
 				else
 				{
@@ -1505,7 +1547,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					{
 						HELPER_MATRIX.tx -= HELPER_RECTANGLE.x;
 						HELPER_MATRIX.ty -= HELPER_RECTANGLE.y;
-						var newBitmapData:BitmapData = new BitmapData(HELPER_RECTANGLE.width, HELPER_RECTANGLE.height, true, 0x00ff00ff);
+						var newBitmapData:BitmapData = new BitmapData(Std.int(HELPER_RECTANGLE.width), Std.int(HELPER_RECTANGLE.height), true, 0x00ff00ff);
 						this._textSnapshotOffsetX = HELPER_RECTANGLE.x;
 						this._textSnapshotOffsetY = HELPER_RECTANGLE.y;
 						HELPER_RECTANGLE.x = 0;
@@ -1520,8 +1562,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					this._textSnapshotOffsetX = 0;
 					this._textSnapshotOffsetY = 0;
 				}
-				var newTexture:Texture;
-				if(!this.textSnapshot || this._needsNewTexture)
+				var newTexture:Texture = null;
+				if(this.textSnapshot == null || this._needsNewTexture)
 				{
 					newTexture = Texture.fromBitmapData(bitmapData, false, false, scaleFactor);
 					newTexture.root.onRestore = texture_onRestore;
@@ -1529,13 +1571,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				var snapshot:Image = null;
 				if(snapshotIndex >= 0)
 				{
-					if(!this.textSnapshots)
+					if(this.textSnapshots == null)
 					{
 						this.textSnapshots = new Array();
 					}
 					else if(this.textSnapshots.length > snapshotIndex)
 					{
-						snapshot = this.textSnapshots[snapshotIndex]
+						snapshot = this.textSnapshots[snapshotIndex];
 					}
 				}
 				else
@@ -1543,7 +1585,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					snapshot = this.textSnapshot;
 				}
 
-				if(!snapshot)
+				if(snapshot == null)
 				{
 					snapshot = new Image(newTexture);
 					this.addChild(snapshot);
@@ -1577,20 +1619,20 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				yPosition += currentBitmapHeight;
 				totalBitmapHeight -= currentBitmapHeight;
 			}
-			while(totalBitmapHeight > 0)
+			while(totalBitmapHeight > 0);
 			xPosition += currentBitmapWidth;
 			totalBitmapWidth -= currentBitmapWidth;
 			yPosition = 0;
 			totalBitmapHeight = this._snapshotHeight;
 		}
-		while(totalBitmapWidth > 0)
+		while(totalBitmapWidth > 0);
 		bitmapData.dispose();
-		if(this.textSnapshots)
+		if(this.textSnapshots != null)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;
 			for(i in snapshotIndex ... snapshotCount)
 			{
-				snapshot = this.textSnapshots[i];
+				var snapshot:Image = this.textSnapshots[i];
 				snapshot.texture.dispose();
 				snapshot.removeFromParent(true);
 			}
@@ -1600,7 +1642,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			}
 			else
 			{
-				this.textSnapshots.length = snapshotIndex;
+				//this.textSnapshots.length = snapshotIndex;
+				this.textSnapshots.splice(snapshotIndex, this.textSnapshots.length - snapshotIndex);
 			}
 		}
 		this._needsNewTexture = false;

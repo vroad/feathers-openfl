@@ -6,6 +6,7 @@ import feathers.controls.PanelScreen;
 import feathers.controls.ScreenNavigatorItem;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.renderers.IListItemRenderer;
+import feathers.core.FeathersControl;
 import feathers.data.ListCollection;
 import feathers.events.FeathersEventType;
 import feathers.examples.youtube.models.VideoDetails;
@@ -23,9 +24,9 @@ import openfl.net.URLRequest;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
-[Event(name="showVideoDetails",type="starling.events.Event")]
+//[Event(name="showVideoDetails",type="starling.events.Event")]
 
 class ListVideosScreen extends PanelScreen
 {
@@ -55,10 +56,11 @@ class ListVideosScreen extends PanelScreen
 	{
 		if(this._model == value)
 		{
-			return;
+			return get_model();
 		}
 		this._model = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_model();
 	}
 
 	public var savedVerticalScrollPosition:Float = 0;
@@ -66,7 +68,7 @@ class ListVideosScreen extends PanelScreen
 	public var savedDataProvider:ListCollection;
 
 	private var _loader:URLLoader;
-	private var _savedLoaderData:*;
+	private var _savedLoaderData:Dynamic;
 
 	override private function initialize():Void
 	{
@@ -89,7 +91,7 @@ class ListVideosScreen extends PanelScreen
 		}
 		//when navigating to video details, we save this information to
 		//restore the list when later navigating back to this screen.
-		if(this.savedDataProvider)
+		if(this.savedDataProvider != null)
 		{
 			this._list.dataProvider = this.savedDataProvider;
 			this._list.selectedIndex = this.savedSelectedIndex;
@@ -108,10 +110,10 @@ class ListVideosScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(starling.events.Event.TRIGGERED, onBackButton);
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("leftItems",  
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = onBackButton;
 
@@ -124,20 +126,20 @@ class ListVideosScreen extends PanelScreen
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
-		if(!this.savedDataProvider && dataInvalid)
+		if(this.savedDataProvider == null && dataInvalid)
 		{
 			this._list.dataProvider = null;
-			if(this._model && this._model.selectedList)
+			if(this._model != null && this._model.selectedList != null)
 			{
-				this.headerProperties.title = this._model.selectedList.name;
-				if(this._loader)
+				this.headerProperties.setProperty("title", this._model.selectedList.name);
+				if(this._loader != null)
 				{
 					this.cleanUpLoader();
 				}
-				if(this._model.cachedLists.hasOwnProperty(this._model.selectedList.url))
+				if(this._model.cachedLists.exists(this._model.selectedList.url))
 				{
 					this._message.visible = false;
-					this._list.dataProvider = ListCollection(this._model.cachedLists[this._model.selectedList.url]);
+					this._list.dataProvider = cast(this._model.cachedLists[this._model.selectedList.url], ListCollection);
 
 					//show the scroll bars so that the user knows they can scroll
 					this._list.revealScrollBars();
@@ -159,7 +161,7 @@ class ListVideosScreen extends PanelScreen
 
 	private function cleanUpLoader():Void
 	{
-		if(!this._loader)
+		if(this._loader == null)
 		{
 			return;
 		}
@@ -169,24 +171,22 @@ class ListVideosScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseFeed(feed:XML):Void
+	private function parseFeed(feed:Xml):Void
 	{
 		this._message.visible = false;
 
-		var atom:Namespace = feed.namespace();
-		var media:Namespace = feed.namespace("media");
+		//var atom:Namespace = feed.namespace();
+		//var media:Namespace = feed.namespace("media");
 
 		var items:Array<VideoDetails> = new Array();
-		var entries:XMLList = feed.atom::entry;
-		var entryCount:Int = entries.length();
-		for(i in 0 ... entryCount)
+		var entries:Iterator<Xml> = feed.elementsNamed("entry");
+		for(entry in entries)
 		{
-			var entry:XML = entries[i];
 			var item:VideoDetails = new VideoDetails();
-			item.title = entry.atom::title[0].toString();
-			item.author = entry.atom::author[0].atom::name[0].toString();
-			item.url = entry.media::group[0].media::player[0].@url.toString();
-			item.description = entry.media::group[0].media::description[0].toString();
+			item.title = entry.elementsNamed("title").next().toString();
+			item.author = entry.elementsNamed("author").next().elementsNamed("name").next().toString();
+			item.url = entry.elementsNamed("group").next().elementsNamed("player").next().get("url");
+			item.description = entry.elementsNamed("group").next().elementsNamed("description").next().toString();
 			items.push(item);
 		}
 		var collection:ListCollection = new ListCollection(items);
@@ -200,14 +200,14 @@ class ListVideosScreen extends PanelScreen
 	private function onBackButton(event:starling.events.Event = null):Void
 	{
 		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-		if(screenItem.properties)
+		if(screenItem.properties != null)
 		{
 			//if we're going backwards, we should clear the restored results
 			//because next time we come back, we may be asked to display
 			//completely different data
-			delete screenItem.properties.savedVerticalScrollPosition;
-			delete screenItem.properties.savedSelectedIndex;
-			delete screenItem.properties.savedDataProvider;
+			screenItem.properties.remove("savedVerticalScrollPosition");
+			screenItem.properties.remove("savedSelectedIndex");
+			screenItem.properties.remove("savedDataProvider");
 		}
 
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
@@ -221,22 +221,22 @@ class ListVideosScreen extends PanelScreen
 		}
 
 		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-		if(!screenItem.properties)
+		if(screenItem.properties == null)
 		{
-			screenItem.properties = {};
+			screenItem.properties = {}
 		}
 		//we're going to save the position of the list so that when the user
 		//navigates back to this screen, they won't need to scroll back to
 		//the same position manually
-		screenItem.properties.savedVerticalScrollPosition = this._list.verticalScrollPosition;
+		Reflect.setField(screenItem.properties, "savedVerticalScrollPosition", this._list.verticalScrollPosition);
 		//we'll also save the selected index to temporarily highlight
 		//the previously selected item when transitioning back
-		screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
+		Reflect.setField(screenItem.properties, "savedSelectedIndex", this._list.selectedIndex);
 		//and we'll save the data provider so that we don't need to reload
 		//data when we return to this screen. we can restore it.
-		screenItem.properties.savedDataProvider = this._list.dataProvider;
+		Reflect.setField(screenItem.properties, "savedDataProvider", this._list.dataProvider);
 
-		this.dispatchEventWith(SHOW_VIDEO_DETAILS, false, VideoDetails(this._list.selectedItem));
+		this.dispatchEventWith(SHOW_VIDEO_DETAILS, false, cast(this._list.selectedItem, VideoDetails));
 	}
 
 	private function removedFromStageHandler(event:starling.events.Event):Void
@@ -246,7 +246,7 @@ class ListVideosScreen extends PanelScreen
 
 	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
-		var loaderData:* = this._loader.data;
+		var loaderData:Dynamic = this._loader.data;
 		this.cleanUpLoader();
 		if(this._isTransitioning)
 		{
@@ -255,7 +255,7 @@ class ListVideosScreen extends PanelScreen
 			this._savedLoaderData = loaderData;
 			return;
 		}
-		this.parseFeed(new XML(loaderData));
+		this.parseFeed(Xml.parse(loaderData).firstElement());
 	}
 
 	private function loader_errorHandler(event:ErrorEvent):Void
@@ -273,9 +273,9 @@ class ListVideosScreen extends PanelScreen
 
 		this._isTransitioning = false;
 
-		if(this._savedLoaderData)
+		if(this._savedLoaderData != null)
 		{
-			this.parseFeed(new XML(this._savedLoaderData));
+			this.parseFeed(Xml.parse(this._savedLoaderData).firstElement());
 			this._savedLoaderData = null;
 		}
 

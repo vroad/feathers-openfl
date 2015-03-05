@@ -1,0 +1,25 @@
+{
+  "name": "feathersui_hello_world",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js version of feathersui Hello World",
+  "main": "ApplicationMain.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vroad/feathers-openfl"
+  },
+  "keywords": [
+    "opengl",
+    "webgl",
+    "stage3d"
+  ],
+  "author": "vroad",
+  "license": "Simplified BSD",
+  "bugs": {
+    "url": "https://github.com/vroad/feathers-openfl/issues"
+  },
+  "homepage": "https://github.com/vroad/feathers-openfl",
+  "dependencies": {
+    "ndll" : "~1.0.1"
+  }
+}

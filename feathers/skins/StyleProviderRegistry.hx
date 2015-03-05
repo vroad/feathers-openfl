@@ -7,6 +7,8 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
 import openfl.utils.Dictionary;
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
 
 /**
  * Used by themes to create and manage style providers for component classes.
@@ -52,7 +54,6 @@ class StyleProviderRegistry
 		{
 			this._styleProviderFactory = styleProviderFactory;
 		}
-
 	}
 
 	/**
@@ -68,7 +69,11 @@ class StyleProviderRegistry
 	/**
 	 * @private
 	 */
-	private var _classToStyleProvider:Dictionary = new Dictionary(true);
+#if flash
+	private var _classToStyleProvider:WeakMap<String, Dynamic> = new WeakMap();
+#else
+	private var _classToStyleProvider:Map<String, IStyleProvider> = new Map();
+#end
 
 	/**
 	 * Disposes the theme.
@@ -78,10 +83,9 @@ class StyleProviderRegistry
 		//clear the global style providers, but only if they still match the
 		//ones that the theme created. a developer could replace the global
 		//style providers with different ones.
-		for (untypedType in this._classToStyleProvider)
+		for (className in this._classToStyleProvider.keys())
 		{
-			var type:Class<Dynamic> = Class(untypedType);
-			this.clearStyleProvider(type);
+			this.clearStyleProvider(Type.resolveClass(className));
 		}
 		this._classToStyleProvider = null;
 	}
@@ -99,14 +103,15 @@ class StyleProviderRegistry
 	public function getStyleProvider(forClass:Class<Dynamic>):IStyleProvider
 	{
 		this.validateComponentClass(forClass);
-		var styleProvider:IStyleProvider = IStyleProvider(this._classToStyleProvider[forClass]);
-		if(!styleProvider)
+		var className:String = Type.getClassName(forClass);
+		var styleProvider:IStyleProvider = this._classToStyleProvider.get(className);
+		if(styleProvider == null)
 		{
 			styleProvider = this._styleProviderFactory();
-			this._classToStyleProvider[forClass] = styleProvider;
+			this._classToStyleProvider.set(className, styleProvider);
 			if(this._registerGlobally)
 			{
-				forClass[GLOBAL_STYLE_PROVIDER_PROPERTY_NAME] = styleProvider;
+				Reflect.setProperty(forClass, GLOBAL_STYLE_PROVIDER_PROPERTY_NAME, styleProvider);
 			}
 		}
 		return styleProvider;
@@ -124,17 +129,18 @@ class StyleProviderRegistry
 	public function clearStyleProvider(forClass:Class<Dynamic>):Void
 	{
 		this.validateComponentClass(forClass);
-		if(forClass in this._classToStyleProvider)
+		var className:String = Type.getClassName(forClass);
+		if(this._classToStyleProvider.exists(className))
 		{
-			var styleProvider:IStyleProvider = IStyleProvider(this._classToStyleProvider[forClass]);
-			delete this._classToStyleProvider[forClass];
+			var styleProvider:IStyleProvider = this._classToStyleProvider.get(className);
+			this._classToStyleProvider.remove(className);
 			if(this._registerGlobally &&
-				forClass[GLOBAL_STYLE_PROVIDER_PROPERTY_NAME] == styleProvider)
+				Reflect.getProperty(forClass, GLOBAL_STYLE_PROVIDER_PROPERTY_NAME) == styleProvider)
 			{
 				//something else may have changed the global style provider
 				//after this registry set it, so we check if it's equal
 				//before setting to null.
-				forClass[GLOBAL_STYLE_PROVIDER_PROPERTY_NAME] = null;
+				Reflect.setProperty(forClass, GLOBAL_STYLE_PROVIDER_PROPERTY_NAME, null);
 			}
 		}
 	}
@@ -144,10 +150,10 @@ class StyleProviderRegistry
 	 */
 	private function validateComponentClass(type:Class<Dynamic>):Void
 	{
-		if(!this._registerGlobally || Object(type).hasOwnProperty(GLOBAL_STYLE_PROVIDER_PROPERTY_NAME))
+		if(!this._registerGlobally || Reflect.hasField(type, GLOBAL_STYLE_PROVIDER_PROPERTY_NAME))
 		{
 			return;
 		}
-		throw ArgumentError("Class " + type + " must have a " + GLOBAL_STYLE_PROVIDER_PROPERTY_NAME + " static property to support themes.");
+		throw new ArgumentError("Class " + type + " must have a " + GLOBAL_STYLE_PROVIDER_PROPERTY_NAME + " static property to support themes.");
 	}
 }

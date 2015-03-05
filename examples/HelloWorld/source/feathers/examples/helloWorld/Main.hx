@@ -2,6 +2,7 @@ package feathers.examples.helloWorld;
 import feathers.controls.Button;
 import feathers.controls.Callout;
 import feathers.controls.Label;
+import feathers.text.BitmapFontTextFormat;
 import feathers.themes.MetalWorksMobileTheme;
 
 import starling.display.Sprite;
@@ -16,13 +17,14 @@ import starling.events.Event;
  *
  * @see http://wiki.starling-framework.org/feathers/getting-started
  */
-class Main extends Sprite
+@:keep class Main extends Sprite
 {
 	/**
 	 * Constructor.
 	 */
 	public function new()
 	{
+		super();
 		//we'll initialize things after we've been added to the stage
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
@@ -47,7 +49,7 @@ class Main extends Sprite
 		//when your app starts up to ensure that all components are
 		//properly skinned.
 		//see http://wiki.starling-framework.org/feathers/themes
-		new MetalWorksMobileTheme();
+		new MetalWorksMobileTheme(false);
 
 		//create a button and give it some text to display.
 		this.button = new Button();

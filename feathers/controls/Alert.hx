@@ -145,7 +145,7 @@ class Alert extends Panel
 	 *
 	 * @see #show()
 	 */
-	public static var overlayFactory:Dynamic;
+	public static var overlayFactory:Void->DisplayObject;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Alert</code>
@@ -191,24 +191,24 @@ class Alert extends Panel
 	 */
 	public static function show(message:String, title:String = null, buttons:ListCollection = null,
 		icon:DisplayObject = null, isModal:Bool = true, isCentered:Bool = true,
-		customAlertFactory:Dynamic = null, customOverlayFactory:Dynamic = null):Alert
+		customAlertFactory:Void->Alert = null, customOverlayFactory:Void->DisplayObject = null):Alert
 	{
-		var factory:Dynamic = customAlertFactory;
+		var factory:Void->Alert = customAlertFactory;
 		if(factory == null)
 		{
 			factory = alertFactory != null ? alertFactory : defaultAlertFactory;
 		}
-		var alert:Alert = Alert(factory());
+		var alert:Alert = factory();
 		alert.title = title;
 		alert.message = message;
 		alert.buttonsDataProvider = buttons;
 		alert.icon = icon;
-		factory = customOverlayFactory;
-		if(factory == null)
+		var olFactory:Void->DisplayObject = customOverlayFactory;
+		if(olFactory == null)
 		{
-			factory = overlayFactory;
+			olFactory = overlayFactory;
 		}
-		PopUpManager.addPopUp(alert, isModal, isCentered, factory);
+		PopUpManager.addPopUp(alert, isModal, isCentered, olFactory);
 		return alert;
 	}
 
@@ -292,10 +292,11 @@ class Alert extends Panel
 	{
 		if(this._title == value)
 		{
-			return;
+			return get_title();
 		}
 		this._title = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_title();
 	}
 
 	/**
@@ -319,10 +320,11 @@ class Alert extends Panel
 	{
 		if(this._message == value)
 		{
-			return;
+			return get_message();
 		}
 		this._message = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_message();
 	}
 
 	/**
@@ -346,21 +348,22 @@ class Alert extends Panel
 	{
 		if(this._icon == value)
 		{
-			return;
+			return get_icon();
 		}
 		var oldDisplayListBypassEnabled:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
-		if(this._icon)
+		if(this._icon != null)
 		{
 			this.removeChild(this._icon);
 		}
 		this._icon = value;
-		if(this._icon)
+		if(this._icon != null)
 		{
 			this.addChild(this._icon);
 		}
 		this.displayListBypassEnabled = oldDisplayListBypassEnabled;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_icon();
 	}
 
 	/**
@@ -392,10 +395,11 @@ class Alert extends Panel
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_gap();
 	}
 
 	/**
@@ -419,16 +423,17 @@ class Alert extends Panel
 	{
 		if(this._buttonsDataProvider == value)
 		{
-			return;
+			return get_buttonsDataProvider();
 		}
 		this._buttonsDataProvider = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_buttonsDataProvider();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _messageFactory:Dynamic;
+	private var _messageFactory:Void->ITextRenderer;
 
 	/**
 	 * A function used to instantiate the alert's message text renderer
@@ -466,8 +471,8 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var messageFactory(get, set):Dynamic;
-	public function get_messageFactory():Dynamic
+	public var messageFactory(get, set):Void->ITextRenderer;
+	public function get_messageFactory():Void->ITextRenderer
 	{
 		return this._messageFactory;
 	}
@@ -475,14 +480,15 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageFactory(value:Dynamic):Dynamic
+	public function set_messageFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._messageFactory == value)
 		{
-			return;
+			return get_messageFactory();
 		}
 		this._messageFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_messageFactory();
 	}
 
 	/**
@@ -523,10 +529,10 @@ class Alert extends Panel
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var messageProperties(get, set):Dynamic;
-	public function get_messageProperties():Dynamic
+	public var messageProperties(get, set):PropertyProxy;
+	public function get_messageProperties():PropertyProxy
 	{
-		if(!this._messageProperties)
+		if(this._messageProperties == null)
 		{
 			this._messageProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -536,26 +542,27 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_messageProperties(value:Dynamic):Dynamic
+	public function set_messageProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._messageProperties == value)
 		{
-			return;
+			return get_messageProperties();
 		}
-		if(value && !(value is PropertyProxy))
+		if(value != null && !Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		if(this._messageProperties)
+		if(this._messageProperties != null)
 		{
 			this._messageProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._messageProperties = PropertyProxy(value);
-		if(this._messageProperties)
+		this._messageProperties = value;
+		if(this._messageProperties != null)
 		{
 			this._messageProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_messageProperties();
 	}
 
 	/**
@@ -583,8 +590,8 @@ class Alert extends Panel
 	 * @see feathers.controls.ButtonGroup
 	 * @see #buttonGroupProperties
 	 */
-	public var buttonGroupFactory(get, set):Dynamic;
-	public function get_buttonGroupFactory():Dynamic
+	public var buttonGroupFactory(get, set):Void->IFeathersControl;
+	public function get_buttonGroupFactory():Void->IFeathersControl
 	{
 		return super.footerFactory;
 	}
@@ -592,9 +599,10 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupFactory(value:Dynamic):Dynamic
+	public function set_buttonGroupFactory(value:Void->IFeathersControl):Void->IFeathersControl
 	{
 		super.footerFactory = value;
+		return get_buttonGroupFactory();
 	}
 
 	/**
@@ -632,6 +640,7 @@ class Alert extends Panel
 	public function set_customButtonGroupName(value:String):String
 	{
 		super.customFooterName = value;
+		return get_customButtonGroupName();
 	}
 
 	/**
@@ -659,8 +668,8 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see feathers.controls.ButtonGroup
 	 */
-	public var buttonGroupProperties(get, set):Dynamic;
-	public function get_buttonGroupProperties():Dynamic
+	public var buttonGroupProperties(get, set):PropertyProxy;
+	public function get_buttonGroupProperties():PropertyProxy
 	{
 		return super.footerProperties;
 	}
@@ -668,9 +677,10 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set_buttonGroupProperties(value:Dynamic):Dynamic
+	public function set_buttonGroupProperties(value:PropertyProxy):PropertyProxy
 	{
 		super.footerProperties = value;
+		return get_buttonGroupProperties();
 	}
 
 	/**
@@ -678,7 +688,7 @@ class Alert extends Panel
 	 */
 	override private function initialize():Void
 	{
-		if(!this.layout)
+		if(this.layout == null)
 		{
 			var layout:VerticalLayout = new VerticalLayout();
 			layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
@@ -693,7 +703,7 @@ class Alert extends Panel
 	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES)
+		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
 		var textRendererInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
 
 		if(textRendererInvalid)
@@ -713,11 +723,11 @@ class Alert extends Panel
 
 		super.draw();
 
-		if(this._icon)
+		if(this._icon != null)
 		{
-			if(this._icon is IValidating)
+			if(Std.is(this._icon, IValidating))
 			{
-				IValidating(this._icon).validate();
+				cast(this._icon, IValidating).validate();
 			}
 			this._icon.x = this._paddingLeft;
 			this._icon.y = this._topViewPortOffset + (this._viewPort.height - this._icon.height) / 2;
@@ -736,9 +746,9 @@ class Alert extends Panel
 			return false;
 		}
 
-		if(this._icon is IValidating)
+		if(Std.is(this._icon, IValidating))
 		{
-			IValidating(this._icon).validate();
+			cast(this._icon, IValidating).validate();
 		}
 
 		var oldHeaderWidth:Float = this.header.width;
@@ -748,10 +758,12 @@ class Alert extends Panel
 		this.header.height = Math.NaN;
 		this.header.validate();
 
-		if(this.footer)
+		var oldFooterWidth:Float = 0;
+		var oldFooterHeight:Float = 0;
+		if(this.footer != null)
 		{
-			var oldFooterWidth:Float = this.footer.width;
-			var oldFooterHeight:Float = this.footer.height;
+			oldFooterWidth = this.footer.width;
+			oldFooterHeight = this.footer.height;
 			this.footer.width = this.explicitWidth;
 			this.footer.maxWidth = this._maxWidth;
 			this.footer.height = Math.NaN;
@@ -763,7 +775,7 @@ class Alert extends Panel
 		if(needsWidth)
 		{
 			newWidth = this._viewPort.width + this._rightViewPortOffset + this._leftViewPortOffset;
-			if(this._icon)
+			if(this._icon != null)
 			{
 				var iconWidth:Float = this._icon.width;
 				if(iconWidth == iconWidth) //!isNaN
@@ -772,7 +784,7 @@ class Alert extends Panel
 				}
 			}
 			newWidth = Math.max(newWidth, this.header.width);
-			if(this.footer)
+			if(this.footer != null)
 			{
 				newWidth = Math.max(newWidth, this.footer.width);
 			}
@@ -784,7 +796,7 @@ class Alert extends Panel
 		if(needsHeight)
 		{
 			newHeight = this._viewPort.height;
-			if(this._icon)
+			if(this._icon != null)
 			{
 				var iconHeight:Float = this._icon.height;
 				if(iconHeight == iconHeight) //!isNaN
@@ -792,7 +804,7 @@ class Alert extends Panel
 					newHeight = Math.max(newHeight, this._icon.height);
 				}
 			}
-			newHeight += this._bottomViewPortOffset + this._topViewPortOffset
+			newHeight += this._bottomViewPortOffset + this._topViewPortOffset;
 			if(this.originalBackgroundHeight == this.originalBackgroundHeight) //!isNaN
 			{
 				newHeight = Math.max(newHeight, this.originalBackgroundHeight);
@@ -801,7 +813,7 @@ class Alert extends Panel
 
 		this.header.width = oldHeaderWidth;
 		this.header.height = oldHeaderHeight;
-		if(this.footer)
+		if(this.footer != null)
 		{
 			this.footer.width = oldFooterWidth;
 			this.footer.height = oldFooterHeight;
@@ -824,7 +836,7 @@ class Alert extends Panel
 	override private function createHeader():Void
 	{
 		super.createHeader();
-		this.headerHeader = Header(this.header);
+		this.headerHeader = cast(this.header, Header);
 	}
 
 	/**
@@ -840,12 +852,12 @@ class Alert extends Panel
 	 */
 	private function createButtonGroup():Void
 	{
-		if(this.buttonGroupFooter)
+		if(this.buttonGroupFooter != null)
 		{
 			this.buttonGroupFooter.removeEventListener(Event.TRIGGERED, buttonsFooter_triggeredHandler);
 		}
 		super.createFooter();
-		this.buttonGroupFooter = ButtonGroup(this.footer);
+		this.buttonGroupFooter = cast(this.footer, ButtonGroup);
 		this.buttonGroupFooter.addEventListener(Event.TRIGGERED, buttonsFooter_triggeredHandler);
 	}
 
@@ -870,18 +882,18 @@ class Alert extends Panel
 	 */
 	private function createMessage():Void
 	{
-		if(this.messageTextRenderer)
+		if(this.messageTextRenderer != null)
 		{
-			this.removeChild(DisplayObject(this.messageTextRenderer), true);
+			this.removeChild(cast(this.messageTextRenderer, DisplayObject), true);
 			this.messageTextRenderer = null;
 		}
 
-		var factory:Dynamic = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
-		this.messageTextRenderer = ITextRenderer(factory());
-		var uiTextRenderer:IFeathersControl = IFeathersControl(this.messageTextRenderer);
+		var factory:Void->ITextRenderer = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
+		this.messageTextRenderer = factory();
+		var uiTextRenderer:IFeathersControl = cast(this.messageTextRenderer, IFeathersControl);
 		uiTextRenderer.styleNameList.add(this.messageName);
 		uiTextRenderer.touchable = false;
-		this.addChild(DisplayObject(this.messageTextRenderer));
+		this.addChild(cast(this.messageTextRenderer, DisplayObject));
 	}
 
 	/**
@@ -907,10 +919,12 @@ class Alert extends Panel
 	 */
 	private function refreshMessageStyles():Void
 	{
-		for(var propertyName:String in this._messageProperties)
+		if (this._messageProperties == null)
+			return;
+		for(propertyName in Reflect.fields(this._messageProperties.storage))
 		{
-			var propertyValue:Dynamic = this._messageProperties[propertyName];
-			this.messageTextRenderer[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._messageProperties.storage, propertyName);
+			Reflect.setProperty(this.messageTextRenderer, propertyName, propertyValue);
 		}
 	}
 
@@ -920,11 +934,11 @@ class Alert extends Panel
 	override private function calculateViewPortOffsets(forceScrollBars:Bool = false, useActualBounds:Bool = false):Void
 	{
 		super.calculateViewPortOffsets(forceScrollBars, useActualBounds);
-		if(this._icon)
+		if(this._icon != null)
 		{
-			if(this._icon is IValidating)
+			if(Std.is(this._icon, IValidating))
 			{
-				IValidating(this._icon).validate();
+				cast(this._icon, IValidating).validate();
 			}
 			var iconWidth:Float = this._icon.width;
 			if(iconWidth == iconWidth) //!isNaN

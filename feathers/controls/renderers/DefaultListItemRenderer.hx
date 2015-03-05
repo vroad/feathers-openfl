@@ -9,6 +9,8 @@ package feathers.controls.renderers;
 import feathers.controls.List;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+import feathers.core.FeathersControl;
+import feathers.utils.type.SafeCast.safe_cast;
 
 /**
  * The default item renderer for List control. Supports up to three optional
@@ -209,6 +211,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	public function set_index(value:Int):Int
 	{
 		this._index = value;
+		return get_index();
 	}
 	
 	/**
@@ -217,7 +220,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	public var owner(get, set):List;
 	public function get_owner():List
 	{
-		return List(this._owner);
+		return safe_cast(this._owner, List);
 	}
 	
 	/**
@@ -227,17 +230,17 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
-		if(this._owner)
+		if(this._owner != null)
 		{
 			this._owner.removeEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.removeEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this._owner = value;
-		if(this._owner)
+		if(this._owner != null)
 		{
-			var list:List = List(this._owner);
+			var list:List = cast(this._owner, List);
 			this.isSelectableWithoutToggle = list.isSelectable;
 			if(list.allowMultipleSelection)
 			{
@@ -248,6 +251,7 @@ class DefaultListItemRenderer extends BaseDefaultItemRenderer implements IListIt
 			this._owner.addEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**

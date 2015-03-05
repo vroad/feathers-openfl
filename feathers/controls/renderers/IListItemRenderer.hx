@@ -21,12 +21,13 @@ interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_data():Dynamic;
+	var data(get, set):Dynamic;
+	//function get_data():Dynamic;
 	
 	/**
 	 * @private
 	 */
-	function set_data(value:Dynamic):Void;
+	//function set_data(value:Dynamic):Void;
 	
 	/**
 	 * The index (numeric position, starting from zero) of the item within
@@ -36,22 +37,24 @@ interface IListItemRenderer extends IToggle
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_index():Int;
+	var index(get, set):Int;
+	//function get_index():Int;
 	
 	/**
 	 * @private
 	 */
-	function set_index(value:Int):Void;
+	//function set_index(value:Int):Void;
 	
 	/**
 	 * The list that contains this item renderer.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_owner():List;
+	var owner(get, set):List;
+	//function get_owner():List;
 	
 	/**
 	 * @private
 	 */
-	function set_owner(value:List):Void;
+	//function set_owner(value:List):Void;
 }

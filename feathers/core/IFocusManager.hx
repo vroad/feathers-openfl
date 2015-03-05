@@ -21,12 +21,13 @@ interface IFocusManager
 	 * disabled when another focus manager has control, such as when a
 	 * modal pop-up is displayed.
 	 */
-	function get_isEnabled():Bool;
+	var isEnabled(get, set):Bool;
+	//function get_isEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_isEnabled(value:Bool):Void;
+	//function set_isEnabled(value:Bool):Void;
 
 	/**
 	 * The object that currently has focus. May return <code>null</code> if
@@ -37,16 +38,18 @@ interface IFocusManager
 	 * <listing version="3.0">
 	 * focusManager.focus = someObject;</listing>
 	 */
-	function get_focus():IFocusDisplayObject;
+	var focus(get, set):IFocusDisplayObject;
+	//function get_focus():IFocusDisplayObject;
 
 	/**
 	 * @private
 	 */
-	function set_focus(value:IFocusDisplayObject):Void;
+	//function set_focus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * The top-level container of the focus manager. This isn't necessarily
 	 * the root of the display list.
 	 */
+	var root(get, never):DisplayObjectContainer;
 	function get_root():DisplayObjectContainer;
 }

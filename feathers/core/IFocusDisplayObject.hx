@@ -26,7 +26,7 @@ package feathers.core;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
  */
-//[Event(name="focusIn",type="starling.events.Event")]
+///[Event(name="focusIn",type="starling.events.Event")]
 
 /**
  * Dispatched when the display object loses focus.
@@ -48,7 +48,7 @@ package feathers.core;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
  */
-//[Event(name="focusOut",type="starling.events.Event")]
+///[Event(name="focusOut",type="starling.events.Event")]
 
 /**
  * A component that can receive focus.
@@ -60,12 +60,13 @@ interface IFocusDisplayObject extends IFeathersDisplayObject
 	/**
 	 * The current focus manager for this component.
 	 */
-	function get_focusManager():IFocusManager;
+	var focusManager(get, set):IFocusManager;
+	//function get_focusManager():IFocusManager;
 
 	/**
 	 * @private
 	 */
-	function set_focusManager(value:IFocusManager):Void;
+	//function set_focusManager(value:IFocusManager):Void;
 
 	/**
 	 * Determines if this component can receive focus.
@@ -75,12 +76,13 @@ interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.isFocusEnabled = false;</listing>
 	 */
-	function get_isFocusEnabled():Bool;
+	var isFocusEnabled(get, set):Bool;
+	//function get_isFocusEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_isFocusEnabled(value:Bool):Void;
+	//function set_isFocusEnabled(value:Bool):Void;
 
 	/**
 	 * The next object that will receive focus when the tab key is pressed.
@@ -91,12 +93,13 @@ interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.nextTabFocus = otherObject;</listing>
 	 */
-	function get_nextTabFocus():IFocusDisplayObject;
+	var nextTabFocus(get, set):IFocusDisplayObject;
+	//function get_nextTabFocus():IFocusDisplayObject;
 
 	/**
 	 * @private
 	 */
-	function set_nextTabFocus(value:IFocusDisplayObject):Void;
+	//function set_nextTabFocus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * The previous object that will receive focus when the tab key is
@@ -108,12 +111,13 @@ interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.previousTabFocus = otherObject;</listing>
 	 */
-	function get_previousTabFocus():IFocusDisplayObject;
+	var previousTabFocus(get, set):IFocusDisplayObject;
+	//function get_previousTabFocus():IFocusDisplayObject;
 
 	/**
 	 * @private
 	 */
-	function set_previousTabFocus(value:IFocusDisplayObject):Void;
+	//function set_previousTabFocus(value:IFocusDisplayObject):Void;
 
 	/**
 	 * Used for associating focusable display objects that are not direct
@@ -125,12 +129,13 @@ interface IFocusDisplayObject extends IFeathersDisplayObject
 	 * <listing version="3.0">
 	 * object.focusOwner = otherObject;</listing>
 	 */
-	function get_focusOwner():IFocusDisplayObject;
+	var focusOwner(get, set):IFocusDisplayObject;
+	//function get_focusOwner():IFocusDisplayObject;
 
 	/**
 	 * @private
 	 */
-	function set_focusOwner(value:IFocusDisplayObject):Void;
+	//function set_focusOwner(value:IFocusDisplayObject):Void;
 
 	/**
 	 * If the object has focus, an additional visual indicator may

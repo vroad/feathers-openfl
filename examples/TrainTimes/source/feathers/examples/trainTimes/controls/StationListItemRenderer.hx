@@ -29,7 +29,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	inline public static var CHILD_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
 
 	private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
+	private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
 
 	inline private static var DEPART_FROM_TEXT:String = "DEPART FROM";
 	inline private static var DEPARTING_FROM_TEXT:String = "DEPARTING FROM";
@@ -41,8 +41,9 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		return new ImageLoader();
 	}
 
-	public function new()
+	@:keep public function new()
 	{
+		super();
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
@@ -68,11 +69,12 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
-		this._data = StationData(value);
+		this._data = Std.is(value, StationData) ? cast(value, StationData) : null;
 		this.isSelectionWaitingToBeAnimated = false;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_data();
 	}
 
 	private var _index:Int = -1;
@@ -86,11 +88,12 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	public function set_index(value:Int):Int
 	{
 		this._index = value;
-		if(this._owner && this._owner.dataProvider)
+		if(this._owner != null && this._owner.dataProvider != null)
 		{
 			this.isLastItem = this._index == this._owner.dataProvider.length - 1;
 		}
 		this.isFirstItem = this._index == 0;
+		return get_index();
 	}
 
 	private var _isFirstItem:Bool = false;
@@ -105,10 +108,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._isFirstItem == value)
 		{
-			return;
+			return get_isFirstItem();
 		}
 		this._isFirstItem = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_isFirstItem();
 	}
 
 	private var _isLastItem:Bool = false;
@@ -123,10 +127,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._isLastItem == value)
 		{
-			return;
+			return get_isLastItem();
 		}
 		this._isLastItem = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_isLastItem();
 	}
 
 	private var _isInDestinationPhase:Bool = false;
@@ -141,10 +146,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._isInDestinationPhase == value)
 		{
-			return;
+			return get_isInDestinationPhase();
 		}
 		this._isInDestinationPhase = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_isInDestinationPhase();
 	}
 
 	private var _owner:List;
@@ -159,22 +165,23 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
-		if(this._owner)
+		if(this._owner != null)
 		{
 			this._owner.removeEventListener(Event.SCROLL, owner_scrollHandler);
 		}
 		this._owner = value;
-		if(this._owner)
+		if(this._owner != null)
 		{
 			this._owner.addEventListener(Event.SCROLL, owner_scrollHandler);
 		}
-		if(this._owner && this._owner.dataProvider)
+		if(this._owner != null && this._owner.dataProvider != null)
 		{
 			this.isLastItem = this._index == this._owner.dataProvider.length - 1;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	private var isSelectionWaitingToBeAnimated:Bool = false;
@@ -191,10 +198,10 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._isSelected == value)
 		{
-			return;
+			return get_isSelected();
 		}
 		this._isSelected = value;
-		if(this.selectionTween)
+		if(this.selectionTween != null)
 		{
 			Starling.current.juggler.remove(this.selectionTween);
 			this.selectionTween = null;
@@ -202,6 +209,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.isSelectionWaitingToBeAnimated = !this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA) && !this._data.isDepartingFromHere;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_isSelected();
 	}
 
 	private var _normalIconTexture:Texture;
@@ -216,10 +224,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._normalIconTexture == value)
 		{
-			return;
+			return get_normalIconTexture();
 		}
 		this._normalIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_normalIconTexture();
 	}
 
 	private var _firstNormalIconTexture:Texture;
@@ -234,10 +243,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._firstNormalIconTexture == value)
 		{
-			return;
+			return get_firstNormalIconTexture();
 		}
 		this._firstNormalIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_firstNormalIconTexture();
 	}
 
 	private var _lastNormalIconTexture:Texture;
@@ -252,10 +262,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._lastNormalIconTexture == value)
 		{
-			return;
+			return get_lastNormalIconTexture();
 		}
 		this._lastNormalIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_lastNormalIconTexture();
 	}
 
 	private var _selectedIconTexture:Texture;
@@ -270,10 +281,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._selectedIconTexture == value)
 		{
-			return;
+			return get_selectedIconTexture();
 		}
 		this._selectedIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_selectedIconTexture();
 	}
 
 	private var _firstSelectedIconTexture:Texture;
@@ -288,10 +300,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._firstSelectedIconTexture == value)
 		{
-			return;
+			return get_firstSelectedIconTexture();
 		}
 		this._firstSelectedIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_firstSelectedIconTexture();
 	}
 
 	private var _lastSelectedIconTexture:Texture;
@@ -306,28 +319,30 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._lastSelectedIconTexture == value)
 		{
-			return;
+			return get_lastSelectedIconTexture();
 		}
 		this._lastSelectedIconTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_lastSelectedIconTexture();
 	}
 
-	private var _iconLoaderFactory:Dynamic = defaultLoaderFactory;
+	private var _iconLoaderFactory:Void->ImageLoader = defaultLoaderFactory;
 
-	public var iconLoaderFactory(get, set):Dynamic;
-	public function get_iconLoaderFactory():Dynamic
+	public var iconLoaderFactory(get, set):Void->ImageLoader;
+	public function get_iconLoaderFactory():Void->ImageLoader
 	{
 		return this._iconLoaderFactory;
 	}
 
-	public function set_iconLoaderFactory(value:Dynamic):Dynamic
+	public function set_iconLoaderFactory(value:Void->ImageLoader):Void->ImageLoader
 	{
 		if(this._iconLoaderFactory == value)
 		{
-			return;
+			return get_iconLoaderFactory();
 		}
 		this._iconLoaderFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_iconLoaderFactory();
 	}
 
 	private var _paddingTop:Float = 0;
@@ -342,10 +357,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	private var _paddingRight:Float = 0;
@@ -360,10 +376,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	private var _paddingBottom:Float = 0;
@@ -378,10 +395,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	private var _paddingLeft:Float = 0;
@@ -396,10 +414,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	private var _gap:Float = 0;
@@ -414,10 +433,11 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	public var confirmCallback:Dynamic;
@@ -483,8 +503,8 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = isNaN(this.explicitWidth);
-		var needsHeight:Bool = isNaN(this.explicitHeight);
+		var needsWidth:Bool = Math.isNaN(this.explicitWidth);
+		var needsHeight:Bool = Math.isNaN(this.explicitHeight);
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -506,18 +526,18 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	private function refreshIcon():Void
 	{
-		if(this.icon)
+		if(this.icon != null)
 		{
 			this.icon.removeFromParent(true);
 		}
 
-		this.icon = ImageLoader(this._iconLoaderFactory());
+		this.icon = this._iconLoaderFactory();
 		this.addChild(this.icon);
 	}
 
 	private function commitData():Void
 	{
-		if(this._owner)
+		if(this._owner != null)
 		{
 			var nameLabelText:String = this._data.name;
 			if(this._isSelected)
@@ -690,7 +710,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 		if(this._touchPointID >= 0)
 		{
-			var touch:Touch;
+			var touch:Touch = null;
 			for (currentTouch in touches)
 			{
 				if(currentTouch.id == this._touchPointID)
@@ -700,10 +720,10 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 				}
 			}
 
-			if(!touch)
+			if(touch == null)
 			{
 				//end of hover
-				HELPER_TOUCHES_VECTOR.length = 0;
+				HELPER_TOUCHES_VECTOR.splice(0, HELPER_TOUCHES_VECTOR.length);
 				return;
 			}
 
@@ -723,7 +743,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		}
 		else //if we get here, we don't have a saved touch ID yet
 		{
-			for each(touch in touches)
+			for (touch in touches)
 			{
 				if(touch.phase == TouchPhase.BEGAN)
 				{
@@ -732,7 +752,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 				}
 			}
 		}
-		HELPER_TOUCHES_VECTOR.length = 0;
+		HELPER_TOUCHES_VECTOR.splice(0, HELPER_TOUCHES_VECTOR.length);
 	}
 
 	private function owner_scrollHandler(event:Event):Void

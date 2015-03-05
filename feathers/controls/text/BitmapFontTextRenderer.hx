@@ -23,6 +23,8 @@ import starling.text.BitmapFont;
 import starling.text.TextField;
 import starling.textures.TextureSmoothing;
 
+import starling.text.BitmapChar;
+
 /**
  * Renders text using <code>starling.text.BitmapFont</code>.
  *
@@ -39,7 +41,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -96,13 +98,13 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	public function new()
 	{
 		super();
-		if(!CHAR_LOCATION_POOL)
+		if(CHAR_LOCATION_POOL == null)
 		{
 			//compiler doesn't like referencing CharLocation class in a
 			//static constant
 			CHAR_LOCATION_POOL = new Array();
 		}
-		if(!CHARACTER_BUFFER)
+		if(CHARACTER_BUFFER == null)
 		{
 			CHARACTER_BUFFER = new Array();
 		}
@@ -148,7 +150,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 * @default null
 	 */
 	public var textFormat(get, set):BitmapFontTextFormat;
-	public function get_textFormat():BitmapFontTextFormat
+	@:keep public function get_textFormat():BitmapFontTextFormat
 	{
 		return this._textFormat;
 	}
@@ -156,14 +158,15 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_textFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
+	@:keep public function set_textFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
 	{
 		if(this._textFormat == value)
 		{
-			return;
+			return this._textFormat;
 		}
 		this._textFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._textFormat;
 	}
 
 	/**
@@ -181,7 +184,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default null
 	 */
-	public var disabledTextFormat(get, set):BitmapFontTextFormat;
+	@:keep public var disabledTextFormat(get, set):BitmapFontTextFormat;
 	public function get_disabledTextFormat():BitmapFontTextFormat
 	{
 		return this._disabledTextFormat;
@@ -190,14 +193,15 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_disabledTextFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
+	@:keep public function set_disabledTextFormat(value:BitmapFontTextFormat):BitmapFontTextFormat
 	{
 		if(this._disabledTextFormat == value)
 		{
-			return;
+			return this._disabledTextFormat;
 		}
 		this._disabledTextFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._disabledTextFormat;
 	}
 	
 	/**
@@ -228,10 +232,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._text == value)
 		{
-			return;
+			return this._text;
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._text;
 	}
 	
 	/**
@@ -265,10 +270,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._smoothing == value)
 		{
-			return;
+			return this._smoothing;
 		}
 		this._smoothing = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._smoothing;
 	}
 
 	/**
@@ -300,10 +306,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._wordWrap == value)
 		{
-			return;
+			return _wordWrap;
 		}
 		this._wordWrap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return _wordWrap;
 	}
 
 	/**
@@ -337,10 +344,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._snapToPixels == value)
 		{
-			return;
+			return this._snapToPixels;
 		}
 		this._snapToPixels = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._snapToPixels;
 	}
 
 	/**
@@ -379,10 +387,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._truncateToFit == value)
 		{
-			return;
+			return this._truncateToFit;
 		}
 		this._truncateToFit = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return this._truncateToFit;
 	}
 
 	/**
@@ -413,10 +422,11 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._truncationText == value)
 		{
-			return;
+			return this._truncationText;
 		}
 		this._truncationText = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return _truncationText;
 	}
 
 	/**
@@ -450,19 +460,20 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._useSeparateBatch == value)
 		{
-			return;
+			return this._useSeparateBatch;
 		}
 		this._useSeparateBatch = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._useSeparateBatch;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var baseline(get, set):Float;
+	public var baseline(get, never):Float;
 	public function get_baseline():Float
 	{
-		if(!this._textFormat)
+		if(this._textFormat == null)
 		{
 			return 0;
 		}
@@ -504,7 +515,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	public function measureText(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -523,7 +534,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			this.refreshTextFormat();
 		}
 
-		if(!this.currentTextFormat || this._text == null)
+		if(this.currentTextFormat == null || this._text == null)
 		{
 			result.setTo(0, 0);
 			return result;
@@ -555,7 +566,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var wordCountForLine:Int = 0;
 		var line:String = "";
 		var word:String = "";
-		for(var i:Int = 0; i < charCount; i++)
+		//for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			if(charID == CHARACTER_ID_LINE_FEED || charID == CHARACTER_ID_CARRIAGE_RETURN) //new line \n or \r
@@ -579,7 +591,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			}
 
 			var charData:BitmapChar = font.getChar(charID);
-			if(!charData)
+			if(charData == null)
 			{
 				trace("Missing character " + String.fromCharCode(charID) + " in font " + font.name + ".");
 				continue;
@@ -588,7 +600,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(previousCharID) * scale;
+				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -653,7 +665,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	override private function initialize():Void
 	{
-		if(!this._characterBatch)
+		if(this._characterBatch == null)
 		{
 			this._characterBatch = new QuadBatch();
 			this._characterBatch.touchable = false;
@@ -680,7 +692,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			this._characterBatch.batchable = !this._useSeparateBatch;
 			this._characterBatch.reset();
-			if(!this.currentTextFormat || this._text == null)
+			if(this.currentTextFormat == null || this._text == null)
 			{
 				this.setSizeInternal(0, 0, false);
 				return;
@@ -695,7 +707,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function layoutCharacters(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -726,7 +738,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			textToDraw = this.getTruncatedText(maxLineWidth);
 		}
-		CHARACTER_BUFFER.length = 0;
+		CHARACTER_BUFFER = [];
 
 		var maxX:Float = 0;
 		var currentX:Float = 0;
@@ -737,8 +749,9 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var widthOfWhitespaceAfterWord:Float = 0;
 		var wordLength:Int = 0;
 		var wordCountForLine:Int = 0;
-		var charCount:Int = textToDraw ? textToDraw.length : 0;
-		for(var i:Int = 0; i < charCount; i++)
+		var charCount:Int = textToDraw != null ? textToDraw.length : 0;
+		//for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			isWordComplete = false;
 			var charID:Int = textToDraw.charCodeAt(i);
@@ -769,7 +782,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			}
 
 			var charData:BitmapChar = font.getChar(charID);
-			if(!charData)
+			if(charData == null)
 			{
 				trace("Missing character " + String.fromCharCode(charID) + " in font " + font.name + ".");
 				continue;
@@ -778,7 +791,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(previousCharID) * scale;
+				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -871,7 +884,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 
 		if(isAligned && !hasExplicitWidth)
 		{
-			var align:String = this._textFormat.align;
+			var align:TextFormatAlign = this._textFormat.align;
 			if(align == TextFormatAlign.CENTER)
 			{
 				this._batchX = (maxX - maxLineWidth) / 2;
@@ -899,7 +912,9 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		var countToRemove:Int = 0;
 		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
-		for(var i:Int = charCount - 1; i >= 0; i--)
+		//for(var i:Int = charCount - 1; i >= 0; i--)
+		var i:Int = charCount - 1;
+		while(i >= 0)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER[i];
 			var charData:BitmapChar = charLocation.char;
@@ -912,6 +927,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				break;
 			}
+			--i;
 		}
 		if(countToRemove > 0)
 		{
@@ -924,7 +940,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function alignBuffer(maxLineWidth:Float, currentLineWidth:Float, skipCount:Int):Void
 	{
-		var align:String = this.currentTextFormat.align;
+		var align:TextFormatAlign = this.currentTextFormat.align;
 		if(align == TextFormatAlign.CENTER)
 		{
 			this.moveBufferedCharacters(Math.round((maxLineWidth - currentLineWidth) / 2), 0, skipCount);
@@ -942,7 +958,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
 		var pushIndex:Int = CHAR_LOCATION_POOL.length;
-		for(var i:Int = 0; i < charCount; i++)
+		//for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER.shift();
 			this.addCharacterToBatch(charLocation.char, charLocation.x, charLocation.y, charLocation.scale);
@@ -958,7 +975,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	private function moveBufferedCharacters(xOffset:Float, yOffset:Float, skipCount:Int):Void
 	{
 		var charCount:Int = CHARACTER_BUFFER.length - skipCount;
-		for(var i:Int = 0; i < charCount; i++)
+		//for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charLocation:CharLocation = CHARACTER_BUFFER[i];
 			charLocation.x += xOffset;
@@ -971,7 +989,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function addCharacterToBatch(charData:BitmapChar, x:Float, y:Float, scale:Float, support:RenderSupport = null, parentAlpha:Float = 1):Void
 	{
-		if(!HELPER_IMAGE)
+		if(HELPER_IMAGE == null)
 		{
 			HELPER_IMAGE = new Image(charData.texture);
 		}
@@ -986,7 +1004,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		HELPER_IMAGE.color = this.currentTextFormat.color;
 		HELPER_IMAGE.smoothing = this._smoothing;
 
-		if(support)
+		if(support != null)
 		{
 			support.pushMatrix();
 			support.transformMatrix(HELPER_IMAGE);
@@ -1004,23 +1022,25 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function refreshTextFormat():Void
 	{
-		if(!this._isEnabled && this._disabledTextFormat)
+		if(!this._isEnabled && this._disabledTextFormat != null)
 		{
 			this.currentTextFormat = this._disabledTextFormat;
 		}
 		else
 		{
+			#if 0 // No fallback to mini font since its is not implemented in OpenFL port
 			//let's fall back to using Starling's embedded mini font if no
 			//text format has been specified
-			if(!this._textFormat)
+			if(this._textFormat == null)
 			{
 				//if it's not registered, do that first
-				if(!TextField.getBitmapFont(BitmapFont.MINI))
+				if(TextField.getBitmapFont(BitmapFont.MINI) == null)
 				{
 					TextField.registerBitmapFont(new BitmapFont());
 				}
-				this._textFormat = new BitmapFontTextFormat(BitmapFont.MINI, Math.NaN, 0x000000);
+				this._textFormat = new BitmapFontTextFormat(BitmapFont.MINI, null, 0x000000);
 			}
+			#end
 			this.currentTextFormat = this._textFormat;
 		}
 	}
@@ -1030,7 +1050,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 */
 	private function getTruncatedText(width:Float):String
 	{
-		if(!this._text)
+		if(this._text == null)
 		{
 			//this shouldn't be called if _text is null, but just in case...
 			return "";
@@ -1055,11 +1075,12 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var previousCharID:Float = Math.NaN;
 		var charCount:Int = this._text.length;
 		var truncationIndex:Int = -1;
-		for(var i:Int = 0; i < charCount; i++)
+		//for(var i:Int = 0; i < charCount; i++)
+		for(i in 0 ... charCount)
 		{
 			var charID:Int = this._text.charCodeAt(i);
 			var charData:BitmapChar = font.getChar(charID);
-			if(!charData)
+			if(charData == null)
 			{
 				continue;
 			}
@@ -1067,7 +1088,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentKerning = charData.getKerning(previousCharID) * scale;
+				currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 			currentX += currentKerning + charData.xAdvance * scale;
 			if(currentX > width)
@@ -1090,19 +1111,20 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			//first measure the size of the truncation text
 			charCount = this._truncationText.length;
-			for(i = 0; i < charCount; i++)
+			//for(i = 0; i < charCount; i++)
+			for(i in 0 ... charCount)
 			{
-				charID = this._truncationText.charCodeAt(i);
-				charData = font.getChar(charID);
-				if(!charData)
+				var charID:Int = this._truncationText.charCodeAt(i);
+				var charData:BitmapChar = font.getChar(charID);
+				if(charData == null)
 				{
 					continue;
 				}
-				currentKerning = 0;
+				var currentKerning:Float = 0;
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(previousCharID) * scale;
+					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 				}
 				currentX += currentKerning + charData.xAdvance * scale + customLetterSpacing;
 				previousCharID = charID;
@@ -1110,34 +1132,35 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			currentX -= customLetterSpacing;
 
 			//then work our way backwards until we fit into the width
-			for(i = truncationIndex; i >= 0; i--)
+			//for(i = truncationIndex; i >= 0; i--)
+			var i:Int = truncationIndex;
+			while(i >= 0)
 			{
-				charID = this._text.charCodeAt(i);
+				var charID:Int = this._text.charCodeAt(i);
 				previousCharID = i > 0 ? this._text.charCodeAt(i - 1) : Math.NaN;
-				charData = font.getChar(charID);
-				if(!charData)
+				var charData:BitmapChar = font.getChar(charID);
+				if(charData == null)
 				{
 					continue;
 				}
-				currentKerning = 0;
+				var currentKerning:Float = 0;
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(previousCharID) * scale;
+					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 				}
 				currentX -= (currentKerning + charData.xAdvance * scale + customLetterSpacing);
 				if(currentX <= width)
 				{
 					return this._text.substr(0, i) + this._truncationText;
 				}
+				--i;
 			}
 			return this._truncationText;
 		}
 		return this._text;
 	}
 }
-
-import starling.text.BitmapChar;
 
 class CharLocation
 {

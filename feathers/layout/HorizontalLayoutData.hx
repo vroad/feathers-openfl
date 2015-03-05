@@ -26,10 +26,10 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function new(percentWidth:Float = Math.NaN, percentHeight:Float = Math.NaN)
+	public function new(percentWidth:Null<Float> = null, percentHeight:Null<Float> = null)
 	{
-		this._percentWidth = percentWidth;
-		this._percentHeight = percentHeight;
+		this._percentWidth = percentWidth != null ? percentWidth : Math.NaN;
+		this._percentHeight = percentHeight != null ? percentHeight : Math.NaN;
 	}
 
 	/**
@@ -44,11 +44,11 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 * distributed to children with percent widths.
 	 *
 	 * <p>The <code>percentWidth</code> property is ignored when its value
-	 * is <code>Math.NaN</code> or when the <code>useVirtualLayout</code>
+	 * is <code>NaN</code> or when the <code>useVirtualLayout</code>
 	 * property of the <code>HorizontalLayout</code> is set to
 	 * <code>false</code>.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var percentWidth(get, set):Float;
 	public function get_percentWidth():Float
@@ -63,10 +63,11 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._percentWidth == value)
 		{
-			return;
+			return this._percentWidth;
 		}
 		this._percentWidth = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._percentWidth;
 	}
 
 	/**
@@ -74,14 +75,13 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 */
 	private var _percentHeight:Float;
 
-
 	/**
 	 * The height of the layout object, as a percentage of the container's
 	 * height.
 	 *
-	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var percentHeight(get, set):Float;
 	public function get_percentHeight():Float
@@ -96,9 +96,10 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._percentHeight == value)
 		{
-			return;
+			return this._percentHeight;
 		}
 		this._percentHeight = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._percentHeight;
 	}
 }

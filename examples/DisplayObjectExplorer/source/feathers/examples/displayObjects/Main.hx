@@ -23,6 +23,7 @@ class Main extends LayoutGroup
 
 	public function new()
 	{
+		super();
 	}
 
 	private var _navigator:ScreenNavigator;

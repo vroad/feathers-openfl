@@ -6,9 +6,11 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.renderers;
+import feathers.core.FeathersControl;
 import feathers.controls.GroupedList;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+import feathers.utils.type.SafeCast.safe_cast;
 
 /**
  * The default item renderer for a GroupedList control. Supports up to three
@@ -209,6 +211,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	public function set_groupIndex(value:Int):Int
 	{
 		this._groupIndex = value;
+		return get_groupIndex();
 	}
 
 	/**
@@ -231,6 +234,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	public function set_itemIndex(value:Int):Int
 	{
 		this._itemIndex = value;
+		return get_itemIndex();
 	}
 
 	/**
@@ -253,6 +257,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	public function set_layoutIndex(value:Int):Int
 	{
 		this._layoutIndex = value;
+		return get_layoutIndex();
 	}
 	
 	/**
@@ -261,7 +266,7 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	public var owner(get, set):GroupedList;
 	public function get_owner():GroupedList
 	{
-		return GroupedList(this._owner);
+		return safe_cast(this._owner, GroupedList);
 	}
 	
 	/**
@@ -271,22 +276,23 @@ class DefaultGroupedListItemRenderer extends BaseDefaultItemRenderer implements 
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
-		if(this._owner)
+		if(this._owner != null)
 		{
 			this._owner.removeEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.removeEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this._owner = value;
-		if(this._owner)
+		if(this._owner != null)
 		{
-			var list:GroupedList = GroupedList(this._owner);
+			var list:GroupedList = cast(this._owner, GroupedList);
 			this.isSelectableWithoutToggle = list.isSelectable;
 			this._owner.addEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.addEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**

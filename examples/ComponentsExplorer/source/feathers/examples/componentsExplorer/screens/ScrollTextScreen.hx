@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ScrollTextScreen extends PanelScreen
+@:keep class ScrollTextScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -33,7 +33,7 @@ class ScrollTextScreen extends PanelScreen
 		this._scrollText.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChild(this._scrollText);
 
-		this.headerProperties.title = "Scroll Text";
+		this.headerProperties.setProperty("title", "Scroll Text");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -42,10 +42,10 @@ class ScrollTextScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

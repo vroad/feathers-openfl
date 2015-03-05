@@ -9,12 +9,13 @@ import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Event;
 
-class Main extends Sprite implements IDragSource, IDropTarget
+@:keep class Main extends Sprite implements IDragSource implements IDropTarget
 {
 	inline private static var DRAG_FORMAT:String = "draggableQuad";
 
 	public function new()
 	{
+		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 

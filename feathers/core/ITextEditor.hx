@@ -140,58 +140,63 @@ import openfl.geom.Point;
  * @see feathers.controls.TextInput
  * @see http://wiki.starling-framework.org/feathers/text-editors
  */
-interface ITextEditor extends IFeathersControl, ITextBaselineControl
+interface ITextEditor extends IFeathersControl extends ITextBaselineControl
 {
 	/**
 	 * The text displayed by the editor.
 	 */
-	function get_text():String;
+	var text(get, set):String;
+	//function get_text():String;
 
 	/**
 	 * @private
 	 */
-	function set_text(value:String):Void;
+	//function set_text(value:String):Void;
 
 	/**
 	 * Determines if the entered text will be masked so that it cannot be
 	 * seen, such as for a password input.
 	 */
-	function get_displayAsPassword():Bool;
+	var displayAsPassword(get, set):Bool;
+	//function get_displayAsPassword():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_displayAsPassword(value:Bool):Void;
+	//function set_displayAsPassword(value:Bool):Void;
 
 	/**
 	 * The maximum number of characters that may be entered.
 	 */
-	function get_maxChars():Int;
+	var maxChars(get, set):Int;
+	//function get_maxChars():Int;
 
 	/**
 	 * @private
 	 */
-	function set_maxChars(value:Int):Void;
+	//function set_maxChars(value:Int):Void;
 
 	/**
 	 * Limits the set of characters that may be entered.
 	 */
-	function get_restrict():String;
+	var restrict(get, set):String;
+	//function get_restrict():String;
 
 	/**
 	 * @private
 	 */
-	function set_restrict(value:String):Void;
+	//function set_restrict(value:String):Void;
 
 	/**
 	 * Determines if the text is editable.
 	 */
-	function get_isEditable():Bool;
+	var isEditable(get, set):Bool;
+	//function get_isEditable():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_isEditable(value:Bool):Void;
+	//function set_isEditable(value:Bool):Void;
 
 	/**
 	 * Determines if the owner should call <code>setFocus()</code> on
@@ -202,19 +207,22 @@ interface ITextEditor extends IFeathersControl, ITextBaselineControl
 	 *
 	 * @see #setFocus()
 	 */
-	function get_setTouchFocusOnEndedPhase():Bool;
+	var setTouchFocusOnEndedPhase(get, never):Bool;
+	//function get_setTouchFocusOnEndedPhase():Bool;
 
 	/**
 	 * The index of the first character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get_selectionBeginIndex():Int;
+	var selectionBeginIndex(get, never):Int;
+	//function get_selectionBeginIndex():Int;
 
 	/**
 	 * The index of the last character of the selection. If no text is
 	 * selected, then this is the value of the caret index.
 	 */
-	function get_selectionEndIndex():Int;
+	var selectionEndIndex(get, never):Int;
+	//function get_selectionEndIndex():Int;
 
 	/**
 	 * Gives focus to the text editor. Includes an optional position which

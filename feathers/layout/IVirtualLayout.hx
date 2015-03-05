@@ -24,12 +24,13 @@ interface IVirtualLayout extends ILayout
 	 * <code>false</code>. In those cases, the virtual layout options
 	 * will be ignored.
 	 */
-	function get_useVirtualLayout():Bool;
+	var useVirtualLayout(get, set):Bool;
+	//function get_useVirtualLayout():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_useVirtualLayout(value:Bool):Void;
+	//function set_useVirtualLayout(value:Bool):Void;
 
 	/**
 	 * Used internally by a component that supports layout virtualization,
@@ -41,12 +42,13 @@ interface IVirtualLayout extends ILayout
 	 * have no effect. It is meant to be used by the component, and the
 	 * component will replace any value you pass to this property.
 	 */
-	function get_typicalItem():DisplayObject;
+	var typicalItem(get, set):DisplayObject;
+	//function get_typicalItem():DisplayObject;
 
 	/**
 	 * @private
 	 */
-	function set_typicalItem(value:DisplayObject):Void;
+	//function set_typicalItem(value:DisplayObject):Void;
 
 	/**
 	 * Used internally by a component, such as <code>List</code>, to measure

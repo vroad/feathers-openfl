@@ -13,7 +13,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class GroupedListSettingsScreen extends PanelScreen
+@:keep class GroupedListSettingsScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -50,13 +50,13 @@ class GroupedListSettingsScreen extends PanelScreen
 		this.layout = new AnchorLayout();
 
 		this._stylePicker = new PickerList();
-		this._stylePicker.dataProvider = new ListCollection(new <String>
+		this._stylePicker.dataProvider = new ListCollection(
 		[
 			GroupedListSettings.STYLE_NORMAL,
 			GroupedListSettings.STYLE_INSET
 		]);
 		this._stylePicker.typicalItem = GroupedListSettings.STYLE_NORMAL;
-		this._stylePicker.listProperties.typicalItem = GroupedListSettings.STYLE_NORMAL;
+		this._stylePicker.listProperties.setProperty("typicalItem", GroupedListSettings.STYLE_NORMAL);
 		this._stylePicker.selectedItem = this.settings.style;
 		this._stylePicker.addEventListener(Event.CHANGE, stylePicker_changeHandler);
 
@@ -86,18 +86,18 @@ class GroupedListSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Grouped List Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Grouped List Settings");
+		this.headerProperties.setProperty("leftItems", 
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void
@@ -112,7 +112,7 @@ class GroupedListSettingsScreen extends PanelScreen
 
 	private function stylePicker_changeHandler(event:Event):Void
 	{
-		this.settings.style = this._stylePicker.selectedItem as String;
+		this.settings.style = cast(this._stylePicker.selectedItem, String);
 	}
 
 	private function isSelectableToggle_changeHandler(event:Event):Void

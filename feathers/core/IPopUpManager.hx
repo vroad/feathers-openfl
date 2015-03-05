@@ -19,27 +19,29 @@ interface IPopUpManager
 	/**
 	 * @copy PopUpManager#overlayFactory
 	 */
-	function get_overlayFactory():Dynamic;
+	var overlayFactory(get, set):Dynamic;
+	//function get_overlayFactory():Dynamic;
 
 	/**
 	 * @private
 	 */
-	function set_overlayFactory(value:Dynamic):Void;
+	//function set_overlayFactory(value:Dynamic):Void;
 
 	/**
 	 * @copy PopUpManager#root
 	 */
-	function get_root():DisplayObjectContainer;
+	var root(get, set):DisplayObjectContainer;
+	//function get_root():DisplayObjectContainer;
 
 	/**
 	 * @private
 	 */
-	function set_root(value:DisplayObjectContainer):Void;
+	//function set_root(value:DisplayObjectContainer):Void;
 
 	/**
 	 * @copy PopUpManager#addPopUp()
 	 */
-	function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Dynamic = null):DisplayObject;
+	function addPopUp(popUp:DisplayObject, isModal:Bool = true, isCentered:Bool = true, customOverlayFactory:Void->DisplayObject = null):DisplayObject;
 
 	/**
 	 * @copy PopUpManager#removePopUp()

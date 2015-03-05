@@ -15,7 +15,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ItemRendererSettingsScreen extends PanelScreen
+@:keep class ItemRendererSettingsScreen extends PanelScreen
 {
 	inline private static var GAP_LABEL_INFINITE:String = "Fill Available Space";
 	inline private static var GAP_LABEL_DEFAULT:String = "No Fill";
@@ -67,19 +67,19 @@ class ItemRendererSettingsScreen extends PanelScreen
 
 		this._iconTypePicker = new PickerList();
 		this._iconTypePicker.typicalItem = ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT;
-		this._iconTypePicker.dataProvider = new ListCollection(new <String>
+		this._iconTypePicker.dataProvider = new ListCollection(
 		[
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT,
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE,
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL,
 		]);
-		this._iconTypePicker.listProperties.typicalItem = ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT;
+		this._iconTypePicker.listProperties.setProperty("typicalItem", ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT);
 		this._iconTypePicker.selectedItem = this.settings.iconType;
 		this._iconTypePicker.addEventListener(Event.CHANGE, iconTypePicker_changeHandler);
 
 		this._iconPositionPicker = new PickerList();
 		this._iconPositionPicker.typicalItem = Button.ICON_POSITION_RIGHT_BASELINE;
-		this._iconPositionPicker.dataProvider = new ListCollection(new <String>
+		this._iconPositionPicker.dataProvider = new ListCollection(
 		[
 			Button.ICON_POSITION_TOP,
 			Button.ICON_POSITION_RIGHT,
@@ -89,7 +89,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 			Button.ICON_POSITION_RIGHT_BASELINE,
 			//Button.ICON_POSITION_MANUAL,
 		]);
-		this._iconPositionPicker.listProperties.typicalItem = Button.ICON_POSITION_RIGHT_BASELINE;
+		this._iconPositionPicker.listProperties.setProperty("typicalItem", Button.ICON_POSITION_RIGHT_BASELINE);
 		this._iconPositionPicker.selectedItem = this.settings.iconPosition;
 		this._iconPositionPicker.addEventListener(Event.CHANGE, iconPositionPicker_changeHandler);
 
@@ -100,7 +100,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 			{ label: GAP_LABEL_DEFAULT, value: false },
 		]);
 		this._gapPicker.typicalItem = this._gapPicker.dataProvider.getItemAt(0);
-		this._gapPicker.listProperties.typicalItem = this._gapPicker.dataProvider.getItemAt(0);
+		this._gapPicker.listProperties.setProperty("typicalItem", this._gapPicker.dataProvider.getItemAt(0));
 		this._gapPicker.selectedItem = this._gapPicker.dataProvider.getItemAt(this.settings.useInfiniteGap ? 0 : 1);
 		this._gapPicker.addEventListener(Event.CHANGE, gapPicker_changeHandler);
 
@@ -110,19 +110,19 @@ class ItemRendererSettingsScreen extends PanelScreen
 
 		this._accessoryTypePicker = new PickerList();
 		this._accessoryTypePicker.typicalItem = ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT;
-		this._accessoryTypePicker.dataProvider = new ListCollection(new <String>
+		this._accessoryTypePicker.dataProvider = new ListCollection(
 		[
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT,
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE,
 			ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL,
 		]);
-		this._accessoryTypePicker.listProperties.typicalItem = ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT;
+		this._accessoryTypePicker.listProperties.setProperty("typicalItem", ItemRendererSettings.ICON_ACCESSORY_TYPE_DISPLAY_OBJECT);
 		this._accessoryTypePicker.selectedItem = this.settings.accessoryType;
 		this._accessoryTypePicker.addEventListener(Event.CHANGE, accessoryTypePicker_changeHandler);
 
 		this._accessoryPositionPicker = new PickerList();
 		this._accessoryPositionPicker.typicalItem = BaseDefaultItemRenderer.ACCESSORY_POSITION_BOTTOM;
-		this._accessoryPositionPicker.dataProvider = new ListCollection(new <String>
+		this._accessoryPositionPicker.dataProvider = new ListCollection(
 		[
 			BaseDefaultItemRenderer.ACCESSORY_POSITION_TOP,
 			BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT,
@@ -130,7 +130,7 @@ class ItemRendererSettingsScreen extends PanelScreen
 			BaseDefaultItemRenderer.ACCESSORY_POSITION_LEFT,
 			//BaseDefaultItemRenderer.ACCESSORY_POSITION_MANUAL,
 		]);
-		this._accessoryPositionPicker.listProperties.typicalItem = BaseDefaultItemRenderer.ACCESSORY_POSITION_BOTTOM;
+		this._accessoryPositionPicker.listProperties.setProperty("typicalItem", BaseDefaultItemRenderer.ACCESSORY_POSITION_BOTTOM);
 		this._accessoryPositionPicker.selectedItem = this.settings.accessoryPosition;
 		this._accessoryPositionPicker.addEventListener(Event.CHANGE, accessoryPositionPicker_changeHandler);
 
@@ -141,42 +141,42 @@ class ItemRendererSettingsScreen extends PanelScreen
 			{ label: GAP_LABEL_DEFAULT, value: false },
 		]);
 		this._accessoryGapPicker.typicalItem = this._accessoryGapPicker.dataProvider.getItemAt(0);
-		this._accessoryGapPicker.listProperties.typicalItem = this._accessoryGapPicker.dataProvider.getItemAt(0);
+		this._accessoryGapPicker.listProperties.setProperty("typicalItem", this._accessoryGapPicker.dataProvider.getItemAt(0));
 		this._accessoryGapPicker.selectedItem = this._accessoryGapPicker.dataProvider.getItemAt(this.settings.useInfiniteAccessoryGap ? 0 : 1);
 		this._accessoryGapPicker.addEventListener(Event.CHANGE, accessoryGapPicker_changeHandler);
 
 		this._layoutOrderPicker = new PickerList();
 		this._layoutOrderPicker.typicalItem = BaseDefaultItemRenderer.LAYOUT_ORDER_LABEL_ACCESSORY_ICON;
-		this._layoutOrderPicker.dataProvider = new ListCollection(new <String>
+		this._layoutOrderPicker.dataProvider = new ListCollection(
 		[
 			BaseDefaultItemRenderer.LAYOUT_ORDER_LABEL_ICON_ACCESSORY,
 			BaseDefaultItemRenderer.LAYOUT_ORDER_LABEL_ACCESSORY_ICON,
 		]);
-		this._layoutOrderPicker.listProperties.typicalItem = BaseDefaultItemRenderer.LAYOUT_ORDER_LABEL_ACCESSORY_ICON;
+		this._layoutOrderPicker.listProperties.setProperty("typicalItem", BaseDefaultItemRenderer.LAYOUT_ORDER_LABEL_ACCESSORY_ICON);
 		this._layoutOrderPicker.selectedItem = this.settings.layoutOrder;
 		this._layoutOrderPicker.addEventListener(Event.CHANGE, layoutOrderPicker_changeHandler);
 
 		this._horizontalAlignPicker = new PickerList();
-		this._horizontalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._horizontalAlignPicker.dataProvider = new ListCollection(
 		[
 			Button.HORIZONTAL_ALIGN_LEFT,
 			Button.HORIZONTAL_ALIGN_CENTER,
 			Button.HORIZONTAL_ALIGN_RIGHT,
 		]);
 		this._horizontalAlignPicker.typicalItem = Button.HORIZONTAL_ALIGN_CENTER;
-		this._horizontalAlignPicker.listProperties.typicalItem = Button.HORIZONTAL_ALIGN_CENTER;
+		this._horizontalAlignPicker.listProperties.setProperty("typicalItem", Button.HORIZONTAL_ALIGN_CENTER);
 		this._horizontalAlignPicker.selectedItem = this.settings.horizontalAlign;
 		this._horizontalAlignPicker.addEventListener(Event.CHANGE, horizontalAlignPicker_changeHandler);
 
 		this._verticalAlignPicker = new PickerList();
-		this._verticalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._verticalAlignPicker.dataProvider = new ListCollection(
 		[
 			Button.VERTICAL_ALIGN_TOP,
 			Button.VERTICAL_ALIGN_MIDDLE,
 			Button.VERTICAL_ALIGN_BOTTOM,
 		]);
 		this._verticalAlignPicker.typicalItem = Button.VERTICAL_ALIGN_MIDDLE;
-		this._verticalAlignPicker.listProperties.typicalItem = Button.VERTICAL_ALIGN_MIDDLE;
+		this._verticalAlignPicker.listProperties.setProperty("typicalItem", Button.VERTICAL_ALIGN_MIDDLE);
 		this._verticalAlignPicker.selectedItem = this.settings.verticalAlign;
 		this._verticalAlignPicker.addEventListener(Event.CHANGE, verticalAlignPicker_changeHandler);
 
@@ -225,18 +225,18 @@ class ItemRendererSettingsScreen extends PanelScreen
 		this._backButton.label = "Back";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-		this.headerProperties.title = "Item Renderer Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
+		this.headerProperties.setProperty("title", "Item Renderer Settings");
+		this.headerProperties.setProperty("leftItems", 
 		[
 			this._backButton
-		];
+		]);
 
 		this.backButtonHandler = this.onBackButton;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void
@@ -246,17 +246,17 @@ class ItemRendererSettingsScreen extends PanelScreen
 
 	private function hasIconToggle_changeHandler(event:Event):Void
 	{
-		this.settings.hasIcon = this._hasIconToggle.isSelected
+		this.settings.hasIcon = this._hasIconToggle.isSelected;
 	}
 
 	private function iconTypePicker_changeHandler(event:Event):Void
 	{
-		this.settings.iconType = this._iconTypePicker.selectedItem as String;
+		this.settings.iconType = cast(this._iconTypePicker.selectedItem, String);
 	}
 
 	private function iconPositionPicker_changeHandler(event:Event):Void
 	{
-		this.settings.iconPosition = this._iconPositionPicker.selectedItem as String;
+		this.settings.iconPosition = cast(this._iconPositionPicker.selectedItem, String);
 	}
 
 	private function gapPicker_changeHandler(event:Event):Void
@@ -266,17 +266,17 @@ class ItemRendererSettingsScreen extends PanelScreen
 
 	private function hasAccessoryToggle_changeHandler(event:Event):Void
 	{
-		this.settings.hasAccessory = this._hasAccessoryToggle.isSelected
+		this.settings.hasAccessory = this._hasAccessoryToggle.isSelected;
 	}
 
 	private function accessoryTypePicker_changeHandler(event:Event):Void
 	{
-		this.settings.accessoryType = this._accessoryTypePicker.selectedItem as String;
+		this.settings.accessoryType = cast(this._accessoryTypePicker.selectedItem, String);
 	}
 
 	private function accessoryPositionPicker_changeHandler(event:Event):Void
 	{
-		this.settings.accessoryPosition = this._accessoryPositionPicker.selectedItem as String;
+		this.settings.accessoryPosition = cast(this._accessoryPositionPicker.selectedItem, String);
 	}
 
 	private function accessoryGapPicker_changeHandler(event:Event):Void
@@ -286,17 +286,17 @@ class ItemRendererSettingsScreen extends PanelScreen
 
 	private function layoutOrderPicker_changeHandler(event:Event):Void
 	{
-		this.settings.layoutOrder = this._layoutOrderPicker.selectedItem as String;
+		this.settings.layoutOrder = cast(this._layoutOrderPicker.selectedItem, String);
 	}
 
 	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
+		this.settings.horizontalAlign = cast(this._horizontalAlignPicker.selectedItem, String);
 	}
 
 	private function verticalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.verticalAlign = this._verticalAlignPicker.selectedItem as String;
+		this.settings.verticalAlign = cast(this._verticalAlignPicker.selectedItem, String);
 	}
 
 	private function backButton_triggeredHandler(event:Event):Void

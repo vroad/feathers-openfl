@@ -12,7 +12,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
-class NumericStepperScreen extends PanelScreen
+@:keep class NumericStepperScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -46,7 +46,7 @@ class NumericStepperScreen extends PanelScreen
 		this._stepper.layoutData = stepperLayoutData;
 		this.addChild(this._stepper);
 
-		this.headerProperties.title = "Numeric Stepper";
+		this.headerProperties.setProperty("title", "Numeric Stepper");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -55,10 +55,10 @@ class NumericStepperScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -67,10 +67,10 @@ class NumericStepperScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 	}
 
 	private function onBackButton():Void

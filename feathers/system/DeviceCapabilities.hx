@@ -28,7 +28,7 @@ class DeviceCapabilities
 
 	/**
 	 * A custom width, in pixels, to use for calculations of the device's
-	 * physical screen size. Set to Math.NaN to use the actual width.
+	 * physical screen size. Set to NaN to use the actual width.
 	 *
 	 * @default openfl.display.Stage.fullScreenWidth
 	 *
@@ -38,7 +38,7 @@ class DeviceCapabilities
 
 	/**
 	 * A custom height, in pixels, to use for calculations of the device's
-	 * physical screen size. Set to Math.NaN to use the actual height.
+	 * physical screen size. Set to NaN to use the actual height.
 	 *
 	 * @default openfl.display.Stage.fullScreenHeight
 	 *
@@ -66,7 +66,16 @@ class DeviceCapabilities
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/Capabilities.html#screenDPI Full description of openfl.system.Capabilities.screenDPI in Adobe's Flash Platform API Reference
 	 */
-	public static var dpi:Int = Capabilities.screenDPI;
+	public static var dpi(get, never):Int;
+	
+	public static function get_dpi():Int
+	{
+		#if (flash || html5)
+		return Std.int(Capabilities.screenDPI);
+		#else
+		return 96;
+		#end
+	}
 
 	/**
 	 * Determines if this device is probably a tablet, based on the physical
@@ -80,6 +89,7 @@ class DeviceCapabilities
 	 */
 	public static function isTablet(stage:Stage):Bool
 	{
+		#if flash
 		var screenWidth:Float = screenPixelWidth;
 		if(screenWidth != screenWidth) //isNaN
 		{
@@ -95,6 +105,9 @@ class DeviceCapabilities
 			screenWidth = screenHeight;
 		}
 		return (screenWidth / dpi) >= tabletScreenMinimumInches;
+		#else
+		return false;
+		#end
 	}
 
 	/**
@@ -118,10 +131,12 @@ class DeviceCapabilities
 	public static function screenInchesX(stage:Stage):Float
 	{
 		var screenWidth:Float = screenPixelWidth;
+#if flash
 		if(screenWidth != screenWidth) //isNaN
 		{
 			screenWidth = stage.fullScreenWidth;
 		}
+#end
 		return screenWidth / dpi;
 	}
 
@@ -134,10 +149,12 @@ class DeviceCapabilities
 	public static function screenInchesY(stage:Stage):Float
 	{
 		var screenHeight:Float = screenPixelHeight;
+#if flash
 		if(screenHeight != screenHeight) //isNaN
 		{
 			screenHeight = stage.fullScreenHeight;
 		}
+#end
 		return screenHeight / dpi;
 	}
 }

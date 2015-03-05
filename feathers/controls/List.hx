@@ -7,7 +7,9 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
 import feathers.controls.renderers.DefaultListItemRenderer;
+import feathers.controls.renderers.IListItemRenderer;
 import feathers.controls.supportClasses.ListDataViewPort;
+import feathers.core.FeathersControl;
 import feathers.core.IFocusDisplayObject;
 import feathers.core.PropertyProxy;
 import feathers.data.ListCollection;
@@ -15,6 +17,7 @@ import feathers.events.CollectionEventType;
 import feathers.layout.ILayout;
 import feathers.layout.VerticalLayout;
 import feathers.skins.IStyleProvider;
+import feathers.utils.type.SafeCast.safe_cast;
 
 import openfl.geom.Point;
 import openfl.ui.Keyboard;
@@ -94,7 +97,7 @@ import starling.events.KeyboardEvent;
  */
 //[Event(name="rendererRemove",type="starling.events.Event")]
 
-[DefaultProperty("dataProvider")]
+//[DefaultProperty("dataProvider")]
 /**
  * Displays a one-dimensional list of items. Supports scrolling, custom
  * item renderers, and custom layouts.
@@ -271,8 +274,7 @@ class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public var isFocusEnabled(get, set):Bool;
-public function get_isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
 	}
@@ -313,10 +315,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._layout == value)
 		{
-			return;
+			return get_layout();
 		}
 		this._layout = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 	
 	/**
@@ -382,15 +385,15 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._dataProvider == value)
 		{
-			return;
+			return get_dataProvider();
 		}
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.removeEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
 		this._dataProvider = value;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.addEventListener(Event.CHANGE, dataProvider_changeHandler);
@@ -405,6 +408,7 @@ public function get_isFocusEnabled():Bool
 		this.selectedIndex = -1;
 
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_dataProvider();
 	}
 	
 	/**
@@ -442,7 +446,7 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._isSelectable == value)
 		{
-			return;
+			return get_isSelectable();
 		}
 		this._isSelectable = value;
 		if(!this._isSelectable)
@@ -450,6 +454,7 @@ public function get_isFocusEnabled():Bool
 			this.selectedIndex = -1;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_isSelectable();
 	}
 	
 	/**
@@ -503,17 +508,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._selectedIndex == value)
 		{
-			return;
+			return get_selectedIndex();
 		}
 		if(value >= 0)
 		{
-			this._selectedIndices.data = new <Int>[value];
+			this._selectedIndices.data = [value];
 		}
 		else
 		{
 			this._selectedIndices.removeAll();
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_selectedIndex();
 	}
 
 	/**
@@ -552,7 +558,7 @@ public function get_isFocusEnabled():Bool
 	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
-		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
+		if(this._dataProvider == null || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
 			return null;
 		}
@@ -565,12 +571,13 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function set_selectedItem(value:Dynamic):Dynamic
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			this.selectedIndex = -1;
-			return;
+			return get_selectedItem();
 		}
 		this.selectedIndex = this._dataProvider.getItemIndex(value);
+		return get_selectedItem();
 	}
 
 	/**
@@ -608,10 +615,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._allowMultipleSelection == value)
 		{
-			return;
+			return get_allowMultipleSelection();
 		}
 		this._allowMultipleSelection = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_allowMultipleSelection();
 	}
 
 	/**
@@ -654,7 +662,7 @@ public function get_isFocusEnabled():Bool
 	public var selectedIndices(get, set):Array<Int>;
 	public function get_selectedIndices():Array<Int>
 	{
-		return this._selectedIndices.data as Array<Int>;
+		return safe_cast(this._selectedIndices.data, Array);
 	}
 
 	/**
@@ -662,16 +670,16 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function set_selectedIndices(value:Array<Int>):Array<Int>
 	{
-		var oldValue:Array<Int> = this._selectedIndices.data as Array<Int>;
+		var oldValue:Array<Int> = safe_cast(this._selectedIndices.data, Array);
 		if(oldValue == value)
 		{
-			return;
+			return get_selectedIndices();
 		}
-		if(!value)
+		if(value == null)
 		{
 			if(this._selectedIndices.length == 0)
 			{
-				return;
+				return get_selectedIndices();
 			}
 			this._selectedIndices.removeAll();
 		}
@@ -679,11 +687,12 @@ public function get_isFocusEnabled():Bool
 		{
 			if(!this._allowMultipleSelection && value.length > 0)
 			{
-				value.length = 1;
+				value.splice(1, value.length - 1);
 			}
 			this._selectedIndices.data = value;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_selectedIndices();
 	}
 
 	/**
@@ -720,8 +729,8 @@ public function get_isFocusEnabled():Bool
 	 * @see #selectedIndex
 	 * @see #selectedItem
 	 */
-	public var selectedItems(get, set):Array<Object>;
-	public function get_selectedItems():Array<Object>
+	public var selectedItems(get, set):Array<Dynamic>;
+	public function get_selectedItems():Array<Dynamic>
 	{
 		return this.getSelectedItems(new Array());
 	}
@@ -729,16 +738,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_selectedItems(value:Array<Object>):Array<Object>
+	public function set_selectedItems(value:Array<Dynamic>):Array<Dynamic>
 	{
-		if(!value || !this._dataProvider)
+		if(value == null || this._dataProvider == null)
 		{
 			this.selectedIndex = -1;
-			return;
+			return get_selectedItems();
 		}
 		var indices:Array<Int> = new Array();
 		var itemCount:Int = value.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:Dynamic = value[i];
 			var index:Int = this._dataProvider.getItemIndex(item);
@@ -748,6 +757,7 @@ public function get_isFocusEnabled():Bool
 			}
 		}
 		this.selectedIndices = indices;
+		return get_selectedItems();
 	}
 
 	/**
@@ -758,24 +768,24 @@ public function get_isFocusEnabled():Bool
 	 *
 	 * @see #selectedItems
 	 */
-	public function getSelectedItems(result:Array<Object> = null):Array<Object>
+	public function getSelectedItems(result:Array<Dynamic> = null):Array<Dynamic>
 	{
-		if(result)
+		if(result != null)
 		{
-			result.length = 0;
+			result.splice(0, result.length);
 		}
 		else
 		{
 			result = new Array();
 		}
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			return result;
 		}
 		var indexCount:Int = this._selectedIndices.length;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			var index:Int = this._selectedIndices.getItemAt(i) as Int;
+			var index:Int = this._selectedIndices.getItemAt(i);
 			var item:Dynamic = this._dataProvider.getItemAt(index);
 			result[i] = item;
 		}
@@ -804,8 +814,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererFactory
 	 */
-	public var itemRendererType(get, set):Class;
-	public function get_itemRendererType():Class
+	public var itemRendererType(get, set):Class<Dynamic>;
+	public function get_itemRendererType():Class<Dynamic>
 	{
 		return this._itemRendererType;
 	}
@@ -817,17 +827,18 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._itemRendererType == value)
 		{
-			return;
+			return get_itemRendererType();
 		}
 		
 		this._itemRendererType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererType();
 	}
 	
 	/**
 	 * @private
 	 */
-	private var _itemRendererFactory:Dynamic;
+	private var _itemRendererFactory:Void->IListItemRenderer;
 	
 	/**
 	 * A function called that is expected to return a new item renderer. Has
@@ -855,8 +866,8 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see #itemRendererType
 	 */
-	public var itemRendererFactory(get, set):Dynamic;
-	public function get_itemRendererFactory():Dynamic
+	public var itemRendererFactory(get, set):Void->IListItemRenderer;
+	public function get_itemRendererFactory():Void->IListItemRenderer
 	{
 		return this._itemRendererFactory;
 	}
@@ -864,15 +875,16 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererFactory(value:Dynamic):Dynamic
+	public function set_itemRendererFactory(value:Void->IListItemRenderer):Void->IListItemRenderer
 	{
 		if(this._itemRendererFactory == value)
 		{
-			return;
+			return get_itemRendererFactory();
 		}
 		
 		this._itemRendererFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererFactory();
 	}
 	
 	/**
@@ -909,10 +921,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._typicalItem == value)
 		{
-			return;
+			return get_typicalItem();
 		}
 		this._typicalItem = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_typicalItem();
 	}
 
 	/**
@@ -952,10 +965,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._itemRendererName == value)
 		{
-			return;
+			return get_itemRendererName();
 		}
 		this._itemRendererName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererName();
 	}
 
 	/**
@@ -997,10 +1011,10 @@ public function get_isFocusEnabled():Bool
 	 * @see feathers.controls.renderers.IListItemRenderer
 	 * @see feathers.controls.renderers.DefaultListItemRenderer
 	 */
-	public var itemRendererProperties(get, set):Dynamic;
-	public function get_itemRendererProperties():Dynamic
+	public var itemRendererProperties(get, set):PropertyProxy;
+	public function get_itemRendererProperties():PropertyProxy
 	{
-		if(!this._itemRendererProperties)
+		if(this._itemRendererProperties == null)
 		{
 			this._itemRendererProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1010,35 +1024,36 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_itemRendererProperties(value:Dynamic):Dynamic
+	public function set_itemRendererProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._itemRendererProperties == value)
 		{
-			return;
+			return get_itemRendererProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._itemRendererProperties)
+		if(this._itemRendererProperties != null)
 		{
 			this._itemRendererProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._itemRendererProperties = PropertyProxy(value);
-		if(this._itemRendererProperties)
+		this._itemRendererProperties = value;
+		if(this._itemRendererProperties != null)
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_itemRendererProperties();
 	}
 
 	/**
@@ -1051,8 +1066,9 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Float = Math.NaN):Void
+	override public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Null<Float> = null):Void
 	{
+		if (animationDuration == null) animationDuration = Math.NaN;
 		this.pendingItemIndex = -1;
 		super.scrollToPosition(horizontalScrollPosition, verticalScrollPosition, animationDuration);
 	}
@@ -1060,8 +1076,9 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Float = Math.NaN):Void
+	override public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Null<Float> = null):Void
 	{
+		if (animationDuration == null) animationDuration = Math.NaN;
 		this.pendingItemIndex = -1;
 		super.scrollToPageIndex(horizontalPageIndex, verticalPageIndex, animationDuration);
 	}
@@ -1103,7 +1120,7 @@ public function get_isFocusEnabled():Bool
 		}
 		this.pendingItemIndex = index;
 		this.pendingScrollDuration = animationDuration;
-		this.invalidate(INVALIDATION_FLAG_PENDING_SCROLL);
+		this.invalidate(Scroller.INVALIDATION_FLAG_PENDING_SCROLL);
 	}
 
 	/**
@@ -1128,7 +1145,7 @@ public function get_isFocusEnabled():Bool
 
 		super.initialize();
 		
-		if(!this.dataViewPort)
+		if(this.dataViewPort == null)
 		{
 			this.viewPort = this.dataViewPort = new ListDataViewPort();
 			this.dataViewPort.owner = this;
@@ -1192,7 +1209,7 @@ public function get_isFocusEnabled():Bool
 		if(this.pendingItemIndex >= 0)
 		{
 			var item:Dynamic = this._dataProvider.getItemAt(this.pendingItemIndex);
-			if(item is Object)
+			//if(item is Object)
 			{
 				this.dataViewPort.getScrollPositionForIndex(this.pendingItemIndex, HELPER_POINT);
 				this.pendingItemIndex = -1;
@@ -1244,7 +1261,7 @@ public function get_isFocusEnabled():Bool
 	 */
 	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			return;
 		}
@@ -1261,11 +1278,11 @@ public function get_isFocusEnabled():Bool
 		}
 		else if(event.keyCode == Keyboard.UP)
 		{
-			this.selectedIndex = Math.max(0, this._selectedIndex - 1);
+			this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
 		}
 		else if(event.keyCode == Keyboard.DOWN)
 		{
-			this.selectedIndex = Math.min(this._dataProvider.length - 1, this._selectedIndex + 1);
+			this.selectedIndex = Std.int(Math.min(this._dataProvider.length - 1, this._selectedIndex + 1));
 		}
 	}
 
@@ -1293,7 +1310,7 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._selectedIndices.length > 0)
 		{
-			this._selectedIndex = this._selectedIndices.getItemAt(0) as Int;
+			this._selectedIndex = this._selectedIndices.getItemAt(0);
 		}
 		else
 		{

@@ -27,10 +27,16 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	/**
 	 * Constructor.
 	 */
-	public function new(top:Float = Math.NaN, right:Float = Math.NaN,
-		bottom:Float = Math.NaN, left:Float = Math.NaN, horizontalCenter:Float = Math.NaN,
-		verticalCenter:Float = Math.NaN)
+	public function new(top:Null<Float> = null, right:Null<Float> = null,
+		bottom:Null<Float> = null, left:Null<Float> = null, horizontalCenter:Null<Float> = null,
+		verticalCenter:Null<Float> = null)
 	{
+		if (top == null) top = Math.NaN;
+		if (right == null) right = Math.NaN;
+		if (bottom == null) bottom = Math.NaN;
+		if (left == null) left = Math.NaN;
+		if (horizontalCenter == null) horizontalCenter = Math.NaN;
+		if (verticalCenter == null) verticalCenter = Math.NaN;
 		this.top = top;
 		this.right = right;
 		this.bottom = bottom;
@@ -48,9 +54,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The width of the layout object, as a percentage of the container's
 	 * width.
 	 *
-	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var percentWidth(get, set):Float;
 	public function get_percentWidth():Float
@@ -65,10 +71,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._percentWidth == value)
 		{
-			return;
+			return this._percentWidth;
 		}
 		this._percentWidth = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._percentWidth;
 	}
 
 	/**
@@ -80,9 +87,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The height of the layout object, as a percentage of the container's
 	 * height.
 	 *
-	 * <p>If the value is <code>Math.NaN</code>, this property is ignored.</p>
+	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var percentHeight(get, set):Float;
 	public function get_percentHeight():Float
@@ -97,10 +104,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._percentHeight == value)
 		{
-			return;
+			return this._percentHeight;
 		}
 		this._percentHeight = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._percentHeight;
 	}
 
 	/**
@@ -130,10 +138,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._topAnchorDisplayObject == value)
 		{
-			return;
+			return this._topAnchorDisplayObject;
 		}
 		this._topAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._topAnchorDisplayObject;
 	}
 
 	/**
@@ -145,9 +154,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the top edge relative to the top
 	 * anchor, or, if there is no top anchor, then the position is relative
 	 * to the top edge of the parent container. If this value is
-	 * <code>Math.NaN</code>, the object's top edge will not be anchored.
+	 * <code>NaN</code>, the object's top edge will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #topAnchorDisplayObject
 	 */
@@ -164,10 +173,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._top == value)
 		{
-			return;
+			return this._top;
 		}
 		this._top = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._top;
 	}
 
 	/**
@@ -197,10 +207,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._rightAnchorDisplayObject == value)
 		{
-			return;
+			return this._rightAnchorDisplayObject;
 		}
 		this._rightAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._rightAnchorDisplayObject;
 	}
 
 	/**
@@ -212,9 +223,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the right edge relative to the right
 	 * anchor, or, if there is no right anchor, then the position is relative
 	 * to the right edge of the parent container. If this value is
-	 * <code>Math.NaN</code>, the object's right edge will not be anchored.
+	 * <code>NaN</code>, the object's right edge will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #rightAnchorDisplayObject
 	 */
@@ -231,10 +242,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._right == value)
 		{
-			return;
+			return this._right;
 		}
 		this._right = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._right;
 	}
 
 	/**
@@ -264,10 +276,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._bottomAnchorDisplayObject == value)
 		{
-			return;
+			return this._bottomAnchorDisplayObject;
 		}
 		this._bottomAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._bottomAnchorDisplayObject;
 	}
 
 	/**
@@ -279,9 +292,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the bottom edge relative to the bottom
 	 * anchor, or, if there is no bottom anchor, then the position is relative
 	 * to the bottom edge of the parent container. If this value is
-	 * <code>Math.NaN</code>, the object's bottom edge will not be anchored.
+	 * <code>NaN</code>, the object's bottom edge will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #bottomAnchorDisplayObject
 	 */
@@ -298,10 +311,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._bottom == value)
 		{
-			return;
+			return this._bottom;
 		}
 		this._bottom = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._bottom;
 	}
 
 	/**
@@ -331,10 +345,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._leftAnchorDisplayObject == value)
 		{
-			return;
+			return this._leftAnchorDisplayObject;
 		}
 		this._leftAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._leftAnchorDisplayObject;
 	}
 
 	/**
@@ -346,9 +361,9 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the left edge relative to the left
 	 * anchor, or, if there is no left anchor, then the position is relative
 	 * to the left edge of the parent container. If this value is
-	 * <code>Math.NaN</code>, the object's left edge will not be anchored.
+	 * <code>NaN</code>, the object's left edge will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #leftAnchorDisplayObject
 	 */
@@ -365,10 +380,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._left == value)
 		{
-			return;
+			return this._left;
 		}
 		this._left = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._left;
 	}
 
 	/**
@@ -398,10 +414,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._horizontalCenterAnchorDisplayObject == value)
 		{
-			return;
+			return this._horizontalCenterAnchorDisplayObject;
 		}
 		this._horizontalCenterAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._horizontalCenterAnchorDisplayObject;
 	}
 
 	/**
@@ -413,10 +430,10 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the horizontal center relative to the
 	 * horizontal center anchor, or, if there is no horizontal center
 	 * anchor, then the position is relative to the horizontal center of the
-	 * parent container. If this value is <code>Math.NaN</code>, the object's
+	 * parent container. If this value is <code>NaN</code>, the object's
 	 * horizontal center will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #horizontalCenterAnchorDisplayObject
 	 */
@@ -433,10 +450,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._horizontalCenter == value)
 		{
-			return;
+			return this._horizontalCenter;
 		}
 		this._horizontalCenter = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._horizontalCenter;
 	}
 
 	/**
@@ -466,10 +484,11 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._verticalCenterAnchorDisplayObject == value)
 		{
-			return;
+			return this._verticalCenterAnchorDisplayObject;
 		}
 		this._verticalCenterAnchorDisplayObject = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._verticalCenterAnchorDisplayObject;
 	}
 
 	/**
@@ -481,10 +500,10 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	 * The position, in pixels, of the vertical center relative to the
 	 * vertical center anchor, or, if there is no vertical center anchor,
 	 * then the position is relative to the vertical center of the parent
-	 * container. If this value is <code>Math.NaN</code>, the object's vertical
+	 * container. If this value is <code>NaN</code>, the object's vertical
 	 * center will not be anchored.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #verticalCenterAnchorDisplayObject
 	 */
@@ -501,9 +520,10 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 	{
 		if(this._verticalCenter == value)
 		{
-			return;
+			return this._verticalCenter;
 		}
 		this._verticalCenter = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return this._verticalCenter;
 	}
 }

@@ -5,12 +5,14 @@ import feathers.controls.PanelScreen;
 import feathers.controls.ScreenNavigatorItem;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.renderers.IListItemRenderer;
+import feathers.core.FeathersControl;
 import feathers.data.ListCollection;
 import feathers.events.FeathersEventType;
 import feathers.examples.youtube.models.VideoFeed;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.skins.StandardIcons;
+import openfl.errors.Error;
 
 import openfl.events.ErrorEvent;
 import openfl.events.Event;
@@ -33,6 +35,7 @@ class MainMenuScreen extends PanelScreen
 
 	public function new()
 	{
+		super();
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
 
@@ -67,7 +70,7 @@ class MainMenuScreen extends PanelScreen
 		}
 		//when navigating to video results, we save this information to
 		//restore the list when later navigating back to this screen.
-		if(this.savedDataProvider)
+		if(this.savedDataProvider != null)
 		{
 			this._list.dataProvider = this.savedDataProvider;
 			this._list.selectedIndex = this.savedSelectedIndex;
@@ -82,7 +85,7 @@ class MainMenuScreen extends PanelScreen
 		this._message.visible = this.savedDataProvider == null;
 		this.addChild(this._message);
 
-		this.headerProperties.title = "YouTube Feeds";
+		this.headerProperties.setProperty("title", "YouTube Feeds");
 
 		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
 	}
@@ -92,11 +95,11 @@ class MainMenuScreen extends PanelScreen
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
-		if(!this.savedDataProvider && dataInvalid)
+		if(this.savedDataProvider == null && dataInvalid)
 		{
 			this._list.dataProvider = null;
 			this._message.visible = true;
-			if(this._loader)
+			if(this._loader != null)
 			{
 				this.cleanUpLoader();
 			}
@@ -113,7 +116,7 @@ class MainMenuScreen extends PanelScreen
 
 	private function cleanUpLoader():Void
 	{
-		if(!this._loader)
+		if(this._loader == null)
 		{
 			return;
 		}
@@ -123,39 +126,38 @@ class MainMenuScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseFeed(feed:XML):Void
+	private function parseFeed(feed:Xml):Void
 	{
 		this._message.visible = false;
 
-		var atom:Namespace = feed.namespace("atom");
-		var yt:Namespace = feed.namespace("yt");
-		var deprecatedElement:QName = new QName(yt, "deprecated");
-		var browsableElement:QName = new QName(yt, "browsable");
+		//var atom:Namespace = feed.namespace("atom");
+		//var yt:Namespace = feed.namespace("yt");
+		var deprecatedElement:String = "deprecated";
+		var browsableElement:String = "browsable";
 
 		var items:Array<VideoFeed> = new Array();
-		var categories:XMLList = feed.atom::category;
-		var categoryCount:Int = categories.length();
-		for(i in 0 ... categoryCount)
+		var categories:Iterator<Xml> = feed.elementsNamed("category");
+		for(category in categories)
 		{
-			var category:XML = categories[i];
 			var item:VideoFeed = new VideoFeed();
-			if(category.elements(deprecatedElement).length() > 0)
+			if(category.elementsNamed(deprecatedElement).hasNext())
 			{
 				continue;
 			}
-			var browsable:XMLList = category.elements(browsableElement);
-			if(browsable.length() < 0)
+			var browsable:Iterator<Xml> = category.elementsNamed(browsableElement);
+			if(!browsable.hasNext())
 			{
 				continue;
 			}
-			var regions:String = browsable[0].@regions.toString();
+			var regions:String = browsable.next().get("regions");
 			if(regions.toString().indexOf("US") < 0)
 			{
 				continue;
 			}
-			item.name = category.@label[0].toString();
-			var term:String = category.@term[0].toString();
-			item.url = FEED_URL_BEFORE + encodeURI(term) + FEED_URL_AFTER;
+			item.name = category.get("label");
+			var term:String = category.get("term");
+			//item.url = FEED_URL_BEFORE + encodeURI(term) + FEED_URL_AFTER;
+			item.url = FEED_URL_BEFORE + term + FEED_URL_AFTER;
 			items.push(item);
 		}
 		var collection:ListCollection = new ListCollection(items);
@@ -173,22 +175,22 @@ class MainMenuScreen extends PanelScreen
 	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-		if(!screenItem.properties)
+		if(screenItem.properties == null)
 		{
 			screenItem.properties = {};
 		}
 		//we're going to save the position of the list so that when the user
 		//navigates back to this screen, they won't need to scroll back to
 		//the same position manually
-		screenItem.properties.savedVerticalScrollPosition = this._list.verticalScrollPosition;
+		Reflect.setField(screenItem.properties, "savedVerticalScrollPosition", this._list.verticalScrollPosition);
 		//we'll also save the selected index to temporarily highlight
 		//the previously selected item when transitioning back
-		screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
+		Reflect.setField(screenItem.properties, "savedSelectedIndex", this._list.selectedIndex);
 		//and we'll save the data provider so that we don't need to reload
 		//data when we return to this screen. we can restore it.
-		screenItem.properties.savedDataProvider = this._list.dataProvider;
+		Reflect.setField(screenItem.properties, "savedDataProvider", this._list.dataProvider);
 
-		this.dispatchEventWith(LIST_VIDEOS, false, VideoFeed(this._list.selectedItem));
+		this.dispatchEventWith(LIST_VIDEOS, false, cast(this._list.selectedItem, VideoFeed));
 	}
 
 	private function owner_transitionCompleteHandler(event:starling.events.Event):Void
@@ -210,8 +212,8 @@ class MainMenuScreen extends PanelScreen
 	{
 		try
 		{
-			var loaderData:* = this._loader.data;
-			this.parseFeed(new XML(loaderData));
+			var loaderData:Dynamic = this._loader.data;
+			this.parseFeed(Xml.parse(loaderData).firstElement());
 		}
 		catch(error:Error)
 		{

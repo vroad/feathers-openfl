@@ -15,6 +15,7 @@ class DragSource extends LayoutGroup implements IDragSource
 {
 	public function new(dragFormat:String)
 	{
+		super();
 		this._dragFormat = dragFormat;
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 		this.addEventListener(DragDropEvent.DRAG_START, dragStartHandler);
@@ -46,9 +47,10 @@ class DragSource extends LayoutGroup implements IDragSource
 			//one drag at a time, please
 			return;
 		}
+		var touch:Touch;
 		if(this._touchID >= 0)
 		{
-			var touch:Touch = event.getTouch(this._draggedObject, null, this._touchID);
+			touch = event.getTouch(this._draggedObject, null, this._touchID);
 			if(touch.phase == TouchPhase.MOVED)
 			{
 				this._touchID = -1;
@@ -68,7 +70,7 @@ class DragSource extends LayoutGroup implements IDragSource
 		else
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(!touch || touch.target == this || touch.target == this._background)
+			if(touch == null || touch.target == this || touch.target == this._background)
 			{
 				return;
 			}

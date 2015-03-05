@@ -242,12 +242,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._dataProvider == value)
 		{
-			return;
+			return get_dataProvider();
 		}
 		var oldSelectedIndex:Int = this.selectedIndex;
 		var oldSelectedItem:Dynamic = this.selectedItem;
 		this._dataProvider = value;
-		if(!this._dataProvider || this._dataProvider.length == 0)
+		if(this._dataProvider == null || this._dataProvider.length == 0)
 		{
 			this.selectedIndex = -1;
 		}
@@ -262,6 +262,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.dispatchEventWith(Event.CHANGE);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_dataProvider();
 	}
 
 	/**
@@ -317,11 +318,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._selectedIndex == value)
 		{
-			return;
+			return get_selectedIndex();
 		}
 		this._selectedIndex = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_selectedIndex();
 	}
 	
 	/**
@@ -357,7 +359,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	public var selectedItem(get, set):Dynamic;
 	public function get_selectedItem():Dynamic
 	{
-		if(!this._dataProvider || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
+		if(this._dataProvider == null || this._selectedIndex < 0 || this._selectedIndex >= this._dataProvider.length)
 		{
 			return null;
 		}
@@ -369,12 +371,13 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	public function set_selectedItem(value:Dynamic):Dynamic
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			this.selectedIndex = -1;
-			return;
+			return get_selectedItem();
 		}
 		this.selectedIndex = this._dataProvider.getItemIndex(value);
+		return get_selectedItem();
 	}
 
 	/**
@@ -408,10 +411,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._prompt == value)
 		{
-			return;
+			return get_prompt();
 		}
 		this._prompt = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		return get_prompt();
 	}
 	
 	/**
@@ -454,16 +458,17 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._labelField == value)
 		{
-			return;
+			return get_labelField();
 		}
 		this._labelField = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_labelField();
 	}
 	
 	/**
 	 * @private
 	 */
-	private var _labelFunction:Dynamic;
+	private var _labelFunction:Dynamic->String;
 
 	/**
 	 * A function used to generate label text for the selected item
@@ -496,8 +501,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelField
 	 */
-	public var labelFunction(get, set):Dynamic;
-	public function get_labelFunction():Dynamic
+	public var labelFunction(get, set):Dynamic->String;
+	public function get_labelFunction():Dynamic->String
 	{
 		return this._labelFunction;
 	}
@@ -505,10 +510,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFunction(value:Dynamic):Dynamic
+	public function set_labelFunction(value:Dynamic->String):Dynamic->String
 	{
 		this._labelFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_labelFunction();
 	}
 	
 	/**
@@ -539,22 +545,24 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._popUpContentManager == value)
 		{
-			return;
+			return get_popUpContentManager();
 		}
+		var dispatcher:EventDispatcher;
 		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			var dispatcher:EventDispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.removeEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.removeEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this._popUpContentManager = value;
 		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			dispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.addEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.addEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_popUpContentManager();
 	}
 
 	/**
@@ -573,7 +581,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	private var _typicalItem:Dynamic = null;
 	
 	/**
-	 * Used to auto-size the list. If the list's width or height is Math.NaN, the
+	 * Used to auto-size the list. If the list's width or height is NaN, the
 	 * list will try to automatically pick an ideal size. This item is
 	 * used in that process to create a sample item renderer.
 	 *
@@ -599,18 +607,19 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._typicalItem == value)
 		{
-			return;
+			return get_typicalItem();
 		}
 		this._typicalItem = value;
 		this._typicalItemWidth = Math.NaN;
 		this._typicalItemHeight = Math.NaN;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_typicalItem();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _buttonFactory:Dynamic;
+	private var _buttonFactory:Void->Button;
 
 	/**
 	 * A function used to generate the picker list's button sub-component.
@@ -640,8 +649,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.Button
 	 * @see #buttonProperties
 	 */
-	public var buttonFactory(get, set):Dynamic;
-	public function get_buttonFactory():Dynamic
+	public var buttonFactory(get, set):Void->Button;
+	public function get_buttonFactory():Void->Button
 	{
 		return this._buttonFactory;
 	}
@@ -649,14 +658,15 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonFactory(value:Dynamic):Dynamic
+	public function set_buttonFactory(value:Void->Button):Void->Button
 	{
 		if(this._buttonFactory == value)
 		{
-			return;
+			return get_buttonFactory();
 		}
 		this._buttonFactory = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_buttonFactory();
 	}
 
 	/**
@@ -700,10 +710,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customButtonName == value)
 		{
-			return;
+			return get_customButtonName();
 		}
 		this._customButtonName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_customButtonName();
 	}
 	
 	/**
@@ -738,10 +749,10 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see feathers.controls.Button
 	 */
-	public var buttonProperties(get, set):Dynamic;
-	public function get_buttonProperties():Dynamic
+	public var buttonProperties(get, set):PropertyProxy;
+	public function get_buttonProperties():PropertyProxy
 	{
-		if(!this._buttonProperties)
+		if(this._buttonProperties == null)
 		{
 			this._buttonProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -751,41 +762,42 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_buttonProperties(value:Dynamic):Dynamic
+	public function set_buttonProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._buttonProperties == value)
 		{
-			return;
+			return get_buttonProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._buttonProperties)
+		if(this._buttonProperties != null)
 		{
 			this._buttonProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._buttonProperties = PropertyProxy(value);
-		if(this._buttonProperties)
+		this._buttonProperties = value;
+		if(this._buttonProperties != null)
 		{
 			this._buttonProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_buttonProperties();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _listFactory:Dynamic;
+	private var _listFactory:Void->List;
 
 	/**
 	 * A function used to generate the picker list's pop-up list
@@ -814,8 +826,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
-	public var listFactory(get, set):Dynamic;
-	public function get_listFactory():Dynamic
+	public var listFactory(get, set):Void->List;
+	public function get_listFactory():Void->List
 	{
 		return this._listFactory;
 	}
@@ -823,14 +835,15 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listFactory(value:Dynamic):Dynamic
+	public function set_listFactory(value:Void->List):Void->List
 	{
 		if(this._listFactory == value)
 		{
-			return;
+			return get_listFactory();
 		}
 		this._listFactory = value;
 		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+		return get_listFactory();
 	}
 
 	/**
@@ -874,10 +887,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customListName == value)
 		{
-			return;
+			return get_customListName();
 		}
 		this._customListName = value;
 		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+		return get_customListName();
 	}
 	
 	/**
@@ -912,10 +926,10 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
-	public var listProperties(get, set):Dynamic;
-	public function get_listProperties():Dynamic
+	public var listProperties(get, set):PropertyProxy;
+	public function get_listProperties():PropertyProxy
 	{
-		if(!this._listProperties)
+		if(this._listProperties == null)
 		{
 			this._listProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -925,35 +939,36 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_listProperties(value:Dynamic):Dynamic
+	public function set_listProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._listProperties == value)
 		{
-			return;
+			return get_listProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._listProperties)
+		if(this._listProperties != null)
 		{
 			this._listProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._listProperties = PropertyProxy(value);
-		if(this._listProperties)
+		this._listProperties = value;
+		if(this._listProperties != null)
 		{
 			this._listProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_listProperties();
 	}
 
 	/**
@@ -992,20 +1007,21 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._toggleButtonOnOpenAndClose == value)
 		{
-			return;
+			return get_toggleButtonOnOpenAndClose();
 		}
 		this._toggleButtonOnOpenAndClose = value;
 		if(Std.is(this.button, IToggle))
 		{
 			if(this._toggleButtonOnOpenAndClose && this._popUpContentManager.isOpen)
 			{
-				IToggle(this.button).isSelected = true;
+				cast(this.button, IToggle).isSelected = true;
 			}
 			else
 			{
-				IToggle(this.button).isSelected = false;
+				cast(this.button, IToggle).isSelected = false;
 			}
 		}
+		return get_toggleButtonOnOpenAndClose();
 	}
 
 	/**
@@ -1029,27 +1045,28 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	public function itemToLabel(item:Dynamic):String
 	{
+		var labelResult:Dynamic;
 		if(this._labelFunction != null)
 		{
-			var labelResult:Dynamic = this._labelFunction(item);
+			labelResult = this._labelFunction(item);
 			if(Std.is(labelResult, String))
 			{
-				return labelResult as String;
+				return cast(labelResult, String);
 			}
 			return labelResult.toString();
 		}
 		else if(this._labelField != null && item && item.hasOwnProperty(this._labelField))
 		{
-			labelResult = item[this._labelField];
+			labelResult = Reflect.getProperty(item, this._labelField);
 			if(Std.is(labelResult, String))
 			{
-				return labelResult as String;
+				return cast(labelResult, String);
 			}
 			return labelResult.toString();
 		}
 		else if(Std.is(item, String))
 		{
-			return item as String;
+			return cast(item, String);
 		}
 		else if(item)
 		{
@@ -1092,7 +1109,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		this._popUpContentManager.open(this.list, this);
 		this.list.scrollToDisplayIndex(this._selectedIndex);
 		this.list.validate();
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this._focusManager.focus = this.list;
 			this.stage.addEventListener(KeyboardEvent.KEY_UP, stage_keyUpHandler);
@@ -1129,13 +1146,13 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override public function dispose():Void
 	{
-		if(this.list)
+		if(this.list != null)
 		{
 			this.closeList();
 			this.list.dispose();
 			this.list = null;
 		}
-		if(this._popUpContentManager)
+		if(this._popUpContentManager != null)
 		{
 			this._popUpContentManager.dispose();
 			this._popUpContentManager = null;
@@ -1148,7 +1165,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override public function showFocus():Void
 	{
-		if(!this.button)
+		if(this.button == null)
 		{
 			return;
 		}
@@ -1160,7 +1177,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override public function hideFocus():Void
 	{
-		if(!this.button)
+		if(this.button == null)
 		{
 			return;
 		}
@@ -1172,7 +1189,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function initialize():Void
 	{
-		if(!this._popUpContentManager)
+		if(this._popUpContentManager == null)
 		{
 			if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 			{
@@ -1237,9 +1254,10 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.refreshListProperties();
 		}
 		
+		var oldIgnoreSelectionChanges:Bool;
 		if(listFactoryInvalid || dataInvalid)
 		{
-			var oldIgnoreSelectionChanges:Bool = this._ignoreSelectionChanges;
+			oldIgnoreSelectionChanges = this._ignoreSelectionChanges;
 			this._ignoreSelectionChanges = true;
 			this.list.dataProvider = this._dataProvider;
 			this._ignoreSelectionChanges = oldIgnoreSelectionChanges;
@@ -1371,19 +1389,19 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function createButton():Void
 	{
-		if(this.button)
+		if(this.button != null)
 		{
 			this.button.removeFromParent(true);
 			this.button = null;
 		}
 
-		var factory:Dynamic = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
+		var factory:Void->Button = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
 		var buttonName:String = this._customButtonName != null ? this._customButtonName : this.buttonName;
-		this.button = Button(factory());
+		this.button = factory();
 		if(Std.is(this.button, ToggleButton))
 		{
 			//we'll control the value of isSelected manually
-			ToggleButton(this.button).isToggle = false;
+			cast(this.button, ToggleButton).isToggle = false;
 		}
 		this.button.styleNameList.add(buttonName);
 		this.button.addEventListener(TouchEvent.TOUCH, button_touchHandler);
@@ -1404,7 +1422,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function createList():Void
 	{
-		if(this.list)
+		if(this.list != null)
 		{
 			this.list.removeFromParent(false);
 			//disposing separately because the list may not have a parent
@@ -1412,9 +1430,9 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.list = null;
 		}
 
-		var factory:Dynamic = this._listFactory != null ? this._listFactory : defaultListFactory;
+		var factory:Void->List = this._listFactory != null ? this._listFactory : defaultListFactory;
 		var listName:String = this._customListName != null ? this._customListName : this.listName;
-		this.list = List(factory());
+		this.list = factory();
 		this.list.focusOwner = this;
 		this.list.styleNameList.add(listName);
 		this.list.addEventListener(Event.CHANGE, list_changeHandler);
@@ -1443,10 +1461,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshButtonProperties():Void
 	{
-		for (propertyName in this._buttonProperties)
+		if (this._buttonProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._buttonProperties.storage))
 		{
-			var propertyValue:Dynamic = this._buttonProperties[propertyName];
-			this.button[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._buttonProperties.storage, propertyName);
+			Reflect.setProperty(this.button, propertyName, propertyValue);
 		}
 	}
 	
@@ -1455,10 +1475,12 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshListProperties():Void
 	{
-		for (propertyName in this._listProperties)
+		if (this._listProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._listProperties.storage))
 		{
-			var propertyValue:Dynamic = this._listProperties[propertyName];
-			this.list[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._listProperties.storage, propertyName);
+			Reflect.setProperty(this.list, propertyName, propertyValue);
 		}
 	}
 
@@ -1525,10 +1547,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function button_touchHandler(event:TouchEvent):Void
 	{
+		var touch:Touch;
 		if(this._buttonTouchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this.button, TouchPhase.ENDED, this._buttonTouchPointID);
-			if(!touch)
+			touch = event.getTouch(this.button, TouchPhase.ENDED, this._buttonTouchPointID);
+			if(touch == null)
 			{
 				return;
 			}
@@ -1542,7 +1565,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		else
 		{
 			touch = event.getTouch(this.button, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -1556,7 +1579,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function button_triggeredHandler(event:Event):Void
 	{
-		if(this._focusManager && this._listIsOpenOnTouchBegan)
+		if(this._focusManager != null && this._listIsOpenOnTouchBegan)
 		{
 			return;
 		}
@@ -1601,9 +1624,9 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function popUpContentManager_openHandler(event:Event):Void
 	{
-		if(this._toggleButtonOnOpenAndClose && this.button is IToggle)
+		if(this._toggleButtonOnOpenAndClose && Std.is(this.button, IToggle))
 		{
-			IToggle(this.button).isSelected = true;
+			cast(this.button, IToggle).isSelected = true;
 		}
 	}
 
@@ -1612,9 +1635,9 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function popUpContentManager_closeHandler(event:Event):Void
 	{
-		if(this._toggleButtonOnOpenAndClose && this.button is IToggle)
+		if(this._toggleButtonOnOpenAndClose && Std.is(this.button, IToggle))
 		{
-			IToggle(this.button).isSelected = false;
+			cast(this.button, IToggle).isSelected = false;
 		}
 	}
 
@@ -1623,7 +1646,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function list_removedFromStageHandler(event:Event):Void
 	{
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this.list.stage.removeEventListener(KeyboardEvent.KEY_UP, stage_keyUpHandler);
 			this.list.removeEventListener(FeathersEventType.FOCUS_OUT, list_focusOutHandler);

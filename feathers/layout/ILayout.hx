@@ -18,7 +18,7 @@ import starling.display.DisplayObject;
  *
  * @eventType starling.events.Event.CHANGE
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * Interface providing layout capabilities for containers.
@@ -34,7 +34,8 @@ interface ILayout extends IFeathersEventDispatcher
 	 * May also be used by layouts that toggle item visibility as the items
 	 * scroll into and out of the view port.
 	 */
-	function get_requiresLayoutOnScroll():Bool;
+	var requiresLayoutOnScroll(get, never):Bool;
+	//function get_requiresLayoutOnScroll():Bool;
 
 	/**
 	 * Positions (and possibly resizes) the supplied items within the

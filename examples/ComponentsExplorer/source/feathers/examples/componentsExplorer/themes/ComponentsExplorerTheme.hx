@@ -19,7 +19,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 {
 	public function new()
 	{
-		super();
+		super(false);
 	}
 
 	override private function initializeStyleProviders():Void

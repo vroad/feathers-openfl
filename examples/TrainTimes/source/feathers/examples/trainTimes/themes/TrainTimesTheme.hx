@@ -8,6 +8,7 @@ import feathers.controls.List;
 import feathers.controls.ScrollContainer;
 import feathers.controls.SimpleScrollBar;
 import feathers.controls.renderers.DefaultListItemRenderer;
+import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.controls.text.StageTextTextEditor;
 import feathers.controls.text.TextFieldTextRenderer;
 import feathers.core.DisplayListWatcher;
@@ -23,8 +24,11 @@ import feathers.examples.trainTimes.screens.StationScreen;
 import feathers.examples.trainTimes.screens.TimesScreen;
 import feathers.layout.HorizontalLayout;
 import feathers.system.DeviceCapabilities;
+import feathers.text.BitmapFontTextFormat;
 import feathers.textures.Scale3Textures;
 import feathers.textures.Scale9Textures;
+import openfl.Assets;
+import openfl.text.Font;
 
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
@@ -41,27 +45,32 @@ import starling.textures.TextureAtlas;
 
 class TrainTimesTheme extends DisplayListWatcher
 {
-	[Embed(source="/../assets/images/traintimes.png")]
-	inline private static var ATLAS_IMAGE:Class<Dynamic>;
+	//[Embed(source="/../assets/images/traintimes.png")]
+	//inline private static var ATLAS_IMAGE:Class<Dynamic>;
+	inline private static var ATLAS_IMAGE_FILE_NAME = "assets/images/traintimes.png";
 
-	[Embed(source="/../assets/images/traintimes.xml",mimeType="application/octet-stream")]
-	inline private static var ATLAS_XML:Class<Dynamic>;
+	//[Embed(source="/../assets/images/traintimes.xml",mimeType="application/octet-stream")]
+	//inline private static var ATLAS_XML:Class<Dynamic>;
+	inline private static var ATLAS_XML_FILE_NAME = "assets/images/traintimes.xml";
 
-	[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontName="SourceSansPro",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_REGULAR:Class<Dynamic>;
+	//[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontName="SourceSansPro",mimeType="application/x-font",embedAsCFF="false")]
+	//inline private static var SOURCE_SANS_PRO_REGULAR:Class<Dynamic>;
+	inline private static var SOURCE_SANS_PRO_REGULAR_FILE_NAME = "assets/fonts/SourceSansPro-Regular.ttf";
 
-	[Embed(source="/../assets/fonts/SourceSansPro-Bold.ttf",fontName="SourceSansProBold",fontWeight="bold",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_BOLD:Class<Dynamic>;
+	//[Embed(source="/../assets/fonts/SourceSansPro-Bold.ttf",fontName="SourceSansProBold",fontWeight="bold",mimeType="application/x-font",embedAsCFF="false")]
+	//inline private static var SOURCE_SANS_PRO_BOLD:Class<Dynamic>;
+	inline private static var SOURCE_SANS_PRO_BOLD_FILE_NAME = "assets/fonts/SourceSansPro-Bold.ttf";
 
-	[Embed(source="/../assets/fonts/SourceSansPro-BoldIt.ttf",fontName="SourceSansProBoldItalic",fontWeight="bold",fontStyle="italic",mimeType="application/x-font",embedAsCFF="false")]
-	inline private static var SOURCE_SANS_PRO_BOLD_ITALIC:Class<Dynamic>;
+	//[Embed(source="/../assets/fonts/SourceSansPro-BoldIt.ttf",fontName="SourceSansProBoldItalic",fontWeight="bold",fontStyle="italic",mimeType="application/x-font",embedAsCFF="false")]
+	//inline private static var SOURCE_SANS_PRO_BOLD_ITALIC:Class<Dynamic>;
+	inline private static var SOURCE_SANS_PRO_BOLD_IT_FILE_NAME = "assets/fonts/SourceSansPro-BoldIt.ttf";
 
 	inline private static var TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 
 	inline private static var ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
 	inline private static var ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
-	inline private static var HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
+	private static var HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
 	inline private static var SCROLL_BAR_THUMB_REGION1:Int = 5;
 	inline private static var SCROLL_BAR_THUMB_REGION2:Int = 14;
 
@@ -70,8 +79,12 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private static function textRendererFactory():ITextRenderer
 	{
+		#if (html5 || flash)
 		var renderer:TextFieldTextRenderer = new TextFieldTextRenderer();
-		renderer.embedFonts = true;
+		#else
+		var renderer:BitmapFontTextRenderer = new BitmapFontTextRenderer();
+		#end
+		//renderer.embedFonts = true;
 		return renderer;
 	}
 
@@ -89,7 +102,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	public function new(container:DisplayObjectContainer = null, scaleToDPI:Bool = true)
 	{
-		if(!container)
+		if(container == null)
 		{
 			container = Starling.current.stage;
 		}
@@ -100,7 +113,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private var _originalDPI:Int;
 
-	public var originalDPI(get, set):Int;
+	public var originalDPI(get, never):Int;
 	public function get_originalDPI():Int
 	{
 		return this._originalDPI;
@@ -108,7 +121,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private var _scaleToDPI:Bool;
 
-	public var scaleToDPI(get, set):Bool;
+	public var scaleToDPI(get, never):Bool;
 	public function get_scaleToDPI():Bool
 	{
 		return this._scaleToDPI;
@@ -118,11 +131,19 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private var primaryBackground:TiledImage;
 
+	#if (flash || html5)
 	private var defaultTextFormat:TextFormat;
 	private var selectedTextFormat:TextFormat;
 	private var headerTitleTextFormat:TextFormat;
 	private var stationListNameTextFormat:TextFormat;
 	private var stationListDetailTextFormat:TextFormat;
+	#else
+	private var defaultTextFormat:BitmapFontTextFormat;
+	private var selectedTextFormat:BitmapFontTextFormat;
+	private var headerTitleTextFormat:BitmapFontTextFormat;
+	private var stationListNameTextFormat:BitmapFontTextFormat;
+	private var stationListDetailTextFormat:BitmapFontTextFormat;
+	#end
 
 	private var atlas:TextureAtlas;
 	private var atlasBitmapData:BitmapData;
@@ -142,10 +163,10 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	override public function dispose():Void
 	{
-		if(this.root)
+		if(this.root != null)
 		{
 			this.root.removeEventListener(Event.ADDED_TO_STAGE, root_addedToStageHandler);
-			if(this.primaryBackground)
+			if(this.primaryBackground != null)
 			{
 				this.root.stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 				this.root.removeEventListener(Event.REMOVED_FROM_STAGE, root_removedFromStageHandler);
@@ -153,12 +174,12 @@ class TrainTimesTheme extends DisplayListWatcher
 				this.primaryBackground = null;
 			}
 		}
-		if(this.atlas)
+		if(this.atlas != null)
 		{
 			this.atlas.dispose();
 			this.atlas = null;
 		}
-		if(this.atlasBitmapData)
+		if(this.atlasBitmapData != null)
 		{
 			this.atlasBitmapData.dispose();
 			this.atlasBitmapData = null;
@@ -178,7 +199,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private function initialize():Void
 	{
-		var scaledDPI:Int = DeviceCapabilities.dpi / Starling.current.contentScaleFactor;
+		var scaledDPI:Int = Std.int(DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
 		this._originalDPI = scaledDPI;
 		if(this._scaleToDPI)
 		{
@@ -201,8 +222,8 @@ class TrainTimesTheme extends DisplayListWatcher
 		Callout.stagePaddingTop = Callout.stagePaddingRight = Callout.stagePaddingBottom =
 			Callout.stagePaddingLeft = 16 * this.scale;
 
-		var atlasBitmapData:BitmapData = (new ATLAS_IMAGE()).bitmapData;
-		this.atlas = new TextureAtlas(Texture.fromBitmapData(atlasBitmapData, false), XML(new ATLAS_XML()));
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_IMAGE_FILE_NAME);
+		this.atlas = new TextureAtlas(Texture.fromBitmapData(atlasBitmapData, false), Xml.parse(Assets.getText(ATLAS_XML_FILE_NAME)).firstElement());
 		if(Starling.handleLostContext)
 		{
 			this.atlasBitmapData = atlasBitmapData;
@@ -226,23 +247,42 @@ class TrainTimesTheme extends DisplayListWatcher
 		this.horizontalScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("horizontal-scroll-bar-thumb-skin"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_HORIZONTAL);
 		this.verticalScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("vertical-scroll-bar-thumb-skin"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_VERTICAL);
 
+		
+		var regularFont:Font = Assets.getFont(SOURCE_SANS_PRO_REGULAR_FILE_NAME);
+		var boldFont:Font = Assets.getFont(SOURCE_SANS_PRO_BOLD_FILE_NAME);
+		var boldItFont:Font = Assets.getFont(SOURCE_SANS_PRO_BOLD_IT_FILE_NAME);
 		//we need to use different font names because Flash runtimes seem to
 		//have a bug where setting defaultTextFormat on a TextField with a
 		//different TextFormat that has the same font name as the existing
 		//defaultTextFormat value causes the new TextFormat to be ignored,
 		//even if the new TextFormat has different bold or italic values.
 		//wtf, right?
+		#if flash
 		var regularFontName:String = "SourceSansPro";
 		var boldFontName:String = "SourceSansProBold";
 		var boldItalicFontName:String = "SourceSansProBoldItalic";
+		#else
+		var regularFontName:String = "Source Sans Pro";
+		var boldFontName:String = "Source Sans Pro";
+		var boldItalicFontName:String = "Source Sans Pro";
+		#end
+		#if (flash || html5)
 		this.defaultTextFormat = new TextFormat(regularFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR);
 		this.selectedTextFormat = new TextFormat(boldFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR, true);
 		this.headerTitleTextFormat = new TextFormat(regularFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR);
 		this.stationListNameTextFormat = new TextFormat(boldItalicFontName, Math.round(48 * this.scale), PRIMARY_TEXT_COLOR, true, true);
 		this.stationListDetailTextFormat = new TextFormat(boldFontName, Math.round(24 * this.scale), DETAIL_TEXT_COLOR, true);
 		this.stationListDetailTextFormat.letterSpacing = 6 * this.scale;
+		#else
+		this.defaultTextFormat = new BitmapFontTextFormat(regularFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR);
+		this.selectedTextFormat = new BitmapFontTextFormat(boldFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR);
+		this.headerTitleTextFormat = new BitmapFontTextFormat(regularFontName, Math.round(36 * this.scale), PRIMARY_TEXT_COLOR);
+		this.stationListNameTextFormat = new BitmapFontTextFormat(boldItalicFontName, Math.round(48 * this.scale), PRIMARY_TEXT_COLOR);
+		this.stationListDetailTextFormat = new BitmapFontTextFormat(boldFontName, Math.round(24 * this.scale), DETAIL_TEXT_COLOR);
+		this.stationListDetailTextFormat.letterSpacing = 6 * this.scale;
+		#end
 
-		if(this.root.stage)
+		if(this.root.stage != null)
 		{
 			this.initializeRoot();
 		}
@@ -263,7 +303,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		this.setInitializerForClass(List, timesListInitializer, TimesScreen.CHILD_NAME_TIMES_LIST);
 		this.setInitializerForClass(DefaultListItemRenderer, timesListItemRendererInitializer, TIMES_LIST_ITEM_RENDERER_NAME);
 		this.setInitializerForClass(StationListItemRenderer, stationListItemRendererInitializer);
-		this.setInitializerForClass(ScrollContainer, actionContainerInitializer, StationListItemRenderer.CHILD_NAME_STATION_LIST_ACTION_CONTAINER)
+		this.setInitializerForClass(ScrollContainer, actionContainerInitializer, StationListItemRenderer.CHILD_NAME_STATION_LIST_ACTION_CONTAINER);
 	}
 
 	private function imageLoaderFactory():ImageLoader
@@ -279,7 +319,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		scrollBar.direction = SimpleScrollBar.DIRECTION_HORIZONTAL;
 		var defaultSkin:Scale3Image = new Scale3Image(this.horizontalScrollBarThumbSkinTextures, this.scale);
 		defaultSkin.width = 10 * this.scale;
-		scrollBar.thumbProperties.defaultSkin = defaultSkin;
+		scrollBar.thumbProperties.setProperty("defaultSkin", defaultSkin);
 		scrollBar.paddingRight = scrollBar.paddingBottom = scrollBar.paddingLeft = 4 * this.scale;
 		return scrollBar;
 	}
@@ -290,7 +330,7 @@ class TrainTimesTheme extends DisplayListWatcher
 		scrollBar.direction = SimpleScrollBar.DIRECTION_VERTICAL;
 		var defaultSkin:Scale3Image = new Scale3Image(this.verticalScrollBarThumbSkinTextures, this.scale);
 		defaultSkin.height = 10 * this.scale;
-		scrollBar.thumbProperties.defaultSkin = defaultSkin;
+		scrollBar.thumbProperties.setProperty("defaultSkin", defaultSkin);
 		scrollBar.paddingTop = scrollBar.paddingRight = scrollBar.paddingBottom = 4 * this.scale;
 		return scrollBar;
 	}
@@ -299,17 +339,17 @@ class TrainTimesTheme extends DisplayListWatcher
 
 	private function labelInitializer(label:Label):Void
 	{
-		label.textRendererProperties.textFormat = this.defaultTextFormat;
+		label.textRendererProperties.setProperty("textFormat", this.defaultTextFormat);
 	}
 
 	private function stationListNameLabelInitializer(label:Label):Void
 	{
-		label.textRendererProperties.textFormat = this.stationListNameTextFormat;
+		label.textRendererProperties.setProperty("textFormat", this.stationListNameTextFormat);
 	}
 
 	private function stationListDetailLabelInitializer(label:Label):Void
 	{
-		label.textRendererProperties.textFormat = this.stationListDetailTextFormat;
+		label.textRendererProperties.setProperty("textFormat", this.stationListDetailTextFormat);
 	}
 
 	private function buttonInitializer(button:Button):Void
@@ -355,7 +395,7 @@ class TrainTimesTheme extends DisplayListWatcher
 
 		var backgroundSkin:Scale9Image = new Scale9Image(this.headerBackgroundTextures, this.scale);
 		header.backgroundSkin = backgroundSkin;
-		header.titleProperties.textFormat = this.headerTitleTextFormat;
+		header.titleProperties.setProperty("textFormat", this.headerTitleTextFormat);
 	}
 
 	private function stationListInitializer(list:List):Void
@@ -380,8 +420,8 @@ class TrainTimesTheme extends DisplayListWatcher
 		renderer.defaultSkin = defaultSkin;
 		var defaultSelectedSkin:Quad = new Quad(88 * this.scale, 88 * this.scale, 0xcc2a41);
 		renderer.defaultSelectedSkin = defaultSelectedSkin;
-		renderer.defaultLabelProperties.textFormat = this.defaultTextFormat;
-		renderer.defaultSelectedLabelProperties.textFormat = this.selectedTextFormat;
+		renderer.defaultLabelProperties.setProperty("textFormat", this.defaultTextFormat);
+		renderer.defaultSelectedLabelProperties.setProperty("textFormat", this.selectedTextFormat);
 		renderer.paddingLeft = 8 * this.scale;
 		renderer.paddingRight = 16 * this.scale;
 	}
@@ -389,7 +429,7 @@ class TrainTimesTheme extends DisplayListWatcher
 	private function stationListItemRendererInitializer(renderer:StationListItemRenderer):Void
 	{
 		renderer.paddingLeft = 44 * this.scale;
-		renderer.paddingRight = 32 * this.scale
+		renderer.paddingRight = 32 * this.scale;
 		renderer.iconLoaderFactory = imageLoaderFactory;
 		renderer.normalIconTexture = this.stationListNormalIconTexture;
 		renderer.firstNormalIconTexture = this.stationListFirstNormalIconTexture;

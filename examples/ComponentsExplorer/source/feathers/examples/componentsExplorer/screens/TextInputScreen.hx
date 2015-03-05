@@ -10,12 +10,13 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class TextInputScreen extends PanelScreen
+@:keep class TextInputScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
 	public function new()
 	{
+		super();
 	}
 
 	private var _backButton:Button;
@@ -59,7 +60,7 @@ class TextInputScreen extends PanelScreen
 		this._notEditableInput.isEditable = false;
 		this.addChild(this._notEditableInput);
 
-		this.headerProperties.title = "Text Input";
+		this.headerProperties.setProperty("title", "Text Input");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -68,10 +69,10 @@ class TextInputScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

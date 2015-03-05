@@ -21,46 +21,50 @@ interface IGroupedListHeaderOrFooterRenderer extends IFeathersControl
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_data():Dynamic;
+	var data(get, set):Dynamic;
+	//function get_data():Dynamic;
 
 	/**
 	 * @private
 	 */
-	function set_data(value:Dynamic):Void;
+	//function set_data(value:Dynamic):Void;
 
 	/**
 	 * The index of the group within the data provider of the grouped list.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_groupIndex():Int;
+	var groupIndex(get, set):Int;
+	//function get_groupIndex():Int;
 
 	/**
 	 * @private
 	 */
-	function set_groupIndex(value:Int):Void;
+	//function set_groupIndex(value:Int):Void;
 
 	/**
 	 * The index of the item within the layout.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_layoutIndex():Int;
+	var layoutIndex(get, set):Int;
+	//function get_layoutIndex():Int;
 
 	/**
 	 * @private
 	 */
-	function set_layoutIndex(value:Int):Void;
+	//function set_layoutIndex(value:Int):Void;
 
 	/**
 	 * The grouped list that contains this header or footer renderer.
 	 *
 	 * <p>This property is set by the list, and should not be set manually.</p>
 	 */
-	function get_owner():GroupedList;
+	var owner(get, set):GroupedList;
+	//function get_owner():GroupedList;
 
 	/**
 	 * @private
 	 */
-	function set_owner(value:GroupedList):Void;
+	//function set_owner(value:GroupedList):Void;
 }

@@ -20,20 +20,22 @@ interface IScreen extends IFeathersControl
 	 * The identifier for the screen. This value is passed in by the
 	 * <code>ScreenNavigator</code> when the screen is instantiated.
 	 */
-	function get_screenID():String;
+	var screenID(get, set):String;
+	//function get_screenID():String;
 
 	/**
 	 * @private
 	 */
-	function set_screenID(value:String):Void;
+	//function set_screenID(value:String):Void;
 
 	/**
 	 * The ScreenNavigator that is displaying this screen.
 	 */
-	function get_owner():ScreenNavigator;
+	var owner(get, set):ScreenNavigator;
+	//function get_owner():ScreenNavigator;
 
 	/**
 	 * @private
 	 */
-	function set_owner(value:ScreenNavigator):Void;
+	//function set_owner(value:ScreenNavigator):Void;
 }

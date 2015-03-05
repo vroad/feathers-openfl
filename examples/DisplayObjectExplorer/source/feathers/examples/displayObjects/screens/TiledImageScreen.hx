@@ -2,9 +2,11 @@ package feathers.examples.displayObjects.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.Screen;
+import feathers.core.FeathersControl;
 import feathers.display.TiledImage;
 import feathers.examples.displayObjects.themes.DisplayObjectExplorerTheme;
 import feathers.skins.IStyleProvider;
+import openfl.Assets;
 
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -13,13 +15,15 @@ import starling.textures.Texture;
 
 class TiledImageScreen extends Screen
 {
-	[Embed(source="/../assets/images/tile-pattern.png")]
-	inline private static var TILE_TEXTURE:Class<Dynamic>;
+	//[Embed(source="/../assets/images/tile-pattern.png")]
+	//inline private static var TILE_TEXTURE:Class<Dynamic>;
+	inline private static var TILE_TEXTURE_FILE_NAME = "assets/images/tile-pattern.png";
 
 	public static var globalStyleProvider:IStyleProvider;
 
 	public function new()
 	{
+		super();
 	}
 
 	private var _header:Header;
@@ -52,10 +56,11 @@ class TiledImageScreen extends Screen
 	{
 		if(this._padding == value)
 		{
-			return;
+			return get_padding();
 		}
 		this._padding = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_padding();
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider
@@ -65,7 +70,7 @@ class TiledImageScreen extends Screen
 
 	override public function dispose():Void
 	{
-		if(this._texture)
+		if(this._texture != null)
 		{
 			this._texture.dispose();
 			this._texture = null;
@@ -79,7 +84,7 @@ class TiledImageScreen extends Screen
 		this._header.title = "Tiled Image";
 		this.addChild(this._header);
 
-		this._texture = Texture.fromEmbeddedAsset(TILE_TEXTURE);
+		this._texture = Texture.fromBitmapData(Assets.getBitmapData(TILE_TEXTURE_FILE_NAME), false);
 
 		this._image = new TiledImage(this._texture);
 		this._minDisplayObjectWidth = this._image.width;
@@ -129,7 +134,7 @@ class TiledImageScreen extends Screen
 	private function rightButton_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._rightButton);
-		if(!touch || (this._rightTouchPointID >= 0 && touch.id != this._rightTouchPointID))
+		if(touch == null || (this._rightTouchPointID >= 0 && touch.id != this._rightTouchPointID))
 		{
 			return;
 		}
@@ -143,7 +148,7 @@ class TiledImageScreen extends Screen
 		else if(touch.phase == TouchPhase.MOVED)
 		{
 			this._image.width = Math.min(this._maxDisplayObjectWidth, Math.max(this._minDisplayObjectWidth, this._startWidth + touch.globalX - this._startX));
-			this.layoutButtons()
+			this.layoutButtons();
 		}
 		else if(touch.phase == TouchPhase.ENDED)
 		{
@@ -154,7 +159,7 @@ class TiledImageScreen extends Screen
 	private function bottomButton_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this._bottomButton);
-		if(!touch || (this._bottomTouchPointID >= 0 && touch.id != this._bottomTouchPointID))
+		if(touch == null || (this._bottomTouchPointID >= 0 && touch.id != this._bottomTouchPointID))
 		{
 			return;
 		}
@@ -168,7 +173,7 @@ class TiledImageScreen extends Screen
 		else if(touch.phase == TouchPhase.MOVED)
 		{
 			this._image.height = Math.min(this._maxDisplayObjectHeight, Math.max(this._minDisplayObjectHeight, this._startHeight + touch.globalY - this._startY));
-			this.layoutButtons()
+			this.layoutButtons();
 		}
 		else if(touch.phase == TouchPhase.ENDED)
 		{

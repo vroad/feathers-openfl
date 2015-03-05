@@ -38,7 +38,7 @@ import feathers.system.DeviceCapabilities;
 import starling.core.Starling;
 import starling.events.Event;
 
-class Main extends Drawers
+@:keep class Main extends Drawers
 {
 	inline private static var MAIN_MENU:String = "mainMenu";
 	inline private static var ALERT:String = "alert";
@@ -65,7 +65,7 @@ class Main extends Drawers
 	inline private static var TEXT_INPUT:String = "textInput";
 	inline private static var TOGGLES:String = "toggles";
 
-	inline private static var MAIN_MENU_EVENTS:Dynamic =
+	private static var MAIN_MENU_EVENTS:Dynamic =
 	{
 		showAlert: ALERT,
 		showButton: BUTTON,
@@ -268,7 +268,7 @@ class Main extends Drawers
 			//enable clipping.
 			this._navigator.clipContent = true;
 			this._menu = new MainMenuScreen();
-			for (eventType in MAIN_MENU_EVENTS)
+			for (eventType in Reflect.fields(MAIN_MENU_EVENTS))
 			{
 				this._menu.addEventListener(eventType, mainMenuEventHandler);
 			}
@@ -285,7 +285,7 @@ class Main extends Drawers
 
 	private function mainMenuEventHandler(event:Event):Void
 	{
-		var screenName:String = MAIN_MENU_EVENTS[event.type];
+		var screenName:String = Reflect.field(MAIN_MENU_EVENTS, event.type);
 		//because we're controlling the navigation externally, it doesn't
 		//make sense to transition or keep a history
 		this._transitionManager.clearStack();

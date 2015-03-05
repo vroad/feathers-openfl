@@ -37,7 +37,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 */
 	public function dispose():Void
 	{
-		if(this._registry)
+		if(this._registry != null)
 		{
 			this._registry.dispose();
 			this._registry = null;
@@ -50,6 +50,6 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 */
 	private function getStyleProviderForClass(type:Class<Dynamic>):StyleNameFunctionStyleProvider
 	{
-		return StyleNameFunctionStyleProvider(this._registry.getStyleProvider(type));
+		return cast this._registry.getStyleProvider(type);
 	}
 }

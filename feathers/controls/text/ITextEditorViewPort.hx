@@ -15,6 +15,6 @@ import feathers.core.ITextEditor;
  * @see feathers.controls.TextArea
  * @see http://wiki.starling-framework.org/feathers/text-editors
  */
-interface ITextEditorViewPort extends ITextEditor, IViewPort
+interface ITextEditorViewPort extends ITextEditor extends IViewPort
 {
 }

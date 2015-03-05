@@ -29,7 +29,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).length;
+		return cast(data, Array<Dynamic>).length;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array)[index];
+		return cast(data, Array<Dynamic>)[index];
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array)[index] = item;
+		cast(data, Array<Dynamic>)[index] = item;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array).splice(index, 0, item);
+		cast(data, Array<Dynamic>).insert(index, item);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).splice(index, 1)[0];
+		return cast(data, Array<Dynamic>).splice(index, 1)[0];
 	}
 
 	/**
@@ -74,7 +74,8 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Array).length = 0;
+		var arr = cast(data, Array<Dynamic>);
+		arr.splice(0, arr.length);
 	}
 	
 	/**
@@ -83,7 +84,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Array).indexOf(item);
+		return cast(data, Array<Dynamic>).indexOf(item);
 	}
 	
 	/**
@@ -93,7 +94,7 @@ class ArrayListCollectionDataDescriptor implements IListCollectionDataDescriptor
 	{
 		if(!(Std.is(data, Array)))
 		{
-			throw new IllegalOperationError("Expected Array. Received " + Object(data).constructor + " instead.");
+			throw new IllegalOperationError("Expected Array. Received " + Type.getClass(data) + " instead.");
 		}
 	}
 }

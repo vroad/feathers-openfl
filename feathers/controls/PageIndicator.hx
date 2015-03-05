@@ -57,12 +57,12 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
+	private static var LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	inline private static var SUGGESTED_BOUNDS:ViewPortBounds = new ViewPortBounds();
+	private static var SUGGESTED_BOUNDS:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
@@ -240,10 +240,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._pageCount == value)
 		{
-			return;
+			return get_pageCount();
 		}
 		this._pageCount = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_pageCount();
 	}
 
 	/**
@@ -285,14 +286,15 @@ class PageIndicator extends FeathersControl
 	 */
 	public function set_selectedIndex(value:Int):Int
 	{
-		value = Math.max(0, Math.min(value, this._pageCount - 1));
+		value = Std.int(Math.max(0, Math.min(value, this._pageCount - 1)));
 		if(this._selectedIndex == value)
 		{
-			return;
+			return get_selectedIndex();
 		}
 		this._selectedIndex = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_selectedIndex();
 	}
 
 	/**
@@ -326,6 +328,7 @@ class PageIndicator extends FeathersControl
 	public function set_interactionMode(value:String):String
 	{
 		this._interactionMode = value;
+		return get_interactionMode();
 	}
 
 	/**
@@ -365,10 +368,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._direction == value)
 		{
-			return;
+			return get_direction();
 		}
 		this._direction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_direction();
 	}
 
 	/**
@@ -405,10 +409,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -445,10 +450,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -479,10 +485,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_gap();
 	}
 
 	/**
@@ -518,6 +525,7 @@ class PageIndicator extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -549,10 +557,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -584,10 +593,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -619,10 +629,11 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -654,16 +665,17 @@ class PageIndicator extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _normalSymbolFactory:Dynamic = defaultNormalSymbolFactory;
+	private var _normalSymbolFactory:Void->DisplayObject = defaultNormalSymbolFactory;
 
 	/**
 	 * A function used to create a normal symbol. May be any Starling
@@ -684,8 +696,8 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #selectedSymbolFactory
 	 */
-	public var normalSymbolFactory(get, set):Dynamic;
-	public function get_normalSymbolFactory():Dynamic
+	public var normalSymbolFactory(get, set):Void->DisplayObject;
+	public function get_normalSymbolFactory():Void->DisplayObject
 	{
 		return this._normalSymbolFactory;
 	}
@@ -693,14 +705,15 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_normalSymbolFactory(value:Dynamic):Dynamic
+	public function set_normalSymbolFactory(value:Void->DisplayObject):Void->DisplayObject
 	{
 		if(this._normalSymbolFactory == value)
 		{
-			return;
+			return get_normalSymbolFactory();
 		}
 		this._normalSymbolFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_normalSymbolFactory();
 	}
 
 	/**
@@ -727,8 +740,8 @@ class PageIndicator extends FeathersControl
 	 * @see http://doc.starling-framework.org/core/starling/display/DisplayObject.html starling.display.DisplayObject
 	 * @see #normalSymbolFactory
 	 */
-	public var selectedSymbolFactory(get, set):Dynamic;
-	public function get_selectedSymbolFactory():Dynamic
+	public var selectedSymbolFactory(get, set):Void->DisplayObject;
+	public function get_selectedSymbolFactory():Void->DisplayObject
 	{
 		return this._selectedSymbolFactory;
 	}
@@ -736,14 +749,15 @@ class PageIndicator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedSymbolFactory(value:Dynamic):Dynamic
+	public function set_selectedSymbolFactory(value:Void->DisplayObject):Void->DisplayObject
 	{
 		if(this._selectedSymbolFactory == value)
 		{
-			return;
+			return get_selectedSymbolFactory();
 		}
 		this._selectedSymbolFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_selectedSymbolFactory();
 	}
 
 	/**
@@ -769,17 +783,19 @@ class PageIndicator extends FeathersControl
 	 */
 	private function refreshSymbols(symbolsInvalid:Bool):Void
 	{
-		this.symbols.length = 0;
+		this.symbols.splice(0, this.symbols.length);
 		var temp:Array<DisplayObject> = this.cache;
+		var symbol:DisplayObject;
+		var symbolCount:Int;
 		if(symbolsInvalid)
 		{
-			var symbolCount:Int = this.unselectedSymbols.length;
+			symbolCount = this.unselectedSymbols.length;
 			for(i in 0 ... symbolCount)
 			{
-				var symbol:DisplayObject = this.unselectedSymbols.shift();
+				symbol = this.unselectedSymbols.shift();
 				this.removeChild(symbol, true);
 			}
-			if(this.selectedSymbol)
+			if(this.selectedSymbol != null)
 			{
 				this.removeChild(this.selectedSymbol, true);
 				this.selectedSymbol = null;
@@ -787,11 +803,11 @@ class PageIndicator extends FeathersControl
 		}
 		this.cache = this.unselectedSymbols;
 		this.unselectedSymbols = temp;
-		for(i = 0; i < this._pageCount; i++)
+		for(i in 0 ... this._pageCount)
 		{
 			if(i == this._selectedIndex)
 			{
-				if(!this.selectedSymbol)
+				if(this.selectedSymbol == null)
 				{
 					this.selectedSymbol = this._selectedSymbolFactory();
 					this.addChild(this.selectedSymbol);
@@ -799,7 +815,7 @@ class PageIndicator extends FeathersControl
 				this.symbols.push(this.selectedSymbol);
 				if(Std.is(this.selectedSymbol, IValidating))
 				{
-					IValidating(this.selectedSymbol).validate();
+					cast(this.selectedSymbol, IValidating).validate();
 				}
 			}
 			else
@@ -817,13 +833,13 @@ class PageIndicator extends FeathersControl
 				this.symbols.push(symbol);
 				if(Std.is(symbol, IValidating))
 				{
-					IValidating(symbol).validate();
+					cast(symbol, IValidating).validate();
 				}
 			}
 		}
 
 		symbolCount = this.cache.length;
-		for(i = 0; i < symbolCount; i++)
+		for(i in 0 ... symbolCount)
 		{
 			symbol = this.cache.shift();
 			this.removeChild(symbol, true);
@@ -841,16 +857,16 @@ class PageIndicator extends FeathersControl
 			if(this._direction == DIRECTION_VERTICAL && !(Std.is(this._layout, VerticalLayout)))
 			{
 				this._layout = new VerticalLayout();
-				IVirtualLayout(this._layout).useVirtualLayout = false;
+				cast(this._layout, IVirtualLayout).useVirtualLayout = false;
 			}
 			else if(this._direction != DIRECTION_VERTICAL && !(Std.is(this._layout, HorizontalLayout)))
 			{
 				this._layout = new HorizontalLayout();
-				IVirtualLayout(this._layout).useVirtualLayout = false;
+				cast(this._layout, IVirtualLayout).useVirtualLayout = false;
 			}
 			if(Std.is(this._layout, VerticalLayout))
 			{
-				var verticalLayout:VerticalLayout = VerticalLayout(this._layout);
+				var verticalLayout:VerticalLayout = cast(this._layout, VerticalLayout);
 				verticalLayout.paddingTop = this._paddingTop;
 				verticalLayout.paddingRight = this._paddingRight;
 				verticalLayout.paddingBottom = this._paddingBottom;
@@ -861,7 +877,7 @@ class PageIndicator extends FeathersControl
 			}
 			if(Std.is(this._layout, HorizontalLayout))
 			{
-				var horizontalLayout:HorizontalLayout = HorizontalLayout(this._layout);
+				var horizontalLayout:HorizontalLayout = cast(this._layout, HorizontalLayout);
 				horizontalLayout.paddingTop = this._paddingTop;
 				horizontalLayout.paddingRight = this._paddingRight;
 				horizontalLayout.paddingBottom = this._paddingBottom;
@@ -894,10 +910,11 @@ class PageIndicator extends FeathersControl
 			return;
 		}
 
+		var touch:Touch;
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, TouchPhase.ENDED, this.touchPointID);
-			if(!touch)
+			touch = event.getTouch(this, TouchPhase.ENDED, this.touchPointID);
+			if(touch == null)
 			{
 				return;
 			}
@@ -908,12 +925,13 @@ class PageIndicator extends FeathersControl
 			{
 				var lastPageIndex:Int = this._pageCount - 1;
 				this.globalToLocal(HELPER_POINT, HELPER_POINT);
+				var newIndex:Int;
 				if(this._direction == DIRECTION_VERTICAL)
 				{
 					if(this._interactionMode == INTERACTION_MODE_PRECISE)
 					{
 						var symbolHeight:Float = this.selectedSymbol.height + (this.unselectedSymbols[0].height + this._gap) * lastPageIndex;
-						var newIndex:Int = Math.round(lastPageIndex * (HELPER_POINT.y - this.symbols[0].y) / symbolHeight);
+						newIndex = Math.round(lastPageIndex * (HELPER_POINT.y - this.symbols[0].y) / symbolHeight);
 						if(newIndex < 0)
 						{
 							newIndex = 0;
@@ -928,11 +946,11 @@ class PageIndicator extends FeathersControl
 					{
 						if(HELPER_POINT.y < this.selectedSymbol.y)
 						{
-							this.selectedIndex = Math.max(0, this._selectedIndex - 1);
+							this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
 						}
 						if(HELPER_POINT.y > (this.selectedSymbol.y + this.selectedSymbol.height))
 						{
-							this.selectedIndex = Math.min(lastPageIndex, this._selectedIndex + 1);
+							this.selectedIndex = Std.int(Math.min(lastPageIndex, this._selectedIndex + 1));
 						}
 					}
 				}
@@ -956,11 +974,11 @@ class PageIndicator extends FeathersControl
 					{
 						if(HELPER_POINT.x < this.selectedSymbol.x)
 						{
-							this.selectedIndex = Math.max(0, this._selectedIndex - 1);
+							this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
 						}
 						if(HELPER_POINT.x > (this.selectedSymbol.x + this.selectedSymbol.width))
 						{
-							this.selectedIndex = Math.min(lastPageIndex, this._selectedIndex + 1);
+							this.selectedIndex = Std.int(Math.min(lastPageIndex, this._selectedIndex + 1));
 						}
 					}
 				}
@@ -969,7 +987,7 @@ class PageIndicator extends FeathersControl
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}

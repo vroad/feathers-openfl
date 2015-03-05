@@ -58,7 +58,8 @@ interface IPopUpContentManager
 	/**
 	 * Indicates if the pop-up content is open or not.
 	 */
-	function get_isOpen():Bool;
+	var isOpen(get, never):Bool;
+	//function get_isOpen():Bool;
 
 	/**
 	 * Displays the pop-up content.

@@ -10,7 +10,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class LabelScreen extends PanelScreen
+@:keep class LabelScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
@@ -55,7 +55,7 @@ class LabelScreen extends PanelScreen
 		this._detailLabel.text = "While a detail label is for smaller, less important text.";
 		this.addChild(this._detailLabel);
 
-		this.headerProperties.title = "Label";
+		this.headerProperties.setProperty("title", "Label");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -64,10 +64,10 @@ class LabelScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

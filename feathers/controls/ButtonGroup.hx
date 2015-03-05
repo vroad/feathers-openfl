@@ -58,7 +58,7 @@ import starling.events.Event;
  */
 //[Event(name="triggered", type="starling.events.Event")]
 
-[DefaultProperty("dataProvider")]
+//[DefaultProperty("dataProvider")]
 /**
  * A set of related buttons with layout, customized using a data provider.
  *
@@ -105,7 +105,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_BUTTON_FIELDS:Array<String> = new <String>
+	private static var DEFAULT_BUTTON_FIELDS:Array<String> = 
 	[
 		"defaultIcon",
 		"upIcon",
@@ -124,7 +124,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_BUTTON_EVENTS:Array<String> = new <String>
+	private static var DEFAULT_BUTTON_EVENTS:Array<String> = 
 	[
 		Event.TRIGGERED,
 		Event.CHANGE,
@@ -231,6 +231,7 @@ class ButtonGroup extends FeathersControl
 	public function new()
 	{
 		super();
+		_buttonInitializer = defaultButtonInitializer;
 	}
 
 	/**
@@ -383,18 +384,19 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._dataProvider == value)
 		{
-			return;
+			return get_dataProvider();
 		}
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.removeEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
 		this._dataProvider = value;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.addEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_dataProvider();
 	}
 
 	/**
@@ -450,10 +452,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._direction == value)
 		{
-			return;
+			return get_direction();
 		}
 		this._direction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_direction();
 	}
 
 	/**
@@ -491,10 +494,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -532,10 +536,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -571,10 +576,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._distributeButtonSizes == value)
 		{
-			return;
+			return get_distributeButtonSizes();
 		}
 		this._distributeButtonSizes = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_distributeButtonSizes();
 	}
 
 	/**
@@ -606,10 +612,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -646,10 +653,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._firstGap == value)
 		{
-			return;
+			return get_firstGap();
 		}
 		this._firstGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_firstGap();
 	}
 
 	/**
@@ -686,10 +694,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._lastGap == value)
 		{
-			return;
+			return get_lastGap();
 		}
 		this._lastGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_lastGap();
 	}
 
 	/**
@@ -726,6 +735,7 @@ class ButtonGroup extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -758,10 +768,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -794,10 +805,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -830,10 +842,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -866,16 +879,17 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _buttonFactory:Dynamic = defaultButtonFactory;
+	private var _buttonFactory:Void->Button = defaultButtonFactory;
 
 	/**
 	 * Creates a new button. A button must be an instance of <code>Button</code>.
@@ -905,8 +919,8 @@ class ButtonGroup extends FeathersControl
 	 * @see #firstButtonFactory
 	 * @see #lastButtonFactory
 	 */
-	public var buttonFactory(get, set):Dynamic;
-	public function get_buttonFactory():Dynamic
+	public var buttonFactory(get, set):Void->Button;
+	public function get_buttonFactory():Void->Button
 	{
 		return this._buttonFactory;
 	}
@@ -914,20 +928,21 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonFactory(value:Dynamic):Dynamic
+	public function set_buttonFactory(value:Void->Button):Void->Button
 	{
 		if(this._buttonFactory == value)
 		{
-			return;
+			return get_buttonFactory();
 		}
 		this._buttonFactory = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_buttonFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _firstButtonFactory:Dynamic;
+	private var _firstButtonFactory:Void->Button;
 
 	/**
 	 * Creates a new first button. If the <code>firstButtonFactory</code> is
@@ -959,8 +974,8 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #lastButtonFactory
 	 */
-	public var firstButtonFactory(get, set):Dynamic;
-	public function get_firstButtonFactory():Dynamic
+	public var firstButtonFactory(get, set):Void->Button;
+	public function get_firstButtonFactory():Void->Button
 	{
 		return this._firstButtonFactory;
 	}
@@ -968,20 +983,21 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_firstButtonFactory(value:Dynamic):Dynamic
+	public function set_firstButtonFactory(value:Void->Button):Void->Button
 	{
 		if(this._firstButtonFactory == value)
 		{
-			return;
+			return get_firstButtonFactory();
 		}
 		this._firstButtonFactory = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_firstButtonFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _lastButtonFactory:Dynamic;
+	private var _lastButtonFactory:Void->Button;
 
 	/**
 	 * Creates a new last button. If the <code>lastButtonFactory</code> is
@@ -1013,8 +1029,8 @@ class ButtonGroup extends FeathersControl
 	 * @see #buttonFactory
 	 * @see #firstButtonFactory
 	 */
-	public var lastButtonFactory(get, set):Dynamic;
-	public function get_lastButtonFactory():Dynamic
+	public var lastButtonFactory(get, set):Void->Button;
+	public function get_lastButtonFactory():Void->Button
 	{
 		return this._lastButtonFactory;
 	}
@@ -1022,20 +1038,21 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_lastButtonFactory(value:Dynamic):Dynamic
+	public function set_lastButtonFactory(value:Void->Button):Void->Button
 	{
 		if(this._lastButtonFactory == value)
 		{
-			return;
+			return get_lastButtonFactory();
 		}
 		this._lastButtonFactory = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_lastButtonFactory();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _buttonInitializer:Dynamic = defaultButtonInitializer;
+	private var _buttonInitializer:Button->Dynamic->Void/* = defaultButtonInitializer*/;
 
 	/**
 	 * Modifies a button, perhaps by changing its label and icons, based on the
@@ -1060,8 +1077,8 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #dataProvider
 	 */
-	public var buttonInitializer(get, set):Dynamic;
-	public function get_buttonInitializer():Dynamic
+	public var buttonInitializer(get, set):Button->Dynamic->Void;
+	public function get_buttonInitializer():Button->Dynamic->Void
 	{
 		return this._buttonInitializer;
 	}
@@ -1069,14 +1086,15 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonInitializer(value:Dynamic):Dynamic
+	public function set_buttonInitializer(value:Button->Dynamic->Void):Button->Dynamic->Void
 	{
 		if(this._buttonInitializer == value)
 		{
-			return;
+			return get_buttonInitializer();
 		}
 		this._buttonInitializer = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_buttonInitializer();
 	}
 
 	/**
@@ -1117,10 +1135,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customButtonName == value)
 		{
-			return;
+			return get_customButtonName();
 		}
 		this._customButtonName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_customButtonName();
 	}
 
 	/**
@@ -1160,10 +1179,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customFirstButtonName == value)
 		{
-			return;
+			return get_customFirstButtonName();
 		}
 		this._customFirstButtonName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_customFirstButtonName();
 	}
 
 	/**
@@ -1203,10 +1223,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customLastButtonName == value)
 		{
-			return;
+			return get_customLastButtonName();
 		}
 		this._customLastButtonName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		return get_customLastButtonName();
 	}
 
 	/**
@@ -1245,10 +1266,10 @@ class ButtonGroup extends FeathersControl
 	 * @see #lastButtonFactory
 	 * @see feathers.controls.Button
 	 */
-	public var buttonProperties(get, set):Dynamic;
-	public function get_buttonProperties():Dynamic
+	public var buttonProperties(get, set):PropertyProxy;
+	public function get_buttonProperties():PropertyProxy
 	{
-		if(!this._buttonProperties)
+		if(this._buttonProperties == null)
 		{
 			this._buttonProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1258,35 +1279,36 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_buttonProperties(value:Dynamic):Dynamic
+	public function set_buttonProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._buttonProperties == value)
 		{
-			return;
+			return get_buttonProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._buttonProperties)
+		if(this._buttonProperties != null)
 		{
 			this._buttonProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._buttonProperties = PropertyProxy(value);
-		if(this._buttonProperties)
+		this._buttonProperties = value;
+		if(this._buttonProperties != null)
 		{
 			this._buttonProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_buttonProperties();
 	}
 
 	/**
@@ -1338,10 +1360,10 @@ class ButtonGroup extends FeathersControl
 	private function commitEnabled():Void
 	{
 		var buttonCount:Int = this.activeButtons.length;
-		for(var i:Int = 0; i < buttonCount; i++)
+		for(i in 0 ... buttonCount)
 		{
 			var button:Button = this.activeButtons[i];
-			button.isEnabled &&= this._isEnabled;
+			button.isEnabled = button.isEnabled && this._isEnabled;
 		}
 	}
 
@@ -1350,12 +1372,14 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function refreshButtonStyles():Void
 	{
-		for(var propertyName:String in this._buttonProperties)
+		if (this._buttonProperties == null)
+			return;
+		for(propertyName in Reflect.fields(this._buttonProperties.storage))
 		{
-			var propertyValue:Dynamic = this._buttonProperties[propertyName];
-			for each(var button:Button in this.activeButtons)
+			var propertyValue:Dynamic = Reflect.field(this._buttonProperties.storage, propertyName);
+			for (button in this.activeButtons)
 			{
-				button[propertyName] = propertyValue;
+				Reflect.setProperty(button, propertyName, propertyValue);
 			}
 		}
 	}
@@ -1367,11 +1391,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
-			if(this.horizontalLayout)
+			if(this.horizontalLayout != null)
 			{
 				this.horizontalLayout = null;
 			}
-			if(!this.verticalLayout)
+			if(this.verticalLayout == null)
 			{
 				this.verticalLayout = new VerticalLayout();
 				this.verticalLayout.useVirtualLayout = false;
@@ -1389,11 +1413,11 @@ class ButtonGroup extends FeathersControl
 		}
 		else //horizontal
 		{
-			if(this.verticalLayout)
+			if(this.verticalLayout != null)
 			{
 				this.verticalLayout = null;
 			}
-			if(!this.horizontalLayout)
+			if(this.horizontalLayout == null)
 			{
 				this.horizontalLayout = new HorizontalLayout();
 				this.horizontalLayout.useVirtualLayout = false;
@@ -1416,11 +1440,11 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function defaultButtonInitializer(button:Button, item:Dynamic):Void
 	{
-		if(item is Object)
+		//if(Std.is(item, Dynamic))
 		{
 			if(item.hasOwnProperty(LABEL_FIELD))
 			{
-				button.label = item.label as String;
+				button.label = cast(item.label, String);
 			}
 			else
 			{
@@ -1428,25 +1452,26 @@ class ButtonGroup extends FeathersControl
 			}
 			if(item.hasOwnProperty(ENABLED_FIELD))
 			{
-				button.isEnabled = item.isEnabled as Bool;
+				button.isEnabled = cast(item.isEnabled, Bool);
 			}
 			else
 			{
 				button.isEnabled = this._isEnabled;
 			}
-			for each(var field:String in DEFAULT_BUTTON_FIELDS)
+			for (field in DEFAULT_BUTTON_FIELDS)
 			{
-				if(item.hasOwnProperty(field))
+				var prop:Dynamic = Reflect.getProperty(item, field);
+				if(prop != null)
 				{
-					button[field] = item[field];
+					Reflect.setProperty(button, field, prop);
 				}
 			}
-			for each(field in DEFAULT_BUTTON_EVENTS)
+			for (field in DEFAULT_BUTTON_EVENTS)
 			{
 				var removeListener:Bool = true;
 				if(item.hasOwnProperty(field))
 				{
-					var listener:Dynamic = item[field] as Function;
+					var listener:Dynamic = Reflect.getProperty(item, field);
 					if(listener == null)
 					{
 						continue;
@@ -1465,10 +1490,10 @@ class ButtonGroup extends FeathersControl
 				}
 			}
 		}
-		else
+		/*else
 		{
 			button.label = "";
-		}
+		}*/
 	}
 
 	/**
@@ -1479,8 +1504,8 @@ class ButtonGroup extends FeathersControl
 		var temp:Array<Button> = this.inactiveButtons;
 		this.inactiveButtons = this.activeButtons;
 		this.activeButtons = temp;
-		this.activeButtons.length = 0;
-		this._layoutItems.length = 0;
+		this.activeButtons.splice(0, this.activeButtons.length);
+		this._layoutItems.splice(0, this._layoutItems.length);
 		temp = null;
 		if(isFactoryInvalid)
 		{
@@ -1488,13 +1513,13 @@ class ButtonGroup extends FeathersControl
 		}
 		else
 		{
-			if(this.activeFirstButton)
+			if(this.activeFirstButton != null)
 			{
 				this.inactiveButtons.shift();
 			}
 			this.inactiveFirstButton = this.activeFirstButton;
 
-			if(this.activeLastButton)
+			if(this.activeLastButton != null)
 			{
 				this.inactiveButtons.pop();
 			}
@@ -1504,14 +1529,15 @@ class ButtonGroup extends FeathersControl
 		this.activeLastButton = null;
 
 		var pushIndex:Int = 0;
-		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
+		var itemCount:Int = this._dataProvider != null ? this._dataProvider.length : 0;
 		var lastItemIndex:Int = itemCount - 1;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:Dynamic = this._dataProvider.getItemAt(i);
+			var button:Button;
 			if(i == 0)
 			{
-				var button:Button = this.activeFirstButton = this.createFirstButton(item);
+				button = this.activeFirstButton = this.createFirstButton(item);
 			}
 			else if(i == lastItemIndex)
 			{
@@ -1534,19 +1560,19 @@ class ButtonGroup extends FeathersControl
 	private function clearInactiveButtons():Void
 	{
 		var itemCount:Int = this.inactiveButtons.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var button:Button = this.inactiveButtons.shift();
 			this.destroyButton(button);
 		}
 
-		if(this.inactiveFirstButton)
+		if(this.inactiveFirstButton != null)
 		{
 			this.destroyButton(this.inactiveFirstButton);
 			this.inactiveFirstButton = null;
 		}
 
-		if(this.inactiveLastButton)
+		if(this.inactiveLastButton != null)
 		{
 			this.destroyButton(this.inactiveLastButton);
 			this.inactiveLastButton = null;
@@ -1559,21 +1585,22 @@ class ButtonGroup extends FeathersControl
 	private function createFirstButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
-		if(this.inactiveFirstButton)
+		var button:Button;
+		if(this.inactiveFirstButton != null)
 		{
-			var button:Button = this.inactiveFirstButton;
+			button = this.inactiveFirstButton;
 			this.inactiveFirstButton = null;
 		}
 		else
 		{
 			isNewInstance = true;
-			var factory:Dynamic = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
-			button = Button(factory());
-			if(this._customFirstButtonName)
+			var factory:Void->Button = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
+			button = factory();
+			if(this._customFirstButtonName != null)
 			{
 				button.styleNameList.add(this._customFirstButtonName);
 			}
-			else if(this._customButtonName)
+			else if(this._customButtonName != null)
 			{
 				button.styleNameList.add(this._customButtonName);
 			}
@@ -1600,21 +1627,22 @@ class ButtonGroup extends FeathersControl
 	private function createLastButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
-		if(this.inactiveLastButton)
+		var button:Button;
+		if(this.inactiveLastButton != null)
 		{
-			var button:Button = this.inactiveLastButton;
+			button = this.inactiveLastButton;
 			this.inactiveLastButton = null;
 		}
 		else
 		{
 			isNewInstance = true;
-			var factory:Dynamic = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
-			button = Button(factory());
-			if(this._customLastButtonName)
+			var factory:Void->Button = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
+			button = factory();
+			if(this._customLastButtonName != null)
 			{
 				button.styleNameList.add(this._customLastButtonName);
 			}
-			else if(this._customButtonName)
+			else if(this._customButtonName != null)
 			{
 				button.styleNameList.add(this._customButtonName);
 			}
@@ -1641,11 +1669,12 @@ class ButtonGroup extends FeathersControl
 	private function createButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
+		var button:Button;
 		if(this.inactiveButtons.length == 0)
 		{
 			isNewInstance = true;
-			var button:Button = this._buttonFactory();
-			if(this._customButtonName)
+			button = this._buttonFactory();
+			if(this._customButtonName != null)
 			{
 				button.styleNameList.add(this._customButtonName);
 			}
@@ -1694,11 +1723,11 @@ class ButtonGroup extends FeathersControl
 		this._viewPortBounds.minHeight = this._minHeight;
 		this._viewPortBounds.maxWidth = this._maxWidth;
 		this._viewPortBounds.maxHeight = this._maxHeight;
-		if(this.verticalLayout)
+		if(this.verticalLayout != null)
 		{
 			this.verticalLayout.layout(this._layoutItems, this._viewPortBounds, this._layoutResult);
 		}
-		else if(this.horizontalLayout)
+		else if(this.horizontalLayout != null)
 		{
 			this.horizontalLayout.layout(this._layoutItems, this._viewPortBounds, this._layoutResult);
 		}
@@ -1727,11 +1756,11 @@ class ButtonGroup extends FeathersControl
 	private function button_triggeredHandler(event:Event):Void
 	{
 		//if this was called after dispose, ignore it
-		if(!this._dataProvider || !this.activeButtons)
+		if(this._dataProvider == null || this.activeButtons == null)
 		{
 			return;
 		}
-		var button:Button = Button(event.currentTarget);
+		var button:Button = cast(event.currentTarget, Button);
 		var index:Int = this.activeButtons.indexOf(button);
 		var item:Dynamic = this._dataProvider.getItemAt(index);
 		this.dispatchEventWith(Event.TRIGGERED, false, item);
@@ -1742,18 +1771,19 @@ class ButtonGroup extends FeathersControl
 	 */
 	private function defaultButtonEventsListener(event:Event):Void
 	{
-		var button:Button = Button(event.currentTarget);
+		var button:Button = cast(event.currentTarget, Button);
 		var index:Int = this.activeButtons.indexOf(button);
 		var item:Dynamic = this._dataProvider.getItemAt(index);
 		var field:String = event.type;
 		if(item.hasOwnProperty(field))
 		{
-			var listener:Dynamic = item[field] as Function;
+			var listener:Dynamic = Reflect.getProperty(item, field);
 			if(listener == null)
 			{
 				return;
 			}
-			var argCount:Int = listener.length;
+			listener(event, event.data);
+			/*var argCount:Int = listener.length;
 			if(argCount == 1)
 			{
 				listener(event);
@@ -1765,7 +1795,7 @@ class ButtonGroup extends FeathersControl
 			else
 			{
 				listener();
-			}
+			}*/
 		}
 	}
 }

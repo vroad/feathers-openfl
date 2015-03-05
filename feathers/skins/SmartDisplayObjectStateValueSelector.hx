@@ -6,10 +6,13 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
+import feathers.core.PropertyProxy;
 import feathers.display.Scale3Image;
 import feathers.display.Scale9Image;
 import feathers.textures.Scale3Textures;
 import feathers.textures.Scale9Textures;
+import haxe.ds.WeakMap;
+import openfl.errors.ArgumentError;
 
 import openfl.utils.Dictionary;
 
@@ -30,7 +33,7 @@ import starling.textures.Texture;
  * <p>Additional value type handlers may be added, or the default type
  * handlers may be replaced.</p>
  */
-class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
+class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector<Dynamic>
 {
 	/**
 	 * The value type handler for type <code>starling.textures.Texture</code>.
@@ -39,14 +42,14 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
-		var displayObject:Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor == Image)
+		var displayObject:Image = null;
+		if(oldDisplayObject != null && Std.is(oldDisplayObject, Image))
 		{
-			displayObject = Image(oldDisplayObject);
+			displayObject = cast oldDisplayObject;
 			displayObject.texture = value;
 			displayObject.readjustSize();
 		}
-		if(!displayObject)
+		if(displayObject == null)
 		{
 			displayObject = new Image(value);
 		}
@@ -60,14 +63,14 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public static function scale3TextureValueTypeHandler(value:Scale3Textures, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
-		var displayObject:Scale3Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor == Scale3Image)
+		var displayObject:Scale3Image = null;
+		if(oldDisplayObject != null && Std.is(oldDisplayObject, Scale3Image))
 		{
-			displayObject = Scale3Image(oldDisplayObject);
+			displayObject = cast oldDisplayObject;
 			displayObject.textures = value;
 			displayObject.readjustSize();
 		}
-		if(!displayObject)
+		if(displayObject == null)
 		{
 			displayObject = new Scale3Image(value);
 		}
@@ -81,14 +84,14 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public static function scale9TextureValueTypeHandler(value:Scale9Textures, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
-		var displayObject:Scale9Image;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor == Scale9Image)
+		var displayObject:Scale9Image = null;
+		if(oldDisplayObject != null && Std.is(oldDisplayObject, Scale9Image))
 		{
-			displayObject = Scale9Image(oldDisplayObject);
+			displayObject = cast oldDisplayObject;
 			displayObject.textures = value;
 			displayObject.readjustSize();
 		}
-		if(!displayObject)
+		if(displayObject == null)
 		{
 			displayObject = new Scale9Image(value);
 		}
@@ -103,12 +106,12 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public static function uintValueTypeHandler(value:UInt, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
-		var displayObject:Quad;
-		if(oldDisplayObject && Object(oldDisplayObject).constructor == Quad)
+		var displayObject:Quad = null;
+		if(oldDisplayObject != null && Std.is(oldDisplayObject, Quad))
 		{
-			displayObject = Quad(oldDisplayObject);
+			displayObject = cast oldDisplayObject;
 		}
-		if(!displayObject)
+		if(displayObject == null)
 		{
 			displayObject = new Quad(1, 1, value);
 		}
@@ -121,31 +124,32 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public function new()
 	{
+		super();
 		this.setValueTypeHandler(Texture, textureValueTypeHandler);
 		this.setValueTypeHandler(ConcreteTexture, textureValueTypeHandler);
 		this.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 		this.setValueTypeHandler(Scale9Textures, scale9TextureValueTypeHandler);
 		this.setValueTypeHandler(Scale3Textures, scale3TextureValueTypeHandler);
 		//the constructor property of a uint is actually Float.
-		this.setValueTypeHandler(Float, uintValueTypeHandler);
+		//this.setValueTypeHandler(Float, uintValueTypeHandler);
 	}
 
 	/**
 	 * @private
 	 */
-	private var _displayObjectProperties:Dynamic;
+	private var _displayObjectProperties:PropertyProxy;
 
 	/**
 	 * Optional properties to set on the Scale9Image instance.
 	 *
 	 * @see feathers.display.Scale9Image
 	 */
-	public var displayObjectProperties(get, set):Dynamic;
-	public function get_displayObjectProperties():Dynamic
+	public var displayObjectProperties(get, set):PropertyProxy;
+	public function get_displayObjectProperties():PropertyProxy
 	{
-		if(!this._displayObjectProperties)
+		if(this._displayObjectProperties == null)
 		{
-			this._displayObjectProperties = {};
+			this._displayObjectProperties = new PropertyProxy();
 		}
 		return this._displayObjectProperties;
 	}
@@ -153,25 +157,29 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	public function set_displayObjectProperties(value:Dynamic):Dynamic
+	public function set_displayObjectProperties(value:PropertyProxy):PropertyProxy
 	{
-		this._displayObjectProperties = value;
+		return this._displayObjectProperties = value;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _handlers:Dictionary = new Dictionary(true);
-
+#if flash
+	private var _handlers:WeakMap<String, Dynamic> = new WeakMap();
+#else
+	private var _handlers:Map<String, Dynamic> = new Map();
+#end
 	/**
 	 * @private
 	 */
-	override public function setValueForState(value:Dynamic, state:Dynamic, isSelected:Bool = false):Void
+	override public function setValueForState(value:Dynamic, state:String, isSelected:Bool = false):Void
 	{
 		if(value != null)
 		{
-			var type:Class<Dynamic> = Class(value.constructor);
-			if(this._handlers[type] == null)
+			var type:Class<Dynamic> = Type.getClass(value);
+			var className:String = Type.getClassName(type);
+			if(this._handlers.get(className) == null)
 			{
 				throw new ArgumentError("Handler for value type " + type + " has not been set.");
 			}
@@ -182,7 +190,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	/**
 	 * @private
 	 */
-	override public function updateValue(target:Dynamic, state:Dynamic, oldValue:Dynamic = null):Dynamic
+	override public function updateValue(target:Dynamic, state:String, oldValue:Dynamic = null):Dynamic
 	{
 		var value:Dynamic = super.updateValue(target, state);
 		if(value == null)
@@ -191,19 +199,24 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 		}
 
 		var typeHandler:Dynamic = this.valueToValueTypeHandler(value);
+		var displayObject:DisplayObject;
 		if(typeHandler != null)
 		{
-			var displayObject:DisplayObject = typeHandler(value, oldValue);
+			displayObject = typeHandler(value, oldValue);
 		}
 		else
 		{
-			throw new ArgumentError("Invalid value: ", value);
+			throw new ArgumentError("Invalid value: " + value);
 		}
 
-		for (propertyName in this._displayObjectProperties)
+		var className:String = Type.getClassName(Type.getClass(target));
+		var instanceFields:Array<String> = Type.getInstanceFields(Type.getClass(displayObject));
+		for (propertyName in Reflect.fields(this._displayObjectProperties.storage))
 		{
-			var propertyValue:Dynamic = this._displayObjectProperties[propertyName];
-			displayObject[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._displayObjectProperties.storage, propertyName);
+			if (instanceFields.indexOf("get_" + propertyName) == -1)
+				trace('Couldn\'t find a property named "$propertyName" from $className"');
+			Reflect.setProperty(displayObject, propertyName, propertyValue);
 		}
 
 		return displayObject;
@@ -222,7 +235,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public function setValueTypeHandler(type:Class<Dynamic>, handler:Dynamic):Void
 	{
-		this._handlers[type] = handler;
+		this._handlers.set(Type.getClassName(type), handler);
 	}
 
 	/**
@@ -230,7 +243,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public function getValueTypeHandler(type:Class<Dynamic>):Dynamic
 	{
-		return this._handlers[type] as Function;
+		return this._handlers.get(Type.getClassName(type));
 	}
 
 	/**
@@ -238,7 +251,7 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	public function clearValueTypeHandler(type:Class<Dynamic>):Void
 	{
-		delete this._handlers[type];
+		this._handlers.remove(Type.getClassName(type));
 	}
 
 	/**
@@ -246,7 +259,8 @@ class SmartDisplayObjectStateValueSelector extends StateWithToggleValueSelector
 	 */
 	private function valueToValueTypeHandler(value:Dynamic):Dynamic
 	{
-		var type:Class<Dynamic> = Class(value.constructor);
-		return this._handlers[type] as Function;
+		var type:Class<Dynamic> = Type.getClass(value);
+		var className:String = Type.getClassName(type);
+		return this._handlers.get(className);
 	}
 }

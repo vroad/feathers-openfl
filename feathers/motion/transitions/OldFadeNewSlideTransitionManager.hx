@@ -9,7 +9,8 @@ package feathers.motion.transitions;
 import feathers.controls.IScreen;
 import feathers.controls.ScreenNavigator;
 
-import openfl.utils.getQualifiedClassName;
+import openfl.errors.ArgumentError;
+//import openfl.utils.getQualifiedClassName;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -42,21 +43,21 @@ class OldFadeNewSlideTransitionManager
 	 */
 	public function new(navigator:ScreenNavigator, quickStackScreenClass:Class<Dynamic> = null, quickStackScreenID:String = null)
 	{
-		if(!navigator)
+		if(navigator == null)
 		{
 			throw new ArgumentError("ScreenNavigator cannot be null.");
 		}
 		this.navigator = navigator;
-		var quickStack:String;
-		if(quickStackScreenClass)
+		var quickStack:String = null;
+		if(quickStackScreenClass != null)
 		{
-			quickStack = getQualifiedClassName(quickStackScreenClass);
+			quickStack = Type.getClassName(quickStackScreenClass);
 		}
-		if(quickStack && quickStackScreenID)
+		if(quickStack != null && quickStackScreenID != null)
 		{
 			quickStack += "~" + quickStackScreenID;
 		}
-		if(quickStack)
+		if(quickStack != null)
 		{
 			this._stack.push(quickStack);
 		}
@@ -126,7 +127,7 @@ class OldFadeNewSlideTransitionManager
 	 */
 	public function clearStack():Void
 	{
-		this._stack.length = 0;
+		this._stack.splice(0, this._stack.length);
 	}
 	
 	/**
@@ -135,18 +136,18 @@ class OldFadeNewSlideTransitionManager
 	 */
 	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
-		if(this._activeTransition)
+		if(this._activeTransition != null)
 		{
 			Starling.current.juggler.remove(this._activeTransition);
 			this._activeTransition = null;
 			this._savedOtherTarget = null;
 		}
 
-		if(!oldScreen || this.skipNextTransition)
+		if(oldScreen == null || this.skipNextTransition)
 		{
 			this.skipNextTransition = false;
 			this._savedCompleteHandler = null;
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 			}
@@ -159,7 +160,7 @@ class OldFadeNewSlideTransitionManager
 		
 		this._savedCompleteHandler = onComplete;
 		
-		if(!newScreen)
+		if(newScreen == null)
 		{
 			oldScreen.x = 0;
 			this._activeTransition = new Tween(oldScreen, this.duration, this.ease);
@@ -169,18 +170,18 @@ class OldFadeNewSlideTransitionManager
 			Starling.current.juggler.add(this._activeTransition);
 			return;
 		}
-		var newScreenClassAndID:String = getQualifiedClassName(newScreen);
+		var newScreenClassAndID:String = Type.getClassName(Type.getClass(newScreen));
 		if(Std.is(newScreen, IScreen))
 		{
-			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
+			newScreenClassAndID += "~" + cast(newScreen, IScreen).screenID;
 		}
 		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
 		if(stackIndex < 0)
 		{
-			var oldScreenClassAndID:String = getQualifiedClassName(oldScreen);
+			var oldScreenClassAndID:String = Type.getClassName(Type.getClass(oldScreen));
 			if(Std.is(oldScreen, IScreen))
 			{
-				oldScreenClassAndID += "~" + IScreen(oldScreen).screenID;
+				oldScreenClassAndID += "~" + cast(oldScreen, IScreen).screenID;
 			}
 			this._stack.push(oldScreenClassAndID);
 			oldScreen.x = 0;
@@ -188,7 +189,7 @@ class OldFadeNewSlideTransitionManager
 		}
 		else
 		{
-			this._stack.length = stackIndex;
+			this._stack.splice(stackIndex, this._stack.length - stackIndex);
 			oldScreen.x = 0;
 			newScreen.x = -this.navigator.width;
 		}
@@ -207,7 +208,7 @@ class OldFadeNewSlideTransitionManager
 	 */
 	private function activeTransition_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
 			this._savedOtherTarget.alpha = 1 - this._activeTransition.currentTime / this._activeTransition.totalTime;
 		}

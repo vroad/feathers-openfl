@@ -124,7 +124,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 		{
 			return;
 		}
-		this._owner = value;
+		return this._owner = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 	}
 

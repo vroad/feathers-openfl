@@ -29,7 +29,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function getLength(data:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<*>).length;
+		return (cast(data, Array<Dynamic>)).length;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function getItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<*>)[index];
+		return (cast(data, Array<Dynamic>))[index];
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function setItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<*>)[index] = item;
+		cast(data, Array<Dynamic>)[index] = item;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function addItemAt(data:Dynamic, item:Dynamic, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<*>).splice(index, 0, item);
+		cast(data, Array<Dynamic>).insert(index, item);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function removeItemAt(data:Dynamic, index:Int):Dynamic
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<*>).splice(index, 1)[0];
+		return cast(data, Array<Dynamic>).splice(index, 1)[0];
 	}
 
 	/**
@@ -74,7 +74,8 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function removeAll(data:Dynamic):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<*>).length = 0;
+		var arr = cast(data, Array<Dynamic>);
+		arr.splice(0, arr.length);
 	}
 	
 	/**
@@ -83,7 +84,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	public function getItemIndex(data:Dynamic, item:Dynamic):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<*>).indexOf(item);
+		return cast(data, Array<Dynamic>).indexOf(item);
 	}
 	
 	/**
@@ -91,9 +92,9 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	 */
 	private function checkForCorrectDataType(data:Dynamic):Void
 	{
-		if(!(data is Vector.<*>))
+		if(!Std.is(data, Array))
 		{
-			throw new IllegalOperationError("Expected Vector. Received " + Object(data).constructor + " instead.");
+			throw new IllegalOperationError("Expected Vector. Received " + Type.getClass(data) + " instead.");
 		}
 	}
 }

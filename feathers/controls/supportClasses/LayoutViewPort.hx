@@ -8,6 +8,8 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.supportClasses;
 import feathers.controls.LayoutGroup;
 import feathers.core.IValidating;
+import openfl.errors.ArgumentError;
+import feathers.core.FeathersControl;
 
 import starling.display.DisplayObject;
 
@@ -19,6 +21,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 {
 	public function new()
 	{
+		super();
 	}
 
 	private var _minVisibleWidth:Float = 0;
@@ -33,14 +36,15 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._minVisibleWidth == value)
 		{
-			return;
+			return this._minVisibleWidth;
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleWidth cannot be Math.NaN");
+			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
 		this._minVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return this._minVisibleWidth;
 	}
 
 	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
@@ -55,14 +59,15 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._maxVisibleWidth == value)
 		{
-			return;
+			return this._maxVisibleWidth;
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleWidth cannot be Math.NaN");
+			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
 		this._maxVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return this._maxVisibleWidth;
 	}
 
 	private var _actualVisibleWidth:Float = 0;
@@ -84,10 +89,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		if(this._explicitVisibleWidth == value ||
 			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
 		{
-			return;
+			return get_visibleWidth();
 		}
 		this._explicitVisibleWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_visibleWidth();
 	}
 
 	private var _minVisibleHeight:Float = 0;
@@ -102,14 +108,15 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._minVisibleHeight == value)
 		{
-			return;
+			return this._minVisibleHeight;
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("minVisibleHeight cannot be Math.NaN");
+			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
 		this._minVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return this._minVisibleHeight;
 	}
 
 	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
@@ -124,14 +131,15 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._maxVisibleHeight == value)
 		{
-			return;
+			return this._maxVisibleHeight;
 		}
 		if(value != value) //isNaN
 		{
-			throw new ArgumentError("maxVisibleHeight cannot be Math.NaN");
+			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
 		this._maxVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return this._maxVisibleHeight;
 	}
 
 	private var _actualVisibleHeight:Float = 0;
@@ -153,10 +161,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		if(this._explicitVisibleHeight == value ||
 			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
 		{
-			return;
+			return get_visibleHeight();
 		}
 		this._explicitVisibleHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_visibleHeight();
 	}
 
 	private var _contentX:Float = 0;
@@ -166,10 +175,15 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		return this._contentX;
 	}
+	
+	public function set_contentX(unused:Float):Float
+	{
+		return this._contentX;
+	}
 
 	private var _contentY:Float = 0;
 
-	public var contentY(get, set):Float;
+	public var contentY(get, never):Float;
 	public function get_contentY():Float
 	{
 		return this._contentY;
@@ -184,8 +198,13 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 		return this.actualHeight / 10;
 	}
+	
+	public function set_horizontalScrollStep(unused:Float):Float
+	{
+		return get_horizontalScrollStep();
+	}
 
-	public var verticalScrollStep(get, set):Float;
+	public var verticalScrollStep(get, never):Float;
 	public function get_verticalScrollStep():Float
 	{
 		if(this.actualWidth < this.actualHeight)
@@ -207,10 +226,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._horizontalScrollPosition == value)
 		{
-			return;
+			return this._horizontalScrollPosition;
 		}
 		this._horizontalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		return this._horizontalScrollPosition;
 	}
 
 	private var _verticalScrollPosition:Float = 0;
@@ -225,10 +245,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 		if(this._verticalScrollPosition == value)
 		{
-			return;
+			return this._verticalScrollPosition;
 		}
 		this._verticalScrollPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		return this._verticalScrollPosition;
 	}
 
 	override public function dispose():Void
@@ -247,7 +268,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 		if(scrollInvalid || sizeInvalid || layoutInvalid)
 		{
-			if(this._layout)
+			if(this._layout != null)
 			{
 				this._contentX = this._layoutResult.contentX;
 				this._contentY = this._layoutResult.contentY;
@@ -294,7 +315,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			var item:DisplayObject = this.items[i];
 			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 			var itemX:Float = item.x;
 			var itemY:Float = item.y;

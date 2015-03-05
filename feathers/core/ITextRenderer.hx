@@ -13,28 +13,30 @@ import openfl.geom.Point;
  *
  * @see http://wiki.starling-framework.org/feathers/text-renderers
  */
-interface ITextRenderer extends IFeathersControl, ITextBaselineControl
+interface ITextRenderer extends IFeathersControl extends ITextBaselineControl
 {
 	/**
 	 * The text to render.
 	 */
-	function get_text():String;
+	var text(get, set):String;
+	//function get_text():String;
 
 	/**
 	 * @private
 	 */
-	function set_text(value:String):Void;
+	//function set_text(value:String):Void;
 
 	/**
 	 * Determines if the text wraps to the next line when it reaches the
 	 * width of the component.
 	 */
-	function get_wordWrap():Bool;
+	var wordWrap(get, set):Bool;
+	//function get_wordWrap():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_wordWrap(value:Bool):Void;
+	//function set_wordWrap(value:Bool):Void;
 
 	/**
 	 * Measures the text's bounds (without a full validation, if

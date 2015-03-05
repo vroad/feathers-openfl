@@ -28,10 +28,11 @@ interface IGroupedToggle extends IToggle
 	 * radio.toggleGroup = group;
 	 * this.addChild( radio );</listing>
 	 */
-	function get_toggleGroup():ToggleGroup;
+	var toggleGroup(get, set):ToggleGroup;
+	//function get_toggleGroup():ToggleGroup;
 
 	/**
 	 * @private
 	 */
-	function set_toggleGroup(value:ToggleGroup):Void;
+	//function set_toggleGroup(value:ToggleGroup):Void;
 }

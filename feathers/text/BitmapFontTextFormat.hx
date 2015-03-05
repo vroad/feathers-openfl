@@ -11,6 +11,8 @@ import openfl.text.TextFormatAlign;
 import starling.text.BitmapFont;
 import starling.text.TextField;
 
+import openfl.errors.ArgumentError;
+
 /**
  * Customizes a bitmap font for use by a <code>BitmapFontTextRenderer</code>.
  * 
@@ -21,17 +23,23 @@ class BitmapFontTextFormat
 	/**
 	 * Constructor.
 	 */
-	public function new(font:Dynamic, size:Float = Math.NaN, color:UInt = 0xffffff, align:String = TextFormatAlign.LEFT)
+	public function new(font:Dynamic, size:Null<Float> = null, color:UInt = 0xffffff, align:TextFormatAlign = null)
 	{
-		if(font is String)
+		if (align == null) align = TextFormatAlign.LEFT;
+		if(Std.is(font, String))
 		{
-			font = TextField.getBitmapFont(font as String);
+			var fontName:String = cast(font, String);
+			font = TextField.getBitmapFont(fontName);
+			#if native
+			if (font == null)
+				font = TextField.getFTBitmapFont(fontName, Std.int(size));
+			#end
 		}
-		if(!(font is BitmapFont))
+		if(!Std.is(font, BitmapFont))
 		{
 			throw new ArgumentError("BitmapFontTextFormat font must be a BitmapFont instance or a String representing the name of a registered bitmap font.");
 		}
-		this.font = BitmapFont(font);
+		this.font = font;
 		this.size = size;
 		this.color = color;
 		this.align = align;
@@ -40,10 +48,10 @@ class BitmapFontTextFormat
 	/**
 	 * The name of the font.
 	 */
-	public var fontName(get, set):String;
+	@:keep public var fontName(get, never):String;
 	public function get_fontName():String
 	{
-		return this.font ? this.font.name : null;
+		return this.font != null ? this.font.name : null;
 	}
 	
 	/**
@@ -59,10 +67,10 @@ class BitmapFontTextFormat
 	public var color:UInt;
 	
 	/**
-	 * The size at which to display the bitmap font. Set to <code>Math.NaN</code>
+	 * The size at which to display the bitmap font. Set to <code>NaN</code>
 	 * to use the default size in the BitmapFont instance.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var size:Float;
 	
@@ -80,7 +88,7 @@ class BitmapFontTextFormat
 	 *
 	 * @default openfl.text.TextFormatAlign.LEFT
 	 */
-	public var align:String = TextFormatAlign.LEFT;
+	public var align:TextFormatAlign = TextFormatAlign.LEFT;
 	
 	/**
 	 * Determines if the kerning values defined in the BitmapFont instance

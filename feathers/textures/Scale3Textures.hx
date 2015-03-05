@@ -7,6 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.textures;
 import openfl.geom.Rectangle;
+import openfl.errors.ArgumentError;
 
 import starling.textures.Texture;
 
@@ -40,7 +41,7 @@ class Scale3Textures
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * Constructor.
@@ -65,7 +66,7 @@ class Scale3Textures
 			secondRegionSize /= textureScale;
 		}
 		var textureFrame:Rectangle = texture.frame;
-		if(!textureFrame)
+		if(textureFrame == null)
 		{
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, texture.width, texture.height);
@@ -90,7 +91,7 @@ class Scale3Textures
 	/**
 	 * The original texture.
 	 */
-	public var texture(get, set):Texture;
+	public var texture(get, never):Texture;
 	public function get_texture():Texture
 	{
 		return this._texture;
@@ -104,7 +105,7 @@ class Scale3Textures
 	/**
 	 * The size of the first region, in pixels.
 	 */
-	public var firstRegionSize(get, set):Float;
+	public var firstRegionSize(get, never):Float;
 	public function get_firstRegionSize():Float
 	{
 		return this._firstRegionSize;
@@ -118,7 +119,7 @@ class Scale3Textures
 	/**
 	 * The size of the second region, in pixels.
 	 */
-	public var secondRegionSize(get, set):Float;
+	public var secondRegionSize(get, never):Float;
 	public function get_secondRegionSize():Float
 	{
 		return this._secondRegionSize;
@@ -137,7 +138,7 @@ class Scale3Textures
 	 * @see #DIRECTION_HORIZONTAL
 	 * @see #DIRECTION_VERTICAL
 	 */
-	public var direction(get, set):String;
+	public var direction(get, never):String;
 	public function get_direction():String
 	{
 		return this._direction;
@@ -151,7 +152,7 @@ class Scale3Textures
 	/**
 	 * The texture for the first region.
 	 */
-	public var first(get, set):Texture;
+	public var first(get, never):Texture;
 	public function get_first():Texture
 	{
 		return this._first;
@@ -165,7 +166,7 @@ class Scale3Textures
 	/**
 	 * The texture for the second region.
 	 */
-	public var second(get, set):Texture;
+	public var second(get, never):Texture;
 	public function get_second():Texture
 	{
 		return this._second;
@@ -179,7 +180,7 @@ class Scale3Textures
 	/**
 	 * The texture for the third region.
 	 */
-	public var third(get, set):Texture;
+	public var third(get, never):Texture;
 	public function get_third():Texture
 	{
 		return this._third;
@@ -191,7 +192,7 @@ class Scale3Textures
 	private function initialize():Void
 	{
 		var textureFrame:Rectangle = this._texture.frame;
-		if(!textureFrame)
+		if(textureFrame == null)
 		{
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, this._texture.width, this._texture.height);
@@ -206,26 +207,36 @@ class Scale3Textures
 			thirdRegionSize = textureFrame.width - this._firstRegionSize - this._secondRegionSize;
 		}
 
+		var hasTopFrame:Bool;
+		var hasRightFrame:Bool;
+		var hasBottomFrame:Bool;
+		var hasLeftFrame:Bool;
+		var firstRegion:Rectangle;
+		var firstFrame:Rectangle;
+		var secondRegion:Rectangle;
+		var secondFrame:Rectangle;
+		var thirdRegion:Rectangle;
+		var thirdFrame:Rectangle;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			var regionTopHeight:Float = this._firstRegionSize + textureFrame.y;
 			var regionBottomHeight:Float = thirdRegionSize - (textureFrame.height - this._texture.height) - textureFrame.y;
 
-			var hasTopFrame:Bool = regionTopHeight != this._firstRegionSize;
-			var hasRightFrame:Bool = (textureFrame.width - textureFrame.x) != this._texture.width;
-			var hasBottomFrame:Bool = regionBottomHeight != thirdRegionSize;
-			var hasLeftFrame:Bool = textureFrame.x != 0;
+			hasTopFrame = regionTopHeight != this._firstRegionSize;
+			hasRightFrame = (textureFrame.width - textureFrame.x) != this._texture.width;
+			hasBottomFrame = regionBottomHeight != thirdRegionSize;
+			hasLeftFrame = textureFrame.x != 0;
 
-			var firstRegion:Rectangle = new Rectangle(0, 0, this._texture.width, regionTopHeight);
-			var firstFrame:Rectangle = (hasLeftFrame || hasRightFrame || hasTopFrame) ? new Rectangle(textureFrame.x, textureFrame.y, textureFrame.width, this._firstRegionSize) : null;
+			firstRegion = new Rectangle(0, 0, this._texture.width, regionTopHeight);
+			firstFrame = (hasLeftFrame || hasRightFrame || hasTopFrame) ? new Rectangle(textureFrame.x, textureFrame.y, textureFrame.width, this._firstRegionSize) : null;
 			this._first = Texture.fromTexture(texture, firstRegion, firstFrame);
 
-			var secondRegion:Rectangle = new Rectangle(0, regionTopHeight, this._texture.width, this._secondRegionSize);
-			var secondFrame:Rectangle = (hasLeftFrame || hasRightFrame) ? new Rectangle(textureFrame.x, 0, textureFrame.width, this._secondRegionSize) : null;
+			secondRegion = new Rectangle(0, regionTopHeight, this._texture.width, this._secondRegionSize);
+			secondFrame = (hasLeftFrame || hasRightFrame) ? new Rectangle(textureFrame.x, 0, textureFrame.width, this._secondRegionSize) : null;
 			this._second = Texture.fromTexture(texture, secondRegion, secondFrame);
 
-			var thirdRegion:Rectangle = new Rectangle(0, regionTopHeight + this._secondRegionSize, this._texture.width, regionBottomHeight);
-			var thirdFrame:Rectangle = (hasLeftFrame || hasRightFrame || hasBottomFrame) ? new Rectangle(textureFrame.x, 0, textureFrame.width, thirdRegionSize) : null;
+			thirdRegion = new Rectangle(0, regionTopHeight + this._secondRegionSize, this._texture.width, regionBottomHeight);
+			thirdFrame = (hasLeftFrame || hasRightFrame || hasBottomFrame) ? new Rectangle(textureFrame.x, 0, textureFrame.width, thirdRegionSize) : null;
 			this._third = Texture.fromTexture(texture, thirdRegion, thirdFrame);
 		}
 		else //horizontal

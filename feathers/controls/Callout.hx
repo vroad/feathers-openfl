@@ -12,7 +12,9 @@ import feathers.core.IValidating;
 import feathers.core.PopUpManager;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
+import openfl.errors.ArgumentError;
+import starling.display.Quad;
 
 import openfl.events.KeyboardEvent;
 import openfl.geom.Point;
@@ -171,7 +173,7 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECT:Rectangle = new Rectangle();
+	private static var HELPER_RECT:Rectangle = new Rectangle();
 
 	/**
 	 * @private
@@ -181,14 +183,15 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DIRECTION_TO_FUNCTION:Dynamic = {};
-	DIRECTION_TO_FUNCTION[DIRECTION_ANY] = positionBestSideOfOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_UP] = positionAboveOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_DOWN] = positionBelowOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_LEFT] = positionToLeftOfOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_RIGHT] = positionToRightOfOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_VERTICAL] = positionAboveOrBelowOrigin;
-	DIRECTION_TO_FUNCTION[DIRECTION_HORIZONTAL] = positionToLeftOrRightOfOrigin;
+	private static var DIRECTION_TO_FUNCTION:Map<String, Callout->Rectangle->Void> = [
+		DIRECTION_ANY => positionBestSideOfOrigin,
+		DIRECTION_UP => positionAboveOrigin,
+		DIRECTION_DOWN => positionBelowOrigin,
+		DIRECTION_LEFT => positionToLeftOfOrigin,
+		DIRECTION_RIGHT => positionToRightOfOrigin,
+		DIRECTION_VERTICAL => positionAboveOrBelowOrigin,
+		DIRECTION_HORIZONTAL => positionToLeftOrRightOfOrigin,
+	];
 
 	/**
 	 * @private
@@ -214,6 +217,7 @@ class Callout extends FeathersControl
 	 * @see #stagePaddingBottom
 	 * @see #stagePaddingLeft
 	 */
+	public static var stagePadding(get, set):Float;
 	public static function get_stagePadding():Float
 	{
 		return Callout.stagePaddingTop;
@@ -222,12 +226,13 @@ class Callout extends FeathersControl
 	/**
 	 * @private
 	 */
-	public static function set_stagePadding(value:Float):Void
+	public static function set_stagePadding(value:Float):Float
 	{
 		Callout.stagePaddingTop = value;
 		Callout.stagePaddingRight = value;
 		Callout.stagePaddingBottom = value;
 		Callout.stagePaddingLeft = value;
+		return get_stagePadding();
 	}
 
 	/**
@@ -303,7 +308,7 @@ class Callout extends FeathersControl
 	 *
 	 * @see #show()
 	 */
-	public static var calloutFactory:Dynamic = defaultCalloutFactory;
+	public static var calloutFactory:Void->Callout = defaultCalloutFactory;
 
 	/**
 	 * Returns an overlay to display with a callout that is modal. Uses the
@@ -329,7 +334,7 @@ class Callout extends FeathersControl
 	 *
 	 * @see #show()
 	 */
-	public static var calloutOverlayFactory:Dynamic = PopUpManager.defaultOverlayFactory;
+	public static var calloutOverlayFactory:Void->DisplayObject = PopUpManager.defaultOverlayFactory;
 
 	/**
 	 * Creates a callout, and then positions and sizes it automatically
@@ -353,27 +358,27 @@ class Callout extends FeathersControl
 	 * }</listing>
 	 */
 	public static function show(content:DisplayObject, origin:DisplayObject, supportedDirections:String = DIRECTION_ANY,
-		isModal:Bool = true, customCalloutFactory:Dynamic = null, customOverlayFactory:Dynamic = null):Callout
+		isModal:Bool = true, customCalloutFactory:Void->Callout = null, customOverlayFactory:Void->DisplayObject = null):Callout
 	{
-		if(!origin.stage)
+		if(origin.stage == null)
 		{
 			throw new ArgumentError("Callout origin must be added to the stage.");
 		}
-		var factory:Dynamic = customCalloutFactory;
+		var factory:Void->Callout = customCalloutFactory;
 		if(factory == null)
 		{
 			factory = calloutFactory != null ? calloutFactory : defaultCalloutFactory;
 		}
-		var callout:Callout = Callout(factory());
+		var callout:Callout = factory();
 		callout.content = content;
 		callout.supportedDirections = supportedDirections;
 		callout.origin = origin;
-		factory = customOverlayFactory;
-		if(factory == null)
+		var overlayFactory:Void->DisplayObject = customOverlayFactory;
+		if(overlayFactory == null)
 		{
-			factory = calloutOverlayFactory != null ? calloutOverlayFactory : PopUpManager.defaultOverlayFactory;
+			overlayFactory = calloutOverlayFactory != null ? calloutOverlayFactory : PopUpManager.defaultOverlayFactory;
 		}
-		PopUpManager.addPopUp(callout, isModal, false, factory);
+		PopUpManager.addPopUp(callout, isModal, false, overlayFactory);
 		return callout;
 	}
 
@@ -388,7 +393,11 @@ class Callout extends FeathersControl
 		var callout:Callout = new Callout();
 		callout.closeOnTouchBeganOutside = true;
 		callout.closeOnTouchEndedOutside = true;
-		callout.closeOnKeys = new <uint>[Keyboard.BACK, Keyboard.ESCAPE];
+#if flash
+		callout.closeOnKeys = [Keyboard.BACK, Keyboard.ESCAPE];
+#else
+		callout.closeOnKeys = [Keyboard.ESCAPE];
+#end
 		return callout;
 	}
 
@@ -397,9 +406,9 @@ class Callout extends FeathersControl
 	 */
 	private static function positionWithSupportedDirections(callout:Callout, globalOrigin:Rectangle, direction:String):Void
 	{
-		if(DIRECTION_TO_FUNCTION.hasOwnProperty(direction))
+		if(DIRECTION_TO_FUNCTION.exists(direction))
 		{
-			var calloutPositionFunction:Dynamic = DIRECTION_TO_FUNCTION[direction];
+			var calloutPositionFunction:Callout->Rectangle->Void = DIRECTION_TO_FUNCTION[direction];
 			calloutPositionFunction(callout, globalOrigin);
 		}
 		else
@@ -675,7 +684,7 @@ class Callout extends FeathersControl
 	 * @see #closeOnTouchBeganOutside
 	 * @see #closeOnTouchEndedOutside
 	 */
-	public var closeOnKeys:Array<uint>;
+	public var closeOnKeys:Array<UInt>;
 
 	/**
 	 * Determines if the callout will be disposed when <code>close()</code>
@@ -757,13 +766,13 @@ class Callout extends FeathersControl
 	{
 		if(this._content == value)
 		{
-			return;
+			return get_content();
 		}
-		if(this._content)
+		if(this._content != null)
 		{
-			if(this._content is IFeathersControl)
+			if(Std.is(this._content, IFeathersControl))
 			{
-				IFeathersControl(this._content).removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
+				cast(this._content, IFeathersControl).removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 			}
 			if(this._content.parent == this)
 			{
@@ -771,16 +780,17 @@ class Callout extends FeathersControl
 			}
 		}
 		this._content = value;
-		if(this._content)
+		if(this._content != null)
 		{
-			if(this._content is IFeathersControl)
+			if(Std.is(this._content, IFeathersControl))
 			{
-				IFeathersControl(this._content).addEventListener(FeathersEventType.RESIZE, content_resizeHandler);
+				cast(this._content, IFeathersControl).addEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 			}
 			this.addChild(this._content);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_content();
 	}
 
 	/**
@@ -823,25 +833,26 @@ class Callout extends FeathersControl
 	{
 		if(this._origin == value)
 		{
-			return;
+			return get_origin();
 		}
-		if(value && !value.stage)
+		if(value != null && value.stage == null)
 		{
 			throw new ArgumentError("Callout origin must have access to the stage.");
 		}
-		if(this._origin)
+		if(this._origin != null)
 		{
 			this.removeEventListener(EnterFrameEvent.ENTER_FRAME, callout_enterFrameHandler);
 			this._origin.removeEventListener(Event.REMOVED_FROM_STAGE, origin_removedFromStageHandler);
 		}
 		this._origin = value;
 		this._lastGlobalBoundsOfOrigin = null;
-		if(this._origin)
+		if(this._origin != null)
 		{
 			this._origin.addEventListener(Event.REMOVED_FROM_STAGE, origin_removedFromStageHandler);
 			this.addEventListener(EnterFrameEvent.ENTER_FRAME, callout_enterFrameHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_ORIGIN);
+		return get_origin();
 	}
 
 	/**
@@ -887,6 +898,7 @@ class Callout extends FeathersControl
 	public function set_supportedDirections(value:String):String
 	{
 		this._supportedDirections = value;
+		return get_supportedDirections();
 	}
 
 	/**
@@ -923,6 +935,7 @@ class Callout extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -955,10 +968,11 @@ class Callout extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -991,10 +1005,11 @@ class Callout extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -1027,10 +1042,11 @@ class Callout extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -1063,10 +1079,11 @@ class Callout extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -1120,10 +1137,11 @@ class Callout extends FeathersControl
 	{
 		if(this._arrowPosition == value)
 		{
-			return;
+			return get_arrowPosition();
 		}
 		this._arrowPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_arrowPosition();
 	}
 
 	/**
@@ -1164,21 +1182,22 @@ class Callout extends FeathersControl
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 
-		if(this._backgroundSkin)
+		if(this._backgroundSkin != null)
 		{
 			this.removeChild(this._backgroundSkin);
 		}
 		this._backgroundSkin = value;
-		if(this._backgroundSkin)
+		if(this._backgroundSkin != null)
 		{
 			this._originalBackgroundWidth = this._backgroundSkin.width;
 			this._originalBackgroundHeight = this._backgroundSkin.height;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -1217,15 +1236,15 @@ class Callout extends FeathersControl
 	{
 		if(this._bottomArrowSkin == value)
 		{
-			return;
+			return get_bottomArrowSkin();
 		}
 
-		if(this._bottomArrowSkin)
+		if(this._bottomArrowSkin != null)
 		{
 			this.removeChild(this._bottomArrowSkin);
 		}
 		this._bottomArrowSkin = value;
-		if(this._bottomArrowSkin)
+		if(this._bottomArrowSkin != null)
 		{
 			this._bottomArrowSkin.visible = false;
 			var index:Int = this.getChildIndex(this._content);
@@ -1239,6 +1258,7 @@ class Callout extends FeathersControl
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_bottomArrowSkin();
 	}
 
 	/**
@@ -1272,15 +1292,15 @@ class Callout extends FeathersControl
 	{
 		if(this._topArrowSkin == value)
 		{
-			return;
+			return get_topArrowSkin();
 		}
 
-		if(this._topArrowSkin)
+		if(this._topArrowSkin != null)
 		{
 			this.removeChild(this._topArrowSkin);
 		}
 		this._topArrowSkin = value;
-		if(this._topArrowSkin)
+		if(this._topArrowSkin != null)
 		{
 			this._topArrowSkin.visible = false;
 			var index:Int = this.getChildIndex(this._content);
@@ -1294,6 +1314,7 @@ class Callout extends FeathersControl
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_topArrowSkin();
 	}
 
 	/**
@@ -1327,15 +1348,15 @@ class Callout extends FeathersControl
 	{
 		if(this._leftArrowSkin == value)
 		{
-			return;
+			return get_leftArrowSkin();
 		}
 
-		if(this._leftArrowSkin)
+		if(this._leftArrowSkin != null)
 		{
 			this.removeChild(this._leftArrowSkin);
 		}
 		this._leftArrowSkin = value;
-		if(this._leftArrowSkin)
+		if(this._leftArrowSkin != null)
 		{
 			this._leftArrowSkin.visible = false;
 			var index:Int = this.getChildIndex(this._content);
@@ -1349,6 +1370,7 @@ class Callout extends FeathersControl
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_leftArrowSkin();
 	}
 
 	/**
@@ -1382,15 +1404,15 @@ class Callout extends FeathersControl
 	{
 		if(this._rightArrowSkin == value)
 		{
-			return;
+			return get_rightArrowSkin();
 		}
 
-		if(this._rightArrowSkin)
+		if(this._rightArrowSkin != null)
 		{
 			this.removeChild(this._rightArrowSkin);
 		}
 		this._rightArrowSkin = value;
-		if(this._rightArrowSkin)
+		if(this._rightArrowSkin != null)
 		{
 			this._rightArrowSkin.visible = false;
 			var index:Int = this.getChildIndex(this._content);
@@ -1404,6 +1426,7 @@ class Callout extends FeathersControl
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_rightArrowSkin();
 	}
 
 	/**
@@ -1438,10 +1461,11 @@ class Callout extends FeathersControl
 	{
 		if(this._topArrowGap == value)
 		{
-			return;
+			return get_topArrowGap();
 		}
 		this._topArrowGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_topArrowGap();
 	}
 
 	/**
@@ -1476,10 +1500,11 @@ class Callout extends FeathersControl
 	{
 		if(this._bottomArrowGap == value)
 		{
-			return;
+			return get_bottomArrowGap();
 		}
 		this._bottomArrowGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_bottomArrowGap();
 	}
 
 	/**
@@ -1514,10 +1539,11 @@ class Callout extends FeathersControl
 	{
 		if(this._rightArrowGap == value)
 		{
-			return;
+			return get_rightArrowGap();
 		}
 		this._rightArrowGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_rightArrowGap();
 	}
 
 	/**
@@ -1552,10 +1578,11 @@ class Callout extends FeathersControl
 	{
 		if(this._leftArrowGap == value)
 		{
-			return;
+			return get_leftArrowGap();
 		}
 		this._leftArrowGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_leftArrowGap();
 	}
 
 	/**
@@ -1602,10 +1629,11 @@ class Callout extends FeathersControl
 	{
 		if(this._arrowOffset == value)
 		{
-			return;
+			return get_arrowOffset();
 		}
 		this._arrowOffset = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_arrowOffset();
 	}
 
 	/**
@@ -1627,7 +1655,7 @@ class Callout extends FeathersControl
 		var savedContent:DisplayObject = this._content;
 		this.content = null;
 		//remove the content safely if it should not be disposed
-		if(savedContent && this.disposeContent)
+		if(savedContent != null && this.disposeContent)
 		{
 			savedContent.dispose();
 		}
@@ -1639,7 +1667,7 @@ class Callout extends FeathersControl
 	 */
 	public function close(dispose:Bool = false):Void
 	{
-		if(this.parent)
+		if(this.parent != null)
 		{
 			//don't dispose here because we need to keep the event listeners
 			//when dispatching Event.CLOSE. we'll dispose after that.
@@ -1689,9 +1717,9 @@ class Callout extends FeathersControl
 
 		if(stateInvalid)
 		{
-			if(this._content is IFeathersControl)
+			if(Std.is(this._content, IFeathersControl))
 			{
-				IFeathersControl(this._content).isEnabled = this._isEnabled;
+				cast(this._content, IFeathersControl).isEnabled = this._isEnabled;
 			}
 		}
 
@@ -1730,7 +1758,7 @@ class Callout extends FeathersControl
 	 */
 	private function measureWithArrowPosition(arrowPosition:String, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1743,9 +1771,9 @@ class Callout extends FeathersControl
 			return result;
 		}
 
-		if(this._content is IValidating)
+		if(Std.is(this._content, IValidating))
 		{
-			IValidating(this._content).validate();
+			cast(this._content, IValidating).validate();
 		}
 
 		var newWidth:Float = this.explicitWidth;
@@ -1757,23 +1785,23 @@ class Callout extends FeathersControl
 			{
 				newWidth = Math.max(this._originalBackgroundWidth, newWidth);
 			}
-			if(arrowPosition == ARROW_POSITION_LEFT && this._leftArrowSkin)
+			if(arrowPosition == ARROW_POSITION_LEFT && this._leftArrowSkin != null)
 			{
 				newWidth += this._leftArrowSkin.width + this._leftArrowGap;
 			}
-			if(arrowPosition == ARROW_POSITION_RIGHT && this._rightArrowSkin)
+			if(arrowPosition == ARROW_POSITION_RIGHT && this._rightArrowSkin != null)
 			{
 				newWidth += this._rightArrowSkin.width + this._rightArrowGap;
 			}
-			if(arrowPosition == ARROW_POSITION_TOP && this._topArrowSkin)
+			if(arrowPosition == ARROW_POSITION_TOP && this._topArrowSkin != null)
 			{
 				newWidth = Math.max(newWidth, this._topArrowSkin.width + this._paddingLeft + this._paddingRight);
 			}
-			if(arrowPosition == ARROW_POSITION_BOTTOM && this._bottomArrowSkin)
+			if(arrowPosition == ARROW_POSITION_BOTTOM && this._bottomArrowSkin != null)
 			{
 				newWidth = Math.max(newWidth, this._bottomArrowSkin.width + this._paddingLeft + this._paddingRight);
 			}
-			if(this.stage)
+			if(this.stage != null)
 			{
 				newWidth = Math.min(newWidth, this.stage.stageWidth - stagePaddingLeft - stagePaddingRight);
 			}
@@ -1785,23 +1813,23 @@ class Callout extends FeathersControl
 			{
 				newHeight = Math.max(this._originalBackgroundHeight, newHeight);
 			}
-			if(arrowPosition == ARROW_POSITION_TOP && this._topArrowSkin)
+			if(arrowPosition == ARROW_POSITION_TOP && this._topArrowSkin != null)
 			{
 				newHeight += this._topArrowSkin.height + this._topArrowGap;
 			}
-			if(arrowPosition == ARROW_POSITION_BOTTOM && this._bottomArrowSkin)
+			if(arrowPosition == ARROW_POSITION_BOTTOM && this._bottomArrowSkin != null)
 			{
 				newHeight += this._bottomArrowSkin.height + this._bottomArrowGap;
 			}
-			if(arrowPosition == ARROW_POSITION_LEFT && this._leftArrowSkin)
+			if(arrowPosition == ARROW_POSITION_LEFT && this._leftArrowSkin != null)
 			{
 				newHeight = Math.max(newHeight, this._leftArrowSkin.height + this._paddingTop + this._paddingBottom);
 			}
-			if(arrowPosition == ARROW_POSITION_RIGHT && this._rightArrowSkin)
+			if(arrowPosition == ARROW_POSITION_RIGHT && this._rightArrowSkin != null)
 			{
 				newHeight = Math.max(newHeight, this._rightArrowSkin.height + this._paddingTop + this._paddingBottom);
 			}
-			if(this.stage)
+			if(this.stage != null)
 			{
 				newHeight = Math.min(newHeight, this.stage.stageHeight - stagePaddingTop - stagePaddingBottom);
 			}
@@ -1821,7 +1849,7 @@ class Callout extends FeathersControl
 		{
 			this.currentArrowSkin = this._bottomArrowSkin;
 		}
-		else if(this._bottomArrowSkin)
+		else if(this._bottomArrowSkin != null)
 		{
 			this._bottomArrowSkin.visible = false;
 		}
@@ -1829,7 +1857,7 @@ class Callout extends FeathersControl
 		{
 			this.currentArrowSkin = this._topArrowSkin;
 		}
-		else if(this._topArrowSkin)
+		else if(this._topArrowSkin != null)
 		{
 			this._topArrowSkin.visible = false;
 		}
@@ -1837,7 +1865,7 @@ class Callout extends FeathersControl
 		{
 			this.currentArrowSkin = this._leftArrowSkin;
 		}
-		else if(this._leftArrowSkin)
+		else if(this._leftArrowSkin != null)
 		{
 			this._leftArrowSkin.visible = false;
 		}
@@ -1845,11 +1873,11 @@ class Callout extends FeathersControl
 		{
 			this.currentArrowSkin = this._rightArrowSkin;
 		}
-		else if(this._rightArrowSkin)
+		else if(this._rightArrowSkin != null)
 		{
 			this._rightArrowSkin.visible = false;
 		}
-		if(this.currentArrowSkin)
+		if(this.currentArrowSkin != null)
 		{
 			this.currentArrowSkin.visible = true;
 		}
@@ -1860,13 +1888,13 @@ class Callout extends FeathersControl
 	 */
 	private function layoutChildren():Void
 	{
-		var xPosition:Float = (this._leftArrowSkin && this._arrowPosition == ARROW_POSITION_LEFT) ? this._leftArrowSkin.width + this._leftArrowGap : 0;
-		var yPosition:Float = (this._topArrowSkin &&  this._arrowPosition == ARROW_POSITION_TOP) ? this._topArrowSkin.height + this._topArrowGap : 0;
-		var widthOffset:Float = (this._rightArrowSkin && this._arrowPosition == ARROW_POSITION_RIGHT) ? this._rightArrowSkin.width + this._rightArrowGap : 0;
-		var heightOffset:Float = (this._bottomArrowSkin && this._arrowPosition == ARROW_POSITION_BOTTOM) ? this._bottomArrowSkin.height + this._bottomArrowGap : 0;
+		var xPosition:Float = (this._leftArrowSkin != null && this._arrowPosition == ARROW_POSITION_LEFT) ? this._leftArrowSkin.width + this._leftArrowGap : 0;
+		var yPosition:Float = (this._topArrowSkin != null &&  this._arrowPosition == ARROW_POSITION_TOP) ? this._topArrowSkin.height + this._topArrowGap : 0;
+		var widthOffset:Float = (this._rightArrowSkin != null && this._arrowPosition == ARROW_POSITION_RIGHT) ? this._rightArrowSkin.width + this._rightArrowGap : 0;
+		var heightOffset:Float = (this._bottomArrowSkin != null && this._arrowPosition == ARROW_POSITION_BOTTOM) ? this._bottomArrowSkin.height + this._bottomArrowGap : 0;
 		var backgroundWidth:Float = this.actualWidth - xPosition - widthOffset;
 		var backgroundHeight:Float = this.actualHeight - yPosition - heightOffset;
-		if(this._backgroundSkin)
+		if(this._backgroundSkin != null)
 		{
 			this._backgroundSkin.x = xPosition;
 			this._backgroundSkin.y = yPosition;
@@ -1874,7 +1902,7 @@ class Callout extends FeathersControl
 			this._backgroundSkin.height = backgroundHeight;
 		}
 
-		if(this.currentArrowSkin)
+		if(this.currentArrowSkin != null)
 		{
 			if(this._arrowPosition == ARROW_POSITION_LEFT)
 			{
@@ -1902,7 +1930,7 @@ class Callout extends FeathersControl
 			}
 		}
 
-		if(this._content)
+		if(this._content != null)
 		{
 			this._content.x = xPosition + this._paddingLeft;
 			this._content.y = yPosition + this._paddingTop;
@@ -1933,7 +1961,7 @@ class Callout extends FeathersControl
 	 */
 	private function positionToOrigin():Void
 	{
-		if(!this._origin)
+		if(this._origin == null)
 		{
 			return;
 		}
@@ -2002,7 +2030,7 @@ class Callout extends FeathersControl
 	 */
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
-		var target:DisplayObject = DisplayObject(event.target);
+		var target:DisplayObject = cast(event.target, DisplayObject);
 		if(!this._isReadyToClose ||
 			(!this.closeOnTouchEndedOutside && !this.closeOnTouchBeganOutside) || this.contains(target) ||
 			(PopUpManager.isPopUp(this) && !PopUpManager.isTopLevelPopUp(this)))
@@ -2010,15 +2038,16 @@ class Callout extends FeathersControl
 			return;
 		}
 
-		if(this._origin == target || (this._origin is DisplayObjectContainer && DisplayObjectContainer(this._origin).contains(target)))
+		if(this._origin == target || (Std.is(this._origin, DisplayObjectContainer) && cast(this._origin, DisplayObjectContainer).contains(target)))
 		{
 			return;
 		}
 
+		var touch:Touch;
 		if(this.closeOnTouchBeganOutside)
 		{
-			var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
-			if(touch)
+			touch = event.getTouch(this.stage, TouchPhase.BEGAN);
+			if(touch != null)
 			{
 				this.close(this.disposeOnSelfClose);
 				return;
@@ -2027,7 +2056,7 @@ class Callout extends FeathersControl
 		if(this.closeOnTouchEndedOutside)
 		{
 			touch = event.getTouch(this.stage, TouchPhase.ENDED);
-			if(touch)
+			if(touch != null)
 			{
 				this.close(this.disposeOnSelfClose);
 				return;
@@ -2045,12 +2074,14 @@ class Callout extends FeathersControl
 			//someone else already handled this one
 			return;
 		}
-		if(!this.closeOnKeys || this.closeOnKeys.indexOf(event.keyCode) < 0)
+		if(this.closeOnKeys == null || this.closeOnKeys.indexOf(event.keyCode) < 0)
 		{
 			return;
 		}
 		//don't let the OS handle the event
+#if flash
 		event.preventDefault();
+#end
 		this.close(this.disposeOnSelfClose);
 	}
 

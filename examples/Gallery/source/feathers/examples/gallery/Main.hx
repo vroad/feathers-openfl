@@ -3,6 +3,7 @@ import feathers.controls.Label;
 import feathers.controls.List;
 import feathers.data.ListCollection;
 import feathers.layout.HorizontalLayout;
+import feathers.utils.type.SafeCast.safe_cast;
 
 import openfl.display.Bitmap;
 import openfl.display.Loader;
@@ -22,17 +23,20 @@ import starling.events.Event;
 import starling.events.ResizeEvent;
 import starling.textures.Texture;
 
-class Main extends Sprite
+@:keep class Main extends Sprite
 {
+	inline private static var FLICKR_API_KEY = "";
+
 	//used by the extended theme
 	inline public static var THUMBNAIL_LIST_NAME:String = "thumbnailList";
 
-	inline private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
-	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
+	private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
+	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + FLICKR_API_KEY + "&format=rest";
 	inline private static var FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
 
 	public function new()
 	{
+		super();
 		this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 
@@ -51,12 +55,13 @@ class Main extends Sprite
 		this.list.height = 100;
 		this.list.y = this.stage.stageHeight - this.list.height;
 
-		if(this.selectedImage)
+		var availableHeight:Float;
+		if(this.selectedImage != null)
 		{
-			var availableHeight:Float = this.stage.stageHeight - this.list.height;
+			availableHeight = this.stage.stageHeight - this.list.height;
 			var widthScale:Float = this.stage.stageWidth / this.originalImageWidth;
 			var heightScale:Float = availableHeight / this.originalImageHeight;
-			this.selectedImage.scaleX = this.selectedImage.scaleY = Math.min(1, widthScale, heightScale);
+			this.selectedImage.scaleX = this.selectedImage.scaleY = Math.min(1, Math.min(widthScale, heightScale));
 			this.selectedImage.x = (this.stage.stageWidth - this.selectedImage.width) / 2;
 			this.selectedImage.y = (availableHeight - this.selectedImage.height) / 2;
 		}
@@ -69,16 +74,16 @@ class Main extends Sprite
 
 	private function list_changeHandler(event:starling.events.Event):Void
 	{
-		var item:GalleryItem = GalleryItem(this.list.selectedItem);
-		if(!item)
+		var item:GalleryItem = safe_cast(this.list.selectedItem, GalleryItem);
+		if(item == null)
 		{
-			if(this.selectedImage)
+			if(this.selectedImage != null)
 			{
 				this.selectedImage.visible = false;
 			}
 			return;
 		}
-		if(this.loader)
+		if(this.loader != null)
 		{
 			this.loader.unloadAndStop(true);
 		}
@@ -90,11 +95,11 @@ class Main extends Sprite
 			this.loader.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		}
 		this.loader.load(new URLRequest(item.url), LOADER_CONTEXT);
-		if(this.selectedImage)
+		if(this.selectedImage != null)
 		{
 			this.selectedImage.visible = false;
 		}
-		if(this.fadeTween)
+		if(this.fadeTween != null)
 		{
 			Starling.current.juggler.remove(this.fadeTween);
 			this.fadeTween = null;
@@ -143,26 +148,24 @@ class Main extends Sprite
 
 	private function apiLoader_completeListener(event:openfl.events.Event):Void
 	{
-		var result:XML = XML(this.apiLoader.data);
-		if(result.attribute("stat") == "fail")
+		var result:Xml = this.apiLoader.data;
+		if(result.get("stat") == "fail")
 		{
 			message.text = "Unable to load the list of images from Flickr at this time.";
 			this.layout();
 			return;
 		}
 		var items:Array<GalleryItem> = new Array();
-		var photosList:XMLList = result.photos.photo;
-		var photoCount:Int = photosList.length();
-		for(i in 0 ... photoCount)
+		var photosList:Iterator<Xml> = result.elementsNamed("photos").next().elementsNamed("photo");
+		for(photoXML in photosList)
 		{
-			var photoXML:XML = photosList[i];
-			var url:String = FLICKR_PHOTO_URL.replace("{farm-id}", photoXML.@farm.toString());
-			url = url.replace("{server-id}", photoXML.@server.toString());
-			url = url.replace("{id}", photoXML.@id.toString());
-			url = url.replace("{secret}", photoXML.@secret.toString());
-			var thumbURL:String = url.replace("{size}", "t");
-			url = url.replace("{size}", "b");
-			var title:String = photoXML.@title.toString();
+			var url:String = StringTools.replace(FLICKR_PHOTO_URL, "{farm-id}", photoXML.get("farm"));
+			url = StringTools.replace(url, "{server-id}", photoXML.get("server"));
+			url = StringTools.replace(url, "{id}", photoXML.get("id"));
+			url = StringTools.replace(url, "{secret}", photoXML.get("secret"));
+			var thumbURL:String = StringTools.replace(url, "{size}", "t");
+			url = StringTools.replace(url, "{size}", "b");
+			var title:String = photoXML.get("title");
 			items.push(new GalleryItem(title, url, thumbURL));
 		}
 
@@ -180,8 +183,8 @@ class Main extends Sprite
 
 	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
-		var texture:Texture = Texture.fromBitmap(Bitmap(this.loader.content));
-		if(this.selectedImage)
+		var texture:Texture = Texture.fromBitmap(cast(this.loader.content, Bitmap));
+		if(this.selectedImage != null)
 		{
 			this.selectedImage.texture.dispose();
 			this.selectedImage.texture = texture;

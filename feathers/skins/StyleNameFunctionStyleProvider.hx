@@ -93,13 +93,13 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 */
 	public function set_defaultStyleFunction(value:Dynamic):Dynamic
 	{
-		this._defaultStyleFunction = value;
+		return this._defaultStyleFunction = value;
 	}
 
 	/**
 	 * @private
 	 */
-	private var _styleNameMap:Dynamic;
+	private var _styleNameMap:Map<String, Dynamic>;
 
 	/**
 	 * The target Feathers UI component is passed to this function when
@@ -113,11 +113,11 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 */
 	public function setFunctionForStyleName(styleName:String, styleFunction:Dynamic):Void
 	{
-		if(!this._styleNameMap)
+		if(this._styleNameMap == null)
 		{
-			this._styleNameMap = {};
+			this._styleNameMap = new Map();
 		}
-		this._styleNameMap[styleName] = styleFunction;
+		this._styleNameMap.set(styleName, styleFunction);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 	 */
 	public function applyStyles(target:IFeathersControl):Void
 	{
-		if(this._styleNameMap)
+		if(this._styleNameMap != null)
 		{
 			var hasNameInitializers:Bool = false;
 			var styleNameList:TokenList = target.styleNameList;
@@ -133,7 +133,7 @@ class StyleNameFunctionStyleProvider implements IStyleProvider
 			for(i in 0 ... styleNameCount)
 			{
 				var name:String = styleNameList.item(i);
-				var initializer:Dynamic = this._styleNameMap[name] as Function;
+				var initializer:Dynamic = this._styleNameMap.get(name);
 				if(initializer != null)
 				{
 					hasNameInitializers = true;

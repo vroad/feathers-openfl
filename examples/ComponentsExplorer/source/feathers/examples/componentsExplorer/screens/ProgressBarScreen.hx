@@ -4,6 +4,7 @@ import feathers.controls.PanelScreen;
 import feathers.controls.ProgressBar;
 import feathers.skins.IStyleProvider;
 import feathers.system.DeviceCapabilities;
+import starling.utils.Max;
 
 import starling.animation.Tween;
 import starling.core.Starling;
@@ -11,7 +12,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ProgressBarScreen extends PanelScreen
+@:keep class ProgressBarScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
@@ -51,7 +52,7 @@ class ProgressBarScreen extends PanelScreen
 		this._verticalProgress.value = 0;
 		this.addChild(this._verticalProgress);
 
-		this.headerProperties.title = "Progress Bar";
+		this.headerProperties.setProperty("title", "Progress Bar");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -60,33 +61,33 @@ class ProgressBarScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
 
 		this._horizontalProgressTween = new Tween(this._horizontalProgress, 5);
 		this._horizontalProgressTween.animate("value", 1);
-		this._horizontalProgressTween.repeatCount = Int.MAX_VALUE;
+		this._horizontalProgressTween.repeatCount = Max.INT_MAX_VALUE;
 		Starling.current.juggler.add(this._horizontalProgressTween);
 
 		this._verticalProgressTween = new Tween(this._verticalProgress, 8);
 		this._verticalProgressTween.animate("value", 100);
-		this._verticalProgressTween.repeatCount = Int.MAX_VALUE;
+		this._verticalProgressTween.repeatCount = Max.INT_MAX_VALUE;
 		Starling.current.juggler.add(this._verticalProgressTween);
 	}
 
 	private function onBackButton():Void
 	{
-		if(this._horizontalProgressTween)
+		if(this._horizontalProgressTween != null)
 		{
 			Starling.current.juggler.remove(this._horizontalProgressTween);
 			this._horizontalProgressTween = null;
 		}
-		if(this._verticalProgressTween)
+		if(this._verticalProgressTween != null)
 		{
 			Starling.current.juggler.remove(this._verticalProgressTween);
 			this._verticalProgressTween = null;

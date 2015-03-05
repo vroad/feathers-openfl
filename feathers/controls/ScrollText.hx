@@ -7,12 +7,15 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
 import feathers.controls.supportClasses.TextFieldViewPort;
+import feathers.core.FeathersControl;
 import feathers.core.IFocusDisplayObject;
 import feathers.skins.IStyleProvider;
 
 import openfl.text.AntiAliasType;
 import openfl.text.GridFitType;
+#if flash
 import openfl.text.StyleSheet;
+#end
 import openfl.text.TextFormat;
 import openfl.ui.Keyboard;
 
@@ -211,8 +214,7 @@ class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public var isFocusEnabled(get, set):Bool;
-public function get_isFocusEnabled():Bool
+	override public function get_isFocusEnabled():Bool
 	{
 		return this._maxVerticalScrollPosition != this._minVerticalScrollPosition && this._isEnabled && this._isFocusEnabled;
 	}
@@ -247,16 +249,17 @@ public function get_isFocusEnabled():Bool
 	 */
 	public function set_text(value:String):String
 	{
-		if(!value)
+		if(value == null)
 		{
 			value = "";
 		}
 		if(this._text == value)
 		{
-			return;
+			return get_text();
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_text();
 	}
 
 	/**
@@ -291,10 +294,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._isHTML == value)
 		{
-			return;
+			return get_isHTML();
 		}
 		this._isHTML = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_isHTML();
 	}
 
 	/**
@@ -328,10 +332,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._textFormat == value)
 		{
-			return;
+			return get_textFormat();
 		}
 		this._textFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_textFormat();
 	}
 
 	/**
@@ -366,16 +371,19 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._disabledTextFormat == value)
 		{
-			return;
+			return get_disabledTextFormat();
 		}
 		this._disabledTextFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledTextFormat();
 	}
 
 	/**
 	 * @private
 	 */
+	#if flash
 	private var _styleSheet:StyleSheet;
+	#end
 
 	/**
 	 * The <code>StyleSheet</code> object to pass to the TextField.
@@ -404,15 +412,18 @@ public function get_isFocusEnabled():Bool
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html openfl.text.StyleSheet
 	 * @see #isHTML
 	 */
+	#if flash
 	public var styleSheet(get, set):StyleSheet;
 	public function get_styleSheet():StyleSheet
 	{
 		return this._styleSheet;
 	}
+	#end
 
 	/**
 	 * @private
 	 */
+	#if flash
 	public function set_styleSheet(value:StyleSheet):StyleSheet
 	{
 		if(this._styleSheet == value)
@@ -422,6 +433,7 @@ public function get_isFocusEnabled():Bool
 		this._styleSheet = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 	}
+	#end
 
 	/**
 	 * @private
@@ -456,16 +468,17 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._embedFonts == value)
 		{
-			return;
+			return get_embedFonts();
 		}
 		this._embedFonts = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_embedFonts();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _antiAliasType:String = AntiAliasType.ADVANCED;
+	private var _antiAliasType:AntiAliasType = AntiAliasType.ADVANCED;
 
 	/**
 	 * The type of anti-aliasing used for this text field, defined as
@@ -481,8 +494,8 @@ public function get_isFocusEnabled():Bool
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#antiAliasType Full description of openfl.text.TextField.antiAliasType in Adobe's Flash Platform API Reference
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html openfl.text.AntiAliasType
 	 */
-	public var antiAliasType(get, set):String;
-	public function get_antiAliasType():String
+	public var antiAliasType(get, set):AntiAliasType;
+	public function get_antiAliasType():AntiAliasType
 	{
 		return this._antiAliasType;
 	}
@@ -490,14 +503,15 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_antiAliasType(value:String):String
+	public function set_antiAliasType(value:AntiAliasType):AntiAliasType
 	{
 		if(this._antiAliasType == value)
 		{
-			return;
+			return get_antiAliasType();
 		}
 		this._antiAliasType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_antiAliasType();
 	}
 
 	/**
@@ -534,10 +548,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._background == value)
 		{
-			return;
+			return get_background();
 		}
 		this._background = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_background();
 	}
 
 	/**
@@ -573,10 +588,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._backgroundColor == value)
 		{
-			return;
+			return get_backgroundColor();
 		}
 		this._backgroundColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundColor();
 	}
 
 	/**
@@ -612,10 +628,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._border == value)
 		{
-			return;
+			return get_border();
 		}
 		this._border = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_border();
 	}
 
 	/**
@@ -651,10 +668,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._borderColor == value)
 		{
-			return;
+			return get_borderColor();
 		}
 		this._borderColor = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_borderColor();
 	}
 
 	/**
@@ -689,10 +707,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._condenseWhite == value)
 		{
-			return;
+			return get_condenseWhite();
 		}
 		this._condenseWhite = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_condenseWhite();
 	}
 
 	/**
@@ -727,16 +746,17 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return get_displayAsPassword();
 		}
 		this._displayAsPassword = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_displayAsPassword();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _gridFitType:String = GridFitType.PIXEL;
+	private var _gridFitType:GridFitType = GridFitType.PIXEL;
 
 	/**
 	 * Determines whether Flash Player forces strong horizontal and vertical
@@ -756,8 +776,8 @@ public function get_isFocusEnabled():Bool
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html openfl.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public var gridFitType(get, set):String;
-	public function get_gridFitType():String
+	public var gridFitType(get, set):GridFitType;
+	public function get_gridFitType():GridFitType
 	{
 		return this._gridFitType;
 	}
@@ -765,14 +785,15 @@ public function get_isFocusEnabled():Bool
 	/**
 	 * @private
 	 */
-	public function set_gridFitType(value:String):String
+	public function set_gridFitType(value:GridFitType):GridFitType
 	{
 		if(this._gridFitType == value)
 		{
-			return;
+			return get_gridFitType();
 		}
 		this._gridFitType = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gridFitType();
 	}
 
 	/**
@@ -810,10 +831,11 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._sharpness == value)
 		{
-			return;
+			return get_sharpness();
 		}
 		this._sharpness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_sharpness();
 	}
 
 	/**
@@ -851,17 +873,17 @@ public function get_isFocusEnabled():Bool
 	{
 		if(this._thickness == value)
 		{
-			return;
+			return get_thickness();
 		}
 		this._thickness = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_thickness();
 	}
 
 	/**
 	 * @private
 	 */
-	override public var padding(get, set):Float;
-public function get_padding():Float
+	override public function get_padding():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -884,8 +906,7 @@ public function get_padding():Float
 	 *
 	 * @default 0
 	 */
-	override public var paddingTop(get, set):Float;
-public function get_paddingTop():Float
+	override public function get_paddingTop():Float
 	{
 		return this._textPaddingTop;
 	}
@@ -897,10 +918,11 @@ public function get_paddingTop():Float
 	{
 		if(this._textPaddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._textPaddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -917,8 +939,7 @@ public function get_paddingTop():Float
 	 * <listing version="3.0">
 	 * scrollText.paddingRight = 20;</listing>
 	 */
-	override public var paddingRight(get, set):Float;
-public function get_paddingRight():Float
+	override public function get_paddingRight():Float
 	{
 		return this._textPaddingRight;
 	}
@@ -930,10 +951,11 @@ public function get_paddingRight():Float
 	{
 		if(this._textPaddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._textPaddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -950,8 +972,7 @@ public function get_paddingRight():Float
 	 * <listing version="3.0">
 	 * scrollText.paddingBottom = 20;</listing>
 	 */
-	override public var paddingBottom(get, set):Float;
-public function get_paddingBottom():Float
+	override public function get_paddingBottom():Float
 	{
 		return this._textPaddingBottom;
 	}
@@ -963,10 +984,11 @@ public function get_paddingBottom():Float
 	{
 		if(this._textPaddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._textPaddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -983,8 +1005,7 @@ public function get_paddingBottom():Float
 	 * <listing version="3.0">
 	 * scrollText.paddingLeft = 20;</listing>
 	 */
-	override public var paddingLeft(get, set):Float;
-public function get_paddingLeft():Float
+	override public function get_paddingLeft():Float
 	{
 		return this._textPaddingLeft;
 	}
@@ -996,10 +1017,11 @@ public function get_paddingLeft():Float
 	{
 		if(this._textPaddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._textPaddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -1010,8 +1032,7 @@ public function get_paddingLeft():Float
 	/**
 	 * @private
 	 */
-	override public var visible(get, set):Bool;
-public function get_visible():Bool
+	override public function get_visible():Bool
 	{
 		return this._visible;
 	}
@@ -1023,10 +1044,11 @@ public function get_visible():Bool
 	{
 		if(this._visible == value)
 		{
-			return;
+			return get_visible();
 		}
 		this._visible = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_visible();
 	}
 
 	/**
@@ -1037,8 +1059,7 @@ public function get_visible():Bool
 	/**
 	 * @private
 	 */
-	override public var alpha(get, set):Float;
-public function get_alpha():Float
+	override public function get_alpha():Float
 	{
 		return this._alpha;
 	}
@@ -1050,17 +1071,17 @@ public function get_alpha():Float
 	{
 		if(this._alpha == value)
 		{
-			return;
+			return get_alpha();
 		}
 		this._alpha = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_alpha();
 	}
 
 	/**
 	 * @private
 	 */
-	override public var hasVisibleArea(get, set):Bool;
-public function get_hasVisibleArea():Bool
+	override public function get_hasVisibleArea():Bool
 	{
 		return true;
 	}
@@ -1095,7 +1116,9 @@ public function get_hasVisibleArea():Bool
 			this.textViewPort.thickness = this._thickness;
 			this.textViewPort.textFormat = this._textFormat;
 			this.textViewPort.disabledTextFormat = this._disabledTextFormat;
+			#if flash
 			this.textViewPort.styleSheet = this._styleSheet;
+			#end
 			this.textViewPort.embedFonts = this._embedFonts;
 			this.textViewPort.paddingTop = this._textPaddingTop;
 			this.textViewPort.paddingRight = this._textPaddingRight;

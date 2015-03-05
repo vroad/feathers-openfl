@@ -19,7 +19,7 @@ class ContentView extends ScrollContainer
 
 	public function new()
 	{
-
+		super();
 	}
 
 	private var _topButton:Button;
@@ -35,7 +35,7 @@ class ContentView extends ScrollContainer
 	override private function initialize():Void
 	{
 		var openControlsPanel:Panel = new Panel();
-		openControlsPanel.headerProperties.title = "Open Drawers";
+		openControlsPanel.headerProperties.setProperty("title", "Open Drawers");
 		openControlsPanel.layout = new AnchorLayout();
 		this.addChild(openControlsPanel);
 

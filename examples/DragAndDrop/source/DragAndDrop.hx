@@ -1,6 +1,7 @@
-package
-{
+package;
 import feathers.examples.dragDrop.Main;
+import openfl.errors.Error;
+import starling.utils.Max;
 
 import openfl.display.Sprite;
 import openfl.display.StageAlign;
@@ -15,27 +16,29 @@ class DragAndDrop extends Sprite
 {
 	public function new()
 	{
-		if(this.stage)
+		super();
+		if(this.stage != null)
 		{
 			this.stage.scaleMode = StageScaleMode.NO_SCALE;
 			this.stage.align = StageAlign.TOP_LEFT;
 		}
 		this.mouseEnabled = this.mouseChildren = false;
-		this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
+		//this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
+		loaderInfo_completeHandler(new Event(Event.COMPLETE));
 	}
 
 	private var _starling:Starling;
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
-		Starling.handleLostContext = true;
+		//Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
 		this._starling = new Starling(Main, this.stage);
 		this._starling.enableErrorChecking = false;
 		//this._starling.showStats = true;
 		this._starling.start();
 
-		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Int.MAX_VALUE, true);
+		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Max.INT_MAX_VALUE, true);
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 

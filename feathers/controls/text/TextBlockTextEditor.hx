@@ -6,14 +6,17 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.text;
+#if flash
+import feathers.core.FeathersControl;
 import feathers.core.FocusManager;
 import feathers.core.ITextEditor;
 import feathers.events.FeathersEventType;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
-
+#if flash
 import openfl.desktop.Clipboard;
 import openfl.desktop.ClipboardFormats;
+#end
 import openfl.display.DisplayObjectContainer;
 import openfl.display.InteractiveObject;
 import openfl.display.Stage;
@@ -21,8 +24,10 @@ import openfl.events.Event;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
 import openfl.text.TextFormatAlign;
+#if flash
 import openfl.text.engine.TextElement;
 import openfl.text.engine.TextLine;
+#end
 import openfl.ui.Keyboard;
 
 import starling.core.RenderSupport;
@@ -176,8 +181,10 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	{
 		super();
 		this._text = "";
+#if flash        
 		this._textElement = new TextElement(this._text);
 		this._content = this._textElement;
+#end
 		this.isQuickHitAreaEnabled = true;
 		this.truncateToFit = false;
 		this.addEventListener(TouchEvent.TOUCH, textEditor_touchHandler);
@@ -187,6 +194,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 * @private
 	 */
 	private var _selectionSkin:DisplayObject;
+	public var selectionSkin(get, set):DisplayObject;
 
 	/**
 	 *
@@ -204,25 +212,27 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	{
 		if(this._selectionSkin == value)
 		{
-			return;
+			return this._selectionSkin;
 		}
-		if(this._selectionSkin && this._selectionSkin.parent == this)
+		if(this._selectionSkin != null && this._selectionSkin.parent == this)
 		{
 			this._selectionSkin.removeFromParent();
 		}
 		this._selectionSkin = value;
-		if(this._selectionSkin)
+		if(this._selectionSkin != null)
 		{
 			this._selectionSkin.visible = false;
 			this.addChildAt(this._selectionSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._selectionSkin;
 	}
 
 	/**
 	 * @private
 	 */
 	private var _cursorSkin:DisplayObject;
+	public var cursorSkin(get, set):DisplayObject;
 
 	/**
 	 *
@@ -240,19 +250,20 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	{
 		if(this._cursorSkin == value)
 		{
-			return;
+			return this._cursorSkin;
 		}
-		if(this._cursorSkin && this._cursorSkin.parent == this)
+		if(this._cursorSkin != null && this._cursorSkin.parent == this)
 		{
 			this._cursorSkin.removeFromParent();
 		}
 		this._cursorSkin = value;
-		if(this._cursorSkin)
+		if(this._cursorSkin != null)
 		{
 			this._cursorSkin.visible = false;
 			this.addChild(this._cursorSkin);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._cursorSkin;
 	}
 
 	/**
@@ -264,6 +275,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 * @private
 	 */
 	private var _displayAsPassword:Bool = false;
+	public var displayAsPassword(get, set):Bool;
 
 	/**
 	 * Indicates whether the text field is a password text field that hides
@@ -291,7 +303,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return this._displayAsPassword;
 		}
 		this._displayAsPassword = value;
 		if(this._displayAsPassword)
@@ -305,6 +317,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 			this._unmaskedText = null;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._displayAsPassword;
 	}
 
 	/**
@@ -353,6 +366,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 * @private
 	 */
 	private var _isEditable:Bool = true;
+	public var isEditable(get, set):Bool;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -378,10 +392,11 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	{
 		if(this._isEditable == value)
 		{
-			return;
+			return this._isEditable;
 		}
 		this._isEditable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._isEditable;
 	}
 
 	/**
@@ -389,7 +404,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 *
 	 * @default false
 	 */
-	public var setTouchFocusOnEndedPhase(get, set):Bool;
+	public var setTouchFocusOnEndedPhase(get, never):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
@@ -399,7 +414,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
 	 * @private
 	 */
 	override public var text(get, set):String;
-public function get_text():String
+	public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -425,7 +440,7 @@ public function get_text():String
 		}
 		if(currentValue == value)
 		{
-			return;
+			return this._text;
 		}
 		if(this._displayAsPassword)
 		{
@@ -437,12 +452,14 @@ public function get_text():String
 			super.text = value;
 		}
 		this.dispatchEventWith(starling.events.Event.CHANGE);
+		return this._text;
 	}
 
 	/**
 	 * @private
 	 */
 	private var _maxChars:Int = 0;
+	public var maxChars(get, set):Int;
 
 	/**
 	 * Indicates the maximum number of characters that a user can enter into
@@ -470,16 +487,18 @@ public function get_text():String
 	{
 		if(this._maxChars == value)
 		{
-			return;
+			return this._maxChars;
 		}
 		this._maxChars = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._maxChars;
 	}
 
 	/**
 	 * @private
 	 */
 	private var _restrict:TextInputRestrict;
+	public var restrict(get, set):String;
 
 	/**
 	 * Restricts the set of characters that a user can enter into the text
@@ -496,7 +515,7 @@ public function get_text():String
 	public var restrict(get, set):String;
 	public function get_restrict():String
 	{
-		if(!this._restrict)
+		if(this._restrict == null)
 		{
 			return null;
 		}
@@ -508,13 +527,13 @@ public function get_text():String
 	 */
 	public function set_restrict(value:String):String
 	{
-		if(this._restrict && this._restrict.restrict == value)
+		if(this._restrict != null && this._restrict.restrict == value)
 		{
-			return;
+			return this._restrict.restrict;
 		}
-		if(!this._restrict && value == null)
+		if(this._restrict == null && value == null)
 		{
-			return;
+			return null;
 		}
 		if(value == null)
 		{
@@ -522,7 +541,7 @@ public function get_text():String
 		}
 		else
 		{
-			if(this._restrict)
+			if(this._restrict != null)
 			{
 				this._restrict.restrict = value;
 			}
@@ -533,12 +552,14 @@ public function get_text():String
 			}
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return this._restrict.restrict;
 	}
 
 	/**
 	 * @private
 	 */
 	private var _selectionBeginIndex:Int = 0;
+	public var selectionBeginIndex(get, never):Int;
 
 	/**
 	 * @inheritDoc
@@ -553,6 +574,7 @@ public function get_text():String
 	 * @private
 	 */
 	private var _selectionEndIndex:Int = 0;
+	public var selectionEndIndex(get, never):Int;
 
 	/**
 	 * @inheritDoc
@@ -577,6 +599,7 @@ public function get_text():String
 	 * @private
 	 */
 	private var _nativeFocus:InteractiveObject;
+	private var nativeFocus(get, set):InteractiveObject;
 
 	/**
 	 * @private
@@ -589,25 +612,30 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	private function set_nativeFocus(value:InteractiveObject):Void
+	private function set_nativeFocus(value:InteractiveObject):InteractiveObject
 	{
 		if(this._nativeFocus == value)
 		{
-			return;
+			return this._nativeFocus;
 		}
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
+#if flash
 			this._nativeFocus.removeEventListener(openfl.events.Event.CUT, nativeStage_cutHandler);
 			this._nativeFocus.removeEventListener(openfl.events.Event.COPY, nativeStage_copyHandler);
 			this._nativeFocus.removeEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler);
+#end
 		}
 		this._nativeFocus = value;
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
+#if flash
 			this._nativeFocus.addEventListener(openfl.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
 			this._nativeFocus.addEventListener(openfl.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
 			this._nativeFocus.addEventListener(openfl.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
+#end
 		}
+		return this._nativeFocus;
 	}
 
 	/**
@@ -621,14 +649,14 @@ public function get_text():String
 	public function setFocus(position:Point = null):Void
 	{
 		//we already have focus, so there's no reason to change
-		if(this._hasFocus && !position)
+		if(this._hasFocus && position == null)
 		{
 			return;
 		}
 		if(this.isCreated)
 		{
 			var newIndex:Int = -1;
-			if(position)
+			if(position != null)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
 			}
@@ -720,11 +748,11 @@ public function get_text():String
 	 */
 	override private function initialize():Void
 	{
-		if(!this._cursorSkin)
+		if(this._cursorSkin == null)
 		{
 			this.cursorSkin = new Quad(1, 1, 0x000000);
 		}
-		if(!this._selectionSkin)
+		if(this._selectionSkin == null)
 		{
 			this.selectionSkin = new Quad(1, 1, 0x000000);
 		}
@@ -734,14 +762,14 @@ public function get_text():String
 	/**
 	 * @private
 	 */
-	override private function refreshTextLines(textLines:Array<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
+	/*override private function refreshTextLines(textLines:Array<TextLine>, textLineParent:DisplayObjectContainer, width:Float, height:Float):Void
 	{
 		super.refreshTextLines(textLines, textLineParent, width, height);
 		if(textLineParent.width > width)
 		{
 			this.alignTextLines(textLines, width, TextFormatAlign.LEFT);
 		}
-	}
+	}*/
 
 	/**
 	 * @private
@@ -770,7 +798,7 @@ public function get_text():String
 		//this is before the hasFocus check because the native stage may
 		//have lost focus when clicking on the text editor, so we may need
 		//to put it back in focus
-		if(!FocusManager.isEnabledForStage(this.stage) && !nativeStage.focus)
+		if(!FocusManager.isEnabledForStage(this.stage) && nativeStage.focus == null)
 		{
 			//something needs to be focused so that we can receive cut,
 			//copy, and paste events
@@ -795,7 +823,8 @@ public function get_text():String
 	 */
 	private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
-		if(!this._text || this._textLines.length == 0)
+#if flash
+		if(this._text == null || this._textLines.length == 0)
 		{
 			return 0;
 		}
@@ -832,6 +861,9 @@ public function get_text():String
 			return atomIndex + 1;
 		}
 		return atomIndex;
+#else
+		return 0;
+#end
 	}
 
 	/**
@@ -839,13 +871,14 @@ public function get_text():String
 	 */
 	private function getXPositionOfCharIndex(index:Int):Float
 	{
-		if(!this._text || this._textLines.length == 0)
+#if flash
+		if(this._text == null || this._textLines.length == 0)
 		{
-			if(this._textAlign == TextFormatAlign.CENTER)
+			if(this._textAlign == "center"/*TextFormatAlign.CENTER*/)
 			{
 				return Math.round(this.actualWidth / 2);
 			}
-			else if(this._textAlign == TextFormatAlign.RIGHT)
+			else if(this._textAlign == "right"/*TextFormatAlign.RIGHT*/)
 			{
 				return this.actualWidth;
 			}
@@ -858,6 +891,9 @@ public function get_text():String
 		}
 		var atomIndex:Int = line.getAtomIndexAtCharIndex(index);
 		return line.x + line.getAtomBounds(atomIndex).x;
+#else
+		return 0;
+#end
 	}
 
 	/**
@@ -870,11 +906,12 @@ public function get_text():String
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfCharIndex(index);
-		cursorX = Int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Std.int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
+#if flash
 		this._cursorSkin.height = this._elementFormat.fontSize;
-
+#end
 		//then we update the scroll to always show the cursor
 		var minScrollX:Float = cursorX + this._cursorSkin.width - this.actualWidth;
 		var maxScrollX:Float = this.getXPositionOfCharIndex(this._text.length) - this.actualWidth;
@@ -919,10 +956,12 @@ public function get_text():String
 		this._selectionSkin.x = startX;
 		this._selectionSkin.width = endX - startX;
 		this._selectionSkin.y = 0;
+#if flash
 		if(this._textLines.length > 0)
 		{
 			this._selectionSkin.height = this._textLines[0].height;
 		}
+#end
 	}
 
 	/**
@@ -978,6 +1017,7 @@ public function get_text():String
 	 */
 	private function textEditor_touchHandler(event:TouchEvent):Void
 	{
+		var touch:Touch;
 		if(!this._isEnabled || !this._isEditable)
 		{
 			this.touchPointID = -1;
@@ -985,7 +1025,7 @@ public function get_text():String
 		}
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, null, this.touchPointID);
+			touch = event.getTouch(this, null, this.touchPointID);
 			touch.getLocation(this, HELPER_POINT);
 			HELPER_POINT.x += this._textSnapshotScrollX;
 			this.selectRange(this._selectionAnchorIndex, this.getSelectionIndexAtPoint(HELPER_POINT.x, HELPER_POINT.y));
@@ -1005,7 +1045,7 @@ public function get_text():String
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -1034,7 +1074,7 @@ public function get_text():String
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
-		if(!touch) //we only care about began touches
+		if(touch == null) //we only care about began touches
 		{
 			return;
 		}
@@ -1218,7 +1258,7 @@ public function get_text():String
 			}
 			else if(charCode >= 32 && !event.ctrlKey && !event.altKey) //ignore control characters
 			{
-				if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
+				if(this._restrict == null || this._restrict.isCharacterAllowed(charCode))
 				{
 					this.replaceSelectedText(String.fromCharCode(charCode));
 				}
@@ -1244,7 +1284,9 @@ public function get_text():String
 		{
 			return;
 		}
+#if flash
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+#end
 		this.deleteSelectedText();
 	}
 
@@ -1257,7 +1299,9 @@ public function get_text():String
 		{
 			return;
 		}
+#if flash
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+#end
 	}
 
 	/**
@@ -1269,11 +1313,16 @@ public function get_text():String
 		{
 			return;
 		}
-		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
-		if(this._restrict)
+#if flash
+		var pastedText:String = cast(Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT), String);
+#else
+		var pastedText:String = "";
+#end
+		if(this._restrict != null)
 		{
 			pastedText = this._restrict.filterText(pastedText);
 		}
 		this.replaceSelectedText(pastedText);
 	}
 }
+#end

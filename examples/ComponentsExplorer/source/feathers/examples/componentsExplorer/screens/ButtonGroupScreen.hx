@@ -12,7 +12,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ButtonGroupScreen extends PanelScreen
+@:keep class ButtonGroupScreen extends PanelScreen
 {
 	public function new()
 	{
@@ -43,7 +43,7 @@ class ButtonGroupScreen extends PanelScreen
 		this._buttonGroup.layoutData = buttonGroupLayoutData;
 		this.addChild(this._buttonGroup);
 
-		this.headerProperties.title = "Button Group";
+		this.headerProperties.setProperty("title", "Button Group");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -52,10 +52,10 @@ class ButtonGroupScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -73,7 +73,7 @@ class ButtonGroupScreen extends PanelScreen
 
 	private function button_triggeredHandler(event:Event):Void
 	{
-		var button:Button = Button(event.currentTarget);
+		var button:Button = cast event.currentTarget;
 		trace(button.label + " triggered.");
 	}
 }

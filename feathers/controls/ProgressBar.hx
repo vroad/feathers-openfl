@@ -8,7 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls;
 import feathers.core.FeathersControl;
 import feathers.skins.IStyleProvider;
-import feathers.utils.math.clamp;
+import feathers.utils.math.FeathersMathUtil.clamp;
 
 import starling.display.DisplayObject;
 
@@ -101,10 +101,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._direction == value)
 		{
-			return;
+			return get_direction();
 		}
 		this._direction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_direction();
 	}
 
 	/**
@@ -141,10 +142,11 @@ class ProgressBar extends FeathersControl
 		newValue = clamp(newValue, this._minimum, this._maximum);
 		if(this._value == newValue)
 		{
-			return;
+			return get_value();
 		}
 		this._value = newValue;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_value();
 	}
 
 	/**
@@ -180,10 +182,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._minimum == value)
 		{
-			return;
+			return get_minimum();
 		}
 		this._minimum = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_minimum();
 	}
 
 	/**
@@ -219,10 +222,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._maximum == value)
 		{
-			return;
+			return get_maximum();
 		}
 		this._maximum = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_maximum();
 	}
 
 	/**
@@ -269,20 +273,21 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 
-		if(this._backgroundSkin && this._backgroundSkin != this._backgroundDisabledSkin)
+		if(this._backgroundSkin != null && this._backgroundSkin != this._backgroundDisabledSkin)
 		{
 			this.removeChild(this._backgroundSkin);
 		}
 		this._backgroundSkin = value;
-		if(this._backgroundSkin && this._backgroundSkin.parent != this)
+		if(this._backgroundSkin != null && this._backgroundSkin.parent != this)
 		{
 			this._backgroundSkin.visible = false;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -314,20 +319,21 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
-			return;
+			return get_backgroundDisabledSkin();
 		}
 
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin != this._backgroundSkin)
+		if(this._backgroundDisabledSkin !=null && this._backgroundDisabledSkin != this._backgroundSkin)
 		{
 			this.removeChild(this._backgroundDisabledSkin);
 		}
 		this._backgroundDisabledSkin = value;
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin.parent != this)
+		if(this._backgroundDisabledSkin !=null && this._backgroundDisabledSkin.parent != this)
 		{
 			this._backgroundDisabledSkin.visible = false;
 			this.addChildAt(this._backgroundDisabledSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundDisabledSkin();
 	}
 
 	/**
@@ -387,20 +393,21 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._fillSkin == value)
 		{
-			return;
+			return get_fillSkin();
 		}
 
-		if(this._fillSkin && this._fillSkin != this._fillDisabledSkin)
+		if(this._fillSkin != null && this._fillSkin != this._fillDisabledSkin)
 		{
 			this.removeChild(this._fillSkin);
 		}
 		this._fillSkin = value;
-		if(this._fillSkin && this._fillSkin.parent != this)
+		if(this._fillSkin != null && this._fillSkin.parent != this)
 		{
 			this._fillSkin.visible = false;
 			this.addChild(this._fillSkin);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_fillSkin();
 	}
 
 	/**
@@ -432,20 +439,21 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._fillDisabledSkin == value)
 		{
-			return;
+			return get_fillDisabledSkin();
 		}
 
-		if(this._fillDisabledSkin && this._fillDisabledSkin != this._fillSkin)
+		if(this._fillDisabledSkin != null && this._fillDisabledSkin != this._fillSkin)
 		{
 			this.removeChild(this._fillDisabledSkin);
 		}
 		this._fillDisabledSkin = value;
-		if(this._fillDisabledSkin && this._fillDisabledSkin.parent != this)
+		if(this._fillDisabledSkin != null && this._fillDisabledSkin.parent != this)
 		{
 			this._fillDisabledSkin.visible = false;
 			this.addChild(this._fillDisabledSkin);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_fillDisabledSkin();
 	}
 
 	/**
@@ -481,6 +489,7 @@ class ProgressBar extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -512,10 +521,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -547,10 +557,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -582,10 +593,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -617,10 +629,11 @@ class ProgressBar extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -643,7 +656,7 @@ class ProgressBar extends FeathersControl
 
 		if(sizeInvalid || stylesInvalid || stateInvalid)
 		{
-			if(this.currentBackground)
+			if(this.currentBackground != null)
 			{
 				this.currentBackground.width = this.actualWidth;
 				this.currentBackground.height = this.actualHeight;
@@ -706,7 +719,7 @@ class ProgressBar extends FeathersControl
 	private function refreshBackground():Void
 	{
 		this.currentBackground = this._backgroundSkin;
-		if(this._backgroundDisabledSkin)
+		if(this._backgroundDisabledSkin != null)
 		{
 			if(this._isEnabled)
 			{
@@ -715,13 +728,13 @@ class ProgressBar extends FeathersControl
 			else
 			{
 				this.currentBackground = this._backgroundDisabledSkin;
-				if(this._backgroundSkin)
+				if(this._backgroundSkin != null)
 				{
 					this._backgroundSkin.visible = false;
 				}
 			}
 		}
-		if(this.currentBackground)
+		if(this.currentBackground != null)
 		{
 			if(this._originalBackgroundWidth != this._originalBackgroundWidth) //isNaN
 			{
@@ -741,7 +754,7 @@ class ProgressBar extends FeathersControl
 	private function refreshFill():Void
 	{
 		this.currentFill = this._fillSkin;
-		if(this._fillDisabledSkin)
+		if(this._fillDisabledSkin != null)
 		{
 			if(this._isEnabled)
 			{
@@ -750,13 +763,13 @@ class ProgressBar extends FeathersControl
 			else
 			{
 				this.currentFill = this._fillDisabledSkin;
-				if(this._backgroundSkin)
+				if(this._backgroundSkin != null)
 				{
 					this._fillSkin.visible = false;
 				}
 			}
 		}
-		if(this.currentFill)
+		if(this.currentFill != null)
 		{
 			if(this._originalFillWidth != this._originalFillWidth) //isNaN
 			{

@@ -1,16 +1,21 @@
-package
-{
+package;
 import feathers.examples.tileList.Main;
+import openfl.errors.Error;
+import starling.utils.Max;
 
 import openfl.display.Loader;
 import openfl.display.Sprite;
 import openfl.display.StageAlign;
+#if flash
 import openfl.display.StageOrientation;
+#end
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
+/*
 import openfl.filesystem.File;
 import openfl.filesystem.FileMode;
 import openfl.filesystem.FileStream;
+*/
 import openfl.geom.Rectangle;
 import openfl.system.Capabilities;
 import openfl.utils.ByteArray;
@@ -22,20 +27,25 @@ class TileList extends Sprite
 {
 	public function new()
 	{
-		if(this.stage)
+		super();
+		if(this.stage != null)
 		{
 			this.stage.scaleMode = StageScaleMode.NO_SCALE;
 			this.stage.align = StageAlign.TOP_LEFT;
 		}
 		this.mouseEnabled = this.mouseChildren = false;
+		/*
 		this.showLaunchImage();
 		this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
+		*/
+		loaderInfo_completeHandler(new Event(Event.COMPLETE));
 	}
 
 	private var _starling:Starling;
-	private var _launchImage:Loader;
-	private var _savedAutoOrients:Bool;
+	//private var _launchImage:Loader;
+	//private var _savedAutoOrients:Bool;
 
+	/*
 	private function showLaunchImage():Void
 	{
 		var filePath:String;
@@ -93,26 +103,28 @@ class TileList extends Sprite
 			}
 		}
 	}
+	*/
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
-		Starling.handleLostContext = true;
+		//Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
 		this._starling = new Starling(Main, this.stage);
 		this._starling.enableErrorChecking = false;
 		//this._starling.showStats = true;
 		this._starling.start();
-		if(this._launchImage)
+		//if(this._launchImage)
 		{
 			this._starling.addEventListener("rootCreated", starling_rootCreatedHandler);
 		}
 
-		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Int.MAX_VALUE, true);
+		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Max.INT_MAX_VALUE, true);
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
 	private function starling_rootCreatedHandler(event:Dynamic):Void
 	{
+		/*
 		if(this._launchImage)
 		{
 			this.removeChild(this._launchImage);
@@ -120,6 +132,7 @@ class TileList extends Sprite
 			this._launchImage = null;
 			this.stage.autoOrients = this._savedAutoOrients;
 		}
+		*/
 	}
 
 	private function stage_resizeHandler(event:Event):Void

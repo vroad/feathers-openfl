@@ -8,6 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.motion.transitions;
 import feathers.controls.ScreenNavigator;
 import feathers.controls.TabBar;
+import openfl.errors.ArgumentError;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -29,7 +30,7 @@ class TabBarSlideTransitionManager
 	 */
 	public function new(navigator:ScreenNavigator, tabBar:TabBar)
 	{
-		if(!navigator)
+		if(navigator == null)
 		{
 			throw new ArgumentError("ScreenNavigator cannot be null.");
 		}
@@ -157,23 +158,23 @@ class TabBarSlideTransitionManager
 	private function transitionNow():Void
 	{
 		this._activeIndex = this._pendingIndex;
-		if(this._activeTransition)
+		if(this._activeTransition != null)
 		{
 			this._savedOtherTarget  = null;
 			Starling.current.juggler.remove(this._activeTransition);
 			this._activeTransition = null;
 		}
 
-		if(!this._oldScreen || !this._newScreen || this.skipNextTransition)
+		if(this._oldScreen == null || this._newScreen == null || this.skipNextTransition)
 		{
 			this.skipNextTransition = false;
 			var savedCompleteHandler:Dynamic = this._savedCompleteHandler;
 			this._savedCompleteHandler = null;
-			if(this._oldScreen)
+			if(this._oldScreen != null)
 			{
 				this._oldScreen.x = 0;
 			}
-			if(this._newScreen)
+			if(this._newScreen != null)
 			{
 				this._newScreen.x = 0;
 			}
@@ -216,9 +217,9 @@ class TabBarSlideTransitionManager
 	 */
 	private function activeTransitionFromRight_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
-			var newScreen:DisplayObject = DisplayObject(this._activeTransition.target);
+			var newScreen:DisplayObject = cast this._activeTransition.target;
 			this._savedOtherTarget.x = newScreen.x - this.navigator.width;
 		}
 	}
@@ -228,9 +229,9 @@ class TabBarSlideTransitionManager
 	 */
 	private function activeTransitionFromLeft_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
-			var newScreen:DisplayObject = DisplayObject(this._activeTransition.target);
+			var newScreen:DisplayObject = cast this._activeTransition.target;
 			this._savedOtherTarget.x = newScreen.x + this.navigator.width;
 		}
 	}

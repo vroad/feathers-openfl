@@ -8,8 +8,9 @@ accordance with the terms of the accompanying license agreement.
 package feathers.motion.transitions;
 import feathers.controls.IScreen;
 import feathers.controls.ScreenNavigator;
+import openfl.errors.ArgumentError;
 
-import openfl.utils.getQualifiedClassName;
+//import openfl.utils.getQualifiedClassName;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -42,21 +43,21 @@ class ScreenSlidingStackTransitionManager
 	 */
 	public function new(navigator:ScreenNavigator, quickStackScreenClass:Class<Dynamic> = null, quickStackScreenID:String = null)
 	{
-		if(!navigator)
+		if(navigator == null)
 		{
 			throw new ArgumentError("ScreenNavigator cannot be null.");
 		}
 		this.navigator = navigator;
-		var quickStack:String;
-		if(quickStackScreenClass)
+		var quickStack:String = null;
+		if(quickStackScreenClass != null)
 		{
-			quickStack = getQualifiedClassName(quickStackScreenClass);
+			quickStack = Type.getClassName(quickStackScreenClass);
 		}
-		if(quickStack && quickStackScreenID)
+		if(quickStack != null && quickStackScreenID != null)
 		{
 			quickStack += "~" + quickStackScreenID;
 		}
-		if(quickStack)
+		if(quickStack != null)
 		{
 			this._stack.push(quickStack);
 		}
@@ -126,7 +127,7 @@ class ScreenSlidingStackTransitionManager
 	 */
 	public function clearStack():Void
 	{
-		this._stack.length = 0;
+		this._stack.splice(0, this._stack.length);
 	}
 
 	/**
@@ -135,22 +136,22 @@ class ScreenSlidingStackTransitionManager
 	 */
 	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
-		if(this._activeTransition)
+		if(this._activeTransition != null)
 		{
 			this._savedOtherTarget = null;
 			Starling.current.juggler.remove(this._activeTransition);
 			this._activeTransition = null;
 		}
 
-		if(!oldScreen || !newScreen || this.skipNextTransition)
+		if(oldScreen == null || newScreen == null || this.skipNextTransition)
 		{
 			this.skipNextTransition = false;
 			this._savedCompleteHandler = null;
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 			}
@@ -163,19 +164,19 @@ class ScreenSlidingStackTransitionManager
 		
 		this._savedCompleteHandler = onComplete;
 
-		var newScreenClassAndID:String = getQualifiedClassName(newScreen);
+		var newScreenClassAndID:String = Type.getClassName(Type.getClass(newScreen));
 		if(Std.is(newScreen, IScreen))
 		{
-			newScreenClassAndID += "~" + IScreen(newScreen).screenID;
+			newScreenClassAndID += "~" + cast(newScreen, IScreen).screenID;
 		}
 		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
 		var activeTransition_onUpdate:Dynamic;
 		if(stackIndex < 0)
 		{
-			var oldScreenClassAndID:String = getQualifiedClassName(oldScreen);
+			var oldScreenClassAndID:String = Type.getClassName(Type.getClass(oldScreen));
 			if(Std.is(oldScreen, IScreen))
 			{
-				oldScreenClassAndID += "~" + IScreen(oldScreen).screenID;
+				oldScreenClassAndID += "~" + cast(oldScreen, IScreen).screenID;
 			}
 			this._stack.push(oldScreenClassAndID);
 			oldScreen.x = 0;
@@ -184,7 +185,7 @@ class ScreenSlidingStackTransitionManager
 		}
 		else
 		{
-			this._stack.length = stackIndex;
+			this._stack.splice(stackIndex, this._stack.length - stackIndex);
 			oldScreen.x = 0;
 			newScreen.x = -this.navigator.width;
 			activeTransition_onUpdate = this.activeTransitionPop_onUpdate;
@@ -203,9 +204,9 @@ class ScreenSlidingStackTransitionManager
 	 */
 	private function activeTransitionPush_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
-			var newScreen:DisplayObject = DisplayObject(this._activeTransition.target);
+			var newScreen:DisplayObject = cast(this._activeTransition.target, DisplayObject);
 			this._savedOtherTarget.x = newScreen.x - this.navigator.width;
 		}
 	}
@@ -215,9 +216,9 @@ class ScreenSlidingStackTransitionManager
 	 */
 	private function activeTransitionPop_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
-			var newScreen:DisplayObject = DisplayObject(this._activeTransition.target);
+			var newScreen:DisplayObject = cast(this._activeTransition.target, DisplayObject);
 			this._savedOtherTarget.x = newScreen.x + this.navigator.width;
 		}
 	}

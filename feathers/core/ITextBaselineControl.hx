@@ -14,5 +14,6 @@ interface ITextBaselineControl extends IFeathersControl
 	/**
 	 * Returns the text baseline measurement, in pixels.
 	 */
-	function get_baseline():Float;
+	var baseline(get, never):Float;
+	//function get_baseline():Float;
 }

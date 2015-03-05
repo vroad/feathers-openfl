@@ -26,7 +26,7 @@ package feathers.core;
  *
  * @eventType starling.events.Event.CHANGE
  */
-//[Event(name="change",type="starling.events.Event")]
+///[Event(name="change",type="starling.events.Event")]
 
 /**
  * An interface for something that may be selected.
@@ -36,10 +36,11 @@ interface IToggle extends IFeathersControl
 	/**
 	 * Indicates if the IToggle is selected or not.
 	 */
-	function get_isSelected():Bool;
+	var isSelected(get, set):Bool;
+	//function get_isSelected():Bool;
 	
 	/**
 	 * @private
 	 */
-	function set_isSelected(value:Bool):Void;
+	//function set_isSelected(value:Bool):Void;
 }

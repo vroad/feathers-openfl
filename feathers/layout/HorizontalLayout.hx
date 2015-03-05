@@ -8,6 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.layout;
 import feathers.core.IFeathersControl;
 import feathers.core.IValidating;
+import feathers.utils.type.SafeCast.safe_cast;
 
 import openfl.errors.IllegalOperationError;
 import openfl.geom.Point;
@@ -29,7 +30,7 @@ import starling.events.EventDispatcher;
  *
  * @see http://wiki.starling-framework.org/feathers/horizontal-layout
  */
-class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
+class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout implements ITrimmedVirtualLayout
 {
 	/**
 	 * The items will be aligned to the top of the bounds.
@@ -93,7 +94,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _widthCache:Array = [];
+	private var _widthCache:Array<Float> = [];
 
 	/**
 	 * @private
@@ -123,10 +124,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_gap();
 	}
 
 	/**
@@ -136,10 +138,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 	/**
 	 * The space, in pixels, between the first and second items. If the
-	 * value of <code>firstGap</code> is <code>Math.NaN</code>, the value of the
+	 * value of <code>firstGap</code> is <code>NaN</code>, the value of the
 	 * <code>gap</code> property will be used instead.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var firstGap(get, set):Float;
 	public function get_firstGap():Float
@@ -154,10 +156,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._firstGap == value)
 		{
-			return;
+			return get_firstGap();
 		}
 		this._firstGap = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_firstGap();
 	}
 
 	/**
@@ -167,10 +170,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 	/**
 	 * The space, in pixels, between the last and second to last items. If
-	 * the value of <code>lastGap</code> is <code>Math.NaN</code>, the value of
+	 * the value of <code>lastGap</code> is <code>NaN</code>, the value of
 	 * the <code>gap</code> property will be used instead.
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 */
 	public var lastGap(get, set):Float;
 	public function get_lastGap():Float
@@ -185,10 +188,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._lastGap == value)
 		{
-			return;
+			return get_lastGap();
 		}
 		this._lastGap = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_lastGap();
 	}
 
 	/**
@@ -219,6 +223,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -244,10 +249,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingTop();
 	}
 
 	/**
@@ -273,10 +279,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingRight();
 	}
 
 	/**
@@ -302,10 +309,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -332,10 +340,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingLeft();
 	}
 
 
@@ -368,10 +377,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -403,10 +413,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -432,10 +443,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._useVirtualLayout == value)
 		{
-			return;
+			return get_useVirtualLayout();
 		}
 		this._useVirtualLayout = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_useVirtualLayout();
 	}
 
 	/**
@@ -463,10 +475,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
-			return;
+			return get_hasVariableItemDimensions();
 		}
 		this._hasVariableItemDimensions = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_hasVariableItemDimensions();
 	}
 
 	/**
@@ -495,10 +508,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._distributeWidths == value)
 		{
-			return;
+			return get_distributeWidths();
 		}
 		this._distributeWidths = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_distributeWidths();
 	}
 
 	/**
@@ -536,10 +550,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._manageVisibility == value)
 		{
-			return;
+			return get_manageVisibility();
 		}
 		this._manageVisibility = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_manageVisibility();
 	}
 
 	/**
@@ -563,10 +578,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
-			return;
+			return get_beforeVirtualizedItemCount();
 		}
 		this._beforeVirtualizedItemCount = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_beforeVirtualizedItemCount();
 	}
 
 	/**
@@ -590,10 +606,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
-			return;
+			return get_afterVirtualizedItemCount();
 		}
 		this._afterVirtualizedItemCount = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_afterVirtualizedItemCount();
 	}
 
 	/**
@@ -621,10 +638,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._typicalItem == value)
 		{
-			return;
+			return get_typicalItem();
 		}
 		this._typicalItem = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_typicalItem();
 	}
 
 	/**
@@ -660,10 +678,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
-			return;
+			return get_resetTypicalItemDimensionsOnMeasure();
 		}
 		this._resetTypicalItemDimensionsOnMeasure = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_resetTypicalItemDimensionsOnMeasure();
 	}
 
 	/**
@@ -683,13 +702,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemWidth</code> is set to <code>Math.NaN</code>, the
+	 * <p>If <code>typicalItemWidth</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred width. If you
 	 * pass a valid <code>Float</code> value, the typical item's width will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemHeight</code>.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemHeight
@@ -708,10 +727,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._typicalItemWidth == value)
 		{
-			return;
+			return get_typicalItemWidth();
 		}
 		this._typicalItemWidth = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_typicalItemWidth();
 	}
 
 	/**
@@ -731,13 +751,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * <code>typicalItem</code> dimensions will not be reset before
 	 * measurement.</p>
 	 *
-	 * <p>If <code>typicalItemHeight</code> is set to <code>Math.NaN</code>, the
+	 * <p>If <code>typicalItemHeight</code> is set to <code>NaN</code>, the
 	 * typical item will auto-size itself to its preferred height. If you
 	 * pass a valid <code>Float</code> value, the typical item's height will
 	 * be set to a fixed size. May be used in combination with
 	 * <code>typicalItemWidth</code>.</p>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #resetTypicalItemDimensionsOnMeasure
 	 * @see #typicalItemWidth
@@ -756,10 +776,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._typicalItemHeight == value)
 		{
-			return;
+			return get_typicalItemHeight();
 		}
 		this._typicalItemHeight = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_typicalItemHeight();
 	}
 
 	/**
@@ -790,12 +811,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	public function set_scrollPositionHorizontalAlign(value:String):String
 	{
 		this._scrollPositionHorizontalAlign = value;
+		return get_scrollPositionHorizontalAlign();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var requiresLayoutOnScroll(get, set):Bool;
+	public var requiresLayoutOnScroll(get, never):Bool;
 	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._manageVisibility || this._useVirtualLayout;
@@ -806,22 +828,25 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
-		var scrollX:Float = viewPortBounds ? viewPortBounds.scrollX : 0;
-		var scrollY:Float = viewPortBounds ? viewPortBounds.scrollY : 0;
-		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
+		var scrollX:Float = viewPortBounds != null ? viewPortBounds.scrollX : 0;
+		var scrollY:Float = viewPortBounds != null ? viewPortBounds.scrollY : 0;
+		var boundsX:Float = viewPortBounds != null ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds != null ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
+		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
+		
+		var calculatedTypicalItemWidth:Float = Math.NaN;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem(explicitHeight - this._paddingTop - this._paddingBottom);
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		if(!this._useVirtualLayout || this._hasVariableItemDimensions || this._distributeWidths ||
@@ -836,14 +861,14 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			this.applyPercentWidths(items, explicitWidth, minWidth, maxWidth);
 		}
 
-		var distributedWidth:Float;
+		var distributedWidth:Float = Math.NaN;
 		if(this._distributeWidths)
 		{
 			distributedWidth = this.calculateDistributedWidth(items, explicitWidth, minWidth, maxWidth);
 		}
 		var hasDistributedWidth:Bool = distributedWidth == distributedWidth; //!isNaN
 
-		this._discoveredItemsCache.length = 0;
+		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
 		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
 		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var maxItemHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
@@ -861,9 +886,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		var secondToLastIndex:Int = totalItemCount - 2;
 		var discoveredItemsCacheLastIndex:Int = 0;
-		for(var i:Int = 0; i < itemCount; i++)
+		var cachedWidth:Float = Math.NaN;
+		var item:DisplayObject;
+		var itemHeight:Float;
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
-			var item:DisplayObject = items[i];
+			item = items[i];
 			var iNormalized:Int = i + this._beforeVirtualizedItemCount;
 			var gap:Float = this._gap;
 			if(hasFirstGap && iNormalized == 0)
@@ -876,9 +905,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				var cachedWidth:Float = this._widthCache[iNormalized];
+				cachedWidth = this._widthCache[iNormalized];
 			}
-			if(this._useVirtualLayout && !item)
+			if(this._useVirtualLayout && item == null)
 			{
 				if(!this._hasVariableItemDimensions ||
 					cachedWidth != cachedWidth) //isNaN
@@ -892,7 +921,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			else
 			{
-				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+				if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 				{
 					continue;
 				}
@@ -906,7 +935,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				{
 					itemWidth = item.width;
 				}
-				var itemHeight:Float = item.height;
+				itemHeight = item.height;
 				if(this._useVirtualLayout)
 				{
 					if(this._hasVariableItemDimensions)
@@ -988,10 +1017,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			if(horizontalAlignOffsetX != 0)
 			{
-				for(i = 0; i < discoveredItemCount; i++)
+				//for(i = 0; i < discoveredItemCount; i++)
+				for(i in 0 ... discoveredItemCount)
 				{
 					item = discoveredItems[i];
-					if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+					if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 					{
 						continue;
 					}
@@ -1000,11 +1030,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 		}
 
-		for(i = 0; i < discoveredItemCount; i++)
+		//for(i = 0; i < discoveredItemCount; i++)
+		for(i in 0 ... discoveredItemCount)
 		{
 			item = discoveredItems[i];
-			var layoutItem:ILayoutDisplayObject = item as ILayoutDisplayObject;
-			if(layoutItem && !layoutItem.includeInLayout)
+			var layoutItem:ILayoutDisplayObject = safe_cast(item, ILayoutDisplayObject);
+			if(layoutItem != null && !layoutItem.includeInLayout)
 			{
 				continue;
 			}
@@ -1015,10 +1046,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			else
 			{
-				if(layoutItem)
+				if(layoutItem != null)
 				{
-					var layoutData:HorizontalLayoutData = layoutItem.layoutData as HorizontalLayoutData;
-					if(layoutData)
+					var layoutData:HorizontalLayoutData = safe_cast(layoutItem.layoutData, HorizontalLayoutData);
+					if(layoutData != null)
 					{
 						var percentHeight:Float = layoutData.percentHeight;
 						if(percentHeight == percentHeight) //!isNaN
@@ -1032,9 +1063,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 								percentHeight = 100;
 							}
 							itemHeight = percentHeight * (availableHeight - this._paddingTop - this._paddingBottom) / 100;
-							if(item is IFeathersControl)
+							if(Std.is(item, IFeathersControl))
 							{
-								var feathersItem:IFeathersControl = IFeathersControl(item);
+								var feathersItem:IFeathersControl = cast item;
 								var itemMinHeight:Float = feathersItem.minHeight;
 								if(itemHeight < itemMinHeight)
 								{
@@ -1058,12 +1089,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					case VERTICAL_ALIGN_BOTTOM:
 					{
 						item.y = item.pivotY + boundsY + availableHeight - this._paddingBottom - item.height;
-						break;
+						//break;
 					}
 					case VERTICAL_ALIGN_MIDDLE:
 					{
 						item.y = item.pivotY + boundsY + this._paddingTop + Math.round((availableHeight - this._paddingTop - this._paddingBottom - item.height) / 2);
-						break;
+						//break;
 					}
 					default: //top
 					{
@@ -1076,9 +1107,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				item.visible = ((item.x - item.pivotX + item.width) >= (boundsX + scrollX)) && ((item.x - item.pivotX) < (scrollX + availableWidth));
 			}
 		}
-		this._discoveredItemsCache.length = 0;
+		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
 
-		if(!result)
+		if(result == null)
 		{
 			result = new LayoutBoundsResult();
 		}
@@ -1094,17 +1125,17 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
 		if(!this._useVirtualLayout)
 		{
-			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.")
+			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.");
 		}
 
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : Math.NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : Math.NaN;
+		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
 		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
 		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
@@ -1113,18 +1144,19 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			result.y = explicitHeight;
 			return result;
 		}
-		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
+		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
 
 		this.prepareTypicalItem(explicitHeight - this._paddingTop - this._paddingBottom);
-		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
 		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
 		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var positionX:Float;
+		var maxItemHeight:Float = 0;
 		if(this._distributeWidths)
 		{
 			positionX = (calculatedTypicalItemWidth + this._gap) * itemCount;
@@ -1132,14 +1164,15 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		else
 		{
 			positionX = 0;
-			var maxItemHeight:Float = calculatedTypicalItemHeight;
+			maxItemHeight = calculatedTypicalItemHeight;
 			if(!this._hasVariableItemDimensions)
 			{
 				positionX += ((calculatedTypicalItemWidth + this._gap) * itemCount);
 			}
 			else
 			{
-				for(var i:Int = 0; i < itemCount; i++)
+				//for(var i:Int = 0; i < itemCount; i++)
+				for(i in 0 ... itemCount)
 				{
 					var cachedWidth:Float = this._widthCache[i];
 					if(cachedWidth != cachedWidth) //isNaN
@@ -1207,7 +1240,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function resetVariableVirtualCache():Void
 	{
-		this._widthCache.length = 0;
+		this._widthCache.splice(0, this._widthCache.length);
 	}
 
 	/**
@@ -1215,8 +1248,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
-		delete this._widthCache[index];
-		if(item)
+		this._widthCache.remove(index);
+		if(item != null)
 		{
 			this._widthCache[index] = item.width;
 			this.dispatchEventWith(Event.CHANGE);
@@ -1228,8 +1261,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
-		var widthValue:* = item ? item.width : undefined;
-		this._widthCache.splice(index, 0, widthValue);
+		var widthValue:Null<Float> = item != null ? item.width : null;
+		this._widthCache.insert(index, widthValue);
 	}
 
 	/**
@@ -1245,9 +1278,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
-		if(result)
+		if(result != null)
 		{
-			result.length = 0;
+			result.splice(0, result.length);
 		}
 		else
 		{
@@ -1255,12 +1288,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		if(!this._useVirtualLayout)
 		{
-			throw new IllegalOperationError("getVisibleIndicesAtScrollPosition() may be called only if useVirtualLayout is true.")
+			throw new IllegalOperationError("getVisibleIndicesAtScrollPosition() may be called only if useVirtualLayout is true.");
 		}
 
 		this.prepareTypicalItem(height - this._paddingTop - this._paddingBottom);
-		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
 		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
 		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
@@ -1291,7 +1324,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					indexOffset = Math.ceil(((width - totalItemWidth) / (calculatedTypicalItemWidth + this._gap)) / 2);
 				}
 			}
-			var minimum:Int = (scrollX - this._paddingLeft) / (calculatedTypicalItemWidth + this._gap);
+			var minimum:Int = Std.int((scrollX - this._paddingLeft) / (calculatedTypicalItemWidth + this._gap));
 			if(minimum < 0)
 			{
 				minimum = 0;
@@ -1310,17 +1343,22 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				minimum = 0;
 			}
-			for(var i:Int = minimum; i <= maximum; i++)
+			//for(var i:Int = minimum; i <= maximum; i++)
+			var i:Int = minimum;
+			while(i <= maximum)
 			{
 				result[resultLastIndex] = i;
 				resultLastIndex++;
+				i++;
 			}
 			return result;
 		}
 		var secondToLastIndex:Int = itemCount - 2;
 		var maxPositionX:Float = scrollX + width;
 		var positionX:Float = this._paddingLeft;
-		for(i = 0; i < itemCount; i++)
+		var itemWidth:Float;
+		//for(i = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var gap:Float = this._gap;
 			if(hasFirstGap && i == 0)
@@ -1334,7 +1372,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			var cachedWidth:Float = this._widthCache[i];
 			if(cachedWidth != cachedWidth) //isNaN
 			{
-				var itemWidth:Float = calculatedTypicalItemWidth;
+				itemWidth = calculatedTypicalItemWidth;
 			}
 			else
 			{
@@ -1368,9 +1406,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				lastIndexToAdd = 0;
 			}
-			for(i = firstExistingIndex - 1; i >= lastIndexToAdd; i--)
+			//for(i = firstExistingIndex - 1; i >= lastIndexToAdd; i--)
+			var i:Int = firstExistingIndex - 1;
+			while(i >= lastIndexToAdd)
 			{
 				result.unshift(i);
+				i--;
 			}
 		}
 		resultLength = result.length;
@@ -1385,7 +1426,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				endIndex = itemCount;
 			}
-			for(i = startIndex; i < endIndex; i++)
+			//for(i = startIndex; i < endIndex; i++)
+			for(i in startIndex ... endIndex)
 			{
 				result[resultLastIndex] = i;
 				resultLastIndex++;
@@ -1399,16 +1441,18 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
 
+		var calculatedTypicalItemWidth:Float = 0;
+		var calculatedTypicalItemHeight:Float = 0;
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem(height - this._paddingTop - this._paddingBottom);
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
@@ -1442,9 +1486,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			positionX += (startIndexOffset * (calculatedTypicalItemWidth + this._gap));
 		}
-		index -= (startIndexOffset + endIndexOffset);
+		index -= Std.int(startIndexOffset + endIndexOffset);
 		var secondToLastIndex:Int = totalItemCount - 2;
-		for(var i:Int = 0; i <= index; i++)
+		var cachedWidth:Float = Math.NaN;
+		//for(var i:Int = 0; i <= index; i++)
+		var i:Int = 0;
+		while(i <= index)
 		{
 			var item:DisplayObject = items[i];
 			var iNormalized:Int = i + startIndexOffset;
@@ -1462,9 +1509,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				var cachedWidth:Float = this._widthCache[iNormalized];
+				cachedWidth = this._widthCache[iNormalized];
 			}
-			if(this._useVirtualLayout && !item)
+			if(this._useVirtualLayout && item == null)
 			{
 				if(!this._hasVariableItemDimensions ||
 					cachedWidth != cachedWidth) //isNaN
@@ -1497,6 +1544,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				lastWidth = itemWidth;
 			}
 			positionX += lastWidth + gap;
+			
+			i++;
 		}
 		positionX -= (lastWidth + gap);
 		if(this._scrollPositionHorizontalAlign == HORIZONTAL_ALIGN_CENTER)
@@ -1526,10 +1575,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			justifyHeight == justifyHeight; //!isNaN
 
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
-			if(!item || (item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout))
+			if(item == null || (Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout))
 			{
 				continue;
 			}
@@ -1541,9 +1591,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				item.height = justifyHeight;
 			}
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate()
+				cast(item, IValidating).validate();
 			}
 		}
 	}
@@ -1553,7 +1603,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	private function prepareTypicalItem(justifyHeight:Float):Void
 	{
-		if(!this._typicalItem)
+		if(this._typicalItem == null)
 		{
 			return;
 		}
@@ -1570,9 +1620,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			this._typicalItem.height = this._typicalItemHeight;
 		}
-		if(this._typicalItem is IValidating)
+		if(Std.is(this._typicalItem, IValidating))
 		{
-			IValidating(this._typicalItem).validate();
+			cast(this._typicalItem, IValidating).validate();
 		}
 	}
 
@@ -1585,7 +1635,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		if(explicitWidth != explicitWidth) //isNaN
 		{
 			var maxItemWidth:Float = 0;
-			for(var i:Int = 0; i < itemCount; i++)
+			//for(var i:Int = 0; i < itemCount; i++)
+			for(i in 0 ... itemCount)
 			{
 				var item:DisplayObject = items[i];
 				var itemWidth:Float = item.width;
@@ -1629,31 +1680,37 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	private function applyPercentWidths(items:Array<DisplayObject>, explicitWidth:Float, minWidth:Float, maxWidth:Float):Void
 	{
 		var remainingWidth:Float = explicitWidth;
-		this._discoveredItemsCache.length = 0;
+		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
 		var totalExplicitWidth:Float = 0;
 		var totalMinWidth:Float = 0;
 		var totalPercentWidth:Float = 0;
 		var itemCount:Int = items.length;
 		var pushIndex:Int = 0;
-		for(var i:Int = 0; i < itemCount; i++)
+		var layoutItem:ILayoutDisplayObject;
+		var layoutData:HorizontalLayoutData;
+		var percentWidth:Float;
+		var feathersItem:IFeathersControl;
+		var needsAnotherPass:Bool;
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = items[i];
-			if(item is ILayoutDisplayObject)
+			if(Std.is(item, ILayoutDisplayObject))
 			{
-				var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
+				layoutItem = cast(item, ILayoutDisplayObject);
 				if(!layoutItem.includeInLayout)
 				{
 					continue;
 				}
-				var layoutData:HorizontalLayoutData = layoutItem.layoutData as HorizontalLayoutData;
-				if(layoutData)
+				layoutData = safe_cast(layoutItem.layoutData, HorizontalLayoutData);
+				if(layoutData != null)
 				{
-					var percentWidth:Float = layoutData.percentWidth;
+					percentWidth = layoutData.percentWidth;
 					if(percentWidth == percentWidth) //!isNaN
 					{
-						if(layoutItem is IFeathersControl)
+						if(Std.is(layoutItem, IFeathersControl))
 						{
-							var feathersItem:IFeathersControl = IFeathersControl(layoutItem);
+							feathersItem = cast(layoutItem, IFeathersControl);
 							totalMinWidth += feathersItem.minWidth;
 						}
 						totalPercentWidth += percentWidth;
@@ -1698,21 +1755,22 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		do
 		{
-			var needsAnotherPass:Bool = false;
+			needsAnotherPass = false;
 			var percentToPixels:Float = remainingWidth / totalPercentWidth;
-			for(i = 0; i < pushIndex; i++)
+			//for(i = 0; i < pushIndex; i++)
+			for(i in 0 ... pushIndex)
 			{
-				layoutItem = ILayoutDisplayObject(this._discoveredItemsCache[i]);
-				if(!layoutItem)
+				layoutItem = cast(this._discoveredItemsCache[i], ILayoutDisplayObject);
+				if(layoutItem == null)
 				{
 					continue;
 				}
-				layoutData = HorizontalLayoutData(layoutItem.layoutData);
+				layoutData = cast(layoutItem.layoutData, HorizontalLayoutData);
 				percentWidth = layoutData.percentWidth;
 				var itemWidth:Float = percentToPixels * percentWidth;
-				if(layoutItem is IFeathersControl)
+				if(Std.is(layoutItem, IFeathersControl))
 				{
-					feathersItem = IFeathersControl(layoutItem);
+					feathersItem = cast(layoutItem, IFeathersControl);
 					var itemMinWidth:Float = feathersItem.minWidth;
 					if(itemWidth < itemMinWidth)
 					{
@@ -1738,7 +1796,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				layoutItem.width = itemWidth;
 			}
 		}
-		while(needsAnotherPass)
-		this._discoveredItemsCache.length = 0;
+		while(needsAnotherPass);
+		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
 	}
 }

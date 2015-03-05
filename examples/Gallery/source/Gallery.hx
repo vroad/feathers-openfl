@@ -1,16 +1,21 @@
-package
-{
+package;
 import feathers.examples.gallery.Main;
+import openfl.errors.Error;
+import starling.utils.Max;
 
 import openfl.display.Loader;
 import openfl.display.Sprite;
 import openfl.display.StageAlign;
+#if 0
 import openfl.display.StageOrientation;
+#end
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
-import openfl.filesystem.File;
-import openfl.filesystem.FileMode;
-import openfl.filesystem.FileStream;
+#if 0
+import flash.filesystem.File;
+import flash.filesystem.FileMode;
+import flash.filesystem.FileStream;
+#end
 import openfl.geom.Rectangle;
 import openfl.system.Capabilities;
 import openfl.utils.ByteArray;
@@ -22,34 +27,50 @@ class Gallery extends Sprite
 {
 	public function new()
 	{
-		if(this.stage)
+		super();
+		if(this.stage != null)
 		{
 			this.stage.scaleMode = StageScaleMode.NO_SCALE;
 			this.stage.align = StageAlign.TOP_LEFT;
 		}
 		this.mouseEnabled = this.mouseChildren = false;
+		#if 0
 		this.showLaunchImage();
 		this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
+		#end
+		loaderInfo_completeHandler(new Event(Event.COMPLETE));
 	}
 
 	private var _starling:Starling;
+	#if 0
 	private var _launchImage:Loader;
 	private var _savedAutoOrients:Bool;
+	#end
 
+	#if 0
 	private function showLaunchImage():Void
 	{
-		var filePath:String;
+		var filePath:String = null;
 		var isPortraitOnly:Bool = false;
 		if(Capabilities.manufacturer.indexOf("iOS") >= 0)
 		{
+			var isCurrentlyPortrait:Bool;
 			if(Capabilities.screenResolutionX == 1536 && Capabilities.screenResolutionY == 2048)
 			{
-				var isCurrentlyPortrait:Bool = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				#if flash
+				isCurrentlyPortrait = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				#else
+				isCurrentlyPortrait = true;
+				#end
 				filePath = isCurrentlyPortrait ? "Default-Portrait@2x.png" : "Default-Landscape@2x.png";
 			}
 			else if(Capabilities.screenResolutionX == 768 && Capabilities.screenResolutionY == 1024)
 			{
+				#if flash
 				isCurrentlyPortrait = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				#else
+				isCurrentlyPortrait = true;
+				#end
 				filePath = isCurrentlyPortrait ? "Default-Portrait.png" : "Default-Landscape.png";
 			}
 			else if(Capabilities.screenResolutionX == 640)
@@ -71,10 +92,11 @@ class Gallery extends Sprite
 			}
 		}
 
-		if(filePath)
+		if(filePath != null)
 		{
 			var file:File = File.applicationDirectory.resolvePath(filePath);
 			if(file.exists)
+			if(FileSystem.exists(filePath))
 			{
 				var bytes:ByteArray = new ByteArray();
 				var stream:FileStream = new FileStream();
@@ -84,42 +106,47 @@ class Gallery extends Sprite
 				this._launchImage = new Loader();
 				this._launchImage.loadBytes(bytes);
 				this.addChild(this._launchImage);
+				#if flash
 				this._savedAutoOrients = this.stage.autoOrients;
 				this.stage.autoOrients = false;
 				if(isPortraitOnly)
 				{
 					this.stage.setOrientation(StageOrientation.DEFAULT);
 				}
+				#end
 			}
 		}
 	}
+	#end
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
-		Starling.handleLostContext = true;
+		//Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
 		this._starling = new Starling(Main, this.stage);
 		this._starling.enableErrorChecking = false;
 		//this._starling.showStats = true;
 		this._starling.start();
-		if(this._launchImage)
+		//if(this._launchImage != null)
 		{
 			this._starling.addEventListener("rootCreated", starling_rootCreatedHandler);
 		}
 
-		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Int.MAX_VALUE, true);
+		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Max.INT_MAX_VALUE, true);
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
 	private function starling_rootCreatedHandler(event:Dynamic):Void
 	{
-		if(this._launchImage)
+		#if 0
+		if(this._launchImage != null)
 		{
 			this.removeChild(this._launchImage);
 			this._launchImage.unloadAndStop(true);
 			this._launchImage = null;
 			this.stage.autoOrients = this._savedAutoOrients;
 		}
+		#end
 	}
 
 	private function stage_resizeHandler(event:Event):Void

@@ -20,7 +20,7 @@ import starling.textures.Texture;
 //[Event(name="showTiledRows",type="starling.events.Event")]
 //[Event(name="showTiledColumns",type="starling.events.Event")]
 
-class MainMenuScreen extends PanelScreen
+@:keep class MainMenuScreen extends PanelScreen
 {
 	inline public static var SHOW_ANCHOR:String = "showAnchor";
 	inline public static var SHOW_HORIZONTAL:String = "showHorizontal";
@@ -47,7 +47,7 @@ class MainMenuScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		this.headerProperties.title = "Layouts in Feathers";
+		this.headerProperties.setProperty("title", "Layouts in Feathers");
 
 		this._list = new List();
 		this._list.dataProvider = new ListCollection(
@@ -115,20 +115,20 @@ class MainMenuScreen extends PanelScreen
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
 			var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-			if(!screenItem.properties)
+			if(screenItem.properties == null)
 			{
 				screenItem.properties = {};
 			}
 			//we're going to save the position of the list so that when the user
 			//navigates back to this screen, they won't need to scroll back to
 			//the same position manually
-			screenItem.properties.savedVerticalScrollPosition = this._list.verticalScrollPosition;
+			Reflect.setField(screenItem.properties, "savedVerticalScrollPosition", this._list.verticalScrollPosition);
 			//we'll also save the selected index to temporarily highlight
 			//the previously selected item when transitioning back
-			screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
+			Reflect.setField(screenItem.properties, "savedSelectedIndex", this._list.selectedIndex);
 		}
 
-		var eventType:String = this._list.selectedItem.event as String;
+		var eventType:String = cast(this._list.selectedItem.event, String);
 		this.dispatchEventWith(eventType);
 	}
 }

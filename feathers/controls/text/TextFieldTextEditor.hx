@@ -9,15 +9,16 @@ package feathers.controls.text;
 import feathers.core.FeathersControl;
 import feathers.core.ITextEditor;
 import feathers.events.FeathersEventType;
-import feathers.utils.geom.matrixToRotation;
-import feathers.utils.geom.matrixToScaleX;
-import feathers.utils.geom.matrixToScaleY;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToRotation;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+import openfl.errors.Error;
 
 import openfl.display.BitmapData;
 import openfl.display3D.Context3DProfile;
 import openfl.events.FocusEvent;
 import openfl.events.KeyboardEvent;
-import openfl.events.SoftKeyboardEvent;
+//import openfl.events.SoftKeyboardEvent;
 import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
@@ -34,7 +35,7 @@ import starling.events.Event;
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.MatrixUtil;
-import starling.utils.getNextPowerOfTwo;
+import starling.utils.PowerOfTwo.getNextPowerOfTwo;
 
 /**
  * Dispatched when the text property changes.
@@ -183,7 +184,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -195,6 +196,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function new()
 	{
+		super();
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(Event.ADDED_TO_STAGE, textEditor_addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, textEditor_removedFromStageHandler);
@@ -274,27 +276,28 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function set_text(value:String):String
 	{
-		if(!value)
+		if(value == null)
 		{
 			//don't allow null or undefined
 			value = "";
 		}
 		if(this._text == value)
 		{
-			return;
+			return get_text();
 		}
 		this._text = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_text();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var baseline(get, set):Float;
+	public var baseline(get, never):Float;
 	public function get_baseline():Float
 	{
-		if(!this.textField)
+		if(this.textField == null)
 		{
 			return 0;
 		}
@@ -342,7 +345,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._textFormat == value)
 		{
-			return;
+			return get_textFormat();
 		}
 		this._textFormat = value;
 		//since the text format has changed, the comparison will return
@@ -350,6 +353,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		//well remove the reference to an object we don't need anymore.
 		this._previousTextFormat = null;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_textFormat();
 	}
 
 	/**
@@ -384,10 +388,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._disabledTextFormat == value)
 		{
-			return;
+			return get_disabledTextFormat();
 		}
 		this._disabledTextFormat = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledTextFormat();
 	}
 
 	/**
@@ -421,10 +426,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._embedFonts == value)
 		{
-			return;
+			return get_embedFonts();
 		}
 		this._embedFonts = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_embedFonts();
 	}
 
 	/**
@@ -457,10 +463,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._wordWrap == value)
 		{
-			return;
+			return get_wordWrap();
 		}
 		this._wordWrap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_wordWrap();
 	}
 
 	/**
@@ -493,10 +500,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._multiline == value)
 		{
-			return;
+			return get_multiline();
 		}
 		this._multiline = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_multiline();
 	}
 
 	/**
@@ -530,10 +538,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._isHTML == value)
 		{
-			return;
+			return get_isHTML();
 		}
 		this._isHTML = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_isHTML();
 	}
 
 	/**
@@ -569,10 +578,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._alwaysShowSelection == value)
 		{
-			return;
+			return get_alwaysShowSelection();
 		}
 		this._alwaysShowSelection = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_alwaysShowSelection();
 	}
 
 	/**
@@ -607,10 +617,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._displayAsPassword == value)
 		{
-			return;
+			return get_displayAsPassword();
 		}
 		this._displayAsPassword = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_displayAsPassword();
 	}
 
 	/**
@@ -646,10 +657,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._maxChars == value)
 		{
-			return;
+			return get_maxChars();
 		}
 		this._maxChars = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_maxChars();
 	}
 
 	/**
@@ -684,10 +696,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._restrict == value)
 		{
-			return;
+			return get_restrict();
 		}
 		this._restrict = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_restrict();
 	}
 
 	/**
@@ -719,10 +732,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._isEditable == value)
 		{
-			return;
+			return get_isEditable();
 		}
 		this._isEditable = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_isEditable();
 	}
 
 	/**
@@ -756,16 +770,17 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		if(this._useGutter == value)
 		{
-			return;
+			return get_useGutter();
 		}
 		this._useGutter = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_useGutter();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public var setTouchFocusOnEndedPhase(get, set):Bool;
+	public var setTouchFocusOnEndedPhase(get, never):Bool;
 	public function get_setTouchFocusOnEndedPhase():Bool
 	{
 		return false;
@@ -789,14 +804,14 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionBeginIndex(get, set):Int;
+	public var selectionBeginIndex(get, never):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		if(this._pendingSelectionBeginIndex >= 0)
 		{
 			return this._pendingSelectionBeginIndex;
 		}
-		if(this.textField)
+		if(this.textField != null)
 		{
 			return this.textField.selectionBeginIndex;
 		}
@@ -811,14 +826,14 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionEndIndex(get, set):Int;
+	public var selectionEndIndex(get, never):Int;
 	public function get_selectionEndIndex():Int
 	{
 		if(this._pendingSelectionEndIndex >= 0)
 		{
 			return this._pendingSelectionEndIndex;
 		}
-		if(this.textField)
+		if(this.textField != null)
 		{
 			return this.textField.selectionEndIndex;
 		}
@@ -835,7 +850,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	override public function dispose():Void
 	{
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			//avoid the need to call dispose(). we'll create a new snapshot
 			//when the renderer is added to stage again.
@@ -844,7 +859,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			this.textSnapshot = null;
 		}
 
-		if(this.textField && this.textField.parent)
+		if(this.textField != null && this.textField.parent != null)
 		{
 			this.textField.parent.removeChild(this.textField);
 		}
@@ -866,7 +881,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		//or invisible immediately after the snapshot changes visibility in
 		//the rendered graphics. the OS might take longer to do the change,
 		//though.
-		var isTextFieldVisible:Bool = this.textSnapshot ? !this.textSnapshot.visible : this._textFieldHasFocus;
+		var isTextFieldVisible:Bool = this.textSnapshot != null ? !this.textSnapshot.visible : this._textFieldHasFocus;
 		this.textField.visible = isTextFieldVisible;
 
 		this.transformTextField();
@@ -880,13 +895,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function setFocus(position:Point = null):Void
 	{
-		if(this.textField)
+		if(this.textField != null)
 		{
-			if(!this.textField.parent)
+			if(this.textField.parent == null)
 			{
 				Starling.current.nativeStage.addChild(this.textField);
 			}
-			if(position)
+			if(position != null)
 			{
 				var gutterPositionOffset:Float = 2;
 				if(this._useGutter)
@@ -906,10 +921,10 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = Int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
+							var lineIndex:Int = Std.int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
 							try
 							{
-								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex) + this.textField.getLineLength(lineIndex);
+								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex)#if flash + this.textField.getLineLength(lineIndex) #end;
 								if(this._pendingSelectionBeginIndex != this._text.length)
 								{
 									this._pendingSelectionBeginIndex--;
@@ -940,10 +955,10 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 						//reported that a null reference error happened
 						//here! I couldn't reproduce, but I might as well
 						//assume that the runtime has a bug. won't hurt.
-						if(bounds)
+						if(bounds != null)
 						{
 							var boundsX:Float = bounds.x;
-							if(bounds && (boundsX + bounds.width - positionX) < (positionX - boundsX))
+							if(bounds != null && (boundsX + bounds.width - positionX) < (positionX - boundsX))
 							{
 								this._pendingSelectionBeginIndex++;
 							}
@@ -956,7 +971,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 			{
 				this._pendingSelectionBeginIndex = this._pendingSelectionEndIndex = -1;
 			}
-			if(!this._focusManager)
+			if(this._focusManager == null)
 			{
 				Starling.current.nativeStage.focus = this.textField;
 			}
@@ -977,7 +992,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function clearFocus():Void
 	{
-		if(!this._textFieldHasFocus || this._focusManager)
+		if(!this._textFieldHasFocus || this._focusManager != null)
 		{
 			return;
 		}
@@ -989,7 +1004,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function selectRange(beginIndex:Int, endIndex:Int):Void
 	{
-		if(this.textField)
+		if(this.textField != null)
 		{
 			if(!this._isValidating)
 			{
@@ -1009,7 +1024,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	public function measureText(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1049,13 +1064,17 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		this.textField.addEventListener(FocusEvent.FOCUS_IN, textField_focusInHandler);
 		this.textField.addEventListener(FocusEvent.FOCUS_OUT, textField_focusOutHandler);
 		this.textField.addEventListener(KeyboardEvent.KEY_DOWN, textField_keyDownHandler);
+		#if flash
 		this.textField.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, textField_softKeyboardActivateHandler);
 		this.textField.addEventListener(SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, textField_softKeyboardDeactivateHandler);
+		#end
 
 		this.measureTextField = new TextField();
 		this.measureTextField.autoSize = TextFieldAutoSize.LEFT;
 		this.measureTextField.selectable = false;
+		#if flash
 		this.measureTextField.mouseWheelEnabled = false;
+		#end
 		this.measureTextField.mouseEnabled = false;
 	}
 
@@ -1122,7 +1141,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function measure(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1193,7 +1212,9 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		textField.maxChars = this._maxChars;
 		textField.restrict = this._restrict;
+		#if flash
 		textField.alwaysShowSelection = this._alwaysShowSelection;
+		#end
 		textField.displayAsPassword = this._displayAsPassword;
 		textField.wordWrap = this._wordWrap;
 		textField.multiline = this._multiline;
@@ -1202,7 +1223,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		textField.selectable = this._isEnabled;
 		var isFormatDifferent:Bool = false;
 		var currentTextFormat:TextFormat;
-		if(!this._isEnabled && this._disabledTextFormat)
+		if(!this._isEnabled && this._disabledTextFormat != null)
 		{
 			currentTextFormat = this._disabledTextFormat;
 		}
@@ -1210,7 +1231,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		{
 			currentTextFormat = this._textFormat;
 		}
-		if(currentTextFormat)
+		if(currentTextFormat != null)
 		{
 			//for some reason, textField.defaultTextFormat always fails
 			//comparison against currentTextFormat. if we save to a member
@@ -1327,10 +1348,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var nativeScaleFactor:Float = 1;
+		#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
+		#end
 		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		var gutterPositionOffset:Float = 2;
 		if(this._useGutter)
@@ -1349,7 +1372,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function positionSnapshot():Void
 	{
-		if(!this.textSnapshot)
+		if(this.textSnapshot == null)
 		{
 			return;
 		}
@@ -1366,16 +1389,16 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 		if(canUseRectangleTexture)
 		{
-			this._snapshotWidth = this._textFieldClipRect.width;
-			this._snapshotHeight = this._textFieldClipRect.height;
+			this._snapshotWidth = Std.int(this._textFieldClipRect.width);
+			this._snapshotHeight = Std.int(this._textFieldClipRect.height);
 		}
 		else
 		{
-			this._snapshotWidth = getNextPowerOfTwo(this._textFieldClipRect.width);
-			this._snapshotHeight = getNextPowerOfTwo(this._textFieldClipRect.height);
+			this._snapshotWidth = getNextPowerOfTwo(Std.int(this._textFieldClipRect.width));
+			this._snapshotHeight = getNextPowerOfTwo(Std.int(this._textFieldClipRect.height));
 		}
-		var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
-		this._needsNewTexture = this._needsNewTexture || !this.textSnapshot || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
+		var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
+		this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
 	}
 
 	/**
@@ -1430,13 +1453,13 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 		HELPER_MATRIX.scale(scaleFactor * globalScaleX, scaleFactor * globalScaleY);
 		var bitmapData:BitmapData = new BitmapData(this._snapshotWidth, this._snapshotHeight, true, 0x00ff00ff);
 		bitmapData.draw(this.textField, HELPER_MATRIX, null, null, this._textFieldClipRect);
-		var newTexture:Texture;
-		if(!this.textSnapshot || this._needsNewTexture)
+		var newTexture:Texture = null;
+		if(this.textSnapshot == null || this._needsNewTexture)
 		{
 			newTexture = Texture.fromBitmapData(bitmapData, false, false, Starling.current.contentScaleFactor);
 			newTexture.root.onRestore = texture_onRestore;
 		}
-		if(!this.textSnapshot)
+		if(this.textSnapshot == null)
 		{
 			this.textSnapshot = new Image(newTexture);
 			this.addChild(this.textSnapshot);
@@ -1468,7 +1491,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function textEditor_addedToStageHandler(event:Event):Void
 	{
-		if(!this.textField.parent)
+		if(this.textField.parent == null)
 		{
 			//the text field needs to be on the native stage to measure properly
 			Starling.current.nativeStage.addChild(this.textField);
@@ -1480,7 +1503,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	 */
 	private function textEditor_removedFromStageHandler(event:Event):Void
 	{
-		if(this.textField.parent)
+		if(this.textField.parent != null)
 		{
 			//remove this from the stage, if needed
 			//it will be added back next time we receive focus
@@ -1495,7 +1518,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	{
 		this.removeEventListener(Event.ENTER_FRAME, textEditor_enterFrameHandler);
 		this.refreshSnapshot();
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.visible = !this._textFieldHasFocus;
 			this.textSnapshot.alpha = this._text.length > 0 ? 1 : 0;
@@ -1516,7 +1539,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	private function textField_focusInHandler(event:FocusEvent):Void
 	{
 		this._textFieldHasFocus = true;
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			this.textSnapshot.visible = false;
 		}
@@ -1555,16 +1578,16 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor
 	/**
 	 * @private
 	 */
-	private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
+	/*private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
-	}
+	}*/
 
 	/**
 	 * @private
 	 */
-	private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
+	/*private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
-	}
+	}*/
 }

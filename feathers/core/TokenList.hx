@@ -68,17 +68,18 @@ class TokenList extends EventDispatcher
 	{
 		if(this.value == value)
 		{
-			return;
+			return this.value;
 		}
-		this.names.length = 0;
-		this.names = Array<String>(value.split(" "));
+		this.names = [];
+		this.names = value.split(" ");
 		this.dispatchEventWith(Event.CHANGE);
+		return this.value;
 	}
 
 	/**
 	 * The number of tokens in the list.
 	 */
-	public var length(get, set):Int;
+	public var length(get, never):Int;
 	public function get_length():Int
 	{
 		return this.names.length;

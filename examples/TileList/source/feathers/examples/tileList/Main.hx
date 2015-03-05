@@ -10,6 +10,8 @@ import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.layout.TiledRowsLayout;
 import feathers.text.BitmapFontTextFormat;
+import openfl.Assets;
+import openfl.geom.Rectangle;
 
 import starling.display.Image;
 import starling.events.Event;
@@ -20,17 +22,21 @@ import starling.textures.TextureAtlas;
 
 class Main extends LayoutGroup
 {
-	[Embed(source="/../assets/images/atlas.png")]
-	inline private static var ICONS_IMAGE:Class<Dynamic>;
+	//[Embed(source="/../assets/images/atlas.png")]
+	//inline private static var ICONS_IMAGE:Class<Dynamic>;
+	inline private static var ICONS_IMAGE_FILE_NAME:String = "assets/images/atlas.png";
 
-	[Embed(source="/../assets/images/atlas.xml",mimeType="application/octet-stream")]
-	inline private static var ICONS_XML:Class<Dynamic>;
+	//[Embed(source="/../assets/images/atlas.xml",mimeType="application/octet-stream")]
+	//inline private static var ICONS_XML:Class<Dynamic>;
+	inline private static var ICONS_XML_FILE_NAME:String = "assets/images/atlas.xml";
 
-	[Embed(source="/../assets/images/arial20.fnt",mimeType="application/octet-stream")]
-	inline private static var FONT_XML:Class<Dynamic>;
+	//[Embed(source="/../assets/images/arial20.fnt",mimeType="application/octet-stream")]
+	//inline private static var FONT_XML:Class<Dynamic>;
+	inline private static var FONT_XML_FILE_NAME:String = "assets/images/arial20.fnt";
 
 	public function new()
 	{
+		super();
 	}
 
 	private var _iconAtlas:TextureAtlas;
@@ -41,12 +47,12 @@ class Main extends LayoutGroup
 	override public function dispose():Void
 	{
 		//don't forget to clean up textures and things!
-		if(this._iconAtlas)
+		if(this._iconAtlas != null)
 		{
 			this._iconAtlas.dispose();
 			this._iconAtlas = null;
 		}
-		if(this._font)
+		if(this._font != null)
 		{
 			this._font.dispose();
 			this._font = null;
@@ -65,8 +71,8 @@ class Main extends LayoutGroup
 		this.layout = new AnchorLayout();
 
 		//setting up some assets for skinning
-		this._iconAtlas = new TextureAtlas(Texture.fromBitmap(new ICONS_IMAGE(), false), XML(new ICONS_XML()));
-		this._font = new BitmapFont(this._iconAtlas.getTexture("arial20_0"), XML(new FONT_XML()));
+		this._iconAtlas = new TextureAtlas(Texture.fromBitmapData(Assets.getBitmapData(ICONS_IMAGE_FILE_NAME), false), Xml.parse(Assets.getText(ICONS_XML_FILE_NAME)).firstElement());
+		this._font = new BitmapFont(this._iconAtlas.getTexture("arial20_0"), Xml.parse(Assets.getText(FONT_XML_FILE_NAME)).firstElement());
 		var pageIndicatorNormalSymbol:Texture = this._iconAtlas.getTexture("normal-page-symbol");
 		var pageIndicatorSelectedSymbol:Texture = this._iconAtlas.getTexture("selected-page-symbol");
 
@@ -169,7 +175,7 @@ class Main extends LayoutGroup
 		renderer.labelField = "label";
 		renderer.iconSourceField = "texture";
 		renderer.iconPosition = Button.ICON_POSITION_TOP;
-		renderer.defaultLabelProperties.textFormat = new BitmapFontTextFormat(this._font, Math.NaN, 0x000000);
+		renderer.defaultLabelProperties.setProperty("textFormat", new BitmapFontTextFormat(this._font, Math.NaN, 0x000000));
 		return renderer;
 	}
 

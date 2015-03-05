@@ -61,7 +61,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -145,24 +145,25 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._layout == value)
 		{
-			return;
+			return get_layout();
 		}
-		if(this._layout)
+		if(this._layout != null)
 		{
 			this._layout.removeEventListener(Event.CHANGE, layout_changeHandler);
 		}
 		this._layout = value;
-		if(this._layout)
+		if(this._layout != null)
 		{
 			if(Std.is(this._layout, IVirtualLayout))
 			{
-				IVirtualLayout(this._layout).useVirtualLayout = false;
+				cast(this._layout, IVirtualLayout).useVirtualLayout = false;
 			}
 			this._layout.addEventListener(Event.CHANGE, layout_changeHandler);
 			//if we don't have a layout, nothing will need to be redrawn
 			this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 
 	/**
@@ -173,14 +174,14 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _mxmlContent:Array;
+	private var _mxmlContent:Array<DisplayObject>;
 
-	[ArrayElementType("feathers.core.IFeathersControl")]
+	//[ArrayElementType("feathers.core.IFeathersControl")]
 	/**
 	 * @private
 	 */
-	public var mxmlContent(get, set):Array;
-	public function get_mxmlContent():Array
+	public var mxmlContent(get, set):Array<DisplayObject>;
+	public function get_mxmlContent():Array<DisplayObject>
 	{
 		return this._mxmlContent;
 	}
@@ -188,24 +189,25 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_mxmlContent(value:Array):Array
+	public function set_mxmlContent(value:Array<DisplayObject>):Array<DisplayObject>
 	{
 		if(this._mxmlContent == value)
 		{
-			return;
+			return get_mxmlContent();
 		}
-		if(this._mxmlContent && this._mxmlContentIsReady)
+		if(this._mxmlContent != null && this._mxmlContentIsReady)
 		{
 			var childCount:Int = this._mxmlContent.length;
 			for(i in 0 ... childCount)
 			{
-				var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
+				var child:DisplayObject = this._mxmlContent[i];
 				this.removeChild(child, true);
 			}
 		}
 		this._mxmlContent = value;
 		this._mxmlContentIsReady = false;
 		this.invalidate(INVALIDATION_FLAG_MXML_CONTENT);
+		return get_mxmlContent();
 	}
 
 	/**
@@ -241,10 +243,11 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._clipContent == value)
 		{
-			return;
+			return get_clipContent();
 		}
 		this._clipContent = value;
 		this.invalidate(INVALIDATION_FLAG_CLIPPING);
+		return get_clipContent();
 	}
 
 	/**
@@ -292,10 +295,11 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 		this._backgroundSkin = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -328,10 +332,11 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
-			return;
+			return get_backgroundDisabledSkin();
 		}
 		this._backgroundDisabledSkin = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		return get_backgroundDisabledSkin();
 	}
 
 	/**
@@ -369,7 +374,7 @@ class LayoutGroup extends FeathersControl
 		}
 		else
 		{
-			this.items.splice(index, 0, child);
+			this.items.insert(index, child);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 		return super.addChildAt(child, index);
@@ -410,7 +415,7 @@ class LayoutGroup extends FeathersControl
 		//appropriate error, so no need to do it again!
 
 		this.items.splice(oldIndex, 1);
-		this.items.splice(index, 0, child);
+		this.items.insert(index, child);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
 	}
 
@@ -419,7 +424,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	override public function swapChildrenAt(index1:Int, index2:Int):Void
 	{
-		super.swapChildrenAt(index1, index2)
+		super.swapChildrenAt(index1, index2);
 		var child1:DisplayObject = this.items[index1];
 		var child2:DisplayObject = this.items[index2];
 		this.items[index1] = child2;
@@ -445,7 +450,7 @@ class LayoutGroup extends FeathersControl
 		var localX:Float = localPoint.x;
 		var localY:Float = localPoint.y;
 		var result:DisplayObject = super.hitTest(localPoint, forTouch);
-		if(result)
+		if(result != null)
 		{
 			if(!this._isEnabled)
 			{
@@ -453,7 +458,7 @@ class LayoutGroup extends FeathersControl
 			}
 			return result;
 		}
-		if(this.currentBackgroundSkin && this._hitArea.contains(localX, localY))
+		if(this.currentBackgroundSkin != null && this._hitArea.contains(localX, localY))
 		{
 			return this;
 		}
@@ -465,7 +470,7 @@ class LayoutGroup extends FeathersControl
 	 */
 	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		if(this.currentBackgroundSkin && this.currentBackgroundSkin.hasVisibleArea)
+		if(this.currentBackgroundSkin != null && this.currentBackgroundSkin.hasVisibleArea)
 		{
 			var blendMode:String = this.blendMode;
 			support.pushMatrix();
@@ -522,7 +527,7 @@ class LayoutGroup extends FeathersControl
 		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
 
 		//scrolling only affects the layout is requiresLayoutOnScroll is true
-		if(!layoutInvalid && scrollInvalid && this._layout && this._layout.requiresLayoutOnScroll)
+		if(!layoutInvalid && scrollInvalid && this._layout != null && this._layout.requiresLayoutOnScroll)
 		{
 			layoutInvalid = true;
 		}
@@ -535,7 +540,7 @@ class LayoutGroup extends FeathersControl
 		if(sizeInvalid || layoutInvalid || skinInvalid || stateInvalid)
 		{
 			this.refreshViewPortBounds();
-			if(this._layout)
+			if(this._layout != null)
 			{
 				this._ignoreChildChanges = true;
 				this._layout.layout(this.items, this.viewPortBounds, this._layoutResult);
@@ -558,7 +563,7 @@ class LayoutGroup extends FeathersControl
 				height = this.originalBackgroundHeight;
 			}
 			sizeInvalid = this.setSizeInternal(width, height, false) || sizeInvalid;
-			if(this.currentBackgroundSkin)
+			if(this.currentBackgroundSkin != null)
 			{
 				this.currentBackgroundSkin.width = this.actualWidth;
 				this.currentBackgroundSkin.height = this.actualHeight;
@@ -580,22 +585,22 @@ class LayoutGroup extends FeathersControl
 	 */
 	private function refreshBackgroundSkin():Void
 	{
-		if(!this._isEnabled && this._backgroundDisabledSkin)
+		if(!this._isEnabled && this._backgroundDisabledSkin != null)
 		{
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
 		else
 		{
-			this.currentBackgroundSkin = this._backgroundSkin
+			this.currentBackgroundSkin = this._backgroundSkin;
 		}
-		if(this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin != null)
 		{
 			if(this.originalBackgroundWidth != this.originalBackgroundWidth ||
 				this.originalBackgroundHeight != this.originalBackgroundHeight) //isNaN
 			{
 				if(Std.is(this.currentBackgroundSkin, IValidating))
 				{
-					IValidating(this.currentBackgroundSkin).validate();
+					cast(this.currentBackgroundSkin, IValidating).validate();
 				}
 				this.originalBackgroundWidth = this.currentBackgroundSkin.width;
 				this.originalBackgroundHeight = this.currentBackgroundSkin.height;
@@ -641,13 +646,13 @@ class LayoutGroup extends FeathersControl
 		for(i in 0 ... itemCount)
 		{
 			var item:DisplayObject = this.items[i];
-			if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+			if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 			{
 				continue;
 			}
 			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 			var itemMaxX:Float = item.x + item.width;
 			var itemMaxY:Float = item.y + item.height;
@@ -678,7 +683,7 @@ class LayoutGroup extends FeathersControl
 	{
 		if(Std.is(this.currentBackgroundSkin, IValidating))
 		{
-			IValidating(this.currentBackgroundSkin).validate();
+			cast(this.currentBackgroundSkin, IValidating).validate();
 		}
 		var itemCount:Int = this.items.length;
 		for(i in 0 ... itemCount)
@@ -686,7 +691,7 @@ class LayoutGroup extends FeathersControl
 			var item:DisplayObject = this.items[i];
 			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 		}
 	}
@@ -696,14 +701,14 @@ class LayoutGroup extends FeathersControl
 	 */
 	private function refreshMXMLContent():Void
 	{
-		if(!this._mxmlContent || this._mxmlContentIsReady)
+		if(this._mxmlContent == null || this._mxmlContentIsReady)
 		{
 			return;
 		}
 		var childCount:Int = this._mxmlContent.length;
 		for(i in 0 ... childCount)
 		{
-			var child:DisplayObject = DisplayObject(this._mxmlContent[i]);
+			var child:DisplayObject = this._mxmlContent[i];
 			this.addChild(child);
 		}
 		this._mxmlContentIsReady = true;
@@ -716,7 +721,7 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._clipContent)
 		{
-			if(!this.clipRect)
+			if(this.clipRect == null)
 			{
 				this.clipRect = new Rectangle();
 			}

@@ -6,13 +6,17 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
+import feathers.controls.text.BitmapFontTextEditor;
 import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.controls.text.StageTextTextEditor;
 import feathers.events.FeathersEventType;
 import feathers.layout.ILayoutData;
 import feathers.layout.ILayoutDisplayObject;
 import feathers.skins.IStyleProvider;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
+import feathers.utils.type.SafeCast.safe_cast;
+import openfl.errors.ArgumentError;
+import starling.utils.Max;
 
 import openfl.errors.IllegalOperationError;
 import openfl.geom.Matrix;
@@ -103,12 +107,12 @@ import starling.utils.MatrixUtil;
  *
  * @see feathers.controls.LayoutGroup
  */
-class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplayObject
+class FeathersControl extends Sprite implements IFeathersControl implements ILayoutDisplayObject
 {
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -212,7 +216,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/text-renderers
 	 * @see feathers.core.ITextRenderer
 	 */
-	public static var defaultTextRendererFactory:Dynamic = function():ITextRenderer
+	public static var defaultTextRendererFactory:Void->ITextRenderer = function():ITextRenderer
 	{
 		return new BitmapFontTextRenderer();
 	}
@@ -229,9 +233,13 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/text-editors
 	 * @see feathers.core.ITextEditor
 	 */
-	public static var defaultTextEditorFactory:Dynamic = function():ITextEditor
+	public static var defaultTextEditorFactory:Void->ITextEditor = function():ITextEditor
 	{
+		#if (flash || html5)
 		return new StageTextTextEditor();
+		#else
+		return new BitmapFontTextEditor();
+		#end
 	}
 
 	/**
@@ -240,10 +248,10 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	public function new()
 	{
 		super();
-		if(Object(this).constructor == FeathersControl)
-		{
-			throw new Error(ABSTRACT_CLASS_ERROR);
-		}
+		//if(Object(this).constructor == FeathersControl)
+		//{
+		//	throw new Error(ABSTRACT_CLASS_ERROR);
+		//}
 		this._styleProvider = this.defaultStyleProvider;
 		this.addEventListener(Event.ADDED_TO_STAGE, feathersControl_addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, feathersControl_removedFromStageHandler);
@@ -287,6 +295,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	public function set_styleName(value:String):String
 	{
 		this._styleNameList.value = value;
+		return get_styleName();
 	}
 
 	/**
@@ -315,7 +324,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see http://wiki.starling-framework.org/feathers/themes
 	 * @see http://wiki.starling-framework.org/feathers/extending-themes
 	 */
-	public var styleNameList(get, set):TokenList;
+	public var styleNameList(get, never):TokenList;
 	public function get_styleNameList():TokenList
 	{
 		return this._styleNameList;
@@ -332,7 +341,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @see #styleNameList
 	 */
-	public var nameList(get, set):TokenList;
+	public var nameList(get, never):TokenList;
 	public function get_nameList():TokenList
 	{
 		return this._styleNameList;
@@ -369,6 +378,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 			throw new IllegalOperationError("The styleProvider property cannot be changed after a component is initialized.");
 		}
 		this._styleProvider = value;
+		return get_styleProvider();
 	}
 
 	/**
@@ -389,6 +399,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 *
 	 * @see #styleProvider
 	 */
+	private var defaultStyleProvider(get, never):IStyleProvider;
 	private function get_defaultStyleProvider():IStyleProvider
 	{
 		return null;
@@ -424,6 +435,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	public function set_isQuickHitAreaEnabled(value:Bool):Bool
 	{
 		this._isQuickHitAreaEnabled = value;
+		return get_isQuickHitAreaEnabled();
 	}
 
 	/**
@@ -453,7 +465,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * @see #event:initialize
 	 * @see #isCreated
 	 */
-	public var isInitialized(get, set):Bool;
+	public var isInitialized(get, never):Bool;
 	public function get_isInitialized():Bool
 	{
 		return this._isInitialized;
@@ -469,12 +481,12 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	/**
 	 * @private
 	 */
-	private var _invalidationFlags:Dynamic = {};
+	private var _invalidationFlags:Map<String, Bool> = new Map();
 
 	/**
 	 * @private
 	 */
-	private var _delayedInvalidationFlags:Dynamic = {};
+	private var _delayedInvalidationFlags:Map<String, Bool> = new Map();
 
 	/**
 	 * @private
@@ -504,10 +516,11 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	{
 		if(this._isEnabled == value)
 		{
-			return;
+			return get_isEnabled();
 		}
 		this._isEnabled = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		return get_isEnabled();
 	}
 
 	/**
@@ -563,8 +576,7 @@ class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplay
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public var width(get, set):Float;
-public function get_width():Float
+	override public function get_width():Float
 	{
 		return this.scaledActualWidth;
 	}
@@ -576,12 +588,12 @@ public function get_width():Float
 	{
 		if(this.explicitWidth == value)
 		{
-			return;
+			return get_width();
 		}
 		var valueIsNaN:Bool = value != value; //isNaN
 		if(valueIsNaN && this.explicitWidth != this.explicitWidth)
 		{
-			return;
+			return get_width();
 		}
 		this.explicitWidth = value;
 		if(valueIsNaN)
@@ -593,6 +605,7 @@ public function get_width():Float
 		{
 			this.setSizeInternal(value, this.actualHeight, true);
 		}
+		return get_width();
 	}
 
 	/**
@@ -648,8 +661,7 @@ public function get_width():Float
 	 * 
 	 * @see feathers.core.FeathersControl#validate()
 	 */
-	override public var height(get, set):Float;
-public function get_height():Float
+	override public function get_height():Float
 	{
 		return this.scaledActualHeight;
 	}
@@ -661,12 +673,12 @@ public function get_height():Float
 	{
 		if(this.explicitHeight == value)
 		{
-			return;
+			return get_height();
 		}
 		var valueIsNaN:Bool = value != value; //isNaN
 		if(valueIsNaN && this.explicitHeight != this.explicitHeight)
 		{
-			return;
+			return get_height();
 		}
 		this.explicitHeight = value;
 		if(valueIsNaN)
@@ -678,6 +690,7 @@ public function get_height():Float
 		{
 			this.setSizeInternal(this.actualWidth, value, true);
 		}
+		return get_height();
 	}
 
 	/**
@@ -710,10 +723,11 @@ public function get_height():Float
 	{
 		if(this._minTouchWidth == value)
 		{
-			return;
+			return get_minTouchWidth();
 		}
 		this._minTouchWidth = value;
 		this.refreshHitAreaX();
+		return get_minTouchWidth();
 	}
 
 	/**
@@ -746,10 +760,11 @@ public function get_height():Float
 	{
 		if(this._minTouchHeight == value)
 		{
-			return;
+			return get_minTouchHeight();
 		}
 		this._minTouchHeight = value;
 		this.refreshHitAreaY();
+		return get_minTouchHeight();
 	}
 
 	/**
@@ -785,7 +800,7 @@ public function get_height():Float
 	{
 		if(this._minWidth == value)
 		{
-			return;
+			return get_minWidth();
 		}
 		if(value != value) //isNaN
 		{
@@ -793,6 +808,7 @@ public function get_height():Float
 		}
 		this._minWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_minWidth();
 	}
 
 	/**
@@ -828,7 +844,7 @@ public function get_height():Float
 	{
 		if(this._minHeight == value)
 		{
-			return;
+			return get_minHeight();
 		}
 		if(value != value) //isNaN
 		{
@@ -836,6 +852,7 @@ public function get_height():Float
 		}
 		this._minHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_minHeight();
 	}
 
 	/**
@@ -871,7 +888,7 @@ public function get_height():Float
 	{
 		if(this._maxWidth == value)
 		{
-			return;
+			return get_maxWidth();
 		}
 		if(value != value) //isNaN
 		{
@@ -879,6 +896,7 @@ public function get_height():Float
 		}
 		this._maxWidth = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_maxWidth();
 	}
 
 	/**
@@ -914,7 +932,7 @@ public function get_height():Float
 	{
 		if(this._maxHeight == value)
 		{
-			return;
+			return get_maxHeight();
 		}
 		if(value != value) //isNaN
 		{
@@ -922,6 +940,7 @@ public function get_height():Float
 		}
 		this._maxHeight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_maxHeight();
 	}
 
 	/**
@@ -931,6 +950,7 @@ public function get_height():Float
 	{
 		super.scaleX = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
+		return get_scaleX();
 	}
 
 	/**
@@ -940,6 +960,7 @@ public function get_height():Float
 	{
 		super.scaleY = value;
 		this.setSizeInternal(this.actualWidth, this.actualHeight, false);
+		return get_scaleY();
 	}
 
 	/**
@@ -965,10 +986,11 @@ public function get_height():Float
 	{
 		if(this._includeInLayout == value)
 		{
-			return;
+			return get_includeInLayout();
 		}
 		this._includeInLayout = value;
 		this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
+		return get_includeInLayout();
 	}
 
 	/**
@@ -994,18 +1016,19 @@ public function get_height():Float
 	{
 		if(this._layoutData == value)
 		{
-			return;
+			return get_layoutData();
 		}
-		if(this._layoutData)
+		if(this._layoutData != null)
 		{
 			this._layoutData.removeEventListener(Event.CHANGE, layoutData_changeHandler);
 		}
 		this._layoutData = value;
-		if(this._layoutData)
+		if(this._layoutData != null)
 		{
 			this._layoutData.addEventListener(Event.CHANGE, layoutData_changeHandler);
 		}
 		this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
+		return get_layoutData();
 	}
 
 	/**
@@ -1033,16 +1056,16 @@ public function get_height():Float
 	 */
 	public function set_focusManager(value:IFocusManager):IFocusManager
 	{
-		if(!(this is IFocusDisplayObject))
+		if(!Std.is(this, IFocusDisplayObject))
 		{
 			throw new IllegalOperationError("Cannot pass a focus manager to a component that does not implement feathers.core.IFocusDisplayObject");
 		}
 		if(this._focusManager == value)
 		{
-			return;
+			return get_focusManager();
 		}
 		this._focusManager = value;
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this.addEventListener(FeathersEventType.FOCUS_IN, focusInHandler);
 			this.addEventListener(FeathersEventType.FOCUS_OUT, focusOutHandler);
@@ -1052,6 +1075,7 @@ public function get_height():Float
 			this.removeEventListener(FeathersEventType.FOCUS_IN, focusInHandler);
 			this.removeEventListener(FeathersEventType.FOCUS_OUT, focusOutHandler);
 		}
+		return get_focusManager();
 	}
 
 	/**
@@ -1080,6 +1104,7 @@ public function get_height():Float
 	public function set_focusOwner(value:IFocusDisplayObject):IFocusDisplayObject
 	{
 		this._focusOwner = value;
+		return get_focusOwner();
 	}
 
 	/**
@@ -1107,15 +1132,16 @@ public function get_height():Float
 	 */
 	public function set_isFocusEnabled(value:Bool):Bool
 	{
-		if(!(this is IFocusDisplayObject))
+		if(!Std.is(this, IFocusDisplayObject))
 		{
 			throw new IllegalOperationError("Cannot enable focus on a component that does not implement feathers.core.IFocusDisplayObject");
 		}
 		if(this._isFocusEnabled == value)
 		{
-			return;
+			return get_isFocusEnabled();
 		}
 		this._isFocusEnabled = value;
+		return get_isFocusEnabled();
 	}
 
 	/**
@@ -1143,11 +1169,12 @@ public function get_height():Float
 	 */
 	public function set_nextTabFocus(value:IFocusDisplayObject):IFocusDisplayObject
 	{
-		if(!(this is IFocusDisplayObject))
+		if(!Std.is(this, IFocusDisplayObject))
 		{
 			throw new IllegalOperationError("Cannot set next tab focus on a component that does not implement feathers.core.IFocusDisplayObject");
 		}
 		this._nextTabFocus = value;
+		return get_nextTabFocus();
 	}
 
 	/**
@@ -1175,11 +1202,12 @@ public function get_height():Float
 	 */
 	public function set_previousTabFocus(value:IFocusDisplayObject):IFocusDisplayObject
 	{
-		if(!(this is IFocusDisplayObject))
+		if(!Std.is(this, IFocusDisplayObject))
 		{
 			throw new IllegalOperationError("Cannot set previous tab focus on a component that does not implement feathers.core.IFocusDisplayObject");
 		}
 		this._previousTabFocus = value;
+		return get_previousTabFocus();
 	}
 
 	/**
@@ -1222,27 +1250,28 @@ public function get_height():Float
 	 */
 	public function set_focusIndicatorSkin(value:DisplayObject):DisplayObject
 	{
-		if(!(this is IFocusDisplayObject))
+		if(!Std.is(this, IFocusDisplayObject))
 		{
 			throw new IllegalOperationError("Cannot set focus indicator skin on a component that does not implement feathers.core.IFocusDisplayObject");
 		}
 		if(this._focusIndicatorSkin == value)
 		{
-			return;
+			return get_focusIndicatorSkin();
 		}
-		if(this._focusIndicatorSkin && this._focusIndicatorSkin.parent)
+		if(this._focusIndicatorSkin != null && this._focusIndicatorSkin.parent != null)
 		{
 			this._focusIndicatorSkin.removeFromParent(false);
 		}
 		this._focusIndicatorSkin = value;
-		if(this._focusIndicatorSkin)
+		if(this._focusIndicatorSkin != null)
 		{
 			this._focusIndicatorSkin.touchable = false;
 		}
-		if(this._focusManager && this._focusManager.focus == this)
+		if(this._focusManager != null && safe_cast(this._focusManager.focus, IFeathersDisplayObject) == this)
 		{
 			this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
 		}
+		return get_focusIndicatorSkin();
 	}
 
 	/**
@@ -1283,6 +1312,7 @@ public function get_height():Float
 		this.focusPaddingRight = value;
 		this.focusPaddingBottom = value;
 		this.focusPaddingLeft = value;
+		return get_focusPadding();
 	}
 
 	/**
@@ -1320,10 +1350,11 @@ public function get_height():Float
 	{
 		if(this._focusPaddingTop == value)
 		{
-			return;
+			return get_focusPaddingTop();
 		}
 		this._focusPaddingTop = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		return get_focusPaddingTop();
 	}
 
 	/**
@@ -1361,10 +1392,11 @@ public function get_height():Float
 	{
 		if(this._focusPaddingRight == value)
 		{
-			return;
+			return get_focusPaddingRight();
 		}
 		this._focusPaddingRight = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		return get_focusPaddingRight();
 	}
 
 	/**
@@ -1402,10 +1434,11 @@ public function get_height():Float
 	{
 		if(this._focusPaddingBottom == value)
 		{
-			return;
+			return get_focusPaddingBottom();
 		}
 		this._focusPaddingBottom = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		return get_focusPaddingBottom();
 	}
 
 	/**
@@ -1443,10 +1476,11 @@ public function get_height():Float
 	{
 		if(this._focusPaddingLeft == value)
 		{
-			return;
+			return get_focusPaddingLeft();
 		}
 		this._focusPaddingLeft = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
+		return get_focusPaddingLeft();
 	}
 
 	/**
@@ -1487,7 +1521,7 @@ public function get_height():Float
 	 * @see #event:creationComplete
 	 * @see #isInitialized
 	 */
-	public var isCreated(get, set):Bool;
+	public var isCreated(get, never):Bool;
 	public function get_isCreated():Bool
 	{
 		return this._hasValidated;
@@ -1501,7 +1535,7 @@ public function get_height():Float
 	/**
 	 * @copy feathers.core.IValidating#depth
 	 */
-	public var depth(get, set):Int;
+	public var depth(get, never):Int;
 	public function get_depth():Int
 	{
 		return this._depth;
@@ -1517,13 +1551,13 @@ public function get_height():Float
 	 */
 	override public function getBounds(targetSpace:DisplayObject, resultRect:Rectangle=null):Rectangle
 	{
-		if(!resultRect)
+		if(resultRect == null)
 		{
 			resultRect = new Rectangle();
 		}
 
-		var minX:Float = Float.MAX_VALUE, maxX:Float = -Float.MAX_VALUE;
-		var minY:Float = Float.MAX_VALUE, maxY:Float = -Float.MAX_VALUE;
+		var minX:Float = Max.MAX_VALUE, maxX:Float = -Max.MAX_VALUE;
+		var minY:Float = Max.MAX_VALUE, maxY:Float = -Max.MAX_VALUE;
 
 		if (targetSpace == this) // optimization
 		{
@@ -1581,7 +1615,7 @@ public function get_height():Float
 				return null;
 			}
 			var clipRect:Rectangle = this.clipRect;
-			if(clipRect && !clipRect.containsPoint(localPoint))
+			if(clipRect != null && !clipRect.containsPoint(localPoint))
 			{
 				return null;
 			}
@@ -1626,13 +1660,13 @@ public function get_height():Float
 		var isAlreadyDelayedInvalid:Bool = false;
 		if(this._isValidating)
 		{
-			for(var otherFlag:String in this._delayedInvalidationFlags)
+			for(otherFlag in this._delayedInvalidationFlags)
 			{
 				isAlreadyDelayedInvalid = true;
 				break;
 			}
 		}
-		if(!flag || flag == INVALIDATION_FLAG_ALL)
+		if(flag == null || flag == INVALIDATION_FLAG_ALL)
 		{
 			if(this._isValidating)
 			{
@@ -1649,12 +1683,12 @@ public function get_height():Float
 			{
 				this._delayedInvalidationFlags[flag] = true;
 			}
-			else if(flag != INVALIDATION_FLAG_ALL && !this._invalidationFlags.hasOwnProperty(flag))
+			else if(flag != INVALIDATION_FLAG_ALL && !this._invalidationFlags.exists(flag))
 			{
 				this._invalidationFlags[flag] = true;
 			}
 		}
-		if(!this._validationQueue || !this._isInitialized)
+		if(this._validationQueue == null || !this._isInitialized)
 		{
 			//we'll add this component to the queue later, after it has been
 			//added to the stage.
@@ -1712,7 +1746,7 @@ public function get_height():Float
 		{
 			//we were already validating, and something else told us to
 			//validate. that's bad...
-			if(this._validationQueue)
+			if(this._validationQueue != null)
 			{
 				//...so we'll just try to do it later
 				this._validationQueue.addControl(this, true);
@@ -1721,12 +1755,12 @@ public function get_height():Float
 		}
 		this._isValidating = true;
 		this.draw();
-		for(var flag:String in this._invalidationFlags)
+		for(flag in this._invalidationFlags.keys())
 		{
-			delete this._invalidationFlags[flag];
+			this._invalidationFlags.remove(flag);
 		}
 		this._isAllInvalid = false;
-		for(flag in this._delayedInvalidationFlags)
+		for(flag in this._delayedInvalidationFlags.keys())
 		{
 			if(flag == INVALIDATION_FLAG_ALL)
 			{
@@ -1736,7 +1770,7 @@ public function get_height():Float
 			{
 				this._invalidationFlags[flag] = true;
 			}
-			delete this._delayedInvalidationFlags[flag];
+			this._delayedInvalidationFlags.remove(flag);
 		}
 		this._isValidating = false;
 		if(!this._hasValidated)
@@ -1760,7 +1794,7 @@ public function get_height():Float
 		{
 			return true;
 		}
-		if(!flag) //return true if any flag is set
+		if(flag == null) //return true if any flag is set
 		{
 			for(flag in this._invalidationFlags)
 			{
@@ -1808,13 +1842,13 @@ public function get_height():Float
 	 */
 	public function showFocus():Void
 	{
-		if(!this._hasFocus || !this._focusIndicatorSkin)
+		if(!this._hasFocus || this._focusIndicatorSkin == null)
 		{
 			return;
 		}
 
 		this._showFocus = true;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1826,13 +1860,13 @@ public function get_height():Float
 	 */
 	public function hideFocus():Void
 	{
-		if(!this._hasFocus || !this._focusIndicatorSkin)
+		if(!this._hasFocus || this._focusIndicatorSkin == null)
 		{
 			return;
 		}
 
 		this._showFocus = false;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -1945,7 +1979,7 @@ public function get_height():Float
 	 */
 	private function setInvalidationFlag(flag:String):Void
 	{
-		if(this._invalidationFlags.hasOwnProperty(flag))
+		if(this._invalidationFlags.exists(flag))
 		{
 			return;
 		}
@@ -1960,7 +1994,7 @@ public function get_height():Float
 	 */
 	private function clearInvalidationFlag(flag:String):Void
 	{
-		delete this._invalidationFlags[flag];
+		this._invalidationFlags.remove(flag);
 	}
 
 	/**
@@ -1973,7 +2007,7 @@ public function get_height():Float
 	 */
 	private function refreshFocusIndicator():Void
 	{
-		if(this._focusIndicatorSkin)
+		if(this._focusIndicatorSkin != null)
 		{
 			if(this._hasFocus && this._showFocus)
 			{
@@ -1986,7 +2020,7 @@ public function get_height():Float
 					this.setChildIndex(this._focusIndicatorSkin, this.numChildren - 1);
 				}
 			}
-			else if(this._focusIndicatorSkin.parent)
+			else if(this._focusIndicatorSkin.parent != null)
 			{
 				this._focusIndicatorSkin.removeFromParent(false);
 			}
@@ -2059,7 +2093,7 @@ public function get_height():Float
 		this._isInitialized = true;
 		this.dispatchEventWith(FeathersEventType.INITIALIZE);
 
-		if(this._styleProvider)
+		if(this._styleProvider != null)
 		{
 			this._styleProvider.applyStyles(this);
 		}
@@ -2073,7 +2107,7 @@ public function get_height():Float
 	private function focusInHandler(event:Event):Void
 	{
 		this._hasFocus = true;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -2085,7 +2119,7 @@ public function get_height():Float
 	{
 		this._hasFocus = false;
 		this._showFocus = false;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_FOCUS);
+		this.invalidate(INVALIDATION_FLAG_FOCUS);
 	}
 
 	/**
@@ -2093,7 +2127,7 @@ public function get_height():Float
 	 */
 	private function feathersControl_flattenHandler(event:Event):Void
 	{
-		if(!this.stage || !this._isInitialized)
+		if(this.stage == null || !this._isInitialized)
 		{
 			throw new IllegalOperationError("Cannot flatten this component until it is initialized and has access to the stage.");
 		}

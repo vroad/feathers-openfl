@@ -11,7 +11,7 @@ import feathers.core.IValidating;
 import feathers.core.PopUpManager;
 import feathers.core.ValidationQueue;
 import feathers.events.FeathersEventType;
-import feathers.utils.display.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
 
 import openfl.errors.IllegalOperationError;
 import openfl.events.KeyboardEvent;
@@ -62,7 +62,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @inheritDoc
 	 */
-	public var isOpen(get, set):Bool;
+	public var isOpen(get, never):Bool;
 	public function get_isOpen():Bool
 	{
 		return this.content != null;
@@ -88,6 +88,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	public function set_gap(value:Float):Float
 	{
 		this._gap = value;
+		return get_gap();
 	}
 
 	/**
@@ -160,13 +161,13 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 
 		if(Std.is(this.source, IValidating))
 		{
-			IValidating(this.source).validate();
+			cast(this.source, IValidating).validate();
 		}
 
 		var sourceWidth:Float = this.source.width;
 		var hasSetBounds:Bool = false;
-		var uiContent:IFeathersControl = this.content as IFeathersControl;
-		if(uiContent && uiContent.minWidth < sourceWidth)
+		var uiContent:IFeathersControl = cast(this.content, IFeathersControl);
+		if(uiContent != null && uiContent.minWidth < sourceWidth)
 		{
 			uiContent.minWidth = sourceWidth;
 			hasSetBounds = true;
@@ -182,8 +183,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 
 		//we need to be sure that the source is properly positioned before
 		//positioning the content relative to it.
-		var validationQueue:ValidationQueue = ValidationQueue.forStarling(Starling.current)
-		if(validationQueue && !validationQueue.isValidating)
+		var validationQueue:ValidationQueue = ValidationQueue.forStarling(Starling.current);
+		if(validationQueue != null && !validationQueue.isValidating)
 		{
 			//force a COMPLETE validation of everything
 			//but only if we're not already doing that...
@@ -217,7 +218,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		//the content is too big for the space, so we need to adjust it to
 		//fit properly
 		var newMaxHeight:Float = stage.stageHeight - (globalOrigin.y + globalOrigin.height);
-		if(uiContent)
+		if(uiContent != null)
 		{
 			if(uiContent.maxHeight > newMaxHeight)
 			{
@@ -286,12 +287,14 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			//someone else already handled this one
 			return;
 		}
+		#if flash
 		if(event.keyCode != Keyboard.BACK && event.keyCode != Keyboard.ESCAPE)
 		{
 			return;
 		}
 		//don't let the OS handle the event
 		event.preventDefault();
+		#end
 
 		this.close();
 	}
@@ -309,12 +312,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
-		var target:DisplayObject = DisplayObject(event.target);
-		if(this.content == target || (this.content is DisplayObjectContainer && DisplayObjectContainer(this.content).contains(target)))
+		var target:DisplayObject = cast(event.target, DisplayObject);
+		if(this.content == target || (Std.is(this.content, DisplayObjectContainer) && cast(this.content, DisplayObjectContainer).contains(target)))
 		{
 			return;
 		}
-		if(this.source == target || (this.source is DisplayObjectContainer && DisplayObjectContainer(this.source).contains(target)))
+		if(this.source == target || (Std.is(this.source, DisplayObjectContainer) && cast(this.source, DisplayObjectContainer).contains(target)))
 		{
 			return;
 		}
@@ -324,7 +327,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		}
 		//any began touch is okay here. we don't need to check all touches
 		var touch:Touch = event.getTouch(Starling.current.stage, TouchPhase.BEGAN);
-		if(!touch)
+		if(touch == null)
 		{
 			return;
 		}

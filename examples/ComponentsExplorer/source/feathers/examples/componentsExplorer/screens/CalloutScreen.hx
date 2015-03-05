@@ -3,6 +3,7 @@ import feathers.controls.Button;
 import feathers.controls.Callout;
 import feathers.controls.Label;
 import feathers.controls.PanelScreen;
+import feathers.core.FeathersControl;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.skins.IStyleProvider;
@@ -13,7 +14,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class CalloutScreen extends PanelScreen
+@:keep class CalloutScreen extends PanelScreen
 {
 	inline private static var CONTENT_TEXT:String = "Thank you for trying Feathers.\nHappy coding.";
 
@@ -48,10 +49,11 @@ class CalloutScreen extends PanelScreen
 	{
 		if(this._layoutPadding == value)
 		{
-			return;
+			return get_layoutPadding();
 		}
 		this._layoutPadding = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_layoutPadding();
 	}
 
 	override private function get_defaultStyleProvider():IStyleProvider
@@ -63,7 +65,7 @@ class CalloutScreen extends PanelScreen
 	{
 		//the message won't be on the display list when the screen is
 		//disposed, so dispose it manually
-		if(this._message)
+		if(this._message != null)
 		{
 			this._message.dispose();
 			this._message = null;
@@ -106,7 +108,7 @@ class CalloutScreen extends PanelScreen
 		this._leftButton.layoutData = this._bottomRightLayoutData;
 		this.addChild(this._leftButton);
 
-		this.headerProperties.title = "Callout";
+		this.headerProperties.setProperty("title", "Callout");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -115,10 +117,10 @@ class CalloutScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -146,12 +148,12 @@ class CalloutScreen extends PanelScreen
 
 	private function showCallout(origin:DisplayObject, direction:String):Void
 	{
-		if(!this._message)
+		if(this._message == null)
 		{
 			this._message = new Label();
 			this._message.text = CONTENT_TEXT;
 		}
-		var callout:Callout = Callout.show(DisplayObject(this._message), origin, direction);
+		var callout:Callout = Callout.show(cast this._message, origin, direction);
 		//we're reusing the message every time that this screen shows a
 		//callout, so we don't want the message to be disposed. we'll
 		//dispose of it manually later when the screen is disposed.
@@ -185,6 +187,6 @@ class CalloutScreen extends PanelScreen
 
 	private function leftButton_triggeredHandler(event:Event):Void
 	{
-		this.showCallout(this._leftButton, Callout.DIRECTION_LEFT)
+		this.showCallout(this._leftButton, Callout.DIRECTION_LEFT);
 	}
 }

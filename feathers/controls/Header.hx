@@ -20,7 +20,9 @@ import feathers.system.DeviceCapabilities;
 
 import openfl.display.Stage;
 import openfl.display.StageDisplayState;
+#if flash
 import openfl.events.FullScreenEvent;
+#end
 import openfl.geom.Point;
 import openfl.system.Capabilities;
 
@@ -168,12 +170,12 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_BOUNDS:ViewPortBounds = new ViewPortBounds();
+	private static var HELPER_BOUNDS:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
+	private static var HELPER_LAYOUT_RESULT:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
@@ -268,16 +270,17 @@ class Header extends FeathersControl
 		}
 		if(this._title == value)
 		{
-			return;
+			return get_title();
 		}
 		this._title = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_title();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _titleFactory:Dynamic;
+	private var _titleFactory:Void->ITextRenderer;
 
 	/**
 	 * A function used to instantiate the header's title text renderer
@@ -315,8 +318,8 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var titleFactory(get, set):Dynamic;
-	public function get_titleFactory():Dynamic
+	public var titleFactory(get, set):Void->ITextRenderer;
+	public function get_titleFactory():Void->ITextRenderer
 	{
 		return this._titleFactory;
 	}
@@ -324,14 +327,15 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_titleFactory(value:Dynamic):Dynamic
+	public function set_titleFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._titleFactory == value)
 		{
-			return;
+			return get_titleFactory();
 		}
 		this._titleFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_titleFactory();
 	}
 
 	/**
@@ -373,6 +377,7 @@ class Header extends FeathersControl
 	public function set_disposeItems(value:Bool):Bool
 	{
 		this._disposeItems = value;
+		return get_disposeItems();
 	}
 
 	/**
@@ -408,32 +413,33 @@ class Header extends FeathersControl
 	{
 		if(this._leftItems == value)
 		{
-			return;
+			return get_leftItems();
 		}
-		if(this._leftItems)
+		if(this._leftItems != null)
 		{
-			for each(var item:DisplayObject in this._leftItems)
+			for (item in this._leftItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
 			}
 		}
 		this._leftItems = value;
-		if(this._leftItems)
+		if(this._leftItems != null)
 		{
-			for each(item in this._leftItems)
+			for (item in this._leftItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
 					item.addEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 			}
 		}
 		this.invalidate(INVALIDATION_FLAG_LEFT_CONTENT);
+		return get_leftItems();
 	}
 
 	/**
@@ -471,32 +477,33 @@ class Header extends FeathersControl
 	{
 		if(this._centerItems == value)
 		{
-			return;
+			return get_centerItems();
 		}
-		if(this._centerItems)
+		if(this._centerItems != null)
 		{
-			for each(var item:DisplayObject in this._centerItems)
+			for (item in this._centerItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
 			}
 		}
 		this._centerItems = value;
-		if(this._centerItems)
+		if(this._centerItems != null)
 		{
-			for each(item in this._centerItems)
+			for (item in this._centerItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
 					item.addEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 			}
 		}
 		this.invalidate(INVALIDATION_FLAG_CENTER_CONTENT);
+		return get_centerItems();
 	}
 
 	/**
@@ -531,32 +538,33 @@ class Header extends FeathersControl
 	{
 		if(this._rightItems == value)
 		{
-			return;
+			return get_rightItems();
 		}
-		if(this._rightItems)
+		if(this._rightItems != null)
 		{
-			for each(var item:DisplayObject in this._rightItems)
+			for (item in this._rightItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
 			}
 		}
 		this._rightItems = value;
-		if(this._rightItems)
+		if(this._rightItems != null)
 		{
-			for each(item in this._rightItems)
+			for (item in this._rightItems)
 			{
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
 					item.addEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 			}
 		}
 		this.invalidate(INVALIDATION_FLAG_RIGHT_CONTENT);
+		return get_rightItems();
 	}
 
 	/**
@@ -592,6 +600,7 @@ class Header extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -624,10 +633,11 @@ class Header extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -660,10 +670,11 @@ class Header extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -696,10 +707,11 @@ class Header extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -732,10 +744,11 @@ class Header extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -775,10 +788,11 @@ class Header extends FeathersControl
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -788,7 +802,7 @@ class Header extends FeathersControl
 
 	/**
 	 * Space, in pixels, between the title and the left or right groups of
-	 * items. If <code>Math.NaN</code> (the default), the default <code>gap</code>
+	 * items. If <code>NaN</code> (the default), the default <code>gap</code>
 	 * property is used instead.
 	 *
 	 * <p>In the following example, the header's title gap is set to 20
@@ -797,7 +811,7 @@ class Header extends FeathersControl
 	 * <listing version="3.0">
 	 * header.titleGap = 20;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #gap
 	 */
@@ -814,10 +828,11 @@ class Header extends FeathersControl
 	{
 		if(this._titleGap == value)
 		{
-			return;
+			return get_titleGap();
 		}
 		this._titleGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_titleGap();
 	}
 
 	/**
@@ -857,10 +872,11 @@ class Header extends FeathersControl
 	{
 		if(this._useExtraPaddingForOSStatusBar == value)
 		{
-			return;
+			return get_useExtraPaddingForOSStatusBar();
 		}
 		this._useExtraPaddingForOSStatusBar = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_useExtraPaddingForOSStatusBar();
 	}
 
 	/**
@@ -897,10 +913,11 @@ class Header extends FeathersControl
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -947,20 +964,21 @@ class Header extends FeathersControl
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 
-		if(this._backgroundSkin && this._backgroundSkin != this._backgroundDisabledSkin)
+		if(this._backgroundSkin != null && this._backgroundSkin != this._backgroundDisabledSkin)
 		{
 			this.removeChild(this._backgroundSkin);
 		}
 		this._backgroundSkin = value;
-		if(this._backgroundSkin && this._backgroundSkin.parent != this)
+		if(this._backgroundSkin != null && this._backgroundSkin.parent != this)
 		{
 			this._backgroundSkin.visible = false;
 			this.addChildAt(this._backgroundSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -992,20 +1010,21 @@ class Header extends FeathersControl
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
-			return;
+			return get_backgroundDisabledSkin();
 		}
 
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin != this._backgroundSkin)
+		if(this._backgroundDisabledSkin != null && this._backgroundDisabledSkin != this._backgroundSkin)
 		{
 			this.removeChild(this._backgroundDisabledSkin);
 		}
 		this._backgroundDisabledSkin = value;
-		if(this._backgroundDisabledSkin && this._backgroundDisabledSkin.parent != this)
+		if(this._backgroundDisabledSkin != null && this._backgroundDisabledSkin.parent != this)
 		{
 			this._backgroundDisabledSkin.visible = false;
 			this.addChildAt(this._backgroundDisabledSkin, 0);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_backgroundDisabledSkin();
 	}
 
 	/**
@@ -1046,10 +1065,10 @@ class Header extends FeathersControl
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var titleProperties(get, set):Dynamic;
-	public function get_titleProperties():Dynamic
+	public var titleProperties(get, set):PropertyProxy;
+	public function get_titleProperties():PropertyProxy
 	{
-		if(!this._titleProperties)
+		if(this._titleProperties == null)
 		{
 			this._titleProperties = new PropertyProxy(titleProperties_onChange);
 		}
@@ -1059,26 +1078,27 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_titleProperties(value:Dynamic):Dynamic
+	public function set_titleProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._titleProperties == value)
 		{
-			return;
+			return get_titleProperties();
 		}
-		if(value && !(value is PropertyProxy))
+		if(value != null && !Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		if(this._titleProperties)
+		if(this._titleProperties != null)
 		{
 			this._titleProperties.removeOnChangeCallback(titleProperties_onChange);
 		}
-		this._titleProperties = PropertyProxy(value);
-		if(this._titleProperties)
+		this._titleProperties = value;
+		if(this._titleProperties != null)
 		{
 			this._titleProperties.addOnChangeCallback(titleProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_titleProperties();
 	}
 
 	/**
@@ -1119,10 +1139,11 @@ class Header extends FeathersControl
 	{
 		if(this._titleAlign == value)
 		{
-			return;
+			return get_titleAlign();
 		}
 		this._titleAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_titleAlign();
 	}
 
 	/**
@@ -1132,18 +1153,21 @@ class Header extends FeathersControl
 	{
 		if(this._disposeItems)
 		{
-			for each(var item:DisplayObject in this._leftItems)
-			{
-				item.dispose();
-			}
-			for each(item in this._centerItems)
-			{
-				item.dispose();
-			}
-			for each(item in this._rightItems)
-			{
-				item.dispose();
-			}
+			if (this._leftItems != null)
+				for (item in this._leftItems)
+				{
+					item.dispose();
+				}
+			if (this._centerItems != null)
+				for (item in this._centerItems)
+				{
+					item.dispose();
+				}
+			if (this._rightItems != null)
+				for (item in this._rightItems)
+				{
+					item.dispose();
+				}
 		}
 		this.leftItems = null;
 		this.rightItems = null;
@@ -1156,7 +1180,7 @@ class Header extends FeathersControl
 	 */
 	override private function initialize():Void
 	{
-		if(!this._layout)
+		if(this._layout == null)
 		{
 			this._layout = new HorizontalLayout();
 			this._layout.useVirtualLayout = false;
@@ -1204,13 +1228,13 @@ class Header extends FeathersControl
 
 		if(leftContentInvalid)
 		{
-			if(this._leftItems)
+			if(this._leftItems != null)
 			{
-				for each(var item:DisplayObject in this._leftItems)
+				for (item in this._leftItems)
 				{
-					if(item is IFeathersControl)
+					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemName);
 					}
 					this.addChild(item);
 				}
@@ -1219,13 +1243,13 @@ class Header extends FeathersControl
 
 		if(rightContentInvalid)
 		{
-			if(this._rightItems)
+			if(this._rightItems != null)
 			{
-				for each(item in this._rightItems)
+				for (item in this._rightItems)
 				{
-					if(item is IFeathersControl)
+					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemName);
 					}
 					this.addChild(item);
 				}
@@ -1234,13 +1258,13 @@ class Header extends FeathersControl
 
 		if(centerContentInvalid)
 		{
-			if(this._centerItems)
+			if(this._centerItems != null)
 			{
-				for each(item in this._centerItems)
+				for (item in this._centerItems)
 				{
-					if(item is IFeathersControl)
+					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemName);
 					}
 					this.addChild(item);
 				}
@@ -1263,15 +1287,15 @@ class Header extends FeathersControl
 		{
 			this.leftItemsWidth = 0;
 			this.rightItemsWidth = 0;
-			if(this._leftItems)
+			if(this._leftItems != null)
 			{
 				this.layoutLeftItems();
 			}
-			if(this._rightItems)
+			if(this._rightItems != null)
 			{
 				this.layoutRightItems();
 			}
-			if(this._centerItems)
+			if(this._centerItems != null)
 			{
 				this.layoutCenterItems();
 			}
@@ -1312,39 +1336,16 @@ class Header extends FeathersControl
 		var newHeight:Float = needsHeight ? 0 : this.explicitHeight;
 
 		var totalItemWidth:Float = 0;
-		var leftItemCount:Int = this._leftItems ? this._leftItems.length : 0;
-		for(var i:Int = 0; i < leftItemCount; i++)
+		var leftItemCount:Int = this._leftItems != null ? this._leftItems.length : 0;
+		var item:DisplayObject;
+		var itemWidth:Float;
+		var itemHeight:Float;
+		for(i in 0 ... leftItemCount)
 		{
-			var item:DisplayObject = this._leftItems[i];
-			if(item is IValidating)
+			item = this._leftItems[i];
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
-			}
-			var itemWidth:Float = item.width;
-			if(needsWidth &&
-				itemWidth == itemWidth) //!isNaN
-			{
-				totalItemWidth += itemWidth;
-				if(i > 0)
-				{
-					totalItemWidth += this._gap;
-				}
-			}
-			var itemHeight:Float = item.height;
-			if(needsHeight &&
-				itemHeight == itemHeight && //!isNaN
-				itemHeight > newHeight)
-			{
-				newHeight = itemHeight;
-			}
-		}
-		var centerItemCount:Int = this._centerItems ? this._centerItems.length : 0;
-		for(i = 0; i < centerItemCount; i++)
-		{
-			item = this._centerItems[i];
-			if(item is IValidating)
-			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 			itemWidth = item.width;
 			if(needsWidth &&
@@ -1364,15 +1365,41 @@ class Header extends FeathersControl
 				newHeight = itemHeight;
 			}
 		}
-		var rightItemCount:Int = this._rightItems ? this._rightItems.length : 0;
-		for(i = 0; i < rightItemCount; i++)
+		var centerItemCount:Int = this._centerItems != null ? this._centerItems.length : 0;
+		for(i in 0 ... centerItemCount)
+		{
+			item = this._centerItems[i];
+			if(Std.is(item, IValidating))
+			{
+				cast(item, IValidating).validate();
+			}
+			itemWidth = item.width;
+			if(needsWidth &&
+				itemWidth == itemWidth) //!isNaN
+			{
+				totalItemWidth += itemWidth;
+				if(i > 0)
+				{
+					totalItemWidth += this._gap;
+				}
+			}
+			itemHeight = item.height;
+			if(needsHeight &&
+				itemHeight == itemHeight && //!isNaN
+				itemHeight > newHeight)
+			{
+				newHeight = itemHeight;
+			}
+		}
+		var rightItemCount:Int = this._rightItems != null ? this._rightItems.length : 0;
+		for(i in 0 ... rightItemCount)
 		{
 			item = this._rightItems[i];
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
-			itemWidth = item.width
+			itemWidth = item.width;
 			if(needsWidth &&
 				itemWidth == itemWidth) //!isNaN
 			{
@@ -1392,7 +1419,7 @@ class Header extends FeathersControl
 		}
 		newWidth += totalItemWidth;
 
-		if(this._title && !(this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems))
+		if(this._title != null && !(this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems != null))
 		{
 			var calculatedTitleGap:Float = this._titleGap;
 			if(calculatedTitleGap != calculatedTitleGap) //isNaN
@@ -1480,17 +1507,17 @@ class Header extends FeathersControl
 	 */
 	private function createTitle():Void
 	{
-		if(this.titleTextRenderer)
+		if(this.titleTextRenderer != null)
 		{
-			this.removeChild(DisplayObject(this.titleTextRenderer), true);
+			this.removeChild(cast(this.titleTextRenderer, DisplayObject), true);
 			this.titleTextRenderer = null;
 		}
 
-		var factory:Dynamic = this._titleFactory != null ? this._titleFactory : FeathersControl.defaultTextRendererFactory;
-		this.titleTextRenderer = ITextRenderer(factory());
-		var uiTitleRenderer:IFeathersControl = IFeathersControl(this.titleTextRenderer);
+		var factory:Void->ITextRenderer = this._titleFactory != null ? this._titleFactory : FeathersControl.defaultTextRendererFactory;
+		this.titleTextRenderer = factory();
+		var uiTitleRenderer:IFeathersControl = this.titleTextRenderer;
 		uiTitleRenderer.styleNameList.add(this.titleName);
-		this.addChild(DisplayObject(uiTitleRenderer));
+		this.addChild(cast(uiTitleRenderer, DisplayObject));
 	}
 
 	/**
@@ -1499,19 +1526,19 @@ class Header extends FeathersControl
 	private function refreshBackground():Void
 	{
 		this.currentBackgroundSkin = this._backgroundSkin;
-		if(!this._isEnabled && this._backgroundDisabledSkin)
+		if(!this._isEnabled && this._backgroundDisabledSkin != null)
 		{
-			if(this._backgroundSkin)
+			if(this._backgroundSkin != null)
 			{
 				this._backgroundSkin.visible = false;
 			}
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
-		else if(this._backgroundDisabledSkin)
+		else if(this._backgroundDisabledSkin != null)
 		{
 			this._backgroundDisabledSkin.visible = false;
 		}
-		if(this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin != null)
 		{
 			this.currentBackgroundSkin.visible = true;
 
@@ -1550,10 +1577,12 @@ class Header extends FeathersControl
 	 */
 	private function refreshTitleStyles():Void
 	{
-		for(var propertyName:String in this._titleProperties)
+		if (this._titleProperties == null)
+			return;
+		for(propertyName in Reflect.fields(this._titleProperties.storage))
 		{
-			var propertyValue:Dynamic = this._titleProperties[propertyName];
-			this.titleTextRenderer[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._titleProperties.storage, propertyName);
+			Reflect.setProperty(this.titleTextRenderer, propertyName, propertyValue);
 		}
 	}
 
@@ -1567,7 +1596,7 @@ class Header extends FeathersControl
 			return 0;
 		}
 		var os:String = Capabilities.os;
-		if(os.indexOf(IOS_NAME_PREFIX) != 0 || parseInt(os.substr(IOS_NAME_PREFIX.length, 1), 10) < STATUS_BAR_MIN_IOS_VERSION)
+		if(os.indexOf(IOS_NAME_PREFIX) != 0 || Std.parseInt(os.substr(IOS_NAME_PREFIX.length, 1)) < STATUS_BAR_MIN_IOS_VERSION)
 		{
 			return 0;
 		}
@@ -1588,7 +1617,7 @@ class Header extends FeathersControl
 	 */
 	private function layoutBackground():Void
 	{
-		if(!this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin == null)
 		{
 			return;
 		}
@@ -1601,11 +1630,11 @@ class Header extends FeathersControl
 	 */
 	private function layoutLeftItems():Void
 	{
-		for each(var item:DisplayObject in this._leftItems)
+		for (item in this._leftItems)
 		{
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 		}
 		HELPER_BOUNDS.x = HELPER_BOUNDS.y = 0;
@@ -1629,11 +1658,11 @@ class Header extends FeathersControl
 	 */
 	private function layoutRightItems():Void
 	{
-		for each(var item:DisplayObject in this._rightItems)
+		for (item in this._rightItems)
 		{
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 		}
 		HELPER_BOUNDS.x = HELPER_BOUNDS.y = 0;
@@ -1656,11 +1685,11 @@ class Header extends FeathersControl
 	 */
 	private function layoutCenterItems():Void
 	{
-		for each(var item:DisplayObject in this._centerItems)
+		for (item in this._centerItems)
 		{
-			if(item is IValidating)
+			if(Std.is(item, IValidating))
 			{
-				IValidating(item).validate();
+				cast(item, IValidating).validate();
 			}
 		}
 		HELPER_BOUNDS.x = HELPER_BOUNDS.y = 0;
@@ -1678,7 +1707,7 @@ class Header extends FeathersControl
 	 */
 	private function layoutTitle():Void
 	{
-		if((this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems) || this._title.length == 0)
+		if((this._titleAlign == TITLE_ALIGN_CENTER && this._centerItems != null) || this._title.length == 0)
 		{
 			this.titleTextRenderer.visible = false;
 			return;
@@ -1690,15 +1719,15 @@ class Header extends FeathersControl
 			calculatedTitleGap = this._gap;
 		}
 		//left and right offsets already include padding
-		var leftOffset:Float = (this._leftItems && this._leftItems.length > 0) ? (this.leftItemsWidth + calculatedTitleGap) : 0;
-		var rightOffset:Float = (this._rightItems && this._rightItems.length > 0) ? (this.rightItemsWidth + calculatedTitleGap) : 0;
-		if(this._titleAlign == TITLE_ALIGN_PREFER_LEFT && (!this._leftItems || this._leftItems.length == 0))
+		var leftOffset:Float = (this._leftItems != null && this._leftItems.length > 0) ? (this.leftItemsWidth + calculatedTitleGap) : 0;
+		var rightOffset:Float = (this._rightItems != null && this._rightItems.length > 0) ? (this.rightItemsWidth + calculatedTitleGap) : 0;
+		if(this._titleAlign == TITLE_ALIGN_PREFER_LEFT && (this._leftItems == null || this._leftItems.length == 0))
 		{
 			this.titleTextRenderer.maxWidth = this.actualWidth - this._paddingLeft - rightOffset;
 			this.titleTextRenderer.validate();
 			this.titleTextRenderer.x = this._paddingLeft;
 		}
-		else if(this._titleAlign == TITLE_ALIGN_PREFER_RIGHT && (!this._rightItems || this._rightItems.length == 0))
+		else if(this._titleAlign == TITLE_ALIGN_PREFER_RIGHT && (this._rightItems == null || this._rightItems.length == 0))
 		{
 			this.titleTextRenderer.maxWidth = this.actualWidth - this._paddingRight - leftOffset;
 			this.titleTextRenderer.validate();
@@ -1741,7 +1770,9 @@ class Header extends FeathersControl
 	 */
 	private function header_addedToStageHandler(event:Event):Void
 	{
+		#if flash
 		Starling.current.nativeStage.addEventListener("fullScreen", nativeStage_fullScreenHandler);
+		#end
 	}
 
 	/**
@@ -1749,16 +1780,20 @@ class Header extends FeathersControl
 	 */
 	private function header_removedFromStageHandler(event:Event):Void
 	{
+		#if flash
 		Starling.current.nativeStage.removeEventListener("fullScreen", nativeStage_fullScreenHandler);
+		#end
 	}
 
 	/**
 	 * @private
 	 */
+	#if flash
 	private function nativeStage_fullScreenHandler(event:FullScreenEvent):Void
 	{
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
 	}
+	#end
 
 	/**
 	 * @private

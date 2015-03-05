@@ -9,6 +9,8 @@ package feathers.controls;
 import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+import haxe.Timer;
+import openfl.errors.Error;
 
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -24,10 +26,10 @@ import openfl.geom.Rectangle;
 import openfl.net.URLLoader;
 import openfl.net.URLLoaderDataFormat;
 import openfl.net.URLRequest;
-import openfl.system.ImageDecodingPolicy;
+//import openfl.system.ImageDecodingPolicy;
 import openfl.system.LoaderContext;
 import openfl.utils.ByteArray;
-import openfl.utils.setTimeout;
+//import openfl.utils.setTimeout;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -113,17 +115,17 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE2:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE2:Rectangle = new Rectangle();
 
 	/**
 	 * @private
@@ -133,8 +135,8 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
-	LOADER_CONTEXT.imageDecodingPolicy = ImageDecodingPolicy.ON_LOAD;
+	private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
+	//LOADER_CONTEXT.imageDecodingPolicy = ImageDecodingPolicy.ON_LOAD;
 
 	/**
 	 * @private
@@ -165,6 +167,7 @@ class ImageLoader extends FeathersControl
 	 */
 	public function new()
 	{
+		super();
 		this.isQuickHitAreaEnabled = true;
 	}
 
@@ -274,7 +277,7 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._source == value)
 		{
-			return;
+			return get_source();
 		}
 		if(this._isInTextureQueue)
 		{
@@ -282,12 +285,12 @@ class ImageLoader extends FeathersControl
 		}
 		this._source = value;
 		this.cleanupTexture();
-		if(this.image)
+		if(this.image != null)
 		{
 			this.image.visible = false;
 		}
 		this._lastURL = null;
-		if(this._source is Texture)
+		if(Std.is(this._source, Texture))
 		{
 			this._isLoaded = true;
 		}
@@ -297,6 +300,7 @@ class ImageLoader extends FeathersControl
 			this._isLoaded = false;
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_source();
 	}
 
 	/**
@@ -331,10 +335,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._loadingTexture == value)
 		{
-			return;
+			return get_loadingTexture();
 		}
 		this._loadingTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_loadingTexture();
 	}
 
 	/**
@@ -370,10 +375,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._errorTexture == value)
 		{
-			return;
+			return get_errorTexture();
 		}
 		this._errorTexture = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_errorTexture();
 	}
 
 	/**
@@ -394,7 +400,7 @@ class ImageLoader extends FeathersControl
 	 *     //do something
 	 * }</listing>
 	 */
-	public var isLoaded(get, set):Bool;
+	public var isLoaded(get, never):Bool;
 	public function get_isLoaded():Bool
 	{
 		return this._isLoaded;
@@ -430,10 +436,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._textureScale == value)
 		{
-			return;
+			return get_textureScale();
 		}
 		this._textureScale = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		return get_textureScale();
 	}
 
 	/**
@@ -468,10 +475,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._smoothing == value)
 		{
-			return;
+			return get_smoothing();
 		}
 		this._smoothing = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_smoothing();
 	}
 
 	/**
@@ -505,16 +513,17 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._color == value)
 		{
-			return;
+			return get_color();
 		}
 		this._color = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_color();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _textureFormat:String = Context3DTextureFormat.BGRA;
+	private var _textureFormat:Context3DTextureFormat = Context3DTextureFormat.BGRA;
 
 	/**
 	 * The texture format to use when creating a texture loaded from a URL.
@@ -529,8 +538,8 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display3D/Context3DTextureFormat.html openfl.display3d.Context3DTextureFormat
 	 */
-	public var textureFormat(get, set):String;
-	public function get_textureFormat():String
+	public var textureFormat(get, set):Context3DTextureFormat;
+	public function get_textureFormat():Context3DTextureFormat
 	{
 		return this._textureFormat;
 	}
@@ -538,15 +547,16 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_textureFormat(value:String):String
+	public function set_textureFormat(value:Context3DTextureFormat):Context3DTextureFormat
 	{
 		if(this._textureFormat == value)
 		{
-			return;
+			return get_textureFormat();
 		}
 		this._textureFormat = value;
 		this._lastURL = null;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_textureFormat();
 	}
 
 	/**
@@ -579,9 +589,10 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._snapToPixels == value)
 		{
-			return;
+			return get_snapToPixels();
 		}
 		this._snapToPixels = value;
+		return get_snapToPixels();
 	}
 
 	/**
@@ -614,10 +625,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._maintainAspectRatio == value)
 		{
-			return;
+			return get_maintainAspectRatio();
 		}
 		this._maintainAspectRatio = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_maintainAspectRatio();
 	}
 
 	/**
@@ -626,7 +638,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
-	public var originalSourceWidth(get, set):Float;
+	public var originalSourceWidth(get, never):Float;
 	public function get_originalSourceWidth():Float
 	{
 		if(this._currentTextureWidth == this._currentTextureWidth) //!isNaN
@@ -642,7 +654,7 @@ class ImageLoader extends FeathersControl
 	 * source is a texture, this value will be <code>0</code> until the
 	 * <code>ImageLoader</code> validates.
 	 */
-	public var originalSourceHeight(get, set):Float;
+	public var originalSourceHeight(get, never):Float;
 	public function get_originalSourceHeight():Float
 	{
 		if(this._currentTextureHeight == this._currentTextureHeight) //!isNaN
@@ -710,13 +722,14 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._delayTextureCreation == value)
 		{
-			return;
+			return get_delayTextureCreation();
 		}
 		this._delayTextureCreation = value;
 		if(!this._delayTextureCreation)
 		{
 			this.processPendingTexture();
 		}
+		return get_delayTextureCreation();
 	}
 
 	/**
@@ -781,13 +794,13 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._textureQueueDuration == value)
 		{
-			return;
+			return get_textureQueueDuration();
 		}
 		var oldDuration:Float = this._textureQueueDuration;
 		this._textureQueueDuration = value;
 		if(this._delayTextureCreation)
 		{
-			 if((this._pendingBitmapDataTexture || this._pendingRawTextureData) &&
+			 if((this._pendingBitmapDataTexture != null || this._pendingRawTextureData != null) &&
 				oldDuration == Math.POSITIVE_INFINITY && this._textureQueueDuration < Math.POSITIVE_INFINITY)
 			{
 				this.addToTextureQueue();
@@ -797,6 +810,7 @@ class ImageLoader extends FeathersControl
 				this.removeFromTextureQueue();
 			}
 		}
+		return get_textureQueueDuration();
 	}
 
 	/**
@@ -833,6 +847,7 @@ class ImageLoader extends FeathersControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -866,10 +881,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -903,10 +919,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -940,10 +957,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -977,10 +995,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -1005,7 +1024,7 @@ class ImageLoader extends FeathersControl
 	 */
 	override public function dispose():Void
 	{
-		if(this.loader)
+		if(this.loader != null)
 		{
 			this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 			this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
@@ -1123,16 +1142,16 @@ class ImageLoader extends FeathersControl
 	 */
 	private function commitData():Void
 	{
-		if(this._source is Texture)
+		if(Std.is(this._source, Texture))
 		{
 			this._lastURL = null;
-			this._texture = Texture(this._source);
+			this._texture = cast(this._source, Texture);
 			this.refreshCurrentTexture();
 		}
 		else
 		{
-			var sourceURL:String = this._source as String;
-			if(!sourceURL)
+			var sourceURL:String = Std.is(this._source, String) ? cast(this._source, String) : null;
+			if(sourceURL == null)
 			{
 				this._lastURL = null;
 			}
@@ -1140,7 +1159,7 @@ class ImageLoader extends FeathersControl
 			{
 				this._lastURL = sourceURL;
 
-				if(this.urlLoader)
+				if(this.urlLoader != null)
 				{
 					this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 					this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
@@ -1155,7 +1174,7 @@ class ImageLoader extends FeathersControl
 					}
 				}
 
-				if(this.loader)
+				if(this.loader != null)
 				{
 					this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 					this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
@@ -1172,11 +1191,11 @@ class ImageLoader extends FeathersControl
 
 				if(sourceURL.toLowerCase().lastIndexOf(ATF_FILE_EXTENSION) == sourceURL.length - 3)
 				{
-					if(this.loader)
+					if(this.loader != null)
 					{
 						this.loader = null;
 					}
-					if(!this.urlLoader)
+					if(this.urlLoader == null)
 					{
 						this.urlLoader = new URLLoader();
 						this.urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
@@ -1189,11 +1208,11 @@ class ImageLoader extends FeathersControl
 				}
 				else //not ATF
 				{
-					if(this.urlLoader)
+					if(this.urlLoader != null)
 					{
 						this.urlLoader = null;
 					}
-					if(!this.loader)
+					if(this.loader  == null)
 					{
 						this.loader = new Loader();
 					}
@@ -1212,7 +1231,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function commitStyles():Void
 	{
-		if(!this.image)
+		if(this.image == null)
 		{
 			return;
 		}
@@ -1225,7 +1244,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function layout():Void
 	{
-		if(!this.image || !this._currentTexture)
+		if(this.image == null || this._currentTexture == null)
 		{
 			return;
 		}
@@ -1260,9 +1279,9 @@ class ImageLoader extends FeathersControl
 	private function refreshCurrentTexture():Void
 	{
 		var newTexture:Texture = this._texture;
-		if(!newTexture)
+		if(newTexture == null)
 		{
-			if(this.loader)
+			if(this.loader != null)
 			{
 				newTexture = this._loadingTexture;
 			}
@@ -1278,9 +1297,9 @@ class ImageLoader extends FeathersControl
 		}
 		this._currentTexture = newTexture;
 
-		if(!this._currentTexture)
+		if(this._currentTexture == null)
 		{
-			if(this.image)
+			if(this.image != null)
 			{
 				this.removeChild(this.image, true);
 				this.image = null;
@@ -1291,7 +1310,7 @@ class ImageLoader extends FeathersControl
 		//save the texture's frame so that we don't need to create a new
 		//rectangle every time that we want to access it.
 		var frame:Rectangle = this._currentTexture.frame;
-		if(frame)
+		if(frame != null)
 		{
 			this._currentTextureWidth = frame.width;
 			this._currentTextureHeight = frame.height;
@@ -1301,7 +1320,7 @@ class ImageLoader extends FeathersControl
 			this._currentTextureWidth = this._currentTexture.width;
 			this._currentTextureHeight = this._currentTexture.height;
 		}
-		if(!this.image)
+		if(this.image == null)
 		{
 			this.image = new Image(this._currentTexture);
 			this.addChild(this.image);
@@ -1321,24 +1340,24 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._isTextureOwner)
 		{
-			if(this._textureBitmapData)
+			if(this._textureBitmapData != null)
 			{
 				this._textureBitmapData.dispose();
 			}
-			if(this._textureRawData)
+			if(this._textureRawData != null)
 			{
 				this._textureRawData.clear();
 			}
-			if(this._texture)
+			if(this._texture != null)
 			{
 				this._texture.dispose();
 			}
 		}
-		if(this._pendingBitmapDataTexture)
+		if(this._pendingBitmapDataTexture != null)
 		{
 			this._pendingBitmapDataTexture.dispose();
 		}
-		if(this._pendingRawTextureData)
+		if(this._pendingRawTextureData != null)
 		{
 			this._pendingRawTextureData.clear();
 		}
@@ -1358,11 +1377,11 @@ class ImageLoader extends FeathersControl
 	 */
 	private function verifyCurrentStarling():Void
 	{
-		if(!this.stage || Starling.current.stage == this.stage)
+		if(this.stage == null || Starling.current.stage == this.stage)
 		{
 			return;
 		}
-		for each(var starling:Starling in Starling.all)
+		for (starling in Starling.all)
 		{
 			if(starling.stage == this.stage)
 			{
@@ -1381,13 +1400,13 @@ class ImageLoader extends FeathersControl
 		{
 			//this trace duplicates the behavior of AssetManager
 			trace(CONTEXT_LOST_WARNING);
-			setTimeout(replaceBitmapDataTexture, 1, bitmapData);
+			Timer.delay(function() { replaceBitmapDataTexture(bitmapData); }, 1);
 			return;
 		}
 		if(!SystemUtil.isDesktop && !SystemUtil.isApplicationActive)
 		{
 			//avoiding stage3d calls when a mobile application isn't active
-			SystemUtil.executeWhenApplicationIsActive(replaceBitmapDataTexture, bitmapData);
+			SystemUtil.executeWhenApplicationIsActive(function(a:Array<Dynamic>) { replaceBitmapDataTexture(bitmapData); }, []);
 			return;
 		}
 		this.verifyCurrentStarling();
@@ -1419,13 +1438,13 @@ class ImageLoader extends FeathersControl
 		{
 			//this trace duplicates the behavior of AssetManager
 			trace(CONTEXT_LOST_WARNING);
-			setTimeout(replaceRawTextureData, 1, rawData);
+			Timer.delay(function() { replaceRawTextureData(rawData); }, 1);
 			return;
 		}
 		if(!SystemUtil.isDesktop && !SystemUtil.isApplicationActive)
 		{
 			//avoiding stage3d calls when a mobile application isn't active
-			SystemUtil.executeWhenApplicationIsActive(replaceRawTextureData, rawData);
+			SystemUtil.executeWhenApplicationIsActive(function(a:Array<Dynamic>) { replaceRawTextureData(rawData); }, []);
 			return;
 		}
 		this.verifyCurrentStarling();
@@ -1467,7 +1486,7 @@ class ImageLoader extends FeathersControl
 		}
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, imageLoader_removedFromStageHandler);
 		this._isInTextureQueue = true;
-		if(textureQueueTail)
+		if(textureQueueTail != null)
 		{
 			textureQueueTail._textureQueueNext = this;
 			this._textureQueuePrevious = textureQueueTail;
@@ -1497,11 +1516,11 @@ class ImageLoader extends FeathersControl
 		this._isInTextureQueue = false;
 		this.removeEventListener(starling.events.Event.REMOVED_FROM_STAGE, imageLoader_removedFromStageHandler);
 		this.removeEventListener(EnterFrameEvent.ENTER_FRAME, processTextureQueue_enterFrameHandler);
-		if(previous)
+		if(previous != null)
 		{
 			previous._textureQueueNext = next;
 		}
-		if(next)
+		if(next != null)
 		{
 			next._textureQueuePrevious = previous;
 		}
@@ -1523,7 +1542,7 @@ class ImageLoader extends FeathersControl
 				textureQueueTail = next;
 			}
 		}
-		if(wasHead && textureQueueHead)
+		if(wasHead && textureQueueHead != null)
 		{
 			textureQueueHead.preparePendingTexture();
 		}
@@ -1550,13 +1569,13 @@ class ImageLoader extends FeathersControl
 	 */
 	private function processPendingTexture():Void
 	{
-		if(this._pendingBitmapDataTexture)
+		if(this._pendingBitmapDataTexture != null)
 		{
 			var bitmapData:BitmapData = this._pendingBitmapDataTexture;
 			this._pendingBitmapDataTexture = null;
 			this.replaceBitmapDataTexture(bitmapData);
 		}
-		if(this._pendingRawTextureData)
+		if(this._pendingRawTextureData != null)
 		{
 			var rawData:ByteArray = this._pendingRawTextureData;
 			this._pendingRawTextureData = null;
@@ -1597,7 +1616,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function loader_completeHandler(event:openfl.events.Event):Void
 	{
-		var bitmap:Bitmap = Bitmap(this.loader.content);
+		var bitmap:Bitmap = cast(this.loader.content, Bitmap);
 		this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 		this.loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
@@ -1639,7 +1658,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function rawDataLoader_completeHandler(event:openfl.events.Event):Void
 	{
-		var rawData:ByteArray = ByteArray(this.urlLoader.data);
+		var rawData:ByteArray = cast(this.urlLoader.data, ByteArray);
 		this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, rawDataLoader_errorHandler);
 		this.urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, rawDataLoader_errorHandler);

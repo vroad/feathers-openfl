@@ -11,7 +11,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showSettings",type="starling.events.Event")]
 
-class SliderScreen extends PanelScreen
+@:keep class SliderScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
@@ -61,7 +61,7 @@ class SliderScreen extends PanelScreen
 		this._verticalSlider.addEventListener(Event.CHANGE, horizontalSlider_changeHandler);
 		this.addChild(this._verticalSlider);
 
-		this.headerProperties.title = "Slider";
+		this.headerProperties.setProperty("title", "Slider");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -70,10 +70,10 @@ class SliderScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}
@@ -82,10 +82,10 @@ class SliderScreen extends PanelScreen
 		this._settingsButton.label = "Settings";
 		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.headerProperties.setProperty("rightItems", 
 		[
 			this._settingsButton
-		];
+		]);
 	}
 	
 	private function onBackButton():Void
@@ -95,7 +95,7 @@ class SliderScreen extends PanelScreen
 	
 	private function horizontalSlider_changeHandler(event:Event):Void
 	{
-		trace("slider change:", this._horizontalSlider.value.toString());
+		trace("slider change:" + this._horizontalSlider.value);
 	}
 	
 	private function backButton_triggeredHandler(event:Event):Void

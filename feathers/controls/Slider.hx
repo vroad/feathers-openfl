@@ -12,8 +12,8 @@ import feathers.core.PropertyProxy;
 import feathers.events.ExclusiveTouch;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
-import feathers.utils.math.clamp;
-import feathers.utils.math.roundToNearest;
+import feathers.utils.math.FeathersMathUtil.clamp;
+import feathers.utils.math.FeathersMathUtil.roundToNearest;
 
 import openfl.events.TimerEvent;
 import openfl.geom.Point;
@@ -110,7 +110,7 @@ import starling.events.TouchPhase;
  *
  * @see http://wiki.starling-framework.org/feathers/slider
  */
-class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDisplayObject
+class Slider extends FeathersControl implements IDirectionalScrollBar implements IFocusDisplayObject
 {
 	/**
 	 * @private
@@ -410,13 +410,14 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._direction == value)
 		{
-			return;
+			return get_direction();
 		}
 		this._direction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
 		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
 		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+		return get_direction();
 	}
 	
 	/**
@@ -461,7 +462,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		newValue = clamp(newValue, this._minimum, this._maximum);
 		if(this._value == newValue)
 		{
-			return;
+			return get_value();
 		}
 		this._value = newValue;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
@@ -469,6 +470,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this.dispatchEventWith(Event.CHANGE);
 		}
+		return get_value();
 	}
 	
 	/**
@@ -506,10 +508,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._minimum == value)
 		{
-			return;
+			return get_minimum();
 		}
 		this._minimum = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_minimum();
 	}
 	
 	/**
@@ -549,10 +552,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._maximum == value)
 		{
-			return;
+			return get_maximum();
 		}
 		this._maximum = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_maximum();
 	}
 	
 	/**
@@ -563,7 +567,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * As the slider's thumb is dragged, the value is snapped to a multiple
 	 * of the step. Paging using the slider's track will use the <code>step</code>
-	 * value if the <code>page</code> value is <code>Math.NaN</code>. If the
+	 * value if the <code>page</code> value is <code>NaN</code>. If the
 	 * <code>step</code> is zero (<code>0</code>), paging with the track will not be possible.
 	 *
 	 * <p>In the following example, the step is changed to 1:</p>
@@ -593,9 +597,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._step == value)
 		{
-			return;
+			return get_step();
 		}
 		this._step = value;
+		return get_step();
 	}
 
 	/**
@@ -609,7 +614,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * track is touched, and the thumb is shown, the slider value will be
 	 * incremented or decremented by the page value.
 	 *
-	 * <p>If this value is <code>Math.NaN</code>, the <code>step</code> value
+	 * <p>If this value is <code>NaN</code>, the <code>step</code> value
 	 * will be used instead. If the <code>step</code> value is zero, paging
 	 * with the track is not possible.</p>
 	 *
@@ -622,7 +627,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * slider.page = 10
 	 * slider.value = 12;</listing>
 	 *
-	 * @default Math.NaN
+	 * @default NaN
 	 *
 	 * @see #value
 	 * @see #page
@@ -641,9 +646,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._page == value)
 		{
-			return;
+			return get_page();
 		}
 		this._page = value;
+		return get_page();
 	}
 	
 	/**
@@ -692,10 +698,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._showThumb == value)
 		{
-			return;
+			return get_showThumb();
 		}
 		this._showThumb = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_showThumb();
 	}
 
 	/**
@@ -728,10 +735,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._minimumPadding == value)
 		{
-			return;
+			return get_minimumPadding();
 		}
 		this._minimumPadding = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_minimumPadding();
 	}
 
 	/**
@@ -764,10 +772,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._maximumPadding == value)
 		{
-			return;
+			return get_maximumPadding();
 		}
 		this._maximumPadding = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_maximumPadding();
 	}
 
 	/**
@@ -803,10 +812,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._trackLayoutMode == value)
 		{
-			return;
+			return get_trackLayoutMode();
 		}
 		this._trackLayoutMode = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_trackLayoutMode();
 	}
 
 	/**
@@ -843,10 +853,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._trackScaleMode == value)
 		{
-			return;
+			return get_trackScaleMode();
 		}
 		this._trackScaleMode = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_trackScaleMode();
 	}
 
 	/**
@@ -887,6 +898,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	public function set_trackInteractionMode(value:String):String
 	{
 		this._trackInteractionMode = value;
+		return get_trackInteractionMode();
 	}
 
 	/**
@@ -930,16 +942,17 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._repeatDelay == value)
 		{
-			return;
+			return get_repeatDelay();
 		}
 		this._repeatDelay = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_repeatDelay();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _minimumTrackFactory:Dynamic;
+	private var _minimumTrackFactory:Void->Button;
 
 	/**
 	 * A function used to generate the slider's minimum track sub-component.
@@ -969,8 +982,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #minimumTrackProperties
 	 */
-	public var minimumTrackFactory(get, set):Dynamic;
-	public function get_minimumTrackFactory():Dynamic
+	public var minimumTrackFactory(get, set):Void->Button;
+	public function get_minimumTrackFactory():Void->Button
 	{
 		return this._minimumTrackFactory;
 	}
@@ -978,14 +991,15 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackFactory(value:Dynamic):Dynamic
+	public function set_minimumTrackFactory(value:Void->Button):Void->Button
 	{
 		if(this._minimumTrackFactory == value)
 		{
-			return;
+			return get_minimumTrackFactory();
 		}
 		this._minimumTrackFactory = value;
 		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+		return get_minimumTrackFactory();
 	}
 
 	/**
@@ -1029,10 +1043,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._customMinimumTrackName == value)
 		{
-			return;
+			return get_customMinimumTrackName();
 		}
 		this._customMinimumTrackName = value;
 		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+		return get_customMinimumTrackName();
 	}
 
 	/**
@@ -1068,10 +1083,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #minimumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public var minimumTrackProperties(get, set):Dynamic;
-	public function get_minimumTrackProperties():Dynamic
+	public var minimumTrackProperties(get, set):PropertyProxy;
+	public function get_minimumTrackProperties():PropertyProxy
 	{
-		if(!this._minimumTrackProperties)
+		if(this._minimumTrackProperties == null)
 		{
 			this._minimumTrackProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1081,41 +1096,42 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_minimumTrackProperties(value:Dynamic):Dynamic
+	public function set_minimumTrackProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._minimumTrackProperties == value)
 		{
-			return;
+			return get_minimumTrackProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._minimumTrackProperties)
+		if(this._minimumTrackProperties != null)
 		{
 			this._minimumTrackProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._minimumTrackProperties = PropertyProxy(value);
-		if(this._minimumTrackProperties)
+		this._minimumTrackProperties = value;
+		if(this._minimumTrackProperties != null)
 		{
 			this._minimumTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_minimumTrackProperties();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _maximumTrackFactory:Dynamic;
+	private var _maximumTrackFactory:Void->Button;
 
 	/**
 	 * A function used to generate the slider's maximum track sub-component.
@@ -1145,8 +1161,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #maximumTrackProperties
 	 */
-	public var maximumTrackFactory(get, set):Dynamic;
-	public function get_maximumTrackFactory():Dynamic
+	public var maximumTrackFactory(get, set):Void->Button;
+	public function get_maximumTrackFactory():Void->Button
 	{
 		return this._maximumTrackFactory;
 	}
@@ -1154,14 +1170,15 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackFactory(value:Dynamic):Dynamic
+	public function set_maximumTrackFactory(value:Void->Button):Void->Button
 	{
 		if(this._maximumTrackFactory == value)
 		{
-			return;
+			return get_maximumTrackFactory();
 		}
 		this._maximumTrackFactory = value;
 		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+		return get_maximumTrackFactory();
 	}
 
 	/**
@@ -1205,10 +1222,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._customMaximumTrackName == value)
 		{
-			return;
+			return get_customMaximumTrackName();
 		}
 		this._customMaximumTrackName = value;
 		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+		return get_customMaximumTrackName();
 	}
 	
 	/**
@@ -1244,10 +1262,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see #maximumTrackFactory
 	 * @see feathers.controls.Button
 	 */
-	public var maximumTrackProperties(get, set):Dynamic;
-	public function get_maximumTrackProperties():Dynamic
+	public var maximumTrackProperties(get, set):PropertyProxy;
+	public function get_maximumTrackProperties():PropertyProxy
 	{
-		if(!this._maximumTrackProperties)
+		if(this._maximumTrackProperties == null)
 		{
 			this._maximumTrackProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1257,41 +1275,42 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_maximumTrackProperties(value:Dynamic):Dynamic
+	public function set_maximumTrackProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._maximumTrackProperties == value)
 		{
-			return;
+			return get_maximumTrackProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._maximumTrackProperties)
+		if(this._maximumTrackProperties != null)
 		{
 			this._maximumTrackProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._maximumTrackProperties = PropertyProxy(value);
-		if(this._maximumTrackProperties)
+		this._maximumTrackProperties = value;
+		if(this._maximumTrackProperties != null)
 		{
 			this._maximumTrackProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_maximumTrackProperties();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _thumbFactory:Dynamic;
+	private var _thumbFactory:Void->Button;
 
 	/**
 	 * A function used to generate the slider's thumb sub-component.
@@ -1321,8 +1340,8 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbProperties
 	 */
-	public var thumbFactory(get, set):Dynamic;
-	public function get_thumbFactory():Dynamic
+	public var thumbFactory(get, set):Void->Button;
+	public function get_thumbFactory():Void->Button
 	{
 		return this._thumbFactory;
 	}
@@ -1330,14 +1349,15 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbFactory(value:Dynamic):Dynamic
+	public function set_thumbFactory(value:Void->Button):Void->Button
 	{
 		if(this._thumbFactory == value)
 		{
-			return;
+			return get_thumbFactory();
 		}
 		this._thumbFactory = value;
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+		return get_thumbFactory();
 	}
 
 	/**
@@ -1381,10 +1401,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._customThumbName == value)
 		{
-			return;
+			return get_customThumbName();
 		}
 		this._customThumbName = value;
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+		return get_customThumbName();
 	}
 	
 	/**
@@ -1419,10 +1440,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 * @see feathers.controls.Button
 	 * @see #thumbFactory
 	 */
-	public var thumbProperties(get, set):Dynamic;
-	public function get_thumbProperties():Dynamic
+	public var thumbProperties(get, set):PropertyProxy;
+	public function get_thumbProperties():PropertyProxy
 	{
-		if(!this._thumbProperties)
+		if(this._thumbProperties == null)
 		{
 			this._thumbProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -1432,35 +1453,36 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	/**
 	 * @private
 	 */
-	public function set_thumbProperties(value:Dynamic):Dynamic
+	public function set_thumbProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._thumbProperties == value)
 		{
-			return;
+			return get_thumbProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
 		if(!(Std.is(value, PropertyProxy)))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for (propertyName in value)
+			for (propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._thumbProperties)
+		if(this._thumbProperties != null)
 		{
 			this._thumbProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._thumbProperties = PropertyProxy(value);
-		if(this._thumbProperties)
+		this._thumbProperties = value;
+		if(this._thumbProperties != null)
 		{
 			this._thumbProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_thumbProperties();
 	}
 
 	/**
@@ -1530,7 +1552,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this.refreshMinimumTrackStyles();
 		}
-		if((maximumTrackFactoryInvalid || layoutInvalid || stylesInvalid) && this.maximumTrack)
+		if((maximumTrackFactoryInvalid || layoutInvalid || stylesInvalid) && this.maximumTrack != null)
 		{
 			this.refreshMaximumTrackStyles();
 		}
@@ -1543,7 +1565,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			this.minimumTrack.isEnabled = this._isEnabled;
 		}
-		if((maximumTrackFactoryInvalid || layoutInvalid || stateInvalid) && this.maximumTrack)
+		if((maximumTrackFactoryInvalid || layoutInvalid || stateInvalid) && this.maximumTrack != null)
 		{
 			this.maximumTrack.isEnabled = this._isEnabled;
 		}
@@ -1583,7 +1605,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			this.minimumTrackOriginalWidth = this.minimumTrack.width;
 			this.minimumTrackOriginalHeight = this.minimumTrack.height;
 		}
-		if(this.maximumTrack)
+		if(this.maximumTrack != null)
 		{
 			if(this.maximumTrackOriginalWidth != this.maximumTrackOriginalWidth || //isNaN
 				this.maximumTrackOriginalHeight != this.maximumTrackOriginalHeight) //isNaN
@@ -1607,7 +1629,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			if(this._direction == DIRECTION_VERTICAL)
 			{
-				if(this.maximumTrack)
+				if(this.maximumTrack != null)
 				{
 					newWidth = Math.max(this.minimumTrackOriginalWidth, this.maximumTrackOriginalWidth);
 				}
@@ -1618,7 +1640,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			}
 			else //horizontal
 			{
-				if(this.maximumTrack)
+				if(this.maximumTrack != null)
 				{
 					newWidth = Math.min(this.minimumTrackOriginalWidth, this.maximumTrackOriginalWidth) + this.thumb.width / 2;
 				}
@@ -1633,7 +1655,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		{
 			if(this._direction == DIRECTION_VERTICAL)
 			{
-				if(this.maximumTrack)
+				if(this.maximumTrack != null)
 				{
 					newHeight = Math.min(this.minimumTrackOriginalHeight, this.maximumTrackOriginalHeight) + this.thumb.height / 2;
 				}
@@ -1644,7 +1666,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			}
 			else //horizontal
 			{
-				if(this.maximumTrack)
+				if(this.maximumTrack != null)
 				{
 					newHeight = Math.max(this.minimumTrackOriginalHeight, this.maximumTrackOriginalHeight);
 				}
@@ -1671,15 +1693,15 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function createThumb():Void
 	{
-		if(this.thumb)
+		if(this.thumb != null)
 		{
 			this.thumb.removeFromParent(true);
 			this.thumb = null;
 		}
 
-		var factory:Dynamic = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
+		var factory:Void->Button = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
 		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
-		this.thumb = Button(factory());
+		this.thumb = factory();
 		this.thumb.styleNameList.add(thumbName);
 		this.thumb.keepDownStateOnRollOut = true;
 		this.thumb.addEventListener(TouchEvent.TOUCH, thumb_touchHandler);
@@ -1699,15 +1721,15 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function createMinimumTrack():Void
 	{
-		if(this.minimumTrack)
+		if(this.minimumTrack != null)
 		{
 			this.minimumTrack.removeFromParent(true);
 			this.minimumTrack = null;
 		}
 
-		var factory:Dynamic = this._minimumTrackFactory != null ? this._minimumTrackFactory : defaultMinimumTrackFactory;
+		var factory:Void->Button = this._minimumTrackFactory != null ? this._minimumTrackFactory : defaultMinimumTrackFactory;
 		var minimumTrackName:String = this._customMinimumTrackName != null ? this._customMinimumTrackName : this.minimumTrackName;
-		this.minimumTrack = Button(factory());
+		this.minimumTrack = factory();
 		this.minimumTrack.styleNameList.add(minimumTrackName);
 		this.minimumTrack.keepDownStateOnRollOut = true;
 		this.minimumTrack.addEventListener(TouchEvent.TOUCH, track_touchHandler);
@@ -1730,20 +1752,20 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		if(this._trackLayoutMode == TRACK_LAYOUT_MODE_MIN_MAX)
 		{
-			if(this.maximumTrack)
+			if(this.maximumTrack != null)
 			{
 				this.maximumTrack.removeFromParent(true);
 				this.maximumTrack = null;
 			}
-			var factory:Dynamic = this._maximumTrackFactory != null ? this._maximumTrackFactory : defaultMaximumTrackFactory;
+			var factory:Void->Button = this._maximumTrackFactory != null ? this._maximumTrackFactory : defaultMaximumTrackFactory;
 			var maximumTrackName:String = this._customMaximumTrackName != null ? this._customMaximumTrackName : this.maximumTrackName;
-			this.maximumTrack = Button(factory());
+			this.maximumTrack = factory();
 			this.maximumTrack.styleNameList.add(maximumTrackName);
 			this.maximumTrack.keepDownStateOnRollOut = true;
 			this.maximumTrack.addEventListener(TouchEvent.TOUCH, track_touchHandler);
 			this.addChildAt(this.maximumTrack, 1);
 		}
-		else if(this.maximumTrack) //single
+		else if(this.maximumTrack != null) //single
 		{
 			this.maximumTrack.removeFromParent(true);
 			this.maximumTrack = null;
@@ -1755,10 +1777,12 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function refreshThumbStyles():Void
 	{
-		for (propertyName in this._thumbProperties)
+		if (this._thumbProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._thumbProperties.storage))
 		{
-			var propertyValue:Dynamic = this._thumbProperties[propertyName];
-			this.thumb[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._thumbProperties.storage, propertyName);
+			Reflect.setProperty(this.thumb, propertyName, propertyValue);
 		}
 		this.thumb.visible = this._showThumb;
 	}
@@ -1768,10 +1792,12 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function refreshMinimumTrackStyles():Void
 	{
-		for (propertyName in this._minimumTrackProperties)
+		if (this._minimumTrackProperties == null)
+			return;
+		for (propertyName in Reflect.fields(this._minimumTrackProperties.storage))
 		{
-			var propertyValue:Dynamic = this._minimumTrackProperties[propertyName];
-			this.minimumTrack[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._minimumTrackProperties.storage, propertyName);
+			Reflect.setProperty(this.minimumTrack, propertyName, propertyValue);
 		}
 	}
 
@@ -1780,14 +1806,14 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	 */
 	private function refreshMaximumTrackStyles():Void
 	{
-		if(!this.maximumTrack)
+		if(this.maximumTrack == null || this._maximumTrackProperties == null)
 		{
 			return;
 		}
-		for (propertyName in this._maximumTrackProperties)
+		for (propertyName in Reflect.fields(this._maximumTrackProperties.storage))
 		{
-			var propertyValue:Dynamic = this._maximumTrackProperties[propertyName];
-			this.maximumTrack[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(this._maximumTrackProperties.storage, propertyName);
+			Reflect.setProperty(this.maximumTrack, propertyName, propertyValue);
 		}
 	}
 
@@ -1961,7 +1987,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		this.currentRepeatAction = action;
 		if(this._repeatDelay > 0)
 		{
-			if(!this._repeatTimer)
+			if(this._repeatTimer == null)
 			{
 				this._repeatTimer = new Timer(this._repeatDelay * 1000);
 				this._repeatTimer.addEventListener(TimerEvent.TIMER, repeatTimer_timerHandler);
@@ -2046,11 +2072,12 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 
-		var track:DisplayObject = DisplayObject(event.currentTarget);
+		var track:DisplayObject = cast(event.currentTarget, DisplayObject);
+		var touch:Touch;
 		if(this._touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(track, null, this._touchPointID);
-			if(!touch)
+			touch = event.getTouch(track, null, this._touchPointID);
+			if(touch == null)
 			{
 				return;
 			}
@@ -2061,7 +2088,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			}
 			else if(touch.phase == TouchPhase.ENDED)
 			{
-				if(this._repeatTimer)
+				if(this._repeatTimer != null)
 				{
 					this._repeatTimer.stop();
 				}
@@ -2077,7 +2104,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		else
 		{
 			touch = event.getTouch(track, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -2121,10 +2148,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 			return;
 		}
 
+		var touch:Touch;
 		if(this._touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this.thumb, null, this._touchPointID);
-			if(!touch)
+			touch = event.getTouch(this.thumb, null, this._touchPointID);
+			if(touch == null)
 			{
 				return;
 			}
@@ -2134,7 +2162,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 				var claim:DisplayObject = exclusiveTouch.getClaim(this._touchPointID);
 				if(claim != this)
 				{
-					if(claim)
+					if(claim != null)
 					{
 						//already claimed by another display object
 						return;
@@ -2161,7 +2189,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 		else
 		{
 			touch = event.getTouch(this.thumb, TouchPhase.BEGAN);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -2255,7 +2283,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDis
 	{
 		var exclusiveTouch:ExclusiveTouch = ExclusiveTouch.forStage(this.stage);
 		var claim:DisplayObject = exclusiveTouch.getClaim(this._touchPointID);
-		if(claim && claim != this)
+		if(claim != null && claim != this)
 		{
 			return;
 		}

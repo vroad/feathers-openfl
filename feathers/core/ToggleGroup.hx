@@ -6,7 +6,9 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
+import openfl.errors.ArgumentError;
 import openfl.errors.IllegalOperationError;
+import openfl.errors.RangeError;
 
 import starling.events.Event;
 import starling.events.EventDispatcher;
@@ -50,7 +52,7 @@ class ToggleGroup extends EventDispatcher
 	/**
 	 * @private
 	 */
-	private var _items:Array<IToggle> = new Array<IToggle>;
+	private var _items:Array<IToggle> = new Array();
 
 	/**
 	 * @private
@@ -93,13 +95,14 @@ class ToggleGroup extends EventDispatcher
 	{
 		if(this._isSelectionRequired == value)
 		{
-			return;
+			return get_isSelectionRequired();
 		}
 		this._isSelectionRequired = value;
 		if(this._isSelectionRequired && this._selectedIndex < 0 && this._items.length > 0)
 		{
 			this.selectedIndex = 0;
 		}
+		return get_isSelectionRequired();
 	}
 	
 	/**
@@ -128,6 +131,7 @@ class ToggleGroup extends EventDispatcher
 	public function set_selectedItem(value:IToggle):IToggle
 	{
 		this.selectedIndex = this._items.indexOf(value);
+		return get_selectedItem();
 	}
 	
 	/**
@@ -180,6 +184,7 @@ class ToggleGroup extends EventDispatcher
 			//item (happens below in the item's onChange listener).
 			this.dispatchEventWith(Event.CHANGE);
 		}
+		return get_selectedIndex();
 	}
 	
 	/**
@@ -194,7 +199,7 @@ class ToggleGroup extends EventDispatcher
 	 */
 	public function addItem(item:IToggle):Void
 	{
-		if(!item)
+		if(item == null)
 		{
 			throw new ArgumentError("IToggle passed to ToggleGroup addItem() must not be null.");
 		}
@@ -217,7 +222,7 @@ class ToggleGroup extends EventDispatcher
 
 		if(Std.is(item, IGroupedToggle))
 		{
-			IGroupedToggle(item).toggleGroup = this;
+			cast(item, IGroupedToggle).toggleGroup = this;
 		}
 	}
 	
@@ -243,7 +248,7 @@ class ToggleGroup extends EventDispatcher
 		item.removeEventListener(Event.CHANGE, item_changeHandler);
 		if(Std.is(item, IGroupedToggle))
 		{
-			IGroupedToggle(item).toggleGroup = null;
+			cast(item, IGroupedToggle).toggleGroup = null;
 		}
 		if(this._selectedIndex >= this._items.length)
 		{
@@ -275,7 +280,7 @@ class ToggleGroup extends EventDispatcher
 			item.removeEventListener(Event.CHANGE, item_changeHandler);
 			if(Std.is(item, IGroupedToggle))
 			{
-				IGroupedToggle(item).toggleGroup = null;
+				cast(item, IGroupedToggle).toggleGroup = null;
 			}
 		}
 		this.selectedIndex = -1;
@@ -334,7 +339,7 @@ class ToggleGroup extends EventDispatcher
 			return;
 		}
 		this._items.splice(oldIndex, 1);
-		this._items.splice(index, 0, item);
+		this._items.insert(index, item);
 		if(this._selectedIndex >= 0)
 		{
 			if(this._selectedIndex == oldIndex)
@@ -362,7 +367,7 @@ class ToggleGroup extends EventDispatcher
 			return;
 		}
 
-		var item:IToggle = IToggle(event.currentTarget);
+		var item:IToggle = cast(event.currentTarget, IToggle);
 		var index:Int = this._items.indexOf(item);
 		if(item.isSelected || (this._isSelectionRequired && this._selectedIndex == index))
 		{

@@ -5,6 +5,7 @@ import feathers.controls.LayoutGroup;
 import feathers.controls.PanelScreen;
 import feathers.controls.Radio;
 import feathers.controls.ToggleSwitch;
+import feathers.core.FeathersControl;
 import feathers.core.ToggleGroup;
 import feathers.layout.ILayout;
 import feathers.skins.IStyleProvider;
@@ -15,7 +16,7 @@ import starling.display.DisplayObject;
 import starling.events.Event;
 //[Event(name="complete",type="starling.events.Event")]
 
-class ToggleScreen extends PanelScreen
+@:keep class ToggleScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
@@ -54,10 +55,11 @@ class ToggleScreen extends PanelScreen
 	{
 		if(this._innerLayout == value)
 		{
-			return;
+			return get_innerLayout();
 		}
 		this._innerLayout = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		return get_innerLayout();
 	}
 
 	override private function initialize():Void
@@ -112,7 +114,7 @@ class ToggleScreen extends PanelScreen
 		this._radioGroup.addItem(this._radio3);
 		this._radioContainer.addChild(this._radio3);
 
-		this.headerProperties.title = "Toggles";
+		this.headerProperties.setProperty("title", "Toggles");
 
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -121,10 +123,10 @@ class ToggleScreen extends PanelScreen
 			this._backButton.label = "Back";
 			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
-			this.headerProperties.leftItems = new <DisplayObject>
+			this.headerProperties.setProperty("leftItems", 
 			[
 				this._backButton
-			];
+			]);
 
 			this.backButtonHandler = this.onBackButton;
 		}

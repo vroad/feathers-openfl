@@ -4,9 +4,9 @@ import feathers.controls.List;
 import feathers.controls.renderers.IListItemRenderer;
 import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
+import starling.utils.Max;
 
 import openfl.geom.Point;
-import openfl.utils.Dictionary;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -26,23 +26,24 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
+	private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
 
 	/**
 	 * @private
 	 * This will only work in a single list. If this item renderer needs to
 	 * be used by multiple lists, this data should be stored differently.
 	 */
-	inline private static var CACHED_BOUNDS:Dictionary = new Dictionary(false);
+	private static var CACHED_BOUNDS:Map<Int, Point> = new Map();
 
 	/**
 	 * Constructor.
 	 */
 	public function new()
 	{
+		super();
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
-		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler)
+		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
 
 	/**
@@ -81,10 +82,11 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	{
 		if(this._index == value)
 		{
-			return;
+			return get_index();
 		}
 		this._index = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_index();
 	}
 
 	/**
@@ -98,7 +100,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	public var owner(get, set):List;
 	public function get_owner():List
 	{
-		return List(this._owner);
+		return this._owner;
 	}
 
 	/**
@@ -108,17 +110,17 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
-		if(this._owner)
+		if(this._owner != null)
 		{
 			this._owner.removeEventListener(FeathersEventType.SCROLL_START, owner_scrollStartHandler);
 			this._owner.removeEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this._owner = value;
-		if(this._owner)
+		if(this._owner != null)
 		{
-			if(this.image)
+			if(this.image != null)
 			{
 				this.image.delayTextureCreation = this._owner.isScrolling;
 			}
@@ -126,6 +128,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 			this._owner.addEventListener(FeathersEventType.SCROLL_COMPLETE, owner_scrollCompleteHandler);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**
@@ -149,11 +152,12 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
 		this.touchPointID = -1;
-		this._data = GalleryItem(value);
+		this._data = cast value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_data();
 	}
 
 	/**
@@ -177,10 +181,11 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	{
 		if(this._isSelected == value)
 		{
-			return;
+			return get_isSelected();
 		}
 		this._isSelected = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_isSelected();
 	}
 
 	/**
@@ -206,11 +211,11 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 
 		if(dataInvalid)
 		{
-			if(this.fadeTween)
+			if(this.fadeTween != null)
 			{
-				this.fadeTween.advanceTime(Float.MAX_VALUE);
+				this.fadeTween.advanceTime(Max.MAX_VALUE);
 			}
-			if(this._data)
+			if(this._data != null)
 			{
 				this.image.visible = false;
 				this.image.source = this._data.thumbURL;
@@ -235,8 +240,8 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 	 */
 	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Bool = isNaN(this.explicitWidth);
-		var needsHeight:Bool = isNaN(this.explicitHeight);
+		var needsWidth:Bool = Math.isNaN(this.explicitWidth);
+		var needsHeight:Bool = Math.isNaN(this.explicitHeight);
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -245,15 +250,16 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		this.image.width = this.image.height = Math.NaN;
 		this.image.validate();
 		var newWidth:Float = this.explicitWidth;
+		var boundsFromCache:Point;
 		if(needsWidth)
 		{
 			if(this.image.isLoaded)
 			{
-				if(!CACHED_BOUNDS.hasOwnProperty(this._index))
+				if(!CACHED_BOUNDS.exists(this._index))
 				{
 					CACHED_BOUNDS[this._index] = new Point();
 				}
-				var boundsFromCache:Point = Point(CACHED_BOUNDS[this._index]);
+				boundsFromCache = CACHED_BOUNDS[this._index];
 				//also save it to a cache so that we can reuse the width and
 				//height values later if the same image needs to be loaded
 				//again.
@@ -261,12 +267,12 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 			}
 			else
 			{
-				if(CACHED_BOUNDS.hasOwnProperty(this._index))
+				if(CACHED_BOUNDS.exists(this._index))
 				{
 					//if the image isn't loaded yet, but we've loaded it at
 					//least once before, we can use a cached value to avoid
 					//jittering when the image resizes
-					boundsFromCache = Point(CACHED_BOUNDS[this._index]);
+					boundsFromCache = CACHED_BOUNDS[this._index];
 					newWidth = boundsFromCache.x;
 				}
 				else
@@ -283,18 +289,18 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		{
 			if(this.image.isLoaded)
 			{
-				if(!CACHED_BOUNDS.hasOwnProperty(this._index))
+				if(!CACHED_BOUNDS.exists(this._index))
 				{
 					CACHED_BOUNDS[this._index] = new Point();
 				}
-				boundsFromCache = Point(CACHED_BOUNDS[this._index]);
+				boundsFromCache = CACHED_BOUNDS[this._index];
 				newHeight = boundsFromCache.y = this.image.height;
 			}
 			else
 			{
-				if(CACHED_BOUNDS.hasOwnProperty(this._index))
+				if(CACHED_BOUNDS.exists(this._index))
 				{
-					boundsFromCache = Point(CACHED_BOUNDS[this._index]);
+					boundsFromCache = CACHED_BOUNDS[this._index];
 					newHeight = boundsFromCache.y;
 				}
 				else
@@ -334,7 +340,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		}
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch;
+			var touch:Touch = null;
 			for (currentTouch in touches)
 			{
 				if(currentTouch.id == this.touchPointID)
@@ -343,9 +349,9 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 					break;
 				}
 			}
-			if(!touch)
+			if(touch == null)
 			{
-				HELPER_TOUCHES_VECTOR.length = 0;
+				HELPER_TOUCHES_VECTOR.splice(0, HELPER_TOUCHES_VECTOR.length);
 				return;
 			}
 			if(touch.phase == TouchPhase.ENDED)
@@ -361,7 +367,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 		}
 		else
 		{
-			for each(touch in touches)
+			for (touch in touches)
 			{
 				if(touch.phase == TouchPhase.BEGAN)
 				{
@@ -370,7 +376,7 @@ class GalleryItemRenderer extends FeathersControl implements IListItemRenderer
 				}
 			}
 		}
-		HELPER_TOUCHES_VECTOR.length = 0;
+		HELPER_TOUCHES_VECTOR.splice(0, HELPER_TOUCHES_VECTOR.length);
 	}
 
 	/**

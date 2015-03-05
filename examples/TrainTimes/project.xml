@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    
+    <set name="openfl-next" value="1" />
+	
+	<meta title="TrainTimes" package="feathers.examples" version="1.0.0" company="vroad" />
+	<app main="TrainTimes" file="TrainTimes" path="bin" />
+    
+    <window width="960" height="640" />
+	<source path="source" />
+    
+    <assets path="assets/images/traintimes.png" />
+	<assets path="assets/images/traintimes.xml" />
+    <assets path="assets/fonts/SourceSansPro-Bold.ttf" />
+    <assets path="assets/fonts/SourceSansPro-BoldIt.ttf" />
+    <assets path="assets/fonts/SourceSansPro-Regular.ttf" />
+	
+	<haxelib name="openfl" />
+    <haxelib name="starling" />
+    <haxelib name="feathers" />
+    
+    <haxedef name="source-map-content" if="html5 || nodejs" />
+	<haxedef name="dom" if="html5" />
+	<haxedef name="webgl" if="html5" />
+    
+    <haxedef name="disable_gl_renderer" />
+	
+</project>

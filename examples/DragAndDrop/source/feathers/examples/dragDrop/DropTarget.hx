@@ -15,6 +15,7 @@ class DropTarget extends LayoutGroup implements IDropTarget
 
 	public function new(dragFormat:String)
 	{
+		super();
 		this._dragFormat = dragFormat;
 		this.addEventListener(DragDropEvent.DRAG_ENTER, dragEnterHandler);
 		this.addEventListener(DragDropEvent.DRAG_EXIT, dragExitHandler);
@@ -54,7 +55,7 @@ class DropTarget extends LayoutGroup implements IDropTarget
 
 	private function dragDropHandler(event:DragDropEvent, dragData:DragData):Void
 	{
-		var droppedObject:DisplayObject = DisplayObject(dragData.getDataForFormat(this._dragFormat))
+		var droppedObject:DisplayObject = cast(dragData.getDataForFormat(this._dragFormat), DisplayObject);
 		droppedObject.x = event.localX - droppedObject.width / 2;
 		droppedObject.y = event.localY - droppedObject.height / 2;
 		this.addChild(droppedObject);

@@ -15,10 +15,13 @@ import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.skins.StateWithToggleValueSelector;
+import openfl.errors.ArgumentError;
+import openfl.Lib.getTimer;
+import starling.utils.Max;
 
 import openfl.geom.Point;
 import openfl.ui.Keyboard;
-import openfl.utils.getTimer;
+//import openfl.utils.getTimer;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -440,7 +443,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._isEnabled == value)
 		{
-			return;
+			return get_isEnabled();
 		}
 		super.isEnabled = value;
 		if(!this._isEnabled)
@@ -459,6 +462,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			}
 			this.touchable = true;
 		}
+		return get_isEnabled();
 	}
 	
 	/**
@@ -471,6 +475,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * <p>For internal use in subclasses.</p>
 	 */
+	private var currentState(get, set):String;
 	private function get_currentState():String
 	{
 		return this._currentState;
@@ -479,11 +484,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function set_currentState(value:String):Void
+	private function set_currentState(value:String):String
 	{
 		if(this._currentState == value)
 		{
-			return;
+			return get_currentState();
 		}
 		if(this.stateNames.indexOf(value) < 0)
 		{
@@ -491,6 +496,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		this._currentState = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		return get_currentState();
 	}
 	
 	/**
@@ -521,10 +527,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._label == value)
 		{
-			return;
+			return get_label();
 		}
 		this._label = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_label();
 	}
 
 	/**
@@ -557,10 +564,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._hasLabelTextRenderer == value)
 		{
-			return;
+			return get_hasLabelTextRenderer();
 		}
 		this._hasLabelTextRenderer = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_hasLabelTextRenderer();
 	}
 	
 	/**
@@ -603,10 +611,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconPosition == value)
 		{
-			return;
+			return get_iconPosition();
 		}
 		this._iconPosition = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_iconPosition();
 	}
 	
 	/**
@@ -650,10 +659,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -691,10 +701,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._minGap == value)
 		{
-			return;
+			return get_minGap();
 		}
 		this._minGap = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_minGap();
 	}
 	
 	/**
@@ -731,10 +742,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_horizontalAlign();
 	}
 	
 	/**
@@ -771,10 +783,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -811,6 +824,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -843,10 +857,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -879,10 +894,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -915,10 +931,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -951,10 +968,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -991,10 +1009,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._labelOffsetX == value)
 		{
-			return;
+			return get_labelOffsetX();
 		}
 		this._labelOffsetX = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_labelOffsetX();
 	}
 
 	/**
@@ -1031,10 +1050,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._labelOffsetY == value)
 		{
-			return;
+			return get_labelOffsetY();
 		}
 		this._labelOffsetY = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_labelOffsetY();
 	}
 
 	/**
@@ -1071,10 +1091,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconOffsetX == value)
 		{
-			return;
+			return get_iconOffsetX();
 		}
 		this._iconOffsetX = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_iconOffsetX();
 	}
 
 	/**
@@ -1111,10 +1132,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconOffsetY == value)
 		{
-			return;
+			return get_iconOffsetY();
 		}
 		this._iconOffsetY = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_iconOffsetY();
 	}
 	
 	/**
@@ -1135,7 +1157,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateNames:Array<String> = new <String>
+	private var _stateNames:Array<String> =
 	[
 		STATE_UP, STATE_DOWN, STATE_HOVER, STATE_DISABLED
 	];
@@ -1147,6 +1169,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #currentState
 	 */
+	private var stateNames(get, never):Array<String>;
 	private function get_stateNames():Array<String>
 	{
 		return this._stateNames;
@@ -1165,7 +1188,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _stateToSkinFunction:Dynamic;
+	private var _stateToSkinFunction:Dynamic->String->Dynamic->Dynamic;
 
 	/**
 	 * Returns a skin for the current state.
@@ -1175,8 +1198,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public var stateToSkinFunction(get, set):Dynamic;
-	public function get_stateToSkinFunction():Dynamic
+	public var stateToSkinFunction(get, set):Dynamic->String->Dynamic->Dynamic;
+	public function get_stateToSkinFunction():Dynamic->String->Dynamic->Dynamic
 	{
 		return this._stateToSkinFunction;
 	}
@@ -1184,20 +1207,21 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToSkinFunction(value:Dynamic):Dynamic
+	public function set_stateToSkinFunction(value:Dynamic->String->Dynamic->Dynamic):Dynamic->String->Dynamic->Dynamic
 	{
 		if(this._stateToSkinFunction == value)
 		{
-			return;
+			return get_stateToSkinFunction();
 		}
 		this._stateToSkinFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_stateToSkinFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _stateToIconFunction:Dynamic;
+	private var _stateToIconFunction:Dynamic->String->Dynamic->Dynamic;
 
 	/**
 	 * Returns an icon for the current state.
@@ -1207,8 +1231,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public var stateToIconFunction(get, set):Dynamic;
-	public function get_stateToIconFunction():Dynamic
+	public var stateToIconFunction(get, set):Dynamic->String->Dynamic->Dynamic;
+	public function get_stateToIconFunction():Dynamic->String->Dynamic->Dynamic
 	{
 		return this._stateToIconFunction;
 	}
@@ -1216,20 +1240,21 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToIconFunction(value:Dynamic):Dynamic
+	public function set_stateToIconFunction(value:Dynamic->String->Dynamic->Dynamic):Dynamic->String->Dynamic->Dynamic
 	{
 		if(this._stateToIconFunction == value)
 		{
-			return;
+			return get_stateToIconFunction();
 		}
 		this._stateToIconFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_stateToIconFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _stateToLabelPropertiesFunction:Dynamic;
+	private var _stateToLabelPropertiesFunction:Button->String->PropertyProxy;
 
 	/**
 	 * Returns a text format for the current state.
@@ -1239,8 +1264,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default null
 	 */
-	public var stateToLabelPropertiesFunction(get, set):Dynamic;
-	public function get_stateToLabelPropertiesFunction():Dynamic
+	public var stateToLabelPropertiesFunction(get, set):Button->String->PropertyProxy;
+	public function get_stateToLabelPropertiesFunction():Button->String->PropertyProxy
 	{
 		return this._stateToLabelPropertiesFunction;
 	}
@@ -1248,21 +1273,22 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_stateToLabelPropertiesFunction(value:Dynamic):Dynamic
+	public function set_stateToLabelPropertiesFunction(value:Button->String->PropertyProxy):Button->String->PropertyProxy
 	{
 		if(this._stateToLabelPropertiesFunction == value)
 		{
-			return;
+			return get_stateToLabelPropertiesFunction();
 		}
 		this._stateToLabelPropertiesFunction = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_stateToLabelPropertiesFunction();
 	}
 
 	/**
 	 * @private
 	 * Chooses an appropriate skin based on the state and the selection.
 	 */
-	private var _skinSelector:StateWithToggleValueSelector = new StateWithToggleValueSelector();
+	private var _skinSelector:StateWithToggleValueSelector<DisplayObject> = new StateWithToggleValueSelector();
 	
 	/**
 	 * The skin used when no other skin is defined for the current state.
@@ -1285,7 +1311,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var defaultSkin(get, set):DisplayObject;
 	public function get_defaultSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.defaultValue);
+		return this._skinSelector.defaultValue;
 	}
 	
 	/**
@@ -1295,10 +1321,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._skinSelector.defaultValue == value)
 		{
-			return;
+			return get_defaultSkin();
 		}
 		this._skinSelector.defaultValue = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_defaultSkin();
 	}
 	
 	/**
@@ -1317,7 +1344,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var upSkin(get, set):DisplayObject;
 	public function get_upSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_UP, false));
+		return this._skinSelector.getValueForState(STATE_UP, false);
 	}
 	
 	/**
@@ -1327,10 +1354,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_UP, false) == value)
 		{
-			return;
+			return get_upSkin();
 		}
 		this._skinSelector.setValueForState(value, STATE_UP, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_upSkin();
 	}
 	
 	/**
@@ -1349,7 +1377,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var downSkin(get, set):DisplayObject;
 	public function get_downSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_DOWN, false));
+		return this._skinSelector.getValueForState(STATE_DOWN, false);
 	}
 	
 	/**
@@ -1359,10 +1387,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_DOWN, false) == value)
 		{
-			return;
+			return get_downSkin();
 		}
 		this._skinSelector.setValueForState(value, STATE_DOWN, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_downSkin();
 	}
 
 	/**
@@ -1381,7 +1410,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var hoverSkin(get, set):DisplayObject;
 	public function get_hoverSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_HOVER, false));
+		return this._skinSelector.getValueForState(STATE_HOVER, false);
 	}
 
 	/**
@@ -1391,10 +1420,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_HOVER, false) == value)
 		{
-			return;
+			return get_hoverSkin();
 		}
 		this._skinSelector.setValueForState(value, STATE_HOVER, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_hoverSkin();
 	}
 	
 	/**
@@ -1413,7 +1443,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var disabledSkin(get, set):DisplayObject;
 	public function get_disabledSkin():DisplayObject
 	{
-		return DisplayObject(this._skinSelector.getValueForState(STATE_DISABLED, false));
+		return this._skinSelector.getValueForState(STATE_DISABLED, false);
 	}
 	
 	/**
@@ -1423,16 +1453,17 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._skinSelector.getValueForState(STATE_DISABLED, false) == value)
 		{
-			return;
+			return get_disabledSkin();
 		}
 		this._skinSelector.setValueForState(value, STATE_DISABLED, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledSkin();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _labelFactory:Dynamic;
+	private var _labelFactory:Void->ITextRenderer;
 
 	/**
 	 * A function used to instantiate the button's label text renderer
@@ -1463,8 +1494,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.BitmapFontTextRenderer
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
-	public var labelFactory(get, set):Dynamic;
-	public function get_labelFactory():Dynamic
+	public var labelFactory(get, set):Void->ITextRenderer;
+	public function get_labelFactory():Void->ITextRenderer
 	{
 		return this._labelFactory;
 	}
@@ -1472,20 +1503,21 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_labelFactory(value:Dynamic):Dynamic
+	public function set_labelFactory(value:Void->ITextRenderer):Void->ITextRenderer
 	{
 		if(this._labelFactory == value)
 		{
-			return;
+			return get_labelFactory();
 		}
 		this._labelFactory = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_labelFactory();
 	}
 	
 	/**
 	 * @private
 	 */
-	private var _labelPropertiesSelector:StateWithToggleValueSelector = new StateWithToggleValueSelector();
+	private var _labelPropertiesSelector:StateWithToggleValueSelector<PropertyProxy> = new StateWithToggleValueSelector();
 	
 	/**
 	 * The default label properties are a set of key/value pairs to be
@@ -1514,11 +1546,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public var defaultLabelProperties(get, set):Dynamic;
-	public function get_defaultLabelProperties():Dynamic
+	public var defaultLabelProperties(get, set):PropertyProxy;
+	public function get_defaultLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultValue);
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.defaultValue;
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.defaultValue = value;
@@ -1529,23 +1561,24 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_defaultLabelProperties(value:Dynamic):Dynamic
+	public function set_defaultLabelProperties(value:PropertyProxy):PropertyProxy
 	{
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.defaultValue);
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.defaultValue;
+		if(oldValue == null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.defaultValue = value;
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_defaultLabelProperties();
 	}
 	
 	/**
@@ -1571,11 +1604,10 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public var upLabelProperties(get, set):Dynamic;
-	public function get_upLabelProperties():Dynamic
+	public function get_upLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, false));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_UP, false);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.setValueForState(value, STATE_UP, false);
@@ -1586,23 +1618,24 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_upLabelProperties(value:Dynamic):Dynamic
+	public function set_upLabelProperties(value:PropertyProxy):PropertyProxy
 	{
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_UP, false));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_UP, false);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.setValueForState(value, STATE_UP, false);
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_upLabelProperties();
 	}
 	
 	/**
@@ -1628,11 +1661,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public var downLabelProperties(get, set):Dynamic;
-	public function get_downLabelProperties():Dynamic
+	public var downLabelProperties(get, set):PropertyProxy;
+	public function get_downLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, false));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_DOWN, false);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.setValueForState(value, STATE_DOWN, false);
@@ -1643,23 +1676,24 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_downLabelProperties(value:Dynamic):Dynamic
+	public function set_downLabelProperties(value:PropertyProxy):PropertyProxy
 	{
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DOWN, false));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_DOWN, false);
+		if(oldValue == null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.setValueForState(value, STATE_DOWN, false);
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_downLabelProperties();
 	}
 
 	/**
@@ -1685,11 +1719,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public var hoverLabelProperties(get, set):Dynamic;
-	public function get_hoverLabelProperties():Dynamic
+	public var hoverLabelProperties(get, set):PropertyProxy;
+	public function get_hoverLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, false));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_HOVER, false);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.setValueForState(value, STATE_HOVER, false);
@@ -1700,23 +1734,24 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_hoverLabelProperties(value:Dynamic):Dynamic
+	public function set_hoverLabelProperties(value:PropertyProxy):PropertyProxy
 	{
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_HOVER, false));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_HOVER, false);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.setValueForState(value, STATE_HOVER, false);
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_hoverLabelProperties();
 	}
 	
 	/**
@@ -1742,11 +1777,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 * @see feathers.controls.text.TextFieldTextRenderer
 	 * @see #defaultLabelProperties
 	 */
-	public var disabledLabelProperties(get, set):Dynamic;
-	public function get_disabledLabelProperties():Dynamic
+	public var disabledLabelProperties(get, set):PropertyProxy;
+	public function get_disabledLabelProperties():PropertyProxy
 	{
-		var value:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false));
-		if(!value)
+		var value:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false);
+		if(value == null)
 		{
 			value = new PropertyProxy(childProperties_onChange);
 			this._labelPropertiesSelector.setValueForState(value, STATE_DISABLED, false);
@@ -1757,29 +1792,30 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_disabledLabelProperties(value:Dynamic):Dynamic
+	public function set_disabledLabelProperties(value:PropertyProxy):PropertyProxy
 	{
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			value = PropertyProxy.fromObject(value);
 		}
-		var oldValue:PropertyProxy = PropertyProxy(this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false));
-		if(oldValue)
+		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_DISABLED, false);
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
 		this._labelPropertiesSelector.setValueForState(value, STATE_DISABLED, false);
-		if(value)
+		if(value != null)
 		{
-			PropertyProxy(value).addOnChangeCallback(childProperties_onChange);
+			value.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledLabelProperties();
 	}
 	
 	/**
 	 * @private
 	 */
-	private var _iconSelector:StateWithToggleValueSelector = new StateWithToggleValueSelector();
+	private var _iconSelector:StateWithToggleValueSelector<DisplayObject> = new StateWithToggleValueSelector();
 	
 	/**
 	 * The icon used when no other icon is defined for the current state.
@@ -1802,7 +1838,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var defaultIcon(get, set):DisplayObject;
 	public function get_defaultIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.defaultValue);
+		return this._iconSelector.defaultValue;
 	}
 	
 	/**
@@ -1812,10 +1848,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconSelector.defaultValue == value)
 		{
-			return;
+			return get_defaultIcon();
 		}
 		this._iconSelector.defaultValue = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_defaultIcon();
 	}
 	
 	/**
@@ -1834,7 +1871,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var upIcon(get, set):DisplayObject;
 	public function get_upIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_UP, false));
+		return this._iconSelector.getValueForState(STATE_UP, false);
 	}
 	
 	/**
@@ -1844,10 +1881,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_UP, false) == value)
 		{
-			return;
+			return get_upIcon();
 		}
 		this._iconSelector.setValueForState(value, STATE_UP, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_upIcon();
 	}
 	
 	/**
@@ -1866,7 +1904,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var downIcon(get, set):DisplayObject;
 	public function get_downIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_DOWN, false));
+		return this._iconSelector.getValueForState(STATE_DOWN, false);
 	}
 	
 	/**
@@ -1876,10 +1914,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_DOWN, false) == value)
 		{
-			return;
+			return get_downIcon();
 		}
 		this._iconSelector.setValueForState(value, STATE_DOWN, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_downIcon();
 	}
 
 	/**
@@ -1898,7 +1937,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var hoverIcon(get, set):DisplayObject;
 	public function get_hoverIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_HOVER, false));
+		return this._iconSelector.getValueForState(STATE_HOVER, false);
 	}
 
 	/**
@@ -1908,10 +1947,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_HOVER, false) == value)
 		{
-			return;
+			return get_hoverIcon();
 		}
 		this._iconSelector.setValueForState(value, STATE_HOVER, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_hoverIcon();
 	}
 	
 	/**
@@ -1930,7 +1970,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public var disabledIcon(get, set):DisplayObject;
 	public function get_disabledIcon():DisplayObject
 	{
-		return DisplayObject(this._iconSelector.getValueForState(STATE_DISABLED, false));
+		return this._iconSelector.getValueForState(STATE_DISABLED, false);
 	}
 	
 	/**
@@ -1940,10 +1980,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._iconSelector.getValueForState(STATE_DISABLED, false) == value)
 		{
-			return;
+			return get_disabledIcon();
 		}
 		this._iconSelector.setValueForState(value, STATE_DISABLED, false);
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_disabledIcon();
 	}
 
 	/**
@@ -1986,7 +2027,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	public function set_longPressDuration(value:Float):Float
 	{
-		this._longPressDuration = value;
+		return this._longPressDuration = value;
 	}
 
 	/**
@@ -2028,6 +2069,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			this.removeEventListener(Event.ENTER_FRAME, longPress_enterFrameHandler);
 		}
+		return get_isLongPressEnabled();
 	}
 	
 	/**
@@ -2106,7 +2148,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return false;
 		}
 		this.refreshMaxLabelWidth(true);
-		if(this.labelTextRenderer)
+		if(this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.measureText(HELPER_POINT);
 		}
@@ -2115,14 +2157,15 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			HELPER_POINT.setTo(0, 0);
 		}
 		var newWidth:Float = this.explicitWidth;
+		var adjustedGap:Float;
 		if(needsWidth)
 		{
-			if(this.currentIcon && this.label)
+			if(this.currentIcon != null && this.label != null)
 			{
 				if(this._iconPosition != ICON_POSITION_TOP && this._iconPosition != ICON_POSITION_BOTTOM &&
 					this._iconPosition != ICON_POSITION_MANUAL)
 				{
-					var adjustedGap:Float = this._gap;
+					adjustedGap = this._gap;
 					if(adjustedGap == Math.POSITIVE_INFINITY)
 					{
 						adjustedGap = this._minGap;
@@ -2134,11 +2177,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					newWidth = Math.max(this.currentIcon.width, HELPER_POINT.x);
 				}
 			}
-			else if(this.currentIcon)
+			else if(this.currentIcon != null)
 			{
 				newWidth = this.currentIcon.width;
 			}
-			else if(this.label)
+			else if(this.label != null)
 			{
 				newWidth = HELPER_POINT.x;
 			}
@@ -2163,7 +2206,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			if(this.currentIcon && this.label)
+			if(this.currentIcon != null && this.label != null)
 			{
 				if(this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM)
 				{
@@ -2179,11 +2222,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					newHeight = Math.max(this.currentIcon.height, HELPER_POINT.y);
 				}
 			}
-			else if(this.currentIcon)
+			else if(this.currentIcon != null)
 			{
 				newHeight = this.currentIcon.height;
 			}
-			else if(this.label)
+			else if(this.label != null)
 			{
 				newHeight = HELPER_POINT.y;
 			}
@@ -2220,18 +2263,18 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function createLabel():Void
 	{
-		if(this.labelTextRenderer)
+		if(this.labelTextRenderer != null)
 		{
-			this.removeChild(DisplayObject(this.labelTextRenderer), true);
+			this.removeChild(cast(this.labelTextRenderer, DisplayObject), true);
 			this.labelTextRenderer = null;
 		}
 
 		if(this._hasLabelTextRenderer)
 		{
-			var factory:Dynamic = this._labelFactory != null ? this._labelFactory : FeathersControl.defaultTextRendererFactory;
-			this.labelTextRenderer = ITextRenderer(factory());
+			var factory:Void->ITextRenderer = this._labelFactory != null ? this._labelFactory : FeathersControl.defaultTextRendererFactory;
+			this.labelTextRenderer = factory();
 			this.labelTextRenderer.styleNameList.add(this.labelName);
-			this.addChild(DisplayObject(this.labelTextRenderer));
+			this.addChild(cast(this.labelTextRenderer, DisplayObject));
 		}
 	}
 
@@ -2240,7 +2283,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshLabel():Void
 	{
-		if(!this.labelTextRenderer)
+		if(this.labelTextRenderer == null)
 		{
 			return;
 		}
@@ -2259,30 +2302,30 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		var oldSkin:DisplayObject = this.currentSkin;
 		if(this._stateToSkinFunction != null)
 		{
-			this.currentSkin = DisplayObject(this._stateToSkinFunction(this, this._currentState, oldSkin));
+			this.currentSkin = this._stateToSkinFunction(this, this._currentState, oldSkin);
 		}
 		else
 		{
-			this.currentSkin = DisplayObject(this._skinSelector.updateValue(this, this._currentState, this.currentSkin));
+			this.currentSkin = this._skinSelector.updateValue(this, this._currentState, this.currentSkin);
 		}
 		if(this.currentSkin != oldSkin)
 		{
-			if(oldSkin)
+			if(oldSkin != null)
 			{
 				this.removeChild(oldSkin, false);
 			}
-			if(this.currentSkin)
+			if(this.currentSkin != null)
 			{
 				this.addChildAt(this.currentSkin, 0);
 			}
 		}
-		if(this.currentSkin &&
+		if(this.currentSkin != null &&
 			(this._originalSkinWidth != this._originalSkinWidth || //isNaN
 			this._originalSkinHeight != this._originalSkinHeight))
 		{
-			if(this.currentSkin is IValidating)
+			if(Std.is(this.currentSkin, IValidating))
 			{
-				IValidating(this.currentSkin).validate();
+				cast(this.currentSkin, IValidating).validate();
 			}
 			this._originalSkinWidth = this.currentSkin.width;
 			this._originalSkinHeight = this.currentSkin.height;
@@ -2299,29 +2342,29 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		var oldIcon:DisplayObject = this.currentIcon;
 		if(this._stateToIconFunction != null)
 		{
-			this.currentIcon = DisplayObject(this._stateToIconFunction(this, this._currentState, oldIcon));
+			this.currentIcon = this._stateToIconFunction(this, this._currentState, oldIcon);
 		}
 		else
 		{
-			this.currentIcon = DisplayObject(this._iconSelector.updateValue(this, this._currentState, this.currentIcon));
+			this.currentIcon = this._iconSelector.updateValue(this, this._currentState, this.currentIcon);
 		}
-		if(this.currentIcon is IFeathersControl)
+		if(Std.is(this.currentIcon, IFeathersControl))
 		{
-			IFeathersControl(this.currentIcon).isEnabled = this._isEnabled;
+			cast(this.currentIcon, IFeathersControl).isEnabled = this._isEnabled;
 		}
 		if(this.currentIcon != oldIcon)
 		{
-			if(oldIcon)
+			if(oldIcon != null)
 			{
 				this.removeChild(oldIcon, false);
 			}
-			if(this.currentIcon)
+			if(this.currentIcon != null)
 			{
 				//we want the icon to appear below the label text renderer
 				var index:Int = this.numChildren;
-				if(this.labelTextRenderer)
+				if(this.labelTextRenderer != null)
 				{
-					index = this.getChildIndex(DisplayObject(this.labelTextRenderer));
+					index = this.getChildIndex(cast(this.labelTextRenderer, DisplayObject));
 				}
 				this.addChildAt(this.currentIcon, index);
 			}
@@ -2333,22 +2376,25 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshLabelStyles():Void
 	{
-		if(!this.labelTextRenderer)
+		if(this.labelTextRenderer == null)
 		{
 			return;
 		}
+		var properties:PropertyProxy;
 		if(this._stateToLabelPropertiesFunction != null)
 		{
-			var properties:Dynamic = this._stateToLabelPropertiesFunction(this, this._currentState);
+			properties = this._stateToLabelPropertiesFunction(this, this._currentState);
 		}
 		else
 		{
 			properties = this._labelPropertiesSelector.updateValue(this, this._currentState);
 		}
-		for(var propertyName:String in properties)
+		if (properties == null)
+			return;
+		for(propertyName in Reflect.fields(properties.storage))
 		{
-			var propertyValue:Dynamic = properties[propertyName];
-			this.labelTextRenderer[propertyName] = propertyValue;
+			var propertyValue:Dynamic = Reflect.field(properties.storage, propertyName);
+			Reflect.setProperty(this.labelTextRenderer, propertyName, propertyValue);
 		}
 	}
 	
@@ -2357,7 +2403,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function scaleSkin():Void
 	{
-		if(!this.currentSkin)
+		if(this.currentSkin == null)
 		{
 			return;
 		}
@@ -2371,9 +2417,9 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			this.currentSkin.height = this.actualHeight;
 		}
-		if(this.currentSkin is IValidating)
+		if(Std.is(this.currentSkin, IValidating))
 		{
-			IValidating(this.currentSkin).validate();
+			cast(this.currentSkin, IValidating).validate();
 		}
 	}
 	
@@ -2385,27 +2431,27 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	private function layoutContent():Void
 	{
 		this.refreshMaxLabelWidth(false);
-		if(this._label && this.labelTextRenderer && this.currentIcon)
+		if(this._label != null && this.labelTextRenderer != null && this.currentIcon != null)
 		{
 			this.labelTextRenderer.validate();
-			this.positionSingleChild(DisplayObject(this.labelTextRenderer));
+			this.positionSingleChild(cast(this.labelTextRenderer, DisplayObject));
 			if(this._iconPosition != ICON_POSITION_MANUAL)
 			{
 				this.positionLabelAndIcon();
 			}
 
 		}
-		else if(this._label && this.labelTextRenderer && !this.currentIcon)
+		else if(this._label != null && this.labelTextRenderer != null && this.currentIcon == null)
 		{
 			this.labelTextRenderer.validate();
-			this.positionSingleChild(DisplayObject(this.labelTextRenderer));
+			this.positionSingleChild(cast(this.labelTextRenderer, DisplayObject));
 		}
-		else if((!this._label || !this.labelTextRenderer) && this.currentIcon && this._iconPosition != ICON_POSITION_MANUAL)
+		else if((this._label == null || this.labelTextRenderer == null) && this.currentIcon != null && this._iconPosition != ICON_POSITION_MANUAL)
 		{
 			this.positionSingleChild(this.currentIcon);
 		}
 
-		if(this.currentIcon)
+		if(this.currentIcon != null)
 		{
 			if(this._iconPosition == ICON_POSITION_MANUAL)
 			{
@@ -2415,7 +2461,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			this.currentIcon.x += this._iconOffsetX;
 			this.currentIcon.y += this._iconOffsetY;
 		}
-		if(this._label && this.labelTextRenderer)
+		if(this._label != null && this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.x += this._labelOffsetX;
 			this.labelTextRenderer.y += this._labelOffsetY;
@@ -2427,9 +2473,9 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshMaxLabelWidth(forMeasurement:Bool):Void
 	{
-		if(this.currentIcon is IValidating)
+		if(Std.is(this.currentIcon, IValidating))
 		{
-			IValidating(this.currentIcon).validate();
+			cast(this.currentIcon, IValidating).validate();
 		}
 		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)
@@ -2440,7 +2486,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				calculatedWidth = this._maxWidth;
 			}
 		}
-		if(this._label && this.labelTextRenderer && this.currentIcon)
+		if(this._label != null && this.labelTextRenderer != null && this.currentIcon != null)
 		{
 			if(this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 				this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE)
@@ -2458,7 +2504,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			}
 
 		}
-		else if(this._label && this.labelTextRenderer && !this.currentIcon)
+		else if(this._label != null && this.labelTextRenderer != null && this.currentIcon == null)
 		{
 			this.labelTextRenderer.maxWidth = calculatedWidth - this._paddingLeft - this._paddingRight;
 		}
@@ -2702,10 +2748,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 
+		var touch:Touch;
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, null, this.touchPointID);
-			if(!touch)
+			touch = event.getTouch(this, null, this.touchPointID);
+			if(touch == null)
 			{
 				//this should never happen
 				return;
@@ -2739,7 +2786,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(touch)
+			if(touch != null)
 			{
 				this.currentState = STATE_DOWN;
 				this.touchPointID = touch.id;
@@ -2752,7 +2799,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				return;
 			}
 			touch = event.getTouch(this, TouchPhase.HOVER);
-			if(touch)
+			if(touch != null)
 			{
 				this.currentState = STATE_HOVER;
 				return;
@@ -2791,7 +2838,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			return;
 		}
-		this.touchPointID = Int.MAX_VALUE;
+		this.touchPointID = Max.INT_MAX_VALUE;
 		this.currentState = STATE_DOWN;
 	}
 
@@ -2800,7 +2847,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function stage_keyUpHandler(event:KeyboardEvent):Void
 	{
-		if(this.touchPointID != Int.MAX_VALUE || event.keyCode != Keyboard.SPACE)
+		if(this.touchPointID != Max.INT_MAX_VALUE || event.keyCode != Keyboard.SPACE)
 		{
 			return;
 		}

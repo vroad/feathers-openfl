@@ -12,7 +12,7 @@ class Main extends ScreenNavigator
 	inline private static var STATION_SCREEN:String = "stationScreen";
 	inline private static var TIMES_SCREEN:String = "timesScreen";
 
-	public function new()
+	@:keep public function new()
 	{
 		super();
 	}
@@ -24,7 +24,7 @@ class Main extends ScreenNavigator
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new TrainTimesTheme();
+		new TrainTimesTheme(null, false);
 
 		this.addScreen(STATION_SCREEN, new ScreenNavigatorItem(StationScreen,
 		{
