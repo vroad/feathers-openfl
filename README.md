@@ -1,7 +1,9 @@
 # feathers-openfl
-Unofficial port of Feathers UI Framework.
+Unofficial port of Feathers UI Framework. Currently based on Feathers 2.0.
 
-[io.js version of demo for Windows](https://www.dropbox.com/s/eor7mmc7wec2j0q/feathers-openfl-ComponentExplorer_20150305.zip?dl=0)
+[HTML5 version of ComponentExplorer](http://vroad.github.io/feathers-openfl/ComponentExplorer)
+
+[io.js version of ComponentExplorer for Windows](https://www.dropbox.com/s/eor7mmc7wec2j0q/feathers-openfl-ComponentExplorer_20150305.zip?dl=0)
 
 Install
 -------
