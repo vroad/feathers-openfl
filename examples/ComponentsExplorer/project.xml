@@ -6,7 +6,7 @@
 	<meta title="ComponentsExplorer" package="feathers.examples" version="1.0.0" company="vroad" />
 	<app main="ComponentsExplorer" file="ComponentsExplorer" path="bin" />
 	
-	<window width="960" height="640" />
+	<window width="960" height="640" vsync="true" />
 	<source path="source" />
 	<source path="../../themes/MetalWorksMobileTheme/source" />
 	
