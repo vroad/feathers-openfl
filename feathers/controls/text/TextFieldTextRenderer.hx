@@ -29,6 +29,7 @@ import starling.core.RenderSupport;
 import starling.core.Starling;
 import starling.display.Image;
 import starling.events.Event;
+import starling.text.TextRenderer;
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.PowerOfTwo.getNextPowerOfTwo;
@@ -1242,7 +1243,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			#if flash
 			var hackWorkaround:Float = this.textField.width;
 			#end
-			var textWidth:Float = #if flash this.textField.width #else this.textField.textWidth #end;
+			var textWidth:Float = #if flash this.textField.width #else this.textField.textWidth + 4 #end;
 			newWidth = (textWidth / scaleFactor) - gutterDimensionsOffset;
 			if(newWidth < this._minWidth)
 			{
@@ -1266,7 +1267,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
-			var textHeight:Float = #if flash this.textField.height #else this.textField.textHeight #end;
+			var textHeight:Float = #if flash this.textField.height #else this.textField.textHeight + 4 #end;
 			newHeight = (textHeight / scaleFactor) - gutterDimensionsOffset;
 			if(newHeight < this._minHeight)
 			{
@@ -1495,7 +1496,9 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var totalBitmapHeight:Float = this._snapshotHeight;
 		var xPosition:Float = 0;
 		var yPosition:Float = 0;
+		#if ((js && html5) || flash)
 		var bitmapData:BitmapData = null;
+		#end
 		var snapshotIndex:Int = -1;
 		var useNativeFilters:Bool = this._nativeFilters != null && this._nativeFilters.length > 0 &&
 			totalBitmapWidth <= this._maxTextureDimensions && totalBitmapHeight <= this._maxTextureDimensions;
@@ -1518,6 +1521,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					currentBitmapHeight = this._maxTextureDimensions;
 				}
+				#if ((js && html5) || flash)
 				if(bitmapData == null || bitmapData.width != currentBitmapWidth || bitmapData.height != currentBitmapHeight)
 				{
 					if(bitmapData != null)
@@ -1531,10 +1535,30 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					//clear the bitmap data and reuse it
 					bitmapData.fillRect(bitmapData.rect, 0x00ff00ff);
 				}
+				#end
 				HELPER_MATRIX.tx = -(xPosition + gutterPositionOffset);
 				HELPER_MATRIX.ty = -(yPosition + gutterPositionOffset);
 				HELPER_RECTANGLE.setTo(0, 0, this.actualWidth * scaleFactor, this.actualHeight * scaleFactor);
+				#if ((js && html5) || flash)
 				bitmapData.draw(this.textField, HELPER_MATRIX, null, null, HELPER_RECTANGLE);
+				#else
+				var renderers:Map<String, TextRenderer> = @:privateAccess starling.text.TextField.textRenderers;
+				var texture:Texture;
+				
+				if(this.textSnapshot == null || this._needsNewTexture)
+					texture = Texture.empty(Std.int(currentBitmapWidth), Std.int(currentBitmapHeight), false, false, true, scaleFactor);
+				else
+					texture = this.textSnapshot.texture;
+				var formatStr:String = textFormat.font + "@" + textFormat.size;
+				var textRenderer:TextRenderer = renderers.get(formatStr);
+				if (textRenderer == null)
+				{
+					textRenderer = new TextRenderer(@:privateAccess this.textField.__getFontInstance(textFormat), Std.int(textFormat.size));
+					renderers.set(formatStr, textRenderer);
+				}
+				textRenderer.renderText(this.textField, texture, this._text, this._textFormat, HELPER_MATRIX.tx, HELPER_MATRIX.ty);
+				#end
+				#if ((js && html5) || flash)
 				if(useNativeFilters)
 				{
 					this.measureNativeFilters(bitmapData, HELPER_RECTANGLE);
@@ -1562,10 +1586,18 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					this._textSnapshotOffsetX = 0;
 					this._textSnapshotOffsetY = 0;
 				}
+				#else
+				this._textSnapshotOffsetX = 0;
+				this._textSnapshotOffsetY = 0;
+				#end
 				var newTexture:Texture = null;
 				if(this.textSnapshot == null || this._needsNewTexture)
 				{
+					#if ((js && html5) || flash)
 					newTexture = Texture.fromBitmapData(bitmapData, false, false, scaleFactor);
+					#else
+					newTexture = texture;
+					#end
 					newTexture.root.onRestore = texture_onRestore;
 				}
 				var snapshot:Image = null;
@@ -1601,8 +1633,10 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					else
 					{
 						//this is faster, if we haven't resized the bitmapdata
+						#if ((js && html5) || flash)
 						var existingTexture:Texture = snapshot.texture;
 						existingTexture.root.uploadBitmapData(bitmapData);
+						#end
 					}
 				}
 				if(snapshotIndex >= 0)
@@ -1626,7 +1660,9 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			totalBitmapHeight = this._snapshotHeight;
 		}
 		while(totalBitmapWidth > 0);
+		#if ((js && html5) || flash)
 		bitmapData.dispose();
+		#end
 		if(this.textSnapshots != null)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;

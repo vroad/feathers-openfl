@@ -30,10 +30,6 @@ class BitmapFontTextFormat
 		{
 			var fontName:String = cast(font, String);
 			font = TextField.getBitmapFont(fontName);
-			#if native
-			if (font == null)
-				font = TextField.getFTBitmapFont(fontName, Std.int(size));
-			#end
 		}
 		if(!Std.is(font, BitmapFont))
 		{

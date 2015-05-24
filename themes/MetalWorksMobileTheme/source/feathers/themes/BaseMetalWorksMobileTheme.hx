@@ -25,13 +25,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 package feathers.themes;
 import feathers.controls.Alert;
 import feathers.controls.Button;
-import feathers.controls.text.BitmapFontTextEditor;
-import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.controls.text.TextFieldTextEditor;
 import feathers.controls.text.TextFieldTextRenderer;
 import feathers.core.ITextEditor;
 import feathers.core.ITextRenderer;
-import feathers.text.BitmapFontTextFormat;
 import feathers.utils.type.SafeCast.safe_cast;
 import openfl.Assets;
 import openfl.text.Font;
@@ -228,14 +225,12 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 	 * The default global text renderer factory for this theme creates a
 	 * TextBlockTextRenderer.
 	 */
-	private static function textRendererFactory():#if flash ITextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end
+	private static function textRendererFactory():#if flash ITextRenderer #else TextFieldTextRenderer #end
 	{
 		#if flash
 		return new TextBlockTextRenderer();
-		#elseif html5
-		return new TextFieldTextRenderer();
 		#else
-		return new BitmapFontTextRenderer();
+		return new TextFieldTextRenderer();
 		#end
 	}
 
@@ -260,10 +255,8 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		//suitable for mobile use if the TextInput needs to be editable
 		//because it can't use the soft keyboard or other mobile-friendly UI
 		return new TextBlockTextEditor();
-		#elseif html5
-		return new TextFieldTextEditor();
 		#else
-		return new BitmapFontTextEditor();
+		return new TextFieldTextEditor();
 		#end
 	}
 
@@ -515,7 +508,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 	 * An ElementFormat meant for smaller, disabled text.
 	 */
 	private var smallDisabledElementFormat:ElementFormat;
-#elseif html5
+#else
 	private var headerElementFormat:TextFormat;
 	private var darkUIElementFormat:TextFormat;
 	private var lightUIElementFormat:TextFormat;
@@ -538,29 +531,6 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 
 	private var lightUICenterElementFormat:TextFormat;
 	private var lightUICenterDisabledElementFormat:TextFormat;
-#else
-	private var headerElementFormat:BitmapFontTextFormat;
-	private var darkUIElementFormat:BitmapFontTextFormat;
-	private var lightUIElementFormat:BitmapFontTextFormat;
-	private var selectedUIElementFormat:BitmapFontTextFormat;
-	private var lightUIDisabledElementFormat:BitmapFontTextFormat;
-	private var darkUIDisabledElementFormat:BitmapFontTextFormat;
-	private var largeUIDarkElementFormat:BitmapFontTextFormat;
-	private var largeUILightElementFormat:BitmapFontTextFormat;
-	private var largeUISelectedElementFormat:BitmapFontTextFormat;
-	private var largeUIDarkDisabledElementFormat:BitmapFontTextFormat;
-	private var largeUILightDisabledElementFormat:BitmapFontTextFormat;
-	private var largeDarkElementFormat:BitmapFontTextFormat;
-	private var largeLightElementFormat:BitmapFontTextFormat;
-	private var largeDisabledElementFormat:BitmapFontTextFormat;
-	private var darkElementFormat:BitmapFontTextFormat;
-	private var lightElementFormat:BitmapFontTextFormat;
-	private var disabledElementFormat:BitmapFontTextFormat;
-	private var smallLightElementFormat:BitmapFontTextFormat;
-	private var smallDisabledElementFormat:BitmapFontTextFormat;
-
-	private var lightUICenterElementFormat:BitmapFontTextFormat;
-	private var lightUICenterDisabledElementFormat:BitmapFontTextFormat;
 #end
 
 	/**
@@ -727,10 +697,13 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		this.regularFontSize = Math.round(24 * this.scale);
 		this.largeFontSize = Math.round(28 * this.scale);
 		this.extraLargeFontSize = Math.round(36 * this.scale);
+		
+		var font:Font = Assets.getFont(FONT_FILE_NAME);
+		var boldFont:Font = Assets.getFont(BOLD_FONT_FILE_NAME);
 
 		//these are for components that don't use FTE
-		this.scrollTextTextFormat = new TextFormat("_sans", this.regularFontSize, LIGHT_TEXT_COLOR);
-		this.scrollTextDisabledTextFormat = new TextFormat("_sans", this.regularFontSize, DISABLED_TEXT_COLOR);
+		this.scrollTextTextFormat = new TextFormat(#if flash "_sans" #else font.fontName #end, this.regularFontSize, LIGHT_TEXT_COLOR);
+		this.scrollTextDisabledTextFormat = new TextFormat(#if flash "_sans" #else font.fontName #end, this.regularFontSize, DISABLED_TEXT_COLOR);
 #if flash
 		this.regularFontDescription = new FontDescription(FONT_NAME, FontWeight.NORMAL, FontPosture.NORMAL, FontLookup.EMBEDDED_CFF, RenderingMode.CFF, CFFHinting.NONE);
 		this.boldFontDescription = new FontDescription(FONT_NAME, FontWeight.BOLD, FontPosture.NORMAL, FontLookup.EMBEDDED_CFF, RenderingMode.CFF, CFFHinting.NONE);
@@ -760,9 +733,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		this.largeLightElementFormat = new ElementFormat(this.regularFontDescription, this.largeFontSize, LIGHT_TEXT_COLOR);
 		this.largeDisabledElementFormat = new ElementFormat(this.regularFontDescription, this.largeFontSize, DISABLED_TEXT_COLOR);
 #else
-		var font:Font = Assets.getFont(FONT_FILE_NAME);
-		var boldFont:Font = Assets.getFont(BOLD_FONT_FILE_NAME);
-#if html5
+
 		this.headerElementFormat = new TextFormat(boldFont.fontName, this.extraLargeFontSize, LIGHT_TEXT_COLOR, null, null, null);
 
 		this.darkUIElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
@@ -792,37 +763,6 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		this.lightUICenterElementFormat.align = TextFormatAlign.CENTER;
 		this.lightUICenterDisabledElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
 		this.lightUICenterDisabledElementFormat.align = TextFormatAlign.CENTER;
-#else
-		this.headerElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.extraLargeFontSize, LIGHT_TEXT_COLOR);
-
-		this.darkUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
-		this.lightUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
-		this.selectedUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, SELECTED_TEXT_COLOR);
-		this.lightUIDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
-		this.darkUIDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DARK_DISABLED_TEXT_COLOR);
-
-		this.largeUIDarkElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.largeFontSize, DARK_TEXT_COLOR);
-		this.largeUILightElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.largeFontSize, LIGHT_TEXT_COLOR);
-		this.largeUISelectedElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.largeFontSize, SELECTED_TEXT_COLOR);
-		this.largeUIDarkDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.largeFontSize, DARK_DISABLED_TEXT_COLOR);
-		this.largeUILightDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.largeFontSize, DISABLED_TEXT_COLOR);
-
-		this.darkElementFormat = new BitmapFontTextFormat(font.fontName, this.regularFontSize, DARK_TEXT_COLOR);
-		this.lightElementFormat = new BitmapFontTextFormat(font.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
-		this.disabledElementFormat = new BitmapFontTextFormat(font.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
-
-		this.smallLightElementFormat = new BitmapFontTextFormat(font.fontName, this.smallFontSize, LIGHT_TEXT_COLOR);
-		this.smallDisabledElementFormat = new BitmapFontTextFormat(font.fontName, this.smallFontSize, DISABLED_TEXT_COLOR);
-
-		this.largeDarkElementFormat = new BitmapFontTextFormat(font.fontName, this.largeFontSize, DARK_TEXT_COLOR);
-		this.largeLightElementFormat = new BitmapFontTextFormat(font.fontName, this.largeFontSize, LIGHT_TEXT_COLOR);
-		this.largeDisabledElementFormat = new BitmapFontTextFormat(font.fontName, this.largeFontSize, DISABLED_TEXT_COLOR);
-		
-		this.lightUICenterElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
-		this.lightUICenterElementFormat.align = TextFormatAlign.CENTER;
-		this.lightUICenterDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
-		this.lightUICenterDisabledElementFormat.align = TextFormatAlign.CENTER;
-#end
 #end
 	}
 
@@ -921,7 +861,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		this.getStyleProviderForClass(ButtonGroup).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_BUTTON_GROUP, this.setAlertButtonGroupStyles);
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_ALERT_BUTTON_GROUP_BUTTON, this.setAlertButtonGroupButtonStyles);
 		this.getStyleProviderForClass(Header).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_HEADER, this.setHeaderWithoutBackgroundStyles);
-		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
+		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
 		//button
 		this.getStyleProviderForClass(Button).defaultStyleFunction = this.setButtonStyles;
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_CALL_TO_ACTION_BUTTON, this.setCallToActionButtonStyles);
@@ -964,8 +904,8 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		//the picker list has a custom item renderer name defined by the theme
 
 		this.getStyleProviderForClass(DefaultListItemRenderer).setFunctionForStyleName(THEME_NAME_PICKER_LIST_ITEM_RENDERER, this.setPickerListItemRendererStyles);
-		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ACCESSORY_LABEL, this.setItemRendererAccessoryLabelRendererStyles);
-		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ICON_LABEL, this.setItemRendererIconLabelStyles);
+		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ACCESSORY_LABEL, this.setItemRendererAccessoryLabelRendererStyles);
+		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ICON_LABEL, this.setItemRendererIconLabelStyles);
 
 		this.getStyleProviderForClass(DefaultGroupedListItemRenderer).setFunctionForStyleName(GroupedList.ALTERNATE_CHILD_NAME_INSET_ITEM_RENDERER, this.setInsetGroupedListMiddleItemRendererStyles);
 		this.getStyleProviderForClass(DefaultGroupedListItemRenderer).setFunctionForStyleName(GroupedList.ALTERNATE_CHILD_NAME_INSET_FIRST_ITEM_RENDERER, this.setInsetGroupedListFirstItemRendererStyles);
@@ -1143,7 +1083,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		button.minWidth = 2 * this.controlSize;
 	}
 
-	private function setAlertMessageTextRendererStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
+	private function setAlertMessageTextRendererStyles(renderer:#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end):Void
 	{
 		renderer.wordWrap = true;
 		#if flash
@@ -1669,7 +1609,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		renderer.iconLoaderFactory = this.imageLoaderFactory;
 	}
 
-	private function setItemRendererAccessoryLabelRendererStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
+	private function setItemRendererAccessoryLabelRendererStyles(renderer:#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end):Void
 	{
 		#if flash
 		renderer.elementFormat = this.lightElementFormat;
@@ -1678,7 +1618,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 		#end
 	}
 
-	private function setItemRendererIconLabelStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
+	private function setItemRendererIconLabelStyles(renderer:#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end):Void
 	{
 		#if flash
 		renderer.elementFormat = this.lightElementFormat;
