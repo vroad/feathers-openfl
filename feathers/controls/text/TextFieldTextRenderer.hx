@@ -1556,7 +1556,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					textRenderer = new TextRenderer(@:privateAccess this.textField.__getFontInstance(textFormat), Std.int(textFormat.size));
 					renderers.set(formatStr, textRenderer);
 				}
-				textRenderer.renderText(this.textField, texture, this._text, this._textFormat, HELPER_MATRIX.tx, HELPER_MATRIX.ty);
+				textRenderer.renderText(this.textField, texture, this._text, this.textField.defaultTextFormat, HELPER_MATRIX.tx, HELPER_MATRIX.ty);
 				#end
 				#if ((js && html5) || flash)
 				if(useNativeFilters)
