@@ -8,6 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.renderers;
 import feathers.controls.LayoutGroup;
 import feathers.controls.List;
+import feathers.core.FeathersControl;
 import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
@@ -77,6 +78,7 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	public function set_index(value:Int):Int
 	{
 		this._index = value;
+		return get_index();
 	}
 
 	/**
@@ -100,10 +102,11 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
 		return this._owner = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**
@@ -127,10 +130,11 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
 		this._data = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_data();
 	}
 
 	/**
@@ -154,11 +158,12 @@ class LayoutGroupListItemRenderer extends LayoutGroup implements IListItemRender
 	{
 		if(this._isSelected == value)
 		{
-			return;
+			return get_isSelected();
 		}
 		this._isSelected = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_isSelected();
 	}
 
 	/**

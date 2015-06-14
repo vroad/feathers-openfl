@@ -56,6 +56,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	public function set_originalStyleProvider(value:IStyleProvider):IStyleProvider
 	{
 		this._originalStyleProvider = value;
+		return get_originalStyleProvider();
 	}
 
 	/**
@@ -82,6 +83,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	public function set_addOnFunction(value:Dynamic):Dynamic
 	{
 		this._addOnFunction = value;
+		return get_addOnFunction();
 	}
 
 	/**
@@ -89,7 +91,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 */
 	public function applyStyles(target:IFeathersControl):Void
 	{
-		if(this._originalStyleProvider)
+		if(this._originalStyleProvider != null)
 		{
 			this._originalStyleProvider.applyStyles(target);
 		}

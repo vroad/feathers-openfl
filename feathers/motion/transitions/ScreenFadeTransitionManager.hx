@@ -8,6 +8,8 @@ accordance with the terms of the accompanying license agreement.
 package feathers.motion.transitions;
 import feathers.controls.ScreenNavigator;
 
+import openfl.errors.ArgumentError;
+
 import starling.animation.Transitions;
 import starling.animation.Tween;
 import starling.core.Starling;
@@ -26,7 +28,7 @@ class ScreenFadeTransitionManager
 	 */
 	public function new(navigator:ScreenNavigator)
 	{
-		if(!navigator)
+		if(navigator == null)
 		{
 			throw new ArgumentError("ScreenNavigator cannot be null.");
 		}
@@ -91,23 +93,23 @@ class ScreenFadeTransitionManager
 	 */
 	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
-		if(!oldScreen && !newScreen)
+		if(oldScreen == null && newScreen == null)
 		{
 			throw new ArgumentError("Cannot transition if both old screen and new screen are null.");
 		}
 
-		if(this._activeTransition)
+		if(this._activeTransition != null)
 		{
 			this._savedOtherTarget = null;
 			this._activeTransition.advanceTime(this._activeTransition.totalTime);
 			this._activeTransition = null;
 		}
 
-		if(this.skipNextTransition)
+		if(this.skipNextTransition != null)
 		{
 			this.skipNextTransition = false;
 			this._savedCompleteHandler = null;
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.alpha = 1;
@@ -121,10 +123,10 @@ class ScreenFadeTransitionManager
 		
 		this._savedCompleteHandler = onComplete;
 		
-		if(newScreen)
+		if(newScreen != null)
 		{
 			newScreen.alpha = 0;
-			if(oldScreen) //oldScreen can be null, that's okay
+			if(oldScreen != null) //oldScreen can be null, that's okay
 			{
 				oldScreen.alpha = 1;
 			}
@@ -152,9 +154,9 @@ class ScreenFadeTransitionManager
 	 */
 	private function activeTransition_onUpdate():Void
 	{
-		if(this._savedOtherTarget)
+		if(this._savedOtherTarget != null)
 		{
-			var newScreen:DisplayObject = DisplayObject(this._activeTransition.target);
+			var newScreen:DisplayObject = cast(this._activeTransition.target, DisplayObject);
 			this._savedOtherTarget.alpha = 1 - newScreen.alpha;
 		}
 	}

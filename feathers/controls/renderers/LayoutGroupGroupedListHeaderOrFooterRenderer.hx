@@ -8,6 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.renderers;
 import feathers.controls.GroupedList;
 import feathers.controls.LayoutGroup;
+import feathers.core.FeathersControl;
 import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
@@ -77,6 +78,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	public function set_groupIndex(value:Int):Int
 	{
 		this._groupIndex = value;
+		return get_groupIndex();
 	}
 
 	/**
@@ -99,6 +101,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	public function set_layoutIndex(value:Int):Int
 	{
 		this._layoutIndex = value;
+		return get_layoutIndex();
 	}
 
 	/**
@@ -122,10 +125,11 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	{
 		if(this._owner == value)
 		{
-			return;
+			return get_owner();
 		}
 		return this._owner = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_owner();
 	}
 
 	/**
@@ -149,10 +153,11 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	{
 		if(this._data == value)
 		{
-			return;
+			return get_data();
 		}
 		this._data = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		return get_data();
 	}
 
 	/**
@@ -176,11 +181,12 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 	{
 		if(this._isSelected == value)
 		{
-			return;
+			return get_isSelected();
 		}
 		this._isSelected = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
 		this.dispatchEventWith(Event.CHANGE);
+		return get_isSelected();
 	}
 
 	/**
