@@ -10,6 +10,7 @@ import feathers.core.FeathersControl;
 import feathers.core.ITextRenderer;
 import feathers.skins.IStyleProvider;
 
+import openfl._internal.renderer.cairo.CairoTextField;
 import openfl.display.BitmapData;
 import openfl.display3D.Context3DProfile;
 import openfl.filters.BitmapFilter;
@@ -1553,7 +1554,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				var textRenderer:TextRenderer = renderers.get(formatStr);
 				if (textRenderer == null)
 				{
-					textRenderer = new TextRenderer(@:privateAccess this.textField.__getFontInstance(textFormat), Std.int(textFormat.size));
+					textRenderer = new TextRenderer(CairoTextField.getFontInstance(textFormat), Std.int(textFormat.size));
 					renderers.set(formatStr, textRenderer);
 				}
 				textRenderer.renderText(this.textField, texture, this._text, this.textField.defaultTextFormat, HELPER_MATRIX.tx, HELPER_MATRIX.ty);
