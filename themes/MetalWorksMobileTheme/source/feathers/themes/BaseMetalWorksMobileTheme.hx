@@ -65,8 +65,10 @@ import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
 import feathers.controls.renderers.DefaultGroupedListItemRenderer;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.text.StageTextTextEditor;
+#if flash
 import feathers.controls.text.TextBlockTextEditor;
 import feathers.controls.text.TextBlockTextRenderer;
+#end
 import feathers.core.FeathersControl;
 import feathers.core.PopUpManager;
 import feathers.display.Scale3Image;
