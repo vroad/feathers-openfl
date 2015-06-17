@@ -1,4 +1,4 @@
 --no-output
 -lib codegen
 --macro "CodeImport.generate()"
---macro "CodeGen.haxeExtern('hxclasses', null, 'feathers', null, null, 'feathers')"
+--macro "CodeGen.haxeExtern('hxclasses', null, 'feathers', 'feathers.filter', null, 'feathers')"

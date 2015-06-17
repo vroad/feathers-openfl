@@ -56,8 +56,10 @@ import feathers.controls.text.BitmapFontTextEditor;
 import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.controls.text.ITextEditorViewPort;
 import feathers.controls.text.StageTextTextEditor;
+#if !codegen
 import feathers.controls.text.TextBlockTextEditor;
 import feathers.controls.text.TextBlockTextRenderer;
+#end
 import feathers.controls.text.TextFieldTextEditor;
 import feathers.controls.text.TextFieldTextEditorViewPort;
 import feathers.controls.text.TextFieldTextRenderer;
@@ -136,10 +138,14 @@ import feathers.skins.FunctionStyleProvider;
 //import feathers.skins.ImageStateValueSelector;
 import feathers.skins.IStyleProvider;
 //import feathers.skins.Scale9ImageStateValueSelector;
+#if !codegen
 import feathers.skins.SmartDisplayObjectStateValueSelector;
+#end
 import feathers.skins.StandardIcons;
+#if !codegen
 import feathers.skins.StateValueSelector;
 import feathers.skins.StateWithToggleValueSelector;
+#end
 import feathers.skins.StyleNameFunctionStyleProvider;
 import feathers.skins.StyleProviderRegistry;
 import feathers.system.DeviceCapabilities;
@@ -164,10 +170,12 @@ import feathers.utils.math.FeathersMathUtil;
 import feathers.utils.text.OpenFLTextFormat;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
+#if !codegen
 import feathers.utils.type.AcceptEither;
 import feathers.utils.type.SafeCast;
 import feathers.utils.type.UnionMap;
 import feathers.utils.type.UnionWeakMap;
+#end
 
 #if codegen
 class ImportAll
@@ -234,8 +242,8 @@ class ImportAll
 			exports.feathers_controls_text_BitmapFontTextRenderer = feathers_controls_text_BitmapFontTextRenderer;
 			exports.feathers_controls_text_ITextEditorViewPort = feathers_controls_text_ITextEditorViewPort;
 			exports.feathers_controls_text_StageTextTextEditor = feathers_controls_text_StageTextTextEditor;
-			exports.feathers_controls_text_TextBlockTextEditor = feathers_controls_text_TextBlockTextEditor;
-			exports.feathers_controls_text_TextBlockTextRenderer = feathers_controls_text_TextBlockTextRenderer;
+			//exports.feathers_controls_text_TextBlockTextEditor = feathers_controls_text_TextBlockTextEditor;
+			//exports.feathers_controls_text_TextBlockTextRenderer = feathers_controls_text_TextBlockTextRenderer;
 			exports.feathers_controls_text_TextFieldTextEditor = feathers_controls_text_TextFieldTextEditor;
 			exports.feathers_controls_text_TextFieldTextEditorViewPort = feathers_controls_text_TextFieldTextEditorViewPort;
 			exports.feathers_controls_text_TextFieldTextRenderer = feathers_controls_text_TextFieldTextRenderer;
@@ -314,10 +322,10 @@ class ImportAll
 			//exports.feathers_skins_ImageStateValueSelector = feathers_skins_ImageStateValueSelector;
 			exports.feathers_skins_IStyleProvider = feathers_skins_IStyleProvider;
 			//exports.feathers_skins_Scale9ImageStateValueSelector = feathers_skins_Scale9ImageStateValueSelector;
-			exports.feathers_skins_SmartDisplayObjectStateValueSelector = feathers_skins_SmartDisplayObjectStateValueSelector;
+			//exports.feathers_skins_SmartDisplayObjectStateValueSelector = feathers_skins_SmartDisplayObjectStateValueSelector;
 			exports.feathers_skins_StandardIcons = feathers_skins_StandardIcons;
-			exports.feathers_skins_StateValueSelector = feathers_skins_StateValueSelector;
-			exports.feathers_skins_StateWithToggleValueSelector = feathers_skins_StateWithToggleValueSelector;
+			//exports.feathers_skins_StateValueSelector = feathers_skins_StateValueSelector;
+			//exports.feathers_skins_StateWithToggleValueSelector = feathers_skins_StateWithToggleValueSelector;
 			exports.feathers_skins_StyleNameFunctionStyleProvider = feathers_skins_StyleNameFunctionStyleProvider;
 			exports.feathers_skins_StyleProviderRegistry = feathers_skins_StyleProviderRegistry;
 			exports.feathers_system_DeviceCapabilities = feathers_system_DeviceCapabilities;
@@ -342,10 +350,10 @@ class ImportAll
 			exports.feathers_utils_text_OpenFLTextFormat = feathers_utils_text_OpenFLTextFormat;
 			exports.feathers_utils_text_TextInputNavigation = feathers_utils_text_TextInputNavigation;
 			exports.feathers_utils_text_TextInputRestrict = feathers_utils_text_TextInputRestrict;
-			exports.feathers_utils_type_AcceptEither = feathers_utils_type_AcceptEither;
-			exports.feathers_utils_type_SafeCast = feathers_utils_type_SafeCast;
-			exports.feathers_utils_type_UnionMap = feathers_utils_type_UnionMap;
-			exports.feathers_utils_type_UnionWeakMap = feathers_utils_type_UnionWeakMap;
+			//exports.feathers_utils_type_AcceptEither = feathers_utils_type_AcceptEither;
+			//exports.feathers_utils_type_SafeCast = feathers_utils_type_SafeCast;
+			//exports.feathers_utils_type_UnionMap = feathers_utils_type_UnionMap;
+			//exports.feathers_utils_type_UnionWeakMap = feathers_utils_type_UnionWeakMap;
 		}
 	}
 }
