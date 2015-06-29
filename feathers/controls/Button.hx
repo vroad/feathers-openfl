@@ -1568,7 +1568,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			value = PropertyProxy.fromObject(value);
 		}
 		var oldValue:PropertyProxy = this._labelPropertiesSelector.defaultValue;
-		if(oldValue == null)
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
@@ -1683,7 +1683,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 			value = PropertyProxy.fromObject(value);
 		}
 		var oldValue:PropertyProxy = this._labelPropertiesSelector.getValueForState(STATE_DOWN, false);
-		if(oldValue == null)
+		if(oldValue != null)
 		{
 			oldValue.removeOnChangeCallback(childProperties_onChange);
 		}
