@@ -1579,7 +1579,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 #if flash
 		format.italic = this._fontPosture == "italic"/*FontPosture.ITALIC*/;
 #end
-		format.size = this._fontSize * nativeScaleFactor;
+		format.size = Std.int(this._fontSize * nativeScaleFactor);
 #if flash
 		format.bold = this._fontWeight == "bold"/*FontWeight.BOLD*/;
 #end
