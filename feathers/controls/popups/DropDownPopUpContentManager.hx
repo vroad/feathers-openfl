@@ -47,6 +47,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

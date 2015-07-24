@@ -24,6 +24,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 */
 	public function new()
 	{
+		super();
 		this._registry = new StyleProviderRegistry();
 	}
 

@@ -82,6 +82,7 @@ class ExclusiveTouch extends EventDispatcher
 	 */
 	public function new(stage:Stage)
 	{
+		super();
 		if(stage == null)
 		{
 			throw new ArgumentError("Stage cannot be null.");

@@ -47,6 +47,7 @@ class ToggleGroup extends EventDispatcher
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

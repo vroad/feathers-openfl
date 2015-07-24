@@ -185,6 +185,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

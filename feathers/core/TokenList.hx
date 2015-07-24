@@ -42,6 +42,7 @@ class TokenList extends EventDispatcher
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

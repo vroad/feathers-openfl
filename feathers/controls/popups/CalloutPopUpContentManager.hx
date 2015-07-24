@@ -35,6 +35,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

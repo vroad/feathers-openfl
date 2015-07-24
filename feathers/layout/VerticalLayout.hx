@@ -104,6 +104,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	 */
 	public function new()
 	{
+		super();
 	}
 
 	/**

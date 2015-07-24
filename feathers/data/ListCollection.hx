@@ -173,6 +173,7 @@ class ListCollection extends EventDispatcher
 	 */
 	public function new(data:Dynamic = null)
 	{
+		super();
 		if(!data)
 		{
 			//default to an array if no data is provided

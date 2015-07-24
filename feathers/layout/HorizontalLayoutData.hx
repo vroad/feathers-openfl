@@ -28,6 +28,7 @@ class HorizontalLayoutData extends EventDispatcher implements ILayoutData
 	 */
 	public function new(percentWidth:Null<Float> = null, percentHeight:Null<Float> = null)
 	{
+		super();
 		this._percentWidth = percentWidth != null ? percentWidth : Math.NaN;
 		this._percentHeight = percentHeight != null ? percentHeight : Math.NaN;
 	}

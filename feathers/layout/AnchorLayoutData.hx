@@ -31,6 +31,7 @@ class AnchorLayoutData extends EventDispatcher implements ILayoutData
 		bottom:Null<Float> = null, left:Null<Float> = null, horizontalCenter:Null<Float> = null,
 		verticalCenter:Null<Float> = null)
 	{
+		super();
 		if (top == null) top = Math.NaN;
 		if (right == null) right = Math.NaN;
 		if (bottom == null) bottom = Math.NaN;

@@ -83,6 +83,7 @@ class DisplayListWatcher extends EventDispatcher
 	 */
 	public function new(topLevelContainer:DisplayObjectContainer)
 	{
+		super();
 		this.root = topLevelContainer;
 		this.root.addEventListener(Event.ADDED, addedHandler);
 	}
