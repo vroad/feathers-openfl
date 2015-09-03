@@ -1,12 +1,13 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls
 {
+import feathers.controls.supportClasses.BaseScreenNavigator;
 import feathers.core.FeathersControl;
 import feathers.core.IValidating;
 import feathers.events.ExclusiveTouch;
@@ -148,22 +149,23 @@ import starling.events.TouchPhase;
  * left of the main content:</p>
  *
  * <listing version="3.0">
- * var navigator:ScreenNavigator = new ScreenNavigator();
+ * var navigator:StackScreenNavigator = new StackScreenNavigator();
  * var list:List = new List();
  * // the navigator's screens, the list's data provider, and additional
  * // properties should be set here.
+ * 
  * var drawers:Drawers = new Drawers();
  * drawers.content = navigator;
  * drawers.leftDrawer = menu;
  * drawers.leftDrawerToggleEventType = Event.OPEN;
  * this.addChild( drawers );</listing>
  *
- * <p>In the example above, a screen in the <code>ScreenNavigator</code>
+ * <p>In the example above, a screen in the <code>StackScreenNavigator</code>
  * component dispatches an event of type <code>Event.OPEN</code> when it
  * wants to display the slide out the <code>List</code> that is used as
  * the left drawer.</p>
  *
- * @see http://wiki.starling-framework.org/feathers/drawers
+ * @see ../../../help/drawers.html How to use the Feathers Drawers component
  */
 public class Drawers extends FeathersControl
 {
@@ -404,7 +406,7 @@ public class Drawers extends FeathersControl
 		this._content = value;
 		if(this._content)
 		{
-			if(this._content is ScreenNavigator)
+			if(this._content is BaseScreenNavigator)
 			{
 				this.contentEventDispatcherField = SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD;
 				this.contentEventDispatcherChangeEventType = Event.CHANGE;
@@ -536,6 +538,7 @@ public class Drawers extends FeathersControl
 	 */
 	protected var _topDrawerDockMode:String = DOCK_MODE_NONE;
 
+	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
 	/**
 	 * Determines if the top drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -549,6 +552,10 @@ public class Drawers extends FeathersControl
 	 *
 	 * @default Drawers.DOCK_MODE_NONE
 	 *
+	 * @see #DOCK_MODE_PORTRAIT
+	 * @see #DOCK_MODE_LANDSCAPE
+	 * @see #DOCK_MODE_NONE
+	 * @see #DOCK_MODE_BOTH
 	 * @see #topDrawer
 	 */
 	public function get topDrawerDockMode():String
@@ -751,6 +758,7 @@ public class Drawers extends FeathersControl
 	 */
 	protected var _rightDrawerDockMode:String = DOCK_MODE_NONE;
 
+	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
 	/**
 	 * Determines if the right drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -764,6 +772,10 @@ public class Drawers extends FeathersControl
 	 *
 	 * @default Drawers.DOCK_MODE_NONE
 	 *
+	 * @see #DOCK_MODE_PORTRAIT
+	 * @see #DOCK_MODE_LANDSCAPE
+	 * @see #DOCK_MODE_NONE
+	 * @see #DOCK_MODE_BOTH
 	 * @see #rightDrawer
 	 */
 	public function get rightDrawerDockMode():String
@@ -966,6 +978,7 @@ public class Drawers extends FeathersControl
 	 */
 	protected var _bottomDrawerDockMode:String = DOCK_MODE_NONE;
 
+	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
 	/**
 	 * Determines if the bottom drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -979,6 +992,10 @@ public class Drawers extends FeathersControl
 	 *
 	 * @default Drawers.DOCK_MODE_NONE
 	 *
+	 * @see #DOCK_MODE_PORTRAIT
+	 * @see #DOCK_MODE_LANDSCAPE
+	 * @see #DOCK_MODE_NONE
+	 * @see #DOCK_MODE_BOTH
 	 * @see #bottomDrawer
 	 */
 	public function get bottomDrawerDockMode():String
@@ -1181,6 +1198,7 @@ public class Drawers extends FeathersControl
 	 */
 	protected var _leftDrawerDockMode:String = DOCK_MODE_NONE;
 
+	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
 	/**
 	 * Determines if the left drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -1194,6 +1212,10 @@ public class Drawers extends FeathersControl
 	 *
 	 * @default Drawers.DOCK_MODE_NONE
 	 *
+	 * @see #DOCK_MODE_PORTRAIT
+	 * @see #DOCK_MODE_LANDSCAPE
+	 * @see #DOCK_MODE_NONE
+	 * @see #DOCK_MODE_BOTH
 	 * @see #leftDrawer
 	 */
 	public function get leftDrawerDockMode():String
@@ -1440,6 +1462,7 @@ public class Drawers extends FeathersControl
 	 */
 	protected var _openGesture:String = OPEN_GESTURE_DRAG_CONTENT_EDGE;
 
+	[Inspectable(type="String",enumeration="dragContentEdge,dragContent,none")]
 	/**
 	 * An optional touch gesture used to open a drawer.
 	 *
@@ -1570,8 +1593,9 @@ public class Drawers extends FeathersControl
 	 * <code>contentEventDispatcherField</code> or
 	 * <code>contentEventDispatcherFunction</code>.
 	 *
-	 * <p>For a <code>ScreenNavigator</code> component, this value is
-	 * automatically set to <code>Event.CHANGE</code>.</p>
+	 * <p>For <code>StackScreenNavigator</code> and
+	 * <code>ScreenNavigator</code> components, this value is automatically
+	 * set to <code>Event.CHANGE</code>.</p>
 	 *
 	 * <p>In the following example, the drawers container will update its
 	 * content event dispatcher when the content dispatches an event of type
@@ -1619,9 +1643,10 @@ public class Drawers extends FeathersControl
 	 * A property of the <code>content</code> that references an event
 	 * dispatcher that dispatches events to toggle drawers open and closed.
 	 *
-	 * <p>For a <code>ScreenNavigator</code> component, this value is
-	 * automatically set to <code>"activeScreen"</code> to listen for events
-	 * from the currently active/visible screen.</p>
+	 * <p>For <code>StackScreenNavigator</code> and
+	 * <code>ScreenNavigator</code> components, this value is automatically
+	 * set to <code>"activeScreen"</code> to listen for events from the
+	 * currently active/visible screen.</p>
 	 *
 	 * <p>In the following example, the content event dispatcher field is
 	 * customized:</p>

@@ -1,6 +1,7 @@
 package feathers.examples.trainTimes.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.data.ListCollection;
@@ -15,7 +16,7 @@ import starling.events.Event;
 
 public class TimesScreen extends PanelScreen
 {
-	public static const CHILD_NAME_TIMES_LIST:String = "timesList";
+	public static const CHILD_STYLE_NAME_TIMES_LIST:String = "timesList";
 
 	private static const NORTH_TIMES:Vector.<TimeData> = new <TimeData>
 	[
@@ -48,25 +49,32 @@ public class TimesScreen extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
+		this.title = "Schedule";
+
 		this.layout = new AnchorLayout();
 
 		this._list = new List();
-		this._list.styleNameList.add(CHILD_NAME_TIMES_LIST);
+		this._list.styleNameList.add(CHILD_STYLE_NAME_TIMES_LIST);
 		this._list.dataProvider = new ListCollection(NORTH_TIMES);
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this._list.itemRendererProperties.labelFunction = list_labelFunction;
 		this.addChild(this._list);
 
+		this.headerFactory = this.customHeaderFactory;
+
+		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
 		this._backButton = new Button();
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.title = "Schedule";
-		this.headerProperties.leftItems = new <DisplayObject>
+		header.leftItems = new <DisplayObject>
 		[
 			this._backButton
 		];
-
-		this.backButtonHandler = this.onBackButton;
+		return header;
 	}
 
 	private function list_labelFunction(item:TimeData):String

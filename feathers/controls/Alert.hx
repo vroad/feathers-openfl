@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -25,6 +25,7 @@ import starling.events.Event;
 [Exclude(name="footerFactory",kind="property")]
 [Exclude(name="footerProperties",kind="property")]
 [Exclude(name="customFooterName",kind="property")]
+[Exclude(name="customFooterStyleName",kind="property")]
 [Exclude(name="createFooter",kind="method")]
 
 /**
@@ -65,16 +66,16 @@ import starling.events.Event;
  *
  * <listing version="3.0">
  * button.addEventListener( Event.TRIGGERED, button_triggeredHandler );
- *
+ * 
  * function button_triggeredHandler( event:Event ):void
  * {
  *     var alert:Alert = Alert.show( "This is an alert!", "Hello World", new ListCollection(
  *     [
  *         { label: "OK" }
- *     ]);
+ *     ]));
  * }</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/alert
+ * @see ../../../help/alert.html How to use the Feathers Alert component
  */
 public class Alert extends Panel
 {
@@ -83,21 +84,57 @@ public class Alert extends Panel
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = "feathers-alert-header";
+	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-alert-header";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_HEADER
+	 */
+	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the button group.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
+	public static const DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP
+	 */
+	public static const DEFAULT_CHILD_NAME_BUTTON_GROUP:String = DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the message.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MESSAGE:String = "feathers-alert-message";
+	public static const DEFAULT_CHILD_STYLE_NAME_MESSAGE:String = "feathers-alert-message";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_MESSAGE</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_MESSAGE
+	 */
+	public static const DEFAULT_CHILD_NAME_MESSAGE:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
 
 	/**
 	 * Returns a new <code>Alert</code> instance when <code>Alert.show()</code>
@@ -227,21 +264,44 @@ public class Alert extends Panel
 	public function Alert()
 	{
 		super();
-		this.headerName = DEFAULT_CHILD_NAME_HEADER;
-		this.footerName = DEFAULT_CHILD_NAME_BUTTON_GROUP;
+		this.headerStyleName = DEFAULT_CHILD_STYLE_NAME_HEADER;
+		this.footerStyleName = DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP;
 		this.buttonGroupFactory = defaultButtonGroupFactory;
 	}
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the alert's
 	 * message text renderer. This variable is <code>protected</code> so
-	 * that sub-classes can customize the message name in their constructors
-	 * instead of using the default name defined by
-	 * <code>DEFAULT_CHILD_NAME_MESSAGE</code>.
+	 * that sub-classes can customize the message style name in their
+	 * constructors instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_MESSAGE</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var messageName:String = DEFAULT_CHILD_NAME_MESSAGE;
+	protected var messageStyleName:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
+
+	/**
+	 * DEPRECATED: Replaced by <code>messageStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #messageStyleName
+	 */
+	protected function get messageName():String
+	{
+		return this.messageStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set messageName(value:String):void
+	{
+		this.messageStyleName = value;
+	}
 
 	/**
 	 * The header sub-component.
@@ -270,32 +330,6 @@ public class Alert extends Panel
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
 		return Alert.globalStyleProvider;
-	}
-
-	/**
-	 * @private
-	 */
-	protected var _title:String = null;
-
-	/**
-	 * The title text displayed in the alert's header.
-	 */
-	public function get title():String
-	{
-		return this._title;
-	}
-
-	/**
-	 * @private
-	 */
-	public function set title(value:String):void
-	{
-		if(this._title == value)
-		{
-			return;
-		}
-		this._title = value;
-		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -459,8 +493,6 @@ public class Alert extends Panel
 	 * @see #message
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public function get messageFactory():Function
 	{
@@ -486,12 +518,13 @@ public class Alert extends Panel
 	protected var _messageProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the alert's message
-	 * text renderer. The message text renderer is an <code>ITextRenderer</code>
-	 * instance. The available properties depend on which
-	 * <code>ITextRenderer</code> implementation is returned by
-	 * <code>messageFactory</code>. The most common implementations are
-	 * <code>BitmapFontTextRenderer</code> and <code>TextFieldTextRenderer</code>.
+	 * An object that stores properties for the alert's message text
+	 * renderer sub-component, and the properties will be passed down to the
+	 * text renderer when the alert validates. The available properties
+	 * depend on which <code>ITextRenderer</code> implementation is returned
+	 * by <code>messageFactory</code>. Refer to
+	 * <a href="../core/ITextRenderer.html"><code>feathers.core.ITextRenderer</code></a>
+	 * for a list of available text renderer implementations.
 	 *
 	 * <p>In the following example, some properties are set for the alert's
 	 * message text renderer (this example assumes that the message text
@@ -513,10 +546,8 @@ public class Alert extends Panel
 	 *
 	 * @default null
 	 *
-	 * @see #titleFactory
+	 * @see #messageFactory
 	 * @see feathers.core.ITextRenderer
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public function get messageProperties():Object
 	{
@@ -550,6 +581,53 @@ public class Alert extends Panel
 			this._messageProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _customMessageStyleName:String;
+
+	/**
+	 * A style name to add to the alert's message text renderer
+	 * sub-component. Typically used by a theme to provide different styles
+	 * to different alerts.
+	 *
+	 * <p>In the following example, a custom message style name is passed
+	 * to the alert:</p>
+	 *
+	 * <listing version="3.0">
+	 * alert.customMessageStyleName = "my-custom-button-group";</listing>
+	 *
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
+	 *
+	 * <listing version="3.0">
+	 * getStyleProviderForClass( BitmapFontTextRenderer ).setFunctionForStyleName( "my-custom-message", setCustomMessageStyles );</listing>
+	 *
+	 * @default null
+	 *
+	 * @see #DEFAULT_CHILD_STYLE_NAME_MESSAGE
+	 * @see feathers.core.FeathersControl#styleNameList
+	 * @see #messageFactory
+	 * @see #messageProperties
+	 */
+	public function get customMessageStyleName():String
+	{
+		return this._customMessageStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customMessageStyleName(value:String):void
+	{
+		if(this._customMessageStyleName == value)
+		{
+			return;
+		}
+		this._customMessageStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
 	}
 
 	/**
@@ -591,31 +669,54 @@ public class Alert extends Panel
 	}
 
 	/**
-	 * A name to add to the alert's button group sub-component. Typically
-	 * used by a theme to provide different skins to different alerts.
+	 * A style name to add to the alert's button group sub-component.
+	 * Typically used by a theme to provide different styles to different alerts.
 	 *
-	 * <p>In the following example, a custom button group name is passed to
-	 * the alert:</p>
+	 * <p>In the following example, a custom button group style name is
+	 * passed to the alert:</p>
 	 *
 	 * <listing version="3.0">
-	 * alert.customButtonGroupName = "my-custom-button-group";</listing>
+	 * alert.customButtonGroupStyleName = "my-custom-button-group";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( ButtonGroup ).setFunctionForStyleName( "my-custom-button-group", setCustomButtonGroupStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_BUTTON_GROUP
+	 * @see #DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #buttonGroupFactory
 	 * @see #buttonGroupProperties
 	 */
+	public function get customButtonGroupStyleName():String
+	{
+		return super.customFooterStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customButtonGroupStyleName(value:String):void
+	{
+		super.customFooterStyleName = value;
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customButtonGroupStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customButtonGroupStyleName
+	 */
 	public function get customButtonGroupName():String
 	{
-		return super.customFooterName;
+		return this.customButtonGroupStyleName;
 	}
 
 	/**
@@ -623,13 +724,14 @@ public class Alert extends Panel
 	 */
 	public function set customButtonGroupName(value:String):void
 	{
-		super.customFooterName = value;
+		this.customButtonGroupStyleName = value;
 	}
 
 	/**
-	 * A set of key/value pairs to be passed down to the alert's button
-	 * group sub-component. The button must be a
-	 * <code>feathers.core.ButtonGroup</code> instance.
+	 * An object that stores properties for the alert's button group
+	 * sub-component, and the properties will be passed down to the button
+	 * group when the alert validates. For a list of available properties,
+	 * refer to <a href="ButtonGroup.html"><code>feathers.controls.ButtonGroup</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -732,6 +834,11 @@ public class Alert extends Panel
 			IValidating(this._icon).validate();
 		}
 
+		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
+		this._ignoreHeaderResizing = true;
+		var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
+		this._ignoreFooterResizing = true;
+
 		var oldHeaderWidth:Number = this.header.width;
 		var oldHeaderHeight:Number = this.header.height;
 		this.header.width = this.explicitWidth;
@@ -767,9 +874,10 @@ public class Alert extends Panel
 			{
 				newWidth = Math.max(newWidth, this.footer.width);
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth) //!isNaN
+			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+				this.originalBackgroundWidth > newWidth)
 			{
-				newWidth = Math.max(newWidth, this.originalBackgroundWidth);
+				newWidth = this.originalBackgroundWidth;
 			}
 		}
 		if(needsHeight)
@@ -783,10 +891,11 @@ public class Alert extends Panel
 					newHeight = Math.max(newHeight, this._icon.height);
 				}
 			}
-			newHeight += this._bottomViewPortOffset + this._topViewPortOffset
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight) //!isNaN
+			newHeight += this._bottomViewPortOffset + this._topViewPortOffset;
+			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+				this.originalBackgroundHeight > newHeight)
 			{
-				newHeight = Math.max(newHeight, this.originalBackgroundHeight);
+				newHeight = this.originalBackgroundHeight;
 			}
 		}
 
@@ -797,6 +906,8 @@ public class Alert extends Panel
 			this.footer.width = oldFooterWidth;
 			this.footer.height = oldFooterHeight;
 		}
+		this._ignoreHeaderResizing = oldIgnoreHeaderResizing;
+		this._ignoreFooterResizing = oldIgnoreFooterResizing;
 
 		return this.setSizeInternal(newWidth, newHeight, false);
 	}
@@ -810,7 +921,7 @@ public class Alert extends Panel
 	 *
 	 * @see #header
 	 * @see #headerFactory
-	 * @see #customHeaderName
+	 * @see #customHeaderStyleName
 	 */
 	override protected function createHeader():void
 	{
@@ -827,7 +938,7 @@ public class Alert extends Panel
 	 *
 	 * @see #buttonGroupFooter
 	 * @see #buttonGroupFactory
-	 * @see #customButtonGroupName
+	 * @see #customButtonGroupStyleName
 	 */
 	protected function createButtonGroup():void
 	{
@@ -869,19 +980,11 @@ public class Alert extends Panel
 
 		var factory:Function = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
 		this.messageTextRenderer = ITextRenderer(factory());
+		var messageStyleName:String = this._customMessageStyleName != null ? this._customMessageStyleName : this.messageStyleName;
 		var uiTextRenderer:IFeathersControl = IFeathersControl(this.messageTextRenderer);
-		uiTextRenderer.styleNameList.add(this.messageName);
+		uiTextRenderer.styleNameList.add(messageStyleName);
 		uiTextRenderer.touchable = false;
 		this.addChild(DisplayObject(this.messageTextRenderer));
-	}
-
-	/**
-	 * @private
-	 */
-	override protected function refreshHeaderStyles():void
-	{
-		super.refreshHeaderStyles();
-		this.headerHeader.title = this._title;
 	}
 
 	/**

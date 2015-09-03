@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -17,6 +17,8 @@ import starling.events.EventDispatcher;
  * to each component class.
  *
  * @see feathers.skins.StyleNameFunctionStyleProvider
+ * @see ../../../help/skinning.html Skinning Feathers components
+ * @see ../../../help/custom-themes.html Creating custom Feathers themes
  */
 public class StyleNameFunctionTheme extends EventDispatcher
 {
@@ -25,7 +27,7 @@ public class StyleNameFunctionTheme extends EventDispatcher
 	 */
 	public function StyleNameFunctionTheme()
 	{
-		this._registry = new StyleProviderRegistry();
+		this.createRegistry();
 	}
 
 	/**
@@ -49,9 +51,18 @@ public class StyleNameFunctionTheme extends EventDispatcher
 	 * Returns a <code>StyleNameFunctionStyleProvider</code> to be passed to
 	 * the specified class.
 	 */
-	protected function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
+	public function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
 	{
 		return StyleNameFunctionStyleProvider(this._registry.getStyleProvider(type));
 	}
+
+	/**
+	 * @private
+	 */
+	protected function createRegistry():void
+	{
+		this._registry = new StyleProviderRegistry();
+	}
+	
 }
 }

@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.Label;
 import feathers.controls.PanelScreen;
 import feathers.skins.IStyleProvider;
@@ -26,8 +27,6 @@ public class LabelScreen extends PanelScreen
 	private var _headingLabel:Label;
 	private var _detailLabel:Label;
 
-	private var _backButton:Button;
-
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
 		return LabelScreen.globalStyleProvider;
@@ -37,6 +36,8 @@ public class LabelScreen extends PanelScreen
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Label";
 
 		this._normalLabel = new Label();
 		this._normalLabel.text = "This is a normal label.";
@@ -48,31 +49,44 @@ public class LabelScreen extends PanelScreen
 		this.addChild(this._disabledLabel);
 
 		this._headingLabel = new Label();
-		this._headingLabel.styleNameList.add(Label.ALTERNATE_NAME_HEADING);
+		this._headingLabel.styleNameList.add(Label.ALTERNATE_STYLE_NAME_HEADING);
 		this._headingLabel.text = "A heading label is for larger, more important text.";
+		this._headingLabel.wordWrap = true;
 		this.addChild(this._headingLabel);
 
 		this._detailLabel = new Label();
-		this._detailLabel.styleNameList.add(Label.ALTERNATE_NAME_DETAIL);
+		this._detailLabel.styleNameList.add(Label.ALTERNATE_STYLE_NAME_DETAIL);
 		this._detailLabel.text = "While a detail label is for smaller, less important text.";
+		this._detailLabel.wordWrap = true;
 		this.addChild(this._detailLabel);
 
-		this.headerProperties.title = "Label";
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.leftItems = new <DisplayObject>
-			[
-				this._backButton
-			];
-
 			this.backButtonHandler = this.onBackButton;
 		}
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		return header;
 	}
 
 	private function onBackButton():void

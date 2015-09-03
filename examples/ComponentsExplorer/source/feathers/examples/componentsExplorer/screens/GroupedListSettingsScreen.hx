@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.PickerList;
@@ -25,7 +26,6 @@ public class GroupedListSettingsScreen extends PanelScreen
 	public var settings:GroupedListSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
 
 	private var _stylePicker:PickerList;
 	private var _isSelectableToggle:ToggleSwitch;
@@ -48,6 +48,8 @@ public class GroupedListSettingsScreen extends PanelScreen
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Grouped List Settings";
 
 		this.layout = new AnchorLayout();
 
@@ -83,18 +85,22 @@ public class GroupedListSettingsScreen extends PanelScreen
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.title = "Grouped List Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
-		[
-			this._backButton
-		];
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		];
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Object):void
@@ -107,7 +113,7 @@ public class GroupedListSettingsScreen extends PanelScreen
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}

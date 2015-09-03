@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -114,8 +114,8 @@ import starling.events.TouchPhase;
  *     return scrollBar;
  * };</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/simple-scroll-bar
- * @see ScrollBar
+ * @see ../../../help/simple-scroll-bar.html How to use the Feathers SimpleScrollBar component
+ * @see feathers.controls.ScrollBar
  */
 public class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 {
@@ -148,7 +148,19 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
+	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Scroller.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Scroller#DEFAULT_CHILD_STYLE_NAME_THUMB
+	 */
+	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>SimpleScrollBar</code>
@@ -179,16 +191,39 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	/**
 	 * The value added to the <code>styleNameList</code> of the thumb. This
 	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the thumb name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_THUMB</code>.
+	 * the thumb style name in their constructors instead of using the
+	 * default style name defined by <code>DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
 	 *
-	 * <p>To customize the thumb name without subclassing, see
-	 * <code>customThumbName</code>.</p>
+	 * <p>To customize the thumb style name without subclassing, see
+	 * <code>customThumbStyleName</code>.</p>
 	 *
-	 * @see #customThumbName
+	 * @see #customThumbStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbName:String = DEFAULT_CHILD_NAME_THUMB;
+	protected var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+
+	/**
+	 * DEPRECATED: Replaced by <code>thumbStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #thumbStyleName
+	 */
+	protected function get thumbName():String
+	{
+		return this.thumbStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set thumbName(value:String):void
+	{
+		this.thumbStyleName = value;
+	}
 
 	/**
 	 * @private
@@ -414,6 +449,10 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 
 	/**
 	 * @inheritDoc
+	 *
+	 * <p>If this value is <code>0</code>, the <code>step</code> value
+	 * will be used instead. If the <code>step</code> value is
+	 * <code>0</code>, paging with the track is not possible.</p>
 	 *
 	 * @default 0
 	 *
@@ -721,34 +760,63 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	/**
 	 * @private
 	 */
-	protected var _customThumbName:String;
+	protected var _customThumbStyleName:String;
 
 	/**
-	 * A name to add to the scroll bar's thumb sub-component. Typically
-	 * used by a theme to provide different skins to different scroll bars.
+	 * A style name to add to the scroll bar's thumb sub-component.
+	 * Typically used by a theme to provide different styles to different
+	 * scroll bars.
 	 *
-	 * <p>In the following example, a custom thumb name is passed
+	 * <p>In the following example, a custom thumb style name is passed
 	 * to the scroll bar:</p>
 	 *
 	 * <listing version="3.0">
-	 * scrollBar.customThumbName = "my-custom-thumb";</listing>
+	 * scrollBar.customThumbStyleName = "my-custom-thumb";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( Button ).setFunctionForStyleName( "my-custom-thumb", setCustomThumbStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_THUMB
+	 * @see #DEFAULT_CHILD_STYLE_NAME_THUMB
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public function get customThumbStyleName():String
+	{
+		return this._customThumbStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customThumbStyleName(value:String):void
+	{
+		if(this._customThumbStyleName == value)
+		{
+			return;
+		}
+		this._customThumbStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customThumbStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customThumbStyleName
+	 */
 	public function get customThumbName():String
 	{
-		return this._customThumbName;
+		return this.customThumbStyleName;
 	}
 
 	/**
@@ -756,12 +824,7 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	 */
 	public function set customThumbName(value:String):void
 	{
-		if(this._customThumbName == value)
-		{
-			return;
-		}
-		this._customThumbName = value;
-		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+		this.customThumbStyleName = value;
 	}
 
 	/**
@@ -770,9 +833,10 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	protected var _thumbProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the scroll bar's thumb
-	 * sub-component. The thumb is a <code>feathers.controls.Button</code>
-	 * instance that is created by <code>thumbFactory</code>.
+	 * An object that stores properties for the scroll bar's thumb, and the
+	 * properties will be passed down to the thumb when the scroll bar
+	 * validates. For a list of available properties, refer to
+	 * <a href="Button.html"><code>feathers.controls.Button</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -881,6 +945,14 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 			this.track.addEventListener(TouchEvent.TOUCH, track_touchHandler);
 			this.addChild(this.track);
 		}
+		if(this._value < this._minimum)
+		{
+			this.value = this._minimum;
+		}
+		else if(this._value > this._maximum)
+		{
+			this.value = this._maximum;
+		}
 	}
 
 	/**
@@ -948,8 +1020,16 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		}
 
 		var range:Number = this._maximum - this._minimum;
-		//we're just going to make something up in this case
-		var adjustedPageStep:Number = this._page == 0 ? range / 10 : this._page;
+		var adjustedPage:Number = this._page;
+		if(adjustedPage === 0)
+		{
+			//fall back to using step!
+			adjustedPage = this._step;
+		}
+		if(adjustedPage > range)
+		{
+			adjustedPage = range;
+		}
 		var newWidth:Number = this.explicitWidth;
 		var newHeight:Number = this.explicitHeight;
 		if(needsWidth)
@@ -960,23 +1040,16 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 			}
 			else //horizontal
 			{
-				if(range > 0)
+				if(adjustedPage === 0)
 				{
-					newWidth = 0;
+					newWidth = this.thumbOriginalWidth;
 				}
 				else
 				{
-					if(adjustedPageStep == 0)
+					newWidth = this.thumbOriginalWidth * range / adjustedPage;
+					if(newWidth < this.thumbOriginalWidth)
 					{
 						newWidth = this.thumbOriginalWidth;
-					}
-					else
-					{
-						newWidth = this.thumbOriginalWidth * range / adjustedPageStep;
-						if(newWidth < this.thumbOriginalWidth)
-						{
-							newWidth = this.thumbOriginalWidth;
-						}
 					}
 				}
 			}
@@ -986,23 +1059,16 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		{
 			if(this._direction == DIRECTION_VERTICAL)
 			{
-				if(range > 0)
+				if(adjustedPage === 0)
 				{
-					newHeight = 0;
+					newHeight = this.thumbOriginalHeight;
 				}
 				else
 				{
-					if(adjustedPageStep == 0)
+					newHeight = this.thumbOriginalHeight * range / adjustedPage;
+					if(newHeight < this.thumbOriginalHeight)
 					{
 						newHeight = this.thumbOriginalHeight;
-					}
-					else
-					{
-						newHeight = this.thumbOriginalHeight * range / adjustedPageStep;
-						if(newHeight < this.thumbOriginalHeight)
-						{
-							newHeight = this.thumbOriginalHeight;
-						}
 					}
 				}
 			}
@@ -1024,7 +1090,7 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	 *
 	 * @see #thumb
 	 * @see #thumbFactory
-	 * @see #customThumbName
+	 * @see #customThumbStyleName
 	 */
 	protected function createThumb():void
 	{
@@ -1035,9 +1101,9 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		}
 
 		var factory:Function = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
-		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
+		var thumbStyleName:String = this._customThumbStyleName != null ? this._customThumbStyleName : this.thumbStyleName;
 		this.thumb = Button(factory());
-		this.thumb.styleNameList.add(thumbName);
+		this.thumb.styleNameList.add(thumbStyleName);
 		this.thumb.isFocusEnabled = false;
 		this.thumb.keepDownStateOnRollOut = true;
 		this.thumb.addEventListener(TouchEvent.TOUCH, thumb_touchHandler);
@@ -1076,14 +1142,14 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 
 		var contentWidth:Number = this.actualWidth - this._paddingLeft - this._paddingRight;
 		var contentHeight:Number = this.actualHeight - this._paddingTop - this._paddingBottom;
-		var adjustedPageStep:Number = this._page;
+		var adjustedPage:Number = this._page;
 		if(this._page == 0)
 		{
-			adjustedPageStep = range;
+			adjustedPage = this._step;
 		}
-		else if(range < adjustedPageStep)
+		else if(adjustedPage > range)
 		{
-			adjustedPageStep = range;
+			adjustedPage = range;
 		}
 		var valueOffset:Number = 0;
 		if(this._value < this._minimum)
@@ -1098,7 +1164,7 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		{
 			this.thumb.width = this.thumbOriginalWidth;
 			var thumbMinHeight:Number = this.thumb.minHeight > 0 ? this.thumb.minHeight : this.thumbOriginalHeight;
-			var thumbHeight:Number = contentHeight * adjustedPageStep / range;
+			var thumbHeight:Number = contentHeight * adjustedPage / range;
 			var heightOffset:Number = contentHeight - thumbHeight;
 			if(heightOffset > thumbHeight)
 			{
@@ -1127,7 +1193,7 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		else //horizontal
 		{
 			var thumbMinWidth:Number = this.thumb.minWidth > 0 ? this.thumb.minWidth : this.thumbOriginalWidth;
-			var thumbWidth:Number = contentWidth * adjustedPageStep / range;
+			var thumbWidth:Number = contentWidth * adjustedPage / range;
 			var widthOffset:Number = contentWidth - thumbWidth;
 			if(widthOffset > thumbWidth)
 			{
@@ -1194,9 +1260,19 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 	 */
 	protected function adjustPage():void
 	{
+		var range:Number = this._maximum - this._minimum;
+		var adjustedPage:Number = this._page;
+		if(adjustedPage === 0)
+		{
+			adjustedPage = this._step;
+		}
+		if(adjustedPage > range)
+		{
+			adjustedPage = range;
+		}
 		if(this._touchValue < this._value)
 		{
-			var newValue:Number = Math.max(this._touchValue, this._value - this._page);
+			var newValue:Number = Math.max(this._touchValue, this._value - adjustedPage);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);
@@ -1205,7 +1281,7 @@ public class SimpleScrollBar extends FeathersControl implements IDirectionalScro
 		}
 		else if(this._touchValue > this._value)
 		{
-			newValue = Math.min(this._touchValue, this._value + this._page);
+			newValue = Math.min(this._touchValue, this._value + adjustedPage);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);

@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -203,6 +203,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 	private var _inactiveRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _activeRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _rendererMap:Dictionary = new Dictionary(true);
+	private var _minimumItemCount:int;
 
 	private var _layoutIndexOffset:int = 0;
 
@@ -310,20 +311,20 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
-	private var _itemRendererName:String;
+	private var _customItemRendererStyleName:String;
 
-	public function get itemRendererName():String
+	public function get customItemRendererStyleName():String
 	{
-		return this._itemRendererName;
+		return this._customItemRendererStyleName;
 	}
 
-	public function set itemRendererName(value:String):void
+	public function set customItemRendererStyleName(value:String):void
 	{
-		if(this._itemRendererName == value)
+		if(this._customItemRendererStyleName == value)
 		{
 			return;
 		}
-		this._itemRendererName = value;
+		this._customItemRendererStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
 	}
 
@@ -532,7 +533,19 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			result = new Point();
 		}
-		return this._layout.getScrollPositionForIndex(index, this._layoutItems, 0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
+		return this._layout.getScrollPositionForIndex(index, this._layoutItems,
+			0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
+	}
+
+	public function getNearestScrollPositionForIndex(index:int, result:Point = null):Point
+	{
+		if(!result)
+		{
+			result = new Point();
+		}
+		return this._layout.getNearestScrollPositionForIndex(index,
+			this._horizontalScrollPosition, this._verticalScrollPosition,
+			this._layoutItems, 0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
 	}
 
 	override public function dispose():void
@@ -653,7 +666,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		var typicalItemIndex:int = 0;
 		var newTypicalItemIsInDataProvider:Boolean = false;
 		var typicalItem:Object = this._typicalItem;
-		if(typicalItem)
+		if(typicalItem !== null)
 		{
 			if(this._dataProvider)
 			{
@@ -674,9 +687,15 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 			}
 		}
 
-		if(typicalItem)
+		if(typicalItem !== null)
 		{
 			var typicalRenderer:IListItemRenderer = IListItemRenderer(this._rendererMap[typicalItem]);
+			if(typicalRenderer)
+			{
+				//the index may have changed if items were added, removed or
+				//reordered in the data provider
+				typicalRenderer.index = typicalItemIndex;
+			}
 			if(!typicalRenderer && this._typicalItemRenderer)
 			{
 				//we can reuse the typical item renderer if the old typical item
@@ -726,6 +745,13 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		virtualLayout.typicalItem = DisplayObject(typicalRenderer);
 		this._typicalItemRenderer = typicalRenderer;
 		this._typicalItemIsInDataProvider = newTypicalItemIsInDataProvider;
+		if(this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		{
+			//we need to know if this item renderer resizes to adjust the
+			//layout because the layout may use this item renderer to resize
+			//the other item renderers
+			this._typicalItemRenderer.addEventListener(FeathersEventType.RESIZE, renderer_resizeHandler);
+		}
 	}
 
 	private function refreshItemRendererStyles():void
@@ -791,7 +817,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		if(itemRendererTypeIsInvalid)
 		{
 			this.recoverInactiveRenderers();
-			this.freeInactiveRenderers();
+			this.freeInactiveRenderers(false);
 			if(this._typicalItemRenderer)
 			{
 				if(this._typicalItemIsInDataProvider)
@@ -838,7 +864,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		this.findUnrenderedData();
 		this.recoverInactiveRenderers();
 		this.renderUnrenderedData();
-		this.freeInactiveRenderers();
+		this.freeInactiveRenderers(true);
 		this._updateForDataReset = false;
 	}
 
@@ -854,6 +880,18 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 
 		var unrenderedItemCount:int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
+		if(useVirtualLayout && this._typicalItemIsInDataProvider && this._typicalItemRenderer &&
+			HELPER_VECTOR.indexOf(this._typicalItemRenderer.index) >= 0)
+		{
+			//add an extra item renderer if the typical item is from the
+			//data provider and it is visible. this helps keep the number of
+			//item renderers constant!
+			this._minimumItemCount = unrenderedItemCount + 1;
+		}
+		else
+		{
+			this._minimumItemCount = unrenderedItemCount;
+		}
 		var canUseBeforeAndAfter:Boolean = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
 			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
@@ -904,7 +942,8 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 			var renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
 			if(renderer)
 			{
-				//the index may have changed if data was added or removed
+				//the index may have changed if items were added, removed or
+				//reordered in the data provider
 				renderer.index = index;
 				//if this item renderer used to be the typical item
 				//renderer, but it isn't anymore, it may have been set invisible!
@@ -1006,12 +1045,44 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function freeInactiveRenderers():void
+	private function freeInactiveRenderers(allowKeep:Boolean):void
 	{
+		//we may keep around some extra renderers to avoid too much
+		//allocation and garbage collection. they'll be hidden.
 		var itemCount:int = this._inactiveRenderers.length;
-		for(var i:int = 0; i < itemCount; i++)
+		if(allowKeep)
+		{
+			var keepCount:int = this._minimumItemCount - this._activeRenderers.length;
+		}
+		else
+		{
+			keepCount = 0;
+		}
+		if(itemCount < keepCount)
+		{
+			keepCount = itemCount;
+		}
+		for(var i:int = 0; i < keepCount; i++)
 		{
 			var renderer:IListItemRenderer = this._inactiveRenderers.shift();
+			if(!renderer)
+			{
+				keepCount++;
+				if(itemCount < keepCount)
+				{
+					keepCount = itemCount;
+				}
+				continue;
+			}
+			renderer.data = null;
+			renderer.index = -1;
+			renderer.visible = false;
+			this._activeRenderers.push(renderer);
+		}
+		itemCount -= keepCount;
+		for(i = 0; i < itemCount; i++)
+		{
+			renderer = this._inactiveRenderers.shift();
 			if(!renderer)
 			{
 				continue;
@@ -1036,9 +1107,9 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 					renderer = new this._itemRendererType();
 				}
 				var uiRenderer:IFeathersControl = IFeathersControl(renderer);
-				if(this._itemRendererName && this._itemRendererName.length > 0)
+				if(this._customItemRendererStyleName && this._customItemRendererStyleName.length > 0)
 				{
-					uiRenderer.styleNameList.add(this._itemRendererName);
+					uiRenderer.styleNameList.add(this._customItemRendererStyleName);
 				}
 				this.addChild(DisplayObject(renderer));
 			}
@@ -1060,6 +1131,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._rendererMap[item] = renderer;
 			this._activeRenderers[this._activeRenderers.length] = renderer;
+			renderer.addEventListener(Event.TRIGGERED, renderer_triggeredHandler);
 			renderer.addEventListener(Event.CHANGE, renderer_changeHandler);
 			renderer.addEventListener(FeathersEventType.RESIZE, renderer_resizeHandler);
 			this._owner.dispatchEventWith(FeathersEventType.RENDERER_ADD, false, renderer);
@@ -1070,6 +1142,7 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function destroyRenderer(renderer:IListItemRenderer):void
 	{
+		renderer.removeEventListener(Event.TRIGGERED, renderer_triggeredHandler);
 		renderer.removeEventListener(Event.CHANGE, renderer_changeHandler);
 		renderer.removeEventListener(FeathersEventType.RESIZE, renderer_resizeHandler);
 		renderer.owner = null;
@@ -1094,24 +1167,6 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_addItemHandler(event:Event, index:int):void
 	{
-		var selectionChanged:Boolean = false;
-		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
-		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
-			if(currentIndex >= index)
-			{
-				currentIndex++;
-				selectionChanged = true;
-			}
-			newIndices.push(currentIndex);
-		}
-		if(selectionChanged)
-		{
-			this._selectedIndices.data = newIndices;
-		}
-
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
 		{
@@ -1122,31 +1177,6 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_removeItemHandler(event:Event, index:int):void
 	{
-		var selectionChanged:Boolean = false;
-		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
-		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
-			if(currentIndex == index)
-			{
-				selectionChanged = true;
-			}
-			else
-			{
-				if(currentIndex > index)
-				{
-					currentIndex--;
-					selectionChanged = true;
-				}
-				newIndices.push(currentIndex);
-			}
-		}
-		if(selectionChanged)
-		{
-			this._selectedIndices.data = newIndices;
-		}
-
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
 		{
@@ -1157,12 +1187,6 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_replaceItemHandler(event:Event, index:int):void
 	{
-		var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
-		if(indexOfIndex >= 0)
-		{
-			this._selectedIndices.removeItemAt(indexOfIndex);
-		}
-
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
 		{
@@ -1173,7 +1197,6 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private function dataProvider_resetHandler(event:Event):void
 	{
-		this._selectedIndices.removeAll();
 		this._updateForDataReset = true;
 
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
@@ -1212,6 +1235,12 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
+		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+		if(event.currentTarget === this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		{
+			return;
+		}
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
 		{
@@ -1219,8 +1248,12 @@ public class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
 		layout.resetVariableVirtualCacheAtIndex(renderer.index, DisplayObject(renderer));
-		this.invalidate(INVALIDATION_FLAG_LAYOUT);
-		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
+	}
+
+	private function renderer_triggeredHandler(event:Event):void
+	{
+		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
+		this.parent.dispatchEventWith(Event.TRIGGERED, false, renderer.data);
 	}
 
 	private function renderer_changeHandler(event:Event):void

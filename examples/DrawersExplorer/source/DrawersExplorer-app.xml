@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/15.0">
+<application xmlns="http://ns.adobe.com/air/application/18.0">
 	<id>com.feathersui.examples.DrawersExplorer</id>
 	<filename>Drawers</filename>
 	<name>Drawers</name>
-	<versionNumber>2.0.1</versionNumber>
+	<versionNumber>2.2.0</versionNumber>
 	<description>Drawers Explorer example application built with Feathers UI controls for Starling</description>
-	<copyright>2014 Josh Tynjala</copyright>
+	<copyright>2015 Bowler Hat LLC</copyright>
 
 	<initialWindow>
 		<content>DrawersExplorer.swf</content>
@@ -24,11 +24,13 @@
 		<image57x57>icon57.png</image57x57>
 		<image58x58>icon58.png</image58x58>
 		<image72x72>icon72.png</image72x72>
+		<image87x87>icon87.png</image87x87>
 		<image96x96>icon96.png</image96x96>
 		<image100x100>icon100.png</image100x100>
 		<image114x114>icon114.png</image114x114>
 		<image128x128>icon128.png</image128x128>
 		<image144x144>icon144.png</image144x144>
+		<image180x180>icon180.png</image180x180>
 	</icon>
 	<android>
 		<colorDepth>16bit</colorDepth>

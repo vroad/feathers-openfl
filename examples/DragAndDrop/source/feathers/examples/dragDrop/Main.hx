@@ -16,6 +16,8 @@ public class Main extends Sprite implements IDragSource, IDropTarget
 
 	public function Main()
 	{
+		//set up the theme right away!
+		new MetalWorksDesktopTheme();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 
@@ -33,8 +35,6 @@ public class Main extends Sprite implements IDragSource, IDropTarget
 
 	private function addedToStageHandler(event:Event):void
 	{
-		new MetalWorksDesktopTheme();
-
 		this._draggableQuad = new Quad(100, 100, 0xff8800);
 
 		this._dragSource = new DragSource(DRAG_FORMAT);

@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -112,7 +112,7 @@ import starling.events.TouchPhase;
  * slider.addEventListener( Event.CHANGE, slider_changeHandler );
  * this.addChild( slider );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/slider
+ * @see ../../../help/slider.html How to use the Feathers Slider component
  */
 public class Slider extends FeathersControl implements IDirectionalScrollBar, IFocusDisplayObject
 {
@@ -216,27 +216,63 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	public static const TRACK_INTERACTION_MODE_BY_PAGE:String = "byPage";
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the minimum
-	 * track.
+	 * The default value added to the <code>styleNameList</code> of the
+	 * minimum track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = "feathers-slider-minimum-track";
+	public static const DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-slider-minimum-track";
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the maximum
-	 * track.
+	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK
+	 */
+	public static const DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
+
+	/**
+	 * The default value added to the <code>styleNameList</code> of the
+	 * maximum track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = "feathers-slider-maximum-track";
+	public static const DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-slider-maximum-track";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK
+	 */
+	public static const DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = "feathers-slider-thumb";
+	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-slider-thumb";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_THUMB
+	 */
+	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Slider</code>
@@ -281,46 +317,117 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	}
 
 	/**
-	 * The value added to the <code>styleNameList</code> of the minimum track. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the minimum track name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_MINIMUM_TRACK</code>.
+	 * The value added to the <code>styleNameList</code> of the minimum
+	 * track. This variable is <code>protected</code> so that sub-classes
+	 * can customize the minimum track style name in their constructors
+	 * instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK</code>.
 	 *
-	 * <p>To customize the minimum track name without subclassing, see
-	 * <code>customMinimumTrackName</code>.</p>
+	 * <p>To customize the minimum track style name without subclassing, see
+	 * <code>customMinimumTrackStyleName</code>.</p>
 	 *
-	 * @see #customMinimumTrackName
+	 * @see #customMinimumTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var minimumTrackName:String = DEFAULT_CHILD_NAME_MINIMUM_TRACK;
+	protected var minimumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
 
 	/**
-	 * The value added to the <code>styleNameList</code> of the maximum track. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the maximum track name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_MAXIMUM_TRACK</code>.
+	 * DEPRECATED: Replaced by <code>minimumTrackStyleName</code>.
 	 *
-	 * <p>To customize the maximum track name without subclassing, see
-	 * <code>customMaximumTrackName</code>.</p>
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
 	 *
-	 * @see #customMaximumTrackName
+	 * @see #minimumTrackStyleName
+	 */
+	protected function get minimumTrackName():String
+	{
+		return this.minimumTrackStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set minimumTrackName(value:String):void
+	{
+		this.minimumTrackStyleName = value;
+	}
+
+	/**
+	 * The value added to the <code>styleNameList</code> of the maximum
+	 * track. This variable is <code>protected</code> so that sub-classes
+	 * can customize the maximum track style name in their constructors
+	 * instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK</code>.
+	 *
+	 * <p>To customize the maximum track style name without subclassing, see
+	 * <code>customMaximumTrackStyleName</code>.</p>
+	 *
+	 * @see #customMaximumTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var maximumTrackName:String = DEFAULT_CHILD_NAME_MAXIMUM_TRACK;
+	protected var maximumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
+
+	/**
+	 * DEPRECATED: Replaced by <code>maximumTrackStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #maximumTrackStyleName
+	 */
+	protected function get maximumTrackName():String
+	{
+		return this.maximumTrackStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set maximumTrackName(value:String):void
+	{
+		this.maximumTrackStyleName = value;
+	}
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the thumb. This
 	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the thumb name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_THUMB</code>.
+	 * the thumb style name in their constructors instead of using the
+	 * default style name defined by <code>DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
 	 *
-	 * <p>To customize the thumb name without subclassing, see
-	 * <code>customThumbName</code>.</p>
+	 * <p>To customize the thumb style name without subclassing, see
+	 * <code>customThumbStyleName</code>.</p>
 	 *
-	 * @see #customThumbName
+	 * @see #customThumbStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbName:String = DEFAULT_CHILD_NAME_THUMB;
+	protected var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+
+	/**
+	 * DEPRECATED: Replaced by <code>thumbStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #thumbStyleName
+	 */
+	protected function get thumbName():String
+	{
+		return this.thumbStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set thumbName(value:String):void
+	{
+		this.thumbStyleName = value;
+	}
 
 	/**
 	 * The thumb sub-component.
@@ -698,6 +805,43 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	/**
 	 * @private
 	 */
+	protected var _thumbOffset:Number = 0;
+
+	/**
+	 *
+	 * Offsets the position of the thumb by a certain number of pixels in a
+	 * direction perpendicular to the track. This does not affect the
+	 * measurement of the slider. The slider will measure itself as if the
+	 * thumb were not offset from its original position.
+	 *
+	 * <p>In the following example, the thumb is offset by 20 pixels:</p>
+	 *
+	 * <listing version="3.0">
+	 * slider.thumbOffset = 20;</listing>
+	 *
+	 * @default 0
+	 */
+	public function get thumbOffset():Number
+	{
+		return this._thumbOffset;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set thumbOffset(value:Number):void
+	{
+		if(this._thumbOffset == value)
+		{
+			return;
+		}
+		this._thumbOffset = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+	/**
+	 * @private
+	 */
 	protected var _minimumPadding:Number = 0;
 
 	/**
@@ -981,34 +1125,63 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	/**
 	 * @private
 	 */
-	protected var _customMinimumTrackName:String;
+	protected var _customMinimumTrackStyleName:String;
 
 	/**
-	 * A name to add to the slider's minimum track sub-component. Typically
-	 * used by a theme to provide different skins to different sliders.
+	 * A style name to add to the slider's minimum track sub-component.
+	 * Typically used by a theme to provide different styles to different
+	 * sliders.
 	 *
-	 * <p>In the following example, a custom minimum track name is passed
-	 * to the slider:</p>
+	 * <p>In the following example, a custom minimum track style name is
+	 * passed to the slider:</p>
 	 *
 	 * <listing version="3.0">
-	 * slider.customMinimumTrackName = "my-custom-minimum-track";</listing>
+	 * slider.customMinimumTrackStyleName = "my-custom-minimum-track";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( Button ).setFunctionForStyleName( "my-custom-minimum-track", setCustomMinimumTrackStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_MINIMUM_TRACK
+	 * @see #DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
+	public function get customMinimumTrackStyleName():String
+	{
+		return this._customMinimumTrackStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customMinimumTrackStyleName(value:String):void
+	{
+		if(this._customMinimumTrackStyleName == value)
+		{
+			return;
+		}
+		this._customMinimumTrackStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customMinimumTrackStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customMinimumTrackStyleName
+	 */
 	public function get customMinimumTrackName():String
 	{
-		return this._customMinimumTrackName;
+		return this.customMinimumTrackStyleName;
 	}
 
 	/**
@@ -1016,12 +1189,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 */
 	public function set customMinimumTrackName(value:String):void
 	{
-		if(this._customMinimumTrackName == value)
-		{
-			return;
-		}
-		this._customMinimumTrackName = value;
-		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
+		this.customMinimumTrackStyleName = value;
 	}
 
 	/**
@@ -1030,10 +1198,10 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	protected var _minimumTrackProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the slider's minimum
-	 * track sub-component. The minimum track is a
-	 * <code>feathers.controls.Button</code> instance that is created by
-	 * <code>minimumTrackFactory</code>.
+	 * An object that stores properties for the slider's "minimum" track,
+	 * and the properties will be passed down to the "minimum" track when
+	 * the slider validates. For a list of available properties, refer to
+	 * <a href="Button.html"><code>feathers.controls.Button</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -1154,34 +1322,63 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	/**
 	 * @private
 	 */
-	protected var _customMaximumTrackName:String;
+	protected var _customMaximumTrackStyleName:String;
 
 	/**
-	 * A name to add to the slider's maximum track sub-component. Typically
-	 * used by a theme to provide different skins to different sliders.
+	 * A style name to add to the slider's maximum track sub-component.
+	 * Typically used by a theme to provide different skins to different
+	 * sliders.
 	 *
-	 * <p>In the following example, a custom maximum track name is passed
-	 * to the slider:</p>
+	 * <p>In the following example, a custom maximum track style name is
+	 * passed to the slider:</p>
 	 *
 	 * <listing version="3.0">
-	 * slider.customMaximumTrackName = "my-custom-maximum-track";</listing>
+	 * slider.customMaximumTrackStyleName = "my-custom-maximum-track";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( Button ).setFunctionForStyleName( "my-custom-maximum-track", setCustomMaximumTrackStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_MAXIMUM_TRACK
+	 * @see #DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
+	public function get customMaximumTrackStyleName():String
+	{
+		return this._customMaximumTrackStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customMaximumTrackStyleName(value:String):void
+	{
+		if(this._customMaximumTrackStyleName == value)
+		{
+			return;
+		}
+		this._customMaximumTrackStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customMaximumTrackStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customMaximumTrackStyleName
+	 */
 	public function get customMaximumTrackName():String
 	{
-		return this._customMaximumTrackName;
+		return this.customMaximumTrackStyleName;
 	}
 
 	/**
@@ -1189,12 +1386,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 */
 	public function set customMaximumTrackName(value:String):void
 	{
-		if(this._customMaximumTrackName == value)
-		{
-			return;
-		}
-		this._customMaximumTrackName = value;
-		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
+		this.customMaximumTrackStyleName = value;
 	}
 	
 	/**
@@ -1203,10 +1395,10 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	protected var _maximumTrackProperties:PropertyProxy;
 	
 	/**
-	 * A set of key/value pairs to be passed down to the slider's maximum
-	 * track sub-component. The maximum track is a
-	 * <code>feathers.controls.Button</code> instance that is created by
-	 * <code>maximumTrackFactory</code>.
+	 * An object that stores properties for the slider's "maximum" track,
+	 * and the properties will be passed down to the "maximum" track when
+	 * the slider validates. For a list of available properties, refer to
+	 * <a href="Button.html"><code>feathers.controls.Button</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -1327,34 +1519,62 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	/**
 	 * @private
 	 */
-	protected var _customThumbName:String;
+	protected var _customThumbStyleName:String;
 
 	/**
-	 * A name to add to the slider's thumb sub-component. Typically
-	 * used by a theme to provide different skins to different sliders.
+	 * A style name to add to the slider's thumb sub-component. Typically
+	 * used by a theme to provide different styles to different sliders.
 	 *
-	 * <p>In the following example, a custom thumb name is passed
+	 * <p>In the following example, a custom thumb style name is passed
 	 * to the slider:</p>
 	 *
 	 * <listing version="3.0">
-	 * slider.customThumbName = "my-custom-thumb";</listing>
+	 * slider.customThumbStyleName = "my-custom-thumb";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( Button ).setFunctionForStyleName( "my-custom-thumb", setCustomThumbStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_THUMB
+	 * @see #DEFAULT_CHILD_STYLE_NAME_THUMB
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public function get customThumbStyleName():String
+	{
+		return this._customThumbStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customThumbStyleName(value:String):void
+	{
+		if(this._customThumbStyleName == value)
+		{
+			return;
+		}
+		this._customThumbStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customThumbStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customThumbStyleName
+	 */
 	public function get customThumbName():String
 	{
-		return this._customThumbName;
+		return this.customThumbStyleName;
 	}
 
 	/**
@@ -1362,12 +1582,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 */
 	public function set customThumbName(value:String):void
 	{
-		if(this._customThumbName == value)
-		{
-			return;
-		}
-		this._customThumbName = value;
-		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
+		this.customThumbStyleName = value;
 	}
 	
 	/**
@@ -1376,9 +1591,10 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	protected var _thumbProperties:PropertyProxy;
 	
 	/**
-	 * A set of key/value pairs to be passed down to the slider's thumb
-	 * sub-component. The thumb is a <code>feathers.controls.Button</code>
-	 * instance that is created by <code>thumbFactory</code>.
+	 * An object that stores properties for the slider's thumb, and the
+	 * properties will be passed down to the thumb when the slider
+	 * validates. For a list of available properties, refer to
+	 * <a href="Button.html"><code>feathers.controls.Button</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -1474,6 +1690,21 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 * @private
 	 */
 	protected var _touchValue:Number;
+
+	/**
+	 * @private
+	 */
+	override protected function initialize():void
+	{
+		if(this._value < this._minimum)
+		{
+			this.value = this._minimum;
+		}
+		else if(this._value > this._maximum)
+		{
+			this.value = this._maximum;
+		}
+	}
 	
 	/**
 	 * @private
@@ -1649,7 +1880,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 *
 	 * @see #thumb
 	 * @see #thumbFactory
-	 * @see #customThumbName
+	 * @see #customThumbStyleName
 	 */
 	protected function createThumb():void
 	{
@@ -1660,9 +1891,9 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 		}
 
 		var factory:Function = this._thumbFactory != null ? this._thumbFactory : defaultThumbFactory;
-		var thumbName:String = this._customThumbName != null ? this._customThumbName : this.thumbName;
+		var thumbStyleName:String = this._customThumbStyleName != null ? this._customThumbStyleName : this.thumbStyleName;
 		this.thumb = Button(factory());
-		this.thumb.styleNameList.add(thumbName);
+		this.thumb.styleNameList.add(thumbStyleName);
 		this.thumb.keepDownStateOnRollOut = true;
 		this.thumb.addEventListener(TouchEvent.TOUCH, thumb_touchHandler);
 		this.addChild(this.thumb);
@@ -1677,7 +1908,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 *
 	 * @see #minimumTrack
 	 * @see #minimumTrackFactory
-	 * @see #customMinimumTrackName
+	 * @see #customMinimumTrackStyleName
 	 */
 	protected function createMinimumTrack():void
 	{
@@ -1688,9 +1919,9 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 		}
 
 		var factory:Function = this._minimumTrackFactory != null ? this._minimumTrackFactory : defaultMinimumTrackFactory;
-		var minimumTrackName:String = this._customMinimumTrackName != null ? this._customMinimumTrackName : this.minimumTrackName;
+		var minimumTrackStyleName:String = this._customMinimumTrackStyleName != null ? this._customMinimumTrackStyleName : this.minimumTrackStyleName;
 		this.minimumTrack = Button(factory());
-		this.minimumTrack.styleNameList.add(minimumTrackName);
+		this.minimumTrack.styleNameList.add(minimumTrackStyleName);
 		this.minimumTrack.keepDownStateOnRollOut = true;
 		this.minimumTrack.addEventListener(TouchEvent.TOUCH, track_touchHandler);
 		this.addChildAt(this.minimumTrack, 0);
@@ -1706,7 +1937,7 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	 *
 	 * @see #maximumTrack
 	 * @see #maximumTrackFactory
-	 * @see #customMaximumTrackName
+	 * @see #customMaximumTrackStyleName
 	 */
 	protected function createMaximumTrack():void
 	{
@@ -1718,9 +1949,9 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 				this.maximumTrack = null;
 			}
 			var factory:Function = this._maximumTrackFactory != null ? this._maximumTrackFactory : defaultMaximumTrackFactory;
-			var maximumTrackName:String = this._customMaximumTrackName != null ? this._customMaximumTrackName : this.maximumTrackName;
+			var maximumTrackStyleName:String = this._customMaximumTrackStyleName != null ? this._customMaximumTrackStyleName : this.maximumTrackStyleName;
 			this.maximumTrack = Button(factory());
-			this.maximumTrack.styleNameList.add(maximumTrackName);
+			this.maximumTrack.styleNameList.add(maximumTrackStyleName);
 			this.maximumTrack.keepDownStateOnRollOut = true;
 			this.maximumTrack.addEventListener(TouchEvent.TOUCH, track_touchHandler);
 			this.addChildAt(this.maximumTrack, 1);
@@ -1797,18 +2028,38 @@ public class Slider extends FeathersControl implements IDirectionalScrollBar, IF
 	{
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
-
-		if(this._direction == DIRECTION_VERTICAL)
+		
+		if(this._minimum === this._maximum)
 		{
-			var trackScrollableHeight:Number = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
-			this.thumb.x = (this.actualWidth - this.thumb.width) / 2;
-			this.thumb.y = this._minimumPadding + trackScrollableHeight * (1 - (this._value - this._minimum) / (this._maximum - this._minimum));
+			var percentage:Number = 1;
 		}
 		else
 		{
+			percentage = (this._value - this._minimum) / (this._maximum - this._minimum);
+			if(percentage < 0)
+			{
+				percentage = 0;
+			}
+			else if(percentage > 1)
+			{
+				percentage = 1;
+			}
+		}
+		if(this._direction == DIRECTION_VERTICAL)
+		{
+			var trackScrollableHeight:Number = this.actualHeight - this.thumb.height - this._minimumPadding - this._maximumPadding;
+			this.thumb.x = Math.round((this.actualWidth - this.thumb.width) / 2) + this._thumbOffset;
+			//maximum is at the top, so we need to start the y position of
+			//the thumb from the maximum padding
+			this.thumb.y = Math.round(this._maximumPadding + trackScrollableHeight * (1 - percentage));
+		}
+		else //horizontal
+		{
 			var trackScrollableWidth:Number = this.actualWidth - this.thumb.width - this._minimumPadding - this._maximumPadding;
-			this.thumb.x = this._minimumPadding + (trackScrollableWidth * (this._value - this._minimum) / (this._maximum - this._minimum));
-			this.thumb.y = (this.actualHeight - this.thumb.height) / 2;
+			//minimum is at the left, so we need to start the x position of
+			//the thumb from the minimum padding
+			this.thumb.x = Math.round(this._minimumPadding + (trackScrollableWidth * percentage));
+			this.thumb.y = Math.round((this.actualHeight - this.thumb.height) / 2) + this._thumbOffset;
 		}
 	}
 

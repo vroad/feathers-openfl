@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -45,17 +45,19 @@ import feathers.core.TokenList;
  *     target.defaultSkin = new Image( alternateTexture );
  *     // set other styles...
  * });
- *
+ * 
  * var button:Button = new Button();
  * button.label = "Click Me";
  * button.styleProvider = styleProvider;
  * this.addChild(button);
- *
+ * 
  * var alternateButton:Button = new Button()
  * button.label = "No, click me!";
  * alternateButton.styleProvider = styleProvider;
  * alternateButton.styleNameList.add( "alternate-button" );
  * this.addChild( alternateButton );</listing>
+ *
+ * @see ../../../help/skinning.html Skinning Feathers components
  */
 public class StyleNameFunctionStyleProvider implements IStyleProvider
 {

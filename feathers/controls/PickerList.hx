@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -10,12 +10,12 @@ package feathers.controls
 import feathers.controls.popups.CalloutPopUpContentManager;
 import feathers.controls.popups.IPopUpContentManager;
 import feathers.controls.popups.VerticalCenteredPopUpContentManager;
-import feathers.controls.renderers.IListItemRenderer;
 import feathers.core.FeathersControl;
 import feathers.core.IFocusDisplayObject;
 import feathers.core.IToggle;
 import feathers.core.PropertyProxy;
 import feathers.data.ListCollection;
+import feathers.events.CollectionEventType;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import feathers.system.DeviceCapabilities;
@@ -29,6 +29,50 @@ import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+/**
+ * Dispatched when the pop-up list is opened.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType starling.events.Event.OPEN
+ */
+[Event(name="open",type="starling.events.Event")]
+
+/**
+ * Dispatched when the pop-up list is closed.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType starling.events.Event.CLOSE
+ */
+[Event(name="close",type="starling.events.Event")]
 
 /**
  * Dispatched when the selected item changes.
@@ -53,8 +97,9 @@ import starling.events.TouchPhase;
 [Event(name="change",type="starling.events.Event")]
 
 /**
- * A combo-box like list control. Displayed as a button. The list appears
- * on tap as a full-screen overlay.
+ * Displays a button that may be triggered to display a pop-up list.
+ * The list may be customized to display in different ways, such as a
+ * drop-down, in a <code>Callout</code>, or as a modal overlay.
  *
  * <p>The following example creates a picker list, gives it a data provider,
  * tells the item renderer how to interpret the data, and listens for when
@@ -62,7 +107,7 @@ import starling.events.TouchPhase;
  *
  * <listing version="3.0">
  * var list:PickerList = new PickerList();
- *
+ * 
  * list.dataProvider = new ListCollection(
  * [
  *     { text: "Milk", thumbnail: textureAtlas.getTexture( "milk" ) },
@@ -70,7 +115,7 @@ import starling.events.TouchPhase;
  *     { text: "Bread", thumbnail: textureAtlas.getTexture( "bread" ) },
  *     { text: "Chicken", thumbnail: textureAtlas.getTexture( "chicken" ) },
  * ]);
- *
+ * 
  * list.listProperties.itemRendererFactory = function():IListItemRenderer
  * {
  *     var renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
@@ -78,12 +123,12 @@ import starling.events.TouchPhase;
  *     renderer.iconSourceField = "thumbnail";
  *     return renderer;
  * };
- *
+ * 
  * list.addEventListener( Event.CHANGE, list_changeHandler );
- *
+ * 
  * this.addChild( list );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/picker-list
+ * @see ../../../help/picker-list.html How to use the Feathers PickerList component
  */
 public class PickerList extends FeathersControl implements IFocusDisplayObject
 {
@@ -102,7 +147,19 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON:String = "feathers-picker-list-button";
+	public static const DEFAULT_CHILD_STYLE_NAME_BUTTON:String = "feathers-picker-list-button";
+
+	/**
+	 * DEPRECATED: Replaced by <code>PickerList.DEFAULT_CHILD_STYLE_NAME_BUTTON</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see PickerList#DEFAULT_CHILD_STYLE_NAME_BUTTON
+	 */
+	public static const DEFAULT_CHILD_NAME_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the pop-up
@@ -110,7 +167,19 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_LIST:String = "feathers-picker-list-list";
+	public static const DEFAULT_CHILD_STYLE_NAME_LIST:String = "feathers-picker-list-list";
+
+	/**
+	 * DEPRECATED: Replaced by <code>PickerList.DEFAULT_CHILD_STYLE_NAME_LIST</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see PickerList#DEFAULT_CHILD_STYLE_NAME_LIST
+	 */
+	public static const DEFAULT_CHILD_NAME_LIST:String = DEFAULT_CHILD_STYLE_NAME_LIST;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PickerList</code>
@@ -146,32 +215,80 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	}
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the button. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the button name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_BUTTON</code>.
+	 * The default value added to the <code>styleNameList</code> of the
+	 * button. This variable is <code>protected</code> so that sub-classes
+	 * can customize the button style name in their constructors instead of
+	 * using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_BUTTON</code>.
 	 *
-	 * <p>To customize the button name without subclassing, see
-	 * <code>customButtonName</code>.</p>
+	 * <p>To customize the button style name without subclassing, see
+	 * <code>customButtonStyleName</code>.</p>
 	 *
-	 * @see #customButtonName
+	 * @see #customButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var buttonName:String = DEFAULT_CHILD_NAME_BUTTON;
+	protected var buttonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the pop-up list. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the list name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_LIST</code>.
+	 * DEPRECATED: Replaced by <code>buttonStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #buttonStyleName
+	 */
+	protected function get buttonName():String
+	{
+		return this.buttonStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set buttonName(value:String):void
+	{
+		this.buttonStyleName = value;
+	}
+
+	/**
+	 * The default value added to the <code>styleNameList</code> of the
+	 * pop-up list. This variable is <code>protected</code> so that
+	 * sub-classes can customize the list style name in their constructors
+	 * instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_LIST</code>.
 	 *
 	 * <p>To customize the pop-up list name without subclassing, see
-	 * <code>customListName</code>.</p>
+	 * <code>customListStyleName</code>.</p>
 	 *
-	 * @see #customListName
+	 * @see #customListStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var listName:String = DEFAULT_CHILD_NAME_LIST;
+	protected var listStyleName:String = DEFAULT_CHILD_STYLE_NAME_LIST;
+
+	/**
+	 * DEPRECATED: Replaced by <code>listStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #listStyleName
+	 */
+	protected function get listName():String
+	{
+		return this.listStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set listName(value:String):void
+	{
+		this.listStyleName = value;
+	}
 
 	/**
 	 * The button sub-component.
@@ -247,7 +364,21 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 		}
 		var oldSelectedIndex:int = this.selectedIndex;
 		var oldSelectedItem:Object = this.selectedItem;
+		if(this._dataProvider)
+		{
+			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_multipleEventHandler);
+			this._dataProvider.removeEventListener(CollectionEventType.ADD_ITEM, dataProvider_multipleEventHandler);
+			this._dataProvider.removeEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_multipleEventHandler);
+			this._dataProvider.removeEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_multipleEventHandler);
+		}
 		this._dataProvider = value;
+		if(this._dataProvider)
+		{
+			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_multipleEventHandler);
+			this._dataProvider.addEventListener(CollectionEventType.ADD_ITEM, dataProvider_multipleEventHandler);
+			this._dataProvider.addEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_multipleEventHandler);
+			this._dataProvider.addEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_multipleEventHandler);
+		}
 		if(!this._dataProvider || this._dataProvider.length == 0)
 		{
 			this.selectedIndex = -1;
@@ -655,34 +786,63 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customButtonName:String;
+	protected var _customButtonStyleName:String;
 
 	/**
-	 * A name to add to the picker list's button sub-component. Typically
-	 * used by a theme to provide different skins to different picker lists.
+	 * A style name to add to the picker list's button sub-component.
+	 * Typically used by a theme to provide different styles to different
+	 * picker lists.
 	 *
-	 * <p>In the following example, a custom button name is passed to the
-	 * picker list:</p>
+	 * <p>In the following example, a custom button style name is passed to
+	 * the picker list:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.customButtonName = "my-custom-button";</listing>
+	 * list.customButtonStyleName = "my-custom-button";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( Button ).setFunctionForStyleName( "my-custom-button", setCustomButtonStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_BUTTON
+	 * @see #DEFAULT_CHILD_STYLE_NAME_BUTTON
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #buttonFactory
 	 * @see #buttonProperties
 	 */
+	public function get customButtonStyleName():String
+	{
+		return this._customButtonStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customButtonStyleName(value:String):void
+	{
+		if(this._customButtonStyleName == value)
+		{
+			return;
+		}
+		this._customButtonStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customButtonStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customButtonStyleName
+	 */
 	public function get customButtonName():String
 	{
-		return this._customButtonName;
+		return this.customButtonStyleName;
 	}
 
 	/**
@@ -690,12 +850,7 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	public function set customButtonName(value:String):void
 	{
-		if(this._customButtonName == value)
-		{
-			return;
-		}
-		this._customButtonName = value;
-		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
+		this.customButtonStyleName = value;
 	}
 	
 	/**
@@ -704,9 +859,11 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	protected var _buttonProperties:PropertyProxy;
 	
 	/**
-	 * A set of key/value pairs to be passed down to the picker's button
-	 * sub-component. It is a <code>feathers.controls.Button</code>
-	 * instance that is created by <code>buttonFactory</code>.
+	 * An object that stores properties for the picker's button
+	 * sub-component, and the properties will be passed down to the button
+	 * when the picker validates. For a list of available
+	 * properties, refer to
+	 * <a href="Button.html"><code>feathers.controls.Button</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -826,34 +983,63 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customListName:String;
+	protected var _customListStyleName:String;
 
 	/**
-	 * A name to add to the picker list's list sub-component. Typically used
-	 * by a theme to provide different skins to different picker lists.
+	 * A style name to add to the picker list's list sub-component.
+	 * Typically used by a theme to provide different styles to different
+	 * picker lists.
 	 *
-	 * <p>In the following example, a custom list name is passed to the
+	 * <p>In the following example, a custom list style name is passed to the
 	 * picker list:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.customListName = "my-custom-list";</listing>
+	 * list.customListStyleName = "my-custom-list";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style:</p>
+	 * <p>In your theme, you can target this sub-component style name to provide
+	 * different styles than the default:</p>
 	 *
 	 * <listing version="3.0">
 	 * getStyleProviderForClass( List ).setFunctionForStyleName( "my-custom-list", setCustomListStyles );</listing>
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_LIST
+	 * @see #DEFAULT_CHILD_STYLE_NAME_LIST
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
+	public function get customListStyleName():String
+	{
+		return this._customListStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customListStyleName(value:String):void
+	{
+		if(this._customListStyleName == value)
+		{
+			return;
+		}
+		this._customListStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customListStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customListStyleName
+	 */
 	public function get customListName():String
 	{
-		return this._customListName;
+		return this.customListStyleName;
 	}
 
 	/**
@@ -861,12 +1047,7 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 */
 	public function set customListName(value:String):void
 	{
-		if(this._customListName == value)
-		{
-			return;
-		}
-		this._customListName = value;
-		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+		this.customListStyleName = value;
 	}
 	
 	/**
@@ -875,10 +1056,11 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	protected var _listProperties:PropertyProxy;
 	
 	/**
-	 * A set of key/value pairs to be passed down to the picker's pop-up
-	 * list sub-component. The pop-up list is a
-	 * <code>feathers.controls.List</code> instance that is created by
-	 * <code>listFactory</code>.
+	 * An object that stores properties for the picker's pop-up list
+	 * sub-component, and the properties will be passed down to the pop-up
+	 * list when the picker validates. For a list of available
+	 * properties, refer to
+	 * <a href="List.html"><code>feathers.controls.List</code></a>.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -1127,6 +1309,10 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 			this._popUpContentManager.dispose();
 			this._popUpContentManager = null;
 		}
+		//clearing selection now so that the data provider setter won't
+		//cause a selection change that triggers events.
+		this._selectedIndex = -1;
+		this.dataProvider = null;
 		super.dispose();
 	}
 
@@ -1257,6 +1443,11 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.layout();
 		}
 
+		//final validation to avoid juggler next frame issues
+		//also, to ensure that property changes on the pop-up list are fully
+		//committed
+		this.list.validate();
+
 		this.handlePendingActions();
 	}
 
@@ -1354,7 +1545,7 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #button
 	 * @see #buttonFactory
-	 * @see #customButtonName
+	 * @see #customButtonStyleName
 	 */
 	protected function createButton():void
 	{
@@ -1365,14 +1556,14 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 		}
 
 		var factory:Function = this._buttonFactory != null ? this._buttonFactory : defaultButtonFactory;
-		var buttonName:String = this._customButtonName != null ? this._customButtonName : this.buttonName;
+		var buttonStyleName:String = this._customButtonStyleName != null ? this._customButtonStyleName : this.buttonStyleName;
 		this.button = Button(factory());
 		if(this.button is ToggleButton)
 		{
 			//we'll control the value of isSelected manually
 			ToggleButton(this.button).isToggle = false;
 		}
-		this.button.styleNameList.add(buttonName);
+		this.button.styleNameList.add(buttonStyleName);
 		this.button.addEventListener(TouchEvent.TOUCH, button_touchHandler);
 		this.button.addEventListener(Event.TRIGGERED, button_triggeredHandler);
 		this.addChild(this.button);
@@ -1387,7 +1578,7 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #list
 	 * @see #listFactory
-	 * @see #customListName
+	 * @see #customListStyleName
 	 */
 	protected function createList():void
 	{
@@ -1400,13 +1591,12 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 		}
 
 		var factory:Function = this._listFactory != null ? this._listFactory : defaultListFactory;
-		var listName:String = this._customListName != null ? this._customListName : this.listName;
+		var listStyleName:String = this._customListStyleName != null ? this._customListStyleName : this.listStyleName;
 		this.list = List(factory());
 		this.list.focusOwner = this;
-		this.list.styleNameList.add(listName);
+		this.list.styleNameList.add(listStyleName);
 		this.list.addEventListener(Event.CHANGE, list_changeHandler);
-		this.list.addEventListener(FeathersEventType.RENDERER_ADD, list_rendererAddHandler);
-		this.list.addEventListener(FeathersEventType.RENDERER_REMOVE, list_rendererRemoveHandler);
+		this.list.addEventListener(Event.TRIGGERED, list_triggeredHandler);
 		this.list.addEventListener(Event.REMOVED_FROM_STAGE, list_removedFromStageHandler);
 	}
 	
@@ -1570,28 +1760,13 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function list_rendererAddHandler(event:Event, renderer:IListItemRenderer):void
-	{
-		renderer.addEventListener(Event.TRIGGERED, renderer_triggeredHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	protected function list_rendererRemoveHandler(event:Event, renderer:IListItemRenderer):void
-	{
-		renderer.removeEventListener(Event.TRIGGERED, renderer_triggeredHandler);
-	}
-
-	/**
-	 * @private
-	 */
 	protected function popUpContentManager_openHandler(event:Event):void
 	{
 		if(this._toggleButtonOnOpenAndClose && this.button is IToggle)
 		{
 			IToggle(this.button).isSelected = true;
 		}
+		this.dispatchEventWith(Event.OPEN);
 	}
 
 	/**
@@ -1603,6 +1778,7 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			IToggle(this.button).isSelected = false;
 		}
+		this.dispatchEventWith(Event.CLOSE);
 	}
 
 	/**
@@ -1632,13 +1808,24 @@ public class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function renderer_triggeredHandler(event:Event):void
+	protected function list_triggeredHandler(event:Event):void
 	{
 		if(!this._isEnabled)
 		{
 			return;
 		}
 		this.closeList();
+	}
+
+	/**
+	 * @private
+	 */
+	protected function dataProvider_multipleEventHandler():void
+	{
+		//we need to ensure that the pop-up list has received the new
+		//selected index, or it might update the selected index to an
+		//incorrect value after an item is added, removed, or replaced.
+		this.validate();
 	}
 
 	/**

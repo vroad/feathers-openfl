@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -8,17 +8,14 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls
 {
 import feathers.controls.supportClasses.TextFieldViewPort;
-import feathers.core.IFocusDisplayObject;
 import feathers.skins.IStyleProvider;
 
 import flash.text.AntiAliasType;
 import flash.text.GridFitType;
 import flash.text.StyleSheet;
 import flash.text.TextFormat;
-import flash.ui.Keyboard;
 
 import starling.events.Event;
-import starling.events.KeyboardEvent;
 
 /**
  * Dispatched when an anchor (<code>&lt;a&gt;</code>) element in the HTML
@@ -77,11 +74,10 @@ import starling.events.KeyboardEvent;
  * scrollText.text = "Hello World";
  * this.addChild( scrollText );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/scroll-text
- * @see feathers.controls.text.TextFieldTextRenderer
+ * @see ../../../help/scroll-text.html How to use the Feathers ScrollText component
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html flash.text.TextField
  */
-public class ScrollText extends Scroller implements IFocusDisplayObject
+public class ScrollText extends Scroller
 {
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -120,6 +116,13 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
 	public static const SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
+
+	/**
+	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT
+	 *
+	 * @see feathers.controls.Scroller#scrollBarDisplayMode
+	 */
+	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
@@ -162,6 +165,20 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
 	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -208,14 +225,6 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
 		return ScrollText.globalStyleProvider;
-	}
-
-	/**
-	 * @private
-	 */
-	override public function get isFocusEnabled():Boolean
-	{
-		return this._maxVerticalScrollPosition != this._minVerticalScrollPosition && this._isEnabled && this._isFocusEnabled;
 	}
 
 	/**
@@ -650,6 +659,43 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
+	private var _cacheAsBitmap:Boolean = true;
+
+	/**
+	 * If set to <code>true</code>, an internal bitmap representation of the
+	 * <code>TextField</code> on the classic display list is cached by the
+	 * runtime. This caching can increase performance.
+	 *
+	 * <p>In the following example, bitmap caching is disabled:</p>
+	 *
+	 * <listing version="3.0">
+	 * scrollText.cacheAsBitmap = false;</listing>
+	 *
+	 * @default true
+	 *
+	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#cacheAsBitmap Full description of flash.display.DisplayObject.cacheAsBitmap in Adobe's Flash Platform API Reference
+	 */
+	public function get cacheAsBitmap():Boolean
+	{
+		return this._cacheAsBitmap;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set cacheAsBitmap(value:Boolean):void
+	{
+		if(this._cacheAsBitmap == value)
+		{
+			return;
+		}
+		this._cacheAsBitmap = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+	/**
+	 * @private
+	 */
 	private var _condenseWhite:Boolean = false;
 
 	/**
@@ -1065,6 +1111,7 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 			this.textViewPort.backgroundColor = this._backgroundColor;
 			this.textViewPort.border = this._border;
 			this.textViewPort.borderColor = this._borderColor;
+			this.textViewPort.cacheAsBitmap = this._cacheAsBitmap;
 			this.textViewPort.condenseWhite = this._condenseWhite;
 			this.textViewPort.displayAsPassword = this._displayAsPassword;
 			this.textViewPort.gridFitType = this._gridFitType;
@@ -1083,7 +1130,6 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 		}
 
 		super.draw();
-		this.refreshFocusIndicator();
 	}
 
 	/**
@@ -1092,55 +1138,6 @@ public class ScrollText extends Scroller implements IFocusDisplayObject
 	protected function textViewPort_triggeredHandler(event:Event, link:String):void
 	{
 		this.dispatchEventWith(Event.TRIGGERED, false, link);
-	}
-
-	/**
-	 * @private
-	 */
-	override protected function focusInHandler(event:Event):void
-	{
-		super.focusInHandler(event);
-		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	override protected function focusOutHandler(event:Event):void
-	{
-		super.focusOutHandler(event);
-		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
-	{
-		if(event.keyCode == Keyboard.HOME)
-		{
-			this.verticalScrollPosition = this._minVerticalScrollPosition;
-		}
-		else if(event.keyCode == Keyboard.END)
-		{
-			this.verticalScrollPosition = this._maxVerticalScrollPosition;
-		}
-		else if(event.keyCode == Keyboard.PAGE_UP)
-		{
-			this.verticalScrollPosition = Math.max(this._minVerticalScrollPosition, this._verticalScrollPosition - this.viewPort.visibleHeight);
-		}
-		else if(event.keyCode == Keyboard.PAGE_DOWN)
-		{
-			this.verticalScrollPosition = Math.min(this._maxVerticalScrollPosition, this._verticalScrollPosition + this.viewPort.visibleHeight);
-		}
-		else if(event.keyCode == Keyboard.UP)
-		{
-			this.verticalScrollPosition = Math.max(this._minVerticalScrollPosition, this._verticalScrollPosition - this.verticalScrollStep);
-		}
-		else if(event.keyCode == Keyboard.DOWN)
-		{
-			this.verticalScrollPosition = Math.min(this._maxVerticalScrollPosition, this._verticalScrollPosition + this.verticalScrollStep);
-		}
 	}
 }
 }

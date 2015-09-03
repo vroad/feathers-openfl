@@ -1,6 +1,7 @@
 package feathers.examples.layoutExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.NumericStepper;
 import feathers.controls.PanelScreen;
@@ -26,7 +27,6 @@ public class HorizontalLayoutSettingsScreen extends PanelScreen
 	public var settings:HorizontalLayoutSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
 
 	private var _itemCountStepper:NumericStepper;
 	private var _gapStepper:NumericStepper;
@@ -54,6 +54,8 @@ public class HorizontalLayoutSettingsScreen extends PanelScreen
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Horizontal Layout Settings";
 
 		this.layout = new AnchorLayout();
 
@@ -140,18 +142,22 @@ public class HorizontalLayoutSettingsScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_onRelease);
-
-		this.headerProperties.title = "Horizontal Layout Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
-		[
-			this._backButton
-		];
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		];
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Object):void
@@ -164,7 +170,7 @@ public class HorizontalLayoutSettingsScreen extends PanelScreen
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_onRelease(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}

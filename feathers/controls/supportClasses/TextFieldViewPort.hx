@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -26,6 +26,7 @@ import flash.text.TextFormat;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
+import starling.display.DisplayObject;
 import starling.events.Event;
 import starling.utils.MatrixUtil;
 
@@ -334,6 +335,32 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		this._borderColor = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+	/**
+	 * @private
+	 */
+	private var _cacheAsBitmap:Boolean = true;
+
+	/**
+	 * @see feathers.controls.ScrollText#cacheAsBitmap
+	 */
+	public function get cacheAsBitmap():Boolean
+	{
+		return this._cacheAsBitmap;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set cacheAsBitmap(value:Boolean):void
+	{
+		if(this._cacheAsBitmap == value)
+		{
+			return;
+		}
+		this._cacheAsBitmap = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
@@ -723,37 +750,6 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	override public function set visible(value:Boolean):void
-	{
-		if(super.visible == value)
-		{
-			return;
-		}
-		super.visible = value;
-		this._hasPendingRenderChange = true;
-	}
-
-	override public function set alpha(value:Number):void
-	{
-		if(super.alpha == value)
-		{
-			return;
-		}
-		super.alpha = value;
-		this._hasPendingRenderChange = true;
-	}
-
-	private var _hasPendingRenderChange:Boolean = false;
-
-	override public function get hasVisibleArea():Boolean
-	{
-		if(this._hasPendingRenderChange)
-		{
-			return true;
-		}
-		return super.hasVisibleArea;
-	}
-
 	override public function render(support:RenderSupport, parentAlpha:Number):void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
@@ -771,10 +767,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._textFieldContainer.scaleX = matrixToScaleX(HELPER_MATRIX) * scaleFactor;
 		this._textFieldContainer.scaleY = matrixToScaleY(HELPER_MATRIX) * scaleFactor;
 		this._textFieldContainer.rotation = matrixToRotation(HELPER_MATRIX) * 180 / Math.PI;
-		this._textFieldContainer.visible = true;
 		this._textFieldContainer.alpha = parentAlpha * this.alpha;
-		this._textFieldContainer.visible = this.visible;
-		this._hasPendingRenderChange = false;
 		super.render(support, parentAlpha);
 	}
 
@@ -813,6 +806,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 			this._textField.gridFitType = this._gridFitType;
 			this._textField.sharpness = this._sharpness;
 			this._textField.thickness = this._thickness;
+			this._textField.cacheAsBitmap = this._cacheAsBitmap;
 			this._textField.x = this._paddingLeft;
 			this._textField.y = this._paddingTop;
 		}
@@ -903,11 +897,29 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 	private function addedToStageHandler(event:Event):void
 	{
 		Starling.current.nativeStage.addChild(this._textFieldContainer);
+		this.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
 	}
 
 	private function removedFromStageHandler(event:Event):void
 	{
 		Starling.current.nativeStage.removeChild(this._textFieldContainer);
+		this.removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
+	}
+
+	private function enterFrameHandler(event:Event):void
+	{
+		var target:DisplayObject = this;
+		do
+		{
+			if(!target.hasVisibleArea)
+			{
+				this._textFieldContainer.visible = false;
+				return;
+			}
+			target = target.parent;
+		}
+		while(target)
+		this._textFieldContainer.visible = true;
 	}
 
 	protected function textField_linkHandler(event:TextEvent):void

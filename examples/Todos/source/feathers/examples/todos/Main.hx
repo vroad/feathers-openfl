@@ -20,6 +20,9 @@ public class Main extends PanelScreen
 {
 	public function Main()
 	{
+		//set up the theme right away!
+		new MetalWorksMobileTheme();
+		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 		this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
@@ -32,7 +35,6 @@ public class Main extends PanelScreen
 	private function customHeaderFactory():Header
 	{
 		var header:Header = new Header();
-		header.title = "TODOS";
 		header.titleAlign = Header.TITLE_ALIGN_PREFER_LEFT;
 
 		if(!this._input)
@@ -60,7 +62,7 @@ public class Main extends PanelScreen
 		if(!this._toolbar)
 		{
 			this._toolbar = new ScrollContainer();
-			this._toolbar.styleNameList.add(ScrollContainer.ALTERNATE_NAME_TOOLBAR);
+			this._toolbar.styleNameList.add(ScrollContainer.ALTERNATE_STYLE_NAME_TOOLBAR);
 		}
 		else
 		{
@@ -83,7 +85,7 @@ public class Main extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new MetalWorksMobileTheme();
+		this.title = "TODOS";
 
 		this.width = this.stage.stageWidth;
 		this.height = this.stage.stageHeight;

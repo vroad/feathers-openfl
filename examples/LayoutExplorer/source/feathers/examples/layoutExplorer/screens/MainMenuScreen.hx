@@ -2,7 +2,6 @@ package feathers.examples.layoutExplorer.screens
 {
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
-import feathers.controls.ScreenNavigatorItem;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.renderers.IListItemRenderer;
 import feathers.data.ListCollection;
@@ -18,6 +17,8 @@ import starling.textures.Texture;
 
 [Event(name="showAnchor",type="starling.events.Event")]
 
+[Event(name="showFlow",type="starling.events.Event")]
+
 [Event(name="showHorizontal",type="starling.events.Event")]
 
 [Event(name="showVertical",type="starling.events.Event")]
@@ -26,13 +27,17 @@ import starling.textures.Texture;
 
 [Event(name="showTiledColumns",type="starling.events.Event")]
 
+[Event(name="showWaterfall",type="starling.events.Event")]
+
 public class MainMenuScreen extends PanelScreen
 {
 	public static const SHOW_ANCHOR:String = "showAnchor";
+	public static const SHOW_FLOW:String = "showFlow";
 	public static const SHOW_HORIZONTAL:String = "showHorizontal";
 	public static const SHOW_VERTICAL:String = "showVertical";
 	public static const SHOW_TILED_ROWS:String = "showTiledRows";
 	public static const SHOW_TILED_COLUMNS:String = "showTiledColumns";
+	public static const SHOW_WATERFALL:String = "showWaterfall";
 
 	public function MainMenuScreen()
 	{
@@ -49,20 +54,22 @@ public class MainMenuScreen extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
+		this.title = "Layouts in Feathers";
+
 		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
 
 		this.layout = new AnchorLayout();
-
-		this.headerProperties.title = "Layouts in Feathers";
 
 		this._list = new List();
 		this._list.dataProvider = new ListCollection(
 		[
 			{ text: "Anchor", event: SHOW_ANCHOR },
+			{ text: "Flow", event: SHOW_FLOW },
 			{ text: "Horizontal", event: SHOW_HORIZONTAL },
 			{ text: "Vertical", event: SHOW_VERTICAL },
 			{ text: "Tiled Rows", event: SHOW_TILED_ROWS },
 			{ text: "Tiled Columns", event: SHOW_TILED_COLUMNS },
+			{ text: "Waterfall", event: SHOW_WATERFALL },
 		]);
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
@@ -94,7 +101,7 @@ public class MainMenuScreen extends PanelScreen
 		else
 		{
 			this._list.selectedIndex = this.savedSelectedIndex;
-			this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+			this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 		}
 		this.addChild(this._list);
 	}
@@ -104,10 +111,8 @@ public class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 
-	private function owner_transitionCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):void
 	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
 			this._list.selectedIndex = -1;
@@ -118,24 +123,22 @@ public class MainMenuScreen extends PanelScreen
 
 	private function list_changeHandler(event:Event):void
 	{
-		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		var eventType:String = this._list.selectedItem.event as String;
+		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-			if(!screenItem.properties)
-			{
-				screenItem.properties = {};
-			}
-			//we're going to save the position of the list so that when the user
-			//navigates back to this screen, they won't need to scroll back to
-			//the same position manually
-			screenItem.properties.savedVerticalScrollPosition = this._list.verticalScrollPosition;
-			//we'll also save the selected index to temporarily highlight
-			//the previously selected item when transitioning back
-			screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
+			this.dispatchEventWith(eventType);
+			return;
 		}
 
-		var eventType:String = this._list.selectedItem.event as String;
-		this.dispatchEventWith(eventType);
+		//save the list's scroll position and selected index so that we
+		//can restore some context when this screen when we return to it
+		//again later.
+		this.dispatchEventWith(eventType, false,
+		{
+			savedVerticalScrollPosition: this._list.verticalScrollPosition,
+			savedSelectedIndex: this._list.selectedIndex
+		});
+
 	}
 }
 }

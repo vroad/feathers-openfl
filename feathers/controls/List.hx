@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -9,11 +9,13 @@ package feathers.controls
 {
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.supportClasses.ListDataViewPort;
-import feathers.core.IFocusDisplayObject;
+import feathers.core.IFocusContainer;
 import feathers.core.PropertyProxy;
 import feathers.data.ListCollection;
 import feathers.events.CollectionEventType;
 import feathers.layout.ILayout;
+import feathers.layout.ISpinnerLayout;
+import feathers.layout.IVariableVirtualLayout;
 import feathers.layout.VerticalLayout;
 import feathers.skins.IStyleProvider;
 
@@ -44,6 +46,31 @@ import starling.events.KeyboardEvent;
  * @eventType starling.events.Event.CHANGE
  */
 [Event(name="change",type="starling.events.Event")]
+
+/**
+ * Dispatched when the the user taps or clicks an item renderer in the list.
+ * The touch must remain within the bounds of the item renderer on release,
+ * and the list must not have scrolled, to register as a tap or a click.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>The item associated with the item
+ *   renderer that was triggered.</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType starling.events.Event.TRIGGERED
+ */
+[Event(name="triggered",type="starling.events.Event")]
 
 /**
  * Dispatched when an item renderer is added to the list. When the layout is
@@ -95,7 +122,6 @@ import starling.events.KeyboardEvent;
  */
 [Event(name="rendererRemove",type="starling.events.Event")]
 
-[DefaultProperty("dataProvider")]
 /**
  * Displays a one-dimensional list of items. Supports scrolling, custom
  * item renderers, and custom layouts.
@@ -112,7 +138,7 @@ import starling.events.KeyboardEvent;
  *
  * <listing version="3.0">
  * var list:List = new List();
- *
+ * 
  * list.dataProvider = new ListCollection(
  * [
  *     { text: "Milk", thumbnail: textureAtlas.getTexture( "milk" ) },
@@ -120,7 +146,7 @@ import starling.events.KeyboardEvent;
  *     { text: "Bread", thumbnail: textureAtlas.getTexture( "bread" ) },
  *     { text: "Chicken", thumbnail: textureAtlas.getTexture( "chicken" ) },
  * ]);
- *
+ * 
  * list.itemRendererFactory = function():IListItemRenderer
  * {
  *     var renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
@@ -128,15 +154,18 @@ import starling.events.KeyboardEvent;
  *     renderer.iconSourceField = "thumbnail";
  *     return renderer;
  * };
- *
+ * 
  * list.addEventListener( Event.CHANGE, list_changeHandler );
- *
+ * 
  * this.addChild( list );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/list
- * @see GroupedList
+ * @see ../../../help/list.html How to use the Feathers List component
+ * @see ../../../help/default-item-renderers.html How to use the Feathers default item renderer
+ * @see ../../../help/item-renderers.html Creating custom item renderers for the Feathers List and GroupedList components
+ * @see feathers.controls.GroupedList
+ * @see feathers.controls.SpinnerList
  */
-public class List extends Scroller implements IFocusDisplayObject
+public class List extends Scroller implements IFocusContainer
 {
 	/**
 	 * @private
@@ -182,6 +211,13 @@ public class List extends Scroller implements IFocusDisplayObject
 	public static const SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
 
 	/**
+	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT
+	 *
+	 * @see feathers.controls.Scroller#scrollBarDisplayMode
+	 */
+	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+
+	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
@@ -222,6 +258,20 @@ public class List extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
 	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -274,7 +324,34 @@ public class List extends Scroller implements IFocusDisplayObject
 	 */
 	override public function get isFocusEnabled():Boolean
 	{
-		return this._isSelectable && this._isEnabled && this._isFocusEnabled;
+		return (this._isSelectable || this._minHorizontalScrollPosition != this._maxHorizontalScrollPosition ||
+			this._minVerticalScrollPosition != this._maxVerticalScrollPosition) &&
+			this._isEnabled && this._isFocusEnabled;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _isChildFocusEnabled:Boolean = true;
+
+	/**
+	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
+	 *
+	 * @default true
+	 *
+	 * @see #isFocusEnabled
+	 */
+	public function get isChildFocusEnabled():Boolean
+	{
+		return this._isEnabled && this._isChildFocusEnabled;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set isChildFocusEnabled(value:Boolean):void
+	{
+		this._isChildFocusEnabled = value;
 	}
 
 	/**
@@ -314,7 +391,19 @@ public class List extends Scroller implements IFocusDisplayObject
 		{
 			return;
 		}
+		if(!(this is SpinnerList) && value is ISpinnerLayout)
+		{
+			throw new ArgumentError("Layouts that implement the ISpinnerLayout interface should be used with the SpinnerList component.");
+		}
+		if(this._layout)
+		{
+			this._layout.removeEventListener(Event.SCROLL, layout_scrollHandler);
+		}
 		this._layout = value;
+		if(this._layout is IVariableVirtualLayout)
+		{
+			this._layout.addEventListener(Event.SCROLL, layout_scrollHandler);
+		}
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 	
@@ -384,12 +473,18 @@ public class List extends Scroller implements IFocusDisplayObject
 		}
 		if(this._dataProvider)
 		{
+			this._dataProvider.removeEventListener(CollectionEventType.ADD_ITEM, dataProvider_addItemHandler);
+			this._dataProvider.removeEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_removeItemHandler);
+			this._dataProvider.removeEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_replaceItemHandler);
 			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.removeEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
 		this._dataProvider = value;
 		if(this._dataProvider)
 		{
+			this._dataProvider.addEventListener(CollectionEventType.ADD_ITEM, dataProvider_addItemHandler);
+			this._dataProvider.addEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_removeItemHandler);
+			this._dataProvider.addEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_replaceItemHandler);
 			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_resetHandler);
 			this._dataProvider.addEventListener(Event.CHANGE, dataProvider_changeHandler);
 		}
@@ -907,16 +1002,16 @@ public class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _itemRendererName:String;
+	protected var _customItemRendererStyleName:String;
 
 	/**
-	 * A name to add to all item renderers in this list. Typically used by a
-	 * theme to provide different skins to different lists.
+	 * A style name to add to all item renderers in this list. Typically
+	 * used by a theme to provide different skins to different lists.
 	 *
 	 * <p>The following example sets the item renderer name:</p>
 	 *
 	 * <listing version="3.0">
-	 * list.itemRendererName = "my-custom-item-renderer";</listing>
+	 * list.customItemRendererStyleName = "my-custom-item-renderer";</listing>
 	 *
 	 * <p>In your theme, you can target this sub-component name to provide
 	 * different skins than the default style:</p>
@@ -928,9 +1023,37 @@ public class List extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public function get customItemRendererStyleName():String
+	{
+		return this._customItemRendererStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customItemRendererStyleName(value:String):void
+	{
+		if(this._customItemRendererStyleName == value)
+		{
+			return;
+		}
+		this._customItemRendererStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customItemRendererStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customItemRendererStyleName
+	 */
 	public function get itemRendererName():String
 	{
-		return this._itemRendererName;
+		return this.customItemRendererStyleName;
 	}
 
 	/**
@@ -938,12 +1061,7 @@ public class List extends Scroller implements IFocusDisplayObject
 	 */
 	public function set itemRendererName(value:String):void
 	{
-		if(this._itemRendererName == value)
-		{
-			return;
-		}
-		this._itemRendererName = value;
-		this.invalidate(INVALIDATION_FLAG_STYLES);
+		this.customItemRendererStyleName = value;
 	}
 
 	/**
@@ -952,22 +1070,30 @@ public class List extends Scroller implements IFocusDisplayObject
 	protected var _itemRendererProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to all of the list's item
-	 * renderers. These values are shared by each item renderer, so values
-	 * that cannot be shared (such as display objects that need to be added
-	 * to the display list) should be passed to the item renderers using an
-	 * <code>itemRendererFactory</code> or with a theme. The item renderers
-	 * are instances of <code>IListItemRenderer</code>. The available
-	 * properties depend on which <code>IListItemRenderer</code>
-	 * implementation is returned by <code>itemRendererFactory</code>.
+	 * An object that stores properties for all of the list's item
+	 * renderers, and the properties will be passed down to every item
+	 * renderer when the list validates. The available properties
+	 * depend on which <code>IListItemRenderer</code> implementation is
+	 * returned by <code>itemRendererFactory</code>.
+	 *
+	 * <p>By default, the <code>itemRendererFactory</code> will return a
+	 * <code>DefaultListItemRenderer</code> instance. If you aren't using a
+	 * custom item renderer, you can refer to
+	 * <a href="renderers/DefaultListItemRenderer.html"><code>feathers.controls.renderers.DefaultListItemRenderer</code></a>
+	 * for a list of available properties.</p>
+	 *
+	 * <p>These properties are shared by every item renderer, so anything
+	 * that cannot be shared (such as display objects, which cannot be added
+	 * to multiple parents) should be passed to item renderers using the
+	 * <code>itemRendererFactory</code> or in the theme.</p>
 	 *
 	 * <p>The following example customizes some item renderer properties
 	 * (this example assumes that the item renderer's label text renderer
 	 * is a <code>BitmapFontTextRenderer</code>):</p>
 	 *
 	 * <listing version="3.0">
-	 * list.itemRendererProperties.&#64;defaultLabelProperties.textFormat = new BitmapFontTextFormat( bitmapFont );
-	 * list.itemRendererProperties.padding = 20;</listing>
+	 * list.itemRendererProperties.labelField = "text";
+	 * list.itemRendererProperties.accessoryField = "control";</listing>
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -1029,6 +1155,36 @@ public class List extends Scroller implements IFocusDisplayObject
 	}
 
 	/**
+	 * @private
+	 */
+	protected var _keyScrollDuration:Number = 0.25;
+
+	/**
+	 * The duration, in seconds, of the animation when the selected item is
+	 * changed by keyboard navigation and the item scrolls into view.
+	 *
+	 * <p>In the following example, the duration of the animation that
+	 * scrolls the list to a new selected item is set to 500 milliseconds:</p>
+	 *
+	 * <listing version="3.0">
+	 * list.keyScrollDuration = 0.5;</listing>
+	 *
+	 * @default 0.25
+	 */
+	public function get keyScrollDuration():Number
+	{
+		return this._keyScrollDuration;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set keyScrollDuration(value:Number):void
+	{
+		this._keyScrollDuration = value;
+	}
+
+	/**
 	 * The pending item index to scroll to after validating. A value of
 	 * <code>-1</code> means that the scroller won't scroll to an item after
 	 * validating.
@@ -1079,8 +1235,10 @@ public class List extends Scroller implements IFocusDisplayObject
 	 */
 	public function scrollToDisplayIndex(index:int, animationDuration:Number = 0):void
 	{
-		this.pendingHorizontalPageIndex = -1;
-		this.pendingVerticalPageIndex = -1;
+		//cancel any pending scroll to a different page or scroll position.
+		//we can have only one type of pending scroll at a time.
+		this.hasPendingHorizontalPageIndex = false;
+		this.hasPendingVerticalPageIndex = false;
 		this.pendingHorizontalScrollPosition = NaN;
 		this.pendingVerticalScrollPosition = NaN;
 		if(this.pendingItemIndex == index &&
@@ -1103,6 +1261,7 @@ public class List extends Scroller implements IFocusDisplayObject
 		this._selectedIndices.removeEventListeners();
 		this._selectedIndex = -1;
 		this.dataProvider = null;
+		this.layout = null;
 		super.dispose();
 	}
 	
@@ -1135,12 +1294,11 @@ public class List extends Scroller implements IFocusDisplayObject
 
 			var layout:VerticalLayout = new VerticalLayout();
 			layout.useVirtualLayout = true;
-			layout.paddingTop = layout.paddingRight = layout.paddingBottom =
-				layout.paddingLeft = 0;
+			layout.padding = 0;
 			layout.gap = 0;
 			layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
 			layout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
-			this._layout = layout;
+			this.layout = layout;
 		}
 	}
 	
@@ -1151,7 +1309,6 @@ public class List extends Scroller implements IFocusDisplayObject
 	{
 		this.refreshDataViewPortProperties();
 		super.draw();
-		this.refreshFocusIndicator();
 	}
 
 	/**
@@ -1166,7 +1323,7 @@ public class List extends Scroller implements IFocusDisplayObject
 		this.dataViewPort.itemRendererType = this._itemRendererType;
 		this.dataViewPort.itemRendererFactory = this._itemRendererFactory;
 		this.dataViewPort.itemRendererProperties = this._itemRendererProperties;
-		this.dataViewPort.itemRendererName = this._itemRendererName;
+		this.dataViewPort.customItemRendererStyleName = this._customItemRendererStyleName;
 		this.dataViewPort.typicalItem = this._typicalItem;
 		this.dataViewPort.layout = this._layout;
 	}
@@ -1211,48 +1368,40 @@ public class List extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
-	{
-		super.focusInHandler(event);
-		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	override protected function focusOutHandler(event:Event):void
-	{
-		super.focusOutHandler(event);
-		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
+	override protected function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(!this._dataProvider)
 		{
 			return;
 		}
+		var changedSelection:Boolean = false;
 		if(event.keyCode == Keyboard.HOME)
 		{
 			if(this._dataProvider.length > 0)
 			{
 				this.selectedIndex = 0;
+				changedSelection = true;
 			}
 		}
 		else if(event.keyCode == Keyboard.END)
 		{
 			this.selectedIndex = this._dataProvider.length - 1;
+			changedSelection = true;
 		}
 		else if(event.keyCode == Keyboard.UP)
 		{
 			this.selectedIndex = Math.max(0, this._selectedIndex - 1);
+			changedSelection = true;
 		}
 		else if(event.keyCode == Keyboard.DOWN)
 		{
 			this.selectedIndex = Math.min(this._dataProvider.length - 1, this._selectedIndex + 1);
+			changedSelection = true;
+		}
+		if(changedSelection)
+		{
+			this.dataViewPort.getNearestScrollPositionForIndex(this.selectedIndex, HELPER_POINT);
+			this.scrollToPosition(HELPER_POINT.x, HELPER_POINT.y, this._keyScrollDuration);
 		}
 	}
 
@@ -1271,6 +1420,88 @@ public class List extends Scroller implements IFocusDisplayObject
 	{
 		this.horizontalScrollPosition = 0;
 		this.verticalScrollPosition = 0;
+
+		//the entire data provider was replaced. select no item.
+		this._selectedIndices.removeAll();
+	}
+
+	/**
+	 * @private
+	 */
+	protected function dataProvider_addItemHandler(event:Event, index:int):void
+	{
+		if(this._selectedIndex == -1)
+		{
+			return;
+		}
+		var selectionChanged:Boolean = false;
+		var newIndices:Vector.<int> = new <int>[];
+		var indexCount:int = this._selectedIndices.length;
+		for(var i:int = 0; i < indexCount; i++)
+		{
+			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			if(currentIndex >= index)
+			{
+				currentIndex++;
+				selectionChanged = true;
+			}
+			newIndices.push(currentIndex);
+		}
+		if(selectionChanged)
+		{
+			this._selectedIndices.data = newIndices;
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function dataProvider_removeItemHandler(event:Event, index:int):void
+	{
+		if(this._selectedIndex == -1)
+		{
+			return;
+		}
+		var selectionChanged:Boolean = false;
+		var newIndices:Vector.<int> = new <int>[];
+		var indexCount:int = this._selectedIndices.length;
+		for(var i:int = 0; i < indexCount; i++)
+		{
+			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			if(currentIndex == index)
+			{
+				selectionChanged = true;
+			}
+			else
+			{
+				if(currentIndex > index)
+				{
+					currentIndex--;
+					selectionChanged = true;
+				}
+				newIndices.push(currentIndex);
+			}
+		}
+		if(selectionChanged)
+		{
+			this._selectedIndices.data = newIndices;
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function dataProvider_replaceItemHandler(event:Event, index:int):void
+	{
+		if(this._selectedIndex == -1)
+		{
+			return;
+		}
+		var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
+		if(indexOfIndex >= 0)
+		{
+			this._selectedIndices.removeItemAt(indexOfIndex);
+		}
 	}
 	
 	/**
@@ -1292,6 +1523,36 @@ public class List extends Scroller implements IFocusDisplayObject
 			this._selectedIndex = -1;
 		}
 		this.dispatchEventWith(Event.CHANGE);
+	}
+
+	/**
+	 * @private
+	 */
+	private function layout_scrollHandler(event:Event, scrollOffset:Point):void
+	{
+		var layout:IVariableVirtualLayout = IVariableVirtualLayout(this._layout);
+		if(!this.isScrolling || !layout.useVirtualLayout || !layout.hasVariableItemDimensions)
+		{
+			return;
+		}
+
+		var scrollOffsetX:Number = scrollOffset.x;
+		this._startHorizontalScrollPosition += scrollOffsetX;
+		this._horizontalScrollPosition += scrollOffsetX;
+		if(this._horizontalAutoScrollTween)
+		{
+			this._targetHorizontalScrollPosition += scrollOffsetX;
+			this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
+		}
+
+		var scrollOffsetY:Number = scrollOffset.y;
+		this._startVerticalScrollPosition += scrollOffsetY;
+		this._verticalScrollPosition += scrollOffsetY;
+		if(this._verticalAutoScrollTween)
+		{
+			this._targetVerticalScrollPosition += scrollOffsetY;
+			this.throwTo(NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
+		}
 	}
 }
 }

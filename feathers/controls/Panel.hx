@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -25,24 +25,24 @@ import starling.events.Event;
  *
  * <listing version="3.0">
  * var panel:Panel = new Panel();
- * panel.headerProperties.title = "Is it time to party?";
- *
+ * panel.title = "Is it time to party?";
+ * 
  * var layout:HorizontalLayout = new HorizontalLayout();
  * layout.gap = 20;
  * layout.padding = 20;
  * panel.layout = layout;
- *
+ * 
  * this.addChild( panel );
- *
+ * 
  * var yesButton:Button = new Button();
  * yesButton.label = "Yes";
  * panel.addChild( yesButton );
- *
+ * 
  * var noButton:Button = new Button();
  * noButton.label = "No";
  * panel.addChild( noButton );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/panel
+ * @see ../../../help/panel.html How to use the Feathers Panel component
  */
 public class Panel extends ScrollContainer implements IFocusExtras
 {
@@ -51,14 +51,38 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = "feathers-panel-header";
+	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-header";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Panel.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Panel#DEFAULT_CHILD_STYLE_NAME_HEADER
+	 */
+	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the footer.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_FOOTER:String = "feathers-panel-footer";
+	public static const DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-footer";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Panel.DEFAULT_CHILD_STYLE_NAME_FOOTER</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Panel#DEFAULT_CHILD_STYLE_NAME_FOOTER
+	 */
+	public static const DEFAULT_CHILD_NAME_FOOTER:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -141,6 +165,20 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
 
 	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+
+	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
@@ -153,6 +191,20 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
 	public static const DECELERATION_RATE_FAST:Number = 0.99;
+
+	/**
+	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_STAGE
+	 *
+	 * @see feathers.controls.ScrollContainer#autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+
+	/**
+	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_CONTENT
+	 *
+	 * @see feathers.controls.ScrollContainer#autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Panel</code>
@@ -210,32 +262,80 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	protected var footer:IFeathersControl;
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the header.
+	 * The default value added to the <code>styleNameList</code> of the
+	 * header. This variable is <code>protected</code> so that sub-classes
+	 * can customize the header style name in their constructors instead of
+	 * using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
 	 *
-	 * <p>To customize the header name without subclassing, see
-	 * <code>customHeaderName</code>.</p> This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the header name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_HEADER</code>.
+	 * <p>To customize the header style name without subclassing, see
+	 * <code>customHeaderStyleName</code>.</p>
 	 *
-	 * @see #customHeaderName
+	 * @see #customHeaderStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var headerName:String = DEFAULT_CHILD_NAME_HEADER;
+	protected var headerStyleName:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
-	 * The default value added to the <code>styleNameList</code> of the footer. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the footer name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_FOOTER</code>.
+	 * DEPRECATED: Replaced by <code>headerStyleName</code>.
 	 *
-	 * <p>To customize the footer name without subclassing, see
-	 * <code>customFooterName</code>.</p>
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
 	 *
-	 * @see #customFooterName
+	 * @see #headerStyleName
+	 */
+	protected function get headerName():String
+	{
+		return this.headerStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set headerName(value:String):void
+	{
+		this.headerStyleName = value;
+	}
+
+	/**
+	 * The default value added to the <code>styleNameList</code> of the
+	 * footer. This variable is <code>protected</code> so that sub-classes
+	 * can customize the footer style name in their constructors instead of
+	 * using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_FOOTER</code>.
+	 *
+	 * <p>To customize the footer style name without subclassing, see
+	 * <code>customFooterStyleName</code>.</p>
+	 *
+	 * @see #customFooterStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var footerName:String = DEFAULT_CHILD_NAME_FOOTER;
+	protected var footerStyleName:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
+
+	/**
+	 * DEPRECATED: Replaced by <code>footerStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #footerStyleName
+	 */
+	protected function get footerName():String
+	{
+		return this.footerStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set footerName(value:String):void
+	{
+		this.footerStyleName = value;
+	}
 
 	/**
 	 * @private
@@ -243,6 +343,99 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
 		return Panel.globalStyleProvider;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _title:String = null;
+
+	/**
+	 * The panel's title to display in the header.
+	 *
+	 * <p>By default, this value is passed to the <code>title</code>
+	 * property of the header, if that property exists. However, if the
+	 * header is not a <code>feathers.controls.Header</code> instance,
+	 * changing the value of <code>titleField</code> will allow the panel to
+	 * pass its title to a different property on the header instead.</p>
+	 *
+	 * <p>In the following example, a custom header factory is provided to
+	 * the panel:</p>
+	 *
+	 * <listing version="3.0">
+	 * panel.title = "Settings";</listing>
+	 *
+	 * @default null
+	 *
+	 * @see #headerTitleField
+	 * @see #headerFactory
+	 */
+	public function get title():String
+	{
+		return this._title;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set title(value:String):void
+	{
+		if(this._title == value)
+		{
+			return;
+		}
+		this._title = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+	}
+
+
+	/**
+	 * @private
+	 */
+	protected var _headerTitleField:String = "title";
+
+	/**
+	 * A property of the header that should be used to display the panel's
+	 * title.
+	 *
+	 * <p>By default, this value is passed to the <code>title</code>
+	 * property of the header, if that property exists. However, if the
+	 * header is not a <code>feathers.controls.Header</code> instance,
+	 * changing the value of <code>titleField</code> will allow the panel to
+	 * pass the title to a different property name instead.</p>
+	 *
+	 * <p>In the following example, a <code>Button</code> is used as a
+	 * custom header, and the title is passed to its <code>label</code>
+	 * property:</p>
+	 *
+	 * <listing version="3.0">
+	 * panel.headerFactory = function():IFeathersControl
+	 * {
+	 *     return new Button();
+	 * };
+	 * panel.titleField = "label";</listing>
+	 *
+	 * @default "title"
+	 *
+	 * @see #title
+	 * @see #headerFactory
+	 */
+	public function get headerTitleField():String
+	{
+		return this._headerTitleField;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set headerTitleField(value:String):void
+	{
+		if(this._headerTitleField == value)
+		{
+			return;
+		}
+		this._headerTitleField = value;
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -268,21 +461,16 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 * <listing version="3.0">
 	 * panel.headerFactory = function():IFeathersControl
 	 * {
-	 *     var backButton:Button = new Button();
-	 *     backButton.label = "Back";
-	 *     backButton.addEventListener( Event.TRIGGERED, backButton_triggeredHandler );
-	 *
 	 *     var header:Header = new Header();
-	 *     header.leftItems = new &lt;DisplayObject&gt;
-	 *     [
-	 *         backButton
-	 *     ];
+	 *     var closeButton:Button = new Button();
+	 *     closeButton.label = "Close";
+	 *     closeButton.addEventListener( Event.TRIGGERED, closeButton_triggeredHandler );
+	 *     header.rightItems = new &lt;DisplayObject&gt;[ closeButton ];
 	 *     return header;
 	 * };</listing>
 	 *
 	 * @default null
 	 *
-	 * @see feathers.core.FeathersControl
 	 * @see feathers.controls.Header
 	 * @see #headerProperties
 	 */
@@ -310,20 +498,20 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customHeaderName:String;
+	protected var _customHeaderStyleName:String;
 
 	/**
-	 * A name to add to the panel's header sub-component. Typically
-	 * used by a theme to provide different skins to different panels.
+	 * A style name to add to the panel's header sub-component. Typically
+	 * used by a theme to provide different styles to different panels.
 	 *
-	 * <p>In the following example, a custom header name is passed to the
-	 * panel:</p>
+	 * <p>In the following example, a custom header style name is passed to
+	 * the panel:</p>
 	 *
 	 * <listing version="3.0">
-	 * panel.customHeaderName = "my-custom-header";</listing>
+	 * panel.customHeaderStyleName = "my-custom-header";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style (this example assumes that the
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default (this example assumes that the
 	 * header is a <code>Header</code>, but it can be any
 	 * <code>IFeathersControl</code>):</p>
 	 *
@@ -332,14 +520,45 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_HEADER
+	 * @see #DEFAULT_CHILD_STYLE_NAME_HEADER
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #headerFactory
 	 * @see #headerProperties
 	 */
+	public function get customHeaderStyleName():String
+	{
+		return this._customHeaderStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customHeaderStyleName(value:String):void
+	{
+		if(this._customHeaderStyleName == value)
+		{
+			return;
+		}
+		this._customHeaderStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
+		//hack because the super class doesn't know anything about the
+		//header factory
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customHeaderStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customHeaderStyleName
+	 */
 	public function get customHeaderName():String
 	{
-		return this._customHeaderName;
+		return this.customHeaderStyleName;
 	}
 
 	/**
@@ -347,15 +566,7 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	public function set customHeaderName(value:String):void
 	{
-		if(this._customHeaderName == value)
-		{
-			return;
-		}
-		this._customHeaderName = value;
-		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
-		//hack because the super class doesn't know anything about the
-		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.customHeaderStyleName = value;
 	}
 
 	/**
@@ -364,12 +575,19 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	protected var _headerProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the container's
-	 * header sub-component. The header may be any
-	 * <code>feathers.core.IFeathersControl</code> instance, but the default
-	 * is a <code>feathers.controls.Header</code> instance. The available
-	 * properties depend on what type of component is returned by
-	 * <code>headerFactory</code>.
+	 * An object that stores properties for the container's header
+	 * sub-component, and the properties will be passed down to the header
+	 * when the container validates. Any Feathers component may be used as
+	 * the container's header, so the available properties depend on which
+	 * type of component is returned by <code>headerFactory</code>.
+	 *
+	 * <p>By default, the <code>headerFactory</code> will return a
+	 * <code>Header</code> instance. If you aren't using a different type of
+	 * component as the container's header, you can refer to
+	 * <a href="Header.html"><code>feathers.controls.Header</code></a>
+	 * for a list of available properties. Otherwise, refer to the
+	 * appropriate documentation for details about which properties are
+	 * available on the component that you're using as the header.</p>
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -384,7 +602,10 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 * <p>In the following example, the header properties are customized:</p>
 	 *
 	 * <listing version="3.0">
-	 * panel.headerProperties.title = "Hello World";</listing>
+	 * var closeButton:Button = new Button();
+	 * closeButton.label = "Close";
+	 * closeButton.addEventListener( Event.TRIGGERED, closeButton_triggeredHandler );
+	 * panel.headerProperties.rightItems = new &lt;DisplayObject&gt;[ closeButton ];</listing>
 	 *
 	 * @default null
 	 *
@@ -488,20 +709,20 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customFooterName:String;
+	protected var _customFooterStyleName:String;
 
 	/**
-	 * A name to add to the panel's footer sub-component. Typically
-	 * used by a theme to provide different skins to different panels.
+	 * A style name to add to the panel's footer sub-component. Typically
+	 * used by a theme to provide different styles to different panels.
 	 *
-	 * <p>In the following example, a custom footer name is passed to the
-	 * panel:</p>
+	 * <p>In the following example, a custom footer style name is passed to
+	 * the panel:</p>
 	 *
 	 * <listing version="3.0">
-	 * panel.customFooterName = "my-custom-footer";</listing>
+	 * panel.customFooterStyleName = "my-custom-footer";</listing>
 	 *
-	 * <p>In your theme, you can target this sub-component name to provide
-	 * different skins than the default style (this example assumes that the
+	 * <p>In your theme, you can target this sub-component style name to
+	 * provide different styles than the default (this example assumes that the
 	 * footer is a <code>ScrollContainer</code>, but it can be any
 	 * <code>IFeathersControl</code>):</p>
 	 *
@@ -510,14 +731,45 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @default null
 	 *
-	 * @see #DEFAULT_CHILD_NAME_FOOTER
+	 * @see #DEFAULT_CHILD_STYLE_NAME_FOOTER
 	 * @see feathers.core.FeathersControl#styleNameList
 	 * @see #footerFactory
 	 * @see #footerProperties
 	 */
+	public function get customFooterStyleName():String
+	{
+		return this._customFooterStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set customFooterStyleName(value:String):void
+	{
+		if(this._customFooterStyleName == value)
+		{
+			return;
+		}
+		this._customFooterStyleName = value;
+		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
+		//hack because the super class doesn't know anything about the
+		//header factory
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+	}
+
+	/**
+	 * DEPRECATED: Replaced by <code>customFooterStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #customFooterStyleName
+	 */
 	public function get customFooterName():String
 	{
-		return this._customFooterName;
+		return this.customFooterStyleName;
 	}
 
 	/**
@@ -525,15 +777,7 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	public function set customFooterName(value:String):void
 	{
-		if(this._customFooterName == value)
-		{
-			return;
-		}
-		this._customFooterName = value;
-		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
-		//hack because the super class doesn't know anything about the
-		//header factory
-		this.invalidate(INVALIDATION_FLAG_SIZE);
+		this.customFooterStyleName = value;
 	}
 
 	/**
@@ -542,11 +786,13 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	protected var _footerProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the container's
-	 * footer sub-component. The footer may be any
-	 * <code>feathers.core.IFeathersControl</code> instance, but there is no
-	 * default. The available properties depend on what type of component is
-	 * returned by <code>footerFactory</code>.
+	 * An object that stores properties for the container's footer
+	 * sub-component, and the properties will be passed down to the footer
+	 * when the container validates. Any Feathers component may be used as
+	 * the container's footer, so the available properties depend on which
+	 * type of component is returned by <code>footerFactory</code>. Refer to
+	 * the appropriate documentation for details about which properties are
+	 * available on the component that you're using as the footer.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -898,6 +1144,10 @@ public class Panel extends ScrollContainer implements IFocusExtras
 		{
 			return false;
 		}
+		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
+		{
+			return this.setSizeInternal(this.stage.stageWidth, this.stage.stageHeight, false);
+		}
 
 		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
@@ -951,6 +1201,7 @@ public class Panel extends ScrollContainer implements IFocusExtras
 			this.footer.width = oldFooterWidth;
 			this.footer.height = oldFooterHeight;
 		}
+		this._ignoreHeaderResizing = oldIgnoreHeaderResizing;
 		this._ignoreFooterResizing = oldIgnoreFooterResizing;
 
 		return this.setSizeInternal(newWidth, newHeight, false);
@@ -965,7 +1216,7 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #header
 	 * @see #headerFactory
-	 * @see #customHeaderName
+	 * @see #customHeaderStyleName
 	 */
 	protected function createHeader():void
 	{
@@ -979,9 +1230,9 @@ public class Panel extends ScrollContainer implements IFocusExtras
 		}
 
 		var factory:Function = this._headerFactory != null ? this._headerFactory : defaultHeaderFactory;
-		var headerName:String = this._customHeaderName != null ? this._customHeaderName : this.headerName;
+		var headerStyleName:String = this._customHeaderStyleName != null ? this._customHeaderStyleName : this.headerStyleName;
 		this.header = IFeathersControl(factory());
-		this.header.styleNameList.add(headerName);
+		this.header.styleNameList.add(headerStyleName);
 		this.header.addEventListener(FeathersEventType.RESIZE, header_resizeHandler);
 		displayHeader = DisplayObject(this.header);
 		this.addRawChild(displayHeader);
@@ -997,7 +1248,7 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footer
 	 * @see #footerFactory
-	 * @see #customFooterName
+	 * @see #customFooterStyleName
 	 */
 	protected function createFooter():void
 	{
@@ -1014,9 +1265,9 @@ public class Panel extends ScrollContainer implements IFocusExtras
 		{
 			return;
 		}
-		var footerName:String = this._customFooterName != null ? this._customFooterName : this.footerName;
+		var footerStyleName:String = this._customFooterStyleName != null ? this._customFooterStyleName : this.footerStyleName;
 		this.footer = IFeathersControl(this._footerFactory());
-		this.footer.styleNameList.add(footerName);
+		this.footer.styleNameList.add(footerStyleName);
 		this.footer.addEventListener(FeathersEventType.RESIZE, footer_resizeHandler);
 		displayFooter = DisplayObject(this.footer);
 		this.addRawChild(displayFooter);
@@ -1028,6 +1279,10 @@ public class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	protected function refreshHeaderStyles():void
 	{
+		if(Object(this.header).hasOwnProperty(this._headerTitleField))
+		{
+			this.header[this._headerTitleField] = this._title;
+		}
 		for(var propertyName:String in this._headerProperties)
 		{
 			var propertyValue:Object = this._headerProperties[propertyName];
@@ -1098,6 +1353,10 @@ public class Panel extends ScrollContainer implements IFocusExtras
 			this.footer.width = oldFooterWidth;
 			this.footer.height = oldFooterHeight;
 			this._ignoreFooterResizing = oldIgnoreFooterResizing;
+		}
+		else
+		{
+			this._bottomViewPortOffset += this._outerPaddingBottom;
 		}
 	}
 

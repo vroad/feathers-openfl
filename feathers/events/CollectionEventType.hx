@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -13,6 +13,13 @@ package feathers.events
  * constants are meant to be used with <code>dispatchEventWith()</code> and
  * take advantage of the Starling's event object pooling. The object passed
  * to an event listener will be of type <code>starling.events.Event</code>.
+ *
+ * <listing version="3.0">
+ * function listener( event:Event ):void
+ * {
+ *     trace( "add item" );
+ * }
+ * collection.addEventListener( CollectionEventType.ADD_ITEM, listener );</listing>
  */
 public class CollectionEventType
 {

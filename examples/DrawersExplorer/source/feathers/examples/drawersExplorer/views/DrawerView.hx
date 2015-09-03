@@ -35,7 +35,7 @@ public class DrawerView extends ScrollContainer
 		super.initialize();
 
 		this._titleLabel = new Label();
-		this._titleLabel.styleNameList.add(Label.ALTERNATE_NAME_HEADING);
+		this._titleLabel.styleNameList.add(Label.ALTERNATE_STYLE_NAME_HEADING);
 		this._titleLabel.text = this._title;
 		this.addChild(this._titleLabel);
 

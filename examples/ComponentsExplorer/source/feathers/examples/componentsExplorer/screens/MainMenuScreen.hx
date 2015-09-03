@@ -2,7 +2,6 @@ package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
-import feathers.controls.ScreenNavigatorItem;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.renderers.IListItemRenderer;
 import feathers.data.ListCollection;
@@ -11,6 +10,8 @@ import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.skins.StandardIcons;
 import feathers.system.DeviceCapabilities;
+
+import flash.system.Capabilities;
 
 import starling.core.Starling;
 import starling.events.Event;
@@ -30,6 +31,7 @@ import starling.textures.Texture;
 [Event(name="showProgressBar",type="starling.events.Event")]
 [Event(name="showScrollText",type="starling.events.Event")]
 [Event(name="showSlider",type="starling.events.Event")]
+[Event(name="showSpinnerList",type="starling.events.Event")]
 [Event(name="showTabBar",type="starling.events.Event")]
 [Event(name="showTextInput",type="starling.events.Event")]
 [Event(name="showToggles",type="starling.events.Event")]
@@ -37,6 +39,7 @@ import starling.textures.Texture;
 public class MainMenuScreen extends PanelScreen
 {
 	public static const SHOW_ALERT:String = "showAlert";
+	public static const SHOW_AUTO_COMPLETE:String = "showAutoComplete";
 	public static const SHOW_BUTTON:String = "showButton";
 	public static const SHOW_BUTTON_GROUP:String = "showButtonGroup";
 	public static const SHOW_CALLOUT:String = "showCallout";
@@ -50,9 +53,11 @@ public class MainMenuScreen extends PanelScreen
 	public static const SHOW_PROGRESS_BAR:String = "showProgressBar";
 	public static const SHOW_SCROLL_TEXT:String = "showScrollText";
 	public static const SHOW_SLIDER:String = "showSlider";
+	public static const SHOW_SPINNER_LIST:String = "showSpinnerList";
 	public static const SHOW_TAB_BAR:String = "showTabBar";
 	public static const SHOW_TEXT_INPUT:String = "showTextInput";
 	public static const SHOW_TOGGLES:String = "showToggles";
+	public static const SHOW_WEB_VIEW:String = "showWebView";
 	
 	public function MainMenuScreen()
 	{
@@ -69,16 +74,15 @@ public class MainMenuScreen extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
-		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
+		this.title = "Feathers";
 
 		this.layout = new AnchorLayout();
-
-		this.headerProperties.title = "Feathers";
 
 		this._list = new List();
 		this._list.dataProvider = new ListCollection(
 		[
 			{ label: "Alert", event: SHOW_ALERT },
+			{ label: "Auto-complete", event: SHOW_AUTO_COMPLETE },
 			{ label: "Button", event: SHOW_BUTTON },
 			{ label: "Button Group", event: SHOW_BUTTON_GROUP },
 			{ label: "Callout", event: SHOW_CALLOUT },
@@ -92,15 +96,21 @@ public class MainMenuScreen extends PanelScreen
 			{ label: "Progress Bar", event: SHOW_PROGRESS_BAR },
 			{ label: "Scroll Text", event: SHOW_SCROLL_TEXT },
 			{ label: "Slider", event: SHOW_SLIDER},
+			{ label: "Spinner List", event: SHOW_SPINNER_LIST },
 			{ label: "Tab Bar", event: SHOW_TAB_BAR },
 			{ label: "Text Input", event: SHOW_TEXT_INPUT },
 			{ label: "Toggles", event: SHOW_TOGGLES },
 		]);
+		if(Capabilities.playerType == "Desktop") //this means AIR, even for mobile
+		{
+			this._list.dataProvider.addItem( { label: "Web View", event: SHOW_WEB_VIEW } );
+		}
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this._list.clipContent = false;
 		this._list.autoHideBackground = true;
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
 
+		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
 		var itemRendererAccessorySourceFunction:Function = null;
 		if(!isTablet)
 		{
@@ -128,7 +138,7 @@ public class MainMenuScreen extends PanelScreen
 		else
 		{
 			this._list.selectedIndex = this.savedSelectedIndex;
-			this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+			this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 		}
 		this.addChild(this._list);
 	}
@@ -138,10 +148,8 @@ public class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 	
-	private function owner_transitionCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):void
 	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
 			this._list.selectedIndex = -1;
@@ -152,24 +160,21 @@ public class MainMenuScreen extends PanelScreen
 	
 	private function list_changeHandler(event:Event):void
 	{
-		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		var eventType:String = this._list.selectedItem.event as String;
+		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-			if(!screenItem.properties)
-			{
-				screenItem.properties = {};
-			}
-			//we're going to save the position of the list so that when the user
-			//navigates back to this screen, they won't need to scroll back to
-			//the same position manually
-			screenItem.properties.savedVerticalScrollPosition = this._list.verticalScrollPosition;
-			//we'll also save the selected index to temporarily highlight
-			//the previously selected item when transitioning back
-			screenItem.properties.savedSelectedIndex = this._list.selectedIndex;
+			this.dispatchEventWith(eventType);
+			return;
 		}
 
-		var eventType:String = this._list.selectedItem.event as String;
-		this.dispatchEventWith(eventType);
+		//save the list's scroll position and selected index so that we
+		//can restore some context when this screen when we return to it
+		//again later.
+		this.dispatchEventWith(eventType, false,
+		{
+			savedVerticalScrollPosition: this._list.verticalScrollPosition,
+			savedSelectedIndex: this._list.selectedIndex
+		});
 	}
 }
 }

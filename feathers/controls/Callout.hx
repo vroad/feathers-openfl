@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -65,7 +65,7 @@ import starling.events.TouchPhase;
  *
  * <listing version="3.0">
  * button.addEventListener( Event.TRIGGERED, button_triggeredHandler );
- *
+ * 
  * function button_triggeredHandler( event:Event ):void
  * {
  *     var label:Label = new Label();
@@ -74,7 +74,7 @@ import starling.events.TouchPhase;
  *     Callout.show( label, button );
  * }</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/callout
+ * @see ../../../help/callout.html How to use the Feathers Callout component
  */
 public class Callout extends FeathersControl
 {

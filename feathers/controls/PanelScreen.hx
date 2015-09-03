@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -17,6 +17,98 @@ import starling.core.Starling;
 import starling.events.Event;
 
 /**
+ * Dispatched when the transition animation begins as the screen is shown
+ * by the screen navigator.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType feathers.events.FeathersEventType.TRANSITION_IN_START
+ */
+[Event(name="transitionInStart",type="starling.events.Event")]
+
+/**
+ * Dispatched when the transition animation finishes as the screen is shown
+ * by the screen navigator.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType feathers.events.FeathersEventType.TRANSITION_IN_COMPLETE
+ */
+[Event(name="transitionInComplete",type="starling.events.Event")]
+
+/**
+ * Dispatched when the transition animation begins as a different screen is
+ * shown by the screen navigator and this screen is hidden.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType feathers.events.FeathersEventType.TRANSITION_OUT_START
+ */
+[Event(name="transitionOutStart",type="starling.events.Event")]
+
+/**
+ * Dispatched when the transition animation finishes as a different screen
+ * is shown by the screen navigator and this screen is hidden.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType feathers.events.FeathersEventType.TRANSITION_OUT_COMPLETE
+ */
+[Event(name="transitionOutComplete",type="starling.events.Event")]
+
+/**
  * A screen for use with <code>ScreenNavigator</code>, based on <code>Panel</code>
  * in order to provide a header and layout.
  *
@@ -30,27 +122,28 @@ import starling.events.Event;
  * package
  * {
  *     import feathers.controls.PanelScreen;
- *
+ *     
  *     public class CustomScreen extends PanelScreen
  *     {
  *         public function CustomScreen()
  *         {
- *             this.addEventListener( FeathersEventType.INITIALIZE, initializeHandler );
+ *             super();
  *         }
- *
- *         private function initializeHandler( event:Event ):void
+ *         
+ *         override protected function initialize():void
  *         {
- *             //runs once when screen is first added to the stage.
+ *             //runs once when screen is first added to the stage
  *             //a good place to add children and customize the layout
+ *             
+ *             //don't forget to call this!
+ *             super.initialize()
  *         }
  *     }
  * }</listing>
  *
- * @see ScreenNavigator
- * @see ScrollScreen
- * @see Screen
- * @see Panel
- * @see http://wiki.starling-framework.org/feathers/panel-screen
+ * @see ../../../panel-screen.html How to use the Feathers PanelScreen component
+ * @see feathers.controls.StackScreenNavigator
+ * @see feathers.controls.ScreenNavigator
  */
 public class PanelScreen extends Panel implements IScreen
 {
@@ -59,7 +152,26 @@ public class PanelScreen extends Panel implements IScreen
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = "feathers-panel-screen-header";
+	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-screen-header";
+
+	/**
+	 * DEPRECATED: Replaced by <code>PanelScreen.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see PanelScreen#DEFAULT_CHILD_STYLE_NAME_HEADER
+	 */
+	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
+
+	/**
+	 * The default value added to the <code>styleNameList</code> of the footer.
+	 *
+	 * @see feathers.core.FeathersControl#styleNameList
+	 */
+	public static const DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-screen-footer";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -142,6 +254,20 @@ public class PanelScreen extends Panel implements IScreen
 	public static const INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
 
 	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+
+	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
@@ -154,6 +280,20 @@ public class PanelScreen extends Panel implements IScreen
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
 	public static const DECELERATION_RATE_FAST:Number = 0.99;
+
+	/**
+	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_STAGE
+	 *
+	 * @see feathers.controls.ScrollContainer#autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+
+	/**
+	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_CONTENT
+	 *
+	 * @see feathers.controls.ScrollContainer#autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PanelScreen</code>
@@ -171,7 +311,7 @@ public class PanelScreen extends Panel implements IScreen
 	{
 		this.addEventListener(Event.ADDED_TO_STAGE, panelScreen_addedToStageHandler);
 		super();
-		this.headerName = DEFAULT_CHILD_NAME_HEADER;
+		this.headerStyleName = DEFAULT_CHILD_STYLE_NAME_HEADER;
 	}
 
 	/**
@@ -206,12 +346,12 @@ public class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _owner:ScreenNavigator;
+	protected var _owner:Object;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():ScreenNavigator
+	public function get owner():Object
 	{
 		return this._owner;
 	}
@@ -219,7 +359,7 @@ public class PanelScreen extends Panel implements IScreen
 	/**
 	 * @private
 	 */
-	public function set owner(value:ScreenNavigator):void
+	public function set owner(value:Object):void
 	{
 		this._owner = value;
 	}

@@ -14,7 +14,6 @@ import feathers.text.BitmapFontTextFormat;
 
 import starling.display.Image;
 import starling.events.Event;
-import starling.events.ResizeEvent;
 import starling.text.BitmapFont;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
@@ -32,6 +31,9 @@ public class Main extends LayoutGroup
 
 	public function Main()
 	{
+		//the container will fill the whole stage and resize when the stage
+		//resizes.
+		this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
 	}
 
 	private var _iconAtlas:TextureAtlas;
@@ -57,11 +59,6 @@ public class Main extends LayoutGroup
 
 	override protected function initialize():void
 	{
-		//we want this container to fill the whole stage
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
-		//and we'll listen for when the stage resizes to resize the container
-		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-
 		//a nice, fluid layout
 		this.layout = new AnchorLayout();
 
@@ -183,11 +180,6 @@ public class Main extends LayoutGroup
 	protected function pageIndicator_changeHandler(event:Event):void
 	{
 		this._list.scrollToPageIndex(this._pageIndicator.selectedIndex, 0, this._list.pageThrowDuration);
-	}
-
-	protected function stage_resizeHandler(event:ResizeEvent):void
-	{
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}
 }
 }

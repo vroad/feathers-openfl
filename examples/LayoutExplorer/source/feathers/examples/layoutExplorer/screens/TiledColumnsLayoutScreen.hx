@@ -1,6 +1,7 @@
 package feathers.examples.layoutExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.PanelScreen;
 import feathers.events.FeathersEventType;
 import feathers.examples.layoutExplorer.data.TiledColumnsLayoutSettings;
@@ -27,16 +28,16 @@ public class TiledColumnsLayoutScreen extends PanelScreen
 
 	public var settings:TiledColumnsLayoutSettings;
 
-	private var _backButton:Button;
-	private var _settingsButton:Button;
-
 	override protected function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
 
+		this.title = "Tiled Columns Layout";
+
 		var layout:TiledColumnsLayout = new TiledColumnsLayout();
 		layout.paging = this.settings.paging;
+		layout.requestedRowCount = this.settings.requestedRowCount;
 		layout.horizontalGap = this.settings.horizontalGap;
 		layout.verticalGap = this.settings.verticalGap;
 		layout.paddingTop = this.settings.paddingTop;
@@ -60,38 +61,54 @@ public class TiledColumnsLayoutScreen extends PanelScreen
 			this.addChild(quad);
 		}
 
-		this.headerProperties.title = "Tiled Columns Layout";
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.leftItems = new <DisplayObject>
-			[
-				this._backButton
-			];
-
 			this.backButtonHandler = this.onBackButton;
 		}
 
-		this._settingsButton = new Button();
-		this._settingsButton.label = "Settings";
-		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		this.headerFactory = this.customHeaderFactory;
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		var settingsButton:Button = new Button();
+		settingsButton.label = "Settings";
+		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
 		[
-			this._settingsButton
+			settingsButton
 		];
-
-		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+		return header;
 	}
 
 	private function onBackButton():void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
+	}
+
+	private function transitionInCompleteHandler(event:Event):void
+	{
+		this.revealScrollBars();
 	}
 
 	private function backButton_triggeredHandler(event:Event):void
@@ -102,12 +119,6 @@ public class TiledColumnsLayoutScreen extends PanelScreen
 	private function settingsButton_triggeredHandler(event:Event):void
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
-	}
-
-	private function owner_transitionCompleteHandler(event:Event):void
-	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-		this.revealScrollBars();
 	}
 }
 }

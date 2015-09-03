@@ -1,6 +1,7 @@
 package feathers.examples.layoutExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.NumericStepper;
 import feathers.controls.PanelScreen;
@@ -26,9 +27,9 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 	public var settings:TiledRowsLayoutSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
 
 	private var _itemCountStepper:NumericStepper;
+	private var _requestedColumnCountStepper:NumericStepper;
 	private var _pagingPicker:PickerList;
 	private var _horizontalGapStepper:NumericStepper;
 	private var _verticalGapStepper:NumericStepper;
@@ -59,6 +60,8 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		//never forget to call super.initialize()
 		super.initialize();
 
+		this.title = "Tiled Rows Layout Settings";
+
 		this.layout = new AnchorLayout();
 
 		this._itemCountStepper = new NumericStepper();
@@ -68,6 +71,14 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this._itemCountStepper.step = 1;
 		this._itemCountStepper.value = this.settings.itemCount;
 		this._itemCountStepper.addEventListener(Event.CHANGE, itemCountStepper_changeHandler);
+
+		this._requestedColumnCountStepper = new NumericStepper();
+		this._requestedColumnCountStepper.minimum = 0;
+		//the layout can certainly handle more. this value is arbitrary.
+		this._requestedColumnCountStepper.maximum = 10;
+		this._requestedColumnCountStepper.step = 1;
+		this._requestedColumnCountStepper.value = this.settings.requestedColumnCount;
+		this._requestedColumnCountStepper.addEventListener(Event.CHANGE, requestedColumnCountStepper_changeHandler);
 
 		this._pagingPicker = new PickerList();
 		this._pagingPicker.typicalItem = TiledRowsLayout.PAGING_HORIZONTAL;
@@ -174,6 +185,7 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this._list.dataProvider = new ListCollection(
 		[
 			{ label: "Item Count", accessory: this._itemCountStepper },
+			{ label: "Requested Column Count", accessory: this._requestedColumnCountStepper },
 			{ label: "Paging", accessory: this._pagingPicker },
 			{ label: "horizontalAlign", accessory: this._horizontalAlignPicker },
 			{ label: "verticalAlign", accessory: this._verticalAlignPicker },
@@ -189,18 +201,22 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.title = "Tiled Rows Layout Settings";
-		this.headerProperties.leftItems = new <DisplayObject>
-		[
-			this._backButton
-		];
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		];
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Object):void
@@ -213,7 +229,7 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}
@@ -221,6 +237,11 @@ public class TiledRowsLayoutSettingsScreen extends PanelScreen
 	private function itemCountStepper_changeHandler(event:Event):void
 	{
 		this.settings.itemCount = this._itemCountStepper.value;
+	}
+
+	private function requestedColumnCountStepper_changeHandler(event:Event):void
+	{
+		this.settings.requestedColumnCount = this._requestedColumnCountStepper.value;
 	}
 
 	private function pagingPicker_changeHandler(event:Event):void

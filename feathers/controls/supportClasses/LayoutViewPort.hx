@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -252,8 +252,24 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.viewPortBounds.y = 0;
 		this.viewPortBounds.scrollX = this._horizontalScrollPosition;
 		this.viewPortBounds.scrollY = this._verticalScrollPosition;
-		this.viewPortBounds.explicitWidth = this._explicitVisibleWidth;
-		this.viewPortBounds.explicitHeight = this._explicitVisibleHeight;
+		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
+			this._explicitVisibleWidth !== this._explicitVisibleWidth)
+		{
+			this.viewPortBounds.explicitWidth = this.stage.stageWidth;
+		}
+		else
+		{
+			this.viewPortBounds.explicitWidth = this._explicitVisibleWidth;
+		}
+		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
+			this._explicitVisibleHeight !== this._explicitVisibleHeight)
+		{
+			this.viewPortBounds.explicitHeight = this.stage.stageHeight;
+		}
+		else
+		{
+			this.viewPortBounds.explicitHeight = this._explicitVisibleHeight;
+		}
 		this.viewPortBounds.minWidth = this._minVisibleWidth;
 		this.viewPortBounds.minHeight = this._minVisibleHeight;
 		this.viewPortBounds.maxWidth = this._maxVisibleWidth;
@@ -266,12 +282,21 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		var minY:Number = 0;
 		var explicitViewPortWidth:Number = this.viewPortBounds.explicitWidth;
 		var maxX:Number = explicitViewPortWidth;
+		//for some reason, if we don't call a function right here,
+		//compiling with the flex 4.6 SDK will throw a VerifyError
+		//for a stack overflow.
+		//we could change the !== check back to isNaN() instead, but
+		//isNaN() can allocate an object, so we should call a different
+		//function without allocation.
+		this.doNothing();
 		if(maxX !== maxX) //isNaN
 		{
 			maxX = 0;
 		}
 		var explicitViewPortHeight:Number = this.viewPortBounds.explicitHeight;
 		var maxY:Number = explicitViewPortHeight;
+		//see explanation above the previous call to this function.
+		this.doNothing();
 		if(maxY !== maxY) //isNaN
 		{
 			maxY = 0;
@@ -358,5 +383,12 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this._layoutResult.viewPortWidth = this._actualVisibleWidth;
 		this._layoutResult.viewPortHeight = this._actualVisibleHeight;
 	}
+
+	/**
+	 * @private
+	 * This function is here to work around a bug in the Flex 4.6 SDK
+	 * compiler. For explanation, see the places where it gets called.
+	 */
+	protected function doNothing():void {}
 }
 }

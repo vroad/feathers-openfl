@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -42,16 +42,7 @@ import starling.events.EventDispatcher;
  * Positions and sizes items by anchoring their edges (or center points)
  * to their parent container or to other items.
  *
- * <p><strong>Beta Layout:</strong> This is a new layout, and its APIs
- * may need some changes between now and the next version of Feathers to
- * account for overlooked requirements or other issues. Upgrading to future
- * versions of Feathers may involve manual changes to your code that uses
- * this layout. The
- * <a href="http://wiki.starling-framework.org/feathers/deprecation-policy">Feathers deprecation policy</a>
- * will not go into effect until this layout's status is upgraded from
- * beta to stable.</p>
- *
- * @see http://wiki.starling-framework.org/feathers/anchor-layout
+ * @see ../../../help/anchor-layout How to use AnchorLayout with Feathers containers
  * @see AnchorLayoutData
  */
 public class AnchorLayout extends EventDispatcher implements ILayout
@@ -141,6 +132,14 @@ public class AnchorLayout extends EventDispatcher implements ILayout
 		result.viewPortWidth = viewPortWidth;
 		result.viewPortHeight = viewPortHeight;
 		return result;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	{
+		return this.getScrollPositionForIndex(index, items, x, y, width, height, result);
 	}
 
 	/**
@@ -999,6 +998,16 @@ public class AnchorLayout extends EventDispatcher implements ILayout
 		}
 		var bottomAnchorDisplayObject:DisplayObject = layoutData.bottomAnchorDisplayObject;
 		if(bottomAnchorDisplayObject && (items.indexOf(bottomAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(bottomAnchorDisplayObject) >= 0))
+		{
+			return false
+		}
+		var horizontalCenterAnchorDisplayObject:DisplayObject = layoutData.horizontalCenterAnchorDisplayObject;
+		if(horizontalCenterAnchorDisplayObject && (items.indexOf(horizontalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(horizontalCenterAnchorDisplayObject) >= 0))
+		{
+			return false
+		}
+		var verticalCenterAnchorDisplayObject:DisplayObject = layoutData.verticalCenterAnchorDisplayObject;
+		if(verticalCenterAnchorDisplayObject && (items.indexOf(verticalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(verticalCenterAnchorDisplayObject) >= 0))
 		{
 			return false
 		}

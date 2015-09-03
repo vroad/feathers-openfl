@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -8,6 +8,7 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls.text
 {
 import feathers.core.FocusManager;
+import feathers.core.INativeFocusOwner;
 import feathers.core.ITextEditor;
 import feathers.events.FeathersEventType;
 import feathers.utils.text.TextInputNavigation;
@@ -17,8 +18,10 @@ import flash.desktop.Clipboard;
 import flash.desktop.ClipboardFormats;
 import flash.display.DisplayObjectContainer;
 import flash.display.InteractiveObject;
+import flash.display.Sprite;
 import flash.display.Stage;
 import flash.events.Event;
+import flash.events.TextEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextFormatAlign;
@@ -134,19 +137,10 @@ import starling.events.TouchPhase;
  * desktop applications only, and it does not provide support for software
  * keyboards on mobile devices.</p>
  *
- * <p><strong>Beta Component:</strong> This is a new component, and its APIs
- * may need some changes between now and the next version of Feathers to
- * account for overlooked requirements or other issues. Upgrading to future
- * versions of Feathers may involve manual changes to your code that uses
- * this component. The
- * <a href="http://wiki.starling-framework.org/feathers/deprecation-policy">Feathers deprecation policy</a>
- * will not go into effect until this component's status is upgraded from
- * beta to stable.</p>
- *
- * @see http://wiki.starling-framework.org/feathers/text-editors
+ * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html flash.text.engine.TextBlock
  */
-public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor
+public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, INativeFocusOwner
 {
 	/**
 	 * @private
@@ -322,7 +316,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	 *
 	 * <listing version="3.0">
 	 * textEditor.displayAsPassword = true;
-	 * textEditor.passwordCharCode = "窶｢".charCodeAt(0);</listing>
+	 * textEditor.passwordCharCode = "•".charCodeAt(0);</listing>
 	 *
 	 * @default 42 (asterisk)
 	 *
@@ -433,6 +427,22 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		else
 		{
 			super.text = value;
+		}
+		var textLength:int = this._text.length;
+		//we need to account for the possibility that the text is in the
+		//middle of being selected when it changes
+		if(this._selectionAnchorIndex > textLength)
+		{
+			this._selectionAnchorIndex = textLength;
+		}
+		//then, we need to make sure the selected range is still valid
+		if(this._selectionBeginIndex > textLength)
+		{
+			this.selectRange(textLength, textLength);
+		}
+		else if(this._selectionEndIndex > textLength)
+		{
+			this.selectRange(this._selectionBeginIndex, textLength);
 		}
 		this.dispatchEventWith(starling.events.Event.CHANGE);
 	}
@@ -570,38 +580,14 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	protected var _nativeFocus:InteractiveObject;
+	protected var _nativeFocus:Sprite;
 
 	/**
-	 * @private
+	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
-	protected function get nativeFocus():InteractiveObject
+	public function get nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
-	}
-
-	/**
-	 * @private
-	 */
-	protected function set nativeFocus(value:InteractiveObject):void
-	{
-		if(this._nativeFocus == value)
-		{
-			return;
-		}
-		if(this._nativeFocus)
-		{
-			this._nativeFocus.removeEventListener(flash.events.Event.CUT, nativeStage_cutHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.COPY, nativeStage_copyHandler);
-			this._nativeFocus.removeEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler);
-		}
-		this._nativeFocus = value;
-		if(this._nativeFocus)
-		{
-			this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeStage_cutHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeStage_copyHandler, false, 0, true);
-			this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeStage_pasteHandler, false, 0, true);
-		}
 	}
 
 	/**
@@ -619,8 +605,12 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		{
 			return;
 		}
-		if(this.isCreated)
+		if(this._nativeFocus)
 		{
+			if(!this._nativeFocus.parent)
+			{
+				Starling.current.nativeStage.addChild(this._nativeFocus);
+			}
 			var newIndex:int = -1;
 			if(position)
 			{
@@ -652,7 +642,18 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		this._selectionSkin.visible = false;
 		this.stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
-		this.nativeFocus = null;
+		this.removeEventListener(starling.events.Event.ENTER_FRAME, hasFocus_enterFrameHandler);
+		var nativeStage:Stage = Starling.current.nativeStage;
+		if(nativeStage.focus === this._nativeFocus)
+		{
+			//only clear the native focus when our native target has focus
+			//because otherwise another component may lose focus.
+
+			//don't set focus to null here. the focus manager will interpret
+			//that as the runtime automatically clearing focus for other
+			//reasons.
+			nativeStage.focus = nativeStage;
+		}
 		this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 	}
 
@@ -675,9 +676,9 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 			{
 				this._cursorSkin.visible = false;
 			}
-			else if(this._hasFocus)
+			else
 			{
-				this._cursorSkin.visible = this._selectionBeginIndex >= 0;
+				this._cursorSkin.visible = this._hasFocus;
 			}
 			this._selectionSkin.visible = false;
 		}
@@ -686,14 +687,20 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 			this._cursorSkin.visible = false;
 			this._selectionSkin.visible = true;
 		}
-		var cursorIndex:int = endIndex;
-		if(this.touchPointID >= 0 && this._selectionAnchorIndex >= 0 && this._selectionAnchorIndex == endIndex)
-		{
-			cursorIndex = beginIndex;
-		}
-		this.positionCursorAtCharIndex(cursorIndex);
-		this.positionSelectionBackground();
 		this.invalidate(INVALIDATION_FLAG_SELECTED);
+	}
+
+	/**
+	 * @private
+	 */
+	override public function dispose():void
+	{
+		if(this._nativeFocus && this._nativeFocus.parent)
+		{
+			this._nativeFocus.parent.removeChild(this._nativeFocus);
+		}
+		this._nativeFocus = null;
+		super.dispose();
 	}
 
 	/**
@@ -714,6 +721,22 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	 */
 	override protected function initialize():void
 	{
+		if(!this._nativeFocus)
+		{
+			this._nativeFocus = new Sprite();
+			//let's ensure that this can only get focus through code
+			this._nativeFocus.tabEnabled = false;
+			this._nativeFocus.tabChildren = false;
+			this._nativeFocus.mouseEnabled = false;
+			this._nativeFocus.mouseChildren = false;
+			//adds support for mobile
+			this._nativeFocus.needsSoftKeyboard = true;
+		}
+		this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeFocus_cutHandler, false, 0, true);
+		this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeFocus_copyHandler, false, 0, true);
+		this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeFocus_pasteHandler, false, 0, true);
+		this._nativeFocus.addEventListener(flash.events.Event.SELECT_ALL, nativeFocus_selectAllHandler, false, 0, true);
+		this._nativeFocus.addEventListener(TextEvent.TEXT_INPUT, nativeFocus_textInputHandler, false, 0, true);
 		if(!this._cursorSkin)
 		{
 			this.cursorSkin = new Quad(1, 1, 0x000000);
@@ -723,6 +746,18 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 			this.selectionSkin = new Quad(1, 1, 0x000000);
 		}
 		super.initialize();
+	}
+
+	override protected function draw():void
+	{
+		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		super.draw();
+		if(dataInvalid || selectionInvalid)
+		{
+			this.positionCursorAtCharIndex(this.getCursorIndexFromSelectionRange());
+			this.positionSelectionBackground();
+		}
 	}
 
 	/**
@@ -760,19 +795,12 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		var showCursor:Boolean = this._selectionBeginIndex >= 0 && this._selectionBeginIndex == this._selectionEndIndex;
 		this._cursorSkin.visible = showCursor;
 		this._selectionSkin.visible = !showCursor;
-		var nativeStage:Stage = Starling.current.nativeStage;
-		//this is before the hasFocus check because the native stage may
-		//have lost focus when clicking on the text editor, so we may need
-		//to put it back in focus
-		if(!FocusManager.isEnabledForStage(this.stage) && !nativeStage.focus)
+		if(!FocusManager.isEnabledForStage(this.stage))
 		{
-			//something needs to be focused so that we can receive cut,
-			//copy, and paste events
-			nativeStage.focus = nativeStage;
+			//if there isn't a focus manager, we need to set focus manually
+			Starling.current.nativeStage.focus = this._nativeFocus;
 		}
-		//it shouldn't have changed, but let's be sure we're listening to
-		//the right object for cut/copy/paste events.
-		this.nativeFocus = nativeStage.focus;
+		this._nativeFocus.requestSoftKeyboard();
 		if(this._hasFocus)
 		{
 			return;
@@ -781,6 +809,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		//that the focus manager can see, it's not being used anyway.
 		this._hasFocus = true;
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
+		this.addEventListener(starling.events.Event.ENTER_FRAME, hasFocus_enterFrameHandler);
 		this.dispatchEventWith(FeathersEventType.FOCUS_IN);
 	}
 
@@ -898,6 +927,19 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
+	protected function getCursorIndexFromSelectionRange():int
+	{
+		var cursorIndex:int = this._selectionEndIndex;
+		if(this.touchPointID >= 0 && this._selectionAnchorIndex >= 0 && this._selectionAnchorIndex == this._selectionEndIndex)
+		{
+			cursorIndex = this._selectionBeginIndex;
+		}
+		return cursorIndex;
+	}
+
+	/**
+	 * @private
+	 */
 	protected function positionSelectionBackground():void
 	{
 		var startX:Number = this.getXPositionOfCharIndex(this._selectionBeginIndex) - this._textSnapshotScrollX;
@@ -970,9 +1012,27 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
+	protected function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	{
+		var target:DisplayObject = this;
+		do
+		{
+			if(!target.hasVisibleArea)
+			{
+				this.clearFocus();
+				break;
+			}
+			target = target.parent;
+		}
+		while(target)
+	}
+
+	/**
+	 * @private
+	 */
 	protected function textEditor_touchHandler(event:TouchEvent):void
 	{
-		if(!this._isEnabled || !this._isEditable)
+		if(!this._isEnabled)
 		{
 			this.touchPointID = -1;
 			return;
@@ -1047,13 +1107,13 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	 */
 	protected function stage_keyDownHandler(event:KeyboardEvent):void
 	{
-		if(!this._isEnabled || !this._isEditable || this.touchPointID >= 0)
+		if(!this._isEnabled || this.touchPointID >= 0 || event.isDefaultPrevented())
 		{
 			return;
 		}
-		//ignore cut, copy, and paste
+		//ignore select all, cut, copy, and paste
 		var charCode:uint = event.charCode;
-		if(event.ctrlKey && (charCode == 99 || charCode == 118 || charCode == 120)) //c, p, and x
+		if(event.ctrlKey && (charCode == 97 || charCode == 99 || charCode == 118 || charCode == 120)) //a, c, p, and x
 		{
 			return;
 		}
@@ -1163,17 +1223,23 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		}
 		if(newIndex < 0)
 		{
-			var currentValue:String = this._text;
-			if(this._displayAsPassword)
-			{
-				currentValue = this._unmaskedText;
-			}
 			if(event.keyCode == Keyboard.ENTER)
 			{
 				this.dispatchEventWith(FeathersEventType.ENTER);
 				return;
 			}
-			else if(event.keyCode == Keyboard.DELETE)
+			//everything after this point edits the text, so return if the text
+			//editor isn't editable.
+			if(!this._isEditable)
+			{
+				return;
+			}
+			var currentValue:String = this._text;
+			if(this._displayAsPassword)
+			{
+				currentValue = this._unmaskedText;
+			}
+			if(event.keyCode == Keyboard.DELETE)
 			{
 				if(event.altKey || event.ctrlKey)
 				{
@@ -1202,29 +1268,15 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 				}
 				else if(this._selectionBeginIndex > 0)
 				{
-					this.text = currentValue.substr(0, this._selectionBeginIndex - 1) + currentValue.substr(this._selectionEndIndex);
 					newIndex = this._selectionBeginIndex - 1;
-				}
-			}
-			else if(event.ctrlKey && charCode == 97) //a
-			{
-				this.selectRange(0, currentValue.length);
-			}
-			else if(charCode >= 32 && !event.ctrlKey && !event.altKey) //ignore control characters
-			{
-				if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
-				{
-					this.replaceSelectedText(String.fromCharCode(charCode));
-				}
-				else
-				{
-					return;
+					this.text = currentValue.substr(0, this._selectionBeginIndex - 1) + currentValue.substr(this._selectionEndIndex);
 				}
 			}
 		}
 		if(newIndex >= 0)
 		{
 			this.validate();
+			this._selectionAnchorIndex = newIndex;
 			this.selectRange(newIndex, newIndex);
 		}
 	}
@@ -1232,22 +1284,61 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	protected function nativeStage_cutHandler(event:flash.events.Event):void
+	protected function nativeFocus_textInputHandler(event:TextEvent):void
 	{
-		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
+		if(!this._isEditable || !this._isEnabled)
+		{
+			return;
+		}
+		var text:String = event.text;
+		if(text === CARRIAGE_RETURN || text === LINE_FEED)
+		{
+			//ignore new lines
+			return;
+		}
+		var charCode:int = text.charCodeAt(0);
+		if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
+		{
+			this.replaceSelectedText(text);
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function nativeFocus_selectAllHandler(event:flash.events.Event):void
+	{
+		if(!this._isEnabled)
+		{
+			return;
+		}
+		this._selectionAnchorIndex = 0;
+		this.selectRange(0, this._text.length);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function nativeFocus_cutHandler(event:flash.events.Event):void
+	{
+		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
 			return;
 		}
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+		if(!this._isEditable)
+		{
+			return;
+		}
 		this.deleteSelectedText();
 	}
 
 	/**
 	 * @private
 	 */
-	protected function nativeStage_copyHandler(event:flash.events.Event):void
+	protected function nativeFocus_copyHandler(event:flash.events.Event):void
 	{
-		if(!this._isEditable || !this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
+		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
 			return;
 		}
@@ -1257,13 +1348,18 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	protected function nativeStage_pasteHandler(event:flash.events.Event):void
+	protected function nativeFocus_pasteHandler(event:flash.events.Event):void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{
 			return;
 		}
 		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
+		if(pastedText === null)
+		{
+			//the clipboard doesn't contain any text to paste
+			return;
+		}
 		if(this._restrict)
 		{
 			pastedText = this._restrict.filterText(pastedText);

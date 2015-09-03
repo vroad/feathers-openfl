@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -41,17 +41,18 @@ import starling.events.Event;
  * back button:</p>
  *
  * <listing version="3.0">
- * var backButton:Button = new Button();
- * backButton.label = "Back";
- * backButton.styleNameList.add( Button.ALTERNATE_NAME_BACK_BUTTON );
- * backButton.addEventListener( Event.TRIGGERED, backButton_triggeredHandler );
- *
  * var header:Header = new Header();
  * header.title = "I'm a header";
+ * 
+ * var backButton:Button = new Button();
+ * backButton.label = "Back";
+ * backButton.styleNameList.add( Button.ALTERNATE_STYLE_NAME_BACK_BUTTON );
+ * backButton.addEventListener( Event.TRIGGERED, backButton_triggeredHandler );
  * header.leftItems = new &lt;DisplayObject&gt;[ backButton ];
+ * 
  * this.addChild( header );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/header
+ * @see ../../../help/header.html How to use the Feathers Header component
  */
 public class Header extends FeathersControl
 {
@@ -156,7 +157,19 @@ public class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_ITEM:String = "feathers-header-item";
+	public static const DEFAULT_CHILD_STYLE_NAME_ITEM:String = "feathers-header-item";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Header.DEFAULT_CHILD_STYLE_NAME_ITEM</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Header#DEFAULT_CHILD_STYLE_NAME_ITEM
+	 */
+	public static const DEFAULT_CHILD_NAME_ITEM:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header's
@@ -164,7 +177,19 @@ public class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_NAME_TITLE:String = "feathers-header-title";
+	public static const DEFAULT_CHILD_STYLE_NAME_TITLE:String = "feathers-header-title";
+
+	/**
+	 * DEPRECATED: Replaced by <code>Header.DEFAULT_CHILD_STYLE_NAME_TITLE</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see Header#DEFAULT_CHILD_STYLE_NAME_TITLE
+	 */
+	public static const DEFAULT_CHILD_NAME_TITLE:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
 
 	/**
 	 * @private
@@ -192,24 +217,72 @@ public class Header extends FeathersControl
 	}
 
 	/**
-	 * The value added to the <code>styleNameList</code> of the header's title. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the title name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_TITLE</code>.
+	 * The value added to the <code>styleNameList</code> of the header's
+	 * title text renderer. This variable is <code>protected</code> so that
+	 * sub-classes can customize the title text renderer style name in their
+	 * constructors instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_TITLE</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var titleName:String = DEFAULT_CHILD_NAME_TITLE;
+	protected var titleStyleName:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
 
 	/**
-	 * The value added to the <code>styleNameList</code> of the header's items. This
-	 * variable is <code>protected</code> so that sub-classes can customize
-	 * the item name in their constructors instead of using the default
-	 * name defined by <code>DEFAULT_CHILD_NAME_ITEM</code>.
+	 * DEPRECATED: Replaced by <code>titleStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #titleStyleName
+	 */
+	protected function get titleName():String
+	{
+		return this.titleStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set titleName(value:String):void
+	{
+		this.titleStyleName = value;
+	}
+
+	/**
+	 * The value added to the <code>styleNameList</code> of each of the
+	 * header's items. This variable is <code>protected</code> so that
+	 * sub-classes can customize the item style name in their constructors
+	 * instead of using the default style name defined by
+	 * <code>DEFAULT_CHILD_STYLE_NAME_ITEM</code>.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var itemName:String = DEFAULT_CHILD_NAME_ITEM;
+	protected var itemStyleName:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
+
+	/**
+	 * DEPRECATED: Replaced by <code>itemStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #itemStyleName
+	 */
+	protected function get itemName():String
+	{
+		return this.itemStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set itemName(value:String):void
+	{
+		this.itemStyleName = value;
+	}
 
 	/**
 	 * @private
@@ -312,8 +385,6 @@ public class Header extends FeathersControl
 	 * @see #title
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public function get titleFactory():Function
 	{
@@ -387,7 +458,7 @@ public class Header extends FeathersControl
 	 * <listing version="3.0">
 	 * var backButton:Button = new Button();
 	 * backButton.label = "Back";
-	 * backButton.styleNameList.add( Button.ALTERNATE_NAME_BACK_BUTTON );
+	 * backButton.styleNameList.add( Button.ALTERNATE_STYLE_NAME_BACK_BUTTON );
 	 * backButton.addEventListener( Event.TRIGGERED, backButton_triggeredHandler );
 	 * header.leftItems = new &lt;DisplayObject&gt;[ backButton ];</listing>
 	 *
@@ -413,7 +484,7 @@ public class Header extends FeathersControl
 			{
 				if(item is IFeathersControl)
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -475,7 +546,7 @@ public class Header extends FeathersControl
 			{
 				if(item is IFeathersControl)
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -534,7 +605,7 @@ public class Header extends FeathersControl
 			{
 				if(item is IFeathersControl)
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemName);
+					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -954,7 +1025,9 @@ public class Header extends FeathersControl
 	protected var _backgroundDisabledSkin:DisplayObject;
 
 	/**
-	 * A background to display when the header is disabled.
+	 * A background to display when the header is disabled. If the property
+	 * is <code>null</code>, the value of the <code>backgroundSkin</code>
+	 * property will be used instead.
 	 *
 	 * <p>In the following example, the header's disabled background skin is
 	 * set to a <code>Quad</code>:</p>
@@ -998,12 +1071,13 @@ public class Header extends FeathersControl
 	protected var _titleProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the header's title. The
-	 * title is an <code>ITextRenderer</code> instance. The available
-	 * properties depend on which <code>ITextRenderer</code> implementation
-	 * is returned by <code>titleFactory</code>. The most common
-	 * implementations are <code>BitmapFontTextRenderer</code> and
-	 * <code>TextFieldTextRenderer</code>.
+	 * An object that stores properties for the header's title text renderer
+	 * sub-component, and the properties will be passed down to the text
+	 * renderer when the header validates. The available properties
+	 * depend on which <code>ITextRenderer</code> implementation is returned
+	 * by <code>textRendererFactory</code>. Refer to
+	 * <a href="../core/ITextRenderer.html"><code>feathers.core.ITextRenderer</code></a>
+	 * for a list of available text renderer implementations.
 	 *
 	 * <p>In the following example, some properties are set for the header's
 	 * title text renderer (this example assumes that the title text renderer
@@ -1027,8 +1101,6 @@ public class Header extends FeathersControl
 	 *
 	 * @see #titleFactory
 	 * @see feathers.core.ITextRenderer
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public function get titleProperties():Object
 	{
@@ -1192,7 +1264,7 @@ public class Header extends FeathersControl
 				{
 					if(item is IFeathersControl)
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						IFeathersControl(item).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}
@@ -1207,7 +1279,7 @@ public class Header extends FeathersControl
 				{
 					if(item is IFeathersControl)
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						IFeathersControl(item).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}
@@ -1222,7 +1294,7 @@ public class Header extends FeathersControl
 				{
 					if(item is IFeathersControl)
 					{
-						IFeathersControl(item).styleNameList.add(this.itemName);
+						IFeathersControl(item).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}
@@ -1471,7 +1543,7 @@ public class Header extends FeathersControl
 		var factory:Function = this._titleFactory != null ? this._titleFactory : FeathersControl.defaultTextRendererFactory;
 		this.titleTextRenderer = ITextRenderer(factory());
 		var uiTitleRenderer:IFeathersControl = IFeathersControl(this.titleTextRenderer);
-		uiTitleRenderer.styleNameList.add(this.titleName);
+		uiTitleRenderer.styleNameList.add(this.titleStyleName);
 		this.addChild(DisplayObject(uiTitleRenderer));
 	}
 
@@ -1548,11 +1620,16 @@ public class Header extends FeathersControl
 		{
 			return 0;
 		}
+		//first, we check if it's iOS or not. at this time, we only need to
+		//use extra padding on iOS. android and others are fine.
 		var os:String = Capabilities.os;
 		if(os.indexOf(IOS_NAME_PREFIX) != 0 || parseInt(os.substr(IOS_NAME_PREFIX.length, 1), 10) < STATUS_BAR_MIN_IOS_VERSION)
 		{
 			return 0;
 		}
+		//next, we check if the app is full screen or not. if it is full
+		//screen, then the status bar isn't visible, and we don't need the
+		//extra padding.
 		var nativeStage:Stage = Starling.current.nativeStage;
 		if(nativeStage.displayState != StageDisplayState.NORMAL)
 		{
@@ -1560,9 +1637,11 @@ public class Header extends FeathersControl
 		}
 		if(DeviceCapabilities.dpi >= IOS_RETINA_MINIMUM_DPI)
 		{
-			return IOS_RETINA_STATUS_BAR_HEIGHT;
+			//retina devices have more padding than non-retina
+			//we also need to account for contentScaleFactor
+			return IOS_RETINA_STATUS_BAR_HEIGHT / Starling.current.contentScaleFactor;
 		}
-		return IOS_NON_RETINA_STATUS_BAR_HEIGHT;
+		return IOS_NON_RETINA_STATUS_BAR_HEIGHT / Starling.current.contentScaleFactor;
 	}
 
 	/**

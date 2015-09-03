@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -25,7 +25,7 @@ import starling.display.DisplayObject;
  * progress.value = 20;
  * this.addChild( progress );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/progress-bar
+ * @see ../../../help/progress-bar.html How to use the Feathers ProgressBar component
  */
 public class ProgressBar extends FeathersControl
 {
@@ -616,7 +616,6 @@ public class ProgressBar extends FeathersControl
 	 */
 	override protected function draw():void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -629,34 +628,7 @@ public class ProgressBar extends FeathersControl
 
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 
-		if(sizeInvalid || stylesInvalid || stateInvalid)
-		{
-			if(this.currentBackground)
-			{
-				this.currentBackground.width = this.actualWidth;
-				this.currentBackground.height = this.actualHeight;
-			}
-		}
-
-		if(dataInvalid || sizeInvalid || stateInvalid || stylesInvalid)
-		{
-			var percentage:Number = (this._value - this._minimum) / (this._maximum - this._minimum);
-			if(this._direction == DIRECTION_VERTICAL)
-			{
-				this.currentFill.width = this.actualWidth - this._paddingLeft - this._paddingRight;
-				this.currentFill.height = this._originalFillHeight + percentage * (this.actualHeight - this._paddingTop - this._paddingBottom - this._originalFillHeight);
-				this.currentFill.x = this._paddingLeft;
-				this.currentFill.y = this.actualHeight - this._paddingBottom - this.currentFill.height;
-			}
-			else
-			{
-				this.currentFill.width = this._originalFillWidth + percentage * (this.actualWidth - this._paddingLeft - this._paddingRight - this._originalFillWidth);
-				this.currentFill.height = this.actualHeight - this._paddingTop - this._paddingBottom;
-				this.currentFill.x = this._paddingLeft;
-				this.currentFill.y = this._paddingTop;
-			}
-		}
-
+		this.layoutChildren();
 	}
 
 	/**
@@ -758,6 +730,47 @@ public class ProgressBar extends FeathersControl
 		}
 	}
 
+	/**
+	 * @private
+	 */
+	protected function layoutChildren():void
+	{
+		if(this.currentBackground)
+		{
+			this.currentBackground.width = this.actualWidth;
+			this.currentBackground.height = this.actualHeight;
+		}
 
+		if(this._minimum === this._maximum)
+		{
+			var percentage:Number = 1;
+		}
+		else
+		{
+			percentage = (this._value - this._minimum) / (this._maximum - this._minimum);
+			if(percentage < 0)
+			{
+				percentage = 0;
+			}
+			else if(percentage > 1)
+			{
+				percentage = 1;
+			}
+		}
+		if(this._direction == DIRECTION_VERTICAL)
+		{
+			this.currentFill.width = this.actualWidth - this._paddingLeft - this._paddingRight;
+			this.currentFill.height = Math.round(this._originalFillHeight + percentage * (this.actualHeight - this._paddingTop - this._paddingBottom - this._originalFillHeight));
+			this.currentFill.x = this._paddingLeft;
+			this.currentFill.y = this.actualHeight - this._paddingBottom - this.currentFill.height;
+		}
+		else //horizontal
+		{
+			this.currentFill.width = Math.round(this._originalFillWidth + percentage * (this.actualWidth - this._paddingLeft - this._paddingRight - this._originalFillWidth));
+			this.currentFill.height = this.actualHeight - this._paddingTop - this._paddingBottom;
+			this.currentFill.x = this._paddingLeft;
+			this.currentFill.y = this._paddingTop;
+		}
+	}
 }
 }

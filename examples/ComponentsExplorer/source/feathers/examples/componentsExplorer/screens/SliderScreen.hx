@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.PanelScreen;
 import feathers.controls.Slider;
 import feathers.examples.componentsExplorer.data.SliderSettings;
@@ -29,8 +30,6 @@ public class SliderScreen extends PanelScreen
 
 	private var _horizontalSlider:Slider;
 	private var _verticalSlider:Slider;
-	private var _backButton:Button;
-	private var _settingsButton:Button;
 
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
@@ -41,6 +40,8 @@ public class SliderScreen extends PanelScreen
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Slider";
 
 		this._horizontalSlider = new Slider();
 		this._horizontalSlider.direction = Slider.DIRECTION_HORIZONTAL;
@@ -61,34 +62,43 @@ public class SliderScreen extends PanelScreen
 		this._verticalSlider.step = this.settings.step;
 		this._verticalSlider.page = this.settings.page;
 		this._verticalSlider.liveDragging = this.settings.liveDragging;
-		this._verticalSlider.addEventListener(Event.CHANGE, horizontalSlider_changeHandler);
 		this.addChild(this._verticalSlider);
 
-		this.headerProperties.title = "Slider";
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.leftItems = new <DisplayObject>
-			[
-				this._backButton
-			];
-
 			this.backButtonHandler = this.onBackButton;
 		}
+	}
 
-		this._settingsButton = new Button();
-		this._settingsButton.label = "Settings";
-		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
 
-		this.headerProperties.rightItems = new <DisplayObject>
+		var settingsButton:Button = new Button();
+		settingsButton.label = "Settings";
+		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
 		[
-			this._settingsButton
+			settingsButton
 		];
+		return header;
 	}
 	
 	private function onBackButton():void
@@ -98,7 +108,7 @@ public class SliderScreen extends PanelScreen
 	
 	private function horizontalSlider_changeHandler(event:Event):void
 	{
-		trace("slider change:", this._horizontalSlider.value.toString());
+		trace("horizontal slider change:", this._horizontalSlider.value.toString());
 	}
 	
 	private function backButton_triggeredHandler(event:Event):void

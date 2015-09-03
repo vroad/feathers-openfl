@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -31,12 +31,12 @@ public final class Scale9Textures
 	/**
 	 * @private
 	 */
-	private static const SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be greater than the width of the texture.";
+	private static const SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be less than or equal to the width of the texture.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be greater than the height of the texture.";
+	private static const SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be less than or equal to the height of the texture.";
 
 	/**
 	 * @private
@@ -58,14 +58,6 @@ public final class Scale9Textures
 		if(scale9Grid.height <= 0)
 		{
 			throw new ArgumentError(ZERO_HEIGHT_ERROR);
-		}
-		var textureScale:Number = texture.scale;
-		//the scale9Grid does not account for the texture's scale factor,
-		//so we need to scale the grid to match.
-		if(textureScale != 1)
-		{
-			scale9Grid = scale9Grid.clone();
-			scale9Grid.setTo(scale9Grid.x / textureScale, scale9Grid.y / textureScale, scale9Grid.width / textureScale, scale9Grid.height / textureScale);
 		}
 		var textureFrame:Rectangle = texture.frame;
 		if(!textureFrame)

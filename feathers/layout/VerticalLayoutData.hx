@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -19,7 +19,6 @@ import starling.events.EventDispatcher;
  * Extra, optional data used by an <code>VerticalLayout</code> instance to
  * position and size a display object.
  *
- * @see http://wiki.starling-framework.org/feathers/vertical-layout
  * @see VerticalLayout
  * @see ILayoutDisplayObject
  */
@@ -44,8 +43,15 @@ public class VerticalLayoutData extends EventDispatcher implements ILayoutData
 	 * width.
 	 *
 	 * <p>If the value is <code>NaN</code>, this property is ignored.</p>
+	 * 
+	 * <p>Performance tip: If all items in your layout will have 100% width,
+	 * it's better to set the <code>horizontalAlign</code> property of the
+	 * <code>VerticalLayout</code> to
+	 * <code>VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY</code>.</p>
 	 *
 	 * @default NaN
+	 * 
+	 * @see feathers.layout.VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY
 	 */
 	public function get percentWidth():Number
 	{

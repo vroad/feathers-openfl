@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -145,7 +145,7 @@ import flash.geom.Point;
  * Handles the editing of text.
  *
  * @see feathers.controls.TextInput
- * @see http://wiki.starling-framework.org/feathers/text-editors
+ * @see ../../../help/text-editors.html Introduction to Feathers text editors
  */
 public interface ITextEditor extends IFeathersControl, ITextBaselineControl
 {

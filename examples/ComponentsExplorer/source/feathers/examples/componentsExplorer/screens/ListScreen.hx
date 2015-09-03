@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.renderers.DefaultListItemRenderer;
@@ -31,13 +32,13 @@ public class ListScreen extends PanelScreen
 	public var settings:ListSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
-	private var _settingsButton:Button;
 
 	override protected function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "List";
 
 		this.layout = new AnchorLayout();
 
@@ -76,38 +77,52 @@ public class ListScreen extends PanelScreen
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChild(this._list);
 
-		this.headerProperties.title = "List";
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.leftItems = new <DisplayObject>
-			[
-				this._backButton
-			];
-
 			this.backButtonHandler = this.onBackButton;
 		}
 
-		this._settingsButton = new Button();
-		this._settingsButton.label = "Settings";
-		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
+	}
 
-		this.headerProperties.rightItems = new <DisplayObject>
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		var settingsButton:Button = new Button();
+		settingsButton.label = "Settings";
+		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
 		[
-			this._settingsButton
+			settingsButton
 		];
-
-		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+		return header;
 	}
 	
 	private function onBackButton():void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
+	}
+
+	private function transitionInCompleteHandler(event:Event):void
+	{
+		this._list.revealScrollBars();
 	}
 	
 	private function backButton_triggeredHandler(event:Event):void
@@ -123,13 +138,7 @@ public class ListScreen extends PanelScreen
 	private function list_changeHandler(event:Event):void
 	{
 		var selectedIndices:Vector.<int> = this._list.selectedIndices;
-		trace("List onChange:", selectedIndices.length > 0 ? selectedIndices : this._list.selectedIndex);
-	}
-
-	private function owner_transitionCompleteHandler(event:Event):void
-	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-		this._list.revealScrollBars();
+		trace("List change:", selectedIndices.length > 0 ? selectedIndices : this._list.selectedIndex);
 	}
 }
 }

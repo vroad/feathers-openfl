@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -45,7 +45,7 @@ import starling.events.EventDispatcher;
  * columns layout will change in width as the number of items increases or
  * decreases.
  *
- * @see http://wiki.starling-framework.org/feathers/tiled-columns-layout
+ * @see ../../../help/tiled-columns-layout.html How to use TiledColumnsLayout with Feathers containers
  */
 public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 {
@@ -422,10 +422,15 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 
 	/**
 	 * Requests that the layout uses a specific number of rows in a column,
-	 * if possible. If the view port's explicit or maximum height is not
-	 * large enough to fit the requested number of rows, it will use fewer.
-	 * Set to <code>0</code> to calculate the number of rows automatically
-	 * based on width and height.
+	 * if possible. Set to <code>0</code> to calculate the maximum of
+	 * rows that will fit in the available space.
+	 *
+	 * <p>If the view port's explicit or maximum height is not large enough
+	 * to fit the requested number of rows, it will use fewer. If the
+	 * view port doesn't have an explicit height and the maximum height is
+	 * equal to <code>Number.POSITIVE_INFINITY</code>, the height will be
+	 * calculated automatically to fit the exact number of requested
+	 * rows.</p>
 	 *
 	 * <p>If paging is enabled, this value will be used to calculate the
 	 * number of rows in a page. If paging isn't enabled, this value will
@@ -702,46 +707,6 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _manageVisibility:Boolean = false;
-
-	/**
-	 * Determines if items will be set invisible if they are outside the
-	 * view port. If <code>true</code>, you will not be able to manually
-	 * change the <code>visible</code> property of any items in the layout.
-	 *
-	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
-	 * starting with Feathers 2.0. It will be removed in a future version of
-	 * Feathers according to the standard
-	 * <a href="http://wiki.starling-framework.org/feathers/deprecation-policy">Feathers deprecation policy</a>.
-	 * Originally, the <code>manageVisibility</code> property could be used
-	 * to improve performance of non-virtual layouts by hiding items that
-	 * were outside the view port. However, other performance improvements
-	 * have made it so that setting <code>manageVisibility</code> can now
-	 * sometimes hurt performance instead of improving it.</p>
-	 *
-	 * @default false
-	 */
-	public function get manageVisibility():Boolean
-	{
-		return this._manageVisibility;
-	}
-
-	/**
-	 * @private
-	 */
-	public function set manageVisibility(value:Boolean):void
-	{
-		if(this._manageVisibility == value)
-		{
-			return;
-		}
-		this._manageVisibility = value;
-		this.dispatchEventWith(Event.CHANGE);
-	}
-
-	/**
-	 * @private
-	 */
 	protected var _useVirtualLayout:Boolean = true;
 
 	/**
@@ -929,7 +894,7 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 	 */
 	public function get requiresLayoutOnScroll():Boolean
 	{
-		return this._manageVisibility || this._useVirtualLayout;
+		return this._useVirtualLayout;
 	}
 
 	/**
@@ -1038,6 +1003,11 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 			availableHeight = maxHeight;
 			verticalTileCount = (maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
 		}
+		else if(this._requestedRowCount > 0)
+		{
+			verticalTileCount = this._requestedRowCount;
+			availableHeight = this._paddingTop + this._paddingBottom + ((tileHeight + this._verticalGap) * verticalTileCount) - this._verticalGap;
+		}
 		else
 		{
 			//put everything in one column
@@ -1143,11 +1113,6 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 					var discoveredItemsLastIndex:int = this._useVirtualLayout ? (this._discoveredItemsCache.length - 1) : (itemIndex - 1);
 					this.applyHorizontalAlign(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex, totalPageWidth, availablePageWidth);
 					this.applyVerticalAlign(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex, totalPageHeight, availablePageHeight);
-					if(this.manageVisibility)
-					{
-						this.applyVisible(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex,
-							boundsX + scrollX, scrollX + availableWidth, boundsY + scrollY, scrollY + availableHeight);
-					}
 					this._discoveredItemsCache.length = 0;
 					discoveredItemsCachePushIndex = 0;
 				}
@@ -1232,11 +1197,6 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 			discoveredItemsLastIndex = this._useVirtualLayout ? (this._discoveredItemsCache.length - 1) : (i - 1);
 			this.applyHorizontalAlign(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex, totalPageWidth, availablePageWidth);
 			this.applyVerticalAlign(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex, totalPageHeight, availablePageHeight);
-			if(this.manageVisibility)
-			{
-				this.applyVisible(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex,
-					boundsX + scrollX, scrollX + availableWidth, boundsY + scrollY, scrollY + availableHeight);
-			}
 		}
 
 		var totalWidth:Number = positionX + tileWidth + this._paddingRight;
@@ -1281,11 +1241,6 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 			discoveredItemsLastIndex = discoveredItems.length - 1;
 			this.applyHorizontalAlign(discoveredItems, 0, discoveredItemsLastIndex, totalWidth, availableWidth);
 			this.applyVerticalAlign(discoveredItems, 0, discoveredItemsLastIndex, totalHeight, availableHeight);
-			if(this.manageVisibility)
-			{
-				this.applyVisible(discoveredItems, discoveredItemsFirstIndex, discoveredItemsLastIndex,
-					boundsX + scrollX, scrollX + availableWidth, boundsY + scrollY, scrollY + availableHeight);
-			}
 		}
 		this._discoveredItemsCache.length = 0;
 
@@ -1373,6 +1328,11 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 		{
 			availableHeight = maxHeight;
 			verticalTileCount = (maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
+		}
+		else if(this._requestedRowCount > 0)
+		{
+			verticalTileCount = this._requestedRowCount;
+			availableHeight = this._paddingTop + this._paddingBottom + ((tileHeight + this._verticalGap) * verticalTileCount) - this._verticalGap;
 		}
 		else
 		{
@@ -1553,123 +1513,19 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
+		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
-		if(!result)
-		{
-			result = new Point();
-		}
-		if(this._useVirtualLayout)
-		{
-			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
-		}
-
-		var itemCount:int = items.length;
-		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
-		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
-		//a virtual layout assumes that all items are the same size as
-		//the typical item, so we don't need to measure every item in
-		//that case
-		if(!this._useVirtualLayout)
-		{
-			for(var i:int = 0; i < itemCount; i++)
-			{
-				var item:DisplayObject = items[i];
-				if(!item)
-				{
-					continue;
-				}
-				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
-				{
-					continue;
-				}
-				var itemWidth:Number = item.width;
-				var itemHeight:Number = item.height;
-				if(itemWidth > tileWidth)
-				{
-					tileWidth = itemWidth;
-				}
-				if(itemHeight > tileHeight)
-				{
-					tileHeight = itemHeight;
-				}
-			}
-		}
-		if(tileWidth < 0)
-		{
-			tileWidth = 0;
-		}
-		if(tileHeight < 0)
-		{
-			tileHeight = 0;
-		}
-		if(this._useSquareTiles)
-		{
-			if(tileWidth > tileHeight)
-			{
-				tileHeight = tileWidth;
-			}
-			else if(tileHeight > tileWidth)
-			{
-				tileWidth = tileHeight;
-			}
-		}
-		var verticalTileCount:int = (height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
-		if(verticalTileCount < 1)
-		{
-			verticalTileCount = 1;
-		}
-		else if(this._requestedRowCount > 0 && verticalTileCount > this._requestedRowCount)
-		{
-			verticalTileCount = this._requestedRowCount;
-		}
-		if(this._paging != PAGING_NONE)
-		{
-			var horizontalTileCount:int = (width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
-			if(horizontalTileCount < 1)
-			{
-				horizontalTileCount = 1;
-			}
-			var perPage:Number = horizontalTileCount * verticalTileCount;
-			var pageIndex:int = index / perPage;
-			if(this._paging == PAGING_HORIZONTAL)
-			{
-				result.x = pageIndex * width;
-				result.y = 0;
-			}
-			else
-			{
-				result.x = 0;
-				result.y = pageIndex * height;
-			}
-		}
-		else
-		{
-			result.x = this._paddingLeft + ((tileWidth + this._horizontalGap) * int(index / verticalTileCount)) - Math.round((width - tileWidth) / 2);
-			result.y = 0;
-		}
-		return result;
+		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, true, scrollX, scrollY);
 	}
 
 	/**
-	 * @private
+	 * @inheritDoc
 	 */
-	protected function applyVisible(items:Vector.<DisplayObject>, startIndex:int, endIndex:int, startX:Number, endX:Number, startY:Number, endY:Number):void
+	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>,
+		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
-		for(var i:int = startIndex; i <= endIndex; i++)
-		{
-			var item:DisplayObject = items[i];
-			if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
-			{
-				continue;
-			}
-			var itemX:Number = item.x - item.pivotX;
-			var itemY:Number = item.y - item.pivotY;
-			item.visible = ((itemX + item.width) >= startX) && (itemX < endX) &&
-				((itemY + item.height) >= startY) && (itemY < endY);
-		}
+		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, false);
 	}
 
 	/**
@@ -2115,6 +1971,134 @@ public class TiledColumnsLayout extends EventDispatcher implements IVirtualLayou
 		{
 			IValidating(this._typicalItem).validate();
 		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function calculateScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number,
+		width:Number, height:Number, result:Point = null, nearest:Boolean = false, scrollX:Number = 0, scrollY:Number = 0):Point
+	{
+		if(!result)
+		{
+			result = new Point();
+		}
+		if(this._useVirtualLayout)
+		{
+			this.prepareTypicalItem();
+			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		}
+
+		var itemCount:int = items.length;
+		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
+		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		//a virtual layout assumes that all items are the same size as
+		//the typical item, so we don't need to measure every item in
+		//that case
+		if(!this._useVirtualLayout)
+		{
+			for(var i:int = 0; i < itemCount; i++)
+			{
+				var item:DisplayObject = items[i];
+				if(!item)
+				{
+					continue;
+				}
+				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+				{
+					continue;
+				}
+				var itemWidth:Number = item.width;
+				var itemHeight:Number = item.height;
+				if(itemWidth > tileWidth)
+				{
+					tileWidth = itemWidth;
+				}
+				if(itemHeight > tileHeight)
+				{
+					tileHeight = itemHeight;
+				}
+			}
+		}
+		if(tileWidth < 0)
+		{
+			tileWidth = 0;
+		}
+		if(tileHeight < 0)
+		{
+			tileHeight = 0;
+		}
+		if(this._useSquareTiles)
+		{
+			if(tileWidth > tileHeight)
+			{
+				tileHeight = tileWidth;
+			}
+			else if(tileHeight > tileWidth)
+			{
+				tileWidth = tileHeight;
+			}
+		}
+		var verticalTileCount:int = (height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
+		if(verticalTileCount < 1)
+		{
+			verticalTileCount = 1;
+		}
+		else if(this._requestedRowCount > 0 && verticalTileCount > this._requestedRowCount)
+		{
+			verticalTileCount = this._requestedRowCount;
+		}
+		if(this._paging != PAGING_NONE)
+		{
+			var horizontalTileCount:int = (width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
+			if(horizontalTileCount < 1)
+			{
+				horizontalTileCount = 1;
+			}
+			var perPage:Number = horizontalTileCount * verticalTileCount;
+			var pageIndex:int = index / perPage;
+			if(this._paging == PAGING_HORIZONTAL)
+			{
+				result.x = pageIndex * width;
+				result.y = 0;
+			}
+			else
+			{
+				result.x = 0;
+				result.y = pageIndex * height;
+			}
+		}
+		else
+		{
+			var resultX:Number = this._paddingLeft + ((tileWidth + this._horizontalGap) * int(index / verticalTileCount));
+			if(nearest)
+			{
+				var rightPosition:Number = resultX - (width - tileWidth);
+				if(scrollX >= rightPosition && scrollX <= resultX)
+				{
+					//keep the current scroll position because the item is already
+					//fully visible
+					resultX = scrollX;
+				}
+				else
+				{
+					var leftDifference:Number = Math.abs(resultX - scrollX);
+					var rightDifference:Number = Math.abs(rightPosition - scrollX);
+					if(rightDifference < leftDifference)
+					{
+						resultX = rightPosition;
+					}
+				}
+			}
+			else
+			{
+				resultX -= Math.round((width - tileWidth) / 2)
+			}
+			result.x = resultX;
+			result.y = 0;
+		}
+		return result;
 	}
 }
 }

@@ -1,6 +1,7 @@
 package feathers.examples.displayObjects.themes
 {
 import feathers.controls.Button;
+import feathers.controls.PanelScreen;
 import feathers.examples.displayObjects.screens.Scale3ImageScreen;
 import feathers.examples.displayObjects.screens.Scale9ImageScreen;
 import feathers.examples.displayObjects.screens.TiledImageScreen;
@@ -61,16 +62,31 @@ public class DisplayObjectExplorerTheme extends MetalWorksMobileTheme
 
 	private function setScale9ImageScreenStyles(screen:Scale9ImageScreen):void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
+		screen.horizontalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
+		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
 		screen.padding = 30 * this.scale;
 	}
 
 	private function setScale3ImageScreenStyles(screen:Scale3ImageScreen):void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
+		screen.horizontalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
+		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
 		screen.padding = 30 * this.scale;
 	}
 
 	private function setTiledImageScreenStyles(screen:TiledImageScreen):void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
+		screen.horizontalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
+		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_OFF;
 		screen.padding = 30 * this.scale;
 	}
 }

@@ -2,6 +2,7 @@ package feathers.examples.componentsExplorer.screens
 {
 import feathers.controls.Button;
 import feathers.controls.Check;
+import feathers.controls.Header;
 import feathers.controls.LayoutGroup;
 import feathers.controls.PanelScreen;
 import feathers.controls.Radio;
@@ -37,7 +38,6 @@ public class ToggleScreen extends PanelScreen
 	private var _radio2:Radio;
 	private var _radio3:Radio;
 	private var _radioGroup:ToggleGroup;
-	private var _backButton:Button;
 
 	override protected function get defaultStyleProvider():IStyleProvider
 	{
@@ -65,6 +65,8 @@ public class ToggleScreen extends PanelScreen
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Toggles";
 
 		this._toggleSwitchContainer = new LayoutGroup();
 		this.addChild(this._toggleSwitchContainer);
@@ -113,22 +115,33 @@ public class ToggleScreen extends PanelScreen
 		this._radioGroup.addItem(this._radio3);
 		this._radioContainer.addChild(this._radio3);
 
-		this.headerProperties.title = "Toggles";
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.leftItems = new <DisplayObject>
-			[
-				this._backButton
-			];
-
 			this.backButtonHandler = this.onBackButton;
 		}
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		return header;
 	}
 
 	override protected function draw():void
