@@ -51,7 +51,7 @@ class TextInputRestrict
 	/**
 	 * @private
 	 */
-	private var _restricts:Vector.<RegExp>
+	private var _restricts:Array<RegExp>
 
 	/**
 	 * @private

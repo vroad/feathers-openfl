@@ -140,7 +140,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	private var _popEvents:Vector.<String>;
+	private var _popEvents:Array<String>;
 
 	/**
 	 * A list of events that will cause the screen navigator to pop this
@@ -149,7 +149,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopEvent()
 	 * @see #removePopEvent()
 	 */
-	public function get_popEvents():Vector.<String>
+	public function get_popEvents():Array<String>
 	{
 		return this._popEvents;
 	}
@@ -157,7 +157,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popEvents(value:Vector.<String>):Void
+	public function set popEvents(value:Array<String>):Void
 	{
 		if(!value)
 		{
@@ -169,7 +169,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	private var _popToRootEvents:Vector.<String>;
+	private var _popToRootEvents:Array<String>;
 
 	/**
 	 * A list of events that will cause the screen navigator to clear its
@@ -178,7 +178,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopToRootEvent()
 	 * @see #removePopToRootEvent()
 	 */
-	public function get_popToRootEvents():Vector.<String>
+	public function get_popToRootEvents():Array<String>
 	{
 		return this._popToRootEvents;
 	}
@@ -186,7 +186,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popToRootEvents(value:Vector.<String>):Void
+	public function set popToRootEvents(value:Array<String>):Void
 	{
 		this._popToRootEvents = value;
 	}

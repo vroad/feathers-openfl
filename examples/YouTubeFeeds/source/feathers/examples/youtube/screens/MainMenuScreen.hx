@@ -145,7 +145,7 @@ class MainMenuScreen extends PanelScreen
 	{
 		this._message.visible = false;
 
-		var items:Vector.<VideoFeed> = new <VideoFeed>[];
+		var items:Array<VideoFeed> = new <VideoFeed>[];
 		var categories:Array = result.items as Array;
 		var categoryCount:Int = categories.length;
 		for(var i:Int = 0; i < categoryCount; i++)

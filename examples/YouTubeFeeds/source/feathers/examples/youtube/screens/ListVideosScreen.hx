@@ -202,7 +202,7 @@ class ListVideosScreen extends PanelScreen
 		var useHighQualityThumbnail:Bool = Math.min(stage.stageWidth, stage.stageHeight) > 350;
 		var useHTTP:Bool = Capabilities.playerType != "Desktop";
 		
-		var items:Vector.<VideoDetails> = new <VideoDetails>[];
+		var items:Array<VideoDetails> = new <VideoDetails>[];
 		var videos:Array = result.items as Array;
 		var videoCount:Int = videos.length;
 		for(var i:Int = 0; i < videoCount; i++)

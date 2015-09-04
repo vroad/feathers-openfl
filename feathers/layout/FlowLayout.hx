@@ -116,7 +116,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _rowItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _rowItems:Array<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * Quickly sets both <code>horizontalGap</code> and <code>verticalGap</code>
@@ -553,7 +553,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		//this function is very long because it may be called every frame,
 		//in some situations. testing revealed that splitting this function
@@ -985,7 +985,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		result = this.calculateMaxScrollYAndRowHeightOfIndex(index, items, x, y, width, height, result);
@@ -1021,7 +1021,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		result = this.calculateMaxScrollYAndRowHeightOfIndex(index, items, x, y, width, height, result);
 		var maxScrollY:Float = result.x;
@@ -1105,7 +1105,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
 		if(result)
 		{
@@ -1215,7 +1215,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollYAndRowHeightOfIndex(index:Int, items:Vector.<DisplayObject>,
+	private function calculateMaxScrollYAndRowHeightOfIndex(index:Int, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(!result)

@@ -94,7 +94,7 @@ package feathers.themes
 		 * @private
 		 * The paths to each of the assets, relative to the base path.
 		 */
-		private var assetPaths:Vector.<String> = new <String>
+		private var assetPaths:Array<String> = new <String>
 		[
 			"images/aeon_desktop.xml",
 			"images/aeon_desktop.png"

@@ -285,7 +285,7 @@ class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private var _stack:Vector.<StackItem> = new <StackItem>[];
+	private var _stack:Array<StackItem> = new <StackItem>[];
 
 	/**
 	 * @private
@@ -295,12 +295,12 @@ class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private var _popScreenEvents:Vector.<String>;
+	private var _popScreenEvents:Array<String>;
 
 	/**
 	 * @private
 	 */
-	private var _popToRootScreenEvents:Vector.<String>;
+	private var _popToRootScreenEvents:Array<String>;
 
 	/**
 	 * @private
@@ -578,7 +578,7 @@ class StackScreenNavigator extends BaseScreenNavigator
 		{
 			//creating a copy because this array could change before the screen
 			//is removed.
-			var popEvents:Vector.<String> = item.popEvents.slice();
+			var popEvents:Array<String> = item.popEvents.slice();
 			var eventCount:Int = popEvents.length;
 			for(var i:Int = 0; i < eventCount; i++)
 			{
@@ -599,7 +599,7 @@ class StackScreenNavigator extends BaseScreenNavigator
 		{
 			//creating a copy because this array could change before the screen
 			//is removed.
-			var popToRootEvents:Vector.<String> = item.popToRootEvents.slice();
+			var popToRootEvents:Array<String> = item.popToRootEvents.slice();
 			eventCount = popToRootEvents.length;
 			for(i = 0; i < eventCount; i++)
 			{

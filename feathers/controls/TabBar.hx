@@ -74,7 +74,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var DEFAULT_TAB_FIELDS:Vector.<String> = new <String>
+	inline private static var DEFAULT_TAB_FIELDS:Array<String> = new <String>
 	[
 		"defaultIcon",
 		"upIcon",
@@ -353,17 +353,17 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Array<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	private var activeTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var activeTabs:Array<ToggleButton> = new <ToggleButton>[];
 
 	/**
 	 * @private
 	 */
-	private var inactiveTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var inactiveTabs:Array<ToggleButton> = new <ToggleButton>[];
 
 	/**
 	 * @private
@@ -1698,7 +1698,7 @@ class TabBar extends FeathersControl
 		this._ignoreSelectionChanges = true;
 		var oldSelectedIndex:Int = this.toggleGroup.selectedIndex;
 		this.toggleGroup.removeAllItems();
-		var temp:Vector.<ToggleButton> = this.inactiveTabs;
+		var temp:Array<ToggleButton> = this.inactiveTabs;
 		this.inactiveTabs = this.activeTabs;
 		this.activeTabs = temp;
 		this.activeTabs.length = 0;

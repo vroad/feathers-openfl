@@ -88,7 +88,7 @@ class MetalWorksMobileThemeWithAssetManager extends BaseMetalWorksMobileTheme
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	private var assetPaths:Vector.<String> = new <String>
+	private var assetPaths:Array<String> = new <String>
 	[
 		"images/metalworks_mobile.xml",
 		"images/metalworks_mobile.png"
@@ -149,7 +149,7 @@ class MetalWorksMobileThemeWithAssetManager extends BaseMetalWorksMobileTheme
 		{
 			assetsBasePath += "/";
 		}
-		var assetPaths:Vector.<String> = this.assetPaths;
+		var assetPaths:Array<String> = this.assetPaths;
 		var assetCount:Int = assetPaths.length;
 		for(i in 0 ... assetCount)
 		{

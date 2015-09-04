@@ -74,7 +74,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _barValues:Vector.<Float> = new <Float>[];
+	private var _barValues:Array<Float> = new <Float>[];
 
 	/**
 	 * @private

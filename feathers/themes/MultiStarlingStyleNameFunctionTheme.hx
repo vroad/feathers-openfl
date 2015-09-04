@@ -46,7 +46,7 @@ class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	private var _starlings:Vector.<Starling> = new <Starling>[];
+	private var _starlings:Array<Starling> = new <Starling>[];
 
 	/**
 	 * @private

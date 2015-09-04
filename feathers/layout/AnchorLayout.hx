@@ -138,7 +138,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.getScrollPositionForIndex(index, items, x, y, width, height, result);
 	}
@@ -146,7 +146,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		if(result == null)
 		{
@@ -169,7 +169,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var mainVector:Array<DisplayObject> = items;
 		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.measureVector(items, otherVector, HELPER_POINT);
-		var currentLength:Float = otherVector.length;
+		var currentLength:Float = otherArraylength;
 		while(currentLength > 0)
 		{
 			if(otherVector == this._helperVector1)
@@ -184,7 +184,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 			}
 			this.measureVector(mainVector, otherVector, HELPER_POINT);
 			var oldLength:Float = currentLength;
-			currentLength = otherVector.length;
+			currentLength = otherArraylength;
 			if(oldLength == currentLength)
 			{
 				this._helperVector1.splice(0, this._helperVector1.length);
@@ -599,7 +599,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var mainVector:Array<DisplayObject> = items;
 		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.layoutVector(items, otherVector, x, y, width, height);
-		var currentLength:Float = otherVector.length;
+		var currentLength:Float = otherArraylength;
 		while(currentLength > 0)
 		{
 			if(otherVector == this._helperVector1)
@@ -614,7 +614,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 			}
 			this.layoutVector(mainVector, otherVector, x, y, width, height);
 			var oldLength:Float = currentLength;
-			currentLength = otherVector.length;
+			currentLength = otherArraylength;
 			if(oldLength == currentLength)
 			{
 				this._helperVector1.splice(0, this._helperVector1.length);

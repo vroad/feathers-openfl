@@ -1092,7 +1092,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//this array will contain all items that are not null. see the
 		//comment above where the discoveredItemsCache is initialized for
 		//details about why this is important.
-		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
+		var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalWidth:Float = maxItemWidth + this._paddingLeft + this._paddingRight;
@@ -1619,7 +1619,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
@@ -1676,7 +1676,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
@@ -1722,7 +1722,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, explicitWidth:Float,
+	private function validateItems(items:Array<DisplayObject>, explicitWidth:Float,
 		minWidth:Float, maxWidth:Float, distributedHeight:Float):Void
 	{
 		//if the alignment is justified, then we want to set the width of
@@ -1978,7 +1978,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollYOfIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Float
+	private function calculateMaxScrollYOfIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Float
 	{
 		if(this._useVirtualLayout)
 		{

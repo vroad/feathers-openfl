@@ -1462,7 +1462,7 @@ class List extends Scroller implements IFocusContainer
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<Int> = new <Int>[];
+		var newIndices:Array<Int> = new <Int>[];
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{
@@ -1490,7 +1490,7 @@ class List extends Scroller implements IFocusContainer
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<Int> = new <Int>[];
+		var newIndices:Array<Int> = new <Int>[];
 		var indexCount:Int = this._selectedIndices.length;
 		for(var i:Int = 0; i < indexCount; i++)
 		{

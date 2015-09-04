@@ -1566,7 +1566,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, true, scrollX, scrollY);
@@ -1575,7 +1575,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>,
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, false);
@@ -2037,7 +2037,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float,
+	private function calculateScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float,
 		width:Float, height:Float, result:Point = null, nearest:Bool = false, scrollX:Float = 0, scrollY:Float = 0):Point
 	{
 		if(!result)

@@ -350,7 +350,7 @@ class DefaultFocusManager implements IFocusManager
 		if(Std.is(container, IFocusExtras))
 		{
 			var focusWithExtras:IFocusExtras = IFocusExtras(container);
-			var extras:Vector.<DisplayObject> = focusWithExtras.focusExtrasAfter;
+			var extras:Array<DisplayObject> = focusWithExtras.focusExtrasAfter;
 			if(extras)
 			{
 				skip = false;
@@ -473,7 +473,7 @@ class DefaultFocusManager implements IFocusManager
 		if(Std.is(container, IFocusExtras))
 		{
 			var focusWithExtras:IFocusExtras = IFocusExtras(container);
-			var extras:Vector.<DisplayObject> = focusWithExtras.focusExtrasBefore;
+			var extras:Array<DisplayObject> = focusWithExtras.focusExtrasBefore;
 			if(extras)
 			{
 				skip = false;

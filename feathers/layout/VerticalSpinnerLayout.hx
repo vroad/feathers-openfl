@@ -86,7 +86,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Array<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
@@ -530,7 +530,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		//this function is very long because it may be called every frame,
 		//in some situations. testing revealed that splitting this function
@@ -631,7 +631,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		//this array will contain all items that are not null. see the
 		//comment above where the discoveredItemsCache is initialized for
 		//details about why this is important.
-		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
+		var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalWidth:Float = maxItemWidth + this._paddingLeft + this._paddingRight;
@@ -887,7 +887,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
 		if(result)
 		{
@@ -969,7 +969,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		//normally, this isn't acceptable, but because the selection is
@@ -980,7 +980,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		this.prepareTypicalItem(width - this._paddingLeft - this._paddingRight);
 		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
@@ -998,7 +998,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, justifyWidth:Float, distributedHeight:Float):Void
+	private function validateItems(items:Array<DisplayObject>, justifyWidth:Float, distributedHeight:Float):Void
 	{
 		//if the alignment is justified, then we want to set the width of
 		//each item before validating because setting one dimension may

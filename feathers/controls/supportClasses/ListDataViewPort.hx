@@ -219,9 +219,9 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IListItemRenderer;
 	private var _unrenderedData:Array = [];
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
-	private var _inactiveRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
-	private var _activeRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
+	private var _layoutItems:Array<DisplayObject> = new <DisplayObject>[];
+	private var _inactiveRenderers:Array<IListItemRenderer> = new <IListItemRenderer>[];
+	private var _activeRenderers:Array<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _rendererMap:Dictionary = new Dictionary(true);
 	private var _minimumItemCount:Int;
 

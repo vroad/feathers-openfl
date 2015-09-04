@@ -42,7 +42,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	inline private static var INVALIDATION_FLAG_ITEM_RENDERER_FACTORY:String = "itemRendererFactory";
 
 	inline private static var HELPER_POINT:Point = new Point();
-	inline private static var HELPER_VECTOR:Vector.<Int> = new <Int>[];
+	inline private static var HELPER_VECTOR:Array<Int> = new <Int>[];
 
 	public function GroupedListDataViewPort()
 	{
@@ -197,7 +197,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function get_horizontalScrollStep():Float
 	{
-		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
+		var renderers:Array<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
 		{
 			renderers = this._activeFirstItemRenderers;
@@ -226,7 +226,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function get_verticalScrollStep():Float
 	{
-		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
+		var renderers:Array<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
 		{
 			renderers = this._activeFirstItemRenderers;
@@ -253,43 +253,43 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return itemRendererHeight;
 	}
 
-	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Array<DisplayObject> = new <DisplayObject>[];
 
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IGroupedListItemRenderer;
 
-	private var _unrenderedItems:Vector.<Int> = new <Int>[];
-	private var _inactiveItemRenderers:Vector.<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
-	private var _activeItemRenderers:Vector.<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
+	private var _unrenderedItems:Array<Int> = new <Int>[];
+	private var _inactiveItemRenderers:Array<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
+	private var _activeItemRenderers:Array<IGroupedListItemRenderer> = new <IGroupedListItemRenderer>[];
 	private var _itemRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedFirstItems:Vector.<Int>;
-	private var _inactiveFirstItemRenderers:Vector.<IGroupedListItemRenderer>;
-	private var _activeFirstItemRenderers:Vector.<IGroupedListItemRenderer>;
+	private var _unrenderedFirstItems:Array<Int>;
+	private var _inactiveFirstItemRenderers:Array<IGroupedListItemRenderer>;
+	private var _activeFirstItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _firstItemRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedLastItems:Vector.<Int>;
-	private var _inactiveLastItemRenderers:Vector.<IGroupedListItemRenderer>;
-	private var _activeLastItemRenderers:Vector.<IGroupedListItemRenderer>;
+	private var _unrenderedLastItems:Array<Int>;
+	private var _inactiveLastItemRenderers:Array<IGroupedListItemRenderer>;
+	private var _activeLastItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _lastItemRendererMap:Dictionary;
 
-	private var _unrenderedSingleItems:Vector.<Int>;
-	private var _inactiveSingleItemRenderers:Vector.<IGroupedListItemRenderer>;
-	private var _activeSingleItemRenderers:Vector.<IGroupedListItemRenderer>;
+	private var _unrenderedSingleItems:Array<Int>;
+	private var _inactiveSingleItemRenderers:Array<IGroupedListItemRenderer>;
+	private var _activeSingleItemRenderers:Array<IGroupedListItemRenderer>;
 	private var _singleItemRendererMap:Dictionary;
 
-	private var _unrenderedHeaders:Vector.<Int> = new <Int>[];
-	private var _inactiveHeaderRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
-	private var _activeHeaderRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _unrenderedHeaders:Array<Int> = new <Int>[];
+	private var _inactiveHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _activeHeaderRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
 	private var _headerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _unrenderedFooters:Vector.<Int> = new <Int>[];
-	private var _inactiveFooterRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
-	private var _activeFooterRenderers:Vector.<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _unrenderedFooters:Array<Int> = new <Int>[];
+	private var _inactiveFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
+	private var _activeFooterRenderers:Array<IGroupedListHeaderOrFooterRenderer> = new <IGroupedListHeaderOrFooterRenderer>[];
 	private var _footerRendererMap:Dictionary = new Dictionary(true);
 
-	private var _headerIndices:Vector.<Int> = new <Int>[];
-	private var _footerIndices:Vector.<Int> = new <Int>[];
+	private var _headerIndices:Array<Int> = new <Int>[];
+	private var _footerIndices:Array<Int> = new <Int>[];
 
 	private var _isScrolling:Bool = false;
 
@@ -1219,8 +1219,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			{
 				if(isFirst)
 				{
-					var activeRenderers:Vector.<IGroupedListItemRenderer> = this._activeFirstItemRenderers;
-					var inactiveRenderers:Vector.<IGroupedListItemRenderer> = this._inactiveFirstItemRenderers;
+					var activeRenderers:Array<IGroupedListItemRenderer> = this._activeFirstItemRenderers;
+					var inactiveRenderers:Array<IGroupedListItemRenderer> = this._inactiveFirstItemRenderers;
 					var type:Class = this._firstItemRendererType ? this._firstItemRendererType : this._itemRendererType;
 					var factory:Function = this._firstItemRendererFactory != null ? this._firstItemRendererFactory : this._itemRendererFactory;
 					var name:String = this._customFirstItemRendererStyleName ? this._customFirstItemRendererStyleName : this._customItemRendererStyleName;
@@ -1394,7 +1394,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Bool):Void
 	{
-		var temp:Vector.<IGroupedListItemRenderer> = this._inactiveItemRenderers;
+		var temp:Array<IGroupedListItemRenderer> = this._inactiveItemRenderers;
 		this._inactiveItemRenderers = this._activeItemRenderers;
 		this._activeItemRenderers = temp;
 		if(this._activeItemRenderers.length > 0)
@@ -1431,7 +1431,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				throw new IllegalOperationError("GroupedListDataViewPort: active single renderers should be empty.");
 			}
 		}
-		var temp2:Vector.<IGroupedListHeaderOrFooterRenderer> = this._inactiveHeaderRenderers;
+		var temp2:Array<IGroupedListHeaderOrFooterRenderer> = this._inactiveHeaderRenderers;
 		this._inactiveHeaderRenderers = this._activeHeaderRenderers;
 		this._activeHeaderRenderers = temp2;
 		if(this._activeHeaderRenderers.length > 0)
@@ -1848,8 +1848,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 	}
 
 	private function findRendererForItem(item:Object, groupIndex:Int, itemIndex:Int, layoutIndex:Int,
-		rendererMap:Dictionary, inactiveRenderers:Vector.<IGroupedListItemRenderer>,
-		activeRenderers:Vector.<IGroupedListItemRenderer>, unrenderedItems:Vector.<Int>):Void
+		rendererMap:Dictionary, inactiveRenderers:Array<IGroupedListItemRenderer>,
+		activeRenderers:Array<IGroupedListItemRenderer>, unrenderedItems:Array<Int>):Void
 	{
 		var itemRenderer:IGroupedListItemRenderer = IGroupedListItemRenderer(rendererMap[item]);
 		if(itemRenderer)
@@ -2217,8 +2217,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function createItemRenderer(inactiveRenderers:Vector.<IGroupedListItemRenderer>,
-		activeRenderers:Vector.<IGroupedListItemRenderer>, rendererMap:Dictionary,
+	private function createItemRenderer(inactiveRenderers:Array<IGroupedListItemRenderer>,
+		activeRenderers:Array<IGroupedListItemRenderer>, rendererMap:Dictionary,
 		type:Class, factory:Function, name:String, item:Object, groupIndex:Int, itemIndex:Int,
 		layoutIndex:Int, useCache:Bool, isTemporary:Bool):IGroupedListItemRenderer
 	{

@@ -193,7 +193,7 @@ public var scale:Float;
 }
 
 
-var BUCKETS:Vector.<ScreenDensityBucket> = new <ScreenDensityBucket>
+var BUCKETS:Array<ScreenDensityBucket> = new <ScreenDensityBucket>
 [
 new ScreenDensityBucket(120, 0.75), //ldpi
 new ScreenDensityBucket(160, 1), //mdpi

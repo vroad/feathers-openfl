@@ -91,7 +91,7 @@ class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	private var assetPaths:Vector.<String> = new <String>
+	private var assetPaths:Array<String> = new <String>
 	[
 		"images/minimal_mobile.xml",
 		"images/minimal_mobile.png",
@@ -156,7 +156,7 @@ class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 		{
 			assetsBasePath += "/";
 		}
-		var assetPaths:Vector.<String> = this.assetPaths;
+		var assetPaths:Array<String> = this.assetPaths;
 		var assetCount:Int = assetPaths.length;
 		for(i in 0 ... assetCount)
 		{

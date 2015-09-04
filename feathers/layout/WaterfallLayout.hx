@@ -483,7 +483,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function layout(items:Vector.<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
+	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
 		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
 		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
@@ -557,7 +557,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			columnCount = 1;
 		}
-		var columnHeights:Vector.<Float> = new <Float>[];
+		var columnHeights:Array<Float> = new <Float>[];
 		for(var i:Int = 0; i < columnCount; i++)
 		{
 			columnHeights[i] = this._paddingTop;
@@ -805,7 +805,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				var columnHeights:Vector.<Float> = new <Float>[];
+				var columnHeights:Array<Float> = new <Float>[];
 				for(var i:Int = 0; i < columnCount; i++)
 				{
 					columnHeights[i] = this._paddingTop;
@@ -885,7 +885,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
 		if(result)
 		{
@@ -920,7 +920,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		var resultLastIndex:Int = 0;
 		if(this._hasVariableItemDimensions)
 		{
-			var columnHeights:Vector.<Float> = new <Float>[];
+			var columnHeights:Array<Float> = new <Float>[];
 			for(var i:Int = 0; i < columnCount; i++)
 			{
 				columnHeights[i] = this._paddingTop;
@@ -1057,7 +1057,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
@@ -1114,7 +1114,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
@@ -1150,7 +1150,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollYOfIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Float
+	private function calculateMaxScrollYOfIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Float
 	{
 		if(items.length == 0)
 		{
@@ -1193,7 +1193,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			columnCount = 1;
 		}
-		var columnHeights:Vector.<Float> = new <Float>[];
+		var columnHeights:Array<Float> = new <Float>[];
 		for(var i:Int = 0; i < columnCount; i++)
 		{
 			columnHeights[i] = this._paddingTop;
