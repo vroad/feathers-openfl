@@ -493,7 +493,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		//isNaN() can allocate an object, so we should call a different
 		//function without allocation.
 		this.doNothing();
-		if(baseline !== baseline) //isNaN
+		if(baseline != baseline) //isNaN
 		{
 			return font.lineHeight * fontSizeScale;
 		}

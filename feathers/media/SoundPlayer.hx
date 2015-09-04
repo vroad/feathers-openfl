@@ -264,12 +264,12 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 		this._soundSource = value;
 		//reset the current and total time if we were playing a different
 		//sound previously
-		if(this._currentTime !== 0)
+		if(this._currentTime != 0)
 		{
 			this._currentTime = 0;
 			this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
 		}
-		if(this._totalTime !== 0)
+		if(this._totalTime != 0)
 		{
 			this._totalTime = 0;
 			this.dispatchEventWith(MediaPlayerEventType.TOTAL_TIME_CHANGE);
@@ -558,7 +558,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	{
 		var oldTotalTime:Number = this._totalTime;
 		this._totalTime = this._sound.length / 1000;
-		if(oldTotalTime !== this._totalTime)
+		if(oldTotalTime != this._totalTime)
 		{
 			this.dispatchEventWith(MediaPlayerEventType.TOTAL_TIME_CHANGE);
 		}

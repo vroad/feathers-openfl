@@ -117,7 +117,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 */
 	public function applyStyles(target:IFeathersControl):Void
 	{
-		if(this._callBeforeOriginalStyleProvider && this._addOnFunction !== null)
+		if(this._callBeforeOriginalStyleProvider && this._addOnFunction != null)
 		{
 			this._addOnFunction(target);
 		}
@@ -125,7 +125,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 		{
 			this._originalStyleProvider.applyStyles(target);
 		}
-		if(!this._callBeforeOriginalStyleProvider && this._addOnFunction !== null)
+		if(!this._callBeforeOriginalStyleProvider && this._addOnFunction != null)
 		{
 			this._addOnFunction(target);
 		}

@@ -181,7 +181,7 @@ public class Cover
 		{
 			tween.animate("x", 0);
 		}
-		if(newScreen.y !== 0)
+		if(newScreen.y != 0)
 		{
 			tween.animate("y", 0);
 		}
@@ -301,7 +301,7 @@ private function cleanupTween():Void
 	this._savedOldScreen.visible = true;
 	this._savedNewScreen = null;
 	this._savedOldScreen = null;
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

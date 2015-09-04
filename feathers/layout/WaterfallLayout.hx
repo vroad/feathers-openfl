@@ -494,8 +494,8 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
-		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
 
 		if(this._useVirtualLayout)
 		{
@@ -587,7 +587,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedHeight !== cachedHeight) //isNaN
+					cachedHeight != cachedHeight) //isNaN
 				{
 					//if all items must have the same height, we will
 					//use the height of the typical item (calculatedTypicalItemHeight).
@@ -735,8 +735,8 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
-		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -819,7 +819,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 					if(this._hasVariableItemDimensions)
 					{
 						var itemHeight:Number = this._heightCache[i];
-						if(itemHeight !== itemHeight) //isNaN
+						if(itemHeight != itemHeight) //isNaN
 						{
 							itemHeight = calculatedTypicalItemHeight;
 						}
@@ -935,7 +935,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 				if(this._hasVariableItemDimensions)
 				{
 					var itemHeight:Number = this._heightCache[i];
-					if(itemHeight !== itemHeight) //isNaN
+					if(itemHeight != itemHeight) //isNaN
 					{
 						itemHeight = calculatedTypicalItemHeight;
 					}
@@ -1066,7 +1066,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 			if(this._hasVariableItemDimensions)
 			{
 				var itemHeight:Number = this._heightCache[index];
-				if(itemHeight !== itemHeight) //isNaN
+				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
 				}
@@ -1123,7 +1123,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 			if(this._hasVariableItemDimensions)
 			{
 				var itemHeight:Number = this._heightCache[index];
-				if(itemHeight !== itemHeight) //isNaN
+				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
 				}
@@ -1213,7 +1213,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedHeight !== cachedHeight) //isNaN
+					cachedHeight != cachedHeight) //isNaN
 				{
 					//if all items must have the same height, we will
 					//use the height of the typical item (calculatedTypicalItemHeight).

@@ -183,7 +183,7 @@ public class Reveal
 		{
 			tween.animate("x", xOffset);
 		}
-		if(yOffset !== 0)
+		if(yOffset != 0)
 		{
 			tween.animate("y", yOffset);
 		}
@@ -325,7 +325,7 @@ private function cleanupTween():Void
 		this._savedOldScreen.y = 0;
 		this._savedOldScreen = null;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

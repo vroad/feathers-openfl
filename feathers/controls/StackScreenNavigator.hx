@@ -324,7 +324,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 */
 	public function get_rootScreenID():String
 	{
-		if(this._tempRootScreenID !== null)
+		if(this._tempRootScreenID != null)
 		{
 			return this._tempRootScreenID;
 		}
@@ -350,7 +350,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 			
 			//this clears the whole stack and starts fresh
 			this._stack.length = 0;
-			if(value !== null)
+			if(value != null)
 			{
 				//show without a transition because we're not navigating.
 				//we're forcibly replacing the root screen.
@@ -443,7 +443,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 		if(transition === null)
 		{
 			var item:StackScreenNavigatorItem = this.getScreen(id);
-			if(item && item.pushTransition !== null)
+			if(item && item.pushTransition != null)
 			{
 				transition = item.pushTransition;
 			}
@@ -485,7 +485,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 		if(transition === null)
 		{
 			var screenItem:StackScreenNavigatorItem = this.getScreen(this._activeScreenID);
-			if(screenItem && screenItem.popTransition !== null)
+			if(screenItem && screenItem.popTransition != null)
 			{
 				transition = screenItem.popTransition;
 			}
@@ -774,7 +774,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 */
 	private function stackScreenNavigator_initializeHandler(event:Event):Void
 	{
-		if(this._tempRootScreenID !== null)
+		if(this._tempRootScreenID != null)
 		{
 			var screenID:String = this._tempRootScreenID;
 			this._tempRootScreenID = null;

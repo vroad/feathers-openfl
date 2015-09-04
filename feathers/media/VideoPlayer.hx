@@ -430,12 +430,12 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 		this._videoSource = value;
 		//reset the current and total time if we were playing a different
 		//video previously
-		if(this._currentTime !== 0)
+		if(this._currentTime != 0)
 		{
 			this._currentTime = 0;
 			this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
 		}
-		if(this._totalTime !== 0)
+		if(this._totalTime != 0)
 		{
 			this._totalTime = 0;
 			this.dispatchEventWith(MediaPlayerEventType.TOTAL_TIME_CHANGE);
@@ -982,7 +982,7 @@ public var onPlayStatusCallback:Function;
 
 public function onPlayStatus(data:Object):Void
 {
-	if(this.onPlayStatusCallback !== null)
+	if(this.onPlayStatusCallback != null)
 	{
 		this.onPlayStatusCallback(data);
 	}

@@ -1196,7 +1196,7 @@ public class TextArea extends Scroller implements INativeFocusOwner
 		this.currentState = STATE_FOCUSED;
 		this._touchPointID = -1;
 		this.invalidate(INVALIDATION_FLAG_STATE);
-		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus !== this)
+		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus != this)
 		{
 			//if setFocus() was called manually, we need to notify the focus
 			//manager (unless isFocusEnabled is false).

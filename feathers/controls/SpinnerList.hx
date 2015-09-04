@@ -283,12 +283,12 @@ public class SpinnerList extends List
 			if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 			{
 				this.pendingVerticalPageIndex = this.calculateNearestPageIndexForItem(itemIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
-				this.hasPendingVerticalPageIndex = this.pendingVerticalPageIndex !== this._verticalPageIndex;
+				this.hasPendingVerticalPageIndex = this.pendingVerticalPageIndex != this._verticalPageIndex;
 			}
 			else if(this._maxHorizontalPageIndex != this._minHorizontalPageIndex)
 			{
 				this.pendingHorizontalPageIndex = this.calculateNearestPageIndexForItem(itemIndex, this._horizontalPageIndex, this._maxHorizontalPageIndex);
-				this.hasPendingHorizontalPageIndex = this.pendingHorizontalPageIndex !== this._horizontalPageIndex;
+				this.hasPendingHorizontalPageIndex = this.pendingHorizontalPageIndex != this._horizontalPageIndex;
 			}
 		}
 		super.handlePendingScroll();

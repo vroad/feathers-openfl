@@ -3067,7 +3067,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 		{
 			return cast(item, String);
 		}
-		else if(item !== null)
+		else if(item != null)
 		{
 			//we need to use strict equality here because the data can be
 			//non-strictly equal to null
@@ -3632,7 +3632,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	{
 		//we need to use strict equality here because the data can be
 		//non-strictly equal to null
-		if(this._data !== null && this._owner)
+		if(this._data != null && this._owner)
 		{
 			if(this._itemHasLabel)
 			{
@@ -4142,7 +4142,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 		if(forMeasurement)
 		{
 			calculatedHeight = this.explicitHeight;
-			if(calculatedHeight !== calculatedHeight) //isNaN
+			if(calculatedHeight != calculatedHeight) //isNaN
 			{
 				calculatedHeight = this._maxHeight;
 			}

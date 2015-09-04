@@ -143,7 +143,7 @@ public function WipeTween(newScreen:DisplayObject, oldScreen:DisplayObject,
 	{
 		this._temporaryNewScreenParent = new Sprite();
 		clipRect = new Rectangle();
-		if(xOffset !== 0)
+		if(xOffset != 0)
 		{
 			if(xOffset < 0)
 			{
@@ -151,7 +151,7 @@ public function WipeTween(newScreen:DisplayObject, oldScreen:DisplayObject,
 			}
 			clipRect.height = newScreen.height;
 		}
-		if(yOffset !== 0)
+		if(yOffset != 0)
 		{
 			if(yOffset < 0)
 			{
@@ -306,7 +306,7 @@ private function cleanupTween():Void
 		this._savedNewScreen.visible = true;
 		this._savedNewScreen = null;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

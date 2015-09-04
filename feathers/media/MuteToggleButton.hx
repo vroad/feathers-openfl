@@ -679,7 +679,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 		else
 		{
 			var newVolume:Number = this._oldVolume;
-			if(newVolume !== newVolume) //isNaN
+			if(newVolume != newVolume) //isNaN
 			{
 				//volume was already zero, so we should fall back to some
 				//default value

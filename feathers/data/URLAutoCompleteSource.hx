@@ -203,7 +203,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 		}
 		else
 		{
-			if(this._cachedResult !== null)
+			if(this._cachedResult != null)
 			{
 				this.parseData(this._cachedResult, textToMatch, suggestionsResult);
 				return;

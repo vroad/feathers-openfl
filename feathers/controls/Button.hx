@@ -2287,7 +2287,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			scale = this._scaleWhenHovering;
 		}
-		if(scale !== 1)
+		if(scale != 1)
 		{
 			support.scaleMatrix(scale, scale);
 			support.translateMatrix(Math.round((1 - scale) / 2 * this.actualWidth),
@@ -2722,7 +2722,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				calculatedWidth = this._maxWidth;
 			}
 			calculatedHeight = this.explicitHeight;
-			if(calculatedHeight !== calculatedHeight) //isNaN
+			if(calculatedHeight != calculatedHeight) //isNaN
 			{
 				calculatedHeight = this._maxHeight;
 			}

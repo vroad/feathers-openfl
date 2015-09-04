@@ -3273,8 +3273,8 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 		//have only one type of pending scroll at a time.
 		this.pendingHorizontalScrollPosition = NaN;
 		this.pendingVerticalScrollPosition = NaN;
-		this.hasPendingHorizontalPageIndex = this._horizontalPageIndex !== horizontalPageIndex;
-		this.hasPendingVerticalPageIndex = this._verticalPageIndex !== verticalPageIndex;
+		this.hasPendingHorizontalPageIndex = this._horizontalPageIndex != horizontalPageIndex;
+		this.hasPendingVerticalPageIndex = this._verticalPageIndex != verticalPageIndex;
 		if(!this.hasPendingHorizontalPageIndex && !this.hasPendingVerticalPageIndex)
 		{
 			return;
@@ -5840,7 +5840,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 			var scrollStep:Number = this._verticalMouseWheelScrollStep;
 			if(this._verticalMouseWheelScrollDirection == MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL)
 			{
-				if(scrollStep !== scrollStep) //isNaN
+				if(scrollStep != scrollStep) //isNaN
 				{
 					scrollStep = this.actualHorizontalScrollStep;
 				}
@@ -5856,7 +5856,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 			else //vertical
 			{
-				if(scrollStep !== scrollStep) //isNaN
+				if(scrollStep != scrollStep) //isNaN
 				{
 					scrollStep = this.actualVerticalScrollStep;
 				}

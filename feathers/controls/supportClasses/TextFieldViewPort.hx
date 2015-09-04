@@ -507,7 +507,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -528,7 +528,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -542,7 +542,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	public function get_visibleWidth():Number
 	{
-		if(this._explicitVisibleWidth !== this._explicitVisibleWidth) //isNaN
+		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
 		{
 			return this._actualVisibleWidth;
 		}
@@ -552,7 +552,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 	public function set_visibleWidth(value:Number):Number
 	{
 		if(this._explicitVisibleWidth == value ||
-			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
+			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -573,7 +573,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -594,7 +594,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -608,7 +608,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	public function get_visibleHeight():Number
 	{
-		if(this._explicitVisibleHeight !== this._explicitVisibleHeight) //isNaN
+		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
 		{
 			return this._actualVisibleHeight;
 		}
@@ -618,7 +618,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 	public function set_visibleHeight(value:Number):Number
 	{
 		if(this._explicitVisibleHeight == value ||
-			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
+			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
 		{
 			return;
 		}

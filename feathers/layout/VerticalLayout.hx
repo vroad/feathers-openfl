@@ -1044,7 +1044,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 							//it looks like we're scrolling smoothly after
 							//this item resizes.
 							if(positionY < scrollY &&
-								cachedHeight !== cachedHeight && //isNaN
+								cachedHeight != cachedHeight && //isNaN
 								itemHeight != calculatedTypicalItemHeight)
 							{
 								this.dispatchEventWith(Event.SCROLL, false, new Point(0, itemHeight - calculatedTypicalItemHeight));
@@ -1100,7 +1100,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//width is NaN, we need to calculate the viewport width ourselves
 		//based on the total width of all items.
 		var availableWidth:Number = explicitWidth;
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			availableWidth = totalWidth;
 			if(availableWidth < minWidth)
@@ -1119,7 +1119,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//height is NaN, we need to calculate the viewport height ourselves
 		//based on the total height of all items.
 		var availableHeight:Number = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(this._requestedRowCount > 0)
@@ -1629,7 +1629,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			if(this._hasVariableItemDimensions)
 			{
 				var itemHeight:Number = this._heightCache[index];
-				if(itemHeight !== itemHeight) //isNaN
+				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
 				}
@@ -1685,7 +1685,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			if(this._hasVariableItemDimensions)
 			{
 				var itemHeight:Number = this._heightCache[index];
-				if(itemHeight !== itemHeight) //isNaN
+				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
 				}
@@ -2043,7 +2043,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedHeight !== cachedHeight) //isNaN
+					cachedHeight != cachedHeight) //isNaN
 				{
 					lastHeight = calculatedTypicalItemHeight;
 				}

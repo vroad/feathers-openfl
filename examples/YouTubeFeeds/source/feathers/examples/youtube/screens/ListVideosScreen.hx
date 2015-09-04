@@ -200,7 +200,7 @@ public class ListVideosScreen extends PanelScreen
 		
 		var stage:Stage = Starling.current.stage;
 		var useHighQualityThumbnail:Boolean = Math.min(stage.stageWidth, stage.stageHeight) > 350;
-		var useHTTP:Boolean = Capabilities.playerType !== "Desktop";
+		var useHTTP:Boolean = Capabilities.playerType != "Desktop";
 		
 		var items:Vector.<VideoDetails> = new <VideoDetails>[];
 		var videos:Array = result.items as Array;

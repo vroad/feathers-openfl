@@ -392,8 +392,8 @@ public class WebView extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Boolean
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Boolean = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Boolean = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -460,13 +460,13 @@ public class WebView extends FeathersControl
 		stageWebViewViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
 		var viewPortWidth:Number = Math.round(this.actualWidth * scaleFactor * globalScaleX);
 		if(viewPortWidth < 1 ||
-			viewPortWidth !== viewPortWidth) //isNaN
+			viewPortWidth != viewPortWidth) //isNaN
 		{
 			viewPortWidth = 1;
 		}
 		var viewPortHeight:Number = Math.round(this.actualHeight * scaleFactor * globalScaleY);
 		if(viewPortHeight < 1 ||
-			viewPortHeight !== viewPortHeight) //isNaN
+			viewPortHeight != viewPortHeight) //isNaN
 		{
 			viewPortHeight = 1;
 		}

@@ -79,7 +79,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -109,7 +109,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -136,7 +136,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	public function set_visibleWidth(value:Number):Number
 	{
 		if(this._visibleWidth == value ||
-			(value !== value && this._visibleWidth !== this._visibleWidth)) //isNaN
+			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -166,7 +166,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -196,7 +196,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -223,7 +223,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	public function set_visibleHeight(value:Number):Number
 	{
 		if(this._visibleHeight == value ||
-			(value !== value && this._visibleHeight !== this._visibleHeight)) //isNaN
+			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN
 		{
 			return;
 		}
@@ -476,7 +476,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this._visibleWidth !== this._visibleWidth; //isNaN
+		var needsWidth:Boolean = this._visibleWidth != this._visibleWidth; //isNaN
 
 		this.commitStylesAndData(this.measureTextField);
 
@@ -538,7 +538,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	override private function refreshSnapshotParameters():Void
 	{
 		var textFieldWidth:Number = this._visibleWidth - this._paddingLeft - this._paddingRight;
-		if(textFieldWidth !== textFieldWidth) //isNaN
+		if(textFieldWidth != textFieldWidth) //isNaN
 		{
 			if(this._maxVisibleWidth < Number.POSITIVE_INFINITY)
 			{
@@ -550,7 +550,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 			}
 		}
 		var textFieldHeight:Number = this._visibleHeight - this._paddingTop - this._paddingBottom;
-		if(textFieldHeight !== textFieldHeight) //isNaN
+		if(textFieldHeight != textFieldHeight) //isNaN
 		{
 			if(this._maxVisibleHeight < Number.POSITIVE_INFINITY)
 			{

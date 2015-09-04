@@ -253,7 +253,7 @@ private function cleanupTween():Void
 		this._otherTarget.x = 0;
 		this._otherTarget.y = 0;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

@@ -230,8 +230,8 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	 */
 	private function autoSizeIfNeeded():Boolean
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Boolean = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Boolean = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

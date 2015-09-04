@@ -35,7 +35,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -56,7 +56,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -70,7 +70,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	public function get_visibleWidth():Number
 	{
-		if(this._explicitVisibleWidth !== this._explicitVisibleWidth) //isNaN
+		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
 		{
 			return this._actualVisibleWidth;
 		}
@@ -80,7 +80,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 	public function set_visibleWidth(value:Number):Number
 	{
 		if(this._explicitVisibleWidth == value ||
-			(value !== value && this._explicitVisibleWidth !== this._explicitVisibleWidth)) //isNaN
+			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -101,7 +101,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -122,7 +122,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -136,7 +136,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	public function get_visibleHeight():Number
 	{
-		if(this._explicitVisibleHeight !== this._explicitVisibleHeight) //isNaN
+		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
 		{
 			return this._actualVisibleHeight;
 		}
@@ -146,7 +146,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 	public function set_visibleHeight(value:Number):Number
 	{
 		if(this._explicitVisibleHeight == value ||
-			(value !== value && this._explicitVisibleHeight !== this._explicitVisibleHeight)) //isNaN
+			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
 		{
 			return;
 		}
@@ -253,7 +253,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.viewPortBounds.scrollX = this._horizontalScrollPosition;
 		this.viewPortBounds.scrollY = this._verticalScrollPosition;
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
-			this._explicitVisibleWidth !== this._explicitVisibleWidth)
+			this._explicitVisibleWidth != this._explicitVisibleWidth)
 		{
 			this.viewPortBounds.explicitWidth = this.stage.stageWidth;
 		}
@@ -262,7 +262,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 			this.viewPortBounds.explicitWidth = this._explicitVisibleWidth;
 		}
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
-			this._explicitVisibleHeight !== this._explicitVisibleHeight)
+			this._explicitVisibleHeight != this._explicitVisibleHeight)
 		{
 			this.viewPortBounds.explicitHeight = this.stage.stageHeight;
 		}
@@ -289,7 +289,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		//isNaN() can allocate an object, so we should call a different
 		//function without allocation.
 		this.doNothing();
-		if(maxX !== maxX) //isNaN
+		if(maxX != maxX) //isNaN
 		{
 			maxX = 0;
 		}
@@ -297,7 +297,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		var maxY:Number = explicitViewPortHeight;
 		//see explanation above the previous call to this function.
 		this.doNothing();
-		if(maxY !== maxY) //isNaN
+		if(maxY != maxY) //isNaN
 		{
 			maxY = 0;
 		}
@@ -360,7 +360,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 			calculatedHeight = maxHeight;
 		}
 		this._ignoreChildChanges = false;
-		if(explicitViewPortWidth !== explicitViewPortWidth) //isNaN
+		if(explicitViewPortWidth != explicitViewPortWidth) //isNaN
 		{
 			this._actualVisibleWidth = calculatedWidth;
 		}
@@ -368,7 +368,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			this._actualVisibleWidth = explicitViewPortWidth;
 		}
-		if(explicitViewPortHeight !== explicitViewPortHeight) //isNaN
+		if(explicitViewPortHeight != explicitViewPortHeight) //isNaN
 		{
 			this._actualVisibleHeight = calculatedHeight;
 		}

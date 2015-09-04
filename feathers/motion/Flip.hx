@@ -305,7 +305,7 @@ private function cleanupTween():Void
 		this._savedOldScreen.visible = true;
 		this._savedOldScreen = null;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

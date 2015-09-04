@@ -1411,7 +1411,7 @@ class ImageLoader extends FeathersControl
 					{
 						heightScale = this._minHeight / (this._currentTextureHeight * this._textureScale);
 					}
-					if(heightScale !== 1)
+					if(heightScale != 1)
 					{
 						newWidth *= heightScale;
 					}
@@ -1445,7 +1445,7 @@ class ImageLoader extends FeathersControl
 					{
 						widthScale = this._minWidth / (this._currentTextureWidth * this._textureScale);
 					}
-					if(widthScale !== 1)
+					if(widthScale != 1)
 					{
 						newHeight *= widthScale;
 					}
@@ -1631,7 +1631,7 @@ class ImageLoader extends FeathersControl
 			this.image.width = imageWidth;
 			this.image.height = imageHeight;
 		}
-		if((!this._scaleContent || (this._maintainAspectRatio && this._scaleMode !== ScaleMode.SHOW_ALL)) &&
+		if((!this._scaleContent || (this._maintainAspectRatio && this._scaleMode != ScaleMode.SHOW_ALL)) &&
 			(this.actualWidth != imageWidth || this.actualHeight != imageHeight))
 		{
 			var clipRect:Rectangle = this.clipRect;

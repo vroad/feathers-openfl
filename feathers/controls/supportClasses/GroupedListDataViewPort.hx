@@ -70,7 +70,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleWidth cannot be NaN");
 		}
@@ -91,7 +91,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleWidth cannot be NaN");
 		}
@@ -111,7 +111,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 	public function set_visibleWidth(value:Number):Number
 	{
 		if(this.explicitVisibleWidth == value ||
-			(value !== value && this.explicitVisibleWidth !== this.explicitVisibleWidth)) //isNaN
+			(value != value && this.explicitVisibleWidth != this.explicitVisibleWidth)) //isNaN
 		{
 			return;
 		}
@@ -132,7 +132,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("minVisibleHeight cannot be NaN");
 		}
@@ -153,7 +153,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		{
 			return;
 		}
-		if(value !== value) //isNaN
+		if(value != value) //isNaN
 		{
 			throw new ArgumentError("maxVisibleHeight cannot be NaN");
 		}
@@ -173,7 +173,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 	public function set_visibleHeight(value:Number):Number
 	{
 		if(this.explicitVisibleHeight == value ||
-			(value !== value && this.explicitVisibleHeight !== this.explicitVisibleHeight)) //isNaN
+			(value != value && this.explicitVisibleHeight != this.explicitVisibleHeight)) //isNaN
 		{
 			return;
 		}
@@ -1143,7 +1143,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		var typicalItemItemIndex:int = 0;
 		if(this._dataProvider)
 		{
-			if(typicalItem !== null)
+			if(typicalItem != null)
 			{
 				this._dataProvider.getItemLocation(typicalItem, HELPER_VECTOR);
 				if(HELPER_VECTOR.length > 1)
@@ -1173,7 +1173,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 			}
 		}
 
-		if(typicalItem !== null)
+		if(typicalItem != null)
 		{
 			var isFirst:Boolean = false;
 			var isSingle:Boolean = false;
@@ -1633,7 +1633,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		for(var i:int = 0; i < groupCount; i++)
 		{
 			var group:Object = this._dataProvider.getItemAt(i);
-			if(this._owner.groupToHeaderData(group) !== null)
+			if(this._owner.groupToHeaderData(group) != null)
 			{
 				this._headerIndices.push(totalLayoutCount);
 				totalLayoutCount++;
@@ -1646,7 +1646,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 			{
 				totalSingleItemCount++;
 			}
-			if(this._owner.groupToFooterData(group) !== null)
+			if(this._owner.groupToFooterData(group) != null)
 			{
 				this._footerIndices.push(totalLayoutCount);
 				totalLayoutCount++;
@@ -1705,7 +1705,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		{
 			group = this._dataProvider.getItemAt(i);
 			var header:Object = this._owner.groupToHeaderData(group);
-			if(header !== null)
+			if(header != null)
 			{
 				//the end index is included in the visible items
 				if(useVirtualLayout && HELPER_VECTOR.indexOf(currentIndex) < 0)
@@ -1783,7 +1783,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 				currentIndex++;
 			}
 			var footer:Object = this._owner.groupToFooterData(group);
-			if(footer !== null)
+			if(footer != null)
 			{
 				if(useVirtualLayout && HELPER_VECTOR.indexOf(currentIndex) < 0)
 				{

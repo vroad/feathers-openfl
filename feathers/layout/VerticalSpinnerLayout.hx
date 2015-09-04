@@ -560,7 +560,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 		}
 
 		if(!this._useVirtualLayout || this._horizontalAlign != HORIZONTAL_ALIGN_JUSTIFY ||
-			explicitWidth !== explicitWidth) //isNaN
+			explicitWidth != explicitWidth) //isNaN
 		{
 			//in some cases, we may need to validate all of the items so
 			//that we can use their dimensions below.
@@ -639,7 +639,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 		//width is NaN, we need to calculate the viewport width ourselves
 		//based on the total width of all items.
 		var availableWidth:Number = explicitWidth;
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			availableWidth = totalWidth;
 			if(availableWidth < minWidth)
@@ -658,7 +658,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 		//height is NaN, we need to calculate the viewport height ourselves
 		//based on the total height of all items.
 		var availableHeight:Number = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			if(this._requestedRowCount > 0)
 			{
@@ -814,8 +814,8 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Boolean = explicitWidth !== explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight !== explicitHeight; //isNaN
+		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;

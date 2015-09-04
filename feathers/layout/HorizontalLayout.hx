@@ -1041,7 +1041,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 							//it looks like we're scrolling smoothly after
 							//this item resizes.
 							if(positionX < scrollX &&
-								cachedWidth !== cachedWidth && //isNaN
+								cachedWidth != cachedWidth && //isNaN
 								itemWidth != calculatedTypicalItemWidth)
 							{
 								this.dispatchEventWith(Event.SCROLL, false, new Point(itemWidth - calculatedTypicalItemWidth, 0));
@@ -1097,7 +1097,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//height is NaN, we need to calculate the viewport height ourselves
 		//based on the total height of all items.
 		var availableHeight:Number = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -1116,7 +1116,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//width is NaN, we need to calculate the viewport width ourselves
 		//based on the total width of all items.
 		var availableWidth:Number = explicitWidth;
-		if(availableWidth !== availableWidth) //isNaN
+		if(availableWidth != availableWidth) //isNaN
 		{
 			if(this._requestedColumnCount > 0)
 			{
@@ -1620,7 +1620,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._hasVariableItemDimensions)
 			{
 				var itemWidth:Number = this._widthCache[index];
-				if(itemWidth !== itemWidth)
+				if(itemWidth != itemWidth)
 				{
 					itemWidth = this._typicalItem.width;
 				}
@@ -1675,7 +1675,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._hasVariableItemDimensions)
 			{
 				var itemWidth:Number = this._widthCache[index];
-				if(itemWidth !== itemWidth)
+				if(itemWidth != itemWidth)
 				{
 					itemWidth = this._typicalItem.width;
 				}
@@ -2025,7 +2025,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._useVirtualLayout && !item)
 			{
 				if(!this._hasVariableItemDimensions ||
-					cachedWidth !== cachedWidth) //isNaN
+					cachedWidth != cachedWidth) //isNaN
 				{
 					lastWidth = calculatedTypicalItemWidth;
 				}

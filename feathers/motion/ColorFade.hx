@@ -180,7 +180,7 @@ private function cleanupTween():Void
 	{
 		this._otherTarget.visible = true;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}

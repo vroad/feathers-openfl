@@ -681,7 +681,7 @@ class LayoutGroup extends FeathersControl
 		this.viewPortBounds.scrollX = 0;
 		this.viewPortBounds.scrollY = 0;
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
-			this.explicitWidth !== this.explicitWidth)
+			this.explicitWidth != this.explicitWidth)
 		{
 			this.viewPortBounds.explicitWidth = this.stage.stageWidth;
 		}
@@ -690,7 +690,7 @@ class LayoutGroup extends FeathersControl
 			this.viewPortBounds.explicitWidth = this.explicitWidth;
 		}
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE &&
-				this.explicitHeight !== this.explicitHeight)
+				this.explicitHeight != this.explicitHeight)
 		{
 			this.viewPortBounds.explicitHeight = this.stage.stageHeight;
 		}

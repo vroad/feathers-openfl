@@ -1569,7 +1569,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			}
 			if(this.textSnapshot != null)
 			{
-				this.textSnapshot.visible = this._snapshotWidth > 0 && this._snapshotHeight > 0 && this._content !== null;
+				this.textSnapshot.visible = this._snapshotWidth > 0 && this._snapshotHeight > 0 && this._content != null;
 			}
 #end
 		}

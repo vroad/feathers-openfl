@@ -460,8 +460,8 @@ public class BaseScreenNavigator extends FeathersControl
 	 */
 	private function autoSizeIfNeeded():Boolean
 	{
-		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		var needsWidth:Boolean = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Boolean = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;
@@ -677,7 +677,7 @@ public class BaseScreenNavigator extends FeathersControl
 
 		this.dispatchEventWith(FeathersEventType.TRANSITION_START);
 		this._previousScreenInTransition.dispatchEventWith(FeathersEventType.TRANSITION_OUT_START);
-		if(transition !== null)
+		if(transition != null)
 		{
 			this._waitingForTransitionFrameCount = 0;
 			this._waitingTransition = transition;

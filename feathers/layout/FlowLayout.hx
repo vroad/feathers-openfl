@@ -574,7 +574,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 		//let's figure out if we can show multiple rows
 		var supportsMultipleRows:Boolean = true;
 		var availableRowWidth:Number = explicitWidth;
-		if(availableRowWidth !== availableRowWidth) //isNaN
+		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
 			if(availableRowWidth === Number.POSITIVE_INFINITY)
@@ -632,7 +632,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 					
 					if(this._hasVariableItemDimensions)
 					{
-						if(cachedWidth !== cachedWidth)
+						if(cachedWidth != cachedWidth)
 						{
 							var itemWidth:Number = calculatedTypicalItemWidth;
 						}
@@ -640,7 +640,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 						{
 							itemWidth = cachedWidth;
 						}
-						if(cachedHeight !== cachedHeight)
+						if(cachedHeight != cachedHeight)
 						{
 							var itemHeight:Number = calculatedTypicalItemHeight;
 						}
@@ -796,7 +796,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 		//height is NaN, we need to calculate the viewport height ourselves
 		//based on the total height of all items.
 		var availableHeight:Number = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -876,7 +876,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 		//let's figure out if we can show multiple rows
 		var supportsMultipleRows:Boolean = true;
 		var availableRowWidth:Number = explicitWidth;
-		if(availableRowWidth !== availableRowWidth) //isNaN
+		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
 			if(availableRowWidth === Number.POSITIVE_INFINITY)
@@ -916,7 +916,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 				{
 					var cachedWidth:Number = this._widthCache[i];
 					var cachedHeight:Number = this._heightCache[i];
-					if(cachedWidth !== cachedWidth)
+					if(cachedWidth != cachedWidth)
 					{
 						var itemWidth:Number = calculatedTypicalItemWidth;
 					}
@@ -924,7 +924,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 					{
 						itemWidth = cachedWidth;
 					}
-					if(cachedHeight !== cachedHeight)
+					if(cachedHeight != cachedHeight)
 					{
 						var itemHeight:Number = calculatedTypicalItemHeight;
 					}
@@ -964,7 +964,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 		//height is NaN, we need to calculate the viewport height ourselves
 		//based on the total height of all items.
 		var availableHeight:Number = explicitHeight;
-		if(availableHeight !== availableHeight) //isNaN
+		if(availableHeight != availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -1032,7 +1032,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 			if(this._hasVariableItemDimensions)
 			{
 				var itemHeight:Number = this._heightCache[index];
-				if(itemHeight !== itemHeight) //isNaN
+				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
 				}
@@ -1162,7 +1162,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 				}
 				if(this._hasVariableItemDimensions)
 				{
-					if(cachedWidth !== cachedWidth)
+					if(cachedWidth != cachedWidth)
 					{
 						var itemWidth:Number = calculatedTypicalItemWidth;
 					}
@@ -1170,7 +1170,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 					{
 						itemWidth = cachedWidth;
 					}
-					if(cachedHeight !== cachedHeight)
+					if(cachedHeight != cachedHeight)
 					{
 						var itemHeight:Number = calculatedTypicalItemHeight;
 					}
@@ -1271,7 +1271,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 
 					if(this._hasVariableItemDimensions)
 					{
-						if(cachedWidth !== cachedWidth) //isNaN
+						if(cachedWidth != cachedWidth) //isNaN
 						{
 							var itemWidth:Number = calculatedTypicalItemWidth;
 						}
@@ -1279,7 +1279,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 						{
 							itemWidth = cachedWidth;
 						}
-						if(cachedHeight !== cachedHeight) //isNaN
+						if(cachedHeight != cachedHeight) //isNaN
 						{
 							var itemHeight:Number = calculatedTypicalItemHeight;
 						}

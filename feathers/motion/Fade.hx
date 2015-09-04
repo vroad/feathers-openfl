@@ -196,7 +196,7 @@ private function cleanupTween():Void
 	{
 		this._otherTarget.alpha = 1;
 	}
-	if(this._onCompleteCallback !== null)
+	if(this._onCompleteCallback != null)
 	{
 		this._onCompleteCallback();
 	}
