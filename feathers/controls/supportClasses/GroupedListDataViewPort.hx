@@ -880,7 +880,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _ignoreSelectionChanges:Boolean = false;
 
-	public function setSelectedLocation(groupIndex:int, itemIndex:int):void
+	public function setSelectedLocation(groupIndex:int, itemIndex:int):Void
 	{
 		if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex == itemIndex)
 		{
@@ -921,7 +921,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 			this._verticalScrollPosition, this._layoutItems, 0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.owner = null;
 		this.dataProvider = null;
@@ -929,7 +929,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		super.dispose();
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -1006,7 +1006,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this.validateRenderers();
 	}
 
-	private function validateRenderers():void
+	private function validateRenderers():Void
 	{
 		var rendererCount:int = this._activeFirstItemRenderers ? this._activeFirstItemRenderers.length : 0;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -1046,7 +1046,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshEnabled():void
+	private function refreshEnabled():Void
 	{
 		var rendererCount:int = this._activeItemRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -1113,12 +1113,12 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function invalidateParent(flag:String = INVALIDATION_FLAG_ALL):void
+	private function invalidateParent(flag:String = INVALIDATION_FLAG_ALL):Void
 	{
 		Scroller(this.parent).invalidate(flag);
 	}
 
-	private function refreshLayoutTypicalItem():void
+	private function refreshLayoutTypicalItem():Void
 	{
 		var virtualLayout:IVirtualLayout = this._layout as IVirtualLayout;
 		if(!virtualLayout || !virtualLayout.useVirtualLayout)
@@ -1272,7 +1272,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshItemRendererStyles():void
+	private function refreshItemRendererStyles():Void
 	{
 		for each(var renderer:IGroupedListItemRenderer in this._activeItemRenderers)
 		{
@@ -1292,7 +1292,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshHeaderRendererStyles():void
+	private function refreshHeaderRendererStyles():Void
 	{
 		for each(var renderer:IGroupedListHeaderOrFooterRenderer in this._activeHeaderRenderers)
 		{
@@ -1300,7 +1300,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshFooterRendererStyles():void
+	private function refreshFooterRendererStyles():Void
 	{
 		for each(var renderer:IGroupedListHeaderOrFooterRenderer in this._activeFooterRenderers)
 		{
@@ -1308,7 +1308,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshOneItemRendererStyles(renderer:IGroupedListItemRenderer):void
+	private function refreshOneItemRendererStyles(renderer:IGroupedListItemRenderer):Void
 	{
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._itemRendererProperties)
@@ -1318,7 +1318,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshOneHeaderRendererStyles(renderer:IGroupedListHeaderOrFooterRenderer):void
+	private function refreshOneHeaderRendererStyles(renderer:IGroupedListHeaderOrFooterRenderer):Void
 	{
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._headerRendererProperties)
@@ -1328,7 +1328,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshOneFooterRendererStyles(renderer:IGroupedListHeaderOrFooterRenderer):void
+	private function refreshOneFooterRendererStyles(renderer:IGroupedListHeaderOrFooterRenderer):Void
 	{
 		var displayRenderer:DisplayObject = DisplayObject(renderer);
 		for(var propertyName:String in this._footerRendererProperties)
@@ -1338,7 +1338,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshSelection():void
+	private function refreshSelection():Void
 	{
 		var rendererCount:int = this._activeItemRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -1379,7 +1379,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshViewPortBounds():void
+	private function refreshViewPortBounds():Void
 	{
 		this._viewPortBounds.x = this._viewPortBounds.y = 0;
 		this._viewPortBounds.scrollX = this._horizontalScrollPosition;
@@ -1392,7 +1392,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this._viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Boolean):void
+	private function refreshInactiveRenderers(itemRendererTypeIsInvalid:Boolean):Void
 	{
 		var temp:Vector.<IGroupedListItemRenderer> = this._inactiveItemRenderers;
 		this._inactiveItemRenderers = this._activeItemRenderers;
@@ -1556,7 +1556,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function refreshRenderers():void
+	private function refreshRenderers():Void
 	{
 		if(this._typicalItemRenderer)
 		{
@@ -1622,7 +1622,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this._updateForDataReset = false;
 	}
 
-	private function findUnrenderedData():void
+	private function findUnrenderedData():Void
 	{
 		var groupCount:int = this._dataProvider ? this._dataProvider.getLength() : 0;
 		var totalLayoutCount:int = 0;
@@ -1849,7 +1849,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private function findRendererForItem(item:Object, groupIndex:int, itemIndex:int, layoutIndex:int,
 		rendererMap:Dictionary, inactiveRenderers:Vector.<IGroupedListItemRenderer>,
-		activeRenderers:Vector.<IGroupedListItemRenderer>, unrenderedItems:Vector.<int>):void
+		activeRenderers:Vector.<IGroupedListItemRenderer>, unrenderedItems:Vector.<int>):Void
 	{
 		var itemRenderer:IGroupedListItemRenderer = IGroupedListItemRenderer(rendererMap[item]);
 		if(itemRenderer)
@@ -1901,7 +1901,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function renderUnrenderedData():void
+	private function renderUnrenderedData():Void
 	{
 		var rendererCount:int = this._unrenderedItems.length;
 		for(var i:int = 0; i < rendererCount; i += 3)
@@ -1993,7 +1993,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function recoverInactiveRenderers():void
+	private function recoverInactiveRenderers():Void
 	{
 		var rendererCount:int = this._inactiveItemRenderers.length;
 		for(var i:int = 0; i < rendererCount; i++)
@@ -2073,7 +2073,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function freeInactiveRenderers():void
+	private function freeInactiveRenderers():Void
 	{
 		//we may keep around some extra renderers to avoid too much
 		//allocation and garbage collection. they'll be hidden.
@@ -2346,7 +2346,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		return renderer;
 	}
 
-	private function destroyItemRenderer(renderer:IGroupedListItemRenderer):void
+	private function destroyItemRenderer(renderer:IGroupedListItemRenderer):Void
 	{
 		renderer.removeEventListener(Event.TRIGGERED, renderer_triggeredHandler);
 		renderer.removeEventListener(Event.CHANGE, renderer_changeHandler);
@@ -2356,7 +2356,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this.removeChild(DisplayObject(renderer), true);
 	}
 
-	private function destroyHeaderRenderer(renderer:IGroupedListHeaderOrFooterRenderer):void
+	private function destroyHeaderRenderer(renderer:IGroupedListHeaderOrFooterRenderer):Void
 	{
 		renderer.removeEventListener(FeathersEventType.RESIZE, headerOrFooterRenderer_resizeHandler);
 		renderer.owner = null;
@@ -2364,7 +2364,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this.removeChild(DisplayObject(renderer), true);
 	}
 
-	private function destroyFooterRenderer(renderer:IGroupedListHeaderOrFooterRenderer):void
+	private function destroyFooterRenderer(renderer:IGroupedListHeaderOrFooterRenderer):Void
 	{
 		renderer.removeEventListener(FeathersEventType.RESIZE, headerOrFooterRenderer_resizeHandler);
 		renderer.owner = null;
@@ -2512,22 +2512,22 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		return null;
 	}
 
-	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	private function owner_scrollStartHandler(event:Event):void
+	private function owner_scrollStartHandler(event:Event):Void
 	{
 		this._isScrolling = true;
 	}
 
-	private function dataProvider_changeHandler(event:Event):void
+	private function dataProvider_changeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
-	private function dataProvider_addItemHandler(event:Event, indices:Array):void
+	private function dataProvider_addItemHandler(event:Event, indices:Array):Void
 	{
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
@@ -2570,7 +2570,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function dataProvider_removeItemHandler(event:Event, indices:Array):void
+	private function dataProvider_removeItemHandler(event:Event, indices:Array):Void
 	{
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
@@ -2592,7 +2592,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function dataProvider_replaceItemHandler(event:Event, indices:Array):void
+	private function dataProvider_replaceItemHandler(event:Event, indices:Array):Void
 	{
 		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 		if(!layout || !layout.hasVariableItemDimensions)
@@ -2614,7 +2614,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):Void
 	{
 		this._updateForDataReset = true;
 
@@ -2626,7 +2626,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		layout.resetVariableVirtualCache();
 	}
 
-	private function dataProvider_updateItemHandler(event:Event, indices:Array):void
+	private function dataProvider_updateItemHandler(event:Event, indices:Array):Void
 	{
 		var groupIndex:int = indices[0] as int;
 		if(indices.length > 1) //updating a single item
@@ -2692,7 +2692,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function layout_changeHandler(event:Event):void
+	private function layout_changeHandler(event:Event):Void
 	{
 		if(this._ignoreLayoutChanges)
 		{
@@ -2702,7 +2702,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	private function itemRenderer_resizeHandler(event:Event):void
+	private function itemRenderer_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreRendererResizing)
 		{
@@ -2727,7 +2727,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		layout.resetVariableVirtualCacheAtIndex(renderer.layoutIndex, DisplayObject(renderer));
 	}
 
-	private function headerOrFooterRenderer_resizeHandler(event:Event):void
+	private function headerOrFooterRenderer_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreRendererResizing)
 		{
@@ -2748,13 +2748,13 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		layout.resetVariableVirtualCacheAtIndex(renderer.layoutIndex, DisplayObject(renderer));
 	}
 
-	private function renderer_triggeredHandler(event:Event):void
+	private function renderer_triggeredHandler(event:Event):Void
 	{
 		var renderer:IGroupedListItemRenderer = IGroupedListItemRenderer(event.currentTarget);
 		this.parent.dispatchEventWith(Event.TRIGGERED, false, renderer.data);
 	}
 
-	private function renderer_changeHandler(event:Event):void
+	private function renderer_changeHandler(event:Event):Void
 	{
 		if(this._ignoreSelectionChanges)
 		{
@@ -2776,12 +2776,12 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		}
 	}
 
-	private function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):Void
 	{
 		this.touchPointID = -1;
 	}
 
-	private function touchHandler(event:TouchEvent):void
+	private function touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{

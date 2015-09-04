@@ -17,14 +17,14 @@ import starling.events.Event;
 
 public class IrisTransitionScreen extends PanelScreen
 {
-	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
+	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
 		var randomX:Number = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
 		var randomY:Number = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
 		Iris.createIrisCloseTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	
-	private static function irisOpenAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
+	private static function irisOpenAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
 		var randomX:Number = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
 		var randomY:Number = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
@@ -41,7 +41,7 @@ public class IrisTransitionScreen extends PanelScreen
 	private var _list:List;
 	private var _backButton:Button;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -96,13 +96,13 @@ public class IrisTransitionScreen extends PanelScreen
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):void
+	private function list_triggeredHandler(event:Event, item:Object):Void
 	{
 		var transition:Function = item.transition as Function;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}

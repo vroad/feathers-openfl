@@ -220,13 +220,13 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.layout = null;
 		super.dispose();
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -246,7 +246,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 	}
 
-	override private function refreshViewPortBounds():void
+	override private function refreshViewPortBounds():Void
 	{
 		this.viewPortBounds.x = 0;
 		this.viewPortBounds.y = 0;
@@ -276,7 +276,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.viewPortBounds.maxHeight = this._maxVisibleHeight;
 	}
 
-	override private function handleManualLayout():void
+	override private function handleManualLayout():Void
 	{
 		var minX:Number = 0;
 		var minY:Number = 0;
@@ -389,6 +389,6 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 	 * This function is here to work around a bug in the Flex 4.6 SDK
 	 * compiler. For explanation, see the places where it gets called.
 	 */
-	private function doNothing():void {}
+	private function doNothing():Void {}
 }
 }

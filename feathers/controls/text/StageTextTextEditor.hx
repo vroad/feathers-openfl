@@ -1124,7 +1124,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._measureTextField != null)
 		{
@@ -1814,7 +1814,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function refreshViewPortAndFontSize():void
+	private function refreshViewPortAndFontSize():Void
 	{
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		var desktopGutterPositionOffset:Float = 0;
@@ -1901,7 +1901,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function refreshMeasureTextFieldDimensions():void
+	private function refreshMeasureTextFieldDimensions():Void
 	{
 		//the +4 is accounting for the TextField gutter
 		this._measureTextField.width = this.actualWidth + 4;
@@ -2039,7 +2039,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	private function hasFocus_enterFrameHandler(event:starling.events.Event):Void
 	{
 		if(this._stageTextHasFocus)
 		{
@@ -2064,7 +2064,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function stageText_keyDownHandler(event:KeyboardEvent):void
+	private function stageText_keyDownHandler(event:KeyboardEvent):Void
 	{
 #if flash
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))

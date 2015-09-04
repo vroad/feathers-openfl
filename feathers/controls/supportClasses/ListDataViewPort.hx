@@ -1095,7 +1095,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function freeInactiveRenderers(allowKeep:Boolean):void
+	private function freeInactiveRenderers(allowKeep:Boolean):Void
 	{
 		//we may keep around some extra renderers to avoid too much
 		//allocation and garbage collection. they'll be hidden.
@@ -1300,7 +1300,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		layout.resetVariableVirtualCacheAtIndex(renderer.index, DisplayObject(renderer));
 	}
 
-	private function renderer_triggeredHandler(event:Event):void
+	private function renderer_triggeredHandler(event:Event):Void
 	{
 		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
 		this.parent.dispatchEventWith(Event.TRIGGERED, false, renderer.data);

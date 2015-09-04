@@ -1731,7 +1731,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(this._value < this._minimum)
 		{

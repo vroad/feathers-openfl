@@ -247,7 +247,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function updateText():void
+	private function updateText():Void
 	{
 		var currentTime:Number = this._mediaPlayer ? this._mediaPlayer.currentTime : 0;
 		var totalTime:Number = this._mediaPlayer ? this._mediaPlayer.totalTime : 0;
@@ -319,7 +319,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_currentTimeChangeHandler(event:Event):void
+	private function mediaPlayer_currentTimeChangeHandler(event:Event):Void
 	{
 		this.updateText();
 	}
@@ -327,7 +327,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_totalTimeChangeHandler(event:Event):void
+	private function mediaPlayer_totalTimeChangeHandler(event:Event):Void
 	{
 		this.updateText();
 	}
@@ -335,7 +335,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function timeLabel_touchHandler(event:TouchEvent):void
+	private function timeLabel_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled || !this._toggleDisplayMode ||
 			!(this._displayMode === DISPLAY_MODE_CURRENT_TIME || this._displayMode === DISPLAY_MODE_CURRENT_TIME))

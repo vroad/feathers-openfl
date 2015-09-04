@@ -2023,7 +2023,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_progressHandler(event:ProgressEvent):void
+	private function loader_progressHandler(event:ProgressEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.PROGRESS, false, event.bytesLoaded / event.bytesTotal);
 	}
@@ -2031,7 +2031,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_ioErrorHandler(event:IOErrorEvent):void
+	private function loader_ioErrorHandler(event:IOErrorEvent):Void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_ioErrorHandler);
@@ -2047,7 +2047,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function loader_securityErrorHandler(event:SecurityErrorEvent):void
+	private function loader_securityErrorHandler(event:SecurityErrorEvent):Void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_ioErrorHandler);
@@ -2090,7 +2090,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_progressHandler(event:ProgressEvent):void
+	private function rawDataLoader_progressHandler(event:ProgressEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.PROGRESS, false, event.bytesLoaded / event.bytesTotal);
 	}
@@ -2098,7 +2098,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_ioErrorHandler(event:ErrorEvent):void
+	private function rawDataLoader_ioErrorHandler(event:ErrorEvent):Void
 	{
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(ProgressEvent.PROGRESS, rawDataLoader_progressHandler);
@@ -2115,7 +2115,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function rawDataLoader_securityErrorHandler(event:ErrorEvent):void
+	private function rawDataLoader_securityErrorHandler(event:ErrorEvent):Void
 	{
 		this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(ProgressEvent.PROGRESS, rawDataLoader_progressHandler);

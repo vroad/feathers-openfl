@@ -93,7 +93,7 @@ import starling.events.Event;
 		return header;
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		if(this._horizontalProgressTween != null)
 		{

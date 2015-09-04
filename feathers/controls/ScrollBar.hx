@@ -2168,7 +2168,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(this._value < this._minimum)
 		{
@@ -2183,7 +2183,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);

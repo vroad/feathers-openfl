@@ -37,7 +37,7 @@ public class Cube
 	 */
 	public static function createCubeLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -59,7 +59,7 @@ public class Cube
 	 */
 	public static function createCubeRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -81,7 +81,7 @@ public class Cube
 	 */
 	public static function createCubeUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -103,7 +103,7 @@ public class Cube
 	 */
 	public static function createCubeDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -228,7 +228,7 @@ private var _onCompleteCallback:Function;
 private var _savedNewScreen:DisplayObject;
 private var _savedOldScreen:DisplayObject;
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	var cube:Sprite3D = Sprite3D(this.target);
 	cube.removeFromParent(true);
@@ -251,7 +251,7 @@ private function cleanupTween():void
 
 class CulledSprite3D extends Sprite3D
 {
-override public function render(support:RenderSupport, parentAlpha:Number):void
+override public function render(support:RenderSupport, parentAlpha:Number):Void
 {
 	Starling.current.context.setCulling(Context3DTriangleFace.BACK);
 	super.render(support, parentAlpha);

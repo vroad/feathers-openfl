@@ -42,7 +42,7 @@ class TrainTimes extends Sprite
 	private var _launchImage:Loader;
 	private var _savedAutoOrients:Boolean;
 
-	private function showLaunchImage():void
+	private function showLaunchImage():Void
 	{
 		var filePath:String;
 		var isPortraitOnly:Boolean = false;
@@ -114,7 +114,7 @@ class TrainTimes extends Sprite
 		}
 	}
 
-	private function loaderInfo_completeHandler(event:Event):void
+	private function loaderInfo_completeHandler(event:Event):Void
 	{
 		Starling.multitouchEnabled = true;
 		this._starling = new Starling(Main, this.stage, null, null, Context3DRenderMode.AUTO, Context3DProfile.BASELINE);
@@ -129,7 +129,7 @@ class TrainTimes extends Sprite
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
-	private function starling_rootCreatedHandler(event:Object):void
+	private function starling_rootCreatedHandler(event:Object):Void
 	{
 		if(this._launchImage)
 		{
@@ -140,7 +140,7 @@ class TrainTimes extends Sprite
 		}
 	}
 
-	private function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):Void
 	{
 		this._starling.stage.stageWidth = this.stage.stageWidth;
 		this._starling.stage.stageHeight = this.stage.stageHeight;

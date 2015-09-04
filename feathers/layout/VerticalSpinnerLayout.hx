@@ -998,7 +998,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, justifyWidth:Number, distributedHeight:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, justifyWidth:Number, distributedHeight:Number):Void
 	{
 		//if the alignment is justified, then we want to set the width of
 		//each item before validating because setting one dimension may
@@ -1036,7 +1036,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	private function prepareTypicalItem(justifyWidth:Number):void
+	private function prepareTypicalItem(justifyWidth:Number):Void
 	{
 		if(!this._typicalItem)
 		{

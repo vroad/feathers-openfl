@@ -115,7 +115,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	/**
 	 * @copy feathers.data.IAutoCompleteSource#load()
 	 */
-	public function load(textToMatch:String, result:ListCollection = null):void
+	public function load(textToMatch:String, result:ListCollection = null):Void
 	{
 		if(result)
 		{

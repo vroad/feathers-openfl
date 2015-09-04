@@ -4126,7 +4126,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	override private function refreshMaxLabelSize(forMeasurement:Boolean):void
+	override private function refreshMaxLabelSize(forMeasurement:Boolean):Void
 	{
 		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)

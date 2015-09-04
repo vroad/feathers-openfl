@@ -40,7 +40,7 @@ public class Flip
 	 */
 	public static function createFlipLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -63,7 +63,7 @@ public class Flip
 	 */
 	public static function createFlipRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -86,7 +86,7 @@ public class Flip
 	 */
 	public static function createFlipUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -109,7 +109,7 @@ public class Flip
 	 */
 	public static function createFlipDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -261,7 +261,7 @@ private var _rotationXOffset:Number = 0;
 private var _savedNewScreen:DisplayObject;
 private var _savedOldScreen:DisplayObject;
 
-private function updateOtherTarget():void
+private function updateOtherTarget():Void
 {
 	var targetParent:Sprite3D = Sprite3D(this.target);
 	if(this.progress >= 0.5 && this._otherTarget.visible)
@@ -287,7 +287,7 @@ private function updateOtherTarget():void
 	}
 }
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	var targetParent:Sprite3D = Sprite3D(this.target);
 	targetParent.removeFromParent(true);

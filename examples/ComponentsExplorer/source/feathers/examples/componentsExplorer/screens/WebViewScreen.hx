@@ -28,7 +28,7 @@ public class WebViewScreen extends PanelScreen
 	private var _browser:WebView;
 	private var _locationInput:TextInput;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -99,7 +99,7 @@ public class WebViewScreen extends PanelScreen
 		return footer;
 	}
 	
-	private function loadLocation():void
+	private function loadLocation():Void
 	{
 		if(this._locationInput.text.length == 0)
 		{
@@ -117,27 +117,27 @@ public class WebViewScreen extends PanelScreen
 		this._browser.loadURL(url);
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 	
-	private function webView_locationChangeHandler(event:Event):void
+	private function webView_locationChangeHandler(event:Event):Void
 	{
 		this._locationInput.text = this._browser.location;
 	}
 	
-	private function locationInput_enterHandler(event:Event):void
+	private function locationInput_enterHandler(event:Event):Void
 	{
 		this.loadLocation();
 	}
 	
-	private function goButton_triggeredHandler(event:Event):void
+	private function goButton_triggeredHandler(event:Event):Void
 	{
 		this.loadLocation();
 	}

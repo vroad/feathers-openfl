@@ -84,7 +84,7 @@ public class ListVideosScreen extends PanelScreen
 		return this._list.selectedItem as VideoDetails;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -144,7 +144,7 @@ public class ListVideosScreen extends PanelScreen
 		return header;
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 
@@ -182,7 +182,7 @@ public class ListVideosScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function cleanUpLoader():void
+	private function cleanUpLoader():Void
 	{
 		if(!this._loader)
 		{
@@ -194,7 +194,7 @@ public class ListVideosScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseListVideosResult(result:Object):void
+	private function parseListVideosResult(result:Object):Void
 	{
 		this._message.visible = false;
 		
@@ -239,17 +239,17 @@ public class ListVideosScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function onBackButton(event:starling.events.Event = null):void
+	private function onBackButton(event:starling.events.Event = null):Void
 	{
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}
 
-	private function removedFromStageHandler(event:starling.events.Event):void
+	private function removedFromStageHandler(event:starling.events.Event):Void
 	{
 		this.cleanUpLoader();
 	}
 
-	private function transitionInCompleteHandler(event:starling.events.Event):void
+	private function transitionInCompleteHandler(event:starling.events.Event):Void
 	{
 		this._isTransitioning = false;
 
@@ -264,7 +264,7 @@ public class ListVideosScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		if(this._list.selectedIndex < 0)
 		{
@@ -286,7 +286,7 @@ public class ListVideosScreen extends PanelScreen
 		});
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		var loaderData:String = this._loader.data as String;
 		this.cleanUpLoader();
@@ -313,7 +313,7 @@ public class ListVideosScreen extends PanelScreen
 		}
 	}
 
-	private function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):Void
 	{
 		this.cleanUpLoader();
 		this._message.text = "Unable to load video list. Please try again later.";

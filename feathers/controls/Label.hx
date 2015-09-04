@@ -606,7 +606,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
@@ -743,7 +743,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * Choose the appropriate background skin based on the control's current
 	 * state.
 	 */
-	private function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():Void
 	{
 		var newCurrentBackgroundSkin:DisplayObject = this._backgroundSkin;
 		if(!this._isEnabled && this._backgroundDisabledSkin)
@@ -782,7 +782,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * Positions and sizes children based on the actual width and height
 	 * values.
 	 */
-	private function layoutChildren():void
+	private function layoutChildren():Void
 	{
 		if(this.currentBackgroundSkin)
 		{

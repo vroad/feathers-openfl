@@ -696,7 +696,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._nativeFocus && this._nativeFocus.parent)
 		{
@@ -991,7 +991,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function positionCursorAtCharIndex(index:int):void
+	private function positionCursorAtCharIndex(index:int):Void
 	{
 		if(index < 0)
 		{
@@ -1039,7 +1039,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function positionSelectionBackground():void
+	private function positionSelectionBackground():Void
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
@@ -1114,7 +1114,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	private function hasFocus_enterFrameHandler(event:starling.events.Event):Void
 	{
 		var target:DisplayObject = this;
 		do
@@ -1132,7 +1132,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function textEditor_touchHandler(event:TouchEvent):void
+	private function textEditor_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1386,7 +1386,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function nativeFocus_textInputHandler(event:TextEvent):void
+	private function nativeFocus_textInputHandler(event:TextEvent):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{
@@ -1408,7 +1408,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function nativeFocus_selectAllHandler(event:flash.events.Event):void
+	private function nativeFocus_selectAllHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1421,7 +1421,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function nativeFocus_cutHandler(event:flash.events.Event):void
+	private function nativeFocus_cutHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1438,7 +1438,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function nativeFocus_copyHandler(event:flash.events.Event):void
+	private function nativeFocus_copyHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1450,7 +1450,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	private function nativeFocus_pasteHandler(event:flash.events.Event):void
+	private function nativeFocus_pasteHandler(event:flash.events.Event):Void
 	{
 		#if flash
 		if(!this._isEditable || !this._isEnabled)

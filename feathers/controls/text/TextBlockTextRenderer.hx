@@ -1157,7 +1157,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.textSnapshot != null)
 		{
@@ -1650,11 +1650,11 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function createTextureOnRestoreCallback(snapshot:Image):void
+	private function createTextureOnRestoreCallback(snapshot:Image):Void
 	{
 		var self:TextBlockTextRenderer = this;
 		var texture:Texture = snapshot.texture;
-		texture.root.onRestore = function():void
+		texture.root.onRestore = function():Void
 		{
 			var scaleFactor:Number = Starling.contentScaleFactor;
 			if(texture.scale != scaleFactor)

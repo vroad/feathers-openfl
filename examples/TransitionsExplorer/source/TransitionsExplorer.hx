@@ -36,7 +36,7 @@ package
         private var _starling:Starling;
         private var _launchImage:Loader;
 
-        private function showLaunchImage():void
+        private function showLaunchImage():Void
         {
             var filePath:String;
             var isPortraitOnly:Boolean = false;
@@ -106,7 +106,7 @@ package
             }
         }
 
-        private function loaderInfo_completeHandler(event:Event):void
+        private function loaderInfo_completeHandler(event:Event):Void
         {
             Starling.multitouchEnabled = true;
             this._starling = new Starling(Main, this.stage, null, null, Context3DRenderMode.AUTO, Context3DProfile.BASELINE);
@@ -121,7 +121,7 @@ package
             this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
         }
 
-        private function starling_rootCreatedHandler(event:Object):void
+        private function starling_rootCreatedHandler(event:Object):Void
         {
             if(this._launchImage)
             {
@@ -131,7 +131,7 @@ package
             }
         }
 
-        private function stage_resizeHandler(event:Event):void
+        private function stage_resizeHandler(event:Event):Void
         {
             this._starling.stage.stageWidth = this.stage.stageWidth;
             this._starling.stage.stageHeight = this.stage.stageHeight;
@@ -146,13 +146,13 @@ package
             catch(error:Error) {}
         }
 
-        private function stage_deactivateHandler(event:Event):void
+        private function stage_deactivateHandler(event:Event):Void
         {
             this._starling.stop(true);
             this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
         }
 
-        private function stage_activateHandler(event:Event):void
+        private function stage_activateHandler(event:Event):Void
         {
             this.stage.removeEventListener(Event.ACTIVATE, stage_activateHandler);
             this._starling.start();

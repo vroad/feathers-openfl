@@ -106,7 +106,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		super.dispose();
 		if(this.assetManager)
@@ -119,7 +119,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
 		var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
@@ -131,7 +131,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	private function assetManager_onProgress(progress:Float):void
+	private function assetManager_onProgress(progress:Float):Void
 	{
 		if(progress < 1)
 		{
@@ -144,7 +144,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	private function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
+	private function loadAssets(assetsBasePath:String, assetManager:AssetManager):Void
 	{
 		this.assetManager = assetManager;
 		if(!this.assetManager)

@@ -123,7 +123,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.mediaPlayer = null;
 		super.dispose();
@@ -132,7 +132,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(!this.leftPeakBar)
 		{
@@ -149,7 +149,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		this.autoSizeIfNeeded();
 		
@@ -201,7 +201,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function handlePlaybackStateChange():void
+	private function handlePlaybackStateChange():Void
 	{
 		if(this._mediaPlayer.isPlaying)
 		{
@@ -216,7 +216,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_playbackStateChange(event:Event):void
+	private function mediaPlayer_playbackStateChange(event:Event):Void
 	{
 		this.handlePlaybackStateChange();
 	}
@@ -224,7 +224,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function peakVisualizer_enterFrameHandler(event:Event):void
+	private function peakVisualizer_enterFrameHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}

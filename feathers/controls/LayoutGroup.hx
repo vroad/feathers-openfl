@@ -778,7 +778,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshClipRect():void
+	private function refreshClipRect():Void
 	{
 		if(!this._clipContent)
 		{
@@ -800,7 +800,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutGroup_addedToStageHandler(event:Event):void
+	private function layoutGroup_addedToStageHandler(event:Event):Void
 	{
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 		{
@@ -811,7 +811,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutGroup_removedFromStageHandler(event:Event):void
+	private function layoutGroup_removedFromStageHandler(event:Event):Void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -851,7 +851,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}

@@ -1707,7 +1707,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @private
 	 */
 	private function validateItems(items:Vector.<DisplayObject>, explicitHeight:Number,
-		minHeight:Number, maxHeight:Number, distributedWidth:Number):void
+		minHeight:Number, maxHeight:Number, distributedWidth:Number):Void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may

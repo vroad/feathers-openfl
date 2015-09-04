@@ -80,7 +80,7 @@ public class TiledImageScreen extends PanelScreen
 		this.addChild(this._bottomButton);
 	}
 
-	override private function layoutChildren():void
+	override private function layoutChildren():Void
 	{
 		super.layoutChildren();
 

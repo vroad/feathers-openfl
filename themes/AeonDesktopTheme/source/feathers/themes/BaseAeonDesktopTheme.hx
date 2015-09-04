@@ -489,7 +489,7 @@ package feathers.themes
 		/**
 		 * Disposes the texture atlas before calling super.dispose()
 		 */
-		override public function dispose():void
+		override public function dispose():Void
 		{
 			if(this.atlas)
 			{
@@ -505,7 +505,7 @@ package feathers.themes
 		 * Initializes the theme. Expected to be called by subclasses after the
 		 * assets have been loaded and the skin texture atlas has been created.
 		 */
-		private function initialize():void
+		private function initialize():Void
 		{
 			this.initializeScale();
 			this.initializeDimensions();
@@ -520,7 +520,7 @@ package feathers.themes
 		 * Initializes the value used for scaling things like textures and font
 		 * sizes.
 		 */
-		private function initializeScale():void
+		private function initializeScale():Void
 		{
 			//Starling automatically accounts for the contentScaleFactor on Mac
 			//HiDPI screens, and converts pixels to points, so we don't need to
@@ -531,7 +531,7 @@ package feathers.themes
 		/**
 		 * Initializes common values used for setting the dimensions of components.
 		 */
-		private function initializeDimensions():void
+		private function initializeDimensions():Void
 		{
 			this.gridSize = Math.round(30 * this.scale);
 			this.extraSmallGutterSize = Math.round(2 * this.scale);
@@ -550,7 +550,7 @@ package feathers.themes
 		/**
 		 * Sets the stage background color.
 		 */
-		private function initializeStage():void
+		private function initializeStage():Void
 		{
 			Starling.current.stage.color = BACKGROUND_COLOR;
 			Starling.current.nativeStage.color = BACKGROUND_COLOR;
@@ -559,7 +559,7 @@ package feathers.themes
 		/**
 		 * Initializes global variables (not including global style providers).
 		 */
-		private function initializeGlobals():void
+		private function initializeGlobals():Void
 		{
 			FocusManager.setEnabledForStage(Starling.current.stage, true);
 
@@ -573,7 +573,7 @@ package feathers.themes
 		/**
 		 * Initializes font sizes and formats.
 		 */
-		private function initializeFonts():void
+		private function initializeFonts():Void
 		{
 			this.smallFontSize = Math.round(10 * this.scale);
 			this.regularFontSize = Math.round(11 * this.scale);
@@ -591,7 +591,7 @@ package feathers.themes
 		 * Initializes the textures by extracting them from the atlas and
 		 * setting up any scaling grids that are needed.
 		 */
-		private function initializeTextures():void
+		private function initializeTextures():Void
 		{
 			this.focusIndicatorSkinTextures = new Scale9Textures(this.atlas.getTexture("focus-indicator-skin"), FOCUS_INDICATOR_SCALE_9_GRID);
 
@@ -706,7 +706,7 @@ package feathers.themes
 		/**
 		 * Sets global style providers for all components.
 		 */
-		private function initializeStyleProviders():void
+		private function initializeStyleProviders():Void
 		{
 			//alert
 			this.getStyleProviderForClass(Alert).defaultStyleFunction = this.setAlertStyles;
@@ -854,7 +854,7 @@ package feathers.themes
 	// Shared
 	//-------------------------
 
-		private function setScrollerStyles(scroller:Scroller):void
+		private function setScrollerStyles(scroller:Scroller):Void
 		{
 			scroller.clipContent = true;
 			scroller.horizontalScrollBarFactory = scrollBarFactory;
@@ -867,7 +867,7 @@ package feathers.themes
 	// Alert
 	//-------------------------
 
-		private function setAlertStyles(alert:Alert):void
+		private function setAlertStyles(alert:Alert):Void
 		{
 			this.setScrollerStyles(alert);
 
@@ -883,7 +883,7 @@ package feathers.themes
 			alert.maxHeight = this.popUpSize;
 		}
 
-		private function setAlertButtonGroupStyles(group:ButtonGroup):void
+		private function setAlertButtonGroupStyles(group:ButtonGroup):Void
 		{
 			group.direction = ButtonGroup.DIRECTION_HORIZONTAL;
 			group.horizontalAlign = ButtonGroup.HORIZONTAL_ALIGN_CENTER;
@@ -893,7 +893,7 @@ package feathers.themes
 			group.padding = this.smallGutterSize;
 		}
 
-		private function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):void
+		private function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):Void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 			renderer.wordWrap = true;
@@ -903,7 +903,7 @@ package feathers.themes
 	// Button
 	//-------------------------
 
-		private function setBaseButtonStyles(button:Button):void
+		private function setBaseButtonStyles(button:Button):Void
 		{
 			button.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 			button.focusPadding = -1;
@@ -921,7 +921,7 @@ package feathers.themes
 			button.minHeight = this.smallControlSize;
 		}
 
-		private function setButtonStyles(button:Button):void
+		private function setButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
@@ -947,7 +947,7 @@ package feathers.themes
 			button.minHeight = this.controlSize;
 		}
 
-		private function setQuietButtonStyles(button:Button):void
+		private function setQuietButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = null;
@@ -979,7 +979,7 @@ package feathers.themes
 	// ButtonGroup
 	//-------------------------
 
-		private function setButtonGroupStyles(group:ButtonGroup):void
+		private function setButtonGroupStyles(group:ButtonGroup):Void
 		{
 			group.gap = this.smallGutterSize;
 		}
@@ -988,7 +988,7 @@ package feathers.themes
 	// Callout
 	//-------------------------
 
-		private function setCalloutStyles(callout:Callout):void
+		private function setCalloutStyles(callout:Callout):Void
 		{
 			callout.backgroundSkin = new Scale9Image(panelBorderBackgroundSkinTextures);
 
@@ -1007,7 +1007,7 @@ package feathers.themes
 	// Check
 	//-------------------------
 
-		private function setCheckStyles(check:Check):void
+		private function setCheckStyles(check:Check):Void
 		{
 			var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1045,7 +1045,7 @@ package feathers.themes
 	// Drawers
 	//-------------------------
 
-		private function setDrawersStyles(drawers:Drawers):void
+		private function setDrawersStyles(drawers:Drawers):Void
 		{
 			var overlaySkin:Quad = new Quad(10, 10, MODAL_OVERLAY_COLOR);
 			overlaySkin.alpha = MODAL_OVERLAY_ALPHA;
@@ -1056,7 +1056,7 @@ package feathers.themes
 	// GroupedList
 	//-------------------------
 
-		private function setGroupedListStyles(list:GroupedList):void
+		private function setGroupedListStyles(list:GroupedList):Void
 		{
 			this.setScrollerStyles(list);
 
@@ -1072,7 +1072,7 @@ package feathers.themes
 
 		//see List section for item renderer styles
 
-		private function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+		private function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):Void
 		{
 			renderer.backgroundSkin = new Scale9Image(groupedListHeaderBackgroundSkinTextures);
 			renderer.backgroundSkin.height = this.controlSize;
@@ -1088,7 +1088,7 @@ package feathers.themes
 			renderer.minHeight = this.controlSize;
 		}
 
-		private function setInsetGroupedListStyles(list:GroupedList):void
+		private function setInsetGroupedListStyles(list:GroupedList):Void
 		{
 			this.setScrollerStyles(list);
 
@@ -1107,7 +1107,7 @@ package feathers.themes
 			list.layout = layout;
 		}
 
-		private function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+		private function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):Void
 		{
 			renderer.contentLabelProperties.textFormat = this.defaultTextFormat;
 			renderer.contentLabelProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1124,7 +1124,7 @@ package feathers.themes
 	// Header
 	//-------------------------
 
-		private function setHeaderStyles(header:Header):void
+		private function setHeaderStyles(header:Header):Void
 		{
 			header.backgroundSkin = new Scale9Image(headerBackgroundSkinTextures);
 
@@ -1147,19 +1147,19 @@ package feathers.themes
 	// Label
 	//-------------------------
 
-		private function setLabelStyles(label:Label):void
+		private function setLabelStyles(label:Label):Void
 		{
 			label.textRendererProperties.textFormat = this.defaultTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.disabledTextFormat;
 		}
 
-		private function setHeadingLabelStyles(label:Label):void
+		private function setHeadingLabelStyles(label:Label):Void
 		{
 			label.textRendererProperties.textFormat = this.headingTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.headingDisabledTextFormat;
 		}
 
-		private function setDetailLabelStyles(label:Label):void
+		private function setDetailLabelStyles(label:Label):Void
 		{
 			label.textRendererProperties.textFormat = this.detailTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.detailDisabledTextFormat;
@@ -1169,7 +1169,7 @@ package feathers.themes
 	// List
 	//-------------------------
 
-		private function setListStyles(list:List):void
+		private function setListStyles(list:List):Void
 		{
 			this.setScrollerStyles(list);
 
@@ -1183,7 +1183,7 @@ package feathers.themes
 			list.padding = this.borderSize;
 		}
 
-		private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+		private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.itemRendererUpSkinTexture;
@@ -1214,12 +1214,12 @@ package feathers.themes
 			renderer.useStateDelayTimer = false;
 		}
 
-		private function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):void
+		private function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):Void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 		}
 
-		private function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):void
+		private function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):Void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 		}
@@ -1228,7 +1228,7 @@ package feathers.themes
 	// NumericStepper
 	//-------------------------
 
-		private function setNumericStepperStyles(stepper:NumericStepper):void
+		private function setNumericStepperStyles(stepper:NumericStepper):Void
 		{
 			stepper.buttonLayoutMode = NumericStepper.BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL;
 
@@ -1236,7 +1236,7 @@ package feathers.themes
 			stepper.focusPadding = -1;
 		}
 
-		private function setNumericStepperIncrementButtonStyles(button:Button):void
+		private function setNumericStepperIncrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.stepperIncrementButtonUpSkinTextures;
@@ -1253,7 +1253,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setNumericStepperDecrementButtonStyles(button:Button):void
+		private function setNumericStepperDecrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.stepperDecrementButtonUpSkinTextures;
@@ -1270,7 +1270,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setNumericStepperTextInputStyles(input:TextInput):void
+		private function setNumericStepperTextInputStyles(input:TextInput):Void
 		{
 			input.minWidth = this.controlSize;
 			input.minHeight = this.controlSize;
@@ -1298,7 +1298,7 @@ package feathers.themes
 	// PageIndicator
 	//-------------------------
 
-		private function setPageIndicatorStyles(pageIndicator:PageIndicator):void
+		private function setPageIndicatorStyles(pageIndicator:PageIndicator):Void
 		{
 			pageIndicator.interactionMode = PageIndicator.INTERACTION_MODE_PRECISE;
 
@@ -1315,7 +1315,7 @@ package feathers.themes
 	// Panel
 	//-------------------------
 
-		private function setPanelStyles(panel:Panel):void
+		private function setPanelStyles(panel:Panel):Void
 		{
 			this.setScrollerStyles(panel);
 
@@ -1327,7 +1327,7 @@ package feathers.themes
 			panel.paddingLeft = this.gutterSize;
 		}
 
-		private function setPanelHeaderStyles(header:Header):void
+		private function setPanelHeaderStyles(header:Header):Void
 		{
 			header.titleProperties.textFormat = this.defaultTextFormat;
 			header.titleProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1346,18 +1346,18 @@ package feathers.themes
 	// PickerList
 	//-------------------------
 
-		private function setPickerListStyles(list:PickerList):void
+		private function setPickerListStyles(list:PickerList):Void
 		{
 			list.popUpContentManager = new DropDownPopUpContentManager();
 		}
 
-		private function setPickerListListStyles(list:List):void
+		private function setPickerListListStyles(list:List):Void
 		{
 			this.setListStyles(list);
 			list.maxHeight = this.wideControlSize;
 		}
 
-		private function setPickerListButtonStyles(button:Button):void
+		private function setPickerListButtonStyles(button:Button):Void
 		{
 			this.setButtonStyles(button);
 
@@ -1385,7 +1385,7 @@ package feathers.themes
 	// ProgressBar
 	//-------------------------
 
-		private function setProgressBarStyles(progress:ProgressBar):void
+		private function setProgressBarStyles(progress:ProgressBar):Void
 		{
 			var backgroundSkin:Scale9Image = new Scale9Image(simpleBorderBackgroundSkinTextures);
 			if(progress.direction == ProgressBar.DIRECTION_VERTICAL)
@@ -1416,7 +1416,7 @@ package feathers.themes
 	// Radio
 	//-------------------------
 
-		private function setRadioStyles(radio:Radio):void
+		private function setRadioStyles(radio:Radio):Void
 		{
 			var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1454,7 +1454,7 @@ package feathers.themes
 	// ScrollBar
 	//-------------------------
 
-		private function setHorizontalScrollBarStyles(scrollBar:ScrollBar):void
+		private function setHorizontalScrollBarStyles(scrollBar:ScrollBar):Void
 		{
 			scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1464,7 +1464,7 @@ package feathers.themes
 			scrollBar.customMinimumTrackName = THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK;
 		}
 
-		private function setVerticalScrollBarStyles(scrollBar:ScrollBar):void
+		private function setVerticalScrollBarStyles(scrollBar:ScrollBar):Void
 		{
 			scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1474,7 +1474,7 @@ package feathers.themes
 			scrollBar.customMinimumTrackName = THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK;
 		}
 
-		private function setHorizontalScrollBarIncrementButtonStyles(button:Button):void
+		private function setHorizontalScrollBarIncrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarStepButtonUpSkinTextures;
@@ -1496,7 +1496,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setHorizontalScrollBarDecrementButtonStyles(button:Button):void
+		private function setHorizontalScrollBarDecrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = hScrollBarStepButtonUpSkinTextures;
@@ -1518,7 +1518,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setHorizontalScrollBarThumbStyles(thumb:Button):void
+		private function setHorizontalScrollBarThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -1537,14 +1537,14 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		private function setHorizontalScrollBarMinimumTrackStyles(track:Button):void
+		private function setHorizontalScrollBarMinimumTrackStyles(track:Button):Void
 		{
 			track.defaultSkin = new Scale9Image(this.hScrollBarTrackSkinTextures);
 
 			track.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalScrollBarIncrementButtonStyles(button:Button):void
+		private function setVerticalScrollBarIncrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1566,7 +1566,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalScrollBarDecrementButtonStyles(button:Button):void
+		private function setVerticalScrollBarDecrementButtonStyles(button:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1588,7 +1588,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalScrollBarThumbStyles(thumb:Button):void
+		private function setVerticalScrollBarThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -1607,7 +1607,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalScrollBarMinimumTrackStyles(track:Button):void
+		private function setVerticalScrollBarMinimumTrackStyles(track:Button):Void
 		{
 			track.defaultSkin = new Scale9Image(this.vScrollBarTrackSkinTextures);
 
@@ -1618,12 +1618,12 @@ package feathers.themes
 	// ScrollContainer
 	//-------------------------
 
-		private function setScrollContainerStyles(container:ScrollContainer):void
+		private function setScrollContainerStyles(container:ScrollContainer):Void
 		{
 			this.setScrollerStyles(container);
 		}
 
-		private function setToolbarScrollContainerStyles(container:ScrollContainer):void
+		private function setToolbarScrollContainerStyles(container:ScrollContainer):Void
 		{
 			this.setScrollerStyles(container);
 
@@ -1647,7 +1647,7 @@ package feathers.themes
 	// ScrollText
 	//-------------------------
 
-		private function setScrollTextStyles(text:ScrollText):void
+		private function setScrollTextStyles(text:ScrollText):Void
 		{
 			this.setScrollerStyles(text);
 
@@ -1660,17 +1660,17 @@ package feathers.themes
 	// SimpleScrollBar
 	//-------------------------
 
-		private function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+		private function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):Void
 		{
 			scrollBar.customThumbName = THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 
-		private function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+		private function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):Void
 		{
 			scrollBar.customThumbName = THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 
-		private function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):void
+		private function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -1689,7 +1689,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalSimpleScrollBarThumbStyles(thumb:Button):void
+		private function setVerticalSimpleScrollBarThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -1712,7 +1712,7 @@ package feathers.themes
 	// Slider
 	//-------------------------
 
-		private function setSliderStyles(slider:Slider):void
+		private function setSliderStyles(slider:Slider):Void
 		{
 			slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_SINGLE;
 			slider.minimumPadding = slider.maximumPadding = -vSliderThumbUpSkinTexture.height / 2;
@@ -1737,7 +1737,7 @@ package feathers.themes
 			slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 		}
 
-		private function setHorizontalSliderThumbStyles(thumb:Button):void
+		private function setHorizontalSliderThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1755,7 +1755,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		private function setHorizontalSliderMinimumTrackStyles(track:Button):void
+		private function setHorizontalSliderMinimumTrackStyles(track:Button):Void
 		{
 			var defaultSkin:Scale3Image = new Scale3Image(this.hSliderTrackSkinTextures)
 			defaultSkin.width = this.wideControlSize;
@@ -1764,7 +1764,7 @@ package feathers.themes
 			track.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalSliderThumbStyles(thumb:Button):void
+		private function setVerticalSliderThumbStyles(thumb:Button):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1782,7 +1782,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		private function setVerticalSliderMinimumTrackStyles(track:Button):void
+		private function setVerticalSliderMinimumTrackStyles(track:Button):Void
 		{
 			var defaultSkin:Scale3Image = new Scale3Image(this.vSliderTrackSkinTextures);
 			defaultSkin.height = this.wideControlSize;
@@ -1795,14 +1795,14 @@ package feathers.themes
 	// TabBar
 	//-------------------------
 
-		private function setTabBarStyles(tabBar:TabBar):void
+		private function setTabBarStyles(tabBar:TabBar):Void
 		{
 			tabBar.distributeTabSizes = false;
 			tabBar.horizontalAlign = TabBar.HORIZONTAL_ALIGN_LEFT;
 			tabBar.verticalAlign = TabBar.VERTICAL_ALIGN_JUSTIFY;
 		}
 
-		private function setTabStyles(tab:ToggleButton):void
+		private function setTabStyles(tab:ToggleButton):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.tabUpSkinTextures;
@@ -1834,7 +1834,7 @@ package feathers.themes
 	// TextArea
 	//-------------------------
 
-		private function setTextAreaStyles(textArea:TextArea):void
+		private function setTextAreaStyles(textArea:TextArea):Void
 		{
 			this.setScrollerStyles(textArea);
 
@@ -1862,7 +1862,7 @@ package feathers.themes
 	// TextInput
 	//-------------------------
 
-		private function setBaseTextInputStyles(input:TextInput):void
+		private function setBaseTextInputStyles(input:TextInput):Void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.textInputBackgroundSkinTextures;
@@ -1892,12 +1892,12 @@ package feathers.themes
 			input.promptProperties.disabledTextFormat = this.disabledTextFormat;
 		}
 
-		private function setTextInputStyles(input:TextInput):void
+		private function setTextInputStyles(input:TextInput):Void
 		{
 			this.setBaseTextInputStyles(input);
 		}
 
-		private function setSearchTextInputStyles(input:TextInput):void
+		private function setSearchTextInputStyles(input:TextInput):Void
 		{
 			this.setBaseTextInputStyles(input);
 
@@ -1917,7 +1917,7 @@ package feathers.themes
 	// ToggleSwitch
 	//-------------------------
 
-		private function setToggleSwitchStyles(toggle:ToggleSwitch):void
+		private function setToggleSwitchStyles(toggle:ToggleSwitch):Void
 		{
 			toggle.trackLayoutMode = ToggleSwitch.TRACK_LAYOUT_MODE_SINGLE;
 			toggle.labelAlign = ToggleSwitch.LABEL_ALIGN_MIDDLE;
@@ -1928,14 +1928,14 @@ package feathers.themes
 			toggle.focusPadding = -1;
 		}
 
-		private function setToggleSwitchOnTrackStyles(track:Button):void
+		private function setToggleSwitchOnTrackStyles(track:Button):Void
 		{
 			track.defaultSkin = new Scale9Image(buttonSelectedUpSkinTextures);
 
 			track.hasLabelTextRenderer = false;
 		}
 
-		private function setToggleSwitchThumbStyles(thumb:Button):void
+		private function setToggleSwitchThumbStyles(thumb:Button):Void
 		{
 			this.setButtonStyles(thumb);
 

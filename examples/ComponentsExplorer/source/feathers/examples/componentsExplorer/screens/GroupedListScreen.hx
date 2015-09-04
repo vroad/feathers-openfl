@@ -176,7 +176,7 @@ import starling.events.Event;
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function transitionInCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):Void
 	{
 		this._list.revealScrollBars();
 	}

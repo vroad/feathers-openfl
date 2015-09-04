@@ -62,7 +62,7 @@ public class MainMenuScreen extends PanelScreen
 		return this._list.selectedItem as VideoFeed;
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		super.initialize();
 
@@ -104,7 +104,7 @@ public class MainMenuScreen extends PanelScreen
 		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 
@@ -129,7 +129,7 @@ public class MainMenuScreen extends PanelScreen
 		super.draw();
 	}
 
-	private function cleanUpLoader():void
+	private function cleanUpLoader():Void
 	{
 		if(!this._loader)
 		{
@@ -141,7 +141,7 @@ public class MainMenuScreen extends PanelScreen
 		this._loader = null;
 	}
 
-	private function parseListVideoCategoriesResult(result:Object):void
+	private function parseListVideoCategoriesResult(result:Object):Void
 	{
 		this._message.visible = false;
 
@@ -174,12 +174,12 @@ public class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 
-	private function removedFromStageHandler(event:starling.events.Event):void
+	private function removedFromStageHandler(event:starling.events.Event):Void
 	{
 		this.cleanUpLoader();
 	}
 
-	private function transitionInCompleteHandler(event:starling.events.Event):void
+	private function transitionInCompleteHandler(event:starling.events.Event):Void
 	{
 		this._list.selectedIndex = -1;
 		this._list.addEventListener(starling.events.Event.CHANGE, list_changeHandler);
@@ -187,7 +187,7 @@ public class MainMenuScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		this.dispatchEventWith(LIST_VIDEOS, false,
 		{
@@ -204,7 +204,7 @@ public class MainMenuScreen extends PanelScreen
 		});
 	}
 
-	private function loader_completeHandler(event:flash.events.Event):void
+	private function loader_completeHandler(event:flash.events.Event):Void
 	{
 		try
 		{
@@ -221,7 +221,7 @@ public class MainMenuScreen extends PanelScreen
 		this.cleanUpLoader();
 	}
 
-	private function loader_errorHandler(event:ErrorEvent):void
+	private function loader_errorHandler(event:ErrorEvent):Void
 	{
 		this.cleanUpLoader();
 		this._message.text = "Unable to load data. Please try again later.";

@@ -374,7 +374,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #removeScreen()
 	 */
-	public function addScreen(id:String, item:StackScreenNavigatorItem):void
+	public function addScreen(id:String, item:StackScreenNavigatorItem):Void
 	{
 		this.addScreenInternal(id, item);
 	}
@@ -403,7 +403,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override public function removeAllScreens():void
+	override public function removeAllScreens():Void
 	{
 		this._stack.length = 0;
 		super.removeAllScreens();
@@ -534,7 +534,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override private function prepareActiveScreen():void
+	override private function prepareActiveScreen():Void
 	{
 		var item:StackScreenNavigatorItem = StackScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Object = item.pushEvents;
@@ -621,7 +621,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override private function cleanupActiveScreen():void
+	override private function cleanupActiveScreen():Void
 	{
 		var item:StackScreenNavigatorItem = StackScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var pushEvents:Object = item.pushEvents;
@@ -699,7 +699,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	private function createPushScreenEventListener(screenID:String):Function
 	{
 		var self:StackScreenNavigator = this;
-		var eventListener:Function = function(event:Event, data:Object):void
+		var eventListener:Function = function(event:Event, data:Object):Void
 		{
 			self.pushScreen(screenID, data);
 		};
@@ -716,14 +716,14 @@ public class StackScreenNavigator extends BaseScreenNavigator
 		if(signal.valueClasses.length == 1)
 		{
 			//shortcut to avoid the allocation of the rest array
-			var signalListener:Function = function(arg0:Object):void
+			var signalListener:Function = function(arg0:Object):Void
 			{
 				self.pushScreen(screenID, arg0);
 			};
 		}
 		else
 		{
-			signalListener = function(...rest:Array):void
+			signalListener = function(...rest:Array):Void
 			{
 				var data:Object;
 				if(rest.length > 0)
@@ -740,7 +740,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function popEventListener(event:Event):void
+	private function popEventListener(event:Event):Void
 	{
 		this.popScreen();
 	}
@@ -748,7 +748,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function popSignalListener(...rest:Array):void
+	private function popSignalListener(...rest:Array):Void
 	{
 		this.popScreen();
 	}
@@ -756,7 +756,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function popToRootEventListener(event:Event):void
+	private function popToRootEventListener(event:Event):Void
 	{
 		this.popToRootScreen();
 	}
@@ -764,7 +764,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function popToRootSignalListener(...rest:Array):void
+	private function popToRootSignalListener(...rest:Array):Void
 	{
 		this.popToRootScreen();
 	}
@@ -772,7 +772,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function stackScreenNavigator_initializeHandler(event:Event):void
+	private function stackScreenNavigator_initializeHandler(event:Event):Void
 	{
 		if(this._tempRootScreenID !== null)
 		{

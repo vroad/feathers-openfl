@@ -718,7 +718,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._nativeFocus && this._nativeFocus.parent)
 		{
@@ -773,7 +773,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 		super.initialize();
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -974,7 +974,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function positionSelectionBackground():void
+	private function positionSelectionBackground():Void
 	{
 		var startX:Float = this.getXPositionOfCharIndex(this._selectionBeginIndex) - this._textSnapshotScrollX;
 		if(startX < 0)
@@ -1048,7 +1048,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	private function hasFocus_enterFrameHandler(event:starling.events.Event):Void
 	{
 		var target:DisplayObject = this;
 		do
@@ -1066,7 +1066,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function textEditor_touchHandler(event:TouchEvent):void
+	private function textEditor_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1320,7 +1320,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function nativeFocus_textInputHandler(event:TextEvent):void
+	private function nativeFocus_textInputHandler(event:TextEvent):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{
@@ -1342,7 +1342,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function nativeFocus_selectAllHandler(event:flash.events.Event):void
+	private function nativeFocus_selectAllHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1355,7 +1355,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function nativeFocus_cutHandler(event:flash.events.Event):void
+	private function nativeFocus_cutHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1373,7 +1373,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function nativeFocus_copyHandler(event:flash.events.Event):void
+	private function nativeFocus_copyHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1387,7 +1387,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @private
 	 */
-	private function nativeFocus_pasteHandler(event:flash.events.Event):void
+	private function nativeFocus_pasteHandler(event:flash.events.Event):Void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{

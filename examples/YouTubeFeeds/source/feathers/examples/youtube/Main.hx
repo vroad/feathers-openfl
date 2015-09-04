@@ -53,14 +53,14 @@ public class Main extends StackScreenNavigator
 		this.popTransition = Slide.createSlideRightTransition();
 	}
 
-	private function mainMenuScreen_listVideosHandler(event:Event, mainMenuProperties:Object):void
+	private function mainMenuScreen_listVideosHandler(event:Event, mainMenuProperties:Object):Void
 	{
 		var screen:MainMenuScreen = MainMenuScreen(this.activeScreen);
 		this._model.selectedList = screen.selectedCategory;
 		this.pushScreen(LIST_VIDEOS, mainMenuProperties);
 	}
 
-	private function listVideos_showVideoDetails(event:Event, listVideosProperties:Object):void
+	private function listVideos_showVideoDetails(event:Event, listVideosProperties:Object):Void
 	{
 		var screen:ListVideosScreen = ListVideosScreen(this.activeScreen);
 		this._model.selectedVideo = screen.selectedVideo;

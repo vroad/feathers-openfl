@@ -118,7 +118,7 @@ import starling.events.Event;
 		}
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		if(this.settings.hasIcon)
 		{
@@ -245,7 +245,7 @@ import starling.events.Event;
 		return header;
 	}
 
-	private function disposeItemIconOrAccessory(item:Object):void
+	private function disposeItemIconOrAccessory(item:Object):Void
 	{
 		if(item.hasOwnProperty("icon"))
 		{

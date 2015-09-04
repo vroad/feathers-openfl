@@ -1845,7 +1845,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	private function refreshDisplayedText():void
+	private function refreshDisplayedText():Void
 	{
 		if(this._valueFormatFunction != null)
 		{
@@ -1860,7 +1860,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	private function refreshTypicalText():void
+	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
 		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.int(this._minimum)).length, ("" + Std.int(this._maximum)).length), ("" + Std.int(this._step)).length);

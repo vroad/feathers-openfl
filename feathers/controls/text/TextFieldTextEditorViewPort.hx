@@ -535,7 +535,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function refreshSnapshotParameters():void
+	override private function refreshSnapshotParameters():Void
 	{
 		var textFieldWidth:Number = this._visibleWidth - this._paddingLeft - this._paddingRight;
 		if(textFieldWidth !== textFieldWidth) //isNaN
@@ -594,7 +594,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function refreshTextFieldSize():void
+	override private function refreshTextFieldSize():Void
 	{
 		var oldIgnoreScrolling:Boolean = this._ignoreScrolling;
 		var gutterDimensionsOffset:Number = 4;
@@ -617,7 +617,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function commitStylesAndData(textField:TextField):void
+	override private function commitStylesAndData(textField:TextField):Void
 	{
 		super.commitStylesAndData(textField);
 		if(textField == this.textField)
@@ -629,7 +629,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function transformTextField():void
+	override private function transformTextField():Void
 	{
 		if(!this.textField.visible)
 		{
@@ -664,7 +664,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function positionSnapshot():void
+	override private function positionSnapshot():Void
 	{
 		if(!this.textSnapshot)
 		{
@@ -678,7 +678,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function checkIfNewSnapshotIsNeeded():void
+	override private function checkIfNewSnapshotIsNeeded():Void
 	{
 		super.checkIfNewSnapshotIsNeeded();
 		this._needsNewTexture ||= this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -687,7 +687,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function textField_focusInHandler(event:FocusEvent):void
+	override private function textField_focusInHandler(event:FocusEvent):Void
 	{
 		this.textField.addEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusInHandler(event);
@@ -697,7 +697,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override private function textField_focusOutHandler(event:FocusEvent):void
+	override private function textField_focusOutHandler(event:FocusEvent):Void
 	{
 		this.textField.removeEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusOutHandler(event);
@@ -707,7 +707,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	private function textField_scrollHandler(event:Event):void
+	private function textField_scrollHandler(event:Event):Void
 	{
 		//for some reason, the text field's scroll positions don't work
 		//properly unless we access the values here. weird.

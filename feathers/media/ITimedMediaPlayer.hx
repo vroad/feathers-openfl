@@ -135,7 +135,7 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 * @see #play()
 	 * @see #pause()
 	 */
-	function togglePlayPause():void;
+	function togglePlayPause():Void;
 
 	/**
 	 * Plays the media content.
@@ -144,7 +144,7 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 * @see #pause()
 	 * @see #stop()
 	 */
-	function play():void;
+	function play():Void;
 
 	/**
 	 * Pauses the media content.
@@ -152,7 +152,7 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 * @see #isPlaying
 	 * @see #play()
 	 */
-	function pause():void;
+	function pause():Void;
 
 	/**
 	 * Stops the media content and returns the playhead to the beginning.
@@ -161,11 +161,11 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 * @see #play()
 	 * @see #pause()
 	 */
-	function stop():void;
+	function stop():Void;
 
 	/**
 	 * Seeks the media content to a specific position, in seconds.
 	 */
-	function seek(seconds:Number):void;
+	function seek(seconds:Number):Void;
 }
 }

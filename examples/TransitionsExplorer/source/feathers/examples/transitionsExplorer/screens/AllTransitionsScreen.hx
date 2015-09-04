@@ -34,7 +34,7 @@ public class AllTransitionsScreen extends PanelScreen
 	public var savedVerticalScrollPosition:Number = 0;
 	public var savedSelectedIndex:int = -1;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -86,13 +86,13 @@ public class AllTransitionsScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 
-	private function transitionInCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):Void
 	{
 		this._list.selectedIndex = -1;
 		this._list.revealScrollBars();
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):void
+	private function list_triggeredHandler(event:Event, item:Object):Void
 	{
 		var eventType:String = item.event as String;
 		this.dispatchEventWith(eventType, false,

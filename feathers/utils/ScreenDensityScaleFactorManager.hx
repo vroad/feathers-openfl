@@ -143,7 +143,7 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	private function updateStarlingStageDimensions():void
+	private function updateStarlingStageDimensions():Void
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
 		var needsToBeDivisibleByTwo:Boolean = int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
@@ -173,7 +173,7 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	private function nativeStage_resizeHandler(event:Event):void
+	private function nativeStage_resizeHandler(event:Event):Void
 	{
 		this.updateStarlingStageDimensions();
 	}

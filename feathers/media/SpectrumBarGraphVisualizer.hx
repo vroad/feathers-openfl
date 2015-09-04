@@ -200,7 +200,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		this.mediaPlayer = null;
 		super.dispose();
@@ -209,7 +209,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._bars = new QuadBatch();
 		this.addChild(this._bars);
@@ -218,7 +218,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		this.autoSizeIfNeeded();
 		this.layoutBarGraph();
@@ -252,7 +252,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function layoutBarGraph():void
+	private function layoutBarGraph():Void
 	{
 		this._bars.reset();
 		if(!this._mediaPlayer.isPlaying)
@@ -319,7 +319,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function handlePlaybackStateChange():void
+	private function handlePlaybackStateChange():Void
 	{
 		if(this._mediaPlayer.isPlaying)
 		{
@@ -334,7 +334,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_playbackStateChange(event:Event):void
+	private function mediaPlayer_playbackStateChange(event:Event):Void
 	{
 		this.handlePlaybackStateChange();
 	}
@@ -342,7 +342,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	private function peakVisualizer_enterFrameHandler(event:Event):void
+	private function peakVisualizer_enterFrameHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}

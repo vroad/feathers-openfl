@@ -1211,7 +1211,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	 * This function is here to work around a bug in the Flex 4.6 SDK
 	 * compiler. For explanation, see the places where it gets called.
 	 */
-	private function doNothing():void {}
+	private function doNothing():Void {}
 }
 
 class CharLocation

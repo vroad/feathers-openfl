@@ -758,7 +758,7 @@ class ProgressBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutChildren():void
+	private function layoutChildren():Void
 	{
 		if(this.currentBackground)
 		{

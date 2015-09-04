@@ -85,7 +85,7 @@ public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHiera
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int, ...rest:Array):void
+	public function setItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -102,7 +102,7 @@ public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHiera
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int, ...rest:Array):void
+	public function addItemAt(data:Object, item:Object, index:int, ...rest:Array):Void
 	{
 		rest.unshift(index);
 		var branch:Array = data as Array;
@@ -138,7 +138,7 @@ public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHiera
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):void
+	public function removeAll(data:Object):Void
 	{
 		var branch:Array = data as Array;
 		branch.length = 0;

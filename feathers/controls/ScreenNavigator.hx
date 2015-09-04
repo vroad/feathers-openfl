@@ -153,7 +153,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #removeScreen()
 	 */
-	public function addScreen(id:String, item:ScreenNavigatorItem):void
+	public function addScreen(id:String, item:ScreenNavigatorItem):Void
 	{
 		this.addScreenInternal(id, item);
 	}
@@ -211,7 +211,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #transition
 	 */
-	public function clearScreen(transition:Function = null):void
+	public function clearScreen(transition:Function = null):Void
 	{
 		if(transition == null)
 		{
@@ -224,7 +224,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override private function prepareActiveScreen():void
+	override private function prepareActiveScreen():Void
 	{
 		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Dynamic = item.events;
@@ -269,7 +269,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override private function cleanupActiveScreen():void
+	override private function cleanupActiveScreen():Void
 	{
 		var item:ScreenNavigatorItem = cast(this._screens[this._activeScreenID], ScreenNavigatorItem);
 		var events:Dynamic = item.events;

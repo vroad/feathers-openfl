@@ -230,7 +230,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		if(this._layout == null)
 		{
@@ -258,7 +258,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function refreshMinAndMaxScrollPositions():void
+	override private function refreshMinAndMaxScrollPositions():Void
 	{
 		super.refreshMinAndMaxScrollPositions();
 		if(this._maxVerticalScrollPosition != this._minVerticalScrollPosition)
@@ -274,7 +274,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function handlePendingScroll():void
+	override private function handlePendingScroll():Void
 	{
 		if(this.pendingItemIndex >= 0)
 		{
@@ -297,7 +297,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function layoutChildren():void
+	override private function layoutChildren():Void
 	{
 		super.layoutChildren();
 
@@ -356,7 +356,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	private function spinnerList_scrollCompleteHandler(event:Event):void
+	private function spinnerList_scrollCompleteHandler(event:Event):Void
 	{
 		var itemCount:int = this._dataProvider.length;
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
@@ -377,7 +377,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	private function spinnerList_triggeredHandler(event:Event, item:Object):void
+	private function spinnerList_triggeredHandler(event:Event, item:Object):Void
 	{
 		var itemIndex:int = this._dataProvider.getItemIndex(item);
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
@@ -395,7 +395,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(!this._dataProvider)
 		{

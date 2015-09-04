@@ -88,7 +88,7 @@ public class FullScreenToggleButton extends ToggleButton implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private function fullScreenButton_triggeredHandler(event:Event):void
+	private function fullScreenButton_triggeredHandler(event:Event):Void
 	{
 		this._mediaPlayer.toggleFullScreen();
 	}
@@ -96,7 +96,7 @@ public class FullScreenToggleButton extends ToggleButton implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_displayStageChangeHandler(event:Event):void
+	private function mediaPlayer_displayStageChangeHandler(event:Event):Void
 	{
 		this.isSelected = this._mediaPlayer.isFullScreen;
 	}

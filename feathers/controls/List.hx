@@ -1395,7 +1395,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	override private function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(this._dataProvider == null)
 		{
@@ -1455,7 +1455,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
@@ -1483,7 +1483,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
@@ -1518,7 +1518,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
@@ -1555,7 +1555,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function layout_scrollHandler(event:Event, scrollOffset:Point):void
+	private function layout_scrollHandler(event:Event, scrollOffset:Point):Void
 	{
 		var layout:IVariableVirtualLayout = IVariableVirtualLayout(this._layout);
 		if(!this.isScrolling || !layout.useVirtualLayout || !layout.hasVariableItemDimensions)

@@ -39,7 +39,7 @@ public class FlowLayoutSettingsScreen extends PanelScreen
 	private var _verticalAlignPicker:PickerList;
 	private var _rowVerticalAlignPicker:PickerList;
 
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//icon and accessory display objects in the list's data provider
 		//won't be automatically disposed because feathers cannot know if
@@ -52,7 +52,7 @@ public class FlowLayoutSettingsScreen extends PanelScreen
 		super.dispose();
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -181,67 +181,67 @@ public class FlowLayoutSettingsScreen extends PanelScreen
 		return header;
 	}
 
-	private function disposeItemAccessory(item:Object):void
+	private function disposeItemAccessory(item:Object):Void
 	{
 		DisplayObject(item.accessory).dispose();
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function itemCountStepper_changeHandler(event:Event):void
+	private function itemCountStepper_changeHandler(event:Event):Void
 	{
 		this.settings.itemCount = this._itemCountStepper.value;
 	}
 
-	private function horizontalAlignPicker_changeHandler(event:Event):void
+	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
 		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
 	}
 
-	private function verticalAlignPicker_changeHandler(event:Event):void
+	private function verticalAlignPicker_changeHandler(event:Event):Void
 	{
 		this.settings.verticalAlign = this._verticalAlignPicker.selectedItem as String;
 	}
 
-	private function rowVerticalAlignPicker_changeHandler(event:Event):void
+	private function rowVerticalAlignPicker_changeHandler(event:Event):Void
 	{
 		this.settings.rowVerticalAlign = this._rowVerticalAlignPicker.selectedItem as String;
 	}
 
-	private function horizontalGapStepper_changeHandler(event:Event):void
+	private function horizontalGapStepper_changeHandler(event:Event):Void
 	{
 		this.settings.horizontalGap = this._horizontalGapStepper.value;
 	}
 
-	private function verticalGapStepper_changeHandler(event:Event):void
+	private function verticalGapStepper_changeHandler(event:Event):Void
 	{
 		this.settings.verticalGap = this._verticalGapStepper.value;
 	}
 
-	private function paddingTopStepper_changeHandler(event:Event):void
+	private function paddingTopStepper_changeHandler(event:Event):Void
 	{
 		this.settings.paddingTop = this._paddingTopStepper.value;
 	}
 
-	private function paddingRightStepper_changeHandler(event:Event):void
+	private function paddingRightStepper_changeHandler(event:Event):Void
 	{
 		this.settings.paddingRight = this._paddingRightStepper.value;
 	}
 
-	private function paddingBottomStepper_changeHandler(event:Event):void
+	private function paddingBottomStepper_changeHandler(event:Event):Void
 	{
 		this.settings.paddingBottom = this._paddingBottomStepper.value;
 	}
 
-	private function paddingLeftStepper_changeHandler(event:Event):void
+	private function paddingLeftStepper_changeHandler(event:Event):Void
 	{
 		this.settings.paddingLeft = this._paddingLeftStepper.value;
 	}

@@ -332,7 +332,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function content_removedFromStageHandler(event:Event):void
+	private function content_removedFromStageHandler(event:Event):Void
 	{
 		this.close();
 	}
@@ -340,7 +340,7 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 	/**
 	 * @private
 	 */
-	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.isDefaultPrevented())
 		{

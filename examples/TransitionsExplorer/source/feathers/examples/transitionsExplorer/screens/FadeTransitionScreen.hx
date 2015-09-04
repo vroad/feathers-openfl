@@ -26,7 +26,7 @@ public class FadeTransitionScreen extends PanelScreen
 	private var _list:List;
 	private var _backButton:Button;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -78,13 +78,13 @@ public class FadeTransitionScreen extends PanelScreen
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):void
+	private function list_triggeredHandler(event:Event, item:Object):Void
 	{
 		var transition:Function = item.transition as Function;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}

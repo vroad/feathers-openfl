@@ -1786,7 +1786,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	private function refreshTextFieldSize():void
+	private function refreshTextFieldSize():Void
 	{
 		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
@@ -2059,7 +2059,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	private function hasFocus_enterFrameHandler(event:Event):void
+	private function hasFocus_enterFrameHandler(event:Event):Void
 	{
 		if(this.textSnapshot != null)
 		{
@@ -2090,7 +2090,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	private function refreshSnapshot_enterFrameHandler(event:Event):void
+	private function refreshSnapshot_enterFrameHandler(event:Event):Void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, refreshSnapshot_enterFrameHandler);
 		this.refreshSnapshot();
@@ -2099,7 +2099,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	private function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
 		if(!touch) //we only care about began touches

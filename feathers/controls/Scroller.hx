@@ -3698,7 +3698,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function refreshFocusIndicator():void
+	override private function refreshFocusIndicator():Void
 	{
 		if(this._focusIndicatorSkin)
 		{
@@ -3727,7 +3727,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function refreshViewPortBoundsWithoutFixedScrollBars():void
+	private function refreshViewPortBoundsWithoutFixedScrollBars():Void
 	{
 		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
 		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
@@ -4737,7 +4737,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	private function throwToPage(targetHorizontalPageIndex:int, targetVerticalPageIndex:int, duration:Number = 0.5):void
+	private function throwToPage(targetHorizontalPageIndex:int, targetVerticalPageIndex:int, duration:Number = 0.5):Void
 	{
 		var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= this._minHorizontalPageIndex)
@@ -6068,7 +6068,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):Void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -6077,7 +6077,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override private function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):Void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -6086,7 +6086,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{

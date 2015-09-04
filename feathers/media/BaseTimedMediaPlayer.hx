@@ -177,7 +177,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * @see #play()
 	 * @see #pause()
 	 */
-	public function togglePlayPause():void
+	public function togglePlayPause():Void
 	{
 		if(this._isPlaying)
 		{
@@ -196,7 +196,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * @see #pause()
 	 * @see #stop()
 	 */
-	public function play():void
+	public function play():Void
 	{
 		if(this._isPlaying)
 		{
@@ -213,7 +213,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * @see #isPlaying
 	 * @see #play()
 	 */
-	public function pause():void
+	public function pause():Void
 	{
 		if(!this._isPlaying)
 		{
@@ -231,7 +231,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * @see #play()
 	 * @see #pause()
 	 */
-	public function stop():void
+	public function stop():Void
 	{
 		this.pause();
 		this.seek(0);
@@ -240,7 +240,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	/**
 	 * @inheritDoc
 	 */
-	public function seek(seconds:Number):void
+	public function seek(seconds:Number):Void
 	{
 		this.seekMedia(seconds);
 		this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
@@ -251,7 +251,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * are expected override this function with a custom implementation for
 	 * their specific type of media content.
 	 */
-	private function playMedia():void
+	private function playMedia():Void
 	{
 		
 	}
@@ -261,7 +261,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * expected override this function with a custom implementation for
 	 * their specific type of media content.
 	 */
-	private function pauseMedia():void
+	private function pauseMedia():Void
 	{
 
 	}
@@ -271,7 +271,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * time, in seconds. Subclasses are expected override this function with
 	 * a custom implementation for their specific type of media content.
 	 */
-	private function seekMedia(seconds:Number):void
+	private function seekMedia(seconds:Number):Void
 	{
 
 	}

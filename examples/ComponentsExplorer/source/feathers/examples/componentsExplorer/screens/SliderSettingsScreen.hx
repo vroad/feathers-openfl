@@ -124,7 +124,7 @@ import starling.events.Event;
 		this.settings.page = this._pageStepper.value;
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

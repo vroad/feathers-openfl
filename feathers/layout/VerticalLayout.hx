@@ -1723,7 +1723,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	 * @private
 	 */
 	private function validateItems(items:Vector.<DisplayObject>, explicitWidth:Number,
-		minWidth:Number, maxWidth:Number, distributedHeight:Number):void
+		minWidth:Number, maxWidth:Number, distributedHeight:Number):Void
 	{
 		//if the alignment is justified, then we want to set the width of
 		//each item before validating because setting one dimension may

@@ -44,7 +44,7 @@ public class Main extends Sprite
 	private var _fullScreenItem:NativeMenuItem;
 	private var _fileToOpen:File;
 	
-	private function addedToStageHandler(event:starling.events.Event):void
+	private function addedToStageHandler(event:starling.events.Event):Void
 	{
 		this.createMenu();
 		
@@ -87,7 +87,7 @@ public class Main extends Sprite
 		this._view.layoutData = viewLayoutData;
 	}
 	
-	private function createMenu():void
+	private function createMenu():Void
 	{
 		var menu:NativeMenu;
 		if(NativeApplication.supportsMenu)
@@ -141,18 +141,18 @@ public class Main extends Sprite
 		}
 	}
 	
-	private function videoPlayer_readyHandler(event:Event):void
+	private function videoPlayer_readyHandler(event:Event):Void
 	{
 		this._view.source = this._videoPlayer.texture;
 		this._controls.touchable = true;
 	}
 
-	private function videoPlayer_displayStateChangeHandler(event:Event):void
+	private function videoPlayer_displayStateChangeHandler(event:Event):Void
 	{
 		this._fullScreenItem.label = this._videoPlayer.isFullScreen ? "Exit Full Screen" : "Enter Full Screen";
 	}
 	
-	private function openItem_selectHandler(event:flash.events.Event):void
+	private function openItem_selectHandler(event:flash.events.Event):Void
 	{
 		this._fileToOpen = new File();
 		this._fileToOpen.addEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
@@ -163,7 +163,7 @@ public class Main extends Sprite
 		]);
 	}
 	
-	private function closeItem_selectHandler(event:flash.events.Event):void
+	private function closeItem_selectHandler(event:flash.events.Event):Void
 	{
 		//we don't need to dispose the texture here. the VideoPlayer will
 		//do it automatically when videoSource is changed.
@@ -172,14 +172,14 @@ public class Main extends Sprite
 		this._controls.touchable = false;
 	}
 	
-	private function fileToOpen_cancelHandler(event:flash.events.Event):void
+	private function fileToOpen_cancelHandler(event:flash.events.Event):Void
 	{
 		this._fileToOpen.removeEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
 		this._fileToOpen.removeEventListener(flash.events.Event.CANCEL, fileToOpen_cancelHandler);
 		this._fileToOpen = null;
 	}
 
-	private function fileToOpen_selectHandler(event:flash.events.Event):void
+	private function fileToOpen_selectHandler(event:flash.events.Event):Void
 	{
 		if(this._videoPlayer.videoSource === this._fileToOpen.url)
 		{
@@ -196,17 +196,17 @@ public class Main extends Sprite
 		this._fileToOpen = null;
 	}
 	
-	private function fullScreenItem_selectHandler(event:flash.events.Event):void
+	private function fullScreenItem_selectHandler(event:flash.events.Event):Void
 	{
 		this._videoPlayer.toggleFullScreen();
 	}
 	
-	private function minimizeItem_selectHandler(event:flash.events.Event):void
+	private function minimizeItem_selectHandler(event:flash.events.Event):Void
 	{
 		Starling.current.nativeStage.nativeWindow.minimize();
 	}
 
-	private function zoomItem_selectHandler(event:flash.events.Event):void
+	private function zoomItem_selectHandler(event:flash.events.Event):Void
 	{
 		Starling.current.nativeStage.nativeWindow.maximize();
 	}

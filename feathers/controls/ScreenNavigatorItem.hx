@@ -173,7 +173,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearEvent()
 	 * @see #events
 	 */
-	public function setFunctionForEvent(eventType:String, action:Function):void
+	public function setFunctionForEvent(eventType:String, action:Function):Void
 	{
 		this._events[eventType] = action;
 	}
@@ -193,7 +193,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearEvent()
 	 * @see #events
 	 */
-	public function setScreenIDForEvent(eventType:String, screenID:String):void
+	public function setScreenIDForEvent(eventType:String, screenID:String):Void
 	{
 		this._events[eventType] = screenID;
 	}
@@ -204,7 +204,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @see #events
 	 */
-	public function clearEvent(eventType:String):void
+	public function clearEvent(eventType:String):Void
 	{
 		delete this._events[eventType];
 	}

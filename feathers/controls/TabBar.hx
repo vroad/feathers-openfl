@@ -1515,7 +1515,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		//clearing selection now so that the data provider setter won't
 		//cause a selection change that triggers events.
@@ -1527,7 +1527,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.toggleGroup = new ToggleGroup();
 		this.toggleGroup.isSelectionRequired = true;
@@ -1537,7 +1537,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1577,7 +1577,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitSelection():void
+	private function commitSelection():Void
 	{
 		this.toggleGroup.selectedIndex = this._selectedIndex;
 	}
@@ -1585,7 +1585,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function commitEnabled():void
+	private function commitEnabled():Void
 	{
 		for each(var tab:ToggleButton in this.activeTabs)
 		{
@@ -1596,7 +1596,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTabStyles():void
+	private function refreshTabStyles():Void
 	{
 		for(var propertyName:String in this._tabProperties)
 		{
@@ -1611,7 +1611,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshLayoutStyles():void
+	private function refreshLayoutStyles():Void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1662,7 +1662,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function defaultTabInitializer(tab:ToggleButton, item:Object):void
+	private function defaultTabInitializer(tab:ToggleButton, item:Object):Void
 	{
 		if(item is Object)
 		{
@@ -1692,7 +1692,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTabs(isFactoryInvalid:Boolean):void
+	private function refreshTabs(isFactoryInvalid:Boolean):Void
 	{
 		var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
 		this._ignoreSelectionChanges = true;
@@ -1771,7 +1771,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function clearInactiveTabs():void
+	private function clearInactiveTabs():Void
 	{
 		var itemCount:int = this.inactiveTabs.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1889,7 +1889,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function destroyTab(tab:ToggleButton):void
+	private function destroyTab(tab:ToggleButton):Void
 	{
 		this.toggleGroup.removeItem(tab);
 		this.removeChild(tab, true);
@@ -1898,7 +1898,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function layoutTabs():void
+	private function layoutTabs():Void
 	{
 		this._viewPortBounds.x = 0;
 		this._viewPortBounds.y = 0;
@@ -1929,7 +1929,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1937,7 +1937,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function toggleGroup_changeHandler(event:Event):void
+	private function toggleGroup_changeHandler(event:Event):Void
 	{
 		if(this._ignoreSelectionChanges)
 		{
@@ -1949,7 +1949,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex >= index)
 		{
@@ -1964,7 +1964,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex > index)
 		{
@@ -2001,7 +2001,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):Void
 	{
 		if(this._dataProvider.length > 0)
 		{
@@ -2030,7 +2030,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
 	{
 		if(this._selectedIndex == index)
 		{
@@ -2046,7 +2046,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_updateItemHandler(event:Event, index:int):void
+	private function dataProvider_updateItemHandler(event:Event, index:int):Void
 	{
 		//no need to dispatch a change event. the index and the item are the
 		//same. the item's properties have changed, but that doesn't require

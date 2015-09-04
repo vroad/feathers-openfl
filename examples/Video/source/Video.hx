@@ -28,7 +28,7 @@ package
 
         private var _starling:Starling;
 
-        private function loaderInfo_completeHandler(event:Event):void
+        private function loaderInfo_completeHandler(event:Event):Void
         {
             Starling.multitouchEnabled = true;
             this._starling = new Starling(Main, this.stage, null, null, Context3DRenderMode.AUTO, Context3DProfile.BASELINE);
@@ -38,7 +38,7 @@ package
             this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, int.MAX_VALUE, true);
         }
 
-        private function stage_resizeHandler(event:Event):void
+        private function stage_resizeHandler(event:Event):Void
         {
             this._starling.stage.stageWidth = this.stage.stageWidth;
             this._starling.stage.stageHeight = this.stage.stageHeight;

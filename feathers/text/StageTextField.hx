@@ -329,7 +329,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.visible = value;
 	}
 
-	public function assignFocus():void
+	public function assignFocus():Void
 	{
 		if(!this._textField.parent)
 		{
@@ -338,14 +338,14 @@ public final class StageTextField extends EventDispatcher
 		this._textField.stage.focus = this._textField;
 	}
 
-	public function dispose():void
+	public function dispose():Void
 	{
 		this.stage = null;
 		this._textField = null;
 		this._textFormat = null;
 	}
 
-	public function drawViewPortToBitmapData(bitmap:BitmapData):void
+	public function drawViewPortToBitmapData(bitmap:BitmapData):Void
 	{
 		if(!bitmap)
 		{
@@ -358,12 +358,12 @@ public final class StageTextField extends EventDispatcher
 		bitmap.draw(this._textField);
 	}
 
-	public function selectRange(anchorIndex:int, activeIndex:int):void
+	public function selectRange(anchorIndex:int, activeIndex:int):Void
 	{
 		this._textField.setSelection(anchorIndex, activeIndex);
 	}
 
-	private function dispatchCompleteIfPossible():void
+	private function dispatchCompleteIfPossible():Void
 	{
 		if(!this._textField.stage || this._viewPort.isEmpty())
 		{
@@ -376,7 +376,7 @@ public final class StageTextField extends EventDispatcher
 		}
 	}
 
-	private function initialize(initOptions:Object):void
+	private function initialize(initOptions:Object):Void
 	{
 		this._textField = new TextField();
 		this._textField.type = TextFieldType.INPUT;
@@ -392,7 +392,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.defaultTextFormat = this._textFormat;
 	}
 
-	private function textField_eventHandler(event:Event):void
+	private function textField_eventHandler(event:Event):Void
 	{
 		this.dispatchEvent(event);
 	}

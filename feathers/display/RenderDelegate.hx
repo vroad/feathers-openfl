@@ -102,7 +102,7 @@ public class RenderDelegate extends DisplayObject
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var oldAlpha:Number = this._target.alpha;
 		this._target.alpha = this.alpha;

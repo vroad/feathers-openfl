@@ -98,7 +98,7 @@ import starling.events.Event;
 		this.settings.step = this._stepStepper.value;
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

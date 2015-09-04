@@ -2276,7 +2276,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var scale:Number = 1;
 		if(this._currentState == STATE_DOWN)
@@ -2706,7 +2706,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function refreshMaxLabelSize(forMeasurement:Boolean):void
+	private function refreshMaxLabelSize(forMeasurement:Boolean):Void
 	{
 		if(Std.is(this.currentIcon, IValidating))
 		{
@@ -3099,7 +3099,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function currentIcon_resizeHandler():void
+	private function currentIcon_resizeHandler():Void
 	{
 		if(this._ignoreIconResizes)
 		{

@@ -142,7 +142,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	private function refreshState():void
+	private function refreshState():Void
 	{
 		if(!this._mediaPlayer)
 		{
@@ -156,7 +156,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	private function playPlayButton_triggeredHandler(event:Event):void
+	private function playPlayButton_triggeredHandler(event:Event):Void
 	{
 		this._mediaPlayer.togglePlayPause();
 	}
@@ -164,7 +164,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_playbackStateChangeHandler(event:Event):void
+	private function mediaPlayer_playbackStateChangeHandler(event:Event):Void
 	{
 		this.refreshState();
 	}

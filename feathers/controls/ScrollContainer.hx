@@ -749,7 +749,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	private function scrollContainer_addedToStageHandler(event:Event):void
+	private function scrollContainer_addedToStageHandler(event:Event):Void
 	{
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 		{
@@ -760,7 +760,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	private function scrollContainer_removedFromStageHandler(event:Event):void
+	private function scrollContainer_removedFromStageHandler(event:Event):Void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -768,7 +768,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	private function child_resizeHandler(event:Event):void
+	private function child_resizeHandler(event:Event):Void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -780,7 +780,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	private function child_layoutDataChangeHandler(event:Event):void
+	private function child_layoutDataChangeHandler(event:Event):Void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -792,7 +792,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	private function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):Void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

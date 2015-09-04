@@ -148,7 +148,7 @@ public class MainMenuScreen extends PanelScreen
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 	
-	private function transitionInCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):Void
 	{
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{

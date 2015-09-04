@@ -168,7 +168,7 @@ import starling.events.Event;
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

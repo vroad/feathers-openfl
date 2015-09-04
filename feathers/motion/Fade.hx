@@ -36,7 +36,7 @@ public class Fade
 	 */
 	public static function createFadeInTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -77,7 +77,7 @@ public class Fade
 	 */
 	public static function createFadeOutTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -119,7 +119,7 @@ public class Fade
 	 */
 	public static function createCrossfadeTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -183,13 +183,13 @@ public function FadeTween(target:DisplayObject, otherTarget:DisplayObject,
 private var _otherTarget:DisplayObject;
 private var _onCompleteCallback:Function;
 
-private function updateOtherTarget():void
+private function updateOtherTarget():Void
 {
 	var newScreen:DisplayObject = DisplayObject(this.target);
 	this._otherTarget.alpha = 1 - newScreen.alpha;
 }
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	this.target.alpha = 1;
 	if(this._otherTarget)

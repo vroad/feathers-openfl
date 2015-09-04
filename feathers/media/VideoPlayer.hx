@@ -650,7 +650,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this._texture)
 		{
@@ -678,7 +678,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #normalDisplayState
 	 * @see #event:displayStateChange feathers.events.MediaPlayerEventType.DISPLAY_STATE_CHANGE
 	 */
-	public function toggleFullScreen():void
+	public function toggleFullScreen():Void
 	{
 		if(!this.stage)
 		{
@@ -729,7 +729,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function playMedia():void
+	override private function playMedia():Void
 	{
 		if(!this._videoSource)
 		{
@@ -770,7 +770,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function pauseMedia():void
+	override private function pauseMedia():Void
 	{
 		if(!this._videoSource)
 		{
@@ -783,7 +783,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function seekMedia(seconds:Number):void
+	override private function seekMedia(seconds:Number):Void
 	{
 		if(!this._videoSource)
 		{
@@ -796,7 +796,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function disposeNetStream():void
+	private function disposeNetStream():Void
 	{
 		if(!this._netStream)
 		{
@@ -812,7 +812,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function videoPlayer_enterFrameHandler(event:Event):void
+	private function videoPlayer_enterFrameHandler(event:Event):Void
 	{
 		this._currentTime = this._netStream.time;
 		this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
@@ -821,7 +821,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function videoTexture_onRestore():void
+	private function videoTexture_onRestore():Void
 	{
 		this.pauseMedia();
 		this._isWaitingForTextureReady = true;
@@ -834,7 +834,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function videoTexture_onComplete():void
+	private function videoTexture_onComplete():Void
 	{
 		this._isWaitingForTextureReady = false;
 		//the texture is ready to be displayed
@@ -845,7 +845,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function videoTexture_onRestoreComplete():void
+	private function videoTexture_onRestoreComplete():Void
 	{
 		//seek back to the video's current time from when the context was
 		//was lost. we couldn't seek when we started playing the video
@@ -861,7 +861,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_onMetaData(metadata:Object):void
+	private function netStream_onMetaData(metadata:Object):Void
 	{
 		this.dispatchEventWith(MediaPlayerEventType.DIMENSIONS_CHANGE);
 		this._totalTime = metadata.duration;
@@ -871,7 +871,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_onPlayStatus(data:Object):void
+	private function netStream_onPlayStatus(data:Object):Void
 	{
 		var code:String = data.code as String;
 		switch(code)
@@ -892,7 +892,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_ioErrorHandler(event:IOErrorEvent):void
+	private function netStream_ioErrorHandler(event:IOErrorEvent):Void
 	{
 		this.dispatchEventWith(event.type, false, event);
 	}
@@ -900,7 +900,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_netStatusHandler(event:NetStatusEvent):void
+	private function netStream_netStatusHandler(event:NetStatusEvent):Void
 	{
 		var code:String = event.info.code;
 		switch(code)
@@ -940,7 +940,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function mediaPlayer_addedHandler(event:Event):void
+	override private function mediaPlayer_addedHandler(event:Event):Void
 	{
 		if(this._ignoreDisplayListEvents)
 		{
@@ -952,7 +952,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function mediaPlayer_removedHandler(event:Event):void
+	override private function mediaPlayer_removedHandler(event:Event):Void
 	{
 		if(this._ignoreDisplayListEvents)
 		{
@@ -973,14 +973,14 @@ public function VideoPlayerNetStreamClient(onMetaDataCallback:Function, onPlaySt
 
 public var onMetaDataCallback:Function;
 
-public function onMetaData(metadata:Object):void
+public function onMetaData(metadata:Object):Void
 {
 	this.onMetaDataCallback(metadata);
 }
 
 public var onPlayStatusCallback:Function;
 
-public function onPlayStatus(data:Object):void
+public function onPlayStatus(data:Object):Void
 {
 	if(this.onPlayStatusCallback !== null)
 	{

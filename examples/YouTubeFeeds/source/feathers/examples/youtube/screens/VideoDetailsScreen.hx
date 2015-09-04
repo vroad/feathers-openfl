@@ -146,7 +146,7 @@ class VideoDetailsScreen extends PanelScreen
 		super.draw();
 	}
 	
-	private function refreshLayout():void
+	private function refreshLayout():Void
 	{
 		if(this.actualHeight > this.actualWidth &&
 			this._thumbnail.layoutData != this._portraitThumbnailLayoutData) //portrait
@@ -171,12 +171,12 @@ class VideoDetailsScreen extends PanelScreen
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function transitionInCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):Void
 	{
 		this._scrollText.revealScrollBars();
 	}
 
-	private function watchButton_triggeredHandler(event:Event):void
+	private function watchButton_triggeredHandler(event:Event):Void
 	{
 		navigateToURL(new URLRequest(this._model.selectedVideo.url), "_blank");
 	}

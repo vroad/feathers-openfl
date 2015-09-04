@@ -1005,7 +1005,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Vector.<DisplayObject>, distributedWidth:Number, justifyHeight:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, distributedWidth:Number, justifyHeight:Number):Void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
@@ -1043,7 +1043,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	private function prepareTypicalItem(justifyHeight:Number):void
+	private function prepareTypicalItem(justifyHeight:Number):Void
 	{
 		if(!this._typicalItem)
 		{

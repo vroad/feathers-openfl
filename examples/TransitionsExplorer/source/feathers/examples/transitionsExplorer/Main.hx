@@ -58,7 +58,7 @@ public class Main extends LayoutGroup
 	private var _menu:StackScreenNavigator;
 	private var _content:ScreenNavigator;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.layout = new AnchorLayout();
 
@@ -203,7 +203,7 @@ public class Main extends LayoutGroup
 		return CONTENT_SCREEN_ID_ONE;
 	}
 
-	private function transitionHandler(event:Event, transition:Function):void
+	private function transitionHandler(event:Event, transition:Function):Void
 	{
 		this._content.showScreen(this.getNextScreenID(), transition);
 	}

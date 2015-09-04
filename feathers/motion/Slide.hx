@@ -36,7 +36,7 @@ public class Slide
 	 */
 	public static function createSlideLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -74,7 +74,7 @@ public class Slide
 	 */
 	public static function createSlideRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -112,7 +112,7 @@ public class Slide
 	 */
 	public static function createSlideUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -150,7 +150,7 @@ public class Slide
 	 */
 	public static function createSlideDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -223,7 +223,7 @@ private var _onCompleteCallback:Function;
 private var _xOffset:Number = 0;
 private var _yOffset:Number = 0;
 
-private function updateOtherTarget():void
+private function updateOtherTarget():Void
 {
 	var newScreen:DisplayObject = DisplayObject(this.target);
 	if(this._xOffset < 0)
@@ -244,7 +244,7 @@ private function updateOtherTarget():void
 	}
 }
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	this.target.x = 0;
 	this.target.y = 0;

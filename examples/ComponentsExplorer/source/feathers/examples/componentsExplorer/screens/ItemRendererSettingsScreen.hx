@@ -305,7 +305,7 @@ import starling.events.Event;
 		this.settings.verticalAlign = cast(this._verticalAlignPicker.selectedItem, String);
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}

@@ -196,7 +196,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function refreshVolumeFromMediaPlayer():void
+	private function refreshVolumeFromMediaPlayer():Void
 	{
 		var oldIgnoreChanges:Boolean = this._ignoreChanges;
 		this._ignoreChanges = true;
@@ -214,7 +214,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_soundTransformChangeHandler(event:Event):void
+	private function mediaPlayer_soundTransformChangeHandler(event:Event):Void
 	{
 		this.refreshVolumeFromMediaPlayer();
 	}
@@ -222,7 +222,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function volumeSlider_changeHandler(event:Event):void
+	private function volumeSlider_changeHandler(event:Event):Void
 	{
 		if(!this._mediaPlayer || this._ignoreChanges)
 		{

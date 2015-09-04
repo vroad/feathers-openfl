@@ -38,7 +38,7 @@ public class Wipe
 	 */
 	public static function createWipeLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -62,7 +62,7 @@ public class Wipe
 	 */
 	public static function createWipeRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -86,7 +86,7 @@ public class Wipe
 	 */
 	public static function createWipeUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -110,7 +110,7 @@ public class Wipe
 	 */
 	public static function createWipeDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -260,7 +260,7 @@ private var _savedXOffset:Number;
 private var _savedYOffset:Number;
 private var _onCompleteCallback:Function;
 
-private function updateNewScreen():void
+private function updateNewScreen():Void
 {
 	var oldScreenClipRect:Rectangle = Rectangle(this.target);
 	var newScreenClipRect:Rectangle = this._temporaryNewScreenParent.clipRect;
@@ -284,7 +284,7 @@ private function updateNewScreen():void
 	}
 }
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	if(this._temporaryOldScreenParent)
 	{

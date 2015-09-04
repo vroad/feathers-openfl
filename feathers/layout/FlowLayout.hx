@@ -1060,7 +1060,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCache():void
+	public function resetVariableVirtualCache():Void
 	{
 		this._widthCache.length = 0;
 		this._heightCache.length = 0;
@@ -1069,7 +1069,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		delete this._widthCache[index];
 		delete this._heightCache[index];
@@ -1084,7 +1084,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		var widthValue:* = item ? item.width: undefined;
 		this._widthCache.splice(index, 0, widthValue);
@@ -1096,7 +1096,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):void
+	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
 	{
 		this._widthCache.splice(index, 1);
 		this._heightCache.splice(index, 1);

@@ -227,7 +227,7 @@ import starling.events.Event;
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function doneButton_triggeredHandler(event:Event):void
+	private function doneButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
@@ -237,12 +237,12 @@ import starling.events.Event;
 		this.settings.itemCount = Std.int(this._itemCountStepper.value);
 	}
 
-	private function requestedColumnCountStepper_changeHandler(event:Event):void
+	private function requestedColumnCountStepper_changeHandler(event:Event):Void
 	{
 		this.settings.requestedColumnCount = this._requestedColumnCountStepper.value;
 	}
 
-	private function pagingPicker_changeHandler(event:Event):void
+	private function pagingPicker_changeHandler(event:Event):Void
 	{
 		this.settings.paging = cast(this._pagingPicker.selectedItem, String);
 	}

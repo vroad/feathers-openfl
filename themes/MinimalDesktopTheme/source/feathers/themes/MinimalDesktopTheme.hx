@@ -71,7 +71,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, 1);
@@ -88,7 +88,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	private function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);

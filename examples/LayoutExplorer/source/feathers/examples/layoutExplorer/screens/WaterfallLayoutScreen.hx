@@ -28,7 +28,7 @@ public class WaterfallLayoutScreen extends PanelScreen
 
 	public var settings:WaterfallLayoutSettings;
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -96,22 +96,22 @@ public class WaterfallLayoutScreen extends PanelScreen
 		return header;
 	}
 
-	private function onBackButton():void
+	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function transitionInCompleteHandler(event:Event):void
+	private function transitionInCompleteHandler(event:Event):Void
 	{
 		this.revealScrollBars();
 	}
 
-	private function backButton_triggeredHandler(event:Event):void
+	private function backButton_triggeredHandler(event:Event):Void
 	{
 		this.onBackButton();
 	}
 
-	private function settingsButton_triggeredHandler(event:Event):void
+	private function settingsButton_triggeredHandler(event:Event):Void
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}

@@ -45,7 +45,7 @@ public class VectorUintListCollectionDataDescriptor implements IListCollectionDa
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):void
+	public function setItemAt(data:Object, item:Object, index:int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<uint>)[index] = item as uint;
@@ -54,7 +54,7 @@ public class VectorUintListCollectionDataDescriptor implements IListCollectionDa
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):void
+	public function addItemAt(data:Object, item:Object, index:int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<uint>).splice(index, 0, item as uint);
@@ -72,7 +72,7 @@ public class VectorUintListCollectionDataDescriptor implements IListCollectionDa
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):void
+	public function removeAll(data:Object):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<uint>).length = 0;
@@ -90,7 +90,7 @@ public class VectorUintListCollectionDataDescriptor implements IListCollectionDa
 	/**
 	 * @private
 	 */
-	private function checkForCorrectDataType(data:Object):void
+	private function checkForCorrectDataType(data:Object):Void
 	{
 		if(!(data is Vector.<uint>))
 		{

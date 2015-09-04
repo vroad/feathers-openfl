@@ -189,7 +189,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @copy feathers.data.IAutoCompleteSource#load()
 	 */
-	public function load(textToMatch:String, suggestionsResult:ListCollection = null):void
+	public function load(textToMatch:String, suggestionsResult:ListCollection = null):Void
 	{
 		if(!suggestionsResult)
 		{
@@ -230,7 +230,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	private function parseData(resultText:String, textToMatch:String, suggestions:ListCollection):void
+	private function parseData(resultText:String, textToMatch:String, suggestions:ListCollection):Void
 	{
 		var parseResultFunction:Function = this._parseResultFunction;
 		if(parseResultFunction.length === 2)
@@ -248,7 +248,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	private function urlLoader_completeHandler(event:flash.events.Event):void
+	private function urlLoader_completeHandler(event:flash.events.Event):Void
 	{
 		var suggestions:ListCollection = this._savedSuggestionsCollection;
 		this._savedSuggestionsCollection = null;
@@ -274,7 +274,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	private function urlLoader_errorHandler(event:ErrorEvent):void
+	private function urlLoader_errorHandler(event:ErrorEvent):Void
 	{
 		var result:ListCollection = this._savedSuggestionsCollection;
 		result.removeAll();

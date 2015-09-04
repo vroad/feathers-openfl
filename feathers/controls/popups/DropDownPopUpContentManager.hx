@@ -497,7 +497,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private function stage_enterFrameHandler(event:Event):void
+	private function stage_enterFrameHandler(event:Event):Void
 	{
 		this.source.getBounds(this.source.stage, HELPER_RECTANGLE);
 		if(HELPER_RECTANGLE.x != this._lastGlobalX || HELPER_RECTANGLE.y != this._lastGlobalY)
@@ -509,7 +509,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private function content_removedFromStageHandler(event:Event):void
+	private function content_removedFromStageHandler(event:Event):Void
 	{
 		this.close();
 	}
@@ -517,7 +517,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(event.isDefaultPrevented())
 		{

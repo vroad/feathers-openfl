@@ -1019,7 +1019,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCache():void
+	public function resetVariableVirtualCache():Void
 	{
 		this._heightCache.length = 0;
 	}
@@ -1027,7 +1027,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		delete this._heightCache[index];
 		if(item)
@@ -1040,7 +1040,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
 	{
 		var heightValue:* = item ? item.height : undefined;
 		this._heightCache.splice(index, 0, heightValue);
@@ -1049,7 +1049,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):void
+	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
 	{
 		this._heightCache.splice(index, 1);
 	}

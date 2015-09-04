@@ -38,7 +38,7 @@ public class Cover
 	 */
 	public static function createCoverLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -74,7 +74,7 @@ public class Cover
 	 */
 	public static function createCoverRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -110,7 +110,7 @@ public class Cover
 	 */
 	public static function createCoverUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -146,7 +146,7 @@ public class Cover
 	 */
 	public static function createCoverDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
 			if(!oldScreen && !newScreen)
 			{
@@ -174,7 +174,7 @@ public class Cover
 	 * @private
 	 */
 	private static function slideInNewScreen(newScreen:DisplayObject,
-		duration:Number, ease:Object, tweenProperties:Object, onComplete:Function):void
+		duration:Number, ease:Object, tweenProperties:Object, onComplete:Function):Void
 	{
 		var tween:Tween = new Tween(newScreen, duration, ease);
 		if(newScreen.x != 0)
@@ -273,7 +273,7 @@ private var _savedNewScreen:DisplayObject;
 private var _temporaryParent:Sprite;
 private var _onCompleteCallback:Function;
 
-private function updateNewScreen():void
+private function updateNewScreen():Void
 {
 	var clipRect:Rectangle = this._temporaryParent.clipRect;
 	if(this._savedXOffset < 0)
@@ -294,7 +294,7 @@ private function updateNewScreen():void
 	}
 }
 
-private function cleanupTween():void
+private function cleanupTween():Void
 {
 	this._temporaryParent.removeFromParent(true);
 	this._temporaryParent = null;

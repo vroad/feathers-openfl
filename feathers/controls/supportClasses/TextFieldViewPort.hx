@@ -750,7 +750,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		HELPER_POINT.x = HELPER_POINT.y = 0;
@@ -771,7 +771,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		super.render(support, parentAlpha);
 	}
 
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this._textFieldContainer = new Sprite();
 		this._textFieldContainer.visible = false;
@@ -785,7 +785,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._textFieldContainer.addChild(this._textField);
 	}
 
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -894,19 +894,19 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function addedToStageHandler(event:Event):void
+	private function addedToStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.addChild(this._textFieldContainer);
 		this.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
 	}
 
-	private function removedFromStageHandler(event:Event):void
+	private function removedFromStageHandler(event:Event):Void
 	{
 		Starling.current.nativeStage.removeChild(this._textFieldContainer);
 		this.removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 	}
 
-	private function enterFrameHandler(event:Event):void
+	private function enterFrameHandler(event:Event):Void
 	{
 		var target:DisplayObject = this;
 		do
@@ -922,7 +922,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._textFieldContainer.visible = true;
 	}
 
-	private function textField_linkHandler(event:TextEvent):void
+	private function textField_linkHandler(event:TextEvent):Void
 	{
 		this.dispatchEventWith(Event.TRIGGERED, false, event.text);
 	}

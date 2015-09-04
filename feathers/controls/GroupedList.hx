@@ -2585,7 +2585,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * <listing version="3.0">
 	 * list.scrollToDisplayIndex( 2 );</listing>
 	 */
-	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int = -1, animationDuration:Number = 0):void
+	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int = -1, animationDuration:Number = 0):Void
 	{
 		//cancel any pending scroll to a different page or scroll position.
 		//we can have only one type of pending scroll at a time.
@@ -2811,7 +2811,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	override private function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
 		if(this._dataProvider == null)
 		{
@@ -2933,7 +2933,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, indices:Array):void
+	private function dataProvider_addItemHandler(event:Event, indices:Array):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -2962,7 +2962,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, indices:Array):void
+	private function dataProvider_removeItemHandler(event:Event, indices:Array):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -3009,7 +3009,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, indices:Array):void
+	private function dataProvider_replaceItemHandler(event:Event, indices:Array):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -3037,7 +3037,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataViewPort_changeHandler(event:Event):void
+	private function dataViewPort_changeHandler(event:Event):Void
 	{
 		this.setSelectedLocation(this.dataViewPort.selectedGroupIndex, this.dataViewPort.selectedItemIndex);
 	}
@@ -3045,7 +3045,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function layout_scrollHandler(event:Event, scrollOffset:Point):void
+	private function layout_scrollHandler(event:Event, scrollOffset:Point):Void
 	{
 		var layout:IVariableVirtualLayout = IVariableVirtualLayout(this._layout);
 		if(!this.isScrolling || !layout.useVirtualLayout || !layout.hasVariableItemDimensions)

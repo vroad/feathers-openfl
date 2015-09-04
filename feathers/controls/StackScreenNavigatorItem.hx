@@ -157,7 +157,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popEvents(value:Vector.<String>):void
+	public function set popEvents(value:Vector.<String>):Void
 	{
 		if(!value)
 		{
@@ -186,7 +186,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popToRootEvents(value:Vector.<String>):void
+	public function set popToRootEvents(value:Vector.<String>):Void
 	{
 		this._popToRootEvents = value;
 	}
@@ -369,7 +369,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearEvent()
 	 * @see #events
 	 */
-	public function setFunctionForPushEvent(eventType:String, action:Function):void
+	public function setFunctionForPushEvent(eventType:String, action:Function):Void
 	{
 		this._pushEvents[eventType] = action;
 	}
@@ -390,7 +390,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearPushEvent()
 	 * @see #pushEvents
 	 */
-	public function setScreenIDForPushEvent(eventType:String, screenID:String):void
+	public function setScreenIDForPushEvent(eventType:String, screenID:String):Void
 	{
 		this._pushEvents[eventType] = screenID;
 	}
@@ -401,7 +401,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @see #pushEvents
 	 */
-	public function clearPushEvent(eventType:String):void
+	public function clearPushEvent(eventType:String):Void
 	{
 		delete this._pushEvents[eventType];
 	}
@@ -420,7 +420,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #removePopEvent()
 	 * @see #popEvents
 	 */
-	public function addPopEvent(eventType:String):void
+	public function addPopEvent(eventType:String):Void
 	{
 		if(!this._popEvents)
 		{
@@ -448,7 +448,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopEvent()
 	 * @see #popEvents
 	 */
-	public function removePopEvent(eventType:String):void
+	public function removePopEvent(eventType:String):Void
 	{
 		if(!this._popEvents)
 		{
@@ -476,7 +476,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #removePopToRootEvent()
 	 * @see #popToRootEvents
 	 */
-	public function addPopToRootEvent(eventType:String):void
+	public function addPopToRootEvent(eventType:String):Void
 	{
 		if(!this._popToRootEvents)
 		{
@@ -504,7 +504,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopToRootEvent()
 	 * @see #popToRootEvents
 	 */
-	public function removePopToRootEvent(eventType:String):void
+	public function removePopToRootEvent(eventType:String):Void
 	{
 		if(!this._popToRootEvents)
 		{

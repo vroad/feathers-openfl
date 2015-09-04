@@ -264,7 +264,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.stageWebView)
 		{
@@ -278,7 +278,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):void
+	override public function render(support:RenderSupport, parentAlpha:Number):Void
 	{
 		this.refreshViewPort();
 		super.render(support, parentAlpha);
@@ -289,7 +289,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#loadURL() Full description of flash.media.StageWebView.loadURL() in Adobe's Flash Platform API Reference
 	 */
-	public function loadURL(url:String):void
+	public function loadURL(url:String):Void
 	{
 		this.validate();
 		this.stageWebView.loadURL(url);
@@ -300,7 +300,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#loadString() Full description of flash.media.StageWebView.loadString() in Adobe's Flash Platform API Reference
 	 */
-	public function loadString(text:String, mimeType:String = "text/html"):void
+	public function loadString(text:String, mimeType:String = "text/html"):Void
 	{
 		this.validate();
 		this.stageWebView.loadString(text, mimeType);
@@ -311,7 +311,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#stop() Full description of flash.media.StageWebView.stop() in Adobe's Flash Platform API Reference
 	 */
-	public function stop():void
+	public function stop():Void
 	{
 		this.validate();
 		this.stageWebView.stop();
@@ -322,7 +322,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#reload() Full description of flash.media.StageWebView.reload() in Adobe's Flash Platform API Reference
 	 */
-	public function reload():void
+	public function reload():Void
 	{
 		this.validate();
 		this.stageWebView.reload();
@@ -334,7 +334,7 @@ public class WebView extends FeathersControl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#historyBack() Full description of flash.media.StageWebView.historyBack() in Adobe's Flash Platform API Reference
 	 * @see #isHistoryBackEnabled
 	 */
-	public function historyBack():void
+	public function historyBack():Void
 	{
 		this.validate();
 		this.stageWebView.historyBack();
@@ -346,7 +346,7 @@ public class WebView extends FeathersControl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#historyForward() Full description of flash.media.StageWebView.historyForward() in Adobe's Flash Platform API Reference
 	 * @see #isHistoryForwardEnabled
 	 */
-	public function historyForward():void
+	public function historyForward():Void
 	{
 		this.validate();
 		this.stageWebView.historyForward();
@@ -355,7 +355,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function initialize():void
+	override private function initialize():Void
 	{
 		this.createStageWebView();
 	}
@@ -363,7 +363,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override private function draw():void
+	override private function draw():Void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -417,7 +417,7 @@ public class WebView extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function createStageWebView():void
+	private function createStageWebView():Void
 	{
 		if(isSupported)
 		{
@@ -436,7 +436,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshViewPort():void
+	private function refreshViewPort():Void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageWebViewViewPort:Rectangle = this.stageWebView.viewPort;
@@ -478,7 +478,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function webView_addedToStageHandler(event:starling.events.Event):void
+	private function webView_addedToStageHandler(event:starling.events.Event):Void
 	{
 		this.stageWebView.stage = Starling.current.nativeStage;
 		this.addEventListener(starling.events.Event.ENTER_FRAME, webView_enterFrameHandler);
@@ -487,7 +487,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function webView_removedFromStageHandler(event:starling.events.Event):void
+	private function webView_removedFromStageHandler(event:starling.events.Event):Void
 	{
 		if(this.stageWebView)
 		{
@@ -499,7 +499,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function webView_enterFrameHandler(event:starling.events.Event):void
+	private function webView_enterFrameHandler(event:starling.events.Event):Void
 	{
 		var target:DisplayObject = this;
 		do
@@ -518,7 +518,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function stageWebView_errorHandler(event:ErrorEvent):void
+	private function stageWebView_errorHandler(event:ErrorEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.ERROR, false, event);
 	}
@@ -526,12 +526,12 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function stageWebView_locationChangeHandler(event:flash.events.Event):void
+	private function stageWebView_locationChangeHandler(event:flash.events.Event):Void
 	{
 		this.dispatchEventWith(FeathersEventType.LOCATION_CHANGE);
 	}
 	
-	private function stageWebView_completeHandler(event:flash.events.Event):void
+	private function stageWebView_completeHandler(event:flash.events.Event):Void
 	{
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}

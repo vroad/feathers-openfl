@@ -68,7 +68,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Adds a Starling instance to the theme. Call when creating a new
 	 * <code>NativeWindow</code> that has its own Starling instance.
 	 */
-	public function addStarling(starling:Starling):void
+	public function addStarling(starling:Starling):Void
 	{
 		var index:int = this._starlings.indexOf(starling);
 		if(index >= 0)
@@ -82,7 +82,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Removes a Starling instance from the theme. Call when closing a
 	 * <code>NativeWindow</code> and its Starling instance.
 	 */
-	public function removeStarling(starling:Starling):void
+	public function removeStarling(starling:Starling):Void
 	{
 		var index:int = this._starlings.indexOf(starling);
 		if(index < 0)
@@ -97,7 +97,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	override private function createRegistry():void
+	override private function createRegistry():Void
 	{
 		this._registry = new StyleProviderRegistry(true, this.styleProviderFactory);
 	}
@@ -114,7 +114,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Stores data associated with the specified Starling instance. To clear
 	 * data, pass <code>null</code>.
 	 */
-	private function setStarlingData(starling:Starling, data:Object):void
+	private function setStarlingData(starling:Starling, data:Object):Void
 	{
 		if(data === null)
 		{
@@ -128,7 +128,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Subclasses must override this function to switch assets to the
 	 * specified Starling instance.
 	 */
-	private function changeStarling(starling:Starling, data:Object):void
+	private function changeStarling(starling:Starling, data:Object):Void
 	{
 		throw new AbstractMethodError();
 	}
@@ -138,7 +138,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * This function ensures that the correct textures are loaded for the
 	 * current Starling instance.
 	 */
-	private function verifyCurrentStarling(target:DisplayObject):void
+	private function verifyCurrentStarling(target:DisplayObject):Void
 	{
 		var stage:Stage = target.stage;
 		if(!stage)

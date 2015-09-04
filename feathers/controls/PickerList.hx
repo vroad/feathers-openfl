@@ -1842,7 +1842,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function list_triggeredHandler(event:Event):void
+	private function list_triggeredHandler(event:Event):Void
 	{
 		if(!this._isEnabled)
 		{
@@ -1854,7 +1854,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function dataProvider_multipleEventHandler():void
+	private function dataProvider_multipleEventHandler():Void
 	{
 		//we need to ensure that the pop-up list has received the new
 		//selected index, or it might update the selected index to an
@@ -1865,7 +1865,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function stage_keyUpHandler(event:KeyboardEvent):void
+	private function stage_keyUpHandler(event:KeyboardEvent):Void
 	{
 		if(!this._popUpContentManager.isOpen)
 		{

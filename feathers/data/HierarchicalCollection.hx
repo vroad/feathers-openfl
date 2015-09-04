@@ -327,7 +327,7 @@ class HierarchicalCollection extends EventDispatcher
 	/**
 	 * Removes all items from the collection.
 	 */
-	public function removeAll():void
+	public function removeAll():Void
 	{
 		if(this.getLength() == 0)
 		{

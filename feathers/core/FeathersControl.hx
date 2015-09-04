@@ -1839,7 +1839,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * @see #x
 	 * @see #y
 	 */
-	public function move(x:Number, y:Number):void
+	public function move(x:Number, y:Number):Void
 	{
 		this.x = x;
 		this.y = y;
@@ -2187,7 +2187,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	/**
 	 * @private
 	 */
-	private function styleNameList_changeHandler(event:Event):void
+	private function styleNameList_changeHandler(event:Event):Void
 	{
 		if(!this._styleProvider)
 		{

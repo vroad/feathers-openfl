@@ -202,7 +202,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function updateValueFromMediaPlayerCurrentTime():void
+	private function updateValueFromMediaPlayerCurrentTime():Void
 	{
 		if(this.isDragging)
 		{
@@ -216,7 +216,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function seekSlider_changeHandler(event:Event):void
+	private function seekSlider_changeHandler(event:Event):Void
 	{
 		if(!this._mediaPlayer)
 		{
@@ -228,7 +228,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function seekSlider_endInteractionHandler(event:Event):void
+	private function seekSlider_endInteractionHandler(event:Event):Void
 	{
 		//we may have ignored some changes from the media player while we
 		//were dragging, so we should update the value if it's out of sync.
@@ -238,7 +238,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_currentTimeChangeHandler(event:Event):void
+	private function mediaPlayer_currentTimeChangeHandler(event:Event):Void
 	{
 		this.updateValueFromMediaPlayerCurrentTime();
 	}
@@ -246,7 +246,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function mediaPlayer_totalTimeChangeHandler(event:Event):void
+	private function mediaPlayer_totalTimeChangeHandler(event:Event):Void
 	{
 		this.maximum = this._mediaPlayer.totalTime;
 	}

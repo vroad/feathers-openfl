@@ -40,7 +40,7 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		this.getStyleProviderForClass(ToggleScreen).defaultStyleFunction = this.setToggleScreenStyles;
 	}
 	
-	private function setAutoCompleteScreenStyles(screen:AutoCompleteScreen):void
+	private function setAutoCompleteScreenStyles(screen:AutoCompleteScreen):Void
 	{
 		//don't forget to set styles from the super class, if required
 		this.setPanelScreenStyles(screen);
