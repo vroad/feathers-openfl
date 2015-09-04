@@ -35,8 +35,8 @@ import starling.utils.MatrixUtil;
  */
 class TextFieldViewPort extends FeathersControl implements IViewPort
 {
-	private static const HELPER_MATRIX:Matrix = new Matrix();
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	public function TextFieldViewPort()
 	{

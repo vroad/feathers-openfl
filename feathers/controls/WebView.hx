@@ -112,32 +112,32 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_MATRIX:Matrix = new Matrix();
+	inline private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
 	 */
-	private static const STAGE_WEB_VIEW_NOT_SUPPORTED_ERROR:String = "Feathers WebView is only supported in Adobe AIR. It cannot be used in Adobe Flash Player.";
+	inline private static var STAGE_WEB_VIEW_NOT_SUPPORTED_ERROR:String = "Feathers WebView is only supported in Adobe AIR. It cannot be used in Adobe Flash Player.";
 
 	/**
 	 * @private
 	 */
-	private static const USE_NATIVE_ERROR:String = "The useNative property may only be set before the WebView component validates for the first time.";
+	inline private static var USE_NATIVE_ERROR:String = "The useNative property may only be set before the WebView component validates for the first time.";
 
 	/**
 	 * @private
 	 */
-	private static const DEFAULT_SIZE:Float = 320;
+	inline private static var DEFAULT_SIZE:Float = 320;
 
 	/**
 	 * @private
 	 */
-	private static const STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME:String = "flash.media.StageWebView";
+	inline private static var STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME:String = "flash.media.StageWebView";
 
 	/**
 	 * @private

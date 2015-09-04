@@ -104,54 +104,54 @@ class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * @private
 	 * The theme's custom style name for item renderers in a PickerList.
 	 */
-	private static const THEME_NAME_PICKER_LIST_ITEM_RENDERER:String = "minimal-mobile-picker-list-item-renderer";
+	inline private static var THEME_NAME_PICKER_LIST_ITEM_RENDERER:String = "minimal-mobile-picker-list-item-renderer";
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal slider.
 	 */
-	private static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-horizontal-slider-minimum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-horizontal-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical slider.
 	 */
-	private static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-vertical-slider-minimum-track";
+	inline private static var THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-vertical-slider-minimum-track";
 
-	private static const FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
+	inline private static var FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
 
-	private static const SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 2, 2);
-	private static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	private static const BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 1, 1);
-	private static const SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
-	private static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(25, 21, 1, 1);
-	private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 5, 3, 1);
-	private static const LIST_ITEM_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	private static const BACK_BUTTON_SCALE_REGION1:Int = 30;
-	private static const BACK_BUTTON_SCALE_REGION2:Int = 1;
-	private static const FORWARD_BUTTON_SCALE_REGION1:Int = 9;
-	private static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
+	inline private static var SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 2, 2);
+	inline private static var BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	inline private static var BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 1, 1);
+	inline private static var SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
+	inline private static var TAB_SCALE_9_GRID:Rectangle = new Rectangle(25, 21, 1, 1);
+	inline private static var HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 5, 3, 1);
+	inline private static var LIST_ITEM_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	inline private static var BACK_BUTTON_SCALE_REGION1:Int = 30;
+	inline private static var BACK_BUTTON_SCALE_REGION2:Int = 1;
+	inline private static var FORWARD_BUTTON_SCALE_REGION1:Int = 9;
+	inline private static var FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
-	private static const BACKGROUND_COLOR:UInt = 0xf3f3f3;
-	private static const LIST_BACKGROUND_COLOR:UInt = 0xf8f8f8;
-	private static const LIST_HEADER_BACKGROUND_COLOR:UInt = 0xeeeeee;
-	private static const PRIMARY_TEXT_COLOR:UInt = 0x666666;
-	private static const DISABLED_TEXT_COLOR:UInt = 0x999999;
-	private static const MODAL_OVERLAY_COLOR:UInt = 0xcccccc;
-	private static const MODAL_OVERLAY_ALPHA:Float = 0.4;
+	inline private static var BACKGROUND_COLOR:UInt = 0xf3f3f3;
+	inline private static var LIST_BACKGROUND_COLOR:UInt = 0xf8f8f8;
+	inline private static var LIST_HEADER_BACKGROUND_COLOR:UInt = 0xeeeeee;
+	inline private static var PRIMARY_TEXT_COLOR:UInt = 0x666666;
+	inline private static var DISABLED_TEXT_COLOR:UInt = 0x999999;
+	inline private static var MODAL_OVERLAY_COLOR:UInt = 0xcccccc;
+	inline private static var MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 	/**
 	 * The screen density of an iPhone with Retina display. The textures
 	 * used by this theme are designed for this density and scale for other
 	 * densities.
 	 */
-	private static const ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
+	inline private static var ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
 
 	/**
 	 * The screen density of an iPad with Retina display. The textures used
 	 * by this theme are designed for this density and scale for other
 	 * densities.
 	 */
-	private static const ORIGINAL_DPI_IPAD_RETINA:Int = 264;
+	inline private static var ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
 	/**
 	 * The default global text renderer factory for this theme creates a

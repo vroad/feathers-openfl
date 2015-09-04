@@ -45,19 +45,19 @@ class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_desktop.xml",mimeType="application/octet-stream")]
-	private static const ATLAS_XML:Class<Dynamic>;
+	inline private static var ATLAS_XML:Class<Dynamic>;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_desktop.png")]
-	private static const ATLAS_BITMAP:Class<Dynamic>;
+	inline private static var ATLAS_BITMAP:Class<Dynamic>;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/fonts/pf_ronda_seven.fnt",mimeType="application/octet-stream")]
-	private static const FONT_XML:Class<Dynamic>;
+	inline private static var FONT_XML:Class<Dynamic>;
 
 	/**
 	 * Constructor.

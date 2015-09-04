@@ -31,7 +31,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_POINT:Point = new Point();
+	inline private static var HELPER_POINT:Point = new Point();
 	
 	/**
 	 * The label displays only the current time of the media content.

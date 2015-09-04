@@ -96,7 +96,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
+	inline private static var INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the pop-up

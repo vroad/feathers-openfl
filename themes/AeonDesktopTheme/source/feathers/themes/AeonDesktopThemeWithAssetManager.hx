@@ -73,7 +73,7 @@ package feathers.themes
 		 * @private
 		 * The name of the texture atlas in the asset manager.
 		 */
-		private static const ATLAS_NAME:String = "aeon_desktop";
+		inline private static var ATLAS_NAME:String = "aeon_desktop";
 
 		/**
 		 * Constructor.

@@ -75,7 +75,7 @@ class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	private static const IOS_TABLET_DENSITY_SCALE_FACTOR:Float = 1.23484848484848;
+	inline private static var IOS_TABLET_DENSITY_SCALE_FACTOR:Float = 1.23484848484848;
 
 	/**
 	 * Constructor.

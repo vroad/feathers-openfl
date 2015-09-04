@@ -37,7 +37,7 @@ class ListVideosScreen extends PanelScreen
 {
 	inline public static var SHOW_VIDEO_DETAILS:String = "showVideoDetails";
 	
-	private static const YOUTUBE_VIDEO_URL:String = "https://www.youtube.com/watch?v=";
+	inline private static var YOUTUBE_VIDEO_URL:String = "https://www.youtube.com/watch?v=";
 
 	public function ListVideosScreen()
 	{

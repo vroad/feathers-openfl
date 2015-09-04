@@ -166,7 +166,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private static const NO_SOUND_SOURCE_PLAY_ERROR:String = "Cannot play media when soundSource property has not been set.";
+	inline private static var NO_SOUND_SOURCE_PLAY_ERROR:String = "Cannot play media when soundSource property has not been set.";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all

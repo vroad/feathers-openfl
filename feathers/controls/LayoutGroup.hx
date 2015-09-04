@@ -55,12 +55,12 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const HELPER_RECTANGLE:Rectangle = new Rectangle();
+	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * Flag to indicate that the clipping has changed.
 	 */
-	private static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
+	inline private static var INVALIDATION_FLAG_CLIPPING:String = "clipping";
 
 	/**
 	 * The layout group will auto size itself to fill the entire stage.

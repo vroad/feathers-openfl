@@ -26,12 +26,12 @@ class Scale3Textures
 	/**
 	 * @private
 	 */
-	private static const SUM_X_REGIONS_ERROR:String = "The combined height of the first and second regions must be less than or equal to the width of the texture.";
+	inline private static var SUM_X_REGIONS_ERROR:String = "The combined height of the first and second regions must be less than or equal to the width of the texture.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_Y_REGIONS_ERROR:String = "The combined width of the first and second regions must be less than or equal to the height of the texture.";
+	inline private static var SUM_Y_REGIONS_ERROR:String = "The combined width of the first and second regions must be less than or equal to the height of the texture.";
 
 	/**
 	 * If the direction is horizontal, the layout will start on the left and continue to the right.

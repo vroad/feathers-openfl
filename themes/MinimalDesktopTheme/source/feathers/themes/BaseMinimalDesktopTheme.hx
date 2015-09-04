@@ -105,60 +105,60 @@ class BaseMinimalDesktopTheme extends StyleNameFunctionTheme
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal slider.
 	 */
-	private static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-desktop-horizontal-slider-minimum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-desktop-horizontal-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical slider.
 	 */
-	private static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-desktop-vertical-slider-minimum-track";
+	inline private static var THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-desktop-vertical-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a horizontal scroll bar.
 	 */
-	private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "minimal-desktop-horizontal-scroll-bar-decrement-button";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "minimal-desktop-horizontal-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the increment button of a horizontal scroll bar.
 	 */
-	private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "minimal-desktop-horizontal-scroll-bar-increment-button";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "minimal-desktop-horizontal-scroll-bar-increment-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a horizontal scroll bar.
 	 */
-	private static const THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "minimal-desktop-vertical-scroll-bar-decrement-button";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "minimal-desktop-vertical-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the increment button of a vertical scroll bar.
 	 */
-	private static const THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "minimal-desktop-vertical-scroll-bar-increment-button";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "minimal-desktop-vertical-scroll-bar-increment-button";
 
-	private static const FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
+	inline private static var FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
 
-	private static const SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
-	private static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
-	private static const BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(3, 3, 1, 1);
-	private static const SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
-	private static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(8, 5, 1, 1);
-	private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 2, 3, 1);
-	private static const BACK_BUTTON_SCALE_REGION1:Int = 10;
-	private static const BACK_BUTTON_SCALE_REGION2:Int = 1;
-	private static const FORWARD_BUTTON_SCALE_REGION1:Int = 4;
-	private static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
+	inline private static var SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
+	inline private static var BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
+	inline private static var BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(3, 3, 1, 1);
+	inline private static var SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
+	inline private static var TAB_SCALE_9_GRID:Rectangle = new Rectangle(8, 5, 1, 1);
+	inline private static var HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 2, 3, 1);
+	inline private static var BACK_BUTTON_SCALE_REGION1:Int = 10;
+	inline private static var BACK_BUTTON_SCALE_REGION2:Int = 1;
+	inline private static var FORWARD_BUTTON_SCALE_REGION1:Int = 4;
+	inline private static var FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
-	private static const BACKGROUND_COLOR:UInt = 0xf3f3f3;
-	private static const LIST_BACKGROUND_COLOR:UInt = 0xffffff;
-	private static const LIST_SELECTED_BACKGROUND_COLOR:UInt = 0xdddddd;
-	private static const LIST_HOVER_BACKGROUND_COLOR:UInt = 0xeeeeee;
-	private static const LIST_HEADER_BACKGROUND_COLOR:UInt = 0xf8f8f8;
-	private static const PRIMARY_TEXT_COLOR:UInt = 0x666666;
-	private static const DISABLED_TEXT_COLOR:UInt = 0x999999;
-	private static const MODAL_OVERLAY_COLOR:UInt = 0xcccccc;
-	private static const MODAL_OVERLAY_ALPHA:Float = 0.4;
+	inline private static var BACKGROUND_COLOR:UInt = 0xf3f3f3;
+	inline private static var LIST_BACKGROUND_COLOR:UInt = 0xffffff;
+	inline private static var LIST_SELECTED_BACKGROUND_COLOR:UInt = 0xdddddd;
+	inline private static var LIST_HOVER_BACKGROUND_COLOR:UInt = 0xeeeeee;
+	inline private static var LIST_HEADER_BACKGROUND_COLOR:UInt = 0xf8f8f8;
+	inline private static var PRIMARY_TEXT_COLOR:UInt = 0x666666;
+	inline private static var DISABLED_TEXT_COLOR:UInt = 0x999999;
+	inline private static var MODAL_OVERLAY_COLOR:UInt = 0xcccccc;
+	inline private static var MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 	/**
 	 * The default global text renderer factory for this theme creates a

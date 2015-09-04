@@ -78,7 +78,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY:String = "volumeSliderFactory";
+	inline private static var INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY:String = "volumeSliderFactory";
 	
 	/**
 	 * The default value added to the <code>styleNameList</code> of the

@@ -29,15 +29,15 @@ class MainMenuScreen extends PanelScreen
 {
 	inline public static var LIST_VIDEOS:String = "listVideos";
 
-	private static const PART_PARAMETER:String = "?part=snippet"; //must be first
-	private static const CHART_PARAMETER:String = "&chart=mostPopular";
-	private static const REGION_CODE_PARAMETER:String = "&regionCode=US";
-	private static const MAX_RESULTS_PARAMETER:String = "&maxResults=25";
-	private static const VIDEO_CATEGORY_ID_PARAMETER:String = "&videoCategoryId=";
-	private static const KEY_PARAMETER:String = "&key=" + CONFIG::YOUTUBE_API_KEY;
-	private static const FIELDS_PARAMETER:String = "&fields=items%2Fid%2Citems%2Fsnippet%2Ftitle%2Citems%2Fsnippet%2FchannelTitle%2Citems%2Fsnippet%2Fdescription%2Citems%2Fsnippet%2Fthumbnails";
-	private static const LIST_CATEGORIES_URL:String = "https://www.googleapis.com/youtube/v3/videoCategories" + PART_PARAMETER + REGION_CODE_PARAMETER + KEY_PARAMETER;
-	private static const LIST_VIDEOS_IN_CATEGORY_URL:String = "https://www.googleapis.com/youtube/v3/videos" + PART_PARAMETER + CHART_PARAMETER + REGION_CODE_PARAMETER + MAX_RESULTS_PARAMETER + FIELDS_PARAMETER + KEY_PARAMETER + VIDEO_CATEGORY_ID_PARAMETER;
+	inline private static var PART_PARAMETER:String = "?part=snippet"; //must be first
+	inline private static var CHART_PARAMETER:String = "&chart=mostPopular";
+	inline private static var REGION_CODE_PARAMETER:String = "&regionCode=US";
+	inline private static var MAX_RESULTS_PARAMETER:String = "&maxResults=25";
+	inline private static var VIDEO_CATEGORY_ID_PARAMETER:String = "&videoCategoryId=";
+	inline private static var KEY_PARAMETER:String = "&key=" + CONFIG::YOUTUBE_API_KEY;
+	inline private static var FIELDS_PARAMETER:String = "&fields=items%2Fid%2Citems%2Fsnippet%2Ftitle%2Citems%2Fsnippet%2FchannelTitle%2Citems%2Fsnippet%2Fdescription%2Citems%2Fsnippet%2Fthumbnails";
+	inline private static var LIST_CATEGORIES_URL:String = "https://www.googleapis.com/youtube/v3/videoCategories" + PART_PARAMETER + REGION_CODE_PARAMETER + KEY_PARAMETER;
+	inline private static var LIST_VIDEOS_IN_CATEGORY_URL:String = "https://www.googleapis.com/youtube/v3/videos" + PART_PARAMETER + CHART_PARAMETER + REGION_CODE_PARAMETER + MAX_RESULTS_PARAMETER + FIELDS_PARAMETER + KEY_PARAMETER + VIDEO_CATEGORY_ID_PARAMETER;
 
 	public function MainMenuScreen()
 	{

@@ -31,12 +31,12 @@ class Scale9Textures
 	/**
 	 * @private
 	 */
-	private static const SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be less than or equal to the width of the texture.";
+	inline private static var SUM_X_REGIONS_ERROR:String = "The sum of the x and width properties of the scale9Grid must be less than or equal to the width of the texture.";
 
 	/**
 	 * @private
 	 */
-	private static const SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be less than or equal to the height of the texture.";
+	inline private static var SUM_Y_REGIONS_ERROR:String = "The sum of the y and height properties of the scale9Grid must be less than or equal to the height of the texture.";
 
 	/**
 	 * @private

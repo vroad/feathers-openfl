@@ -69,12 +69,12 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const INVALIDATION_FLAG_TAB_FACTORY:String = "tabFactory";
+	inline private static var INVALIDATION_FLAG_TAB_FACTORY:String = "tabFactory";
 
 	/**
 	 * @private
 	 */
-	private static const DEFAULT_TAB_FIELDS:Vector.<String> = new <String>
+	inline private static var DEFAULT_TAB_FIELDS:Vector.<String> = new <String>
 	[
 		"defaultIcon",
 		"upIcon",

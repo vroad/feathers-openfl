@@ -28,24 +28,24 @@ import starling.textures.Texture;
 class Main extends LayoutGroup
 {
 	[Embed(source="/../assets/images/test-pattern1.png")]
-	private static const TEST_PATTERN1:Class;
+	inline private static var TEST_PATTERN1:Class;
 
 	[Embed(source="/../assets/images/test-pattern2.png")]
-	private static const TEST_PATTERN2:Class;
+	inline private static var TEST_PATTERN2:Class;
 
-	private static const MENU_SCREEN_ID_ALL_TRANSITIONS:String = "allTransitions";
-	private static const MENU_SCREEN_ID_COLOR_FADE:String = "colorFade";
-	private static const MENU_SCREEN_ID_COVER:String = "cover";
-	private static const MENU_SCREEN_ID_CUBE:String = "cube";
-	private static const MENU_SCREEN_ID_FADE:String = "fade";
-	private static const MENU_SCREEN_ID_FLIP:String = "flip";
-	private static const MENU_SCREEN_ID_IRIS:String = "iris";
-	private static const MENU_SCREEN_ID_REVEAL:String = "reveal";
-	private static const MENU_SCREEN_ID_SLIDE:String = "slide";
-	private static const MENU_SCREEN_ID_WIPE:String = "wipe";
+	inline private static var MENU_SCREEN_ID_ALL_TRANSITIONS:String = "allTransitions";
+	inline private static var MENU_SCREEN_ID_COLOR_FADE:String = "colorFade";
+	inline private static var MENU_SCREEN_ID_COVER:String = "cover";
+	inline private static var MENU_SCREEN_ID_CUBE:String = "cube";
+	inline private static var MENU_SCREEN_ID_FADE:String = "fade";
+	inline private static var MENU_SCREEN_ID_FLIP:String = "flip";
+	inline private static var MENU_SCREEN_ID_IRIS:String = "iris";
+	inline private static var MENU_SCREEN_ID_REVEAL:String = "reveal";
+	inline private static var MENU_SCREEN_ID_SLIDE:String = "slide";
+	inline private static var MENU_SCREEN_ID_WIPE:String = "wipe";
 
-	private static const CONTENT_SCREEN_ID_ONE:String = "one";
-	private static const CONTENT_SCREEN_ID_TWO:String = "two";
+	inline private static var CONTENT_SCREEN_ID_ONE:String = "one";
+	inline private static var CONTENT_SCREEN_ID_TWO:String = "two";
 
 	public function Main()
 	{

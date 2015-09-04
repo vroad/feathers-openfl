@@ -24,7 +24,7 @@ class Cover
 	/**
 	 * @private
 	 */
-	private static const SCREEN_REQUIRED_ERROR:String = "Cannot transition if both old screen and new screen are null.";
+	inline private static var SCREEN_REQUIRED_ERROR:String = "Cannot transition if both old screen and new screen are null.";
 
 	/**
 	 * Creates a transition function for a screen navigator that slides the

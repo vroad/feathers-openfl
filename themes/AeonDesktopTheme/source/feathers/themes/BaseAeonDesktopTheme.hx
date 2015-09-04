@@ -102,85 +102,85 @@ package feathers.themes
 		 * @private
 		 * The theme's custom style name for the increment button of a horizontal ScrollBar.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
+		inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the decrement button of a horizontal ScrollBar.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
+		inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal ScrollBar.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
+		inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a horizontal ScrollBar.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
+		inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the increment button of a vertical ScrollBar.
 		 */
-		private static const THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
+		inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the decrement button of a vertical ScrollBar.
 		 */
-		private static const THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
+		inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical ScrollBar.
 		 */
-		private static const THEME_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
+		inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a vertical ScrollBar.
 		 */
-		private static const THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
+		inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal SimpleScrollBar.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
+		inline private static var THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical SimpleScrollBar.
 		 */
-		private static const THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
+		inline private static var THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal Slider.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
+		inline private static var THEME_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a horizontal Slider.
 		 */
-		private static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
+		inline private static var THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical Slider.
 		 */
-		private static const THEME_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
+		inline private static var THEME_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a vertical Slider.
 		 */
-		private static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
+		inline private static var THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
 
 		/**
 		 * The name of the font used by controls in this theme. This font is not
@@ -188,30 +188,30 @@ package feathers.themes
 		 */
 		inline public static var FONT_NAME:String = "_sans";
 
-		private static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 4, 1, 14);
-		private static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 70, 10);
-		private static const SELECTED_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 52, 10);
-		private static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(4, 4, 55, 16);
-		private static const STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
-		private static const STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
-		private static const HSLIDER_FIRST_REGION:Float = 2;
-		private static const HSLIDER_SECOND_REGION:Float = 75;
-		private static const TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 148, 18);
-		private static const VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
-		private static const VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
-		private static const VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
-		private static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
-		private static const HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
-		private static const HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
-		private static const SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
-		private static const PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 2, 2);
-		private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 0, 4, 28);
+		inline private static var FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 4, 1, 14);
+		inline private static var BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 70, 10);
+		inline private static var SELECTED_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 52, 10);
+		inline private static var TAB_SCALE_9_GRID:Rectangle = new Rectangle(4, 4, 55, 16);
+		inline private static var STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
+		inline private static var STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
+		inline private static var HSLIDER_FIRST_REGION:Float = 2;
+		inline private static var HSLIDER_SECOND_REGION:Float = 75;
+		inline private static var TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 148, 18);
+		inline private static var VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
+		inline private static var VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
+		inline private static var VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
+		inline private static var HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
+		inline private static var HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
+		inline private static var HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
+		inline private static var SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
+		inline private static var PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 2, 2);
+		inline private static var HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 0, 4, 28);
 
-		private static const BACKGROUND_COLOR:UInt = 0x869CA7;
-		private static const MODAL_OVERLAY_COLOR:UInt = 0xDDDDDD;
-		private static const PRIMARY_TEXT_COLOR:UInt = 0x0B333C;
-		private static const DISABLED_TEXT_COLOR:UInt = 0x5B6770;
-		private static const MODAL_OVERLAY_ALPHA:Float = 0.5;
+		inline private static var BACKGROUND_COLOR:UInt = 0x869CA7;
+		inline private static var MODAL_OVERLAY_COLOR:UInt = 0xDDDDDD;
+		inline private static var PRIMARY_TEXT_COLOR:UInt = 0x0B333C;
+		inline private static var DISABLED_TEXT_COLOR:UInt = 0x5B6770;
+		inline private static var MODAL_OVERLAY_ALPHA:Float = 0.5;
 
 		/**
 		 * The default global text renderer factory for this theme creates a

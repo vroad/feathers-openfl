@@ -43,7 +43,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private static const MAX_BAR_COUNT:Int = 256;
+	inline private static var MAX_BAR_COUNT:Int = 256;
 
 	/**
 	 * Constructor

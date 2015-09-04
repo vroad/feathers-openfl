@@ -72,7 +72,7 @@ class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDesktopTheme
 	 * @private
 	 * The name of the texture atlas in the asset manager.
 	 */
-	private static const ATLAS_NAME:String = "metalworks_desktop";
+	inline private static var ATLAS_NAME:String = "metalworks_desktop";
 
 	/**
 	 * Constructor.

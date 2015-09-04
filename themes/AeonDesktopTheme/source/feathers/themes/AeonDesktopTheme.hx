@@ -45,13 +45,13 @@ package feathers.themes
 		 * @private
 		 */
 		[Embed(source="/../assets/images/aeon_desktop.png")]
-		private static const ATLAS_BITMAP:Class<Dynamic>;
+		inline private static var ATLAS_BITMAP:Class<Dynamic>;
 
 		/**
 		 * @private
 		 */
 		[Embed(source="/../assets/images/aeon_desktop.xml",mimeType="application/octet-stream")]
-		private static const ATLAS_XML:Class<Dynamic>;
+		inline private static var ATLAS_XML:Class<Dynamic>;
 
 		/**
 		 * Constructor.

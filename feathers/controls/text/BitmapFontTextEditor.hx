@@ -142,12 +142,12 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
-	private static const LINE_FEED:String = "\n";
+	inline private static var LINE_FEED:String = "\n";
 
 	/**
 	 * @private
 	 */
-	private static const CARRIAGE_RETURN:String = "\r";
+	inline private static var CARRIAGE_RETURN:String = "\r";
 
 	/**
 	 * Constructor.

@@ -483,7 +483,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static const FUZZY_PAGE_SIZE_PADDING:Float = 0.000001;
+	inline private static var FUZZY_PAGE_SIZE_PADDING:Float = 0.000001;
 
 	/**
 	 * @private
