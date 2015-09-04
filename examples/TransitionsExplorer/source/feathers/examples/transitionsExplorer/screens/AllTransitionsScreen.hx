@@ -13,7 +13,7 @@ import feathers.skins.StandardIcons;
 import starling.events.Event;
 import starling.textures.Texture;
 
-public class AllTransitionsScreen extends PanelScreen
+class AllTransitionsScreen extends PanelScreen
 {
 	inline public static var COLOR_FADE:String = "colorFade";
 	inline public static var COVER:String = "cover";

@@ -67,7 +67,7 @@ package feathers.themes
 	 *
 	 * @see http://wiki.starling-framework.org/feathers/theme-assets
 	 */
-	public class AeonDesktopThemeWithAssetManager extends BaseAeonDesktopTheme
+	class AeonDesktopThemeWithAssetManager extends BaseAeonDesktopTheme
 	{
 		/**
 		 * @private

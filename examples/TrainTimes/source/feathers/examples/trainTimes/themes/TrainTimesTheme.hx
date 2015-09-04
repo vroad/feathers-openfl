@@ -38,7 +38,7 @@ import starling.events.ResizeEvent;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
 
-public class TrainTimesTheme extends StyleNameFunctionTheme
+class TrainTimesTheme extends StyleNameFunctionTheme
 {
 	[Embed(source="/../assets/images/traintimes.png")]
 	private static const ATLAS_IMAGE:Class;

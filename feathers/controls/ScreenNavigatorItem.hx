@@ -32,7 +32,7 @@ import starling.display.DisplayObject;
  * @see ../../../help/screen-navigator.html How to use the Feathers ScreenNavigator component
  * @see feathers.controls.ScreenNavigator
  */
-public class ScreenNavigatorItem implements IScreenNavigatorItem
+class ScreenNavigatorItem implements IScreenNavigatorItem
 {
 	/**
 	 * Constructor.

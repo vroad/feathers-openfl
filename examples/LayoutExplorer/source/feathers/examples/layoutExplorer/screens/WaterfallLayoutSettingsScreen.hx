@@ -17,7 +17,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class WaterfallLayoutSettingsScreen extends PanelScreen
+class WaterfallLayoutSettingsScreen extends PanelScreen
 {
 	public function WaterfallLayoutSettingsScreen()
 	{

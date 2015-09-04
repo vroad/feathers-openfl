@@ -10,7 +10,7 @@ import feathers.themes.MetalWorksMobileTheme;
 
 import starling.events.Event;
 
-public class Main extends StackScreenNavigator
+class Main extends StackScreenNavigator
 {
 	inline private static var MAIN_MENU:String = "mainMenu";
 	inline private static var LIST_VIDEOS:String = "listVideos";

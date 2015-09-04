@@ -24,7 +24,7 @@ import starling.events.Event;
  *
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  */
-public class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayerControl
+class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayerControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all

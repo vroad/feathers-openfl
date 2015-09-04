@@ -55,7 +55,7 @@ import starling.events.EventDispatcher;
  *
  * @see ../../../help/horizontal-spinner-layout.html How to use HorizontalSpinnerLayout with the Feathers SpinnerList component
  */
-public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, ITrimmedVirtualLayout
+class HorizontalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, ITrimmedVirtualLayout
 {
 	/**
 	 * The items will be aligned to the top of the bounds.

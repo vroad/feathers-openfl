@@ -107,7 +107,7 @@ import starling.utils.MatrixUtil;
  *
  * @see ../../../help/web-view.html How to use the Feathers WebView component
  */
-public class WebView extends FeathersControl
+class WebView extends FeathersControl
 {
 	/**
 	 * @private

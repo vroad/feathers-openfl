@@ -17,7 +17,7 @@ import starling.events.Event;
 
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class WaterfallLayoutScreen extends PanelScreen
+class WaterfallLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 

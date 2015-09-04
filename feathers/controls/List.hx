@@ -166,7 +166,7 @@ import starling.events.KeyboardEvent;
  * @see feathers.controls.GroupedList
  * @see feathers.controls.SpinnerList
  */
-public class List extends Scroller implements IFocusContainer
+class List extends Scroller implements IFocusContainer
 {
 	/**
 	 * @private

@@ -24,7 +24,7 @@ import starling.core.Starling;
 import starling.display.Sprite;
 import starling.events.Event;
 
-public class Main extends Sprite
+class Main extends Sprite
 {
 	public function Main()
 	{

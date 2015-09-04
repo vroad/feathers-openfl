@@ -25,7 +25,7 @@ import starling.display.Quad;
 import starling.events.Event;
 import starling.textures.Texture;
 
-public class Main extends LayoutGroup
+class Main extends LayoutGroup
 {
 	[Embed(source="/../assets/images/test-pattern1.png")]
 	private static const TEST_PATTERN1:Class;

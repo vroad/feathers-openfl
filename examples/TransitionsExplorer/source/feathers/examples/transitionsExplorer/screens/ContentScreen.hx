@@ -4,7 +4,7 @@ import feathers.controls.Screen;
 
 import starling.display.Quad;
 
-public class ContentScreen extends Screen
+class ContentScreen extends Screen
 {
 	public function ContentScreen()
 	{

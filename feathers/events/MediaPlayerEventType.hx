@@ -22,7 +22,7 @@ package feathers.events
  * }
  * mediaPlayer.addEventListener( MediaPlayerEventType.CURRENT_TIME_CHANGE, listener );</listing>
  */
-public class MediaPlayerEventType
+class MediaPlayerEventType
 {
 	/**
 	 * Dispatched when a media player changes to the full-screen display mode

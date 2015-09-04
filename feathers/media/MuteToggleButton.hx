@@ -73,7 +73,7 @@ import starling.events.TouchPhase;
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
+class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 {
 	/**
 	 * @private

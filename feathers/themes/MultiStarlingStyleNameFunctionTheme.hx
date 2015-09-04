@@ -27,7 +27,7 @@ import starling.errors.AbstractMethodError;
  * @see ../../../help/skinning.html Skinning Feathers components
  * @see ../../../help/custom-themes.html Creating custom Feathers themes
  */
-public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
+class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 {
 	/**
 	 * Constructor.

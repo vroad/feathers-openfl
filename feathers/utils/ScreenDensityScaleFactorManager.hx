@@ -70,7 +70,7 @@ import starling.core.Starling;
  * Starling view port or stage manually. This class manages their dimensions
  * automatically on its own.</p>
  */
-public class ScreenDensityScaleFactorManager
+class ScreenDensityScaleFactorManager
 {
 	/**
 	 * @private

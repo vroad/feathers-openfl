@@ -191,7 +191,7 @@ import starling.utils.PowerOfTwo.getNextPowerOfTwo;
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html openfl.text.TextField
  */
-public class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativeFocusOwner
+class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativeFocusOwner
 {
 	/**
 	 * @private

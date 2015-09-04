@@ -67,7 +67,7 @@ import starling.events.TouchPhase;
  *
  * @see ../../../help/numeric-stepper.html How to use the Feathers NumericStepper component
  */
-public class NumericStepper extends FeathersControl implements IRange, INativeFocusOwner
+class NumericStepper extends FeathersControl implements IRange, INativeFocusOwner
 {
 	/**
 	 * @private

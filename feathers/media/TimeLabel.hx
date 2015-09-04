@@ -26,7 +26,7 @@ import starling.events.TouchPhase;
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class TimeLabel extends Label implements IMediaPlayerControl
+class TimeLabel extends Label implements IMediaPlayerControl
 {
 	/**
 	 * @private

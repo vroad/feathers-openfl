@@ -15,7 +15,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class AutoCompleteScreen extends PanelScreen
+class AutoCompleteScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 

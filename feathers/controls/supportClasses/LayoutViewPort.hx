@@ -16,7 +16,7 @@ import starling.display.DisplayObject;
  * @private
  * Used internally by ScrollContainer. Not meant to be used on its own.
  */
-public class LayoutViewPort extends LayoutGroup implements IViewPort
+class LayoutViewPort extends LayoutGroup implements IViewPort
 {
 	public function LayoutViewPort()
 	{

@@ -69,7 +69,7 @@ import starling.utils.AssetManager;
  *
  * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
+class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 {
 	/**
 	 * @private

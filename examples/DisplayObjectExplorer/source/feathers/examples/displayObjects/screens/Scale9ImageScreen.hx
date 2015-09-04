@@ -14,7 +14,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-public class Scale9ImageScreen extends PanelScreen
+class Scale9ImageScreen extends PanelScreen
 {
 	//[Embed(source="/../assets/images/scale9.png")]
 	//inline private static var SCALE_9_TEXTURE:Class<Dynamic>;

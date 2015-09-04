@@ -13,7 +13,7 @@ import feathers.layout.AnchorLayoutData;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-public class FourWayTransitionScreen extends PanelScreen
+class FourWayTransitionScreen extends PanelScreen
 {
 	inline public static var TRANSITION:String = "transition";
 

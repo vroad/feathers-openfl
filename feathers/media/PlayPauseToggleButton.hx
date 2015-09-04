@@ -20,7 +20,7 @@ import starling.events.Event;
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerControl
+class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerControl
 {
 	/**
 	 * An alternate style name to use with

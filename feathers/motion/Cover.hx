@@ -19,7 +19,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#cover Transitions for Feathers screen navigators: Cover
  */
-public class Cover
+class Cover
 {
 	/**
 	 * @private

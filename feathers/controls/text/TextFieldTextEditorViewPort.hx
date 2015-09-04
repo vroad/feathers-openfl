@@ -29,7 +29,7 @@ import starling.utils.MatrixUtil;
  *
  * @see feathers.controls.TextArea
  */
-public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEditorViewPort
+class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEditorViewPort
 {
 	/**
 	 * @private

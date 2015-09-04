@@ -15,7 +15,7 @@ import flash.utils.Dictionary;
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict Full description of flash.text.TextField.restrict in Adobe's Flash Platform API Reference
  */
-public class TextInputRestrict
+class TextInputRestrict
 {
 	/**
 	 * @private

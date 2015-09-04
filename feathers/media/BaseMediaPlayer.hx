@@ -19,7 +19,7 @@ import starling.events.Event;
  * An abstract superclass for media players that should implement the
  * <code>feathers.media.IMediaPlayer</code> interface.
  */
-public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
+class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 {
 	/**
 	 * Constructor.

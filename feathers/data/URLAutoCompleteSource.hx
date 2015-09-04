@@ -57,7 +57,7 @@ import starling.events.EventDispatcher;
  *
  * @see feathers.controls.AutoComplete
  */
-public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSource
+class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSource
 {
 	/**
 	 * @private

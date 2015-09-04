@@ -66,7 +66,7 @@ import starling.utils.AssetManager;
  *
  * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDesktopTheme
+class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDesktopTheme
 {
 	/**
 	 * @private

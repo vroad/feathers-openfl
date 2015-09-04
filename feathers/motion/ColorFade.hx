@@ -18,7 +18,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#colorfade Transitions for Feathers screen navigators: ColorFade
  */
-public class ColorFade
+class ColorFade
 {
 	/**
 	 * @private

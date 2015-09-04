@@ -22,7 +22,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#iris Transitions for Feathers screen navigators: Iris
  */
-public class Iris
+class Iris
 {
 	/**
 	 * @private

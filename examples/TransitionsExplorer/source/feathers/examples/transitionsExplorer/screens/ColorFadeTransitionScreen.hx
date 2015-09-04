@@ -14,7 +14,7 @@ import feathers.motion.ColorFade;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
-public class ColorFadeTransitionScreen extends PanelScreen
+class ColorFadeTransitionScreen extends PanelScreen
 {
 	inline public static var TRANSITION:String = "transition";
 

@@ -189,7 +189,7 @@ import starling.events.KeyboardEvent;
  * @see ../../../help/item-renderers.html Creating custom item renderers for the Feathers List and GroupedList components
  * @see feathers.controls.List
  */
-public class GroupedList extends Scroller implements IFocusContainer
+class GroupedList extends Scroller implements IFocusContainer
 {
 	/**
 	 * @private

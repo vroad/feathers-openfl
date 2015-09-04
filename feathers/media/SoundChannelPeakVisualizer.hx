@@ -23,7 +23,7 @@ import starling.events.Event;
  *
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  */
-public class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayerControl
+class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayerControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all

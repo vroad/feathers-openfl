@@ -116,7 +116,7 @@ import starling.events.Event;
  * @see feathers.controls.StackScreenNavigator
  * @see feathers.controls.ScreenNavigator
  */
-public class BaseScreenNavigator extends FeathersControl
+class BaseScreenNavigator extends FeathersControl
 {
 	/**
 	 * @private

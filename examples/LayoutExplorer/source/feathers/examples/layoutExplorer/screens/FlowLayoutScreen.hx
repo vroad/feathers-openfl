@@ -17,7 +17,7 @@ import starling.events.Event;
 
 [Event(name="showSettings",type="starling.events.Event")]
 
-public class FlowLayoutScreen extends PanelScreen
+class FlowLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 

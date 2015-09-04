@@ -19,7 +19,7 @@ import starling.events.Event;
  * 
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
+class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all

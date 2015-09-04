@@ -20,7 +20,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#flip Transitions for Feathers screen navigators: Flip
  */
-public class Flip
+class Flip
 {
 	/**
 	 * @private

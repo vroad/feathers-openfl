@@ -93,7 +93,7 @@ import starling.textures.TextureSmoothing;
  * @see MinimalMobileTheme
  * @see MinimalMobileThemeWithAssetManager
  */
-public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
+class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 {
 	/**
 	 * The name of the embedded bitmap font used by controls in this theme.

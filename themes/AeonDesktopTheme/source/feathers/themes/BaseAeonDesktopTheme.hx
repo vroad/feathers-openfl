@@ -96,7 +96,7 @@ package feathers.themes
 	 * @see AeonDesktopTheme
 	 * @see AeonDesktopThemeWithAssetManager
 	 */
-	public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
+	class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	{
 		/**
 		 * @private

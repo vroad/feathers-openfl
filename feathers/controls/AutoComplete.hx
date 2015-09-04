@@ -91,7 +91,7 @@ import starling.events.KeyboardEvent;
  * @see ../../../help/auto-complete.html How to use the Feathers AutoComplete component
  * @see feathers.controls.TextInput
  */
-public class AutoComplete extends TextInput
+class AutoComplete extends TextInput
 {
 	/**
 	 * @private

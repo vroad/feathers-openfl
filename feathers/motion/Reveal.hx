@@ -20,7 +20,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#reveal Transitions for Feathers screen navigators: Reveal
  */
-public class Reveal
+class Reveal
 {
 	/**
 	 * @private

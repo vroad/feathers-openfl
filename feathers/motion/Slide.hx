@@ -17,7 +17,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#slide Transitions for Feathers screen navigators: Slide
  */
-public class Slide
+class Slide
 {
 	/**
 	 * @private

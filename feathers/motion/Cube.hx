@@ -18,7 +18,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#cube Transitions for Feathers screen navigators: Cube
  */
-public class Cube
+class Cube
 {
 	/**
 	 * @private

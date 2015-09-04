@@ -21,7 +21,7 @@ import starling.events.Event;
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class SeekSlider extends Slider implements IMediaPlayerControl
+class SeekSlider extends Slider implements IMediaPlayerControl
 {
 	/**
 	 * The slider's thumb may be dragged horizontally (on the x-axis).

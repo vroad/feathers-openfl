@@ -137,7 +137,7 @@ import starling.events.TouchPhase;
  * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html openfl.text.engine.TextBlock
  */
-public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, INativeFocusOwner
+class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, INativeFocusOwner
 {
 	/**
 	 * @private

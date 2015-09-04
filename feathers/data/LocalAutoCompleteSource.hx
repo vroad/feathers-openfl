@@ -40,7 +40,7 @@ import starling.events.EventDispatcher;
  * @see feathers.controls.AutoComplete
  * @see feathers.data.ListCollection
  */
-public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSource
+class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSource
 {
 	/**
 	 * @private

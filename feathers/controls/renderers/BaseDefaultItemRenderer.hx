@@ -33,7 +33,7 @@ import starling.events.TouchPhase;
 /**
  * An abstract class for item renderer implementations.
  */
-public class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
+class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the icon

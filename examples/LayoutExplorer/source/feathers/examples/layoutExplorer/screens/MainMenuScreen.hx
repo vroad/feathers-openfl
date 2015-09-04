@@ -33,7 +33,7 @@ import starling.textures.Texture;
 
 [Event(name="showWaterfall",type="starling.events.Event")]
 
-public class MainMenuScreen extends PanelScreen
+class MainMenuScreen extends PanelScreen
 {
 	inline public static var SHOW_ANCHOR:String = "showAnchor";
 	inline public static var SHOW_FLOW:String = "showFlow";

@@ -75,7 +75,7 @@ import starling.events.Event;
  * @see ../../../help/scroll-text.html How to use the Feathers ScrollText component
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html openfl.text.TextField
  */
-public class ScrollText extends Scroller
+class ScrollText extends Scroller
 {
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO

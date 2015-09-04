@@ -17,7 +17,7 @@ import starling.display.DisplayObjectContainer;
  *
  * @see ../../../help/transitions.html#fade Transitions for Feathers screen navigators: Fade
  */
-public class Fade
+class Fade
 {
 	/**
 	 * @private

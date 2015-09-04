@@ -111,7 +111,7 @@ import starling.errors.AbstractClassError;
  * An abstract superclass for media players that should implement the
  * <code>feathers.media.ITimedMediaPlayer</code> interface.
  */
-public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
+class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 {
 	/**
 	 * Constructor.

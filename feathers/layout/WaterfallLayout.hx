@@ -57,7 +57,7 @@ import starling.events.EventDispatcher;
  *
  * @see ../../../help/waterfall-layout.html How to use WaterfallLayout with Feathers containers
  */
-public class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
+class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 {
 	/**
 	 * The items will be aligned to the left of the bounds.

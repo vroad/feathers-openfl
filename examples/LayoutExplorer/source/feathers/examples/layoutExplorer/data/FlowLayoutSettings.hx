@@ -2,7 +2,7 @@ package feathers.examples.layoutExplorer.data
 {
 import feathers.layout.FlowLayout;
 
-public class FlowLayoutSettings
+class FlowLayoutSettings
 {
 	public function FlowLayoutSettings()
 	{

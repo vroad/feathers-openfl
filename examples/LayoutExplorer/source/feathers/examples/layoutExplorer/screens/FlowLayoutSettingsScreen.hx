@@ -17,7 +17,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class FlowLayoutSettingsScreen extends PanelScreen
+class FlowLayoutSettingsScreen extends PanelScreen
 {
 	public function FlowLayoutSettingsScreen()
 	{

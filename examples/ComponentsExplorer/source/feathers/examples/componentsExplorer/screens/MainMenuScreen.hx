@@ -36,7 +36,7 @@ import starling.textures.Texture;
 [Event(name="showTextInput",type="starling.events.Event")]
 [Event(name="showToggles",type="starling.events.Event")]
 
-public class MainMenuScreen extends PanelScreen
+class MainMenuScreen extends PanelScreen
 {
 	inline public static var SHOW_ALERT:String = "showAlert";
 	inline public static var SHOW_AUTO_COMPLETE:String = "showAutoComplete";

@@ -18,7 +18,7 @@ import starling.events.Event;
 
 [Event(name="complete",type="starling.events.Event")]
 
-public class SpinnerListScreen extends PanelScreen
+class SpinnerListScreen extends PanelScreen
 {
 	public function SpinnerListScreen()
 	{

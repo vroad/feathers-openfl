@@ -69,7 +69,7 @@ import starling.events.Event;
  * @see ../../../help/scroll-container.html How to use the Feathers ScrollContainer component
  * @see feathers.controls.LayoutGroup
  */
-public class ScrollContainer extends Scroller implements IScrollContainer, IFocusContainer
+class ScrollContainer extends Scroller implements IScrollContainer, IFocusContainer
 {
 	/**
 	 * An alternate style name to use with <code>ScrollContainer</code> to

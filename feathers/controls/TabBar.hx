@@ -64,7 +64,7 @@ import starling.events.Event;
  *
  * @see ../../../help/tab-bar.html How to use the Feathers TabBar component
  */
-public class TabBar extends FeathersControl
+class TabBar extends FeathersControl
 {
 	/**
 	 * @private

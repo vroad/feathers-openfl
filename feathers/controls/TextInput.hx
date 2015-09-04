@@ -192,7 +192,7 @@ import starling.events.TouchPhase;
  * @see feathers.controls.AutoComplete
  * @see feathers.controls.TextArea
  */
-public class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl, INativeFocusOwner
+class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl, INativeFocusOwner
 {
 	/**
 	 * @private

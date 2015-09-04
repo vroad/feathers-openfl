@@ -18,7 +18,7 @@ import starling.display.DisplayObject;
  *
  * @see ../../../help/transitions.html#wipe Transitions for Feathers screen navigators: Wipe
  */
-public class Wipe
+class Wipe
 {
 	/**
 	 * @private

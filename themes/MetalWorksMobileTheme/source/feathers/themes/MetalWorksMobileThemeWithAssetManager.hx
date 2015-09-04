@@ -66,7 +66,7 @@ import starling.utils.AssetManager;
  *
  * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksMobileThemeWithAssetManager extends BaseMetalWorksMobileTheme
+class MetalWorksMobileThemeWithAssetManager extends BaseMetalWorksMobileTheme
 {
 	/**
 	 * @private

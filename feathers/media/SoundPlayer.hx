@@ -161,7 +161,7 @@ import starling.events.Event;
  * 
  * @see ../../../help/sound-player.html How to use the Feathers SoundPlayer component
  */
-public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
+class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 {
 	/**
 	 * @private

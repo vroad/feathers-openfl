@@ -37,7 +37,7 @@ import starling.display.DisplayObject;
  * @see ../../../help/stack-screen-navigator.html How to use the Feathers StackScreenNavigator component
  * @see feathers.controls.StackScreenNavigator
  */
-public class StackScreenNavigatorItem implements IScreenNavigatorItem
+class StackScreenNavigatorItem implements IScreenNavigatorItem
 {
 	/**
 	 * Constructor.

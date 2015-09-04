@@ -15,7 +15,7 @@ import starling.display.DisplayObject;
 
 import starling.events.Event;
 
-public class IrisTransitionScreen extends PanelScreen
+class IrisTransitionScreen extends PanelScreen
 {
 	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{

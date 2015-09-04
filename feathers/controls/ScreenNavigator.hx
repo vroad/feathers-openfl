@@ -32,7 +32,7 @@ import starling.events.Event;
  * @see ../../../help/transitions.html Transitions for Feathers screen navigators
  * @see feathers.controls.ScreenNavigatorItem
  */
-public class ScreenNavigator extends BaseScreenNavigator
+class ScreenNavigator extends BaseScreenNavigator
 {
 	/**
 	 * The screen navigator will auto size itself to fill the entire stage.

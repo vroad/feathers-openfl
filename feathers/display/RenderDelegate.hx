@@ -23,7 +23,7 @@ import starling.utils.MatrixUtil;
  * delegate is a separate display object. However, interacting with the
  * target may affect the rendering of the delegate.</p>
  */
-public class RenderDelegate extends DisplayObject
+class RenderDelegate extends DisplayObject
 {
 	/**
 	 * @private

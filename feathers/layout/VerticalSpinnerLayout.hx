@@ -46,7 +46,7 @@ import starling.events.EventDispatcher;
  *
  * @see ../../../help/vertical-spinner-layout.html How to use VerticalSpinnerLayout with the Feathers SpinnerList component
  */
-public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, ITrimmedVirtualLayout
+class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, ITrimmedVirtualLayout
 {
 	/**
 	 * The items will be aligned to the left of the bounds.

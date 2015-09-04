@@ -94,7 +94,7 @@ import starling.textures.TextureSmoothing;
  * @see MinimalDesktopTheme
  * @see MinimalDesktopThemeWithAssetManager
  */
-public class BaseMinimalDesktopTheme extends StyleNameFunctionTheme
+class BaseMinimalDesktopTheme extends StyleNameFunctionTheme
 {
 	/**
 	 * The name of the embedded bitmap font used by controls in this theme.

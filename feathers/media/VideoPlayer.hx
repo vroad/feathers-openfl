@@ -174,7 +174,7 @@ import starling.textures.Texture;
  *
  * @see ../../../help/video-player.html How to use the Feathers VideoPlayer component
  */
-public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
+class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 {
 	/**
 	 * @private

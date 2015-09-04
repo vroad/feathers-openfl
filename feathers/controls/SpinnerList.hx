@@ -54,7 +54,7 @@ import starling.events.KeyboardEvent;
  *
  * @see ../../../help/spinner-list.html How to use the Feathers SpinnerList component
  */
-public class SpinnerList extends List
+class SpinnerList extends List
 {
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>SpinnerList</code>

@@ -56,7 +56,7 @@ import starling.events.EventDispatcher;
  *
  * @see ../../../help/flow-layout.html How to use FlowLayout with Feathers containers
  */
-public class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
+class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 {
 	/**
 	 * If the total item height is smaller than the height of the bounds,

@@ -74,7 +74,7 @@ import starling.events.TouchPhase;
  * @see ../../../help/text-area.html How to use the Feathers TextArea component
  * @see feathers.controls.TextInput
  */
-public class TextArea extends Scroller implements INativeFocusOwner
+class TextArea extends Scroller implements INativeFocusOwner
 {
 	/**
 	 * @private

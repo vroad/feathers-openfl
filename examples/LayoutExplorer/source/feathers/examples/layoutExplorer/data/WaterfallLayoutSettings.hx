@@ -2,7 +2,7 @@ package feathers.examples.layoutExplorer.data
 {
 import feathers.layout.WaterfallLayout;
 
-public class WaterfallLayoutSettings
+class WaterfallLayoutSettings
 {
 	public function WaterfallLayoutSettings()
 	{

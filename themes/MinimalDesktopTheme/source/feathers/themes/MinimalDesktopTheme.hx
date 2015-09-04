@@ -39,7 +39,7 @@ import starling.textures.TextureAtlas;
  *
  * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
+class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 {
 	/**
 	 * @private

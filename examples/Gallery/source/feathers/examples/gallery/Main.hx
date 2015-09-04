@@ -21,7 +21,7 @@ import starling.animation.Tween;
 import starling.core.Starling;
 import starling.events.Event;
 
-public class Main extends LayoutGroup
+class Main extends LayoutGroup
 {
 	inline private static var FLICKR_API_KEY = "";
 
