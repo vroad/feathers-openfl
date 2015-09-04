@@ -77,7 +77,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createColorFadeTransition(color:uint, duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createColorFadeTransition(color:UInt, duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -113,7 +113,7 @@ import starling.display.Quad;
 class ColorFadeTween extends Tween
 {
 public function ColorFadeTween(target:DisplayObject, otherTarget:DisplayObject,
-	color:uint, duration:Number, ease:Object, onCompleteCallback:Function,
+	color:UInt, duration:Number, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	super(target, duration, ease);

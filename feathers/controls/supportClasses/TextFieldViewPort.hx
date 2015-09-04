@@ -263,12 +263,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _backgroundColor:uint = 0xffffff;
+	private var _backgroundColor:UInt = 0xffffff;
 
 	/**
 	 * @see feathers.controls.ScrollText#backgroundColor
 	 */
-	public function get_backgroundColor():uint
+	public function get_backgroundColor():UInt
 	{
 		return this._backgroundColor;
 	}
@@ -276,7 +276,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_backgroundColor(value:uint):uint
+	public function set_backgroundColor(value:UInt):UInt
 	{
 		if(this._backgroundColor == value)
 		{
@@ -315,12 +315,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _borderColor:uint = 0x000000;
+	private var _borderColor:UInt = 0x000000;
 
 	/**
 	 * @see feathers.controls.ScrollText#borderColor
 	 */
-	public function get_borderColor():uint
+	public function get_borderColor():UInt
 	{
 		return this._borderColor;
 	}
@@ -328,7 +328,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_borderColor(value:uint):uint
+	public function set_borderColor(value:UInt):UInt
 	{
 		if(this._borderColor == value)
 		{

@@ -982,7 +982,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _backgroundColor:uint = 0xffffff;
+	private var _backgroundColor:UInt = 0xffffff;
 
 	/**
 	 * The color of the text field background that is displayed if the
@@ -999,7 +999,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
-	public function get_backgroundColor():uint
+	public function get_backgroundColor():UInt
 	{
 		return this._backgroundColor;
 	}
@@ -1007,7 +1007,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_backgroundColor(value:uint):uint
+	public function set_backgroundColor(value:UInt):UInt
 	{
 		if(this._backgroundColor == value)
 		{
@@ -1061,7 +1061,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _borderColor:uint = 0x000000;
+	private var _borderColor:UInt = 0x000000;
 
 	/**
 	 * The color of the text field border that is displayed if the
@@ -1078,7 +1078,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
-	public function get_borderColor():uint
+	public function get_borderColor():UInt
 	{
 		return this._borderColor;
 	}
@@ -1086,7 +1086,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_borderColor(value:uint):uint
+	public function set_borderColor(value:UInt):UInt
 	{
 		if(this._borderColor == value)
 		{

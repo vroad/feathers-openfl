@@ -64,8 +64,8 @@ class TrainTimesTheme extends StyleNameFunctionTheme
 	private static const SCROLL_BAR_THUMB_REGION1:Int = 5;
 	private static const SCROLL_BAR_THUMB_REGION2:Int = 14;
 
-	private static const PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
-	private static const DETAIL_TEXT_COLOR:uint = 0x64908a;
+	private static const PRIMARY_TEXT_COLOR:UInt = 0xe8caa4;
+	private static const DETAIL_TEXT_COLOR:UInt = 0x64908a;
 
 	private static function textRendererFactory():ITextRenderer
 	{

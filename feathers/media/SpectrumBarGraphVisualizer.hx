@@ -139,12 +139,12 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _color:uint = 0x000000;
+	private var _color:UInt = 0x000000;
 
 	/**
 	 * The color of the bars.
 	 */
-	public function get_color():uint
+	public function get_color():UInt
 	{
 		return this._color;
 	}
@@ -152,7 +152,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	public function set_color(value:uint):uint
+	public function set_color(value:UInt):UInt
 	{
 		if(this._color == value)
 		{

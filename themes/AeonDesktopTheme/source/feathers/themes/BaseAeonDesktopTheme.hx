@@ -207,10 +207,10 @@ package feathers.themes
 		private static const PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 2, 2);
 		private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 0, 4, 28);
 
-		private static const BACKGROUND_COLOR:uint = 0x869CA7;
-		private static const MODAL_OVERLAY_COLOR:uint = 0xDDDDDD;
-		private static const PRIMARY_TEXT_COLOR:uint = 0x0B333C;
-		private static const DISABLED_TEXT_COLOR:uint = 0x5B6770;
+		private static const BACKGROUND_COLOR:UInt = 0x869CA7;
+		private static const MODAL_OVERLAY_COLOR:UInt = 0xDDDDDD;
+		private static const PRIMARY_TEXT_COLOR:UInt = 0x0B333C;
+		private static const DISABLED_TEXT_COLOR:UInt = 0x5B6770;
 		private static const MODAL_OVERLAY_ALPHA:Float = 0.5;
 
 		/**

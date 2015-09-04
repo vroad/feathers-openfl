@@ -150,14 +150,14 @@ class BaseMinimalDesktopTheme extends StyleNameFunctionTheme
 	private static const FORWARD_BUTTON_SCALE_REGION1:Int = 4;
 	private static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
-	private static const BACKGROUND_COLOR:uint = 0xf3f3f3;
-	private static const LIST_BACKGROUND_COLOR:uint = 0xffffff;
-	private static const LIST_SELECTED_BACKGROUND_COLOR:uint = 0xdddddd;
-	private static const LIST_HOVER_BACKGROUND_COLOR:uint = 0xeeeeee;
-	private static const LIST_HEADER_BACKGROUND_COLOR:uint = 0xf8f8f8;
-	private static const PRIMARY_TEXT_COLOR:uint = 0x666666;
-	private static const DISABLED_TEXT_COLOR:uint = 0x999999;
-	private static const MODAL_OVERLAY_COLOR:uint = 0xcccccc;
+	private static const BACKGROUND_COLOR:UInt = 0xf3f3f3;
+	private static const LIST_BACKGROUND_COLOR:UInt = 0xffffff;
+	private static const LIST_SELECTED_BACKGROUND_COLOR:UInt = 0xdddddd;
+	private static const LIST_HOVER_BACKGROUND_COLOR:UInt = 0xeeeeee;
+	private static const LIST_HEADER_BACKGROUND_COLOR:UInt = 0xf8f8f8;
+	private static const PRIMARY_TEXT_COLOR:UInt = 0x666666;
+	private static const DISABLED_TEXT_COLOR:UInt = 0x999999;
+	private static const MODAL_OVERLAY_COLOR:UInt = 0xcccccc;
 	private static const MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 	/**

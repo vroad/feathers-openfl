@@ -20,7 +20,7 @@ class ColorFadeTransitionScreen extends PanelScreen
 
 	private static function fadeToRandomColor(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
-		var randomColor:uint = Math.random() * 0xffffff;
+		var randomColor:UInt = Math.random() * 0xffffff;
 		ColorFade.createColorFadeTransition(randomColor)(oldScreen, newScreen, completeCallback);
 	}
 

@@ -63,14 +63,14 @@ public final class StageTextField extends EventDispatcher
 		this._autoCorrect = value;
 	}
 
-	private var _color:uint = 0x000000;
+	private var _color:UInt = 0x000000;
 
-	public function get_color():uint
+	public function get_color():UInt
 	{
-		return this._textFormat.color as uint;
+		return this._textFormat.color as UInt;
 	}
 
-	public function set_color(value:uint):uint
+	public function set_color(value:UInt):UInt
 	{
 		if(this._textFormat.color == value)
 		{

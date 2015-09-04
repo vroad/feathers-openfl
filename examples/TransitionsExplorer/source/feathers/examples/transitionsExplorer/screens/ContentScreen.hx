@@ -10,7 +10,7 @@ class ContentScreen extends Screen
 	{
 	}
 
-	public var color:uint;
+	public var color:UInt;
 
 	override private function initialize():Void
 	{
