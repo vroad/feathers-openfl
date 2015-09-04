@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -13,6 +13,7 @@ import feathers.controls.ToggleButton;
 import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.core.FeathersControl;
 import feathers.core.IFeathersControl;
+import feathers.core.IFocusContainer;
 import feathers.core.ITextRenderer;
 import feathers.core.IValidating;
 import feathers.core.PropertyProxy;
@@ -32,7 +33,7 @@ import starling.events.TouchPhase;
 /**
  * An abstract class for item renderer implementations.
  */
-class BaseDefaultItemRenderer extends ToggleButton
+public class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 {
 	/**
 	 * The default value added to the <code>styleNameList</code> of the icon
@@ -40,7 +41,19 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	inline public static var DEFAULT_CHILD_NAME_ICON_LABEL:String = "feathers-item-renderer-icon-label";
+	public static const DEFAULT_CHILD_STYLE_NAME_ICON_LABEL:String = "feathers-item-renderer-icon-label";
+
+	/**
+	 * DEPRECATED: Replaced by <code>BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ICON_LABEL</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see BaseDefaultItemRenderer#DEFAULT_CHILD_STYLE_NAME_ICON_LABEL
+	 */
+	public static const DEFAULT_CHILD_NAME_ICON_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -48,7 +61,19 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	inline public static var DEFAULT_CHILD_NAME_ACCESSORY_LABEL:String = "feathers-item-renderer-accessory-label";
+	public static const DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL:String = "feathers-item-renderer-accessory-label";
+
+	/**
+	 * DEPRECATED: Replaced by <code>BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see BaseDefaultItemRenderer#DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL
+	 */
+	public static const DEFAULT_CHILD_NAME_ACCESSORY_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_TOP
@@ -233,20 +258,91 @@ class BaseDefaultItemRenderer extends ToggleButton
 	}
 
 	/**
-	 * The value added to the <code>styleNameList</code> of the icon label,
-	 * if it exists.
+	 * The value added to the <code>styleNameList</code> of the icon label
+	 * text renderer, if it exists.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	private var iconLabelName:String = DEFAULT_CHILD_NAME_ICON_LABEL;
+	protected var iconLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
+
+	/**
+	 * DEPRECATED: Replaced by <code>iconLabelStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #iconLabelStyleName
+	 */
+	protected function get iconLabelName():String
+	{
+		return this.iconLabelStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set iconLabelName(value:String):void
+	{
+		this.iconLabelStyleName = value;
+	}
 
 	/**
 	 * The value added to the <code>styleNameList</code> of the accessory
-	 * label, if it exists.
+	 * label text renderer, if it exists.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	private var accessoryLabelName:String = DEFAULT_CHILD_NAME_ACCESSORY_LABEL;
+	protected var accessoryLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
+
+	/**
+	 * DEPRECATED: Replaced by <code>accessoryLabelStyleName</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see #accessoryLabelStyleName
+	 */
+	protected function get accessoryLabelName():String
+	{
+		return this.accessoryLabelStyleName;
+	}
+
+	/**
+	 * @private
+	 */
+	protected function set accessoryLabelName(value:String):void
+	{
+		this.accessoryLabelStyleName = value;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _isChildFocusEnabled:Boolean = true;
+
+	/**
+	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
+	 *
+	 * @default true
+	 *
+	 * @see #isFocusEnabled
+	 */
+	public function get isChildFocusEnabled():Boolean
+	{
+		return this._isEnabled && this._isChildFocusEnabled;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set isChildFocusEnabled(value:Boolean):void
+	{
+		this._isChildFocusEnabled = value;
+	}
 
 	/**
 	 * @private
@@ -343,7 +439,9 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	public function set_data(value:Dynamic):Dynamic
 	{
-		if(this._data == value)
+		//we need to use strict equality here because the data can be
+		//non-strictly equal to null
+		if(this._data === value)
 		{
 			return this._data;
 		}
@@ -2581,10 +2679,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 	private var _iconLabelProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to a label icon, if one
-	 * exists. The title is an <code>ITextRenderer</code> instance. The
+	 * An object that stores properties for the icon label text renderer
+	 * sub-component (if using <code>iconLabelField</code> or
+	 * <code>iconLabelFunction</code>), and the properties will be passed
+	 * down to the text renderer when this component validates. The
 	 * available properties depend on which <code>ITextRenderer</code>
-	 * implementation is used.
+	 * implementation is returned by <code>iconLabelFactory</code>. Refer to
+	 * <a href="../../core/ITextRenderer.html"><code>feathers.core.ITextRenderer</code></a>
+	 * for a list of available text renderer implementations.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -2766,10 +2868,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 	private var _accessoryLabelProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to a label accessory. The
-	 * title is an <code>ITextRenderer</code> instance. The available
-	 * properties depend on which <code>ITextRenderer</code> implementation
-	 * is used.
+	 * An object that stores properties for the accessory label text
+	 * renderer sub-component (if using <code>accessoryLabelField</code> or
+	 * <code>accessoryLabelFunction</code>), and the properties will be
+	 * passed down to the text renderer when this component validates. The
+	 * available properties depend on which <code>ITextRenderer</code>
+	 * implementation is returned by <code>accessoryLabelFactory</code>.
+	 * Refer to <a href="../../core/ITextRenderer.html"><code>feathers.core.ITextRenderer</code></a>
+	 * for a list of available text renderer implementations.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -2961,8 +3067,10 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			return cast(item, String);
 		}
-		else if(item)
+		else if(item !== null)
 		{
+			//we need to use strict equality here because the data can be
+			//non-strictly equal to null
 			return item.toString();
 		}
 		return "";
@@ -3223,7 +3331,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		}
 		var oldIgnoreAccessoryResizes:Bool = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
-		this.refreshMaxLabelWidth(true);
+		this.refreshMaxLabelSize(true);
 		if(this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.measureText(HELPER_POINT);
@@ -3522,7 +3630,9 @@ class BaseDefaultItemRenderer extends ToggleButton
 	 */
 	private function commitData():Void
 	{
-		if(this._data != null && this._owner != null)
+		//we need to use strict equality here because the data can be
+		//non-strictly equal to null
+		if(this._data !== null && this._owner)
 		{
 			if(this._itemHasLabel)
 			{
@@ -3864,7 +3974,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			var factory:Dynamic = this._iconLabelFactory != null ? this._iconLabelFactory : FeathersControl.defaultTextRendererFactory;
 			this.iconLabel = factory();
-			this.iconLabel.styleNameList.add(this.iconLabelName);
+			this.iconLabel.styleNameList.add(this.iconLabelStyleName);
 		}
 		this.iconLabel.text = label;
 	}
@@ -3892,7 +4002,7 @@ class BaseDefaultItemRenderer extends ToggleButton
 		{
 			var factory:Void->ITextRenderer = this._accessoryLabelFactory != null ? this._accessoryLabelFactory : FeathersControl.defaultTextRendererFactory;
 			this.accessoryLabel = factory();
-			this.accessoryLabel.styleNameList.add(this.accessoryLabelName);
+			this.accessoryLabel.styleNameList.add(this.accessoryLabelStyleName);
 		}
 		this.accessoryLabel.text = label;
 	}
@@ -3918,7 +4028,9 @@ class BaseDefaultItemRenderer extends ToggleButton
 	{
 		var oldIgnoreAccessoryResizes:Bool = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
-		this.refreshMaxLabelWidth(false);
+		var oldIgnoreIconResizes:Boolean = this._ignoreIconResizes;
+		this._ignoreIconResizes = true;
+		this.refreshMaxLabelSize(false);
 		var labelRenderer:DisplayObject = null;
 		if(this._label != null && this.labelTextRenderer != null)
 		{
@@ -4007,13 +4119,14 @@ class BaseDefaultItemRenderer extends ToggleButton
 			this.labelTextRenderer.x += this._labelOffsetX;
 			this.labelTextRenderer.y += this._labelOffsetY;
 		}
+		this._ignoreIconResizes = oldIgnoreIconResizes;
 		this._ignoreAccessoryResizes = oldIgnoreAccessoryResizes;
 	}
 
 	/**
 	 * @private
 	 */
-	override private function refreshMaxLabelWidth(forMeasurement:Bool):Void
+	override protected function refreshMaxLabelSize(forMeasurement:Boolean):void
 	{
 		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)
@@ -4025,6 +4138,16 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 		}
 		calculatedWidth -= (this._paddingLeft + this._paddingRight);
+		var calculatedHeight:Number = this.actualHeight;
+		if(forMeasurement)
+		{
+			calculatedHeight = this.explicitHeight;
+			if(calculatedHeight !== calculatedHeight) //isNaN
+			{
+				calculatedHeight = this._maxHeight;
+			}
+		}
+		calculatedHeight -= (this._paddingTop + this._paddingBottom);
 
 		var adjustedGap:Float = this._gap;
 		if(adjustedGap == Math.POSITIVE_INFINITY)
@@ -4047,7 +4170,9 @@ class BaseDefaultItemRenderer extends ToggleButton
 
 		var hasIconToLeftOrRight:Bool = this.currentIcon != null && (this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 			this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE);
-		var hasAccessoryToLeftOrRight:Bool = this.accessory != null && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
+		var hasIconToTopOrBottom:Boolean = this.currentIcon && (this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM);
+		var hasAccessoryToLeftOrRight:Boolean = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
+		var hasAccessoryToTopOrBottom:Boolean = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_TOP || this._accessoryPosition == ACCESSORY_POSITION_BOTTOM);
 
 		if(this.accessoryLabel != null)
 		{
@@ -4068,16 +4193,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (this.currentIcon.width + adjustedGap);
 			}
-			if(hasAccessoryToLeftOrRight)
-			{
-				calculatedWidth -= adjustedAccessoryGap;
-			}
 			if(calculatedWidth < 0)
 			{
 				calculatedWidth = 0;
 			}
 			this.accessoryLabel.maxWidth = calculatedWidth;
-			if(this.currentIcon != null && !iconAffectsAccessoryLabelMaxWidth)
+			this.accessoryLabel.maxHeight = calculatedHeight;
+			if(hasIconToLeftOrRight && this.currentIcon && !iconAffectsAccessoryLabelMaxWidth)
 			{
 				calculatedWidth -= (this.currentIcon.width + adjustedGap);
 			}
@@ -4087,7 +4209,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 			if(hasAccessoryToLeftOrRight)
 			{
-				calculatedWidth -= this.accessory.width;
+				calculatedWidth -= (this.accessory.width + adjustedAccessoryGap);
+			}
+			if(hasAccessoryToTopOrBottom)
+			{
+				calculatedHeight -= (this.accessory.height + adjustedAccessoryGap);
 			}
 		}
 		else if(this.iconLabel != null)
@@ -4101,16 +4227,13 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
-			if(hasIconToLeftOrRight)
-			{
-				calculatedWidth -= adjustedGap;
-			}
 			if(calculatedWidth < 0)
 			{
 				calculatedWidth = 0;
 			}
 			this.iconLabel.maxWidth = calculatedWidth;
-			if(this.accessory != null && !accessoryAffectsIconLabelMaxWidth)
+			this.iconLabel.maxHeight = calculatedHeight;
+			if(hasAccessoryToLeftOrRight && this.accessory && !accessoryAffectsIconLabelMaxWidth)
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
@@ -4120,7 +4243,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 			}
 			if(hasIconToLeftOrRight)
 			{
-				calculatedWidth -= this.currentIcon.width;
+				calculatedWidth -= (this.currentIcon.width + adjustedGap);
+			}
+			if(hasIconToTopOrBottom)
+			{
+				calculatedHeight -= (this.currentIcon.height + adjustedGap);
 			}
 		}
 		else
@@ -4133,7 +4260,11 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (adjustedGap + this.currentIcon.width);
 			}
-			if(Std.is(this.accessory, IValidating))
+			if(hasIconToTopOrBottom)
+			{
+				calculatedHeight -= (adjustedGap + this.currentIcon.height);
+			}
+			if(this.accessory is IValidating)
 			{
 				cast(this.accessory, IValidating).validate();
 			}
@@ -4141,14 +4272,23 @@ class BaseDefaultItemRenderer extends ToggleButton
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
+			if(hasAccessoryToTopOrBottom)
+			{
+				calculatedHeight -= (adjustedAccessoryGap + this.accessory.height);
+			}
 		}
 		if(calculatedWidth < 0)
 		{
 			calculatedWidth = 0;
 		}
-		if(this.labelTextRenderer != null)
+		if(calculatedHeight < 0)
+		{
+			calculatedHeight = 0;
+		}
+		if(this.labelTextRenderer)
 		{
 			this.labelTextRenderer.maxWidth = calculatedWidth;
+			this.labelTextRenderer.maxHeight = calculatedHeight;
 		}
 	}
 

@@ -31,11 +31,9 @@ class DragAndDrop extends Sprite
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
-		//Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
 		this._starling = new Starling(Main, this.stage);
-		this._starling.enableErrorChecking = false;
-		//this._starling.showStats = true;
+		this._starling.supportHighResolutions = true;
 		this._starling.start();
 
 		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Max.INT_MAX_VALUE, true);
@@ -55,12 +53,11 @@ class DragAndDrop extends Sprite
 			this._starling.viewPort = viewPort;
 		}
 		catch(error:Error) {}
-		//this._starling.showStatsAt(HAlign.LEFT, VAlign.BOTTOM);
 	}
 
 	private function stage_deactivateHandler(event:Event):Void
 	{
-		this._starling.stop();
+		this._starling.stop(true);
 		this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
 	}
 

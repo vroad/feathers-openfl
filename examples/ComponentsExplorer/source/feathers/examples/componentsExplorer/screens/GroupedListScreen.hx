@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.GroupedList;
+import feathers.controls.Header;
 import feathers.controls.PanelScreen;
 import feathers.controls.renderers.DefaultGroupedListItemRenderer;
 import feathers.controls.renderers.IGroupedListItemRenderer;
@@ -28,13 +29,13 @@ import starling.events.Event;
 	public var settings:GroupedListSettings;
 
 	private var _list:GroupedList;
-	private var _backButton:Button;
-	private var _settingsButton:Button;
 
 	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Grouped List";
 
 		this.layout = new AnchorLayout();
 
@@ -104,7 +105,7 @@ import starling.events.Event;
 		this._list = new GroupedList();
 		if(this.settings.style == GroupedListSettings.STYLE_INSET)
 		{
-			this._list.styleNameList.add(GroupedList.ALTERNATE_NAME_INSET_GROUPED_LIST);
+			this._list.styleNameList.add(GroupedList.ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST);
 		}
 		this._list.dataProvider = new HierarchicalCollection(groups);
 		this._list.typicalItem = { text: "Item 1000" };
@@ -127,14 +128,12 @@ import starling.events.Event;
 		this._list.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		this.addChildAt(this._list, 0);
 
-		this.headerProperties.setProperty("title", "Grouped List");
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 
 			this.headerProperties.setProperty("leftItems", 
 			[
@@ -144,21 +143,42 @@ import starling.events.Event;
 			this.backButtonHandler = this.onBackButton;
 		}
 
-		this._settingsButton = new Button();
-		this._settingsButton.label = "Settings";
-		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
-
-		this.headerProperties.setProperty("rightItems", 
+		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
+	}
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		var settingsButton:Button = new Button();
+		settingsButton.label = "Settings";
+		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
 		[
-			this._settingsButton
+			settingsButton
 		]);
-
-		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+		return header;
 	}
 	
 	private function onBackButton():Void
 	{
 		this.dispatchEventWith(Event.COMPLETE);
+	}
+
+	private function transitionInCompleteHandler(event:Event):void
+	{
+		this._list.revealScrollBars();
 	}
 	
 	private function backButton_triggeredHandler(event:Event):Void
@@ -173,12 +193,6 @@ import starling.events.Event;
 
 	private function list_changeHandler(event:Event):Void
 	{
-		trace("GroupedList onChange:", this._list.selectedGroupIndex, this._list.selectedItemIndex);
-	}
-
-	private function owner_transitionCompleteHandler(event:Event):Void
-	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-		this._list.revealScrollBars();
+		trace("GroupedList change:", this._list.selectedGroupIndex, this._list.selectedItemIndex);
 	}
 }

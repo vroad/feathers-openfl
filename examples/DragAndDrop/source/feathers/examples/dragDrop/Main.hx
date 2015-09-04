@@ -16,6 +16,8 @@ import starling.events.Event;
 	public function new()
 	{
 		super();
+		//set up the theme right away!
+		new MetalWorksDesktopTheme();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 
@@ -33,8 +35,6 @@ import starling.events.Event;
 
 	private function addedToStageHandler(event:Event):Void
 	{
-		new MetalWorksDesktopTheme();
-
 		this._draggableQuad = new Quad(100, 100, 0xff8800);
 
 		this._dragSource = new DragSource(DRAG_FORMAT);

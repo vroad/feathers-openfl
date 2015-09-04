@@ -1,6 +1,7 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.GroupedList;
+import feathers.controls.Header;
 import feathers.controls.PanelScreen;
 import feathers.controls.PickerList;
 import feathers.controls.ToggleSwitch;
@@ -28,7 +29,6 @@ import starling.events.Event;
 	public var settings:ItemRendererSettings;
 
 	private var _list:GroupedList;
-	private var _backButton:Button;
 	private var _gapPicker:PickerList;
 	private var _hasIconToggle:ToggleSwitch;
 	private var _hasAccessoryToggle:ToggleSwitch;
@@ -58,6 +58,8 @@ import starling.events.Event;
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Item Renderer Settings";
 
 		this.layout = new AnchorLayout();
 
@@ -181,7 +183,7 @@ import starling.events.Event;
 		this._verticalAlignPicker.addEventListener(Event.CHANGE, verticalAlignPicker_changeHandler);
 
 		this._list = new GroupedList();
-		this._list.styleNameList.add(GroupedList.ALTERNATE_NAME_INSET_GROUPED_LIST);
+		this._list.styleNameList.add(GroupedList.ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST);
 		this._list.isSelectable = false;
 		this._list.dataProvider = new HierarchicalCollection(
 		[
@@ -220,18 +222,22 @@ import starling.events.Event;
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.setProperty("title", "Item Renderer Settings");
-		this.headerProperties.setProperty("leftItems", 
-		[
-			this._backButton
-		]);
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		]);
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
@@ -299,7 +305,7 @@ import starling.events.Event;
 		this.settings.verticalAlign = cast(this._verticalAlignPicker.selectedItem, String);
 	}
 
-	private function backButton_triggeredHandler(event:Event):Void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}

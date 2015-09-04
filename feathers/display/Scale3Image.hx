@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -529,9 +529,9 @@ class Scale3Image extends Sprite implements IValidating
 				scaledFirstRegionSize = this._textures.firstRegionSize * oppositeEdgeScale;
 				scaledThirdRegionSize = (this._frame.height - this._textures.firstRegionSize - this._textures.secondRegionSize) * oppositeEdgeScale;sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
 				sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
-				if(sumFirstAndThird > this._width)
+				if(sumFirstAndThird > this._height)
 				{
-					distortionScale = (this._width / sumFirstAndThird);
+					var distortionScale:Number = (this._height / sumFirstAndThird);
 					scaledFirstRegionSize *= distortionScale;
 					scaledThirdRegionSize *= distortionScale;
 					sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;

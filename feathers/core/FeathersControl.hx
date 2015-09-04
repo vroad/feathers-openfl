@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -103,7 +103,10 @@ import starling.utils.MatrixUtil;
  * basic template functions like <code>initialize()</code> and
  * <code>draw()</code>.
  *
- * <p>For a base component class that supports layouts, see <code>LayoutGroup</code>.</p>
+ * <p>This is a base class for Feathers components that isn't meant to be
+ * instantiated directly. It should only be subclassed. For a simple
+ * component that will automatically size itself based on its children,
+ * and with optional support for layouts, see <code>LayoutGroup</code>.</p>
  *
  * @see feathers.controls.LayoutGroup
  */
@@ -213,7 +216,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function():ITextRenderer</pre>
 	 *
-	 * @see http://wiki.starling-framework.org/feathers/text-renderers
+	 * @see ../../../help/text-renderers.html Introduction to Feathers text renderers
 	 * @see feathers.core.ITextRenderer
 	 */
 	public static var defaultTextRendererFactory:Void->ITextRenderer = function():ITextRenderer
@@ -230,7 +233,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function():ITextEditor</pre>
 	 *
-	 * @see http://wiki.starling-framework.org/feathers/text-editors
+	 * @see ../../../help/text-editors.html Introduction to Feathers text editors
 	 * @see feathers.core.ITextEditor
 	 */
 	public static var defaultTextEditorFactory:Void->ITextEditor = function():ITextEditor
@@ -269,7 +272,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * selectors. In Feathers, they are a non-unique identifier that can
 	 * differentiate multiple styles of the same type of UI control. A
 	 * single control may have many style names, and many controls can share
-	 * a single style name. A <a href="http://wiki.starling-framework.org/feathers/themes">theme</a>
+	 * a single style name. A <a target="_top" href="../../../help/themes.html">theme</a>
 	 * or another skinning mechanism may use style names to provide a
 	 * variety of visual appearances for a single component class.
 	 *
@@ -280,8 +283,8 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * @default ""
 	 *
 	 * @see #styleNameList
-	 * @see http://wiki.starling-framework.org/feathers/themes
-	 * @see http://wiki.starling-framework.org/feathers/extending-themes
+	 * @see ../../../help/themes.html Introduction the Feathers themes
+	 * @see ../../../help/custom-themes.html Creating custom Feathers themes
 	 */
 	public var styleName(get, set):String;
 	public function get_styleName():String
@@ -308,7 +311,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * like classes in CSS selectors. They are a non-unique identifier that
 	 * can differentiate multiple styles of the same type of UI control. A
 	 * single control may have many names, and many controls can share a
-	 * single name. A <a href="http://wiki.starling-framework.org/feathers/themes">theme</a>
+	 * single name. A <a target="_top" href="../../../help/themes.html">theme</a>
 	 * or another skinning mechanism may use style names to provide a
 	 * variety of visual appearances for a single component class.
 	 *
@@ -321,28 +324,11 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * control.styleNameList.add( "custom-component-name" );</listing>
 	 *
 	 * @see #styleName
-	 * @see http://wiki.starling-framework.org/feathers/themes
-	 * @see http://wiki.starling-framework.org/feathers/extending-themes
+	 * @see ../../../help/themes.html Introduction to Feathers themes
+	 * @see ../../../help/custom-themes.html Creating custom Feathers themes
 	 */
 	public var styleNameList(get, never):TokenList;
 	public function get_styleNameList():TokenList
-	{
-		return this._styleNameList;
-	}
-
-	/**
-	 * DEPRECATED: Replaced by the <code>styleNameList</code>
-	 * property.
-	 *
-	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
-	 * starting with Feathers 2.0. It will be removed in a future version of
-	 * Feathers according to the standard
-	 * <a href="http://wiki.starling-framework.org/feathers/deprecation-policy">Feathers deprecation policy</a>.</p>
-	 *
-	 * @see #styleNameList
-	 */
-	public var nameList(get, never):TokenList;
-	public function get_nameList():TokenList
 	{
 		return this._styleNameList;
 	}
@@ -353,14 +339,19 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	private var _styleProvider:IStyleProvider;
 
 	/**
-	 * After the component initializes, it may be passed to a style provider
-	 * to set skin and style properties.
+	 * When a component initializes, a style provider may be used to set
+	 * properties that affect the component's visual appearance.
 	 *
-	 * @default null
+	 * <p>You can set or replace an existing style provider at any time
+	 * before a component initializes without immediately affecting the
+	 * component's visual appearance. After the component initializes, the
+	 * style provider may still be changed, but any properties that
+	 * were set by the previous style provider will not be reset to their
+	 * default values.</p>
 	 *
 	 * @see #styleName
 	 * @see #styleNameList
-	 * @see http://wiki.starling-framework.org/feathers/themes
+	 * @see ../../../help/themes.html Introduction to Feathers themes
 	 */
 	public var styleProvider(get, set):IStyleProvider;
 	public function get_styleProvider():IStyleProvider
@@ -373,11 +364,11 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 */
 	public function set_styleProvider(value:IStyleProvider):IStyleProvider
 	{
-		if(this.isInitialized)
-		{
-			throw new IllegalOperationError("The styleProvider property cannot be changed after a component is initialized.");
-		}
 		this._styleProvider = value;
+		if(this._styleProvider && this.isInitialized)
+		{
+			this._styleProvider.applyStyles(this);
+		}
 		return get_styleProvider();
 	}
 
@@ -446,7 +437,12 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	/**
 	 * @private
 	 */
-	private var _isInitialized:Bool = false;
+	protected var _isInitializing:Boolean = false;
+
+	/**
+	 * @private
+	 */
+	protected var _isInitialized:Boolean = false;
 
 	/**
 	 * Determines if the component has been initialized yet. The
@@ -573,7 +569,8 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 *
 	 * <listing version="3.0">
 	 * control.width = Math.NaN;</listing>
-	 * 
+	 *
+	 * @see feathers.core.FeathersControl#setSize()
 	 * @see feathers.core.FeathersControl#validate()
 	 */
 	override public function get_width():Float
@@ -658,7 +655,8 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 *
 	 * <listing version="3.0">
 	 * control.height = Math.NaN;</listing>
-	 * 
+	 *
+	 * @see feathers.core.FeathersControl#setSize()
 	 * @see feathers.core.FeathersControl#validate()
 	 */
 	override public function get_height():Float
@@ -1258,7 +1256,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 		{
 			return get_focusIndicatorSkin();
 		}
-		if(this._focusIndicatorSkin != null && this._focusIndicatorSkin.parent != null)
+		if(this._focusIndicatorSkin && this._focusIndicatorSkin.parent == this)
 		{
 			this._focusIndicatorSkin.removeFromParent(false);
 		}
@@ -1714,17 +1712,8 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 
 	/**
 	 * @copy feathers.core.IValidating#validate()
-	 *
-	 * <p>Additionally, a Feathers component cannot validate until it
-	 * initializes. A component initializes after it has been added to the
-	 * stage. If the component has been added to its parent before the
-	 * parent has access to the stage, the component may not initialize
-	 * until after its parent's <code>Event.ADDED_TO_STAGE</code> has been
-	 * dispatched to all listeners.</p>
 	 * 
 	 * @see #invalidate()
-	 * @see #initialize()
-	 * @see #event:initialize feathers.events.FeathersEventType.INITIALIZE
 	 */
 	public function validate():Void
 	{
@@ -1736,6 +1725,12 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 		}
 		if(!this._isInitialized)
 		{
+			if(this._isInitializing)
+			{
+				//initializing components cannot validate until they've
+				//finished initializing. we'll have to wait.
+				return;
+			}
 			this.initializeInternal();
 		}
 		if(!this.isInvalid())
@@ -1806,7 +1801,11 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	}
 
 	/**
-	 * Sets both the width and the height of the control.
+	 * Sets both the width and the height of the control in a single
+	 * function call.
+	 *
+	 * @see #width
+	 * @see #height
 	 */
 	public function setSize(width:Float, height:Float):Void
 	{
@@ -1831,6 +1830,19 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 		{
 			this.setSizeInternal(width, height, true);
 		}
+	}
+
+	/**
+	 * Sets both the x and the y positions of the control in a single
+	 * function call.
+	 *
+	 * @see #x
+	 * @see #y
+	 */
+	public function move(x:Number, y:Number):void
+	{
+		this.x = x;
+		this.y = y;
 	}
 
 	/**
@@ -2084,12 +2096,14 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 */
 	private function initializeInternal():Void
 	{
-		if(this._isInitialized)
+		if(this._isInitialized || this._isInitializing)
 		{
 			return;
 		}
+		this._isInitializing = true;
 		this.initialize();
 		this.invalidate(); //invalidate everything
+		this._isInitializing = false;
 		this._isInitialized = true;
 		this.dispatchEventWith(FeathersEventType.INITIALIZE);
 
@@ -2097,6 +2111,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 		{
 			this._styleProvider.applyStyles(this);
 		}
+		this._styleNameList.addEventListener(Event.CHANGE, styleNameList_changeHandler);
 	}
 
 	/**
@@ -2127,10 +2142,6 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 */
 	private function feathersControl_flattenHandler(event:Event):Void
 	{
-		if(this.stage == null || !this._isInitialized)
-		{
-			throw new IllegalOperationError("Cannot flatten this component until it is initialized and has access to the stage.");
-		}
 		this.validate();
 	}
 
@@ -2172,4 +2183,17 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	{
 		this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
 	}
+
+	/**
+	 * @private
+	 */
+	protected function styleNameList_changeHandler(event:Event):void
+	{
+		if(!this._styleProvider)
+		{
+			return;
+		}
+		this._styleProvider.applyStyles(this);
+	}
+}
 }

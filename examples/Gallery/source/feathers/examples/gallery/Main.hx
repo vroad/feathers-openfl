@@ -1,117 +1,60 @@
 package feathers.examples.gallery;
+import feathers.controls.ImageLoader;
 import feathers.controls.Label;
+import feathers.controls.LayoutGroup;
 import feathers.controls.List;
 import feathers.data.ListCollection;
+import feathers.events.FeathersEventType;
+import feathers.layout.AnchorLayout;
+import feathers.layout.AnchorLayoutData;
 import feathers.layout.HorizontalLayout;
 import feathers.utils.type.SafeCast.safe_cast;
 
-import openfl.display.Bitmap;
-import openfl.display.Loader;
-import openfl.events.Event;
-import openfl.events.IOErrorEvent;
-import openfl.events.SecurityErrorEvent;
-import openfl.net.URLLoader;
-import openfl.net.URLRequest;
-import openfl.system.LoaderContext;
+import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.events.SecurityErrorEvent;
+import flash.net.URLLoader;
+import flash.net.URLRequest;
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
 import starling.core.Starling;
-import starling.display.Image;
-import starling.display.Sprite;
 import starling.events.Event;
-import starling.events.ResizeEvent;
-import starling.textures.Texture;
 
-@:keep class Main extends Sprite
+public class Main extends LayoutGroup
 {
 	inline private static var FLICKR_API_KEY = "";
 
 	//used by the extended theme
 	inline public static var THUMBNAIL_LIST_NAME:String = "thumbnailList";
 
-	private static var LOADER_CONTEXT:LoaderContext = new LoaderContext(true);
-	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + FLICKR_API_KEY + "&format=rest";
-	inline private static var FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
+	private static const FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
+	private static const FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
 
 	public function new()
 	{
 		super();
-		this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-	}
-
-	private var selectedImage:Image;
-	private var list:List;
-	private var message:Label;
-	private var apiLoader:URLLoader;
-	private var loader:Loader;
-	private var fadeTween:Tween;
-	private var originalImageWidth:Float;
-	private var originalImageHeight:Float;
-
-	private function layout():Void
-	{
-		this.list.width = this.stage.stageWidth;
-		this.list.height = 100;
-		this.list.y = this.stage.stageHeight - this.list.height;
-
-		var availableHeight:Float;
-		if(this.selectedImage != null)
-		{
-			availableHeight = this.stage.stageHeight - this.list.height;
-			var widthScale:Float = this.stage.stageWidth / this.originalImageWidth;
-			var heightScale:Float = availableHeight / this.originalImageHeight;
-			this.selectedImage.scaleX = this.selectedImage.scaleY = Math.min(1, Math.min(widthScale, heightScale));
-			this.selectedImage.x = (this.stage.stageWidth - this.selectedImage.width) / 2;
-			this.selectedImage.y = (availableHeight - this.selectedImage.height) / 2;
-		}
-
-		this.message.validate();
-		availableHeight = this.stage.stageHeight - this.list.height;
-		this.message.x = (this.stage.stageWidth - this.message.width) / 2;
-		this.message.y = (availableHeight - this.message.height) / 2;
-	}
-
-	private function list_changeHandler(event:starling.events.Event):Void
-	{
-		var item:GalleryItem = safe_cast(this.list.selectedItem, GalleryItem);
-		if(item == null)
-		{
-			if(this.selectedImage != null)
-			{
-				this.selectedImage.visible = false;
-			}
-			return;
-		}
-		if(this.loader != null)
-		{
-			this.loader.unloadAndStop(true);
-		}
-		else
-		{
-			this.loader = new Loader();
-			this.loader.contentLoaderInfo.addEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
-			this.loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
-			this.loader.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
-		}
-		this.loader.load(new URLRequest(item.url), LOADER_CONTEXT);
-		if(this.selectedImage != null)
-		{
-			this.selectedImage.visible = false;
-		}
-		if(this.fadeTween != null)
-		{
-			Starling.current.juggler.remove(this.fadeTween);
-			this.fadeTween = null;
-		}
-		this.message.text = "Loading...";
-		this.layout();
-	}
-
-	private function addedToStageHandler(event:starling.events.Event):Void
-	{
+		//set up the theme right away!
 		//this is an *extended* version of MetalWorksMobileTheme
 		new GalleryTheme();
+		super();
+	}
+
+	protected var selectedImage:ImageLoader;
+	protected var list:List;
+	protected var message:Label;
+	protected var apiLoader:URLLoader;
+	protected var fadeTween:Tween;
+
+	override protected function initialize():void
+	{
+		super.initialize();
+
+		//this is an *extended* version of MetalWorksMobileTheme
+		new GalleryTheme();
+
+		this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
+		this.layout = new AnchorLayout();
 
 		this.apiLoader = new URLLoader();
 		this.apiLoader.addEventListener(openfl.events.Event.COMPLETE, apiLoader_completeListener);
@@ -119,12 +62,15 @@ import starling.textures.Texture;
 		this.apiLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, apiLoader_errorListener);
 		this.apiLoader.load(new URLRequest(FLICKR_URL));
 
-		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-
 		var listLayout:HorizontalLayout = new HorizontalLayout();
 		listLayout.verticalAlign = HorizontalLayout.VERTICAL_ALIGN_JUSTIFY;
 		listLayout.hasVariableItemDimensions = true;
-
+		
+		var listLayoutData:AnchorLayoutData = new AnchorLayoutData();
+		listLayoutData.left = 0;
+		listLayoutData.right = 0;
+		listLayoutData.bottom = 0;
+		
 		this.list = new List();
 		this.list.styleNameList.add(THUMBNAIL_LIST_NAME);
 		this.list.layout = listLayout;
@@ -132,18 +78,45 @@ import starling.textures.Texture;
 		this.list.snapScrollPositionsToPixels = true;
 		this.list.itemRendererType = GalleryItemRenderer;
 		this.list.addEventListener(starling.events.Event.CHANGE, list_changeHandler);
+		this.list.height = 100;
+		this.list.layoutData = listLayoutData;
 		this.addChild(this.list);
-
+		
+		var imageLayoutData:AnchorLayoutData = new AnchorLayoutData(0, 0, 0, 0);
+		imageLayoutData.bottomAnchorDisplayObject = this.list;
+		
+		this.selectedImage = new ImageLoader();
+		this.selectedImage.layoutData = imageLayoutData;
+		this.selectedImage.addEventListener(starling.events.Event.COMPLETE, loader_completeHandler);
+		this.selectedImage.addEventListener(FeathersEventType.ERROR, loader_errorHandler);
+		this.addChild(this.selectedImage);
+		
+		var messageLayoutData:AnchorLayoutData = new AnchorLayoutData();
+		messageLayoutData.horizontalCenter = 0;
+		messageLayoutData.verticalCenter = 0;
+		messageLayoutData.verticalCenterAnchorDisplayObject = this.selectedImage;
+		
 		this.message = new Label();
 		this.message.text = "Loading...";
+		this.message.layoutData = messageLayoutData;
 		this.addChild(this.message);
-
-		this.layout();
 	}
 
-	private function stage_resizeHandler(event:ResizeEvent):Void
+	protected function list_changeHandler(event:starling.events.Event):void
 	{
-		this.layout();
+		this.selectedImage.visible = false;
+		if(this.fadeTween)
+		{
+			Starling.juggler.remove(this.fadeTween);
+			this.fadeTween = null;
+		}
+		var item:GalleryItem = GalleryItem(this.list.selectedItem);
+		if(!item)
+		{
+			return;
+		}
+		this.selectedImage.source = item.url;
+		this.message.text = "Loading...";
 	}
 
 	private function apiLoader_completeListener(event:openfl.events.Event):Void
@@ -152,7 +125,6 @@ import starling.textures.Texture;
 		if(result.get("stat") == "fail")
 		{
 			message.text = "Unable to load the list of images from Flickr at this time.";
-			this.layout();
 			return;
 		}
 		var items:Array<GalleryItem> = new Array();
@@ -178,26 +150,10 @@ import starling.textures.Texture;
 	private function apiLoader_errorListener(event:openfl.events.Event):Void
 	{
 		this.message.text = "Error loading images.";
-		this.layout();
 	}
 
-	private function loader_completeHandler(event:openfl.events.Event):Void
+	protected function loader_completeHandler(event:starling.events.Event):void
 	{
-		var texture:Texture = Texture.fromBitmap(cast(this.loader.content, Bitmap));
-		if(this.selectedImage != null)
-		{
-			this.selectedImage.texture.dispose();
-			this.selectedImage.texture = texture;
-			this.selectedImage.scaleX = this.selectedImage.scaleY = 1;
-			this.selectedImage.readjustSize();
-		}
-		else
-		{
-			this.selectedImage = new Image(texture);
-			this.addChildAt(this.selectedImage, 1);
-		}
-		this.originalImageWidth = this.selectedImage.width;
-		this.originalImageHeight = this.selectedImage.height;
 		this.selectedImage.alpha = 0;
 		this.selectedImage.visible = true;
 
@@ -206,13 +162,10 @@ import starling.textures.Texture;
 		Starling.current.juggler.add(this.fadeTween);
 
 		this.message.text = "";
-
-		this.layout();
 	}
 
 	private function loader_errorHandler(event:openfl.events.Event):Void
 	{
 		this.message.text = "Error loading image.";
-		this.layout();
 	}
 }

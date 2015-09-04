@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -26,7 +26,12 @@ class Scale3Textures
 	/**
 	 * @private
 	 */
-	inline private static var SUM_REGIONS_ERROR:String = "The combined size of the first and second regions must not be greater than the texture size.";
+	private static const SUM_X_REGIONS_ERROR:String = "The combined height of the first and second regions must be less than or equal to the width of the texture.";
+
+	/**
+	 * @private
+	 */
+	private static const SUM_Y_REGIONS_ERROR:String = "The combined width of the first and second regions must be less than or equal to the height of the texture.";
 
 	/**
 	 * If the direction is horizontal, the layout will start on the left and continue to the right.
@@ -57,24 +62,23 @@ class Scale3Textures
 		{
 			throw new ArgumentError(SECOND_REGION_ERROR);
 		}
-		var textureScale:Float = texture.scale;
-		//the region sizes do not account for the texture's scale factor,
-		//so we need to scale them to match.
-		if(textureScale != 1)
-		{
-			firstRegionSize /= textureScale;
-			secondRegionSize /= textureScale;
-		}
 		var textureFrame:Rectangle = texture.frame;
 		if(textureFrame == null)
 		{
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, texture.width, texture.height);
 		}
-		var maxSize:Float = (direction == DIRECTION_HORIZONTAL) ? textureFrame.width : textureFrame.height;
-		if((firstRegionSize + secondRegionSize) > maxSize)
+		var sumRegions:Number = firstRegionSize + secondRegionSize;
+		if(direction == DIRECTION_HORIZONTAL)
 		{
-			throw new ArgumentError(SUM_REGIONS_ERROR);
+			if(sumRegions > textureFrame.width)
+			{
+				throw new ArgumentError(SUM_X_REGIONS_ERROR);
+			}
+		}
+		else if(sumRegions > textureFrame.height) //vertical
+		{
+			throw new ArgumentError(SUM_Y_REGIONS_ERROR);
 		}
 		this._texture = texture;
 		this._firstRegionSize = firstRegionSize;

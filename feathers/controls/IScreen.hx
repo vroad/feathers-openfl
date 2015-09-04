@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -9,10 +9,10 @@ package feathers.controls;
 import feathers.core.IFeathersControl;
 
 /**
- * A screen for use with <code>ScreenNavigator</code>.
+ * A screen to display in a screen navigator.
  *
- * @see ScreenNavigator
- * @see ScreenNavigatorItem
+ * @see feathers.controls.StackScreenNavigator
+ * @see feathers.controls.ScreenNavigator
  */
 interface IScreen extends IFeathersControl
 {
@@ -29,13 +29,12 @@ interface IScreen extends IFeathersControl
 	//function set_screenID(value:String):Void;
 
 	/**
-	 * The ScreenNavigator that is displaying this screen.
+	 * The screen navigator that is currently displaying this screen.
 	 */
-	var owner(get, set):ScreenNavigator;
-	//function get_owner():ScreenNavigator;
+	function get owner():Object;
 
 	/**
 	 * @private
 	 */
-	//function set_owner(value:ScreenNavigator):Void;
+	function set owner(value:Object):void;
 }

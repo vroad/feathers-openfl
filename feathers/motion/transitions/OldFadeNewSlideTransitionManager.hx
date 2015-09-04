@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -8,13 +8,13 @@ accordance with the terms of the accompanying license agreement.
 package feathers.motion.transitions;
 import feathers.controls.IScreen;
 import feathers.controls.ScreenNavigator;
+import feathers.motion.Fade;
+import feathers.motion.Slide;
 
 import openfl.errors.ArgumentError;
 //import openfl.utils.getQualifiedClassName;
 
 import starling.animation.Transitions;
-import starling.animation.Tween;
-import starling.core.Starling;
 import starling.display.DisplayObject;
 
 /**
@@ -77,24 +77,52 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _activeTransition:Tween;
+	protected var _pushSlideTransition:Function;
 
 	/**
 	 * @private
 	 */
-	private var _savedCompleteHandler:Dynamic;
+	protected var _popSlideTransition:Function;
 
 	/**
 	 * @private
 	 */
-	private var _savedOtherTarget:DisplayObject;
-	
+	protected var _crossfadeTransition:Function;
+
 	/**
-	 * The duration of the transition.
+	 * @private
+	 */
+	protected var _duration:Number = 0.25;
+
+	/**
+	 * The duration of the transition, measured in seconds.
 	 *
 	 * @default 0.25
 	 */
-	public var duration:Float = 0.25;
+	public function get duration():Number
+	{
+		return this._duration;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set duration(value:Number):void
+	{
+		if(this._duration == value)
+		{
+			return;
+		}
+		this._duration = value;
+		this._pushSlideTransition = null;
+		this._popSlideTransition = null;
+		this._crossfadeTransition = null;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _delay:Number = 0.1;
 
 	/**
 	 * A delay before the transition starts, measured in seconds. This may
@@ -103,14 +131,55 @@ class OldFadeNewSlideTransitionManager
 	 *
 	 * @default 0.1
 	 */
-	public var delay:Float = 0.1;
-	
+	public function get delay():Number
+	{
+		return this._delay;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set delay(value:Number):void
+	{
+		if(this._delay == value)
+		{
+			return;
+		}
+		this._delay = value;
+		this._pushSlideTransition = null;
+		this._popSlideTransition = null;
+		this._crossfadeTransition = null;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _ease:Object = Transitions.EASE_OUT;
+
 	/**
 	 * The easing function to use.
 	 *
 	 * @default starling.animation.Transitions.EASE_OUT
 	 */
-	public var ease:Dynamic = Transitions.EASE_OUT;
+	public function get ease():Object
+	{
+		return this._ease;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set ease(value:Object):void
+	{
+		if(this._ease == value)
+		{
+			return;
+		}
+		this._ease = value;
+		this._pushSlideTransition = null;
+		this._popSlideTransition = null;
+		this._crossfadeTransition = null;
+	}
 
 	/**
 	 * Determines if the next transition should be skipped. After the
@@ -136,17 +205,9 @@ class OldFadeNewSlideTransitionManager
 	 */
 	private function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 	{
-		if(this._activeTransition != null)
-		{
-			Starling.current.juggler.remove(this._activeTransition);
-			this._activeTransition = null;
-			this._savedOtherTarget = null;
-		}
-
-		if(oldScreen == null || this.skipNextTransition)
+		if(this.skipNextTransition)
 		{
 			this.skipNextTransition = false;
-			this._savedCompleteHandler = null;
 			if(newScreen != null)
 			{
 				newScreen.x = 0;
@@ -157,17 +218,18 @@ class OldFadeNewSlideTransitionManager
 			}
 			return;
 		}
-		
-		this._savedCompleteHandler = onComplete;
-		
+
+		if(oldScreen)
+		{
+			if(this._crossfadeTransition === null)
+			{
+				this._crossfadeTransition = Fade.createCrossfadeTransition(this._duration, this._ease, {delay: this._delay});
+			}
+			this._crossfadeTransition(oldScreen, null, onComplete);
+			onComplete = null;
+		}
 		if(newScreen == null)
 		{
-			oldScreen.x = 0;
-			this._activeTransition = new Tween(oldScreen, this.duration, this.ease);
-			this._activeTransition.fadeTo(0);
-			this._activeTransition.delay = this.delay;
-			this._activeTransition.onComplete = activeTransition_onComplete;
-			Starling.current.juggler.add(this._activeTransition);
 			return;
 		}
 		var newScreenClassAndID:String = Type.getClassName(Type.getClass(newScreen));
@@ -176,7 +238,7 @@ class OldFadeNewSlideTransitionManager
 			newScreenClassAndID += "~" + cast(newScreen, IScreen).screenID;
 		}
 		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
-		if(stackIndex < 0)
+		if(stackIndex < 0) //push
 		{
 			var oldScreenClassAndID:String = Type.getClassName(Type.getClass(oldScreen));
 			if(Std.is(oldScreen, IScreen))
@@ -184,46 +246,23 @@ class OldFadeNewSlideTransitionManager
 				oldScreenClassAndID += "~" + cast(oldScreen, IScreen).screenID;
 			}
 			this._stack.push(oldScreenClassAndID);
-			oldScreen.x = 0;
-			newScreen.x = this.navigator.width;
+
+			if(this._pushSlideTransition === null)
+			{
+				this._pushSlideTransition = Slide.createSlideLeftTransition(this._duration, this._ease, {delay: this._delay});
+			}
+			this._pushSlideTransition(null, newScreen, onComplete);
 		}
-		else
+		else //pop
 		{
 			this._stack.splice(stackIndex, this._stack.length - stackIndex);
-			oldScreen.x = 0;
-			newScreen.x = -this.navigator.width;
+
+			if(this._popSlideTransition === null)
+			{
+				this._popSlideTransition = Slide.createSlideRightTransition(this._duration, this._ease, {delay: this._delay});
+			}
+			this._popSlideTransition(null, newScreen, onComplete);
 		}
 		newScreen.alpha = 1;
-		this._savedOtherTarget = oldScreen;
-		this._activeTransition = new Tween(newScreen, this.duration, this.ease);
-		this._activeTransition.animate("x", 0);
-		this._activeTransition.delay = this.delay;
-		this._activeTransition.onUpdate = activeTransition_onUpdate;
-		this._activeTransition.onComplete = activeTransition_onComplete;
-		Starling.current.juggler.add(this._activeTransition);
-	}
-	
-	/**
-	 * @private
-	 */
-	private function activeTransition_onUpdate():Void
-	{
-		if(this._savedOtherTarget != null)
-		{
-			this._savedOtherTarget.alpha = 1 - this._activeTransition.currentTime / this._activeTransition.totalTime;
-		}
-	}
-	
-	/**
-	 * @private
-	 */
-	private function activeTransition_onComplete():Void
-	{
-		this._activeTransition = null;
-		this._savedOtherTarget = null;
-		if(this._savedCompleteHandler != null)
-		{
-			this._savedCompleteHandler();
-		}
 	}
 }

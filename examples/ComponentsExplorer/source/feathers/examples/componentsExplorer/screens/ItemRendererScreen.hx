@@ -1,5 +1,6 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.ToggleSwitch;
@@ -29,9 +30,7 @@ import starling.events.Event;
 	}
 
 	private var _list:List;
-	private var _listItem:Dynamic;
-	private var _backButton:Button;
-	private var _settingsButton:Button;
+	private var _listItem:Object;
 
 	private var _itemRendererGap:Float = 0;
 
@@ -94,6 +93,8 @@ import starling.events.Event;
 		//never forget to call super.initialize()!
 		super.initialize();
 
+		this.title = "Item Renderer";
+
 		this.layout = new AnchorLayout();
 
 		this._list = new List();
@@ -107,71 +108,55 @@ import starling.events.Event;
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this.headerProperties.setProperty("title", "Item Renderer");
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.setProperty("leftItems", 
-			[
-				this._backButton
-			]);
-
 			this.backButtonHandler = this.onBackButton;
 		}
-
-		this._settingsButton = new Button();
-		this._settingsButton.label = "Settings";
-		this._settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
-
-		this.headerProperties.setProperty("rightItems", 
-		[
-			this._settingsButton
-		]);
 	}
 
-	override private function draw():Void
-	{if(this.settings.hasIcon)
+	override protected function draw():void
 	{
-		switch(this.settings.iconType)
+		if(this.settings.hasIcon)
 		{
-			case ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL:
+			switch(this.settings.iconType)
 			{
-				this._listItem.iconText = "Icon Text";
-				this._list.itemRendererProperties.setProperty("iconLabelField", "iconText");
+				case ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL:
+				{
+					this._listItem.iconText = "Icon Text";
+					this._list.itemRendererProperties.iconLabelField = "iconText";
 
-				//clear these in case this setting has changed
-				Reflect.deleteField(this._listItem, "iconTexture");
-				Reflect.deleteField(this._listItem, "icon");
-				//break;
+					//clear these in case this setting has changed
+					delete this._listItem.iconTexture;
+					delete this._listItem.icon;
+					break;
+				}
+				case ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE:
+				{
+					this._listItem.iconTexture = EmbeddedAssets.SKULL_ICON_LIGHT;
+					this._list.itemRendererProperties.iconSourceField = "iconTexture";
+
+					//clear these in case this setting has changed
+					delete this._listItem.iconText;
+					delete this._listItem.icon;
+					break;
+				}
+				default:
+				{
+					this._listItem.icon = new ToggleSwitch();
+					this._list.itemRendererProperties.iconField = "icon";
+
+					//clear these in case this setting has changed
+					delete this._listItem.iconText;
+					delete this._listItem.iconTexture;
+
+				}
 			}
-			case ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE:
-			{
-				this._listItem.iconTexture = EmbeddedAssets.SKULL_ICON_LIGHT;
-				this._list.itemRendererProperties.setProperty("iconSourceField", "iconTexture");
-
-				//clear these in case this setting has changed
-				Reflect.deleteField(this._listItem, "iconText");
-				Reflect.deleteField(this._listItem, "icon");
-				//break;
-			}
-			default:
-			{
-				this._listItem.icon = new ToggleSwitch();
-				this._list.itemRendererProperties.setProperty("iconField", "icon");
-
-				//clear these in case this setting has changed
-				Reflect.deleteField(this._listItem, "iconText");
-				Reflect.deleteField(this._listItem, "iconTexture");
-
-			}
+			this._list.itemRendererProperties.iconPosition = this.settings.iconPosition;
 		}
-		this._list.itemRendererProperties.setProperty("iconPosition", this.settings.iconPosition);
-	}
 		if(this.settings.hasAccessory)
 		{
 			switch(this.settings.accessoryType)
@@ -234,7 +219,33 @@ import starling.events.Event;
 		super.draw();
 	}
 
-	private function disposeItemIconOrAccessory(item:Dynamic):Void
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		var settingsButton:Button = new Button();
+		settingsButton.label = "Settings";
+		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			settingsButton
+		];
+		return header;
+	}
+
+	private function disposeItemIconOrAccessory(item:Object):void
 	{
 		if(item.hasOwnProperty("icon"))
 		{

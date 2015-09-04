@@ -18,7 +18,7 @@ import starling.events.Event;
 
 class StationScreen extends Screen
 {
-	inline public static var CHILD_NAME_STATION_LIST:String = "stationList";
+	public static const CHILD_STYLE_NAME_STATION_LIST:String = "stationList";
 
 	@:keep public function new()
 	{
@@ -40,7 +40,7 @@ class StationScreen extends Screen
 	override private function initialize():Void
 	{
 		this._stationList = new List();
-		this._stationList.styleNameList.add(CHILD_NAME_STATION_LIST);
+		this._stationList.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST);
 		this._stationList.dataProvider = new ListCollection(
 		[
 			new StationData("Ten Stone Road"),

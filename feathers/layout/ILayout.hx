@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -15,6 +15,21 @@ import starling.display.DisplayObject;
 /**
  * Dispatched when a property of the layout changes, indicating that a
  * redraw is probably needed.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
  *
  * @eventType starling.events.Event.CHANGE
  */
@@ -79,9 +94,40 @@ interface ILayout extends IFeathersEventDispatcher
 	 * ensure that the item at a given index will be visible within the
 	 * specified bounds.
 	 *
+	 * <p>Typically, this function is used to show the item in the most
+	 * prominent way, such as centering. To scroll a minimum distance
+	 * required to display the full bounds of the item in the view port,
+	 * use <code>getNearestScrollPositionForIndex()</code> instead.</p>
+	 *
 	 * <p>This function should always be called <em>after</em> the
 	 * <code>layout()</code> function. The width and height arguments are
-	 * the final bounds of the view port.</p>
+	 * the final bounds of the view port, which may be calculated in the
+	 * layout() function.</p>
+	 *
+	 * @see #getNearestScrollPositionForIndex()
 	 */
-	function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point;
+	function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>,
+		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
+
+	/**
+	 * Calculates the scroll position nearest to the current scroll position
+	 * that will display the full bounds of the item within the view port.
+	 * If the item is already fully displayed in the view port, the current
+	 * scroll position will be returned unchanged.
+	 *
+	 * <p>While the item will be displayed in the view port without being
+	 * clipped in any way, it may not be placed in the most prominent
+	 * position possible. To give the item a more prominent location, use
+	 * <code>getScrollPositionForIndex()</code> instead.</p>
+	 *
+	 * <p>This function should always be called <em>after</em> the
+	 * <code>layout()</code> function. The width and height arguments are
+	 * the final bounds of the view port, which may be calculated in the
+	 * layout() function.</p>
+	 *
+	 * @see #getScrollPositionForIndex()
+	 */
+	function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number,
+		items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+}
 }

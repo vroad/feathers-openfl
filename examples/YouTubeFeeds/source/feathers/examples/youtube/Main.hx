@@ -1,18 +1,16 @@
 package feathers.examples.youtube;
-import feathers.controls.ScreenNavigator;
-import feathers.controls.ScreenNavigatorItem;
-import feathers.examples.youtube.models.VideoDetails;
-import feathers.examples.youtube.models.VideoFeed;
+import feathers.controls.StackScreenNavigator;
+import feathers.controls.StackScreenNavigatorItem;
 import feathers.examples.youtube.models.YouTubeModel;
 import feathers.examples.youtube.screens.ListVideosScreen;
 import feathers.examples.youtube.screens.MainMenuScreen;
 import feathers.examples.youtube.screens.VideoDetailsScreen;
-import feathers.motion.transitions.ScreenSlidingStackTransitionManager;
+import feathers.motion.Slide;
 import feathers.themes.MetalWorksMobileTheme;
 
 import starling.events.Event;
 
-class Main extends ScreenNavigator
+public class Main extends StackScreenNavigator
 {
 	inline private static var MAIN_MENU:String = "mainMenu";
 	inline private static var LIST_VIDEOS:String = "listVideos";
@@ -20,10 +18,11 @@ class Main extends ScreenNavigator
 
 	public function new()
 	{
+		//set up the theme right away!
+		new MetalWorksMobileTheme();
 		super();
 	}
 
-	private var _transitionManager:ScreenSlidingStackTransitionManager;
 	private var _model:YouTubeModel;
 
 	override private function initialize():Void
@@ -31,47 +30,40 @@ class Main extends ScreenNavigator
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new MetalWorksMobileTheme(false);
-
 		this._model = new YouTubeModel();
 
-		this.addScreen(MAIN_MENU, new ScreenNavigatorItem(MainMenuScreen,
-		{
-			listVideos: mainMenuScreen_listVideosHandler
-		}));
+		var mainMenuItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(MainMenuScreen);
+		mainMenuItem.setFunctionForPushEvent(MainMenuScreen.LIST_VIDEOS, this.mainMenuScreen_listVideosHandler);
+		this.addScreen(MAIN_MENU, mainMenuItem);
 
-		this.addScreen(LIST_VIDEOS, new ScreenNavigatorItem(ListVideosScreen,
-		{
-			complete: MAIN_MENU,
-			showVideoDetails: listVideos_showVideoDetails
-		},
-		[
-			"model" => this._model
-		]));
+		var listVideosItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ListVideosScreen);
+		listVideosItem.setFunctionForPushEvent(ListVideosScreen.SHOW_VIDEO_DETAILS, this.listVideos_showVideoDetails);
+		listVideosItem.addPopEvent(Event.COMPLETE);
+		listVideosItem.properties.model = this._model;
+		this.addScreen(LIST_VIDEOS, listVideosItem);
 
-		this.addScreen(VIDEO_DETAILS, new ScreenNavigatorItem(VideoDetailsScreen,
-		{
-			complete: LIST_VIDEOS
-		},
-		[
-			"model" => this._model
-		]));
+		var videoDetailsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(VideoDetailsScreen);
+		videoDetailsItem.addPopEvent(Event.COMPLETE);
+		videoDetailsItem.properties.model = this._model;
+		this.addScreen(VIDEO_DETAILS, videoDetailsItem);
 
-		this.showScreen(MAIN_MENU);
+		this.rootScreenID = MAIN_MENU;
 
-		this._transitionManager = new ScreenSlidingStackTransitionManager(this);
-		this._transitionManager.duration = 0.4;
+		this.pushTransition = Slide.createSlideLeftTransition();
+		this.popTransition = Slide.createSlideRightTransition();
 	}
 
-	private function mainMenuScreen_listVideosHandler(event:Event, selectedItem:VideoFeed):Void
+	private function mainMenuScreen_listVideosHandler(event:Event, mainMenuProperties:Object):void
 	{
-		this._model.selectedList = selectedItem;
-		this.showScreen(LIST_VIDEOS);
+		var screen:MainMenuScreen = MainMenuScreen(this.activeScreen);
+		this._model.selectedList = screen.selectedCategory;
+		this.pushScreen(LIST_VIDEOS, mainMenuProperties);
 	}
 
-	private function listVideos_showVideoDetails(event:Event, selectedItem:VideoDetails):Void
+	private function listVideos_showVideoDetails(event:Event, listVideosProperties:Object):void
 	{
-		this._model.selectedVideo = selectedItem;
-		this.showScreen(VIDEO_DETAILS);
+		var screen:ListVideosScreen = ListVideosScreen(this.activeScreen);
+		this._model.selectedVideo = screen.selectedVideo;
+		this.pushScreen(VIDEO_DETAILS, listVideosProperties);
 	}
 }

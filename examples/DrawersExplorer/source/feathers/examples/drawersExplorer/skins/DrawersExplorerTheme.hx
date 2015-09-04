@@ -28,6 +28,9 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	private function setContentViewStyles(view:ContentView):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setScrollerStyles(view);
+		
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
 		layout.padding = 20 * this.scale;
@@ -36,7 +39,10 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	private function setLeftAndRightDrawerViewStyles(view:DrawerView):Void
 	{
-		view.backgroundSkin = new Quad(10, 10, BaseMetalWorksMobileTheme.LIST_BACKGROUND_COLOR);
+		//don't forget to set styles from the super class, if required
+		this.setScrollerStyles(view);
+		
+		view.backgroundSkin = new Quad(10, 10, LIST_BACKGROUND_COLOR);
 
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
@@ -48,7 +54,10 @@ class DrawersExplorerTheme extends MetalWorksMobileTheme
 
 	private function setTopAndBottomDrawerViewStyles(view:DrawerView):Void
 	{
-		view.backgroundSkin = new Quad(10, 10, BaseMetalWorksMobileTheme.GROUPED_LIST_HEADER_BACKGROUND_COLOR);
+		//don't forget to set styles from the super class, if required
+		this.setScrollerStyles(view);
+		
+		view.backgroundSkin = new Quad(10, 10, GROUPED_LIST_HEADER_BACKGROUND_COLOR);
 
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;

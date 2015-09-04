@@ -13,7 +13,6 @@ import feathers.layout.AnchorLayoutData;
 import feathers.motion.transitions.TabBarSlideTransitionManager;
 
 import starling.events.Event;
-import starling.events.ResizeEvent;
 
 class Main extends LayoutGroup
 {
@@ -23,6 +22,8 @@ class Main extends LayoutGroup
 
 	public function new()
 	{
+		//set up the theme right away!
+		new DisplayObjectExplorerTheme();
 		super();
 	}
 
@@ -33,14 +34,9 @@ class Main extends LayoutGroup
 	override private function initialize():Void
 	{
 		super.initialize();
-
+		
+		this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
 		this.layout = new AnchorLayout();
-
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
-
-		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-
-		new DisplayObjectExplorerTheme();
 
 		this._navigator = new ScreenNavigator();
 		this._navigator.addScreen(SCALE_9_IMAGE, new ScreenNavigatorItem(Scale9ImageScreen));
@@ -97,10 +93,5 @@ class Main extends LayoutGroup
 	private function tabBar_changeHandler(event:Event):Void
 	{
 		this._navigator.showScreen(this._tabBar.selectedItem.action);
-	}
-
-	private function stage_resizeHandler(event:ResizeEvent):Void
-	{
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}
 }

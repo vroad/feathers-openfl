@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -20,6 +20,10 @@ import starling.events.EventDispatcher;
  * initializer functions to set properties, call methods, or otherwise
  * modify them. Useful for initializing skins and styles on UI controls.
  *
+ * <p><strong>Note:</strong> This class is no longer recommended as a base
+ * class for themes. See <a href="../../../help/custom-themes.html">Custom
+ * Feathers themes</a> for complete details.</p>
+ *
  * <p>In the example below, the <code>buttonInitializer()</code> function
  * will be called when a <code>Button</code> is added to the display list,
  * and no values are specified in its <code>styleNameList</code> that match
@@ -35,15 +39,15 @@ import starling.events.EventDispatcher;
  * <listing version="3.0">
  * var button:Button = new Button();
  * button.label = "Click Me";
- * button.styleNameList.add( Button.ALTERNATE_NAME_CALL_TO_ACTION );
+ * button.styleNameList.add( Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION );
  * this.addChild( button );</listing>
  *
  * <p>The <code>callToActionButtonInitializer()</code> function will be called
- * when a <code>Button</code> with the <code>Button.ALTERNATE_NAME_CALL_TO_ACTION</code>
+ * when a <code>Button</code> with the <code>Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION</code>
  * value is added to its <code>styleNameList</code>:</p>
  *
  * <listing version="3.0">
- * setInitializerForClass( Button, callToActionButtonInitializer, Button.ALTERNATE_NAME_CALL_TO_ACTION );</listing>
+ * setInitializerForClass( Button, callToActionButtonInitializer, Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION );</listing>
  *
  * <p>Initializers are not called for subclasses. If a <code>Check</code> is
  * added to the display list (<code>Check</code> extends

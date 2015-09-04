@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -23,6 +23,8 @@ import feathers.core.IFeathersControl;
  * }
  * button.styleProvider = new AddOnFunctionStyleProvider( button.styleProvider, setExtraStyles );
  * this.addChild( button );</listing>
+ *
+ * @see ../../../help/skinning.html Skinning Feathers components
  */
 class AddOnFunctionStyleProvider implements IStyleProvider
 {
@@ -87,15 +89,43 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	}
 
 	/**
+	 * @private
+	 */
+	protected var _callBeforeOriginalStyleProvider:Boolean = false;
+
+	/**
+	 * Determines if the add on function should be called before the
+	 * original style provider is applied, or after.
+	 *
+	 * @default false
+	 */
+	public function get callBeforeOriginalStyleProvider():Boolean
+	{
+		return this._callBeforeOriginalStyleProvider;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set callBeforeOriginalStyleProvider(value:Boolean):void
+	{
+		this._callBeforeOriginalStyleProvider = value;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function applyStyles(target:IFeathersControl):Void
 	{
-		if(this._originalStyleProvider != null)
+		if(this._callBeforeOriginalStyleProvider && this._addOnFunction !== null)
+		{
+			this._addOnFunction(target);
+		}
+		if(this._originalStyleProvider)
 		{
 			this._originalStyleProvider.applyStyles(target);
 		}
-		if(this._addOnFunction != null)
+		if(!this._callBeforeOriginalStyleProvider && this._addOnFunction !== null)
 		{
 			this._addOnFunction(target);
 		}

@@ -1,5 +1,6 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.NumericStepper;
 import feathers.controls.PanelScreen;
@@ -22,7 +23,6 @@ import starling.events.Event;
 	public var settings:NumericStepperSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
 	private var _stepStepper:NumericStepper;
 
 	override public function dispose():Void
@@ -42,6 +42,8 @@ import starling.events.Event;
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "Numeric Stepper Settings";
 
 		this.layout = new AnchorLayout();
 
@@ -63,18 +65,22 @@ import starling.events.Event;
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.setProperty("title", "Numeric Stepper Settings");
-		this.headerProperties.setProperty("leftItems",
-		[
-			this._backButton
-		]);
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		]);
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
@@ -92,7 +98,7 @@ import starling.events.Event;
 		this.settings.step = this._stepStepper.value;
 	}
 
-	private function backButton_triggeredHandler(event:Event):Void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}

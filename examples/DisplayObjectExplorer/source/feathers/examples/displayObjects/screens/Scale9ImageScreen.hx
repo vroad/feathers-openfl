@@ -1,8 +1,6 @@
 package feathers.examples.displayObjects.screens;
 import feathers.controls.Button;
-import feathers.controls.Header;
-import feathers.controls.Screen;
-import feathers.core.FeathersControl;
+import feathers.controls.PanelScreen;
 import feathers.display.Scale9Image;
 import feathers.examples.displayObjects.themes.DisplayObjectExplorerTheme;
 import feathers.skins.IStyleProvider;
@@ -16,7 +14,7 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.textures.Texture;
 
-class Scale9ImageScreen extends Screen
+public class Scale9ImageScreen extends PanelScreen
 {
 	//[Embed(source="/../assets/images/scale9.png")]
 	//inline private static var SCALE_9_TEXTURE:Class<Dynamic>;
@@ -29,7 +27,6 @@ class Scale9ImageScreen extends Screen
 		super();
 	}
 
-	private var _header:Header;
 	private var _image:Scale9Image;
 	private var _rightButton:Button;
 	private var _bottomButton:Button;
@@ -46,25 +43,6 @@ class Scale9ImageScreen extends Screen
 	private var _bottomTouchPointID:Int = -1;
 
 	private var _texture:Texture;
-
-	private var _padding:Float = 0;
-
-	public var padding(get, set):Float;
-	public function get_padding():Float
-	{
-		return this._padding;
-	}
-
-	public function set_padding(value:Float):Float
-	{
-		if(this._padding == value)
-		{
-			return get_padding();
-		}
-		this._padding = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
-		return get_padding();
-	}
 
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
@@ -83,9 +61,9 @@ class Scale9ImageScreen extends Screen
 
 	override private function initialize():Void
 	{
-		this._header = new Header();
-		this._header.title = "Scale 9 Image";
-		this.addChild(this._header);
+		super.initialize();
+		
+		this.title = "Scale 9 Image";
 
 		this._texture = Texture.fromBitmapData(Assets.getBitmapData(SCALE_9_TEXTURE_FILE_NAME), false);
 		var textures:Scale9Textures = new Scale9Textures(this._texture, new Rectangle(20, 20, 20, 20));
@@ -105,19 +83,15 @@ class Scale9ImageScreen extends Screen
 		this.addChild(this._bottomButton);
 	}
 
-	override private function draw():Void
+	override protected function layoutChildren():void
 	{
-		this._header.width = this.actualWidth;
-		this._header.validate();
-
-		this._image.x = this._padding;
-		this._image.y = this._header.height + this._padding;
+		super.layoutChildren();
 
 		this._rightButton.validate();
 		this._bottomButton.validate();
 
-		this._maxDisplayObjectWidth = this.actualWidth - this._rightButton.width - this._image.x;
-		this._maxDisplayObjectHeight = this.actualHeight - this._bottomButton.height - this._image.y;
+		this._maxDisplayObjectWidth = this.actualWidth - this._paddingLeft - this._rightButton.width - this._image.x;
+		this._maxDisplayObjectHeight = this.actualHeight - this.header.height - this._paddingTop - this._bottomButton.height - this._image.y;
 
 		this._image.width = Math.max(this._minDisplayObjectWidth, Math.min(this._maxDisplayObjectWidth, this._image.width));
 		this._image.height = Math.max(this._minDisplayObjectHeight, Math.min(this._maxDisplayObjectHeight, this._image.height));

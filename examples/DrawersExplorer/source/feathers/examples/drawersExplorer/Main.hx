@@ -12,6 +12,8 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+		//set up the theme right away!
+		new DrawersExplorerTheme();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 
@@ -43,8 +45,6 @@ class Main extends Sprite
 	
 	private function addedToStageHandler(event:Event):Void
 	{
-		new DrawersExplorerTheme();
-
 		this._drawers = new Drawers();
 
 		//a drawer may be opened by dragging from the edge of the content

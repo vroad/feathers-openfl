@@ -1,13 +1,15 @@
 package feathers.examples.trainTimes;
 
-import feathers.controls.ScreenNavigator;
-import feathers.controls.ScreenNavigatorItem;
+import feathers.controls.StackScreenNavigator;
+import feathers.controls.StackScreenNavigatorItem;
 import feathers.examples.trainTimes.screens.StationScreen;
 import feathers.examples.trainTimes.screens.TimesScreen;
 import feathers.examples.trainTimes.themes.TrainTimesTheme;
-import feathers.motion.transitions.OldFadeNewSlideTransitionManager;
+import feathers.motion.Slide;
 
-class Main extends ScreenNavigator
+import starling.events.Event;
+
+class Main extends StackScreenNavigator
 {
 	inline private static var STATION_SCREEN:String = "stationScreen";
 	inline private static var TIMES_SCREEN:String = "timesScreen";
@@ -17,8 +19,6 @@ class Main extends ScreenNavigator
 		super();
 	}
 
-	private var _transitionManager:OldFadeNewSlideTransitionManager;
-
 	override private function initialize():Void
 	{
 		//never forget to call super.initialize()
@@ -26,18 +26,17 @@ class Main extends ScreenNavigator
 
 		new TrainTimesTheme(null, false);
 
-		this.addScreen(STATION_SCREEN, new ScreenNavigatorItem(StationScreen,
-		{
-			complete: TIMES_SCREEN
-		}));
+		var stationScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(StationScreen);
+		stationScreenItem.setScreenIDForPushEvent(Event.COMPLETE, TIMES_SCREEN);
+		this.addScreen(STATION_SCREEN, stationScreenItem);
 
-		this.addScreen(TIMES_SCREEN, new ScreenNavigatorItem(TimesScreen,
-		{
-			complete: STATION_SCREEN
-		}));
+		var timesScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(TimesScreen);
+		timesScreenItem.addPopEvent(Event.COMPLETE);
+		this.addScreen(TIMES_SCREEN, timesScreenItem);
 
-		this._transitionManager = new OldFadeNewSlideTransitionManager(this);
-		this._transitionManager.duration = 0.4;
-		this.showScreen(STATION_SCREEN);
+		this.rootScreenID = STATION_SCREEN;
+
+		this.pushTransition = Slide.createSlideLeftTransition();
+		this.popTransition = Slide.createSlideRightTransition();
 	}
 }

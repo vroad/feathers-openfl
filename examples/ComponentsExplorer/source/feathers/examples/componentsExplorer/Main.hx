@@ -1,7 +1,7 @@
 package feathers.examples.componentsExplorer;
 import feathers.controls.Drawers;
-import feathers.controls.ScreenNavigator;
-import feathers.controls.ScreenNavigatorItem;
+import feathers.controls.StackScreenNavigator;
+import feathers.controls.StackScreenNavigatorItem;
 import feathers.examples.componentsExplorer.data.EmbeddedAssets;
 import feathers.examples.componentsExplorer.data.GroupedListSettings;
 import feathers.examples.componentsExplorer.data.ItemRendererSettings;
@@ -9,6 +9,7 @@ import feathers.examples.componentsExplorer.data.ListSettings;
 import feathers.examples.componentsExplorer.data.NumericStepperSettings;
 import feathers.examples.componentsExplorer.data.SliderSettings;
 import feathers.examples.componentsExplorer.screens.AlertScreen;
+import feathers.examples.componentsExplorer.screens.AutoCompleteScreen;
 import feathers.examples.componentsExplorer.screens.ButtonGroupScreen;
 import feathers.examples.componentsExplorer.screens.ButtonScreen;
 import feathers.examples.componentsExplorer.screens.CalloutScreen;
@@ -28,46 +29,56 @@ import feathers.examples.componentsExplorer.screens.ProgressBarScreen;
 import feathers.examples.componentsExplorer.screens.ScrollTextScreen;
 import feathers.examples.componentsExplorer.screens.SliderScreen;
 import feathers.examples.componentsExplorer.screens.SliderSettingsScreen;
+import feathers.examples.componentsExplorer.screens.SpinnerListScreen;
 import feathers.examples.componentsExplorer.screens.TabBarScreen;
 import feathers.examples.componentsExplorer.screens.TextInputScreen;
 import feathers.examples.componentsExplorer.screens.ToggleScreen;
+import feathers.examples.componentsExplorer.screens.WebViewScreen;
 import feathers.examples.componentsExplorer.themes.ComponentsExplorerTheme;
-import feathers.motion.transitions.ScreenSlidingStackTransitionManager;
+import feathers.motion.Cover;
+import feathers.motion.Reveal;
+import feathers.motion.Slide;
 import feathers.system.DeviceCapabilities;
+
+import flash.system.Capabilities;
 
 import starling.core.Starling;
 import starling.events.Event;
 
 @:keep class Main extends Drawers
 {
-	inline private static var MAIN_MENU:String = "mainMenu";
-	inline private static var ALERT:String = "alert";
-	inline private static var BUTTON:String = "button";
-	inline private static var BUTTON_SETTINGS:String = "buttonSettings";
-	inline private static var BUTTON_GROUP:String = "buttonGroup";
-	inline private static var CALLOUT:String = "callout";
-	inline private static var GROUPED_LIST:String = "groupedList";
-	inline private static var GROUPED_LIST_SETTINGS:String = "groupedListSettings";
-	inline private static var ITEM_RENDERER:String = "itemRenderer";
-	inline private static var ITEM_RENDERER_SETTINGS:String = "itemRendererSettings";
-	inline private static var LABEL:String = "label";
-	inline private static var LIST:String = "list";
-	inline private static var LIST_SETTINGS:String = "listSettings";
-	inline private static var NUMERIC_STEPPER:String = "numericStepper";
-	inline private static var NUMERIC_STEPPER_SETTINGS:String = "numericStepperSettings";
-	inline private static var PAGE_INDICATOR:String = "pageIndicator";
-	inline private static var PICKER_LIST:String = "pickerList";
-	inline private static var PROGRESS_BAR:String = "progressBar";
-	inline private static var SCROLL_TEXT:String = "scrollText";
-	inline private static var SLIDER:String = "slider";
-	inline private static var SLIDER_SETTINGS:String = "sliderSettings";
-	inline private static var TAB_BAR:String = "tabBar";
-	inline private static var TEXT_INPUT:String = "textInput";
-	inline private static var TOGGLES:String = "toggles";
+	private static const MAIN_MENU:String = "mainMenu";
+	private static const ALERT:String = "alert";
+	private static const AUTO_COMPLETE:String = "autoComplete";
+	private static const BUTTON:String = "button";
+	private static const BUTTON_SETTINGS:String = "buttonSettings";
+	private static const BUTTON_GROUP:String = "buttonGroup";
+	private static const CALLOUT:String = "callout";
+	private static const GROUPED_LIST:String = "groupedList";
+	private static const GROUPED_LIST_SETTINGS:String = "groupedListSettings";
+	private static const ITEM_RENDERER:String = "itemRenderer";
+	private static const ITEM_RENDERER_SETTINGS:String = "itemRendererSettings";
+	private static const LABEL:String = "label";
+	private static const LIST:String = "list";
+	private static const LIST_SETTINGS:String = "listSettings";
+	private static const NUMERIC_STEPPER:String = "numericStepper";
+	private static const NUMERIC_STEPPER_SETTINGS:String = "numericStepperSettings";
+	private static const PAGE_INDICATOR:String = "pageIndicator";
+	private static const PICKER_LIST:String = "pickerList";
+	private static const PROGRESS_BAR:String = "progressBar";
+	private static const SCROLL_TEXT:String = "scrollText";
+	private static const SLIDER:String = "slider";
+	private static const SPINNER_LIST:String = "spinnerList";
+	private static const SLIDER_SETTINGS:String = "sliderSettings";
+	private static const TAB_BAR:String = "tabBar";
+	private static const TEXT_INPUT:String = "textInput";
+	private static const TOGGLES:String = "toggles";
+	private static const WEB_VIEW:String = "webView";
 
 	private static var MAIN_MENU_EVENTS:Dynamic =
 	{
 		showAlert: ALERT,
+		showAutoComplete: AUTO_COMPLETE,
 		showButton: BUTTON,
 		showButtonGroup: BUTTON_GROUP,
 		showCallout: CALLOUT,
@@ -81,19 +92,22 @@ import starling.events.Event;
 		showProgressBar: PROGRESS_BAR,
 		showScrollText: SCROLL_TEXT,
 		showSlider: SLIDER,
+		showSpinnerList: SPINNER_LIST,
 		showTabBar: TAB_BAR,
 		showTextInput: TEXT_INPUT,
-		showToggles: TOGGLES
+		showToggles: TOGGLES,
+		showWebView: WEB_VIEW
 	};
 	
 	public function new()
 	{
+		//set up the theme right away!
+		new ComponentsExplorerTheme();
 		super();
 	}
 
-	private var _navigator:ScreenNavigator;
+	private var _navigator:StackScreenNavigator;
 	private var _menu:MainMenuScreen;
-	private var _transitionManager:ScreenSlidingStackTransitionManager;
 	
 	override private function initialize():Void
 	{
@@ -102,164 +116,146 @@ import starling.events.Event;
 
 		EmbeddedAssets.initialize();
 
-		new ComponentsExplorerTheme();
-		
-		this._navigator = new ScreenNavigator();
+		this._navigator = new StackScreenNavigator();
 		this.content = this._navigator;
 
-		this._navigator.addScreen(ALERT, new ScreenNavigatorItem(AlertScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var alertItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(AlertScreen);
+		alertItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(ALERT, alertItem);
 
-		this._navigator.addScreen(BUTTON, new ScreenNavigatorItem(ButtonScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: BUTTON_SETTINGS
-		}));
+		var autoCompleteItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(AutoCompleteScreen);
+		autoCompleteItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(AUTO_COMPLETE, autoCompleteItem);
 
-		this._navigator.addScreen(BUTTON_GROUP, new ScreenNavigatorItem(ButtonGroupScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var buttonItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ButtonScreen);
+		buttonItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(BUTTON, buttonItem);
 
-		this._navigator.addScreen(CALLOUT, new ScreenNavigatorItem(CalloutScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var buttonGroupItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ButtonGroupScreen);
+		buttonGroupItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(BUTTON_GROUP, buttonGroupItem);
 
-		this._navigator.addScreen(SCROLL_TEXT, new ScreenNavigatorItem(ScrollTextScreen,
-		{
-			complete: MAIN_MENU
-		}));
-
-		var sliderSettings:SliderSettings = new SliderSettings();
-		this._navigator.addScreen(SLIDER, new ScreenNavigatorItem(SliderScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: SLIDER_SETTINGS
-		},
-		{
-			settings: sliderSettings
-		}));
-
-		this._navigator.addScreen(SLIDER_SETTINGS, new ScreenNavigatorItem(SliderSettingsScreen,
-		{
-			complete: SLIDER
-		},
-		{
-			settings: sliderSettings
-		}));
-		
-		this._navigator.addScreen(TOGGLES, new ScreenNavigatorItem(ToggleScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var calloutItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(CalloutScreen);
+		calloutItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(CALLOUT, calloutItem);
 
 		var groupedListSettings:GroupedListSettings = new GroupedListSettings();
-		this._navigator.addScreen(GROUPED_LIST, new ScreenNavigatorItem(GroupedListScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: GROUPED_LIST_SETTINGS
-		},
-		{
-			settings: groupedListSettings
-		}));
+		var groupedListItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(GroupedListScreen);
+		groupedListItem.setScreenIDForPushEvent(GroupedListScreen.SHOW_SETTINGS, GROUPED_LIST_SETTINGS);
+		groupedListItem.addPopEvent(Event.COMPLETE);
+		groupedListItem.properties.settings = groupedListSettings;
+		this._navigator.addScreen(GROUPED_LIST, groupedListItem);
 
-		this._navigator.addScreen(GROUPED_LIST_SETTINGS, new ScreenNavigatorItem(GroupedListSettingsScreen,
-		{
-			complete: GROUPED_LIST
-		},
-		{
-			settings: groupedListSettings
-		}));
+		var groupedListSettingsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(GroupedListSettingsScreen);
+		groupedListSettingsItem.addPopEvent(Event.COMPLETE);
+		groupedListSettingsItem.properties.settings = groupedListSettings;
+		//custom push and pop transitions for this settings screen
+		groupedListSettingsItem.pushTransition = Cover.createCoverUpTransition();
+		groupedListSettingsItem.popTransition = Reveal.createRevealDownTransition();
+		this._navigator.addScreen(GROUPED_LIST_SETTINGS, groupedListSettingsItem);
 
 		var itemRendererSettings:ItemRendererSettings = new ItemRendererSettings();
-		this._navigator.addScreen(ITEM_RENDERER, new ScreenNavigatorItem(ItemRendererScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: ITEM_RENDERER_SETTINGS
-		},
-		{
-			settings: itemRendererSettings
-		}));
+		var itemRendererItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ItemRendererScreen);
+		itemRendererItem.setScreenIDForPushEvent(ItemRendererScreen.SHOW_SETTINGS, ITEM_RENDERER_SETTINGS);
+		itemRendererItem.addPopEvent(Event.COMPLETE);
+		itemRendererItem.properties.settings = itemRendererSettings;
+		this._navigator.addScreen(ITEM_RENDERER, itemRendererItem);
 
-		this._navigator.addScreen(ITEM_RENDERER_SETTINGS, new ScreenNavigatorItem(ItemRendererSettingsScreen,
-		{
-			complete: ITEM_RENDERER
-		},
-		{
-			settings: itemRendererSettings
-		}));
+		var itemRendererSettingsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ItemRendererSettingsScreen);
+		itemRendererSettingsItem.addPopEvent(Event.COMPLETE);
+		itemRendererSettingsItem.properties.settings = itemRendererSettings;
+		//custom push and pop transitions for this settings screen
+		itemRendererSettingsItem.pushTransition = Cover.createCoverUpTransition();
+		itemRendererSettingsItem.popTransition = Reveal.createRevealDownTransition();
+		this._navigator.addScreen(ITEM_RENDERER_SETTINGS, itemRendererSettingsItem);
 
-		this._navigator.addScreen(LABEL, new ScreenNavigatorItem(LabelScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var labelItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(LabelScreen);
+		labelItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(LABEL, labelItem);
 
 		var listSettings:ListSettings = new ListSettings();
-		this._navigator.addScreen(LIST, new ScreenNavigatorItem(ListScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: LIST_SETTINGS
-		},
-		{
-			settings: listSettings
-		}));
+		var listItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ListScreen);
+		listItem.setScreenIDForPushEvent(ListScreen.SHOW_SETTINGS, LIST_SETTINGS);
+		listItem.addPopEvent(Event.COMPLETE);
+		listItem.properties.settings = listSettings;
+		this._navigator.addScreen(LIST, listItem);
 
-		this._navigator.addScreen(LIST_SETTINGS, new ScreenNavigatorItem(ListSettingsScreen,
-		{
-			complete: LIST
-		},
-		{
-			settings: listSettings
-		}));
+		var listSettingsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ListSettingsScreen);
+		listSettingsItem.addPopEvent(Event.COMPLETE);
+		listSettingsItem.properties.settings = listSettings;
+		//custom push and pop transitions for this settings screen
+		listSettingsItem.pushTransition = Cover.createCoverUpTransition();
+		listSettingsItem.popTransition = Reveal.createRevealDownTransition();
+		this._navigator.addScreen(LIST_SETTINGS, listSettingsItem);
 
 		var numericStepperSettings:NumericStepperSettings = new NumericStepperSettings();
-		this._navigator.addScreen(NUMERIC_STEPPER, new ScreenNavigatorItem(NumericStepperScreen,
-		{
-			complete: MAIN_MENU,
-			showSettings: NUMERIC_STEPPER_SETTINGS
-		},
-		{
-			settings: numericStepperSettings
-		}));
+		var numericStepperItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(NumericStepperScreen);
+		numericStepperItem.setScreenIDForPushEvent(NumericStepperScreen.SHOW_SETTINGS, NUMERIC_STEPPER_SETTINGS);
+		numericStepperItem.addPopEvent(Event.COMPLETE);
+		numericStepperItem.properties.settings = numericStepperSettings;
+		this._navigator.addScreen(NUMERIC_STEPPER, numericStepperItem);
 
-		this._navigator.addScreen(NUMERIC_STEPPER_SETTINGS, new ScreenNavigatorItem(NumericStepperSettingsScreen,
-		{
-			complete: NUMERIC_STEPPER
-		},
-		{
-			settings: numericStepperSettings
-		}));
+		var numericStepperSettingsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(NumericStepperSettingsScreen);
+		numericStepperSettingsItem.addPopEvent(Event.COMPLETE);
+		numericStepperSettingsItem.properties.settings = numericStepperSettings;
+		//custom push and pop transitions for this settings screen
+		numericStepperSettingsItem.pushTransition = Cover.createCoverUpTransition();
+		numericStepperSettingsItem.popTransition = Reveal.createRevealDownTransition();
+		this._navigator.addScreen(NUMERIC_STEPPER_SETTINGS, numericStepperSettingsItem);
 
-		this._navigator.addScreen(PAGE_INDICATOR, new ScreenNavigatorItem(PageIndicatorScreen,
-		{
-			complete: MAIN_MENU
-		}));
-		
-		this._navigator.addScreen(PICKER_LIST, new ScreenNavigatorItem(PickerListScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var pageIndicatorItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(PageIndicatorScreen);
+		pageIndicatorItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(PAGE_INDICATOR, pageIndicatorItem);
 
-		this._navigator.addScreen(TAB_BAR, new ScreenNavigatorItem(TabBarScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var pickerListItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(PickerListScreen);
+		pickerListItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(PICKER_LIST, pickerListItem);
 
-		this._navigator.addScreen(TEXT_INPUT, new ScreenNavigatorItem(TextInputScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var progressBarItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ProgressBarScreen);
+		progressBarItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(PROGRESS_BAR, progressBarItem);
 
-		this._navigator.addScreen(PROGRESS_BAR, new ScreenNavigatorItem(ProgressBarScreen,
-		{
-			complete: MAIN_MENU
-		}));
+		var scrollTextItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ScrollTextScreen);
+		scrollTextItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(SCROLL_TEXT, scrollTextItem);
 
-		this._transitionManager = new ScreenSlidingStackTransitionManager(this._navigator);
-		this._transitionManager.duration = 0.4;
+		var sliderSettings:SliderSettings = new SliderSettings();
+		var sliderItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SliderScreen);
+		sliderItem.setScreenIDForPushEvent(SliderScreen.SHOW_SETTINGS, SLIDER_SETTINGS);
+		sliderItem.addPopEvent(Event.COMPLETE);
+		sliderItem.properties.settings = sliderSettings;
+		this._navigator.addScreen(SLIDER, sliderItem);
+
+		var sliderSettingsItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SliderSettingsScreen);
+		sliderSettingsItem.addPopEvent(Event.COMPLETE);
+		sliderSettingsItem.properties.settings = sliderSettings;
+		//custom push and pop transitions for this settings screen
+		sliderSettingsItem.pushTransition = Cover.createCoverUpTransition();
+		sliderSettingsItem.popTransition = Reveal.createRevealDownTransition();
+		this._navigator.addScreen(SLIDER_SETTINGS, sliderSettingsItem);
+
+		var spinnerListItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SpinnerListScreen);
+		spinnerListItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(SPINNER_LIST, spinnerListItem);
+
+		var tabBarItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(TabBarScreen);
+		tabBarItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(TAB_BAR, tabBarItem);
+
+		var textInputItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(TextInputScreen);
+		textInputItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(TEXT_INPUT, textInputItem);
+
+		var togglesItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(ToggleScreen);
+		togglesItem.addPopEvent(Event.COMPLETE);
+		this._navigator.addScreen(TOGGLES, togglesItem);
+
+		if(Capabilities.playerType == "Desktop") //this means AIR, even for mobile
+		{
+			var webViewItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(WebViewScreen);
+			webViewItem.addPopEvent(Event.COMPLETE);
+			this._navigator.addScreen(WEB_VIEW, webViewItem);
+		}
 
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -278,18 +274,24 @@ import starling.events.Event;
 		}
 		else
 		{
-			this._navigator.addScreen(MAIN_MENU, new ScreenNavigatorItem(MainMenuScreen, MAIN_MENU_EVENTS));
-			this._navigator.showScreen(MAIN_MENU);
+			var mainMenuItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(MainMenuScreen);
+			for(eventType in MAIN_MENU_EVENTS)
+			{
+				mainMenuItem.setScreenIDForPushEvent(eventType, MAIN_MENU_EVENTS[eventType] as String);
+			}
+			this._navigator.addScreen(MAIN_MENU, mainMenuItem);
+			this._navigator.rootScreenID = MAIN_MENU;
 		}
+
+		this._navigator.pushTransition = Slide.createSlideLeftTransition();
+		this._navigator.popTransition = Slide.createSlideRightTransition();
 	}
 
 	private function mainMenuEventHandler(event:Event):Void
 	{
-		var screenName:String = Reflect.field(MAIN_MENU_EVENTS, event.type);
-		//because we're controlling the navigation externally, it doesn't
-		//make sense to transition or keep a history
-		this._transitionManager.clearStack();
-		this._transitionManager.skipNextTransition = true;
-		this._navigator.showScreen(screenName);
+		var screenName:String = MAIN_MENU_EVENTS[event.type] as String;
+		//since this navigation is triggered by an external menu, we don't
+		//want to push a new screen onto the stack. we want to start fresh.
+		this._navigator.rootScreenID = screenName;
 	}
 }

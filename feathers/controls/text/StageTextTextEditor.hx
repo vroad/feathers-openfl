@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -15,35 +15,35 @@ import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
 import feathers.utils.text.OpenFLTextFormat;
 import openfl.errors.Error;
 
-import openfl.display.BitmapData;
-import openfl.events.Event;
-import openfl.events.FocusEvent;
-import openfl.events.KeyboardEvent;
-#if flash
-import openfl.events.SoftKeyboardEvent;
-#end
-import openfl.geom.Matrix;
-import openfl.geom.Point;
-import openfl.geom.Rectangle;
-import openfl.system.Capabilities;
-import openfl.text.TextField;
-import openfl.text.TextFieldAutoSize;
-import openfl.text.TextFormat;
-import openfl.text.TextFormatAlign;
-#if flash
-import openfl.text.engine.FontPosture;
-import openfl.text.engine.FontWeight;
-#end
-import openfl.ui.Keyboard;
-//import openfl.utils.getDefinitionByName;
+import flash.display.BitmapData;
+import flash.events.Event;
+import flash.events.FocusEvent;
+import flash.events.KeyboardEvent;
+import flash.events.SoftKeyboardEvent;
+import flash.geom.Matrix;
+import flash.geom.Matrix3D;
+import flash.geom.Point;
+import flash.geom.Rectangle;
+import flash.geom.Vector3D;
+import flash.system.Capabilities;
+import flash.text.TextField;
+import flash.text.TextFieldAutoSize;
+import flash.text.TextFormat;
+import flash.text.TextFormatAlign;
+import flash.text.engine.FontPosture;
+import flash.text.engine.FontWeight;
+import flash.ui.Keyboard;
+import flash.utils.getDefinitionByName;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
+import starling.display.DisplayObject;
 import starling.display.Image;
 import starling.events.Event;
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.MatrixUtil;
+import starling.utils.SystemUtil;
 
 /**
  * Dispatched when the text property changes.
@@ -191,7 +191,7 @@ import starling.utils.MatrixUtil;
  * <code>StageText</code>, <code>StageTextTextEditor</code> is not
  * compatible with the Feathers <code>FocusManager</code>.</p>
  *
- * @see http://wiki.starling-framework.org/feathers/text-editors
+ * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StageText.html openfl.text.StageText
  * @see feathers.text.StageTextField
  */
@@ -200,17 +200,22 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX3D:Matrix3D;
+	
+	/**
+	 * @private
+	 */
+	private static var HELPER_POINT3D:Vector3D;
+	
+	/**
+	 * @private
+	 */
+	private static const HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	private static var HELPER_POINT:Point = new Point();
-
-	/**
-	 * @private
-	 */
-	inline private static var INVALIDATION_FLAG_POSITION:String = "position";
+	private static const HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.
@@ -223,38 +228,6 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this._stageTextIsTextField = true;
 		this.isQuickHitAreaEnabled = true;
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, textEditor_removedFromStageHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	override public function set_x(value:Float):Float
-	{
-		if(super.x == value)
-		{
-			return super.x;
-		}
-		super.x = value;
-		//we need to know when the position changes to change the position
-		//of the StageText instance.
-		this.invalidate(INVALIDATION_FLAG_POSITION);
-		return super.x;
-	}
-
-	/**
-	 * @private
-	 */
-	override public function set_y(value:Float):Float
-	{
-		if(super.y == value)
-		{
-			return super.y;
-		}
-		super.y = value;
-		//we need to know when the position changes to change the position
-		//of the StageText instance.
-		this.invalidate(INVALIDATION_FLAG_POSITION);
-		return super.y;
 	}
 
 	/**
@@ -1099,7 +1072,59 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	override public function dispose():Void
+	protected var _lastGlobalScaleX:Number = 0;
+
+	/**
+	 * @private
+	 */
+	protected var _lastGlobalScaleY:Number = 0;
+
+	/**
+	 * @private
+	 */
+	protected var _updateSnapshotOnScaleChange:Boolean = false;
+
+	/**
+	 * Refreshes the texture snapshot every time that the text editor is
+	 * scaled. Based on the scale in global coordinates, so scaling the
+	 * parent will require a new snapshot.
+	 *
+	 * <p>Warning: setting this property to true may result in reduced
+	 * performance because every change of the scale requires uploading a
+	 * new texture to the GPU. Use with caution. Consider setting this
+	 * property to false temporarily during animations that modify the
+	 * scale.</p>
+	 *
+	 * <p>In the following example, the snapshot will be updated when the
+	 * text editor is scaled:</p>
+	 *
+	 * <listing version="3.0">
+	 * textEditor.updateSnapshotOnScaleChange = true;</listing>
+	 *
+	 * @default false
+	 */
+	public function get updateSnapshotOnScaleChange():Boolean
+	{
+		return this._updateSnapshotOnScaleChange;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set updateSnapshotOnScaleChange(value:Boolean):void
+	{
+		if(this._updateSnapshotOnScaleChange == value)
+		{
+			return;
+		}
+		this._updateSnapshotOnScaleChange = value;
+		this.invalidate(INVALIDATION_FLAG_DATA);
+	}
+
+	/**
+	 * @private
+	 */
+	override public function dispose():void
 	{
 		if(this._measureTextField != null)
 		{
@@ -1129,59 +1154,32 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var desktopGutterPositionOffset:Float = 0;
-		var desktopGutterDimensionsOffset:Float = 0;
-		if(this._stageTextIsTextField)
-		{
-			desktopGutterPositionOffset = 2;
-			desktopGutterDimensionsOffset = 4;
-		}
-		HELPER_POINT.x = HELPER_POINT.y = 0;
-		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
-		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var stageTextViewPort:Rectangle = this.stageText.viewPort;
-		if(stageTextViewPort == null)
-		{
-			stageTextViewPort = new Rectangle();
-		}
-		var nativeScaleFactor:Float = 1;
-#if flash
-		if(Starling.current.supportHighResolutions)
-		{
-			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
-		}
-#end
-		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
-		stageTextViewPort.x = Math.round(starlingViewPort.x + (HELPER_POINT.x * scaleFactor));
-		stageTextViewPort.y = Math.round(starlingViewPort.y + (HELPER_POINT.y * scaleFactor));
-		this.stageText.viewPort = stageTextViewPort;
-
-		if(this.stageText.visible)
+		if(this.textSnapshot && this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
-			var smallerGlobalScale:Float = globalScaleX;
-			if(globalScaleY < globalScaleX)
+			if(matrixToScaleX(HELPER_MATRIX) != this._lastGlobalScaleX || matrixToScaleY(HELPER_MATRIX) != this._lastGlobalScaleY)
 			{
-				smallerGlobalScale = globalScaleY;
-			}
-			//for some reason, we don't need to account for the native scale factor here
-			scaleFactor = Starling.current.contentScaleFactor;
-			var newFontSize:Float = this._fontSize * scaleFactor * smallerGlobalScale;
-			if(this.stageText.fontSize != newFontSize)
-			{
-				//we need to check if this value has changed because on iOS
-				//if displayAsPassword is set to true, the new character
-				//will not be shown if the font size changes. instead, it
-				//immediately changes to a bullet. (Github issue #881)
-				this.stageText.fontSize = newFontSize;
+				//the snapshot needs to be updated because the scale has
+				//changed since the last snapshot was taken.
+				this.invalidate(INVALIDATION_FLAG_SIZE);
+				this.validate();
 			}
 		}
-
-		if(this.textSnapshot != null)
+		
+		//we'll skip this if the text field isn't visible to avoid running
+		//that code every frame.
+		if(this.stageText && this.stageText.visible)
 		{
+			this.refreshViewPortAndFontSize();
+		}
+
+		if(this.textSnapshot)
+		{
+			var desktopGutterPositionOffset:Number = 0;
+			if(this._stageTextIsTextField)
+			{
+				desktopGutterPositionOffset = 2;
+			}
 			this.textSnapshot.x = Math.round(HELPER_MATRIX.tx) - HELPER_MATRIX.tx - desktopGutterPositionOffset;
 			this.textSnapshot.y = Math.round(HELPER_MATRIX.ty) - HELPER_MATRIX.ty - desktopGutterPositionOffset;
 		}
@@ -1194,7 +1192,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	public function setFocus(position:Point = null):Void
 	{
-		if(this.stage != null && this.stageText.stage == null)
+		//setting the editable property of a StageText to false seems to be
+		//ignored on Android, so this is the workaround
+		if(!this._isEditable && SystemUtil.platform === "AND")
+		{
+			return;
+		}
+		if(this.stage && !this.stageText.stage)
 		{
 			this.stageText.stage = Starling.current.nativeStage;
 		}
@@ -1399,7 +1403,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 		var oldIgnoreStageTextChanges:Bool = this._ignoreStageTextChanges;
 		this._ignoreStageTextChanges = true;
-		if(stylesInvalid)
+		if(stateInvalid || stylesInvalid)
 		{
 			this.refreshStageTextProperties();
 		}
@@ -1494,21 +1498,23 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stateInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_STATE));
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Bool = this.isInvalid((FeathersControl.INVALIDATION_FLAG_DATA));
-		var positionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_POSITION);
-		var skinInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SKIN);
+		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var skinInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SKIN);
 
-		if(positionInvalid || sizeInvalid || stylesInvalid || skinInvalid || stateInvalid)
+		if(sizeInvalid || stylesInvalid || skinInvalid || stateInvalid)
 		{
-			this.refreshViewPort();
+			this.refreshViewPortAndFontSize();
+			this.refreshMeasureTextFieldDimensions()
 			var viewPort:Rectangle = this.stageText.viewPort;
-			var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
-			this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null || viewPort.width != textureRoot.width || viewPort.height != textureRoot.height;
+			var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
+			this._needsNewTexture = this._needsNewTexture || !this.textSnapshot ||
+				textureRoot.scale != Starling.contentScaleFactor ||
+				viewPort.width != textureRoot.width || viewPort.height != textureRoot.height;
 		}
 
-		if(!this._stageTextHasFocus && (stylesInvalid || dataInvalid || sizeInvalid || this._needsNewTexture))
+		if(!this._stageTextHasFocus && (stateInvalid || stylesInvalid || dataInvalid || sizeInvalid || this._needsNewTexture))
 		{
 			var hasText:Bool = this._text.length > 0;
 			if(hasText)
@@ -1635,19 +1641,6 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this.stageText.fontPosture = this._fontPosture;
 #end
 
-		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
-		var smallerGlobalScale:Float = globalScaleX;
-		if(globalScaleY < globalScaleX)
-		{
-			smallerGlobalScale = globalScaleY;
-		}
-		//for some reason, we don't need to account for the native scale factor here
-		var scaleFactor:Float = Starling.current.contentScaleFactor;
-		this.stageText.fontSize = this._fontSize * scaleFactor * smallerGlobalScale;
-
-#if flash
 		this.stageText.fontWeight = this._fontWeight;
 #end
 		this.stageText.locale = this._locale;
@@ -1689,15 +1682,24 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function texture_onRestore():Void
 	{
-		this.refreshSnapshot();
-		if(this.textSnapshot != null)
+		if(this.textSnapshot.texture.scale != Starling.contentScaleFactor)
 		{
-			this.textSnapshot.visible = !this._stageTextHasFocus;
-			this.textSnapshot.alpha = this._text.length > 0 ? 1 : 0;
+			//if we've changed between scale factors, we need to recreate
+			//the texture to match the new scale factor.
+			this.invalidate(INVALIDATION_FLAG_SIZE);
 		}
-		if(!this._stageTextHasFocus)
+		else
 		{
-			this.stageText.visible = false;
+			this.refreshSnapshot();
+			if(this.textSnapshot)
+			{
+				this.textSnapshot.visible = !this._stageTextHasFocus;
+				this.textSnapshot.alpha = this._text.length > 0 ? 1 : 0;
+			}
+			if(!this._stageTextHasFocus)
+			{
+				this.stageText.visible = false;
+			}
 		}
 	}
 
@@ -1754,7 +1756,13 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var newTexture:Texture = null;
 		if(this.textSnapshot == null || this._needsNewTexture)
 		{
-			newTexture = Texture.fromBitmapData(bitmapData, false, false, Starling.current.contentScaleFactor);
+			var scaleFactor:Number = Starling.contentScaleFactor;
+			//skip Texture.fromBitmapData() because we don't want
+			//it to create an onRestore function that will be
+			//immediately discarded for garbage collection. 
+			newTexture = Texture.empty(bitmapData.width / scaleFactor, bitmapData.height / scaleFactor,
+				true, false, false, scaleFactor);
+			newTexture.root.uploadBitmapData(bitmapData);
 			newTexture.root.onRestore = texture_onRestore;
 		}
 		if(this.textSnapshot == null)
@@ -1778,10 +1786,24 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			}
 		}
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		this.textSnapshot.scaleX = 1 / matrixToScaleX(HELPER_MATRIX);
-		this.textSnapshot.scaleY = 1 / matrixToScaleY(HELPER_MATRIX);
+		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+		if(this._updateSnapshotOnScaleChange)
+		{
+			this.textSnapshot.scaleX = 1 / globalScaleX;
+			this.textSnapshot.scaleY = 1 / globalScaleY;
+			this._lastGlobalScaleX = globalScaleX;
+			this._lastGlobalScaleY = globalScaleY;
+		}
+		else
+		{
+			this.textSnapshot.scaleX = 1;
+			this.textSnapshot.scaleY = 1;
+		}
 		if(nativeScaleFactor > 1 && bitmapData.width == viewPort.width)
 		{
+			//when we fall back to using a snapshot that is half size on
+			//older runtimes, we need to scale it up.
 			this.textSnapshot.scaleX *= nativeScaleFactor;
 			this.textSnapshot.scaleY *= nativeScaleFactor;
 		}
@@ -1792,15 +1814,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function refreshViewPort():Void
+	protected function refreshViewPortAndFontSize():void
 	{
-		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var stageTextViewPort:Rectangle = this.stageText.viewPort;
-		if(stageTextViewPort == null)
-		{
-			stageTextViewPort = new Rectangle();
-		}
-
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		var desktopGutterPositionOffset:Float = 0;
 		var desktopGutterDimensionsOffset:Float = 0;
@@ -1810,17 +1825,45 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			desktopGutterDimensionsOffset = 4;
 		}
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
-		MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
+		if(this._stageTextHasFocus || this._updateSnapshotOnScaleChange)
+		{
+			var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
+			var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+			var smallerGlobalScale:Number = globalScaleX;
+			if(globalScaleY < smallerGlobalScale)
+			{
+				smallerGlobalScale = globalScaleY;
+			}
+		}
+		else
+		{
+			globalScaleX = 1;
+			globalScaleY = 1;
+			smallerGlobalScale = 1;
+		}
+		if(this.is3D)
+		{
+			HELPER_MATRIX3D = this.getTransformationMatrix3D(this.stage, HELPER_MATRIX3D);
+			HELPER_POINT3D = MatrixUtil.transformCoords3D(HELPER_MATRIX3D, -desktopGutterPositionOffset, -desktopGutterPositionOffset, 0, HELPER_POINT3D);
+			HELPER_POINT.setTo(HELPER_POINT3D.x, HELPER_POINT3D.y);
+		}
+		else
+		{
+			MatrixUtil.transformCoords(HELPER_MATRIX, -desktopGutterPositionOffset, -desktopGutterPositionOffset, HELPER_POINT);
+		}
 		var nativeScaleFactor:Float = 1;
 #if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-#end
-		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var starlingViewPort:Rectangle = Starling.current.viewPort;
+		var stageTextViewPort:Rectangle = this.stageText.viewPort;
+		if(!stageTextViewPort)
+		{
+			stageTextViewPort = new Rectangle();
+		}
 		stageTextViewPort.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
 		stageTextViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
 		var viewPortWidth:Float = Math.round((this.actualWidth + desktopGutterDimensionsOffset) * scaleFactor * globalScaleX);
@@ -1839,6 +1882,27 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		stageTextViewPort.height = viewPortHeight;
 		this.stageText.viewPort = stageTextViewPort;
 
+		//for some reason, we don't need to account for the native scale factor here
+		scaleFactor = Starling.contentScaleFactor;
+		//StageText's fontSize property is an int, so we need to
+		//specifically avoid using Number here.
+		var newFontSize:int = this._fontSize * scaleFactor * smallerGlobalScale;
+		if(this.stageText.fontSize != newFontSize)
+		{
+			//we need to check if this value has changed because on iOS
+			//if displayAsPassword is set to true, the new character
+			//will not be shown if the font size changes. instead, it
+			//immediately changes to a bullet. (Github issue #881)
+			this.stageText.fontSize = newFontSize;
+		}
+		
+	}
+
+	/**
+	 * @private
+	 */
+	protected function refreshMeasureTextFieldDimensions():void
+	{
 		//the +4 is accounting for the TextField gutter
 		this._measureTextField.width = this.actualWidth + 4;
 		this._measureTextField.height = this.actualHeight;
@@ -1946,7 +2010,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	private function stageText_focusInHandler(event:FocusEvent):Void
 	{
 		this._stageTextHasFocus = true;
-		if(this.textSnapshot != null)
+		this.addEventListener(starling.events.Event.ENTER_FRAME, hasFocus_enterFrameHandler);
+		if(this.textSnapshot)
 		{
 			this.textSnapshot.visible = false;
 		}
@@ -1974,7 +2039,32 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private function stageText_keyDownHandler(event:KeyboardEvent):Void
+	protected function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	{
+		if(this._stageTextHasFocus)
+		{
+			var target:DisplayObject = this;
+			do
+			{
+				if(!target.hasVisibleArea)
+				{
+					this.stageText.stage.focus = null;
+					break;
+				}
+				target = target.parent;
+			}
+			while(target)
+		}
+		else
+		{
+			this.removeEventListener(starling.events.Event.ENTER_FRAME, hasFocus_enterFrameHandler);
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function stageText_keyDownHandler(event:KeyboardEvent):void
 	{
 #if flash
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))

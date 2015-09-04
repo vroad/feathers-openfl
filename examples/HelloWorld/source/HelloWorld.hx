@@ -3,22 +3,20 @@ import feathers.examples.helloWorld.Main;
 import openfl.errors.Error;
 import starling.utils.Max;
 
-import openfl.display.Loader;
-import openfl.display.Sprite;
-import openfl.display.StageAlign;
-/*
-import openfl.display.StageOrientation;
-*/
-import openfl.display.StageScaleMode;
-import openfl.events.Event;
-import openfl.filesystem.File;
-/*
-import openfl.filesystem.FileMode;
-import openfl.filesystem.FileStream;
-*/
-import openfl.geom.Rectangle;
-import openfl.system.Capabilities;
-import openfl.utils.ByteArray;
+import flash.display.Loader;
+import flash.display.Sprite;
+import flash.display.StageAlign;
+import flash.display.StageOrientation;
+import flash.display.StageScaleMode;
+import flash.display3D.Context3DProfile;
+import flash.display3D.Context3DRenderMode;
+import flash.events.Event;
+import flash.filesystem.File;
+import flash.filesystem.FileMode;
+import flash.filesystem.FileStream;
+import flash.geom.Rectangle;
+import flash.system.Capabilities;
+import flash.utils.ByteArray;
 
 import starling.core.Starling;
 
@@ -54,18 +52,31 @@ class HelloWorld extends Sprite
 		var isPortraitOnly:Bool = false;
 		if(Capabilities.manufacturer.indexOf("iOS") >= 0)
 		{
-			if(Capabilities.screenResolutionX == 1536 && Capabilities.screenResolutionY == 2048)
+			var isCurrentlyPortrait:Boolean = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+			if(Capabilities.screenResolutionX == 1242 && Capabilities.screenResolutionY == 2208)
 			{
-				var isCurrentlyPortrait:Bool = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				//iphone 6 plus
+				filePath = isCurrentlyPortrait ? "Default-414w-736h@3x.png" : "Default-414w-736h-Landscape@3x.png";
+			}
+			else if(Capabilities.screenResolutionX == 1536 && Capabilities.screenResolutionY == 2048)
+			{
+				//ipad retina
 				filePath = isCurrentlyPortrait ? "Default-Portrait@2x.png" : "Default-Landscape@2x.png";
 			}
 			else if(Capabilities.screenResolutionX == 768 && Capabilities.screenResolutionY == 1024)
 			{
-				isCurrentlyPortrait = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+				//ipad classic
 				filePath = isCurrentlyPortrait ? "Default-Portrait.png" : "Default-Landscape.png";
+			}
+			else if(Capabilities.screenResolutionX == 750)
+			{
+				//iphone 6
+				isPortraitOnly = true;
+				filePath = "Default-375w-667h@2x.png";
 			}
 			else if(Capabilities.screenResolutionX == 640)
 			{
+				//iphone retina
 				isPortraitOnly = true;
 				if(Capabilities.screenResolutionY == 1136)
 				{
@@ -78,6 +89,7 @@ class HelloWorld extends Sprite
 			}
 			else if(Capabilities.screenResolutionX == 320)
 			{
+				//iphone classic
 				isPortraitOnly = true;
 				filePath = "Default.png";
 			}
@@ -109,10 +121,9 @@ class HelloWorld extends Sprite
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
-		//Starling.handleLostContext = true;
 		Starling.multitouchEnabled = true;
-		this._starling = new Starling(Main, this.stage);
-		this._starling.enableErrorChecking = false;
+		this._starling = new Starling(Main, this.stage, null, null, Context3DRenderMode.AUTO, Context3DProfile.BASELINE);
+		this._starling.supportHighResolutions = true;
 		this._starling.start();
 		/*
 		if(this._launchImage != null)
@@ -155,7 +166,7 @@ class HelloWorld extends Sprite
 
 	private function stage_deactivateHandler(event:Event):Void
 	{
-		this._starling.stop();
+		this._starling.stop(true);
 		this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
 	}
 

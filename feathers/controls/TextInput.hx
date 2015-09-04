@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -10,6 +10,7 @@ import feathers.core.FeathersControl;
 import feathers.core.IFeathersControl;
 import feathers.core.IFocusDisplayObject;
 import feathers.core.IMultilineTextEditor;
+import feathers.core.INativeFocusOwner;
 import feathers.core.ITextBaselineControl;
 import feathers.core.ITextEditor;
 import feathers.core.ITextRenderer;
@@ -21,12 +22,11 @@ import feathers.skins.StateValueSelector;
 import openfl.errors.ArgumentError;
 import openfl.errors.RangeError;
 
-import openfl.geom.Point;
-import openfl.geom.Rectangle;
-import openfl.ui.Mouse;
-#if flash
-import openfl.ui.MouseCursor;
-#end
+import flash.display.InteractiveObject;
+import flash.geom.Point;
+import flash.geom.Rectangle;
+import flash.ui.Mouse;
+import flash.ui.MouseCursor;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -186,11 +186,13 @@ import starling.events.TouchPhase;
  * input.addEventListener( Event.CHANGE, input_changeHandler );
  * this.addChild( input );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/text-input
- * @see http://wiki.starling-framework.org/feathers/text-editors
+ * @see ../../../help/text-input.html How to use the Feathers TextInput component
+ * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see feathers.core.ITextEditor
+ * @see feathers.controls.AutoComplete
+ * @see feathers.controls.TextArea
  */
-class TextInput extends FeathersControl implements IFocusDisplayObject implements ITextBaselineControl
+public class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl, INativeFocusOwner
 {
 	/**
 	 * @private
@@ -218,26 +220,38 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	inline public static var STATE_FOCUSED:String = "focused";
 
 	/**
-	 * An alternate name to use with TextInput to allow a theme to give it
-	 * a search input style. If a theme does not provide a skin for the
-	 * search text input, the theme will automatically fall back to using
-	 * the default text input skin.
+	 * An alternate style name to use with <code>TextInput</code> to allow a
+	 * theme to give it a search input style. If a theme does not provide a
+	 * style for the search text input, the theme will automatically fal
+	 * back to using the default text input style.
 	 *
-	 * <p>An alternate name should always be added to a component's
-	 * <code>styleNameList</code> before the component is added to the stage for
-	 * the first time. If it is added later, it will be ignored.</p>
+	 * <p>An alternate style name should always be added to a component's
+	 * <code>styleNameList</code> before the component is initialized. If
+	 * the style name is added later, it will be ignored.</p>
 	 *
-	 * <p>In the following example, the searc style is applied to a text
+	 * <p>In the following example, the search style is applied to a text
 	 * input:</p>
 	 *
 	 * <listing version="3.0">
 	 * var input:TextInput = new TextInput();
-	 * input.styleNameList.add( TextInput.ALTERNATE_NAME_SEARCH_TEXT_INPUT );
+	 * input.styleNameList.add( TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT );
 	 * this.addChild( input );</listing>
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	inline public static var ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
+	public static const ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
+
+	/**
+	 * DEPRECATED: Replaced by <code>TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see TextInput#ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT
+	 */
+	public static const ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT;
 
 	/**
 	 * The text editor, icon, and prompt will be aligned vertically to the
@@ -325,6 +339,22 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	private var _textEditorHasFocus:Bool = false;
 
 	/**
+	 * A text editor may be an <code>INativeFocusOwner</code>, so we need to
+	 * return the value of its <code>nativeFocus</code> property. If not,
+	 * then we return <code>null</code>.
+	 * 
+	 * @see feathers.core.INativeFocusOwner
+	 */
+	public function get nativeFocus():InteractiveObject
+	{
+		if(this.textEditor is INativeFocusOwner)
+		{
+			return INativeFocusOwner(this.textEditor).nativeFocus;
+		}
+		return null;
+	}
+
+	/**
 	 * @private
 	 */
 	private var _ignoreTextChanges:Bool = false;
@@ -340,14 +370,6 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return TextInput.globalStyleProvider;
-	}
-
-	/**
-	 * @private
-	 */
-	override public function get_isFocusEnabled():Bool
-	{
-		return this._isEditable && this._isEnabled && this._isFocusEnabled;
 	}
 
 	/**
@@ -373,7 +395,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 		super.isEnabled = value;
 		if(this._isEnabled)
 		{
-			this.currentState = this._hasFocus ? STATE_FOCUSED : STATE_ENABLED;
+			this.currentState = this.hasFocus ? STATE_FOCUSED : STATE_ENABLED;
 		}
 		else
 		{
@@ -799,8 +821,6 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	 * @see #prompt
 	 * @see feathers.core.ITextRenderer
 	 * @see feathers.core.FeathersControl#defaultTextRendererFactory
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public var promptFactory(get, set):Void->ITextRenderer;
 	public function get_promptFactory():Void->ITextRenderer
@@ -828,13 +848,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	private var _promptProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the text input's prompt
-	 * text renderer. The prompt text renderer is an <code>ITextRenderer</code>
-	 * instance that is created by <code>promptFactory</code>. The available
-	 * properties depend on which <code>ITextRenderer</code> implementation
-	 * is returned by <code>promptFactory</code>. The most common
-	 * implementations are <code>BitmapFontTextRenderer</code> and
-	 * <code>TextFieldTextRenderer</code>.
+	 * An object that stores properties for the input's prompt text
+	 * renderer sub-component, and the properties will be passed down to the
+	 * text renderer when the input validates. The available properties
+	 * depend on which <code>ITextRenderer</code> implementation is returned
+	 * by <code>messageFactory</code>. Refer to
+	 * <a href="../core/ITextRenderer.html"><code>feathers.core.ITextRenderer</code></a>
+	 * for a list of available text renderer implementations.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -859,8 +879,6 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	 * @see #prompt
 	 * @see #promptFactory
 	 * @see feathers.core.ITextRenderer
-	 * @see feathers.controls.text.BitmapFontTextRenderer
-	 * @see feathers.controls.text.TextFieldTextRenderer
 	 */
 	public var promptProperties(get, set):PropertyProxy;
 	public function get_promptProperties():PropertyProxy
@@ -1560,9 +1578,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	private var _textEditorProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the text input's
-	 * text editor. The text editor is an <code>ITextEditor</code> instance
-	 * that is created by <code>textEditorFactory</code>.
+	 * An object that stores properties for the input's text editor
+	 * sub-component, and the properties will be passed down to the
+	 * text editor when the input validates. The available properties
+	 * depend on which <code>ITextEditor</code> implementation is returned
+	 * by <code>textEditorFactory</code>. Refer to
+	 * <a href="../core/ITextEditor.html"><code>feathers.core.ITextEditor</code></a>
+	 * for a list of available text editor implementations.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -2346,7 +2368,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	 */
 	private function textInput_touchHandler(event:TouchEvent):Void
 	{
-		if(!this._isEnabled || !this._isEditable)
+		if(!this._isEnabled)
 		{
 			this._touchPointID = -1;
 			return;
@@ -2460,11 +2482,15 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 		}
 		this._textEditorHasFocus = true;
 		this.currentState = STATE_FOCUSED;
-		if(this._focusManager != null && this._isFocusEnabled)
+		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus !== this)
 		{
+			//if setFocus() was called manually, we need to notify the focus
+			//manager (unless isFocusEnabled is false).
+			//if the focus manager already knows that we have focus, it will
+			//simply return without doing anything.
 			this._focusManager.focus = this;
 		}
-		else
+		else if(!this._focusManager)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_IN);
 		}
@@ -2477,14 +2503,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
-		if(this._focusManager != null && this._isFocusEnabled)
+		if(this._focusManager && this._focusManager.focus === this)
 		{
-			if(this._focusManager.focus == this)
-			{
-				this._focusManager.focus = null;
-			}
+			//if clearFocus() was called manually, we need to notify the
+			//focus manager if it still thinks we have focus.
+			this._focusManager.focus = null;
 		}
-		else
+		else if(!this._focusManager)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 		}

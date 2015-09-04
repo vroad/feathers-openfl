@@ -1,14 +1,17 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
 import feathers.controls.supportClasses.LayoutViewPort;
-import feathers.core.FeathersControl;
+import feathers.core.IFeathersControl;
+import feathers.core.IFocusContainer;
+import feathers.events.FeathersEventType;
 import feathers.layout.ILayout;
+import feathers.layout.ILayoutDisplayObject;
 import feathers.layout.IVirtualLayout;
 import feathers.skins.IStyleProvider;
 
@@ -16,6 +19,7 @@ import openfl.errors.ArgumentError;
 
 import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;
+import starling.events.Event;
 
 /**
  * Dispatched when the container is scrolled.
@@ -38,7 +42,6 @@ import starling.display.DisplayObjectContainer;
  * @eventType starling.events.Event.SCROLL
  *///[Event(name="change",type="starling.events.Event")]
 
-//[DefaultProperty("mxmlContent")]
 /**
  * A generic container that supports layout, scrolling, and a background
  * skin. For a lighter container, see <code>LayoutGroup</code>, which
@@ -54,46 +57,53 @@ import starling.display.DisplayObjectContainer;
  * layout.padding = 20;
  * container.layout = layout;
  * this.addChild( container );
- *
+ * 
  * var yesButton:Button = new Button();
  * yesButton.label = "Yes";
  * container.addChild( yesButton );
- *
+ * 
  * var noButton:Button = new Button();
  * noButton.label = "No";
  * container.addChild( noButton );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/scroll-container
+ * @see ../../../help/scroll-container.html How to use the Feathers ScrollContainer component
  * @see feathers.controls.LayoutGroup
  */
-class ScrollContainer extends Scroller implements IScrollContainer
+public class ScrollContainer extends Scroller implements IScrollContainer, IFocusContainer
 {
 	/**
-	 * @private
-	 */
-	inline private static var INVALIDATION_FLAG_MXML_CONTENT:String = "mxmlContent";
-
-	/**
-	 * An alternate name to use with <code>ScrollContainer</code> to allow a
-	 * theme to give it a toolbar style. If a theme does not provide a skin
-	 * for the toolbar style, the theme will automatically fall back to
-	 * using the default scroll container skin.
+	 * An alternate style name to use with <code>ScrollContainer</code> to
+	 * allow a theme to give it a toolbar style. If a theme does not provide
+	 * a style for the toolbar container, the theme will automatically fall
+	 * back to using the default scroll container skin.
 	 *
-	 * <p>An alternate name should always be added to a component's
-	 * <code>styleNameList</code> before the component is added to the stage for
-	 * the first time. If it is added later, it will be ignored.</p>
+	 * <p>An alternate style name should always be added to a component's
+	 * <code>styleNameList</code> before the component is initialized. If
+	 * the style name is added later, it will be ignored.</p>
 	 *
 	 * <p>In the following example, the toolbar style is applied to a scroll
 	 * container:</p>
 	 *
 	 * <listing version="3.0">
 	 * var container:ScrollContainer = new ScrollContainer();
-	 * container.styleNameList.add( ScrollContainer.ALTERNATE_NAME_TOOLBAR );
+	 * container.styleNameList.add( ScrollContainer.ALTERNATE_STYLE_NAME_TOOLBAR );
 	 * this.addChild( container );</listing>
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	inline public static var ALTERNATE_NAME_TOOLBAR:String = "feathers-toolbar-scroll-container";
+	public static const ALTERNATE_STYLE_NAME_TOOLBAR:String = "feathers-toolbar-scroll-container";
+
+	/**
+	 * DEPRECATED: Replaced by <code>ScrollContainer.ALTERNATE_STYLE_NAME_TOOLBAR</code>.
+	 *
+	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
+	 * starting with Feathers 2.1. It will be removed in a future version of
+	 * Feathers according to the standard
+	 * <a target="_top" href="../../../help/deprecation-policy.html">Feathers deprecation policy</a>.</p>
+	 *
+	 * @see ScrollContainer#ALTERNATE_STYLE_NAME_TOOLBAR
+	 */
+	public static const ALTERNATE_NAME_TOOLBAR:String = ALTERNATE_STYLE_NAME_TOOLBAR;
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -132,6 +142,13 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
 	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
+
+	/**
+	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT
+	 *
+	 * @see feathers.controls.Scroller#scrollBarDisplayMode
+	 */
+	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
@@ -176,6 +193,20 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	inline public static var INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
 
 	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+
+	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
 	 *
 	 * @see feathers.controls.Scroller#decelerationRate
@@ -188,6 +219,20 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	 * @see feathers.controls.Scroller#decelerationRate
 	 */
 	inline public static var DECELERATION_RATE_FAST:Float = 0.99;
+
+	/**
+	 * The container will auto size itself to fill the entire stage.
+	 *
+	 * @see #autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+
+	/**
+	 * The container will auto size itself to fit its content.
+	 *
+	 * @see #autoSizeMode
+	 */
+	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollContainer</code>
@@ -206,6 +251,8 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		super();
 		this.layoutViewPort = new LayoutViewPort();
 		this.viewPort = this.layoutViewPort;
+		this.addEventListener(Event.ADDED_TO_STAGE, scrollContainer_addedToStageHandler);
+		this.addEventListener(Event.REMOVED_FROM_STAGE, scrollContainer_removedFromStageHandler);
 	}
 
 	/**
@@ -231,7 +278,32 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	private var _layout:ILayout;
+	protected var _isChildFocusEnabled:Boolean = true;
+
+	/**
+	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
+	 *
+	 * @default true
+	 *
+	 * @see #isFocusEnabled
+	 */
+	public function get isChildFocusEnabled():Boolean
+	{
+		return this._isEnabled && this._isChildFocusEnabled;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set isChildFocusEnabled(value:Boolean):void
+	{
+		this._isChildFocusEnabled = value;
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _layout:ILayout;
 
 	/**
 	 * Controls the way that the container's children are positioned and
@@ -270,51 +342,63 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	private var _mxmlContentIsReady:Bool = false;
+	protected var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
 
+	[Inspectable(type="String",enumeration="stage,content")]
 	/**
-	 * @private
+	 * Determines how the container will set its own size when its
+	 * dimensions (width and height) aren't set explicitly.
+	 *
+	 * <p>In the following example, the container will be sized to
+	 * match the stage:</p>
+	 *
+	 * <listing version="3.0">
+	 * container.autoSizeMode = ScrollContainer.AUTO_SIZE_MODE_STAGE;</listing>
+	 *
+	 * @default ScrollContainer.AUTO_SIZE_MODE_CONTENT
+	 *
+	 * @see #AUTO_SIZE_MODE_STAGE
+	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
-	private var _mxmlContent:Array<DisplayObject>;
-
-	//[ArrayElementType("feathers.core.IFeathersControl")]
-	/**
-	 * @private
-	 */
-	public var mxmlContent(get, set):Array<DisplayObject>;
-	public function get_mxmlContent():Array<DisplayObject>
+	public function get autoSizeMode():String
 	{
-		return this._mxmlContent;
+		return this._autoSizeMode;
 	}
 
 	/**
 	 * @private
 	 */
-	public function set_mxmlContent(value:Array<DisplayObject>):Array<DisplayObject>
+	public function set autoSizeMode(value:String):void
 	{
-		if(this._mxmlContent == value)
+		if(this._autoSizeMode == value)
 		{
 			return get_mxmlContent();
 		}
-		if(this._mxmlContent != null && this._mxmlContentIsReady)
+		this._autoSizeMode = value;
+		this._measureViewPort = this._autoSizeMode != AUTO_SIZE_MODE_STAGE;
+		if(this.stage)
 		{
-			var childCount:Int = this._mxmlContent.length;
-			for(i in 0 ... childCount)
+			if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 			{
-				var child:DisplayObject = this._mxmlContent[i];
-				this.removeChild(child, true);
+				this.stage.addEventListener(Event.RESIZE, stage_resizeHandler);
+			}
+			else
+			{
+				this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 			}
 		}
-		this._mxmlContent = value;
-		this._mxmlContentIsReady = false;
-		this.invalidate(INVALIDATION_FLAG_MXML_CONTENT);
-		return get_mxmlContent();
+		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
 	/**
 	 * @private
 	 */
-	override public function get_numChildren():Int
+	protected var _ignoreChildChanges:Boolean = false;
+
+	/**
+	 * @private
+	 */
+	override public function get numChildren():int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -406,13 +490,31 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override public function addChildAt(child:DisplayObject, index:Int):DisplayObject
+	override public function addChild(child:DisplayObject):DisplayObject
+	{
+		return this.addChildAt(child, this.numChildren);
+	}
+
+	/**
+	 * @private
+	 */
+	override public function addChildAt(child:DisplayObject, index:int):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
 			return super.addChildAt(child, index);
 		}
-		return cast(this.viewPort, DisplayObjectContainer).addChildAt(child, index);
+		var result:DisplayObject = DisplayObjectContainer(this.viewPort).addChildAt(child, index);
+		if(result is IFeathersControl)
+		{
+			result.addEventListener(Event.RESIZE, child_resizeHandler);
+		}
+		if(result is ILayoutDisplayObject)
+		{
+			result.addEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
+		}
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return result;
 	}
 
 	/**
@@ -452,7 +554,17 @@ class ScrollContainer extends Scroller implements IScrollContainer
 		{
 			return super.removeChildAt(index, dispose);
 		}
-		return cast(this.viewPort, DisplayObjectContainer).removeChildAt(index, dispose);
+		var result:DisplayObject = DisplayObjectContainer(this.viewPort).removeChildAt(index, dispose);
+		if(result is IFeathersControl)
+		{
+			result.removeEventListener(Event.RESIZE, child_resizeHandler);
+		}
+		if(result is ILayoutDisplayObject)
+		{
+			result.removeEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
+		}
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return result;
 	}
 
 	/**
@@ -486,8 +598,9 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
-		return super.getChildIndex(child);
+		var index:int = super.getChildIndex(child);
 		this.displayListBypassEnabled = oldBypass;
+		return index;
 	}
 
 	/**
@@ -596,27 +709,9 @@ class ScrollContainer extends Scroller implements IScrollContainer
 	/**
 	 * @private
 	 */
-	override private function initialize():Void
-	{
-		super.initialize();
-		this.refreshMXMLContent();
-	}
-
-	/**
-	 * @private
-	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
-		var layoutInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_LAYOUT);
-		var mxmlContentInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_MXML_CONTENT);
-
-		if(mxmlContentInvalid)
-		{
-			this.refreshMXMLContent();
-		}
+		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(layoutInvalid)
 		{
@@ -627,24 +722,78 @@ class ScrollContainer extends Scroller implements IScrollContainer
 			this.layoutViewPort.layout = this._layout;
 		}
 
+		var oldIgnoreChildChanges:Boolean = this._ignoreChildChanges;
+		this._ignoreChildChanges = true;
 		super.draw();
+		this._ignoreChildChanges = oldIgnoreChildChanges;
 	}
 
 	/**
 	 * @private
 	 */
-	private function refreshMXMLContent():Void
+	override protected function autoSizeIfNeeded():Boolean
 	{
-		if(this._mxmlContent == null || this._mxmlContentIsReady)
+		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
+		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
+		if(!needsWidth && !needsHeight)
+		{
+			return false;
+		}
+		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
+		{
+			return this.setSizeInternal(this.stage.stageWidth, this.stage.stageHeight, false);
+		}
+		return super.autoSizeIfNeeded();
+	}
+
+	/**
+	 * @private
+	 */
+	protected function scrollContainer_addedToStageHandler(event:Event):void
+	{
+		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
+		{
+			this.stage.addEventListener(Event.RESIZE, stage_resizeHandler);
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	protected function scrollContainer_removedFromStageHandler(event:Event):void
+	{
+		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function child_resizeHandler(event:Event):void
+	{
+		if(this._ignoreChildChanges)
 		{
 			return;
 		}
-		var childCount:Int = this._mxmlContent.length;
-		for(i in 0 ... childCount)
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function child_layoutDataChangeHandler(event:Event):void
+	{
+		if(this._ignoreChildChanges)
 		{
-			var child:DisplayObject = cast(this._mxmlContent[i], DisplayObject);
-			this.addChild(child);
+			return;
 		}
-		this._mxmlContentIsReady = true;
+		this.invalidate(INVALIDATION_FLAG_SIZE);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function stage_resizeHandler(event:Event):void
+	{
+		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 }

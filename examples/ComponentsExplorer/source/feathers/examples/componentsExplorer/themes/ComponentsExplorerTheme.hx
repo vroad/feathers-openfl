@@ -3,6 +3,7 @@ import feathers.controls.Button;
 import feathers.controls.ImageLoader;
 import feathers.controls.PanelScreen;
 import feathers.examples.componentsExplorer.data.EmbeddedAssets;
+import feathers.examples.componentsExplorer.screens.AutoCompleteScreen;
 import feathers.examples.componentsExplorer.screens.ButtonScreen;
 import feathers.examples.componentsExplorer.screens.CalloutScreen;
 import feathers.examples.componentsExplorer.screens.ItemRendererScreen;
@@ -27,8 +28,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		super.initializeStyleProviders();
 
 		this.getStyleProviderForClass(ButtonScreen).defaultStyleFunction = this.setButtonScreenStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(ButtonScreen.CHILD_NAME_ICON_BUTTON, this.setButtonScreenIconButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(ButtonScreen.CHILD_STYLE_NAME_ICON_BUTTON, this.setButtonScreenIconButtonStyles);
 
+		this.getStyleProviderForClass(AutoCompleteScreen).defaultStyleFunction = this.setAutoCompleteScreenStyles;
 		this.getStyleProviderForClass(CalloutScreen).defaultStyleFunction = this.setCalloutScreenStyles;
 		this.getStyleProviderForClass(LabelScreen).defaultStyleFunction = this.setLabelScreenStyles;
 		this.getStyleProviderForClass(ItemRendererScreen).defaultStyleFunction = this.setItemRendererScreenStyles;
@@ -36,6 +38,21 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 		this.getStyleProviderForClass(SliderScreen).defaultStyleFunction = this.setSliderScreenStyles;
 		this.getStyleProviderForClass(TextInputScreen).defaultStyleFunction = this.setTextInputScreenStyles;
 		this.getStyleProviderForClass(ToggleScreen).defaultStyleFunction = this.setToggleScreenStyles;
+	}
+	
+	protected function setAutoCompleteScreenStyles(screen:AutoCompleteScreen):void
+	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
+		var verticalLayout:VerticalLayout = new VerticalLayout();
+		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
+		verticalLayout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
+		verticalLayout.padding = this.gutterSize;
+		verticalLayout.gap = this.smallGutterSize;
+		screen.layout = verticalLayout;
+
+		screen.verticalScrollPolicy = PanelScreen.SCROLL_POLICY_ON;
 	}
 
 	private function setButtonScreenIconButtonStyles(button:Button):Void
@@ -54,6 +71,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setButtonScreenStyles(screen:ButtonScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
 		verticalLayout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
@@ -66,16 +86,25 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setCalloutScreenStyles(screen:CalloutScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		screen.layoutPadding = this.gutterSize;
 	}
 
 	private function setItemRendererScreenStyles(screen:ItemRendererScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		screen.itemRendererGap = this.gutterSize;
 	}
 
 	private function setLabelScreenStyles(screen:LabelScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
 		verticalLayout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
@@ -88,6 +117,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setProgressBarScreenStyles(screen:ProgressBarScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
 		layout.verticalAlign = HorizontalLayout.VERTICAL_ALIGN_MIDDLE;
@@ -97,6 +129,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setSliderScreenStyles(screen:SliderScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var layout:HorizontalLayout = new HorizontalLayout();
 		layout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
 		layout.verticalAlign = HorizontalLayout.VERTICAL_ALIGN_MIDDLE;
@@ -106,6 +141,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setTextInputScreenStyles(screen:TextInputScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var verticalLayout:VerticalLayout = new VerticalLayout();
 		verticalLayout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
 		verticalLayout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
@@ -118,6 +156,9 @@ class ComponentsExplorerTheme extends MetalWorksMobileTheme
 
 	private function setToggleScreenStyles(screen:ToggleScreen):Void
 	{
+		//don't forget to set styles from the super class, if required
+		this.setPanelScreenStyles(screen);
+		
 		var layout:VerticalLayout = new VerticalLayout();
 		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_CENTER;
 		layout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_MIDDLE;

@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -151,7 +151,7 @@ class ValidationQueue implements IAnimatable
 	 */
 	public function advanceTime(time:Float):Void
 	{
-		if(this._isValidating)
+		if(this._isValidating || !this._starling.contextValid)
 		{
 			return;
 		}
@@ -165,6 +165,11 @@ class ValidationQueue implements IAnimatable
 		while(this._queue.length > 0) //rechecking length after the shift
 		{
 			var item:IValidating = this._queue.shift();
+			if(item.depth < 0)
+			{
+				//skip items that are no longer on the display list
+				continue;
+			}
 			item.validate();
 		}
 		var temp:Array<IValidating> = this._queue;

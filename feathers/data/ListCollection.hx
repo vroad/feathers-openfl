@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -155,7 +155,6 @@ import starling.events.EventDispatcher;
  */
 ///[Event(name="updateItem",type="starling.events.Event")]
 
-//[DefaultProperty("data")]
 /**
  * Wraps a data source with a common API for use with UI controls, like
  * lists, that support one dimensional collections of data. Supports custom
@@ -212,36 +211,35 @@ class ListCollection extends EventDispatcher
 		{
 			return _data;
 		}
-		if(value == null)
-		{
-			this.removeAll();
-			return _data;
-		}
 		this._data = value;
 		//we'll automatically detect an array, vector, or xmllist for convenience
 		if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, ArrayListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new ArrayListCollectionDataDescriptor();
+			this._dataDescriptor = new ArrayListCollectionDataDescriptor();
 		}
 		/*else if(Std.is(this._data, Array<Float>) && !Std.is(this._dataDescriptor, VectorFloatListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new VectorFloatListCollectionDataDescriptor();
+			this._dataDescriptor = new VectorNumberListCollectionDataDescriptor();
 		}
 		else if(Std.is(this._data, Array<Int>) && !Std.is(this._dataDescriptor, VectorIntListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new VectorIntListCollectionDataDescriptor();
+			this._dataDescriptor = new VectorIntListCollectionDataDescriptor();
 		}
 		else if(Std.is(this._data, Array<UInt>) && !Std.is(this._dataDescriptor, VectorUintListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new VectorUintListCollectionDataDescriptor();
+			this._dataDescriptor = new VectorUintListCollectionDataDescriptor();
 		}*/
 		else if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, VectorListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new VectorListCollectionDataDescriptor();
+			this._dataDescriptor = new VectorListCollectionDataDescriptor();
 		}
 		/*else if(Std.is(this._data, XMLList) && !Std.is(this._dataDescriptor, XMLListListCollectionDataDescriptor))
 		{
-			this.dataDescriptor = new XMLListListCollectionDataDescriptor();
+			this._dataDescriptor = new XMLListListCollectionDataDescriptor();
+		}
+		if(this._data === null)
+		{
+			this._dataDescriptor = null;
 		}*/
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
@@ -285,6 +283,10 @@ class ListCollection extends EventDispatcher
 	public var length(get, never):Int;
 	public function get_length():Int
 	{
+		if(!this._dataDescriptor)
+		{
+			return 0;
+		}
 		return this._dataDescriptor.getLength(this._data);
 	}
 

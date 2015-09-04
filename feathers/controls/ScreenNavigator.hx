@@ -1,110 +1,19 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls;
-import feathers.core.FeathersControl;
-import feathers.core.IValidating;
+import feathers.controls.supportClasses.BaseScreenNavigator;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import openfl.errors.Error;
 import openfl.errors.TypeError;
 
-import openfl.errors.IllegalOperationError;
-import openfl.geom.Rectangle;
-//import openfl.utils.getDefinitionByName;
-
 import starling.display.DisplayObject;
 import starling.events.Event;
-import starling.events.ResizeEvent;
-
-/**
- * Dispatched when the active screen changes.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType starling.events.Event.CHANGE
- *///[Event(name="change",type="starling.events.Event")]
-
-/**
- * Dispatched when the current screen is removed and there is no active
- * screen.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType feathers.events.FeathersEventType.CLEAR
- *///[Event(name="clear",type="starling.events.Event")]
-
-/**
- * Dispatched when the transition between screens begins.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType feathers.events.FeathersEventType.TRANSITION_START
- *///[Event(name="transitionStart",type="starling.events.Event")]
-
-/**
- * Dispatched when the transition between screens has completed.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType feathers.events.FeathersEventType.TRANSITION_COMPLETE
- *///[Event(name="transitionComplete",type="starling.events.Event")]
 
 /**
  * A "view stack"-like container that supports navigation between screens
@@ -115,22 +24,16 @@ import starling.events.ResizeEvent;
  *
  * <listing version="3.0">
  * var navigator:ScreenNavigator = new ScreenNavigator();
- * navigator.addScreen( "mainMenu", new ScreenNavigatorItem( MainMenuScreen );
+ * navigator.addScreen( "mainMenu", new ScreenNavigatorItem( MainMenuScreen ) );
  * this.addChild( navigator );
- *
  * navigator.showScreen( "mainMenu" );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/screen-navigator
- * @see http://wiki.starling-framework.org/feathers/transitions
+ * @see ../../../help/screen-navigator.html How to use the Feathers ScreenNavigator component
+ * @see ../../../help/transitions.html Transitions for Feathers screen navigators
  * @see feathers.controls.ScreenNavigatorItem
  */
-class ScreenNavigator extends FeathersControl
+public class ScreenNavigator extends BaseScreenNavigator
 {
-	/**
-	 * @private
-	 */
-	private static var SIGNAL_TYPE:Class<Dynamic>;
-
 	/**
 	 * The screen navigator will auto size itself to fill the entire stage.
 	 *
@@ -155,33 +58,11 @@ class ScreenNavigator extends FeathersControl
 	public static var globalStyleProvider:IStyleProvider;
 
 	/**
-	 * The default transition function.
-	 */
-	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void
-	{
-		//in short, do nothing
-		completeCallback();
-	}
-
-	/**
 	 * Constructor.
 	 */
 	public function new()
 	{
 		super();
-		if(SIGNAL_TYPE == null)
-		{
-			try
-			{
-				SIGNAL_TYPE = Type.getClass("org.osflash.signals.ISignal");
-			}
-			catch(error:Error)
-			{
-				//signals not being used
-			}
-		}
-		this.addEventListener(Event.ADDED_TO_STAGE, screenNavigator_addedToStageHandler);
-		this.addEventListener(Event.REMOVED_FROM_STAGE, screenNavigator_removedFromStageHandler);
 	}
 
 	/**
@@ -195,74 +76,24 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _activeScreenID:String;
+	protected var _transition:Function;
 
 	/**
-	 * The string identifier for the currently active screen.
-	 */
-	public var activeScreenID(get, never):String;
-	public function get_activeScreenID():String
-	{
-		return this._activeScreenID;
-	}
-
-	/**
-	 * @private
-	 */
-	private var _activeScreen:DisplayObject;
-
-	/**
-	 * A reference to the currently active screen.
-	 */
-	public var activeScreen(get, never):DisplayObject;
-	public function get_activeScreen():DisplayObject
-	{
-		return this._activeScreen;
-	}
-
-	/**
-	 * @private
-	 */
-	private var _clipContent:Bool = false;
-
-	/**
-	 * Determines if the navigator's content should be clipped to the width
-	 * and height.
+	 * Typically used to provide some kind of animation or visual effect,
+	 * this function is called when a new screen is shown. 
 	 *
-	 * <p>In the following example, clipping is enabled:</p>
+	 * <p>In the following example, the screen navigator is given a
+	 * transition that fades in the new screen on top of the old screen:</p>
 	 *
 	 * <listing version="3.0">
-	 * navigator.clipContent = true;</listing>
+	 * navigator.transition = Fade.createFadeInTransition();</listing>
 	 *
-	 * @default false
-	 */
-	public var clipContent(get, set):Bool;
-	public function get_clipContent():Bool
-	{
-		return this._clipContent;
-	}
-
-	/**
-	 * @private
-	 */
-	public function set_clipContent(value:Bool):Bool
-	{
-		if(this._clipContent == value)
-		{
-			return get_clipContent();
-		}
-		this._clipContent = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_clipContent();
-	}
-
-	/**
-	 * A function that is called when the <code>ScreenNavigator</code> is
-	 * changing screens that is intended to display a transition effect and
-	 * to notify the <code>ScreenNavigator</code> when the effect is
-	 * finished.
+	 * <p>A number of animated transitions may be found in the
+	 * <a href="../motion/package-detail.html">feathers.motion</a> package.
+	 * However, you are not limited to only these transitions. It's possible
+	 * to create custom transitions too.</p>
 	 *
-	 * <p>The function should have the following signature:</p>
+	 * <p>A custom transition function should have the following signature:</p>
 	 * <pre>function(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void</pre>
 	 *
 	 * <p>Either of the <code>oldScreen</code> and <code>newScreen</code>
@@ -273,26 +104,42 @@ class ScreenNavigator extends FeathersControl
 	 * be null when clearing the screen.</p>
 	 *
 	 * <p>The <code>completeCallback</code> function <em>must</em> be called
-	 * when the transition effect finishes. It takes zero arguments and
-	 * returns nothing. In other words, it has the following signature:</p>
+	 * when the transition effect finishes.This callback indicate to the
+	 * screen navigator that the transition has finished. This function has
+	 * the following signature:</p>
 	 *
-	 * <pre>function():Void</pre>
+	 * <pre>function(cancelTransition:Boolean = false):void</pre>
 	 *
-	 * <p>In the future, it may be possible for a transition to cancel
-	 * itself. If this happens, the <code>completeCallback</code> may begin
-	 * accepting arguments, but they will have default values and existing
-	 * uses of <code>completeCallback</code> should continue to work.</p>
+	 * <p>The first argument defaults to <code>false</code>, meaning that
+	 * the transition completed successfully. In most cases, this callback
+	 * may be called without arguments. If a transition is cancelled before
+	 * completion (perhaps through some kind of user interaction), and the
+	 * previous screen should be restored, pass <code>true</code> as the
+	 * first argument to the callback to inform the screen navigator that
+	 * the transition is cancelled.</p>
+	 *
+	 * @default null
 	 *
 	 * @see #showScreen()
 	 * @see #clearScreen()
-	 * @see http://wiki.starling-framework.org/feathers/transitions
+	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public var transition:Dynamic = defaultTransition;
+	public function get transition():Function
+	{
+		return this._transition;
+	}
 
 	/**
 	 * @private
 	 */
-	private var _screens:Map<String, ScreenNavigatorItem> = new Map();
+	public function set transition(value:Function):void
+	{
+		if(this._transition == value)
+		{
+			return;
+		}
+		this._transition = value;
+	}
 
 	/**
 	 * @private
@@ -300,133 +147,93 @@ class ScreenNavigator extends FeathersControl
 	private var _screenEvents:Map<String, Map<String, Dynamic->Void>> = new Map();
 
 	/**
-	 * @private
-	 */
-	private var _transitionIsActive:Bool = false;
-
-	/**
-	 * @private
-	 */
-	private var _previousScreenInTransitionID:String;
-
-	/**
-	 * @private
-	 */
-	private var _previousScreenInTransition:DisplayObject;
-
-	/**
-	 * @private
-	 */
-	private var _nextScreenID:String = null;
-
-	/**
-	 * @private
-	 */
-	private var _clearAfterTransition:Bool = false;
-
-	/**
-	 * @private
-	 */
-	private var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
-
-	//[Inspectable(type="String",enumeration="stage,content")]
-	/**
-	 * Determines how the screen navigator will set its own size when its
-	 * dimensions (width and height) aren't set explicitly.
+	 * Registers a new screen with a string identifier that can be used
+	 * to reference the screen in other calls, like <code>removeScreen()</code>
+	 * or <code>showScreen()</code>.
 	 *
-	 * <p>In the following example, the screen navigator will be sized to
-	 * match its content:</p>
-	 *
-	 * <listing version="3.0">
-	 * navigator.autoSizeMode = ScreenNavigator.AUTO_SIZE_MODE_CONTENT;</listing>
-	 *
-	 * @default ScreenNavigator.AUTO_SIZE_MODE_STAGE
-	 *
-	 * @see #AUTO_SIZE_MODE_STAGE
-	 * @see #AUTO_SIZE_MODE_CONTENT
+	 * @see #removeScreen()
 	 */
-	public var autoSizeMode(get, set):String;
-	public function get_autoSizeMode():String
+	public function addScreen(id:String, item:ScreenNavigatorItem):void
 	{
-		return this._autoSizeMode;
+		this.addScreenInternal(id, item);
 	}
 
 	/**
-	 * @private
+	 * Removes an existing screen using the identifier assigned to it in the
+	 * call to <code>addScreen()</code>.
+	 *
+	 * @see #removeAllScreens()
+	 * @see #addScreen()
 	 */
-	public function set_autoSizeMode(value:String):String
+	public function removeScreen(id:String):ScreenNavigatorItem
 	{
-		if(this._autoSizeMode == value)
+		return ScreenNavigatorItem(this.removeScreenInternal(id));
+	}
+
+	/**
+	 * Returns the <code>ScreenNavigatorItem</code> instance with the
+	 * specified identifier.
+	 */
+	public function getScreen(id:String):ScreenNavigatorItem
+	{
+		if(this._screens.hasOwnProperty(id))
 		{
-			return get_autoSizeMode();
+			return ScreenNavigatorItem(this._screens[id]);
 		}
-		this._autoSizeMode = value;
-		if(this._activeScreen != null)
-		{
-			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT)
-			{
-				this._activeScreen.addEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
-			}
-			else
-			{
-				this._activeScreen.removeEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
-			}
-		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
-		return get_autoSizeMode();
+		return null;
 	}
 
 	/**
 	 * Displays a screen and returns a reference to it. If a previous
 	 * transition is running, the new screen will be queued, and no
 	 * reference will be returned.
+	 *
+	 * <p>An optional transition may be specified. If <code>null</code> the
+	 * <code>transition</code> property will be used instead.</p>
+	 *
+	 * @see #transition
 	 */
-	public function showScreen(id:String):DisplayObject
+	public function showScreen(id:String, transition:Function = null):DisplayObject
 	{
-		if(!this._screens.exists(id))
+		if(transition === null)
 		{
-			throw new IllegalOperationError("Screen with id '" + id + "' cannot be shown because it has not been defined.");
+			transition = this._transition;
 		}
+		return this.showScreenInternal(id, transition);
+	}
 
-		if(this._transitionIsActive)
+	/**
+	 * Removes the current screen, leaving the <code>ScreenNavigator</code>
+	 * empty.
+	 *
+	 * <p>An optional transition may be specified. If <code>null</code> the
+	 * <code>transition</code> property will be used instead.</p>
+	 *
+	 * @see #transition
+	 */
+	public function clearScreen(transition:Function = null):void
+	{
+		if(transition == null)
 		{
-			this._nextScreenID = id;
-			this._clearAfterTransition = false;
-			return null;
+			transition = this._transition;
 		}
+		this.clearScreenInternal(transition);
+		this.dispatchEventWith(FeathersEventType.CLEAR);
+	}
 
-		if(this._activeScreenID == id)
-		{
-			return this._activeScreen;
-		}
-
-		this._previousScreenInTransition = this._activeScreen;
-		this._previousScreenInTransitionID = this._activeScreenID;
-		if(this._activeScreen != null)
-		{
-			this.clearScreenInternal(false);
-		}
-		
-		this._transitionIsActive = true;
-
-		var item:ScreenNavigatorItem = cast(this._screens[id], ScreenNavigatorItem);
-		this._activeScreen = @:privateAccess item.getScreen();
-		if(Std.is(this._activeScreen, IScreen))
-		{
-			var screen:IScreen = cast(this._activeScreen, IScreen);
-			screen.screenID = id;
-			screen.owner = this;
-		}
-		this._activeScreenID = id;
-
+	/**
+	 * @private
+	 */
+	override protected function prepareActiveScreen():void
+	{
+		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Dynamic = item.events;
 		var savedScreenEvents:Map<String, Dynamic->Void> = new Map();
 		for (eventName in Reflect.fields(events))
 		{
-			var signal:Dynamic = Reflect.getProperty(this._activeScreen, eventName);
-			var eventAction:Dynamic = Reflect.getProperty(events, eventName);
-			var eventListener:Dynamic->Void;
-			if(Reflect.isFunction(eventAction))
+			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;
+			var eventAction:Object = events[eventName];
+			if(eventAction is Function)
 			{
 				if(signal != null)
 				{
@@ -441,12 +248,12 @@ class ScreenNavigator extends FeathersControl
 			{
 				if(signal != null)
 				{
-					eventListener = this.createScreenSignalListener(cast(eventAction, String), signal);
+					var eventListener:Function = this.createShowScreenSignalListener(eventAction as String, signal);
 					signal.add(eventListener);
 				}
 				else
 				{
-					eventListener = this.createScreenEventListener(cast(eventAction, String));
+					eventListener = this.createShowScreenEventListener(eventAction as String);
 					this._activeScreen.addEventListener(eventName, eventListener);
 				}
 				savedScreenEvents[eventName] = eventListener;
@@ -456,66 +263,22 @@ class ScreenNavigator extends FeathersControl
 				throw new TypeError("Unknown event action defined for screen:" + eventAction.toString());
 			}
 		}
-
-		this._screenEvents[id] = savedScreenEvents;
-
-		if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
-		{
-			this._activeScreen.addEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
-		}
-		this.addChild(this._activeScreen);
-
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		if(this._validationQueue != null && !this._validationQueue.isValidating)
-		{
-			//force a COMPLETE validation of everything
-			//but only if we're not already doing that...
-			this._validationQueue.advanceTime(0);
-		}
-
-		this.dispatchEventWith(FeathersEventType.TRANSITION_START);
-		this.transition(this._previousScreenInTransition, this._activeScreen, transitionComplete);
-
-		this.dispatchEventWith(Event.CHANGE);
-		return this._activeScreen;
-	}
-
-	/**
-	 * Removes the current screen, leaving the <code>ScreenNavigator</code>
-	 * empty.
-	 */
-	public function clearScreen():Void
-	{
-		if(this._transitionIsActive)
-		{
-			this._nextScreenID = null;
-			this._clearAfterTransition = true;
-			return;
-		}
-
-		this.clearScreenInternal(true);
-		this.dispatchEventWith(FeathersEventType.CLEAR);
+		this._screenEvents[this._activeScreenID] = savedScreenEvents;
 	}
 
 	/**
 	 * @private
 	 */
-	private function clearScreenInternal(displayTransition:Bool):Void
+	override protected function cleanupActiveScreen():void
 	{
-		if(this._activeScreen == null)
-		{
-			//no screen visible.
-			return;
-		}
-
 		var item:ScreenNavigatorItem = cast(this._screens[this._activeScreenID], ScreenNavigatorItem);
 		var events:Dynamic = item.events;
 		var savedScreenEvents:Map<String, Dynamic->Void> = this._screenEvents[this._activeScreenID];
 		for (eventName in Reflect.fields(events))
 		{
-			var signal:Dynamic = Reflect.getProperty(this._activeScreen, eventName);
-			var eventAction:Dynamic = Reflect.getProperty(events, eventName);
-			if(Reflect.isFunction(eventAction))
+			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;
+			var eventAction:Object = events[eventName];
+			if(eventAction is Function)
 			{
 				if(signal != null)
 				{
@@ -539,257 +302,13 @@ class ScreenNavigator extends FeathersControl
 				}
 			}
 		}
-
-		if(displayTransition)
-		{
-			this._transitionIsActive = true;
-			this._previousScreenInTransition = this._activeScreen;
-			this._previousScreenInTransitionID = this._activeScreenID;
-		}
 		this._screenEvents[this._activeScreenID] = null;
-		this._activeScreen = null;
-		this._activeScreenID = null;
-		if(displayTransition)
-		{
-			this.transition(this._previousScreenInTransition, null, transitionComplete);
-		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
-	}
-
-	/**
-	 * Registers a new screen by its identifier.
-	 */
-	public function addScreen(id:String, item:ScreenNavigatorItem):Void
-	{
-		if(this._screens.exists(id))
-		{
-			throw new IllegalOperationError("Screen with id '" + id + "' already defined. Cannot add two screens with the same id.");
-		}
-
-		this._screens[id] = item;
-	}
-
-	/**
-	 * Removes an existing screen using its identifier.
-	 */
-	public function removeScreen(id:String):Void
-	{
-		if(!this._screens.exists(id))
-		{
-			throw new IllegalOperationError("Screen '" + id + "' cannot be removed because it has not been added.");
-		}
-		if(this._activeScreenID == id)
-		{
-			this.clearScreen();
-		}
-		this._screens.remove(id);
-	}
-
-	/**
-	 * Removes all screens.
-	 */
-	public function removeAllScreens():Void
-	{
-		this.clearScreen();
-		for (id in this._screens.keys())
-		{
-			this._screens.remove(id);
-		}
-	}
-
-	/**
-	 * Determines if the specified screen identifier has been added.
-	 */
-	public function hasScreen(id:String):Bool
-	{
-		return this._screens.exists(id);
-	}
-
-	/**
-	 * Returns the <code>ScreenNavigatorItem</code> instance with the
-	 * specified identifier.
-	 */
-	public function getScreen(id:String):ScreenNavigatorItem
-	{
-		if(this._screens.exists(id))
-		{
-			return cast(this._screens[id], ScreenNavigatorItem);
-		}
-		return null;
-	}
-
-	/**
-	 * Returns a list of the screen identifiers that have been added.
-	 */
-	public function getScreenIDs(result:Array<String> = null):Array<String>
-	{
-		if(result == null)
-		{
-			result = new Array();
-		}
-
-		for (id in this._screens.keys())
-		{
-			result.push(id);
-		}
-		return result;
 	}
 
 	/**
 	 * @private
 	 */
-	override public function dispose():Void
-	{
-		this.clearScreenInternal(false);
-		super.dispose();
-	}
-
-	/**
-	 * @private
-	 */
-	override private function draw():Void
-	{
-		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
-		var selectionInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SELECTED);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-
-		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
-
-		if(sizeInvalid || selectionInvalid)
-		{
-			if(this._activeScreen != null)
-			{
-				if(this._activeScreen.width != this.actualWidth)
-				{
-					this._activeScreen.width = this.actualWidth;
-				}
-				if(this._activeScreen.height != this.actualHeight)
-				{
-					this._activeScreen.height = this.actualHeight;
-				}
-			}
-		}
-
-		if(stylesInvalid || sizeInvalid)
-		{
-			if(this._clipContent)
-			{
-				var clipRect:Rectangle = this.clipRect;
-				if(clipRect == null)
-				{
-					clipRect = new Rectangle();
-				}
-				clipRect.width = this.actualWidth;
-				clipRect.height = this.actualHeight;
-				this.clipRect = clipRect;
-			}
-			else
-			{
-				this.clipRect = null;
-			}
-		}
-	}
-
-	/**
-	 * If the component's dimensions have not been set explicitly, it will
-	 * measure its content and determine an ideal size for itself. If the
-	 * <code>explicitWidth</code> or <code>explicitHeight</code> member
-	 * variables are set, those value will be used without additional
-	 * measurement. If one is set, but not the other, the dimension with the
-	 * explicit value will not be measured, but the other non-explicit
-	 * dimension will still need measurement.
-	 *
-	 * <p>Calls <code>setSizeInternal()</code> to set up the
-	 * <code>actualWidth</code> and <code>actualHeight</code> member
-	 * variables used for layout.</p>
-	 *
-	 * <p>Meant for internal use, and subclasses may override this function
-	 * with a custom implementation.</p>
-	 */
-	private function autoSizeIfNeeded():Bool
-	{
-		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
-		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
-		if(!needsWidth && !needsHeight)
-		{
-			return false;
-		}
-
-		if((this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null) &&
-			Std.is(this._activeScreen, IValidating))
-		{
-			cast(this._activeScreen, IValidating).validate();
-		}
-
-		var newWidth:Float = this.explicitWidth;
-		if(needsWidth)
-		{
-			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
-			{
-				newWidth = this._activeScreen != null ? this._activeScreen.width : 0;
-			}
-			else
-			{
-				newWidth = this.stage.stageWidth;
-			}
-		}
-
-		var newHeight:Float = this.explicitHeight;
-		if(needsHeight)
-		{
-			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || this.stage == null)
-			{
-				newHeight = this._activeScreen != null ? this._activeScreen.height : 0;
-			}
-			else
-			{
-				newHeight = this.stage.stageHeight;
-			}
-		}
-
-		return this.setSizeInternal(newWidth, newHeight, false);
-	}
-
-	/**
-	 * @private
-	 */
-	private function transitionComplete():Void
-	{
-		this._transitionIsActive = false;
-		this.dispatchEventWith(FeathersEventType.TRANSITION_COMPLETE);
-		if(this._previousScreenInTransition != null)
-		{
-			var item:ScreenNavigatorItem = this._screens[this._previousScreenInTransitionID];
-			var canBeDisposed:Bool = !(Std.is(item.screen, DisplayObject));
-			if(Std.is(this._previousScreenInTransition, IScreen))
-			{
-				var screen:IScreen = cast(this._previousScreenInTransition, IScreen);
-				screen.screenID = null;
-				screen.owner = null;
-			}
-			this._previousScreenInTransition.removeEventListener(FeathersEventType.RESIZE, activeScreen_resizeHandler);
-			this.removeChild(this._previousScreenInTransition, canBeDisposed);
-			this._previousScreenInTransition = null;
-			this._previousScreenInTransitionID = null;
-		}
-
-		if(this._clearAfterTransition)
-		{
-			this.clearScreen();
-		}
-		else if(this._nextScreenID != null)
-		{
-			this.showScreen(this._nextScreenID);
-		}
-
-		this._nextScreenID = null;
-		this._clearAfterTransition = false;
-	}
-
-	/**
-	 * @private
-	 */
-	private function createScreenEventListener(screenID:String):Event->Void
+	protected function createShowScreenEventListener(screenID:String):Function
 	{
 		var self:ScreenNavigator = this;
 		var eventListener:Dynamic = function(event:Event):Void
@@ -803,7 +322,7 @@ class ScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function createScreenSignalListener(screenID:String, signal:Dynamic):Dynamic->Void
+	protected function createShowScreenSignalListener(screenID:String, signal:Object):Function
 	{
 		var self:ScreenNavigator = this;
 		var signalListener:Dynamic->Void;
@@ -825,40 +344,6 @@ class ScreenNavigator extends FeathersControl
 
 		return signalListener;
 	}
+}
 
-	/**
-	 * @private
-	 */
-	private function screenNavigator_addedToStageHandler(event:Event):Void
-	{
-		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	private function screenNavigator_removedFromStageHandler(event:Event):Void
-	{
-		this.stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-	}
-
-	/**
-	 * @private
-	 */
-	private function activeScreen_resizeHandler(event:Event):Void
-	{
-		if(this._isValidating || this._autoSizeMode != AUTO_SIZE_MODE_CONTENT)
-		{
-			return;
-		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
-	}
-
-	/**
-	 * @private
-	 */
-	private function stage_resizeHandler(event:ResizeEvent):Void
-	{
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
-	}
 }

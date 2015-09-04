@@ -22,22 +22,13 @@ class DragSource extends LayoutGroup implements IDragSource
 		this.addEventListener(DragDropEvent.DRAG_COMPLETE, dragCompleteHandler);
 	}
 
-	private var _background:Quad;
 	private var _touchID:Int = -1;
 	private var _draggedObject:DisplayObject;
 	private var _dragFormat:String;
 
 	override private function initialize():Void
 	{
-		this._background = new Quad(1, 1, 0x36322e);
-		this.addChildAt(this._background, 0);
-	}
-
-	override private function draw():Void
-	{
-		super.draw();
-		this._background.width = this.actualWidth;
-		this._background.height = this.actualHeight;
+		this.backgroundSkin = new Quad(1, 1, 0x36322e);
 	}
 
 	private function touchHandler(event:TouchEvent):Void
@@ -70,7 +61,7 @@ class DragSource extends LayoutGroup implements IDragSource
 		else
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(touch == null || touch.target == this || touch.target == this._background)
+			if(!touch || touch.target == this || touch.target == this.backgroundSkin)
 			{
 				return;
 			}

@@ -1,5 +1,6 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.ToggleSwitch;
@@ -22,7 +23,6 @@ import starling.events.Event;
 	public var settings:ListSettings;
 
 	private var _list:List;
-	private var _backButton:Button;
 
 	private var _isSelectableToggle:ToggleSwitch;
 	private var _allowMultipleSelectionToggle:ToggleSwitch;
@@ -45,6 +45,8 @@ import starling.events.Event;
 	{
 		//never forget to call super.initialize()
 		super.initialize();
+
+		this.title = "List Settings";
 
 		this.layout = new AnchorLayout();
 
@@ -73,18 +75,22 @@ import starling.events.Event;
 		this._list.autoHideBackground = true;
 		this.addChild(this._list);
 
-		this._backButton = new Button();
-		this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-		this._backButton.label = "Back";
-		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-		this.headerProperties.setProperty("title", "List Settings");
-		this.headerProperties.setProperty("leftItems", 
-		[
-			this._backButton
-		]);
+		this.headerFactory = this.customHeaderFactory;
 
 		this.backButtonHandler = this.onBackButton;
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		var doneButton:Button = new Button();
+		doneButton.label = "Done";
+		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
+		header.rightItems = new <DisplayObject>
+		[
+			doneButton
+		]);
+		return header;
 	}
 
 	private function disposeItemAccessory(item:Dynamic):Void
@@ -97,7 +103,7 @@ import starling.events.Event;
 		this.dispatchEventWith(Event.COMPLETE);
 	}
 
-	private function backButton_triggeredHandler(event:Event):Void
+	private function doneButton_triggeredHandler(event:Event):void
 	{
 		this.onBackButton();
 	}

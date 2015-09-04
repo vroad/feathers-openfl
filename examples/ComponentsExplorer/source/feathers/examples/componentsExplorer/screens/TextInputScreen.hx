@@ -1,5 +1,6 @@
 package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
+import feathers.controls.Header;
 import feathers.controls.PanelScreen;
 import feathers.controls.TextInput;
 import feathers.skins.IStyleProvider;
@@ -19,7 +20,6 @@ import starling.events.Event;
 		super();
 	}
 
-	private var _backButton:Button;
 	private var _input:TextInput;
 	private var _disabledInput:TextInput;
 	private var _passwordInput:TextInput;
@@ -36,6 +36,8 @@ import starling.events.Event;
 		//never forget to call super.initialize()
 		super.initialize();
 
+		this.title = "Text Input";
+
 		this._input = new TextInput();
 		this._input.prompt = "Normal Text Input";
 		this.addChild(this._input);
@@ -46,7 +48,7 @@ import starling.events.Event;
 		this.addChild(this._disabledInput);
 
 		this._searchInput = new TextInput();
-		this._searchInput.styleNameList.add(TextInput.ALTERNATE_NAME_SEARCH_TEXT_INPUT);
+		this._searchInput.styleNameList.add(TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT);
 		this._searchInput.prompt = "Search Input";
 		this.addChild(this._searchInput);
 
@@ -56,26 +58,37 @@ import starling.events.Event;
 		this.addChild(this._passwordInput);
 
 		this._notEditableInput = new TextInput();
-		this._notEditableInput.prompt = "Not Editable";
+		this._notEditableInput.text = "Not Editable";
 		this._notEditableInput.isEditable = false;
 		this.addChild(this._notEditableInput);
 
-		this.headerProperties.setProperty("title", "Text Input");
+		this.headerFactory = this.customHeaderFactory;
 
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
 		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			this._backButton = new Button();
-			this._backButton.styleNameList.add(Button.ALTERNATE_NAME_BACK_BUTTON);
-			this._backButton.label = "Back";
-			this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-
-			this.headerProperties.setProperty("leftItems", 
-			[
-				this._backButton
-			]);
-
 			this.backButtonHandler = this.onBackButton;
 		}
+	}
+
+	private function customHeaderFactory():Header
+	{
+		var header:Header = new Header();
+		//this screen doesn't use a back button on tablets because the main
+		//app's uses a split layout
+		if(!DeviceCapabilities.isTablet(Starling.current.nativeStage))
+		{
+			var backButton:Button = new Button();
+			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
+			backButton.label = "Back";
+			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
+			header.leftItems = new <DisplayObject>
+			[
+				backButton
+			];
+		}
+		return header;
 	}
 
 	private function onBackButton():Void

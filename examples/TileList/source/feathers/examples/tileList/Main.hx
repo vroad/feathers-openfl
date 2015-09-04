@@ -15,7 +15,6 @@ import openfl.geom.Rectangle;
 
 import starling.display.Image;
 import starling.events.Event;
-import starling.events.ResizeEvent;
 import starling.text.BitmapFont;
 import starling.textures.Texture;
 import starling.textures.TextureAtlas;
@@ -37,6 +36,9 @@ class Main extends LayoutGroup
 	public function new()
 	{
 		super();
+		//the container will fill the whole stage and resize when the stage
+		//resizes.
+		this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
 	}
 
 	private var _iconAtlas:TextureAtlas;
@@ -62,11 +64,6 @@ class Main extends LayoutGroup
 
 	override private function initialize():Void
 	{
-		//we want this container to fill the whole stage
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
-		//and we'll listen for when the stage resizes to resize the container
-		this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-
 		//a nice, fluid layout
 		this.layout = new AnchorLayout();
 
@@ -188,10 +185,5 @@ class Main extends LayoutGroup
 	private function pageIndicator_changeHandler(event:Event):Void
 	{
 		this._list.scrollToPageIndex(this._pageIndicator.selectedIndex, 0, this._list.pageThrowDuration);
-	}
-
-	private function stage_resizeHandler(event:ResizeEvent):Void
-	{
-		this.setSize(this.stage.stageWidth, this.stage.stageHeight);
 	}
 }

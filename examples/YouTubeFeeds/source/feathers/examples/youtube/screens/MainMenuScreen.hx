@@ -1,41 +1,46 @@
-package feathers.examples.youtube.screens;
+package feathers.examples.youtube.screens
+{
 import feathers.controls.Label;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
-import feathers.controls.ScreenNavigatorItem;
 import feathers.controls.renderers.DefaultListItemRenderer;
 import feathers.controls.renderers.IListItemRenderer;
-import feathers.core.FeathersControl;
 import feathers.data.ListCollection;
 import feathers.events.FeathersEventType;
 import feathers.examples.youtube.models.VideoFeed;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
 import feathers.skins.StandardIcons;
-import openfl.errors.Error;
 
-import openfl.events.ErrorEvent;
-import openfl.events.Event;
-import openfl.events.IOErrorEvent;
-import openfl.events.SecurityErrorEvent;
-import openfl.net.URLLoader;
-import openfl.net.URLRequest;
+import flash.events.ErrorEvent;
+import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.events.SecurityErrorEvent;
+import flash.net.URLLoader;
+import flash.net.URLLoaderDataFormat;
+import flash.net.URLRequest;
 
 import starling.events.Event;
 import starling.textures.Texture;
-//[Event(name="listVideos",type="starling.events.Event")]
 
-class MainMenuScreen extends PanelScreen
+[Event(name="listVideos",type="starling.events.Event")]
+
+public class MainMenuScreen extends PanelScreen
 {
-	inline public static var LIST_VIDEOS:String = "listVideos";
+	public static const LIST_VIDEOS:String = "listVideos";
 
-	inline private static var CATEGORIES_URL:String = "http://gdata.youtube.com/schemas/2007/categories.cat";
-	inline private static var FEED_URL_BEFORE:String = "http://gdata.youtube.com/feeds/api/standardfeeds/US/most_popular_";
-	inline private static var FEED_URL_AFTER:String = "?v=2";
+	private static const PART_PARAMETER:String = "?part=snippet"; //must be first
+	private static const CHART_PARAMETER:String = "&chart=mostPopular";
+	private static const REGION_CODE_PARAMETER:String = "&regionCode=US";
+	private static const MAX_RESULTS_PARAMETER:String = "&maxResults=25";
+	private static const VIDEO_CATEGORY_ID_PARAMETER:String = "&videoCategoryId=";
+	private static const KEY_PARAMETER:String = "&key=" + CONFIG::YOUTUBE_API_KEY;
+	private static const FIELDS_PARAMETER:String = "&fields=items%2Fid%2Citems%2Fsnippet%2Ftitle%2Citems%2Fsnippet%2FchannelTitle%2Citems%2Fsnippet%2Fdescription%2Citems%2Fsnippet%2Fthumbnails";
+	private static const LIST_CATEGORIES_URL:String = "https://www.googleapis.com/youtube/v3/videoCategories" + PART_PARAMETER + REGION_CODE_PARAMETER + KEY_PARAMETER;
+	private static const LIST_VIDEOS_IN_CATEGORY_URL:String = "https://www.googleapis.com/youtube/v3/videos" + PART_PARAMETER + CHART_PARAMETER + REGION_CODE_PARAMETER + MAX_RESULTS_PARAMETER + FIELDS_PARAMETER + KEY_PARAMETER + VIDEO_CATEGORY_ID_PARAMETER;
 
-	public function new()
+	public function MainMenuScreen()
 	{
-		super();
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	}
 
@@ -44,13 +49,24 @@ class MainMenuScreen extends PanelScreen
 	private var _loader:URLLoader;
 	private var _message:Label;
 
-	public var savedVerticalScrollPosition:Float = 0;
-	public var savedSelectedIndex:Int = -1;
+	public var savedVerticalScrollPosition:Number = 0;
+	public var savedSelectedIndex:int = -1;
 	public var savedDataProvider:ListCollection;
 
-	override private function initialize():Void
+	public function get selectedCategory():VideoFeed
+	{
+		if(!this._list)
+		{
+			return null;
+		}
+		return this._list.selectedItem as VideoFeed;
+	}
+
+	override protected function initialize():void
 	{
 		super.initialize();
+
+		this.title = "YouTube Feeds";
 
 		this.layout = new AnchorLayout();
 
@@ -70,7 +86,7 @@ class MainMenuScreen extends PanelScreen
 		}
 		//when navigating to video results, we save this information to
 		//restore the list when later navigating back to this screen.
-		if(this.savedDataProvider != null)
+		if(this.savedDataProvider)
 		{
 			this._list.dataProvider = this.savedDataProvider;
 			this._list.selectedIndex = this.savedSelectedIndex;
@@ -80,84 +96,70 @@ class MainMenuScreen extends PanelScreen
 
 		this._message = new Label();
 		this._message.text = "Loading...";
-		this._message.layoutData = new AnchorLayoutData(Math.NaN, Math.NaN, Math.NaN, Math.NaN, 0, 0);
+		this._message.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
 		//hide the loading message if we're using restored results
-		this._message.visible = this.savedDataProvider == null;
+		this._message.visible = this.savedDataProvider === null;
 		this.addChild(this._message);
 
-		this.headerProperties.setProperty("title", "YouTube Feeds");
-
-		this.owner.addEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
+		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 	}
 
-	override private function draw():Void
+	override protected function draw():void
 	{
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
+		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
-		if(this.savedDataProvider == null && dataInvalid)
+		if(!this.savedDataProvider && dataInvalid)
 		{
 			this._list.dataProvider = null;
 			this._message.visible = true;
-			if(this._loader != null)
+			if(this._loader)
 			{
 				this.cleanUpLoader();
 			}
 			this._loader = new URLLoader();
-			this._loader.addEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
+			this._loader.dataFormat = URLLoaderDataFormat.TEXT;
+			this._loader.addEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 			this._loader.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 			this._loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
-			this._loader.load(new URLRequest(CATEGORIES_URL));
+			this._loader.load(new URLRequest(LIST_CATEGORIES_URL));
 		}
 
 		//never forget to call super.draw()!
 		super.draw();
 	}
 
-	private function cleanUpLoader():Void
+	private function cleanUpLoader():void
 	{
-		if(this._loader == null)
+		if(!this._loader)
 		{
 			return;
 		}
-		this._loader.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
+		this._loader.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 		this._loader.removeEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
 		this._loader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_errorHandler);
 		this._loader = null;
 	}
 
-	private function parseFeed(feed:Xml):Void
+	private function parseListVideoCategoriesResult(result:Object):void
 	{
 		this._message.visible = false;
 
-		//var atom:Namespace = feed.namespace("atom");
-		//var yt:Namespace = feed.namespace("yt");
-		var deprecatedElement:String = "deprecated";
-		var browsableElement:String = "browsable";
-
-		var items:Array<VideoFeed> = new Array();
-		var categories:Iterator<Xml> = feed.elementsNamed("category");
-		for(category in categories)
+		var items:Vector.<VideoFeed> = new <VideoFeed>[];
+		var categories:Array = result.items as Array;
+		var categoryCount:int = categories.length;
+		for(var i:int = 0; i < categoryCount; i++)
 		{
+			var category:Object = categories[i];
+			var assignable:Boolean = category.snippet.assignable as Boolean; 
+			if(!assignable)
+			{
+				continue;
+			}
 			var item:VideoFeed = new VideoFeed();
-			if(category.elementsNamed(deprecatedElement).hasNext())
-			{
-				continue;
-			}
-			var browsable:Iterator<Xml> = category.elementsNamed(browsableElement);
-			if(!browsable.hasNext())
-			{
-				continue;
-			}
-			var regions:String = browsable.next().get("regions");
-			if(regions.toString().indexOf("US") < 0)
-			{
-				continue;
-			}
-			item.name = category.get("label");
-			var term:String = category.get("term");
-			//item.url = FEED_URL_BEFORE + encodeURI(term) + FEED_URL_AFTER;
-			item.url = FEED_URL_BEFORE + term + FEED_URL_AFTER;
+			item.name = category.snippet.title as String;
+			var categoryID:String = category.id as String;
+			item.url = LIST_VIDEOS_IN_CATEGORY_URL + categoryID;
 			items.push(item);
 		}
 		var collection:ListCollection = new ListCollection(items);
@@ -167,70 +169,65 @@ class MainMenuScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function accessorySourceFunction(item:Dynamic):Texture
+	private function accessorySourceFunction(item:Object):Texture
 	{
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
 
-	private function list_changeHandler(event:starling.events.Event):Void
+	private function removedFromStageHandler(event:starling.events.Event):void
 	{
-		var screenItem:ScreenNavigatorItem = this._owner.getScreen(this.screenID);
-		if(screenItem.properties == null)
-		{
-			screenItem.properties = {};
-		}
-		//we're going to save the position of the list so that when the user
-		//navigates back to this screen, they won't need to scroll back to
-		//the same position manually
-		Reflect.setField(screenItem.properties, "savedVerticalScrollPosition", this._list.verticalScrollPosition);
-		//we'll also save the selected index to temporarily highlight
-		//the previously selected item when transitioning back
-		Reflect.setField(screenItem.properties, "savedSelectedIndex", this._list.selectedIndex);
-		//and we'll save the data provider so that we don't need to reload
-		//data when we return to this screen. we can restore it.
-		Reflect.setField(screenItem.properties, "savedDataProvider", this._list.dataProvider);
-
-		this.dispatchEventWith(LIST_VIDEOS, false, cast(this._list.selectedItem, VideoFeed));
+		this.cleanUpLoader();
 	}
 
-	private function owner_transitionCompleteHandler(event:starling.events.Event):Void
+	private function transitionInCompleteHandler(event:starling.events.Event):void
 	{
-		this.owner.removeEventListener(FeathersEventType.TRANSITION_COMPLETE, owner_transitionCompleteHandler);
-
 		this._list.selectedIndex = -1;
 		this._list.addEventListener(starling.events.Event.CHANGE, list_changeHandler);
 
 		this._list.revealScrollBars();
 	}
 
-	private function removedFromStageHandler(event:starling.events.Event):Void
+	private function list_changeHandler(event:starling.events.Event):void
 	{
-		this.cleanUpLoader();
+		this.dispatchEventWith(LIST_VIDEOS, false,
+		{
+			//we're going to save the position of the list so that when the user
+			//navigates back to this screen, they won't need to scroll back to
+			//the same position manually
+			savedVerticalScrollPosition: this._list.verticalScrollPosition,
+			//we'll also save the selected index to temporarily highlight
+			//the previously selected item when transitioning back
+			savedSelectedIndex: this._list.selectedIndex,
+			//and we'll save the data provider so that we don't need to reload
+			//data when we return to this screen. we can restore it.
+			savedDataProvider: this._list.dataProvider
+		});
 	}
 
-	private function loader_completeHandler(event:openfl.events.Event):Void
+	private function loader_completeHandler(event:flash.events.Event):void
 	{
 		try
 		{
-			var loaderData:Dynamic = this._loader.data;
-			this.parseFeed(Xml.parse(loaderData).firstElement());
+			var loaderData:String = this._loader.data as String;
+			this.parseListVideoCategoriesResult(JSON.parse(loaderData));
 		}
 		catch(error:Error)
 		{
 			this._message.text = "Unable to load data. Please try again later.";
 			this._message.visible = true;
-			this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+			this.invalidate(INVALIDATION_FLAG_STYLES);
 			trace(error.toString());
 		}
 		this.cleanUpLoader();
 	}
 
-	private function loader_errorHandler(event:ErrorEvent):Void
+	private function loader_errorHandler(event:ErrorEvent):void
 	{
 		this.cleanUpLoader();
 		this._message.text = "Unable to load data. Please try again later.";
 		this._message.visible = true;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		trace(event.toString());
 	}
+}
 }

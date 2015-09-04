@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -8,22 +8,21 @@ accordance with the terms of the accompanying license agreement.
 package feathers.controls;
 import feathers.controls.text.ITextEditorViewPort;
 import feathers.controls.text.TextFieldTextEditorViewPort;
-import feathers.core.FeathersControl;
-import feathers.core.IFocusDisplayObject;
+import feathers.core.INativeFocusOwner;
 import feathers.core.PropertyProxy;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
 import openfl.errors.ArgumentError;
 import openfl.errors.RangeError;
 
-import openfl.geom.Point;
-import openfl.ui.Mouse;
-#if flash
-import openfl.ui.MouseCursor;
-#end
+import flash.display.InteractiveObject;
+import flash.geom.Point;
+import flash.ui.Mouse;
+import flash.ui.MouseCursor;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
+import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
@@ -50,48 +49,6 @@ import starling.events.TouchPhase;
  *///[Event(name="change",type="starling.events.Event")]
 
 /**
- * Dispatched when the text area receives focus.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType feathers.events.FeathersEventType.FOCUS_IN
- *///[Event(name="focusIn",type="starling.events.Event")]
-
-/**
- * Dispatched when the text area loses focus.
- *
- * <p>The properties of the event object have the following values:</p>
- * <table class="innertable">
- * <tr><th>Property</th><th>Value</th></tr>
- * <tr><td><code>bubbles</code></td><td>false</td></tr>
- * <tr><td><code>currentTarget</code></td><td>The Object that defines the
- *   event listener that handles the event. For example, if you use
- *   <code>myButton.addEventListener()</code> to register an event listener,
- *   myButton is the value of the <code>currentTarget</code>.</td></tr>
- * <tr><td><code>data</code></td><td>null</td></tr>
- * <tr><td><code>target</code></td><td>The Object that dispatched the event;
- *   it is not always the Object listening for the event. Use the
- *   <code>currentTarget</code> property to always access the Object
- *   listening for the event.</td></tr>
- * </table>
- *
- * @eventType feathers.events.FeathersEventType.FOCUS_OUT
- *///[Event(name="focusOut",type="starling.events.Event")]
-
-/**
  * A text entry control that allows users to enter and edit multiple lines
  * of uniformly-formatted text with the ability to scroll.
  *
@@ -114,11 +71,10 @@ import starling.events.TouchPhase;
  * textArea.addEventListener( Event.CHANGE, input_changeHandler );
  * this.addChild( textArea );</listing>
  *
- * @see http://wiki.starling-framework.org/feathers/text-area
+ * @see ../../../help/text-area.html How to use the Feathers TextArea component
  * @see feathers.controls.TextInput
- * @see http://wiki.starling-framework.org/feathers/text-editors
  */
-class TextArea extends Scroller implements IFocusDisplayObject
+public class TextArea extends Scroller implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -164,6 +120,13 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED:String = "fixed";
 
 	/**
+	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT
+	 *
+	 * @see feathers.controls.Scroller#scrollBarDisplayMode
+	 */
+	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+
+	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
@@ -204,6 +167,20 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 * @see feathers.controls.Scroller#interactionMode
 	 */
 	inline public static var INTERACTION_MODE_TOUCH_AND_SCROLL_BARS:String = "touchAndScrollBars";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+
+	/**
+	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
+	 *
+	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
+	 */
+	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -265,6 +242,22 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	private var _textEditorHasFocus:Bool = false;
 
 	/**
+	 * A text editor may be an <code>INativeFocusOwner</code>, so we need to
+	 * return the value of its <code>nativeFocus</code> property. If not,
+	 * then we return <code>null</code>.
+	 *
+	 * @see feathers.core.INativeFocusOwner
+	 */
+	public function get nativeFocus():InteractiveObject
+	{
+		if(this.textEditorViewPort is INativeFocusOwner)
+		{
+			return INativeFocusOwner(this.textEditorViewPort).nativeFocus;
+		}
+		return null;
+	}
+
+	/**
 	 * @private
 	 */
 	private var _isWaitingToSetFocus:Bool = false;
@@ -307,7 +300,12 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 */
 	override public function get_isFocusEnabled():Bool
 	{
-		return this._isEditable && this._isEnabled && this._isFocusEnabled;
+		if(this._isEditable)
+		{
+			//the behavior is different when editable.
+			return this._isEnabled && this._isFocusEnabled;
+		}
+		return super.isFocusEnabled;
 	}
 
 	/**
@@ -333,7 +331,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		super.isEnabled = value;
 		if(this._isEnabled)
 		{
-			this.currentState = this._hasFocus ? STATE_FOCUSED : STATE_ENABLED;
+			this.currentState = this.hasFocus ? STATE_FOCUSED : STATE_ENABLED;
 		}
 		else
 		{
@@ -690,9 +688,13 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	private var _textEditorProperties:PropertyProxy;
 
 	/**
-	 * A set of key/value pairs to be passed down to the text area's text
-	 * editor view port. The text editor view port is an <code>ITextEditorViewPort</code>
-	 * instance that is created by <code>textEditorFactory</code>.
+	 * An object that stores properties for the text area's text editor
+	 * sub-component, and the properties will be passed down to the
+	 * text editor when the text area validates. The available properties
+	 * depend on which <code>ITextEditorViewPort</code> implementation is
+	 * returned by <code>textEditorFactory</code>. Refer to
+	 * <a href="text/ITextEditorViewPort.html"><code>feathers.controls.text.ITextEditorViewPort</code></a>
+	 * for a list of available text editor implementations for text area.
 	 *
 	 * <p>If the subcomponent has its own subcomponents, their properties
 	 * can be set too, using attribute <code>&#64;</code> notation. For example,
@@ -716,7 +718,6 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	 *
 	 * @see #textEditorFactory
 	 * @see feathers.controls.text.ITextEditorViewPort
-	 * @see feathers.controls.text.TextFieldTextEditorViewPort
 	 */
 	public var textEditorProperties(get, set):PropertyProxy;
 	public function get_textEditorProperties():PropertyProxy
@@ -886,8 +887,6 @@ class TextArea extends Scroller implements IFocusDisplayObject
 
 		super.draw();
 
-		this.refreshFocusIndicator();
-
 		this.doPendingActions();
 	}
 
@@ -984,7 +983,7 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		{
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
-		else if(this._hasFocus && this._backgroundFocusedSkin != null)
+		else if(this.hasFocus && this._backgroundFocusedSkin)
 		{
 			this.currentBackgroundSkin = this._backgroundFocusedSkin;
 		}
@@ -1167,7 +1166,19 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function textEditor_changeHandler(event:Event):Void
+	override protected function stage_keyDownHandler(event:KeyboardEvent):void
+	{
+		if(this._isEditable)
+		{
+			return;
+		}
+		super.stage_keyDownHandler(event);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function textEditor_changeHandler(event:Event):void
 	{
 		if(this._ignoreTextChanges)
 		{
@@ -1184,12 +1195,16 @@ class TextArea extends Scroller implements IFocusDisplayObject
 		this._textEditorHasFocus = true;
 		this.currentState = STATE_FOCUSED;
 		this._touchPointID = -1;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
-		if(this._focusManager != null)
+		this.invalidate(INVALIDATION_FLAG_STATE);
+		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus !== this)
 		{
+			//if setFocus() was called manually, we need to notify the focus
+			//manager (unless isFocusEnabled is false).
+			//if the focus manager already knows that we have focus, it will
+			//simply return without doing anything.
 			this._focusManager.focus = this;
 		}
-		else
+		else if(!this._focusManager)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_IN);
 		}
@@ -1202,11 +1217,16 @@ class TextArea extends Scroller implements IFocusDisplayObject
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
-		if(this._focusManager != null)
+		this.invalidate(INVALIDATION_FLAG_STATE);
+		if(this._focusManager && this._focusManager.focus === this)
 		{
-			return;
+			//if clearFocus() was called manually, we need to notify the
+			//focus manager if it still thinks we have focus.
+			this._focusManager.focus = null;
 		}
-		this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
+		else if(!this._focusManager)
+		{
+			this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
+		}
 	}
 }

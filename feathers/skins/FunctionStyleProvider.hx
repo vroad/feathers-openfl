@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -23,6 +23,8 @@ import feathers.core.IFeathersControl;
  *     // set other styles...
  * });
  * this.addChild( button );</listing>
+ *
+ * @see ../../../help/skinning.html Skinning Feathers components
  */
 class FunctionStyleProvider implements IStyleProvider
 {

@@ -7,6 +7,7 @@ import feathers.controls.ScrollContainer;
 import feathers.controls.renderers.IListItemRenderer;
 import feathers.core.FeathersControl;
 import feathers.examples.trainTimes.model.StationData;
+import feathers.skins.IStyleProvider;
 
 import openfl.geom.Point;
 
@@ -22,11 +23,11 @@ import starling.textures.Texture;
 
 class StationListItemRenderer extends FeathersControl implements IListItemRenderer
 {
-	inline public static var CHILD_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
-	inline public static var CHILD_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
-	inline public static var CHILD_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
-	inline public static var CHILD_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
-	inline public static var CHILD_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
+	public static const CHILD_STYLE_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
+	public static const CHILD_STYLE_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
+	public static const CHILD_STYLE_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
+	public static const CHILD_STYLE_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
+	public static const CHILD_STYLE_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
 
 	private static var HELPER_POINT:Point = new Point();
 	private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();
@@ -36,7 +37,9 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 	inline private static var TRAVEL_TO_TEXT:String = "TRAVEL TO";
 	inline private static var QUESTION_MARK:String = "?";
 
-	private static function defaultLoaderFactory():ImageLoader
+	public static var globalStyleProvider:IStyleProvider;
+
+	protected static function defaultLoaderFactory():ImageLoader
 	{
 		return new ImageLoader();
 	}
@@ -47,13 +50,18 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
-	private var background:Quad;
-	private var actionContainer:ScrollContainer;
-	private var confirmButton:Button;
-	private var cancelButton:Button;
-	private var nameLabel:Label;
-	private var detailsLabel:Label;
-	private var icon:ImageLoader;
+	override protected function get defaultStyleProvider():IStyleProvider
+	{
+		return StationListItemRenderer.globalStyleProvider;
+	}
+
+	protected var background:Quad;
+	protected var actionContainer:ScrollContainer;
+	protected var confirmButton:Button;
+	protected var cancelButton:Button;
+	protected var nameLabel:Label;
+	protected var detailsLabel:Label;
+	protected var icon:ImageLoader;
 
 	private var _touchPointID:Int = -1;
 
@@ -451,27 +459,27 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addChild(this.background);
 
 		this.detailsLabel = new Label();
-		this.detailsLabel.styleNameList.add(CHILD_NAME_STATION_LIST_DETAILS_LABEL);
+		this.detailsLabel.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST_DETAILS_LABEL);
 		this.addChild(this.detailsLabel);
 
 		this.nameLabel = new Label();
-		this.nameLabel.styleNameList.add(CHILD_NAME_STATION_LIST_NAME_LABEL);
+		this.nameLabel.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST_NAME_LABEL);
 		this.addChild(this.nameLabel);
 
 		this.actionContainer = new ScrollContainer();
-		this.actionContainer.styleNameList.add(CHILD_NAME_STATION_LIST_ACTION_CONTAINER);
+		this.actionContainer.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST_ACTION_CONTAINER);
 		this.actionContainer.horizontalScrollPolicy = ScrollContainer.SCROLL_POLICY_OFF;
 		this.actionContainer.verticalScrollPolicy = ScrollContainer.SCROLL_POLICY_OFF;
 		this.actionContainer.visible = false;
 		this.addChild(this.actionContainer);
 
 		this.confirmButton = new Button();
-		this.confirmButton.styleNameList.add(CHILD_NAME_STATION_LIST_CONFIRM_BUTTON);
+		this.confirmButton.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST_CONFIRM_BUTTON);
 		this.confirmButton.addEventListener(Event.TRIGGERED, confirmButton_triggeredHandler);
 		this.actionContainer.addChild(this.confirmButton);
 
 		this.cancelButton = new Button();
-		this.cancelButton.styleNameList.add(CHILD_NAME_STATION_LIST_CANCEL_BUTTON);
+		this.cancelButton.styleNameList.add(CHILD_STYLE_NAME_STATION_LIST_CANCEL_BUTTON);
 		this.cancelButton.addEventListener(Event.TRIGGERED, cancelButton_triggeredHandler);
 		this.actionContainer.addChild(this.cancelButton);
 	}

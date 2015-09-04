@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -21,14 +21,57 @@ import starling.events.EventDispatcher;
  * Dispatched when a property of the layout changes, indicating that a
  * redraw is probably needed.
  *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>null</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
  * @eventType starling.events.Event.CHANGE
  */
 //[Event(name="change",type="starling.events.Event")]
 
 /**
+ * Dispatched when the layout would like to adjust the container's scroll
+ * position. Typically, this is used when the virtual dimensions of an item
+ * differ from its real dimensions. This event allows the container to
+ * adjust scrolling so that it appears smooth, without jarring jumps or
+ * shifts when an item resizes.
+ *
+ * <p>The properties of the event object have the following values:</p>
+ * <table class="innertable">
+ * <tr><th>Property</th><th>Value</th></tr>
+ * <tr><td><code>bubbles</code></td><td>false</td></tr>
+ * <tr><td><code>currentTarget</code></td><td>The Object that defines the
+ *   event listener that handles the event. For example, if you use
+ *   <code>myButton.addEventListener()</code> to register an event listener,
+ *   myButton is the value of the <code>currentTarget</code>.</td></tr>
+ * <tr><td><code>data</code></td><td>A <code>flash.geom.Point</code> object
+ *   representing how much the scroll position should be adjusted in both
+ *   horizontal and vertical directions. Measured in pixels.</td></tr>
+ * <tr><td><code>target</code></td><td>The Object that dispatched the event;
+ *   it is not always the Object listening for the event. Use the
+ *   <code>currentTarget</code> property to always access the Object
+ *   listening for the event.</td></tr>
+ * </table>
+ *
+ * @eventType starling.events.Event.SCROLL
+ */
+[Event(name="scroll",type="starling.events.Event")]
+
+/**
  * Positions items from left to right in a single row.
  *
- * @see http://wiki.starling-framework.org/feathers/horizontal-layout
+ * @see ../../../help/horizontal-layout.html How to use HorizontalLayout with Feathers containers
  */
 class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout implements ITrimmedVirtualLayout
 {
@@ -358,6 +401,15 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * The alignment of the items vertically, on the y-axis.
 	 *
+	 * <p>If the <code>verticalAlign</code> property is set to
+	 * <code>HorizontalLayout.VERTICAL_ALIGN_JUSTIFY</code>, the
+	 * <code>height</code>, <code>minHeight</code>, and
+	 * <code>maxHeight</code> properties of the items may be changed, and
+	 * their original values ignored by the layout. In this situation, if
+	 * the height needs to be constrained, the <code>height</code>,
+	 * <code>minHeight</code>, or <code>maxHeight</code> properties should
+	 * instead be set on the parent container that is using this layout.</p>
+	 *
 	 * @default HorizontalLayout.VERTICAL_ALIGN_TOP
 	 *
 	 * @see #VERTICAL_ALIGN_TOP
@@ -458,8 +510,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
-	 * have variable height values. If false, the items will all share the
-	 * same height value with the typical item.
+	 * have variable width values. If false, the items will all share the
+	 * same width value with the typical item.
 	 *
 	 * @default false
 	 */
@@ -486,7 +538,46 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _distributeWidths:Bool = false;
+	protected var _requestedColumnCount:int = 0;
+
+	/**
+	 * Requests that the layout set the view port dimensions to display a
+	 * specific number of columns (plus gaps and padding), if possible. If
+	 * the explicit width of the view port is set, then this value will be
+	 * ignored. If the view port's minimum and/or maximum width are set,
+	 * the actual number of visible columns may be adjusted to meet those
+	 * requirements. Set this value to <code>0</code> to display as many
+	 * columns as possible.
+	 *
+	 * @default 0
+	 */
+	public function get requestedColumnCount():int
+	{
+		return this._requestedColumnCount;
+	}
+
+	/**
+	 * @private
+	 */
+	public function set requestedColumnCount(value:int):void
+	{
+		if(value < 0)
+		{
+			throw RangeError("requestedColumnCount requires a value >= 0");
+		}
+		if(this._requestedColumnCount == value)
+		{
+			return get_distributeWidths();
+		}
+		this._requestedColumnCount = value;
+		this.dispatchEventWith(Event.CHANGE);
+		return get_distributeWidths();
+	}
+
+	/**
+	 * @private
+	 */
+	protected var _distributeWidths:Boolean = false;
 
 	/**
 	 * Distributes the width of the view port equally to each item. If the
@@ -496,8 +587,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default false
 	 */
-	public var distributeWidths(get, set):Bool;
-	public function get_distributeWidths():Bool
+	public function get distributeWidths():Boolean
 	{
 		return this._distributeWidths;
 	}
@@ -505,55 +595,13 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_distributeWidths(value:Bool):Bool
+	public function set distributeWidths(value:Boolean):void
 	{
 		if(this._distributeWidths == value)
 		{
-			return get_distributeWidths();
-		}
-		this._distributeWidths = value;
-		this.dispatchEventWith(Event.CHANGE);
-		return get_distributeWidths();
-	}
-
-	/**
-	 * @private
-	 */
-	private var _manageVisibility:Bool = false;
-
-	/**
-	 * Determines if items will be set invisible if they are outside the
-	 * view port. If <code>true</code>, you will not be able to manually
-	 * change the <code>visible</code> property of any items in the layout.
-	 *
-	 * <p><strong>DEPRECATION WARNING:</strong> This property is deprecated
-	 * starting with Feathers 2.0. It will be removed in a future version of
-	 * Feathers according to the standard
-	 * <a href="http://wiki.starling-framework.org/feathers/deprecation-policy">Feathers deprecation policy</a>.
-	 * Originally, the <code>manageVisibility</code> property could be used
-	 * to improve performance of non-virtual layouts by hiding items that
-	 * were outside the view port. However, other performance improvements
-	 * have made it so that setting <code>manageVisibility</code> can now
-	 * sometimes hurt performance instead of improving it.</p>
-	 *
-	 * @default false
-	 */
-	public var manageVisibility(get, set):Bool;
-	public function get_manageVisibility():Bool
-	{
-		return this._manageVisibility;
-	}
-
-	/**
-	 * @private
-	 */
-	public function set_manageVisibility(value:Bool):Bool
-	{
-		if(this._manageVisibility == value)
-		{
 			return get_manageVisibility();
 		}
-		this._manageVisibility = value;
+		this._distributeWidths = value;
 		this.dispatchEventWith(Event.CHANGE);
 		return get_manageVisibility();
 	}
@@ -821,7 +869,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	public var requiresLayoutOnScroll(get, never):Bool;
 	public function get_requiresLayoutOnScroll():Bool
 	{
-		return this._manageVisibility || this._useVirtualLayout;
+		return this._useVirtualLayout;
 	}
 
 	/**
@@ -829,22 +877,28 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function layout(items:Array<DisplayObject>, viewPortBounds:ViewPortBounds = null, result:LayoutBoundsResult = null):LayoutBoundsResult
 	{
-		var scrollX:Float = viewPortBounds != null ? viewPortBounds.scrollX : 0;
-		var scrollY:Float = viewPortBounds != null ? viewPortBounds.scrollY : 0;
-		var boundsX:Float = viewPortBounds != null ? viewPortBounds.x : 0;
-		var boundsY:Float = viewPortBounds != null ? viewPortBounds.y : 0;
-		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
-		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
-		
-		var calculatedTypicalItemWidth:Float = Math.NaN;
-		var calculatedTypicalItemHeight:Float = Math.NaN;
+		//this function is very long because it may be called every frame,
+		//in some situations. testing revealed that splitting this function
+		//into separate, smaller functions affected performance.
+		//since the SWC compiler cannot inline functions, we can't use that
+		//feature either.
+
+		//since viewPortBounds can be null, we may need to provide some defaults
+		var scrollX:Number = viewPortBounds ? viewPortBounds.scrollX : 0;
+		var scrollY:Number = viewPortBounds ? viewPortBounds.scrollY : 0;
+		var boundsX:Number = viewPortBounds ? viewPortBounds.x : 0;
+		var boundsY:Number = viewPortBounds ? viewPortBounds.y : 0;
+		var minWidth:Number = viewPortBounds ? viewPortBounds.minWidth : 0;
+		var minHeight:Number = viewPortBounds ? viewPortBounds.minHeight : 0;
+		var maxWidth:Number = viewPortBounds ? viewPortBounds.maxWidth : Number.POSITIVE_INFINITY;
+		var maxHeight:Number = viewPortBounds ? viewPortBounds.maxHeight : Number.POSITIVE_INFINITY;
+		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
+		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
 		if(this._useVirtualLayout)
 		{
+			//if the layout is virtualized, we'll need the dimensions of the
+			//typical item so that we have fallback values when an item is null
 			this.prepareTypicalItem(explicitHeight - this._paddingTop - this._paddingBottom);
 			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
 			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
@@ -854,30 +908,41 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			this._verticalAlign != VERTICAL_ALIGN_JUSTIFY ||
 			explicitHeight != explicitHeight) //isNaN
 		{
-			this.validateItems(items, explicitHeight - this._paddingTop - this._paddingBottom, explicitWidth);
+			//in some cases, we may need to validate all of the items so
+			//that we can use their dimensions below.
+			this.validateItems(items, explicitHeight - this._paddingTop - this._paddingBottom,
+				minHeight - this._paddingTop - this._paddingBottom,
+				maxHeight - this._paddingTop - this._paddingBottom,
+				explicitWidth);
 		}
 
 		if(!this._useVirtualLayout)
 		{
+			//handle the percentWidth property from HorizontalLayoutData,
+			//if available.
 			this.applyPercentWidths(items, explicitWidth, minWidth, maxWidth);
 		}
 
 		var distributedWidth:Float = Math.NaN;
 		if(this._distributeWidths)
 		{
+			//distribute the width evenly among all items
 			distributedWidth = this.calculateDistributedWidth(items, explicitWidth, minWidth, maxWidth);
 		}
 		var hasDistributedWidth:Bool = distributedWidth == distributedWidth; //!isNaN
 
-		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
-		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
-		var maxItemHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
-		var positionX:Float = boundsX + this._paddingLeft;
-		var itemCount:Int = items.length;
-		var totalItemCount:Int = itemCount;
+		//this section prepares some variables needed for the following loop
+		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var maxItemHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		var positionX:Number = boundsX + this._paddingLeft;
+		var itemCount:int = items.length;
+		var totalItemCount:int = itemCount;
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
+			//if the layout is virtualized, and the items all have the same
+			//width, we can make our loops smaller by skipping some items
+			//at the beginning and end. this improves performance.
 			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
 			positionX += (this._beforeVirtualizedItemCount * (calculatedTypicalItemWidth + this._gap));
 			if(hasFirstGap && this._beforeVirtualizedItemCount > 0)
@@ -885,17 +950,25 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				positionX = positionX - this._gap + this._firstGap;
 			}
 		}
-		var secondToLastIndex:Int = totalItemCount - 2;
-		var discoveredItemsCacheLastIndex:Int = 0;
-		var cachedWidth:Float = Math.NaN;
-		var item:DisplayObject;
-		var itemHeight:Float;
-		//for(var i:Int = 0; i < itemCount; i++)
-		for(i in 0 ... itemCount)
+		var secondToLastIndex:int = totalItemCount - 2;
+		//this cache is used to save non-null items in virtual layouts. by
+		//using a smaller array, we can improve performance by spending less
+		//time in the upcoming loops.
+		this._discoveredItemsCache.length = 0;
+		var discoveredItemsCacheLastIndex:int = 0;
+
+		//this first loop sets the x position of items, and it calculates
+		//the total width of all items
+		for(var i:int = 0; i < itemCount; i++)
 		{
-			item = items[i];
-			var iNormalized:Int = i + this._beforeVirtualizedItemCount;
-			var gap:Float = this._gap;
+			var item:DisplayObject = items[i];
+			//if we're trimming some items at the beginning, we need to
+			//adjust i to account for the missing items in the array
+			var iNormalized:int = i + this._beforeVirtualizedItemCount;
+
+			//pick the gap that will follow this item. the first and second
+			//to last items may have different gaps.
+			var gap:Number = this._gap;
 			if(hasFirstGap && iNormalized == 0)
 			{
 				gap = this._firstGap;
@@ -904,25 +977,40 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				gap = this._lastGap;
 			}
+
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
 				cachedWidth = this._widthCache[iNormalized];
 			}
 			if(this._useVirtualLayout && item == null)
 			{
+				//the item is null, and the layout is virtualized, so we
+				//need to estimate the width of the item.
+
 				if(!this._hasVariableItemDimensions ||
 					cachedWidth != cachedWidth) //isNaN
 				{
+					//if all items must have the same width, we will
+					//use the width of the typical item (calculatedTypicalItemWidth).
+
+					//if items may have different widths, we first check
+					//the cache for a width value. if there isn't one, then
+					//we'll use calculatedTypicalItemWidth as a fallback.
 					positionX += calculatedTypicalItemWidth + gap;
 				}
 				else
 				{
+					//if we have variable item widths, we should use a
+					//cached width when there's one available. it will be
+					//more accurate than the typical item's width.
 					positionX += cachedWidth + gap;
 				}
 			}
 			else
 			{
-				if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
+				//we get here if the item isn't null. it is never null if
+				//the layout isn't virtualized.
+				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
 				{
 					continue;
 				}
@@ -943,18 +1031,41 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					{
 						if(itemWidth != cachedWidth)
 						{
+							//update the cache if needed. this will notify
+							//the container that the virtualized layout has
+							//changed, and it the view port may need to be
+							//re-measured.
 							this._widthCache[iNormalized] = itemWidth;
+
+							//attempt to adjust the scroll position so that
+							//it looks like we're scrolling smoothly after
+							//this item resizes.
+							if(positionX < scrollX &&
+								cachedWidth !== cachedWidth && //isNaN
+								itemWidth != calculatedTypicalItemWidth)
+							{
+								this.dispatchEventWith(Event.SCROLL, false, new Point(itemWidth - calculatedTypicalItemWidth, 0));
+							}
+
 							this.dispatchEventWith(Event.CHANGE);
 						}
 					}
 					else if(calculatedTypicalItemWidth >= 0)
 					{
+						//if all items must have the same width, we will
+						//use the width of the typical item (calculatedTypicalItemWidth).
 						item.width = itemWidth = calculatedTypicalItemWidth;
 					}
 				}
 				positionX += itemWidth + gap;
+				//we compare with > instead of Math.max() because the rest
+				//arguments on Math.max() cause extra garbage collection and
+				//hurt performance
 				if(itemHeight > maxItemHeight)
 				{
+					//we need to know the maximum height of the items in the
+					//case where the height of the view port needs to be
+					//calculated by the layout.
 					maxItemHeight = itemHeight;
 				}
 				if(this._useVirtualLayout)
@@ -966,6 +1077,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
+			//finish the final calculation of the x position so that it can
+			//be used for the total width of all items
 			positionX += (this._afterVirtualizedItemCount * (calculatedTypicalItemWidth + this._gap));
 			if(hasLastGap && this._afterVirtualizedItemCount > 0)
 			{
@@ -973,12 +1086,18 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 		}
 
-		var discoveredItems:Array<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
-		var discoveredItemCount:Int = discoveredItems.length;
+		//this array will contain all items that are not null. see the
+		//comment above where the discoveredItemsCache is initialized for
+		//details about why this is important.
+		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
+		var discoveredItemCount:int = discoveredItems.length;
 
-		var totalHeight:Float = maxItemHeight + this._paddingTop + this._paddingBottom;
-		var availableHeight:Float = explicitHeight;
-		if(availableHeight != availableHeight) //isNaN
+		var totalHeight:Number = maxItemHeight + this._paddingTop + this._paddingBottom;
+		//the available height is the height of the viewport. if the explicit
+		//height is NaN, we need to calculate the viewport height ourselves
+		//based on the total height of all items.
+		var availableHeight:Number = explicitHeight;
+		if(availableHeight !== availableHeight) //isNaN
 		{
 			availableHeight = totalHeight;
 			if(availableHeight < minHeight)
@@ -990,11 +1109,23 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				availableHeight = maxHeight;
 			}
 		}
-		var totalWidth:Float = positionX - this._gap + this._paddingRight - boundsX;
-		var availableWidth:Float = explicitWidth;
-		if(availableWidth != availableWidth) //isNaN
+
+		//this is the total width of all items
+		var totalWidth:Number = positionX - this._gap + this._paddingRight - boundsX;
+		//the available width is the width of the viewport. if the explicit
+		//width is NaN, we need to calculate the viewport width ourselves
+		//based on the total width of all items.
+		var availableWidth:Number = explicitWidth;
+		if(availableWidth !== availableWidth) //isNaN
 		{
-			availableWidth = totalWidth;
+			if(this._requestedColumnCount > 0)
+			{
+				availableWidth = (calculatedTypicalItemWidth + this._gap) * this._requestedColumnCount - this._gap + this._paddingLeft + this._paddingRight
+			}
+			else
+			{
+				availableWidth = totalWidth;
+			}
 			if(availableWidth < minWidth)
 			{
 				availableWidth = minWidth;
@@ -1005,6 +1136,9 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			}
 		}
 
+		//in this section, we handle horizontal alignment. items will be
+		//aligned horizontally if the total width of all items is less than
+		//the available width of the view port.
 		if(totalWidth < availableWidth)
 		{
 			var horizontalAlignOffsetX:Float = 0;
@@ -1040,8 +1174,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				continue;
 			}
+
+			//in this section, we handle vertical alignment and percent
+			//height from HorizontalLayoutData
 			if(this._verticalAlign == VERTICAL_ALIGN_JUSTIFY)
 			{
+				//if we justify items vertically, we can skip percent height
 				item.y = item.pivotY + boundsY + this._paddingTop;
 				item.height = availableHeight - this._paddingTop - this._paddingBottom;
 			}
@@ -1052,8 +1190,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					var layoutData:HorizontalLayoutData = safe_cast(layoutItem.layoutData, HorizontalLayoutData);
 					if(layoutData != null)
 					{
-						var percentHeight:Float = layoutData.percentHeight;
-						if(percentHeight == percentHeight) //!isNaN
+						//in this section, we handle percentage width if
+						//VerticalLayoutData is available.
+						var percentHeight:Number = layoutData.percentHeight;
+						if(percentHeight === percentHeight) //!isNaN
 						{
 							if(percentHeight < 0)
 							{
@@ -1085,16 +1225,23 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 						}
 					}
 				}
+				//handle all other vertical alignment values (we handled
+				//justify already). the y position of all items is set here.
+				var verticalAlignHeight:Number = availableHeight;
+				if(totalHeight > verticalAlignHeight)
+				{
+					verticalAlignHeight = totalHeight;
+				}
 				switch(this._verticalAlign)
 				{
 					case VERTICAL_ALIGN_BOTTOM:
 					{
-						item.y = item.pivotY + boundsY + availableHeight - this._paddingBottom - item.height;
+						item.y = item.pivotY + boundsY + verticalAlignHeight - this._paddingBottom - item.height;
 						//break;
 					}
 					case VERTICAL_ALIGN_MIDDLE:
 					{
-						item.y = item.pivotY + boundsY + this._paddingTop + Math.round((availableHeight - this._paddingTop - this._paddingBottom - item.height) / 2);
+						item.y = item.pivotY + boundsY + this._paddingTop + Math.round((verticalAlignHeight - this._paddingTop - this._paddingBottom - item.height) / 2);
 						//break;
 					}
 					default: //top
@@ -1103,18 +1250,21 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					}
 				}
 			}
-			if(this.manageVisibility)
-			{
-				item.visible = ((item.x - item.pivotX + item.width) >= (boundsX + scrollX)) && ((item.x - item.pivotX) < (scrollX + availableWidth));
-			}
 		}
-		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
+		//we don't want to keep a reference to any of the items, so clear
+		//this cache
+		this._discoveredItemsCache.length = 0;
 
-		if(result == null)
+		//finally, we want to calculate the result so that the container
+		//can use it to adjust its viewport and determine the minimum and
+		//maximum scroll positions (if needed)
+		if(!result)
 		{
 			result = new LayoutBoundsResult();
 		}
+		result.contentX = 0;
 		result.contentWidth = totalWidth;
+		result.contentY = 0;
 		result.contentHeight = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY ? availableHeight : totalHeight;
 		result.viewPortWidth = availableWidth;
 		result.viewPortHeight = availableHeight;
@@ -1199,7 +1349,14 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		if(needsWidth)
 		{
-			var resultWidth:Float = positionX + this._paddingLeft + this._paddingRight;
+			if(this._requestedColumnCount > 0)
+			{
+				var resultWidth:Number = (calculatedTypicalItemWidth + this._gap) * this._requestedColumnCount - this._gap + this._paddingLeft + this._paddingRight
+			}
+			else
+			{
+				resultWidth = positionX + this._paddingLeft + this._paddingRight;
+			}
 			if(resultWidth < minWidth)
 			{
 				resultWidth = minWidth;
@@ -1296,10 +1453,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
-		var resultLastIndex:Int = 0;
-		var visibleTypicalItemCount:Int = Math.ceil(width / (calculatedTypicalItemWidth + this._gap));
+		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var resultLastIndex:int = 0;
+		//we add one extra here because the first item renderer in view may
+		//be partially obscured, which would reveal an extra item renderer.
+		var maxVisibleTypicalItemCount:int = Math.ceil(width / (calculatedTypicalItemWidth + this._gap)) + 1;
 		if(!this._hasVariableItemDimensions)
 		{
 			//this case can be optimized because we know that every item has
@@ -1334,12 +1493,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			//if we're scrolling beyond the final item, we should keep the
 			//indices consistent so that items aren't destroyed and
 			//recreated unnecessarily
-			var maximum:Int = minimum + visibleTypicalItemCount;
+			var maximum:int = minimum + maxVisibleTypicalItemCount;
 			if(maximum >= itemCount)
 			{
 				maximum = itemCount - 1;
 			}
-			minimum = maximum - visibleTypicalItemCount;
+			minimum = maximum - maxVisibleTypicalItemCount;
 			if(minimum < 0)
 			{
 				minimum = 0;
@@ -1348,7 +1507,18 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			var i:Int = minimum;
 			while(i <= maximum)
 			{
-				result[resultLastIndex] = i;
+				if(i >= 0 && i < itemCount)
+				{
+					result[resultLastIndex] = i;
+				}
+				else if(i < 0)
+				{
+					result[resultLastIndex] = itemCount + i;
+				}
+				else if(i >= itemCount)
+				{
+					result[resultLastIndex] = i - itemCount;
+				}
 				resultLastIndex++;
 				i++;
 			}
@@ -1396,8 +1566,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//similar to above, in order to avoid costly destruction and
 		//creation of item renderers, we're going to fill in some extra
 		//indices
-		var resultLength:Int = result.length;
-		var visibleItemCountDifference:Int = visibleTypicalItemCount - resultLength;
+		var resultLength:int = result.length;
+		var visibleItemCountDifference:int = maxVisibleTypicalItemCount - resultLength;
 		if(visibleItemCountDifference > 0 && resultLength > 0)
 		{
 			//add extra items before the first index
@@ -1417,7 +1587,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		resultLength = result.length;
 		resultLastIndex = resultLength;
-		visibleItemCountDifference = visibleTypicalItemCount - resultLength;
+		visibleItemCountDifference = maxVisibleTypicalItemCount - resultLength;
 		if(visibleItemCountDifference > 0)
 		{
 			//add extra items after the last index
@@ -1440,124 +1610,94 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
+		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
-		if(result == null)
+		var maxScrollX:Number = this.calculateMaxScrollXOfIndex(index, items, x, y, width, height);
+
+		if(this._useVirtualLayout)
+		{
+			if(this._hasVariableItemDimensions)
+			{
+				var itemWidth:Number = this._widthCache[index];
+				if(itemWidth !== itemWidth)
+				{
+					itemWidth = this._typicalItem.width;
+				}
+			}
+			else
+			{
+				itemWidth = this._typicalItem.width;
+			}
+		}
+		else
+		{
+			itemWidth = items[index].width;
+		}
+
 		{
 			result = new Point();
 		}
 
-		var calculatedTypicalItemWidth:Float = 0;
-		var calculatedTypicalItemHeight:Float = 0;
+		var rightPosition:Number = maxScrollX - (width - itemWidth);
+		if(scrollX >= rightPosition && scrollX <= maxScrollX)
+		{
+			//keep the current scroll position because the item is already
+			//fully visible
+			result.x = scrollX;
+		}
+		else
+		{
+			var leftDifference:Number = Math.abs(maxScrollX - scrollX);
+			var rightDifference:Number = Math.abs(rightPosition - scrollX);
+			if(rightDifference < leftDifference)
+			{
+				result.x = rightPosition;
+			}
+			else
+			{
+				result.x = maxScrollX;
+			}
+		}
+		result.y = 0;
+
+		return result;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	{
+		var maxScrollX:Number = this.calculateMaxScrollXOfIndex(index, items, x, y, width, height);
 		if(this._useVirtualLayout)
 		{
-			this.prepareTypicalItem(height - this._paddingTop - this._paddingBottom);
-			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
-			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
+			if(this._hasVariableItemDimensions)
+			{
+				var itemWidth:Number = this._widthCache[index];
+				if(itemWidth !== itemWidth)
+				{
+					itemWidth = this._typicalItem.width;
+				}
+			}
+			else
+			{
+				itemWidth = this._typicalItem.width;
+			}
 		}
-
-		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
-		var positionX:Float = x + this._paddingLeft;
-		var lastWidth:Float = 0;
-		var gap:Float = this._gap;
-		var startIndexOffset:Int = 0;
-		var endIndexOffset:Float = 0;
-		var itemCount:Int = items.length;
-		var totalItemCount:Int = itemCount;
-		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
+		else
 		{
-			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
-			if(index < this._beforeVirtualizedItemCount)
-			{
-				//this makes it skip the loop below
-				startIndexOffset = index + 1;
-				lastWidth = calculatedTypicalItemWidth;
-				gap = this._gap;
-			}
-			else
-			{
-				startIndexOffset = this._beforeVirtualizedItemCount;
-				endIndexOffset = index - items.length - this._beforeVirtualizedItemCount + 1;
-				if(endIndexOffset < 0)
-				{
-					endIndexOffset = 0;
-				}
-				positionX += (endIndexOffset * (calculatedTypicalItemWidth + this._gap));
-			}
-			positionX += (startIndexOffset * (calculatedTypicalItemWidth + this._gap));
+			itemWidth = items[index].width;
 		}
-		index -= Std.int(startIndexOffset + endIndexOffset);
-		var secondToLastIndex:Int = totalItemCount - 2;
-		var cachedWidth:Float = Math.NaN;
-		//for(var i:Int = 0; i <= index; i++)
-		var i:Int = 0;
-		while(i <= index)
-		{
-			var item:DisplayObject = items[i];
-			var iNormalized:Int = i + startIndexOffset;
-			if(hasFirstGap && iNormalized == 0)
-			{
-				gap = this._firstGap;
-			}
-			else if(hasLastGap && iNormalized > 0 && iNormalized == secondToLastIndex)
-			{
-				gap = this._lastGap;
-			}
-			else
-			{
-				gap = this._gap;
-			}
-			if(this._useVirtualLayout && this._hasVariableItemDimensions)
-			{
-				cachedWidth = this._widthCache[iNormalized];
-			}
-			if(this._useVirtualLayout && item == null)
-			{
-				if(!this._hasVariableItemDimensions ||
-					cachedWidth != cachedWidth) //isNaN
-				{
-					lastWidth = calculatedTypicalItemWidth;
-				}
-				else
-				{
-					lastWidth = cachedWidth;
-				}
-			}
-			else
-			{
-				var itemWidth:Float = item.width;
-				if(this._useVirtualLayout)
-				{
-					if(this._hasVariableItemDimensions)
-					{
-						if(itemWidth != cachedWidth)
-						{
-							this._widthCache[iNormalized] = itemWidth;
-							this.dispatchEventWith(Event.CHANGE);
-						}
-					}
-					else if(calculatedTypicalItemWidth >= 0)
-					{
-						item.width = itemWidth = calculatedTypicalItemWidth;
-					}
-				}
-				lastWidth = itemWidth;
-			}
-			positionX += lastWidth + gap;
-			
-			i++;
-		}
-		positionX -= (lastWidth + gap);
 		if(this._scrollPositionHorizontalAlign == HORIZONTAL_ALIGN_CENTER)
 		{
-			positionX -= Math.round((width - lastWidth) / 2);
+			maxScrollX -= Math.round((width - itemWidth) / 2);
 		}
 		else if(this._scrollPositionHorizontalAlign == HORIZONTAL_ALIGN_RIGHT)
 		{
-			positionX -= (width - lastWidth);
+			maxScrollX -= (width - itemWidth);
 		}
-		result.x = positionX;
+		result.x = maxScrollX;
 		result.y = 0;
 
 		return result;
@@ -1566,15 +1706,14 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function validateItems(items:Array<DisplayObject>, justifyHeight:Float, distributedWidth:Float):Void
+	protected function validateItems(items:Vector.<DisplayObject>, explicitHeight:Number,
+		minHeight:Number, maxHeight:Number, distributedWidth:Number):void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
-		var mustSetJustifyHeight:Bool = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY &&
-			justifyHeight == justifyHeight; //!isNaN
-
+		var isJustified:Boolean = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY;
 		var itemCount:Int = items.length;
 		//for(var i:Int = 0; i < itemCount; i++)
 		for(i in 0 ... itemCount)
@@ -1588,9 +1727,19 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				item.width = distributedWidth;
 			}
-			if(mustSetJustifyHeight)
+			if(isJustified)
 			{
-				item.height = justifyHeight;
+				//the alignment is justified, but we don't yet have a width
+				//to use, so we need to ensure that we accurately measure
+				//the items instead of using an old justified height that
+				//may be wrong now!
+				item.height = explicitHeight;
+				if(item is IFeathersControl)
+				{
+					var feathersItem:IFeathersControl = IFeathersControl(item);
+					feathersItem.minHeight = minHeight;
+					feathersItem.maxHeight = maxHeight;
+				}
 			}
 			if(Std.is(item, IValidating))
 			{
@@ -1795,9 +1944,119 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					}
 				}
 				layoutItem.width = itemWidth;
+				if(layoutItem is IValidating)
+				{
+					//changing the width of the item may cause its height
+					//to change, so we need to validate. the height is
+					//needed for measurement.
+					IValidating(layoutItem).validate();
+				}
 			}
 		}
 		while(needsAnotherPass);
 		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
+	}
+
+	/**
+	 * @private
+	 */
+	protected function calculateMaxScrollXOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	{
+		if(this._useVirtualLayout)
+		{
+			this.prepareTypicalItem(height - this._paddingTop - this._paddingBottom);
+			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+		}
+
+		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var positionX:Number = x + this._paddingLeft;
+		var lastWidth:Number = 0;
+		var gap:Number = this._gap;
+		var startIndexOffset:int = 0;
+		var endIndexOffset:Number = 0;
+		var itemCount:int = items.length;
+		var totalItemCount:int = itemCount;
+		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
+		{
+			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
+			if(index < this._beforeVirtualizedItemCount)
+			{
+				//this makes it skip the loop below
+				startIndexOffset = index + 1;
+				lastWidth = calculatedTypicalItemWidth;
+				gap = this._gap;
+			}
+			else
+			{
+				startIndexOffset = this._beforeVirtualizedItemCount;
+				endIndexOffset = index - items.length - this._beforeVirtualizedItemCount + 1;
+				if(endIndexOffset < 0)
+				{
+					endIndexOffset = 0;
+				}
+				positionX += (endIndexOffset * (calculatedTypicalItemWidth + this._gap));
+			}
+			positionX += (startIndexOffset * (calculatedTypicalItemWidth + this._gap));
+		}
+		index -= (startIndexOffset + endIndexOffset);
+		var secondToLastIndex:int = totalItemCount - 2;
+		for(var i:int = 0; i <= index; i++)
+		{
+			var item:DisplayObject = items[i];
+			var iNormalized:int = i + startIndexOffset;
+			if(hasFirstGap && iNormalized == 0)
+			{
+				gap = this._firstGap;
+			}
+			else if(hasLastGap && iNormalized > 0 && iNormalized == secondToLastIndex)
+			{
+				gap = this._lastGap;
+			}
+			else
+			{
+				gap = this._gap;
+			}
+			if(this._useVirtualLayout && this._hasVariableItemDimensions)
+			{
+				var cachedWidth:Number = this._widthCache[iNormalized];
+			}
+			if(this._useVirtualLayout && !item)
+			{
+				if(!this._hasVariableItemDimensions ||
+					cachedWidth !== cachedWidth) //isNaN
+				{
+					lastWidth = calculatedTypicalItemWidth;
+				}
+				else
+				{
+					lastWidth = cachedWidth;
+				}
+			}
+			else
+			{
+				var itemWidth:Number = item.width;
+				if(this._useVirtualLayout)
+				{
+					if(this._hasVariableItemDimensions)
+					{
+						if(itemWidth != cachedWidth)
+						{
+							this._widthCache[iNormalized] = itemWidth;
+							this.dispatchEventWith(Event.CHANGE);
+						}
+					}
+					else if(calculatedTypicalItemWidth >= 0)
+					{
+						item.width = itemWidth = calculatedTypicalItemWidth;
+					}
+				}
+				lastWidth = itemWidth;
+			}
+			positionX += lastWidth + gap;
+		}
+		positionX -= (lastWidth + gap);
+		return positionX;
 	}
 }

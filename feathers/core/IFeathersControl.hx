@@ -1,6 +1,6 @@
 /*
 Feathers
-Copyright 2012-2014 Joshua Tynjala. All Rights Reserved.
+Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
@@ -165,12 +165,6 @@ interface IFeathersControl extends IValidating
 	//function get_isCreated():Bool;
 
 	/**
-	 * @copy feathers.core.FeathersControl#nameList
-	 */
-	var nameList(get, never):TokenList;
-	//function get_nameList():TokenList;
-
-	/**
 	 * @copy feathers.core.FeathersControl#styleNameList
 	 */
 	var styleNameList(get, never):TokenList;
@@ -201,5 +195,11 @@ interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#setSize()
 	 */
-	function setSize(width:Float, height:Float):Void;
+	function setSize(width:Number, height:Number):void;
+
+	/**
+	 * @copy feathers.core.FeathersControl#move()
+	 */
+	function move(x:Number, y:Number):void;
+}
 }
