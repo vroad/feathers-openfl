@@ -1012,7 +1012,7 @@ class HorizontalSpinnerLayout extends EventDispatcher implements ISpinnerLayout,
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
 		var isJustified:Bool = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY;
-		var mustSetJustifyHeight:Bool = isJustified && justifyHeight === justifyHeight; //!isNaN
+		var mustSetJustifyHeight:Bool = isJustified && justifyHeight == justifyHeight; //!isNaN
 		var itemCount:Int = items.length;
 		for(var i:Int = 0; i < itemCount; i++)
 		{
@@ -1054,7 +1054,7 @@ class HorizontalSpinnerLayout extends EventDispatcher implements ISpinnerLayout,
 			this._typicalItem.width = this._typicalItemWidth;
 		}
 		if(this._verticalAlign == VERTICAL_ALIGN_JUSTIFY &&
-			justifyHeight === justifyHeight) //!isNaN
+			justifyHeight == justifyHeight) //!isNaN
 		{
 			this._typicalItem.height = justifyHeight;
 		}

@@ -669,7 +669,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 		if(this._isSelected)
 		{
 			this._oldVolume = soundTransform.volume;
-			if(this._oldVolume === 0)
+			if(this._oldVolume == 0)
 			{
 				this._oldVolume = 1;
 			}

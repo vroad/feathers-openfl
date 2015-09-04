@@ -314,22 +314,22 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			var itemY:Float = item.y;
 			var itemMaxX:Float = itemX + item.width;
 			var itemMaxY:Float = itemY + item.height;
-			if(itemX === itemX && //!isNaN
+			if(itemX == itemX && //!isNaN
 				itemX < minX)
 			{
 				minX = itemX;
 			}
-			if(itemY === itemY && //!isNaN
+			if(itemY == itemY && //!isNaN
 				itemY < minY)
 			{
 				minY = itemY;
 			}
-			if(itemMaxX === itemMaxX && //!isNaN
+			if(itemMaxX == itemMaxX && //!isNaN
 				itemMaxX > maxX)
 			{
 				maxX = itemMaxX;
 			}
-			if(itemMaxY === itemMaxY && //!isNaN
+			if(itemMaxY == itemMaxY && //!isNaN
 				itemMaxY > maxY)
 			{
 				maxY = itemMaxY;

@@ -2002,7 +2002,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 		{
 			newValue = parseFloat(this.textInput.text);
 		}
-		if(newValue === newValue) //!isNaN
+		if(newValue == newValue) //!isNaN
 		{
 			this.value = newValue;
 		}

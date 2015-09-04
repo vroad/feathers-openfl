@@ -653,7 +653,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			targetColumnHeight += itemHeight;
 			for(var j:Int = 0; j < columnCount; j++)
 			{
-				if(j === targetColumnIndex)
+				if(j == targetColumnIndex)
 				{
 					continue;
 				}
@@ -831,7 +831,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 					targetColumnHeight += itemHeight;
 					for(var j:Int = 0; j < columnCount; j++)
 					{
-						if(j === targetColumnIndex)
+						if(j == targetColumnIndex)
 						{
 							continue;
 						}
@@ -947,7 +947,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 				targetColumnHeight += itemHeight;
 				for(var j:Int = 0; j < columnCount; j++)
 				{
-					if(j === targetColumnIndex)
+					if(j == targetColumnIndex)
 					{
 						continue;
 					}
@@ -1273,7 +1273,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			targetColumnHeight += itemHeight;
 			for(var j:Int = 0; j < columnCount; j++)
 			{
-				if(j === targetColumnIndex)
+				if(j == targetColumnIndex)
 				{
 					continue;
 				}
@@ -1284,7 +1284,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 					targetColumnHeight = columnHeight;
 				}
 			}
-			if(i === index)
+			if(i == index)
 			{
 				return targetColumnHeight - itemHeight;
 			}

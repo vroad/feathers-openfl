@@ -80,7 +80,7 @@ class TextInputRestrict
 	 */
 	public function set_restrict(value:String):String
 	{
-		if(this._restrict === value)
+		if(this._restrict == value)
 		{
 			return;
 		}
@@ -95,7 +95,7 @@ class TextInputRestrict
 			{
 				this._restricts = new <RegExp>[];
 			}
-			if(this._restrict === "")
+			if(this._restrict == "")
 			{
 				this._restricts.push(/^$/);
 			}

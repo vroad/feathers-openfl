@@ -2070,7 +2070,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
 		
-		if(this._minimum === this._maximum)
+		if(this._minimum == this._maximum)
 		{
 			var percentage:Float = 1;
 		}

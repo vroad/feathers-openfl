@@ -105,7 +105,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	 */
 	public function set_compareFunction(value:Function):Function
 	{
-		if(value === null)
+		if(value == null)
 		{
 			value = defaultCompareFunction;
 		}

@@ -195,7 +195,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	 */
 	public function showScreen(id:String, transition:Function = null):DisplayObject
 	{
-		if(transition === null)
+		if(transition == null)
 		{
 			transition = this._transition;
 		}

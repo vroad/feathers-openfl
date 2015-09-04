@@ -1287,7 +1287,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
-		if(event.currentTarget === this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		if(event.currentTarget == this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
 		{
 			return;
 		}

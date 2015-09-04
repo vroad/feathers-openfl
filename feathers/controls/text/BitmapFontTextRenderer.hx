@@ -1025,12 +1025,12 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		var frame:Rectangle = texture.frame;
 		if(frame)
 		{
-			if(frame.width === 0 || frame.height === 0)
+			if(frame.width == 0 || frame.height == 0)
 			{
 				return;
 			}
 		}
-		else if(texture.width === 0 || texture.height === 0)
+		else if(texture.width == 0 || texture.height == 0)
 		{
 			return;
 		}

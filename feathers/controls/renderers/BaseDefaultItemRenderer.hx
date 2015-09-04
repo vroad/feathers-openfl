@@ -441,7 +441,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	{
 		//we need to use strict equality here because the data can be
 		//non-strictly equal to null
-		if(this._data === value)
+		if(this._data == value)
 		{
 			return this._data;
 		}

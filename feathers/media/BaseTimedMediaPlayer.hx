@@ -119,7 +119,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	public function BaseTimedMediaPlayer()
 	{
 		super();
-		if(Object(this).constructor === BaseTimedMediaPlayer)
+		if(Object(this).constructor == BaseTimedMediaPlayer)
 		{
 			throw new AbstractClassError();
 		}

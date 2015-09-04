@@ -407,7 +407,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	public function set_videoSource(value:String):String
 	{
-		if(this._videoSource === value)
+		if(this._videoSource == value)
 		{
 			return;
 		}

@@ -1604,11 +1604,11 @@ class ImageLoader extends FeathersControl
 		{
 			var imageWidth:Float = this._currentTextureWidth * this._textureScale;
 			var imageHeight:Float = this._currentTextureHeight * this._textureScale;
-			if(this._horizontalAlign === HORIZONTAL_ALIGN_RIGHT)
+			if(this._horizontalAlign == HORIZONTAL_ALIGN_RIGHT)
 			{
 				this.image.x = this.actualWidth - this._paddingRight - imageWidth;
 			}
-			else if(this._horizontalAlign === HORIZONTAL_ALIGN_CENTER)
+			else if(this._horizontalAlign == HORIZONTAL_ALIGN_CENTER)
 			{
 				this.image.x = this._paddingLeft + ((this.actualWidth - this._paddingLeft - this._paddingRight) - imageWidth) / 2;
 			}
@@ -1616,11 +1616,11 @@ class ImageLoader extends FeathersControl
 			{
 				this.image.x = this._paddingLeft;
 			}
-			if(this._verticalAlign === VERTICAL_ALIGN_BOTTOM)
+			if(this._verticalAlign == VERTICAL_ALIGN_BOTTOM)
 			{
 				this.image.y = this.actualHeight - this._paddingBottom - imageHeight;
 			}
-			else if(this._verticalAlign === VERTICAL_ALIGN_MIDDLE)
+			else if(this._verticalAlign == VERTICAL_ALIGN_MIDDLE)
 			{
 				this.image.y = this._paddingTop + ((this.actualHeight - this._paddingTop - this._paddingBottom) - imageHeight) / 2;
 			}
@@ -1658,7 +1658,7 @@ class ImageLoader extends FeathersControl
 		{
 			sourceURL = sourceURL.substr(0, index);
 		}
-		return sourceURL.toLowerCase().lastIndexOf(ATF_FILE_EXTENSION) === sourceURL.length - 3;
+		return sourceURL.toLowerCase().lastIndexOf(ATF_FILE_EXTENSION) == sourceURL.length - 3;
 	}
 
 	/**

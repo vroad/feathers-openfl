@@ -1218,7 +1218,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
 		this.invalidate(INVALIDATION_FLAG_STATE);
-		if(this._focusManager && this._focusManager.focus === this)
+		if(this._focusManager && this._focusManager.focus == this)
 		{
 			//if clearFocus() was called manually, we need to notify the
 			//focus manager if it still thinks we have focus.

@@ -181,7 +181,7 @@ class Main extends Sprite
 
 	private function fileToOpen_selectHandler(event:flash.events.Event):Void
 	{
-		if(this._videoPlayer.videoSource === this._fileToOpen.url)
+		if(this._videoPlayer.videoSource == this._fileToOpen.url)
 		{
 			//it's the same file, so just start it over instead of trying
 			//to load it again!

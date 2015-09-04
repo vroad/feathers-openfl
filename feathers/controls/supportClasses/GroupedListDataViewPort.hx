@@ -421,7 +421,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_itemRendererFactory(value:Function):Function
 	{
-		if(this._itemRendererFactory === value)
+		if(this._itemRendererFactory == value)
 		{
 			return;
 		}
@@ -516,7 +516,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_firstItemRendererFactory(value:Function):Function
 	{
-		if(this._firstItemRendererFactory === value)
+		if(this._firstItemRendererFactory == value)
 		{
 			return;
 		}
@@ -569,7 +569,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_lastItemRendererFactory(value:Function):Function
 	{
-		if(this._lastItemRendererFactory === value)
+		if(this._lastItemRendererFactory == value)
 		{
 			return;
 		}
@@ -622,7 +622,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_singleItemRendererFactory(value:Function):Function
 	{
-		if(this._singleItemRendererFactory === value)
+		if(this._singleItemRendererFactory == value)
 		{
 			return;
 		}
@@ -675,7 +675,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_headerRendererFactory(value:Function):Function
 	{
-		if(this._headerRendererFactory === value)
+		if(this._headerRendererFactory == value)
 		{
 			return;
 		}
@@ -753,7 +753,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	public function set_footerRendererFactory(value:Function):Function
 	{
-		if(this._footerRendererFactory === value)
+		if(this._footerRendererFactory == value)
 		{
 			return;
 		}
@@ -1747,8 +1747,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 				if(useVirtualLayout && HELPER_VECTOR.indexOf(currentIndex) < 0)
 				{
 					if(this._typicalItemRenderer && this._typicalItemIsInDataProvider &&
-						this._typicalItemRenderer.groupIndex === i &&
-						this._typicalItemRenderer.itemIndex === j)
+						this._typicalItemRenderer.groupIndex == i &&
+						this._typicalItemRenderer.itemIndex == j)
 					{
 						//the indices may have changed if items were added, removed,
 						//or reordered in the data provider
@@ -2708,7 +2708,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		if(event.currentTarget === this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		if(event.currentTarget == this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
 		{
 			return;
 		}

@@ -3501,7 +3501,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				newWidth = 0;
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > newWidth)
 			{
 				newWidth = this.originalBackgroundWidth;
@@ -3522,7 +3522,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				newHeight = 0;
 			}
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > newHeight)
 			{
 				newHeight = this.originalBackgroundHeight;
@@ -3738,7 +3738,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		this._viewPort.visibleWidth = this.explicitWidth - horizontalWidthOffset;
 		this._viewPort.visibleHeight = this.explicitHeight - verticalHeightOffset;
 		var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
-		if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+		if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 		 this.originalBackgroundWidth > minVisibleWidth)
 		{
 			//to avoid going through the loop too many times, we need to
@@ -3752,7 +3752,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		this._viewPort.minVisibleWidth = minVisibleWidth;
 		this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
 		var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
-		if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+		if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 			this.originalBackgroundHeight > minVisibleHeight)
 		{
 			//see note above about the background skin size
@@ -3790,7 +3790,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			//if we didn't need to do any measurement, we would have skipped
 			//setting this stuff earlier, and now is the last chance
 			var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > minVisibleWidth)
 			{
 				//to avoid going through the loop too many times, we need to
@@ -3804,7 +3804,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			this._viewPort.minVisibleWidth = minVisibleWidth;
 			this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
 			var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > minVisibleHeight)
 			{
 				//see note above about the background skin size

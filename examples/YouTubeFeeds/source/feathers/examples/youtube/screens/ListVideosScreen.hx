@@ -119,7 +119,7 @@ class ListVideosScreen extends PanelScreen
 		this._message.text = "Loading...";
 		this._message.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
 		//hide the loading message if we're using restored results
-		this._message.visible = this.savedDataProvider === null;
+		this._message.visible = this.savedDataProvider == null;
 		this.addChild(this._message);
 
 		this.headerFactory = this.customHeaderFactory;
@@ -224,7 +224,7 @@ class ListVideosScreen extends PanelScreen
 					item.thumbnailURL = video.snippet.thumbnails.medium.url as String;
 				}
 				//switch from https to http if we're not running in AIR
-				if(useHTTP && item.thumbnailURL.indexOf("https") === 0)
+				if(useHTTP && item.thumbnailURL.indexOf("https") == 0)
 				{
 					item.thumbnailURL = "http" + item.thumbnailURL.substr(5);
 				}

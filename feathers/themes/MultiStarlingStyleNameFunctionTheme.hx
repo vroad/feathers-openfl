@@ -116,7 +116,7 @@ class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 */
 	private function setStarlingData(starling:Starling, data:Object):Void
 	{
-		if(data === null)
+		if(data == null)
 		{
 			delete this._starlingData[starling];
 			return;

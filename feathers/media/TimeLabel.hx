@@ -254,7 +254,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 		var displayMode:String = this._displayMode;
 		if(this._isToggled)
 		{
-			if(displayMode === DISPLAY_MODE_CURRENT_TIME)
+			if(displayMode == DISPLAY_MODE_CURRENT_TIME)
 			{
 				displayMode = DISPLAY_MODE_REMAINING_TIME;
 			}
@@ -338,7 +338,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	private function timeLabel_touchHandler(event:TouchEvent):Void
 	{
 		if(!this._isEnabled || !this._toggleDisplayMode ||
-			!(this._displayMode === DISPLAY_MODE_CURRENT_TIME || this._displayMode === DISPLAY_MODE_CURRENT_TIME))
+			!(this._displayMode == DISPLAY_MODE_CURRENT_TIME || this._displayMode == DISPLAY_MODE_CURRENT_TIME))
 		{
 			this.touchPointID = -1;
 			return;

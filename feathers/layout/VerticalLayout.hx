@@ -933,8 +933,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		var hasDistributedHeight:Bool = distributedHeight == distributedHeight; //!isNaN
 
 		//this section prepares some variables needed for the following loop
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var maxItemWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Float = boundsY + this._paddingTop;
 		var indexOffset:Int = 0;
@@ -1197,7 +1197,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 						//in this section, we handle percentage width if
 						//VerticalLayoutData is available.
 						var percentWidth:Float = layoutData.percentWidth;
-						if(percentWidth === percentWidth) //!isNaN
+						if(percentWidth == percentWidth) //!isNaN
 						{
 							if(percentWidth < 0)
 							{
@@ -1460,8 +1460,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var resultLastIndex:Int = 0;
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
@@ -1987,8 +1987,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap == this._lastGap; //!isNaN
 		var positionY:Float = y + this._paddingTop;
 		var lastHeight:Float = 0;
 		var gap:Float = this._gap;

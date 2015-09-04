@@ -27,7 +27,7 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	public function BaseMediaPlayer()
 	{
 		super();
-		if(Object(this).constructor === BaseMediaPlayer)
+		if(Object(this).constructor == BaseMediaPlayer)
 		{
 			throw new AbstractClassError();
 		}

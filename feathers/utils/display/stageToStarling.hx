@@ -18,7 +18,7 @@ public function stageToStarling(stage:Stage):Starling
 {
 	for each(var starling:Starling in Starling.all)
 	{
-		if(starling.stage === stage)
+		if(starling.stage == stage)
 		{
 			return starling;
 		}

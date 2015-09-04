@@ -505,7 +505,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			newHeight += 4;
 		}
-		if(this._visibleHeight === this._visibleHeight) //!isNaN
+		if(this._visibleHeight == this._visibleHeight) //!isNaN
 		{
 			if(newHeight < this._visibleHeight)
 			{

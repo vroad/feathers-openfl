@@ -221,7 +221,7 @@ class OldFadeNewSlideTransitionManager
 
 		if(oldScreen)
 		{
-			if(this._crossfadeTransition === null)
+			if(this._crossfadeTransition == null)
 			{
 				this._crossfadeTransition = Fade.createCrossfadeTransition(this._duration, this._ease, {delay: this._delay});
 			}
@@ -247,7 +247,7 @@ class OldFadeNewSlideTransitionManager
 			}
 			this._stack.push(oldScreenClassAndID);
 
-			if(this._pushSlideTransition === null)
+			if(this._pushSlideTransition == null)
 			{
 				this._pushSlideTransition = Slide.createSlideLeftTransition(this._duration, this._ease, {delay: this._delay});
 			}
@@ -257,7 +257,7 @@ class OldFadeNewSlideTransitionManager
 		{
 			this._stack.splice(stackIndex, this._stack.length - stackIndex);
 
-			if(this._popSlideTransition === null)
+			if(this._popSlideTransition == null)
 			{
 				this._popSlideTransition = Slide.createSlideRightTransition(this._duration, this._ease, {delay: this._delay});
 			}

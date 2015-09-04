@@ -577,7 +577,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
-			if(availableRowWidth === Float.POSITIVE_INFINITY)
+			if(availableRowWidth == Float.POSITIVE_INFINITY)
 			{
 				supportsMultipleRows = false;
 			}
@@ -813,7 +813,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			this._verticalAlign != VERTICAL_ALIGN_TOP)
 		{
 			var verticalAlignOffset:Float = availableHeight - totalHeight;
-			if(this._verticalAlign === VERTICAL_ALIGN_MIDDLE)
+			if(this._verticalAlign == VERTICAL_ALIGN_MIDDLE)
 			{
 				verticalAlignOffset /= 2;
 			}
@@ -879,7 +879,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
-			if(availableRowWidth === Float.POSITIVE_INFINITY)
+			if(availableRowWidth == Float.POSITIVE_INFINITY)
 			{
 				supportsMultipleRows = false;
 			}
@@ -1343,7 +1343,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 				//we don't check this at the beginning of the loop because
 				//it may break to start a new row and then redo this item
-				if(i === index)
+				if(i == index)
 				{
 					isLastRow = true;
 				}

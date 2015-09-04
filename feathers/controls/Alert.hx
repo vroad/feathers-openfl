@@ -891,7 +891,7 @@ class Alert extends Panel
 			{
 				newWidth = Math.max(newWidth, this.footer.width);
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > newWidth)
 			{
 				newWidth = this.originalBackgroundWidth;
@@ -909,7 +909,7 @@ class Alert extends Panel
 				}
 			}
 			newHeight += this._bottomViewPortOffset + this._topViewPortOffset;
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > newHeight)
 			{
 				newHeight = this.originalBackgroundHeight;

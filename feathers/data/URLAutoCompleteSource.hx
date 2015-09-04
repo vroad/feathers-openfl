@@ -115,7 +115,7 @@ class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSour
 	 */
 	public function set_urlRequestFunction(value:Function):Function
 	{
-		if(this._urlRequestFunction === value)
+		if(this._urlRequestFunction == value)
 		{
 			return;
 		}
@@ -159,11 +159,11 @@ class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSour
 	 */
 	public function set_parseResultFunction(value:Function):Function
 	{
-		if(value === null)
+		if(value == null)
 		{
 			value = defaultParseResultFunction;
 		}
-		if(this._parseResultFunction === value)
+		if(this._parseResultFunction == value)
 		{
 			return;
 		}
@@ -197,7 +197,7 @@ class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSour
 		}
 		var urlRequestFunction:Function = this._urlRequestFunction;
 		var request:URLRequest;
-		if(urlRequestFunction.length === 1)
+		if(urlRequestFunction.length == 1)
 		{
 			request = URLRequest(urlRequestFunction(textToMatch));
 		}
@@ -233,7 +233,7 @@ class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSour
 	private function parseData(resultText:String, textToMatch:String, suggestions:ListCollection):Void
 	{
 		var parseResultFunction:Function = this._parseResultFunction;
-		if(parseResultFunction.length === 2)
+		if(parseResultFunction.length == 2)
 		{
 			suggestions.data = parseResultFunction(resultText, textToMatch);
 		}
@@ -256,7 +256,7 @@ class URLAutoCompleteSource extends EventDispatcher implements IAutoCompleteSour
 		this._savedTextToMatch = null;
 
 		var loadedData:String = this._urlLoader.data as String;
-		if(this._urlRequestFunction.length === 0)
+		if(this._urlRequestFunction.length == 0)
 		{
 			this._cachedResult = loadedData;
 		}

@@ -1445,7 +1445,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 			return;
 		}
 		var nativeStage:Stage = Starling.current.nativeStage;
-		if(nativeStage.focus === this.textField)
+		if(nativeStage.focus == this.textField)
 		{
 			//only clear the native focus when our native target has focus
 			//because otherwise another component may lose focus.

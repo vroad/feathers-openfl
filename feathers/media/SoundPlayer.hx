@@ -253,7 +253,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 */
 	public function set_soundSource(value:Object):Object
 	{
-		if(this._soundSource === value)
+		if(this._soundSource == value)
 		{
 			return;
 		}
@@ -287,7 +287,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 		{
 			this._sound = Sound(this._soundSource);
 		}
-		else if(this._soundSource === null)
+		else if(this._soundSource == null)
 		{
 			this._sound = null;
 		}

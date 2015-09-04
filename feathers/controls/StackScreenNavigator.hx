@@ -440,7 +440,7 @@ class StackScreenNavigator extends BaseScreenNavigator
 	 */
 	public function pushScreen(id:String, savedPreviousScreenProperties:Object = null, transition:Function = null):DisplayObject
 	{
-		if(transition === null)
+		if(transition == null)
 		{
 			var item:StackScreenNavigatorItem = this.getScreen(id);
 			if(item && item.pushTransition != null)
@@ -482,7 +482,7 @@ class StackScreenNavigator extends BaseScreenNavigator
 		{
 			return this._activeScreen;
 		}
-		if(transition === null)
+		if(transition == null)
 		{
 			var screenItem:StackScreenNavigatorItem = this.getScreen(this._activeScreenID);
 			if(screenItem && screenItem.popTransition != null)

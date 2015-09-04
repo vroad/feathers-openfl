@@ -216,7 +216,7 @@ public function RevealTween(oldScreen:DisplayObject, newScreen:DisplayObject,
 	tweenProperties:Object)
 {
 	var clipRect:Rectangle = new Rectangle();
-	if(xOffset === 0)
+	if(xOffset == 0)
 	{
 		clipRect.width = newScreen.width;
 	}
@@ -224,7 +224,7 @@ public function RevealTween(oldScreen:DisplayObject, newScreen:DisplayObject,
 	{
 		clipRect.x = -xOffset;
 	}
-	if(yOffset === 0)
+	if(yOffset == 0)
 	{
 		clipRect.height = newScreen.height;
 	}

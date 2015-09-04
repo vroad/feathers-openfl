@@ -228,7 +228,7 @@ class ScreenSlidingStackTransitionManager
 			}
 			this._stack.push(oldScreenClassAndID);
 
-			if(this._pushTransition === null)
+			if(this._pushTransition == null)
 			{
 				this._pushTransition = Slide.createSlideLeftTransition(this._duration, this._ease, {delay: this._delay});
 			}
@@ -238,7 +238,7 @@ class ScreenSlidingStackTransitionManager
 		{
 			this._stack.splice(stackIndex, this._stack.length - stackIndex);
 
-			if(this._popTransition === null)
+			if(this._popTransition == null)
 			{
 				this._popTransition = Slide.createSlideRightTransition(this._duration, this._ease, {delay: this._delay});
 			}

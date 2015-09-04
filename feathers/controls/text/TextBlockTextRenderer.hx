@@ -1223,7 +1223,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 				}
 			}
 			var scaleFactor:Float = Starling.current.contentScaleFactor;
-			if(!this._nativeFilters || this._nativeFilters.length === 0)
+			if(!this._nativeFilters || this._nativeFilters.length == 0)
 			{
 				var offsetX:Float = 0;
 				var offsetY:Float = 0;

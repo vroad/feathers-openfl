@@ -1194,7 +1194,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	{
 		//setting the editable property of a StageText to false seems to be
 		//ignored on Android, so this is the workaround
-		if(!this._isEditable && SystemUtil.platform === "AND")
+		if(!this._isEditable && SystemUtil.platform == "AND")
 		{
 			return;
 		}

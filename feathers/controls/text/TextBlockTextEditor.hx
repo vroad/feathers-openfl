@@ -669,7 +669,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
 		this.removeEventListener(starling.events.Event.ENTER_FRAME, hasFocus_enterFrameHandler);
 		var nativeStage:Stage = Starling.current.nativeStage;
-		if(nativeStage.focus === this._nativeFocus)
+		if(nativeStage.focus == this._nativeFocus)
 		{
 			//only clear the native focus when our native target has focus
 			//because otherwise another component may lose focus.
@@ -1327,7 +1327,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			return;
 		}
 		var text:String = event.text;
-		if(text === CARRIAGE_RETURN || text === LINE_FEED)
+		if(text == CARRIAGE_RETURN || text == LINE_FEED)
 		{
 			//ignore new lines
 			return;
@@ -1394,7 +1394,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			return;
 		}
 		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
-		if(pastedText === null)
+		if(pastedText == null)
 		{
 			//the clipboard doesn't contain any text to paste
 			return;

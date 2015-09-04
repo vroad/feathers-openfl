@@ -154,7 +154,7 @@ class ScreenFadeTransitionManager
 			}
 			return;
 		}
-		if(this._transition === null)
+		if(this._transition == null)
 		{
 			this._transition = Fade.createCrossfadeTransition(this._duration, this._ease, {delay: this._delay});
 		}

@@ -1046,7 +1046,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 
 		var range:Float = this._maximum - this._minimum;
 		var adjustedPage:Float = this._page;
-		if(adjustedPage === 0)
+		if(adjustedPage == 0)
 		{
 			//fall back to using step!
 			adjustedPage = this._step;
@@ -1065,7 +1065,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 			}
 			else //horizontal
 			{
-				if(adjustedPage === 0)
+				if(adjustedPage == 0)
 				{
 					newWidth = this.thumbOriginalWidth;
 				}
@@ -1084,7 +1084,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			if(this._direction == DIRECTION_VERTICAL)
 			{
-				if(adjustedPage === 0)
+				if(adjustedPage == 0)
 				{
 					newHeight = this.thumbOriginalHeight;
 				}
@@ -1289,7 +1289,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	{
 		var range:Float = this._maximum - this._minimum;
 		var adjustedPage:Float = this._page;
-		if(adjustedPage === 0)
+		if(adjustedPage == 0)
 		{
 			adjustedPage = this._step;
 		}

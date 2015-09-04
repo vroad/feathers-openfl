@@ -686,7 +686,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 			{
 				newWidth = 0;
 			}
-			if(this.originalBackgroundWidth === this.originalBackgroundWidth &&
+			if(this.originalBackgroundWidth == this.originalBackgroundWidth &&
 				this.originalBackgroundWidth > newWidth) //!isNaN
 			{
 				newWidth = this.originalBackgroundWidth;
@@ -705,7 +705,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 			{
 				newHeight = 0;
 			}
-			if(this.originalBackgroundHeight === this.originalBackgroundHeight &&
+			if(this.originalBackgroundHeight == this.originalBackgroundHeight &&
 				this.originalBackgroundHeight > newHeight) //!isNaN
 			{
 				newHeight = this.originalBackgroundHeight;

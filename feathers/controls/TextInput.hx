@@ -2503,7 +2503,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
-		if(this._focusManager && this._focusManager.focus === this)
+		if(this._focusManager && this._focusManager.focus == this)
 		{
 			//if clearFocus() was called manually, we need to notify the
 			//focus manager if it still thinks we have focus.
