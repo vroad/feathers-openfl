@@ -14,7 +14,7 @@ package feathers.media
  * @see feathers.media.IAudioPlayer
  * @see feathers.media.IVideoPlayer
  */
-public interface IMediaPlayerControl
+interface IMediaPlayerControl
 {
 	/**
 	 * The media player that this component controls.

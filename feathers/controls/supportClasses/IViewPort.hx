@@ -10,7 +10,7 @@ package feathers.controls.supportClasses
 import feathers.core.IFeathersControl;
 
 [ExcludeClass]
-public interface IViewPort extends IFeathersControl
+interface IViewPort extends IFeathersControl
 {
 	function get_visibleWidth():Float;
 	function set_visibleWidth(value:Float):Float;

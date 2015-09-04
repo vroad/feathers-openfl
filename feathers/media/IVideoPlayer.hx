@@ -36,7 +36,7 @@ package feathers.media
 /**
  * An interface media players that play video content.
  */
-public interface IVideoPlayer extends IAudioPlayer
+interface IVideoPlayer extends IAudioPlayer
 {
 	/**
 	 * The original, native width of the loaded video.

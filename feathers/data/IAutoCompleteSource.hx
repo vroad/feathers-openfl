@@ -38,7 +38,7 @@ import feathers.core.IFeathersEventDispatcher;
  *
  * @see feathers.controls.AutoComplete
  */
-public interface IAutoCompleteSource extends IFeathersEventDispatcher
+interface IAutoCompleteSource extends IFeathersEventDispatcher
 {
 	/**
 	 * Loads suggestions based on the text entered into an

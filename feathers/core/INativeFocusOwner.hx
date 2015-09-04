@@ -16,7 +16,7 @@ import flash.display.InteractiveObject;
  * 
  * @see http://feathersui.com/help/focus.html
  */
-public interface INativeFocusOwner extends IFocusDisplayObject
+interface INativeFocusOwner extends IFocusDisplayObject
 {
 	/**
 	 * A display object on the native stage that is given focus when this

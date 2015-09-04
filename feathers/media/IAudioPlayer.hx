@@ -36,7 +36,7 @@ import flash.media.SoundTransform;
 /**
  * An interface for media players that play audio content.
  */
-public interface IAudioPlayer extends ITimedMediaPlayer
+interface IAudioPlayer extends ITimedMediaPlayer
 {
 	/**
 	 * Controls properties of the currently playing audio, like volume and

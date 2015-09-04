@@ -105,7 +105,7 @@ package feathers.media
 /**
  * An interface for media players that play timed content.
  */
-public interface ITimedMediaPlayer extends IMediaPlayer
+interface ITimedMediaPlayer extends IMediaPlayer
 {
 	/**
 	 * The current position of the playhead, in seconds.

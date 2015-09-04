@@ -12,7 +12,7 @@ package feathers.core
  *
  * @see feathers.core.IFocusManager
  */
-public interface IFocusContainer extends IFocusDisplayObject
+interface IFocusContainer extends IFocusDisplayObject
 {
 	/**
 	 * Determines if this component's children can receive focus. This

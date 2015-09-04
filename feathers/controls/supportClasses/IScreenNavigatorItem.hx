@@ -16,7 +16,7 @@ import starling.display.DisplayObject;
  *
  * @see BaseScreenNavigator
  */
-public interface IScreenNavigatorItem
+interface IScreenNavigatorItem
 {
 	/**
 	 * Determines if a display object returned by <code>getScreen()</code>

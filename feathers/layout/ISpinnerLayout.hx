@@ -12,7 +12,7 @@ package feathers.layout
  *
  * @see feathers.controls.SpinnerList
  */
-public interface ISpinnerLayout extends ILayout
+interface ISpinnerLayout extends ILayout
 {
 	/**
 	 * The interval, in pixels, between snapping points.
