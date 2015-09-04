@@ -84,7 +84,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		if(TimeLabel.globalStyleProvider)
 		{
@@ -96,7 +96,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:ITimedMediaPlayer;
+	private var _mediaPlayer:ITimedMediaPlayer;
 
 	/**
 	 * @inheritDoc
@@ -132,7 +132,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _delimiter:String = " / ";
+	private var _delimiter:String = " / ";
 
 	/**
 	 * When the value of <code>displayMode</code> is
@@ -164,7 +164,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _displayMode:String = DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES;
+	private var _displayMode:String = DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES;
 
 	[Inspectable(type="String",enumeration="currentAndTotalTimes,currentTime,totalTime,remainingTime")]
 	/**
@@ -201,17 +201,17 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _isToggled:Boolean = false;
+	private var _isToggled:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var touchPointID:int = -1;
+	private var touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _toggleDisplayMode:Boolean = false;
+	private var _toggleDisplayMode:Boolean = false;
 
 	/**
 	 * If the <code>displayMode</code> property is set to
@@ -247,7 +247,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function updateText():void
+	private function updateText():void
 	{
 		var currentTime:Number = this._mediaPlayer ? this._mediaPlayer.currentTime : 0;
 		var totalTime:Number = this._mediaPlayer ? this._mediaPlayer.totalTime : 0;
@@ -290,7 +290,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function secondsToTimeString(seconds:Number):String
+	private function secondsToTimeString(seconds:Number):String
 	{
 		var isNegative:Boolean = seconds < 0;
 		if(isNegative)
@@ -319,7 +319,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_currentTimeChangeHandler(event:Event):void
+	private function mediaPlayer_currentTimeChangeHandler(event:Event):void
 	{
 		this.updateText();
 	}
@@ -327,7 +327,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_totalTimeChangeHandler(event:Event):void
+	private function mediaPlayer_totalTimeChangeHandler(event:Event):void
 	{
 		this.updateText();
 	}
@@ -335,7 +335,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function timeLabel_touchHandler(event:TouchEvent):void
+	private function timeLabel_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled || !this._toggleDisplayMode ||
 			!(this._displayMode === DISPLAY_MODE_CURRENT_TIME || this._displayMode === DISPLAY_MODE_CURRENT_TIME))

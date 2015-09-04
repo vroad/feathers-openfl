@@ -104,60 +104,60 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * @private
 	 * The theme's custom style name for item renderers in a PickerList.
 	 */
-	protected static const THEME_NAME_PICKER_LIST_ITEM_RENDERER:String = "minimal-mobile-picker-list-item-renderer";
+	private static const THEME_NAME_PICKER_LIST_ITEM_RENDERER:String = "minimal-mobile-picker-list-item-renderer";
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal slider.
 	 */
-	protected static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-horizontal-slider-minimum-track";
+	private static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-horizontal-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical slider.
 	 */
-	protected static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-vertical-slider-minimum-track";
+	private static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "minimal-mobile-vertical-slider-minimum-track";
 
-	protected static const FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
+	private static const FONT_TEXTURE_NAME:String = "pf_ronda_seven_0";
 
-	protected static const SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 2, 2);
-	protected static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	protected static const BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 1, 1);
-	protected static const SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
-	protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(25, 21, 1, 1);
-	protected static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 5, 3, 1);
-	protected static const LIST_ITEM_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	protected static const BACK_BUTTON_SCALE_REGION1:Int = 30;
-	protected static const BACK_BUTTON_SCALE_REGION2:Int = 1;
-	protected static const FORWARD_BUTTON_SCALE_REGION1:Int = 9;
-	protected static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
+	private static const SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 2, 2);
+	private static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	private static const BUTTON_DOWN_SCALE_9_GRID:Rectangle = new Rectangle(9, 9, 1, 1);
+	private static const SCROLLBAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 2);
+	private static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(25, 21, 1, 1);
+	private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 5, 3, 1);
+	private static const LIST_ITEM_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	private static const BACK_BUTTON_SCALE_REGION1:Int = 30;
+	private static const BACK_BUTTON_SCALE_REGION2:Int = 1;
+	private static const FORWARD_BUTTON_SCALE_REGION1:Int = 9;
+	private static const FORWARD_BUTTON_SCALE_REGION2:Int = 1;
 
-	protected static const BACKGROUND_COLOR:uint = 0xf3f3f3;
-	protected static const LIST_BACKGROUND_COLOR:uint = 0xf8f8f8;
-	protected static const LIST_HEADER_BACKGROUND_COLOR:uint = 0xeeeeee;
-	protected static const PRIMARY_TEXT_COLOR:uint = 0x666666;
-	protected static const DISABLED_TEXT_COLOR:uint = 0x999999;
-	protected static const MODAL_OVERLAY_COLOR:uint = 0xcccccc;
-	protected static const MODAL_OVERLAY_ALPHA:Float = 0.4;
+	private static const BACKGROUND_COLOR:uint = 0xf3f3f3;
+	private static const LIST_BACKGROUND_COLOR:uint = 0xf8f8f8;
+	private static const LIST_HEADER_BACKGROUND_COLOR:uint = 0xeeeeee;
+	private static const PRIMARY_TEXT_COLOR:uint = 0x666666;
+	private static const DISABLED_TEXT_COLOR:uint = 0x999999;
+	private static const MODAL_OVERLAY_COLOR:uint = 0xcccccc;
+	private static const MODAL_OVERLAY_ALPHA:Float = 0.4;
 
 	/**
 	 * The screen density of an iPhone with Retina display. The textures
 	 * used by this theme are designed for this density and scale for other
 	 * densities.
 	 */
-	protected static const ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
+	private static const ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
 
 	/**
 	 * The screen density of an iPad with Retina display. The textures used
 	 * by this theme are designed for this density and scale for other
 	 * densities.
 	 */
-	protected static const ORIGINAL_DPI_IPAD_RETINA:Int = 264;
+	private static const ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
 	/**
 	 * The default global text renderer factory for this theme creates a
 	 * BitmapFontTextRenderer.
 	 */
-	protected static function textRendererFactory():BitmapFontTextRenderer
+	private static function textRendererFactory():BitmapFontTextRenderer
 	{
 		var renderer:BitmapFontTextRenderer = new BitmapFontTextRenderer();
 		//since it's a pixel font, we don't want to smooth it.
@@ -169,7 +169,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * The default global text editor factory for this theme creates a
 	 * StageTextTextEditor.
 	 */
-	protected static function textEditorFactory():StageTextTextEditor
+	private static function textEditorFactory():StageTextTextEditor
 	{
 		return new StageTextTextEditor();
 	}
@@ -178,7 +178,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * The text editor factory for a NumericStepper creates a
 	 * BitmapFontTextEditor.
 	 */
-	protected static function numericStepperTextEditorFactory():BitmapFontTextEditor
+	private static function numericStepperTextEditorFactory():BitmapFontTextEditor
 	{
 		//we're only using this text editor in the NumericStepper because
 		//isEditable is false on the TextInput. this text editor is not
@@ -190,7 +190,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		return editor;
 	}
 
-	protected static function popUpOverlayFactory():DisplayObject
+	private static function popUpOverlayFactory():DisplayObject
 	{
 		var quad:Quad = new Quad(100, 100, MODAL_OVERLAY_COLOR);
 		quad.alpha = MODAL_OVERLAY_ALPHA;
@@ -200,7 +200,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * This theme's scroll bar type is SimpleScrollBar.
 	 */
-	protected static function scrollBarFactory():SimpleScrollBar
+	private static function scrollBarFactory():SimpleScrollBar
 	{
 		return new SimpleScrollBar();
 	}
@@ -209,7 +209,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * SmartDisplayObjectValueSelectors will use ImageLoader instead of
 	 * Image so that we can use extra features like pixel snapping.
 	 */
-	protected static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
+	private static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:ImageLoader = oldDisplayObject as ImageLoader;
 		if(!displayObject)
@@ -234,7 +234,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	protected var _originalDPI:Int;
+	private var _originalDPI:Int;
 
 	/**
 	 * The original screen density used for scaling.
@@ -247,7 +247,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	protected var _scaleToDPI:Bool;
+	private var _scaleToDPI:Bool;
 
 	/**
 	 * Indicates if the theme scales skins to match the screen density of
@@ -262,27 +262,27 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * Skins are scaled by a value based on the screen density on the
 	 * content scale factor.
 	 */
-	protected var scale:Float = 1;
+	private var scale:Float = 1;
 
 	/**
 	 * A normal font size.
 	 */
-	protected var fontSize:Int;
+	private var fontSize:Int;
 
 	/**
 	 * A larger font size for headers.
 	 */
-	protected var largeFontSize:Int;
+	private var largeFontSize:Int;
 
 	/**
 	 * A smaller font size for details.
 	 */
-	protected var smallFontSize:Int;
+	private var smallFontSize:Int;
 
 	/**
 	 * A special font size for text editing.
 	 */
-	protected var inputFontSize:Int;
+	private var inputFontSize:Int;
 
 	/**
 	 * The texture atlas that contains skins for this theme. This base class
@@ -290,120 +290,120 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * load the assets somehow and set the <code>atlas</code> member
 	 * variable before calling <code>initialize()</code>.
 	 */
-	protected var atlas:TextureAtlas;
+	private var atlas:TextureAtlas;
 
-	protected var buttonUpSkinTextures:Scale9Textures;
-	protected var buttonDownSkinTextures:Scale9Textures;
-	protected var buttonDisabledSkinTextures:Scale9Textures;
-	protected var buttonSelectedSkinTextures:Scale9Textures;
-	protected var buttonSelectedDisabledSkinTextures:Scale9Textures;
-	protected var buttonCallToActionUpSkinTextures:Scale9Textures;
-	protected var buttonDangerUpSkinTextures:Scale9Textures;
-	protected var buttonDangerDownSkinTextures:Scale9Textures;
-	protected var buttonBackUpSkinTextures:Scale3Textures;
-	protected var buttonBackDownSkinTextures:Scale3Textures;
-	protected var buttonBackDisabledSkinTextures:Scale3Textures;
-	protected var buttonForwardUpSkinTextures:Scale3Textures;
-	protected var buttonForwardDownSkinTextures:Scale3Textures;
-	protected var buttonForwardDisabledSkinTextures:Scale3Textures;
+	private var buttonUpSkinTextures:Scale9Textures;
+	private var buttonDownSkinTextures:Scale9Textures;
+	private var buttonDisabledSkinTextures:Scale9Textures;
+	private var buttonSelectedSkinTextures:Scale9Textures;
+	private var buttonSelectedDisabledSkinTextures:Scale9Textures;
+	private var buttonCallToActionUpSkinTextures:Scale9Textures;
+	private var buttonDangerUpSkinTextures:Scale9Textures;
+	private var buttonDangerDownSkinTextures:Scale9Textures;
+	private var buttonBackUpSkinTextures:Scale3Textures;
+	private var buttonBackDownSkinTextures:Scale3Textures;
+	private var buttonBackDisabledSkinTextures:Scale3Textures;
+	private var buttonForwardUpSkinTextures:Scale3Textures;
+	private var buttonForwardDownSkinTextures:Scale3Textures;
+	private var buttonForwardDisabledSkinTextures:Scale3Textures;
 
-	protected var tabDownSkinTextures:Scale9Textures;
-	protected var tabSelectedSkinTextures:Scale9Textures;
-	protected var tabSelectedDisabledSkinTextures:Scale9Textures;
+	private var tabDownSkinTextures:Scale9Textures;
+	private var tabSelectedSkinTextures:Scale9Textures;
+	private var tabSelectedDisabledSkinTextures:Scale9Textures;
 
-	protected var thumbSkinTextures:Scale9Textures;
-	protected var thumbDisabledSkinTextures:Scale9Textures;
+	private var thumbSkinTextures:Scale9Textures;
+	private var thumbDisabledSkinTextures:Scale9Textures;
 
-	protected var scrollBarThumbSkinTextures:Scale9Textures;
+	private var scrollBarThumbSkinTextures:Scale9Textures;
 
-	protected var insetBackgroundSkinTextures:Scale9Textures;
-	protected var insetBackgroundDisabledSkinTextures:Scale9Textures;
+	private var insetBackgroundSkinTextures:Scale9Textures;
+	private var insetBackgroundDisabledSkinTextures:Scale9Textures;
 
-	protected var dropDownArrowTexture:Texture;
-	protected var dropDownDisabledArrowTexture:Texture;
-	protected var searchIconTexture:Texture;
-	protected var searchIconDisabledTexture:Texture;
+	private var dropDownArrowTexture:Texture;
+	private var dropDownDisabledArrowTexture:Texture;
+	private var searchIconTexture:Texture;
+	private var searchIconDisabledTexture:Texture;
 
-	protected var listItemUpTextures:Scale9Textures;
-	protected var listItemDownTextures:Scale9Textures;
-	protected var listItemSelectedTextures:Scale9Textures;
-	protected var pickerListItemSelectedIconTexture:Texture;
+	private var listItemUpTextures:Scale9Textures;
+	private var listItemDownTextures:Scale9Textures;
+	private var listItemSelectedTextures:Scale9Textures;
+	private var pickerListItemSelectedIconTexture:Texture;
 
-	protected var headerSkinTextures:Scale9Textures;
+	private var headerSkinTextures:Scale9Textures;
 
-	protected var popUpBackgroundSkinTextures:Scale9Textures;
-	protected var calloutTopArrowSkinTexture:Texture;
-	protected var calloutBottomArrowSkinTexture:Texture;
-	protected var calloutLeftArrowSkinTexture:Texture;
-	protected var calloutRightArrowSkinTexture:Texture;
+	private var popUpBackgroundSkinTextures:Scale9Textures;
+	private var calloutTopArrowSkinTexture:Texture;
+	private var calloutBottomArrowSkinTexture:Texture;
+	private var calloutLeftArrowSkinTexture:Texture;
+	private var calloutRightArrowSkinTexture:Texture;
 
-	protected var checkIconTexture:Texture;
-	protected var checkDisabledIconTexture:Texture;
-	protected var checkSelectedIconTexture:Texture;
-	protected var checkSelectedDisabledIconTexture:Texture;
+	private var checkIconTexture:Texture;
+	private var checkDisabledIconTexture:Texture;
+	private var checkSelectedIconTexture:Texture;
+	private var checkSelectedDisabledIconTexture:Texture;
 
-	protected var radioIconTexture:Texture;
-	protected var radioDisabledIconTexture:Texture;
-	protected var radioSelectedIconTexture:Texture;
-	protected var radioSelectedDisabledIconTexture:Texture;
+	private var radioIconTexture:Texture;
+	private var radioDisabledIconTexture:Texture;
+	private var radioSelectedIconTexture:Texture;
+	private var radioSelectedDisabledIconTexture:Texture;
 
-	protected var pageIndicatorNormalSkinTexture:Texture;
-	protected var pageIndicatorSelectedSkinTexture:Texture;
+	private var pageIndicatorNormalSkinTexture:Texture;
+	private var pageIndicatorSelectedSkinTexture:Texture;
 
 	/**
 	 * The size, in pixels, of major regions in the grid. Used for sizing
 	 * containers and larger UI controls.
 	 */
-	protected var gridSize:Int;
+	private var gridSize:Int;
 
 	/**
 	 * The size, in pixels, of minor regions in the grid. Used for larger
 	 * padding and gaps.
 	 */
-	protected var gutterSize:Int;
+	private var gutterSize:Int;
 
 	/**
 	 * The size, in pixels, of smaller padding and gaps within the major
 	 * regions in the grid.
 	 */
-	protected var smallGutterSize:Int;
+	private var smallGutterSize:Int;
 
 	/**
 	 * The width, in pixels, of UI controls that span across multiple grid regions.
 	 */
-	protected var wideControlSize:Int;
+	private var wideControlSize:Int;
 
 	/**
 	 * The size, in pixels, of a typical UI control.
 	 */
-	protected var controlSize:Int;
+	private var controlSize:Int;
 
 	/**
 	 * The size, in pixels, of smaller UI controls.
 	 */
-	protected var smallControlSize:Int;
+	private var smallControlSize:Int;
 
 	/**
 	 * The size, in pixels, of a UI control's border.
 	 */
-	protected var borderSize:Int;
+	private var borderSize:Int;
 
-	protected var simpleScrollBarThumbSize:Int;
-	protected var calloutBorderPaddingSize:Int;
-	protected var calloutBackgroundMinSize:Int;
-	protected var popUpFillSize:Int;
+	private var simpleScrollBarThumbSize:Int;
+	private var calloutBorderPaddingSize:Int;
+	private var calloutBackgroundMinSize:Int;
+	private var popUpFillSize:Int;
 
-	protected var primaryTextFormat:BitmapFontTextFormat;
-	protected var disabledTextFormat:BitmapFontTextFormat;
-	protected var centeredTextFormat:BitmapFontTextFormat;
-	protected var centeredDisabledTextFormat:BitmapFontTextFormat;
-	protected var headingTextFormat:BitmapFontTextFormat;
-	protected var headingDisabledTextFormat:BitmapFontTextFormat;
-	protected var detailTextFormat:BitmapFontTextFormat;
-	protected var detailDisabledTextFormat:BitmapFontTextFormat;
+	private var primaryTextFormat:BitmapFontTextFormat;
+	private var disabledTextFormat:BitmapFontTextFormat;
+	private var centeredTextFormat:BitmapFontTextFormat;
+	private var centeredDisabledTextFormat:BitmapFontTextFormat;
+	private var headingTextFormat:BitmapFontTextFormat;
+	private var headingDisabledTextFormat:BitmapFontTextFormat;
+	private var detailTextFormat:BitmapFontTextFormat;
+	private var detailDisabledTextFormat:BitmapFontTextFormat;
 
-	protected var scrollTextTextFormat:TextFormat;
-	protected var scrollTextDisabledTextFormat:TextFormat;
+	private var scrollTextTextFormat:TextFormat;
+	private var scrollTextDisabledTextFormat:TextFormat;
 
 	/**
 	 * Disposes the texture atlas before calling super.dispose()
@@ -424,7 +424,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * Initializes the theme. Expected to be called by subclasses after the
 	 * assets have been loaded and the skin texture atlas has been created.
 	 */
-	protected function initialize():void
+	private function initialize():void
 	{
 		this.initializeScale();
 		this.initializeDimensions();
@@ -438,7 +438,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * Sets the stage background color.
 	 */
-	protected function initializeStage():void
+	private function initializeStage():void
 	{
 		Starling.current.stage.color = BACKGROUND_COLOR;
 		Starling.current.nativeStage.color = BACKGROUND_COLOR;
@@ -447,7 +447,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes global variables (not including global style providers).
 	 */
-	protected function initializeGlobals():void
+	private function initializeGlobals():void
 	{
 		PopUpManager.overlayFactory = popUpOverlayFactory;
 		Callout.stagePadding = this.smallGutterSize;
@@ -460,7 +460,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * Initializes the scale value based on the screen density and content
 	 * scale factor.
 	 */
-	protected function initializeScale():void
+	private function initializeScale():void
 	{
 		var scaledDPI:Int = DeviceCapabilities.dpi / Starling.current.contentScaleFactor;
 		if(this._scaleToDPI)
@@ -486,7 +486,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes common values used for setting the dimensions of components.
 	 */
-	protected function initializeDimensions():void
+	private function initializeDimensions():void
 	{
 		this.gridSize = Math.round(88 * this.scale);
 		this.smallGutterSize = Math.round(11 * this.scale);
@@ -505,7 +505,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * Initializes the textures by extracting them from the atlas and
 	 * setting up any scaling grids that are needed.
 	 */
-	protected function initializeTextures():void
+	private function initializeTextures():void
 	{
 		this.buttonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-up-skin"), BUTTON_SCALE_9_GRID);
 		this.buttonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("button-down-skin"), BUTTON_DOWN_SCALE_9_GRID);
@@ -571,7 +571,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes font sizes and formats.
 	 */
-	protected function initializeFonts():void
+	private function initializeFonts():void
 	{
 		//since it's a pixel font, we want a multiple of the original size,
 		//which, in this case, is 8.
@@ -597,7 +597,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * Sets global style providers for all components.
 	 */
-	protected function initializeStyleProviders():void
+	private function initializeStyleProviders():void
 	{
 		//alert
 		this.getStyleProviderForClass(Alert).defaultStyleFunction = this.setAlertStyles;
@@ -720,7 +720,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_NAME_ON_TRACK, this.setToggleSwitchOnTrackStyles);
 	}
 
-	protected function pageIndicatorNormalSymbolFactory():DisplayObject
+	private function pageIndicatorNormalSymbolFactory():DisplayObject
 	{
 		var symbol:ImageLoader = new ImageLoader();
 		symbol.source = this.pageIndicatorNormalSkinTexture;
@@ -729,7 +729,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		return symbol;
 	}
 
-	protected function pageIndicatorSelectedSymbolFactory():DisplayObject
+	private function pageIndicatorSelectedSymbolFactory():DisplayObject
 	{
 		var symbol:ImageLoader = new ImageLoader();
 		symbol.source = this.pageIndicatorSelectedSkinTexture;
@@ -738,7 +738,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		return symbol;
 	}
 
-	protected function imageLoaderFactory():ImageLoader
+	private function imageLoaderFactory():ImageLoader
 	{
 		var image:ImageLoader = new ImageLoader();
 		image.smoothing = TextureSmoothing.NONE;
@@ -750,14 +750,14 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Shared
 //-------------------------
 
-	protected function setNoStyles(target:DisplayObject):void
+	private function setNoStyles(target:DisplayObject):void
 	{
 		//if this is assigned as a style function, chances are the target
 		//will be a subcomponent of something. the style function for this
 		//component's parent is probably handing the styling for the target
 	}
 
-	protected function setScrollerStyles(scroller:Scroller):void
+	private function setScrollerStyles(scroller:Scroller):void
 	{
 		scroller.horizontalScrollBarFactory = scrollBarFactory;
 		scroller.verticalScrollBarFactory = scrollBarFactory;
@@ -767,7 +767,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Alert
 //-------------------------
 
-	protected function setAlertStyles(alert:Alert):void
+	private function setAlertStyles(alert:Alert):void
 	{
 		this.setScrollerStyles(alert);
 
@@ -786,7 +786,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		alert.maxHeight = this.popUpFillSize;
 	}
 
-	protected function setAlertButtonGroupStyles(group:ButtonGroup):void
+	private function setAlertButtonGroupStyles(group:ButtonGroup):void
 	{
 		group.direction = ButtonGroup.DIRECTION_VERTICAL;
 		group.horizontalAlign = ButtonGroup.HORIZONTAL_ALIGN_JUSTIFY;
@@ -795,7 +795,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		group.padding = this.smallGutterSize;
 	}
 
-	protected function setAlertMessageTextRendererStyles(renderer:BitmapFontTextRenderer):void
+	private function setAlertMessageTextRendererStyles(renderer:BitmapFontTextRenderer):void
 	{
 		renderer.wordWrap = true;
 		renderer.textFormat = this.primaryTextFormat;
@@ -805,7 +805,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Button
 //-------------------------
 
-	protected function setBaseButtonStyles(button:Button):void
+	private function setBaseButtonStyles(button:Button):void
 	{
 		button.defaultLabelProperties.textFormat = this.primaryTextFormat;
 		button.disabledLabelProperties.textFormat = this.disabledTextFormat;
@@ -826,7 +826,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		button.minTouchHeight = this.gridSize;
 	}
 
-	protected function setButtonStyles(button:Button):void
+	private function setButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
@@ -850,7 +850,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		this.setBaseButtonStyles(button);
 	}
 
-	protected function setCallToActionButtonStyles(button:Button):void
+	private function setCallToActionButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonCallToActionUpSkinTextures;
@@ -866,7 +866,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		this.setBaseButtonStyles(button);
 	}
 
-	protected function setQuietButtonStyles(button:Button):void
+	private function setQuietButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = null;
@@ -890,7 +890,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		this.setBaseButtonStyles(button);
 	}
 
-	protected function setDangerButtonStyles(button:Button):void
+	private function setDangerButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonDangerUpSkinTextures;
@@ -906,7 +906,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		this.setBaseButtonStyles(button);
 	}
 
-	protected function setBackButtonStyles(button:Button):void
+	private function setBackButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonBackUpSkinTextures;
@@ -923,7 +923,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		button.paddingLeft = this.gutterSize + this.smallGutterSize;
 	}
 
-	protected function setForwardButtonStyles(button:Button):void
+	private function setForwardButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonForwardUpSkinTextures;
@@ -944,13 +944,13 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // ButtonGroup
 //-------------------------
 
-	protected function setButtonGroupStyles(group:ButtonGroup):void
+	private function setButtonGroupStyles(group:ButtonGroup):void
 	{
 		group.minWidth = this.popUpFillSize;
 		group.gap = this.smallGutterSize;
 	}
 
-	protected function setButtonGroupButtonStyles(button:Button):void
+	private function setButtonGroupButtonStyles(button:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
@@ -995,7 +995,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Callout
 //-------------------------
 
-	protected function setCalloutStyles(callout:Callout):void
+	private function setCalloutStyles(callout:Callout):void
 	{
 		callout.minWidth = this.calloutBackgroundMinSize;
 		callout.minHeight = this.calloutBackgroundMinSize;
@@ -1030,7 +1030,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Check
 //-------------------------
 
-	protected function setCheckStyles(check:Check):void
+	private function setCheckStyles(check:Check):void
 	{
 		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1062,7 +1062,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Drawers
 //-------------------------
 
-	protected function setDrawersStyles(drawers:Drawers):void
+	private function setDrawersStyles(drawers:Drawers):void
 	{
 		var overlaySkin:Quad = new Quad(10, 10, MODAL_OVERLAY_COLOR);
 		overlaySkin.alpha = MODAL_OVERLAY_ALPHA;
@@ -1073,7 +1073,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // GroupedList
 //-------------------------
 
-	protected function setGroupedListStyles(list:GroupedList):void
+	private function setGroupedListStyles(list:GroupedList):void
 	{
 		this.setScrollerStyles(list);
 
@@ -1083,7 +1083,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 
 	//see List section for item renderer styles
 
-	protected function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+	private function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
 	{
 		renderer.backgroundSkin = new Quad(1, 1, LIST_HEADER_BACKGROUND_COLOR);
 
@@ -1098,7 +1098,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		renderer.contentLoaderFactory = this.imageLoaderFactory;
 	}
 
-	protected function setInsetGroupedListStyles(list:GroupedList):void
+	private function setInsetGroupedListStyles(list:GroupedList):void
 	{
 		this.setScrollerStyles(list);
 
@@ -1115,7 +1115,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		list.layout = layout;
 	}
 
-	protected function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+	private function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
 	{
 		renderer.contentLabelProperties.textFormat = this.primaryTextFormat;
 		renderer.contentLabelProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1134,7 +1134,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Header
 //-------------------------
 
-	protected function setHeaderStyles(header:Header):void
+	private function setHeaderStyles(header:Header):void
 	{
 		header.minWidth = this.gridSize;
 		header.minHeight = this.gridSize;
@@ -1155,19 +1155,19 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Label
 //-------------------------
 
-	protected function setLabelStyles(label:Label):void
+	private function setLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.primaryTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.disabledTextFormat;
 	}
 
-	protected function setHeadingLabelStyles(label:Label):void
+	private function setHeadingLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.headingTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.headingDisabledTextFormat;
 	}
 
-	protected function setDetailLabelStyles(label:Label):void
+	private function setDetailLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.detailTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.detailDisabledTextFormat;
@@ -1177,14 +1177,14 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // List
 //-------------------------
 
-	protected function setListStyles(list:List):void
+	private function setListStyles(list:List):void
 	{
 		this.setScrollerStyles(list);
 
 		list.backgroundSkin = new Quad(this.gridSize, this.gridSize, LIST_BACKGROUND_COLOR);
 	}
 
-	protected function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+	private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.listItemUpTextures;
@@ -1222,12 +1222,12 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		renderer.iconLoaderFactory = this.imageLoaderFactory;
 	}
 
-	protected function setItemRendererAccessoryLabelStyles(renderer:BitmapFontTextRenderer):void
+	private function setItemRendererAccessoryLabelStyles(renderer:BitmapFontTextRenderer):void
 	{
 		renderer.textFormat = this.primaryTextFormat;
 	}
 
-	protected function setItemRendererIconLabelStyles(renderer:BitmapFontTextRenderer):void
+	private function setItemRendererIconLabelStyles(renderer:BitmapFontTextRenderer):void
 	{
 		renderer.textFormat = this.primaryTextFormat;
 	}
@@ -1236,14 +1236,14 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // NumericStepper
 //-------------------------
 
-	protected function setNumericStepperStyles(stepper:NumericStepper):void
+	private function setNumericStepperStyles(stepper:NumericStepper):void
 	{
 		stepper.buttonLayoutMode = NumericStepper.BUTTON_LAYOUT_MODE_SPLIT_HORIZONTAL;
 		stepper.incrementButtonLabel = "+";
 		stepper.decrementButtonLabel = "-";
 	}
 
-	protected function setNumericStepperTextInputStyles(input:TextInput):void
+	private function setNumericStepperTextInputStyles(input:TextInput):void
 	{
 		input.minWidth = this.controlSize;
 		input.minHeight = this.controlSize;
@@ -1267,7 +1267,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		input.backgroundDisabledSkin = backgroundDisabledSkin;
 	}
 
-	protected function setNumericStepperButtonStyles(button:Button):void
+	private function setNumericStepperButtonStyles(button:Button):void
 	{
 		this.setButtonStyles(button);
 		button.keepDownStateOnRollOut = true;
@@ -1277,7 +1277,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // PageIndicator
 //-------------------------
 
-	protected function setPageIndicatorStyles(pageIndicator:PageIndicator):void
+	private function setPageIndicatorStyles(pageIndicator:PageIndicator):void
 	{
 		pageIndicator.normalSymbolFactory = this.pageIndicatorNormalSymbolFactory;
 		pageIndicator.selectedSymbolFactory = this.pageIndicatorSelectedSymbolFactory;
@@ -1291,7 +1291,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Panel
 //-------------------------
 
-	protected function setPanelStyles(panel:Panel):void
+	private function setPanelStyles(panel:Panel):void
 	{
 		this.setScrollerStyles(panel);
 
@@ -1303,7 +1303,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		panel.padding = this.smallGutterSize;
 	}
 
-	protected function setPanelHeaderStyles(header:Header):void
+	private function setPanelHeaderStyles(header:Header):void
 	{
 		header.minWidth = this.gridSize;
 		header.minHeight = this.gridSize;
@@ -1324,7 +1324,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // PanelScreen
 //-------------------------
 
-	protected function setPanelScreenHeaderStyles(header:Header):void
+	private function setPanelScreenHeaderStyles(header:Header):void
 	{
 		this.setPanelHeaderStyles(header);
 		header.useExtraPaddingForOSStatusBar = true;
@@ -1334,7 +1334,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // PickerList
 //-------------------------
 
-	protected function setPickerListStyles(list:PickerList):void
+	private function setPickerListStyles(list:PickerList):void
 	{
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
@@ -1374,7 +1374,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		list.listProperties.itemRendererName = THEME_NAME_PICKER_LIST_ITEM_RENDERER;
 	}
 
-	protected function setPickerListItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+	private function setPickerListItemRendererStyles(renderer:BaseDefaultItemRenderer):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.listItemUpTextures;
@@ -1432,7 +1432,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		renderer.iconLoaderFactory = this.imageLoaderFactory;
 	}
 
-	protected function setPickerListButtonStyles(button:Button):void
+	private function setPickerListButtonStyles(button:Button):void
 	{
 		//we're going to expand on the standard button styles
 		this.setButtonStyles(button);
@@ -1459,7 +1459,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // ProgressBar
 //-------------------------
 
-	protected function setProgressBarStyles(progress:ProgressBar):void
+	private function setProgressBarStyles(progress:ProgressBar):void
 	{
 		var backgroundSkin:Scale9Image = new Scale9Image(insetBackgroundSkinTextures, this.scale);
 		if(progress.direction == ProgressBar.DIRECTION_VERTICAL)
@@ -1518,7 +1518,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Radio
 //-------------------------
 
-	protected function setRadioStyles(radio:Radio):void
+	private function setRadioStyles(radio:Radio):void
 	{
 		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1550,12 +1550,12 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // ScrollContainer
 //-------------------------
 
-	protected function setScrollContainerStyles(container:ScrollContainer):void
+	private function setScrollContainerStyles(container:ScrollContainer):void
 	{
 		this.setScrollerStyles(container);
 	}
 
-	protected function setToolbarScrollContainerStyles(container:ScrollContainer):void
+	private function setToolbarScrollContainerStyles(container:ScrollContainer):void
 	{
 		this.setScrollerStyles(container);
 
@@ -1580,7 +1580,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // ScrollText
 //-------------------------
 
-	protected function setScrollTextStyles(text:ScrollText):void
+	private function setScrollTextStyles(text:ScrollText):void
 	{
 		this.setScrollerStyles(text);
 		text.textFormat = this.scrollTextTextFormat;
@@ -1593,7 +1593,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // SimpleScrollBar
 //-------------------------
 
-	protected function setSimpleScrollBarThumbStyles(thumb:Button):void
+	private function setSimpleScrollBarThumbStyles(thumb:Button):void
 	{
 		var defaultSkin:Scale9Image = new Scale9Image(scrollBarThumbSkinTextures, this.scale);
 		defaultSkin.width = this.simpleScrollBarThumbSize;
@@ -1610,7 +1610,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // Slider
 //-------------------------
 
-	protected function setSliderStyles(slider:Slider):void
+	private function setSliderStyles(slider:Slider):void
 	{
 		slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1624,7 +1624,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		}
 	}
 
-	protected function setHorizontalSliderMinimumTrackStyles(track:Button):void
+	private function setHorizontalSliderMinimumTrackStyles(track:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.insetBackgroundSkinTextures;
@@ -1640,7 +1640,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalSliderMinimumTrackStyles(track:Button):void
+	private function setVerticalSliderMinimumTrackStyles(track:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.insetBackgroundSkinTextures;
@@ -1656,7 +1656,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setSliderThumbStyles(thumb:Button):void
+	private function setSliderThumbStyles(thumb:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.thumbSkinTextures;
@@ -1678,12 +1678,12 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // TabBar
 //-------------------------
 
-	protected function setTabBarStyles(tabBar:TabBar):void
+	private function setTabBarStyles(tabBar:TabBar):void
 	{
 		tabBar.distributeTabSizes = true;
 	}
 
-	protected function setTabStyles(tab:ToggleButton):void
+	private function setTabStyles(tab:ToggleButton):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.headerSkinTextures;
@@ -1716,7 +1716,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // TextArea
 //-------------------------
 
-	protected function setTextAreaStyles(textArea:TextArea):void
+	private function setTextAreaStyles(textArea:TextArea):void
 	{
 		this.setScrollerStyles(textArea);
 
@@ -1741,7 +1741,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // TextInput
 //-------------------------
 
-	protected function setBaseTextInputStyles(input:TextInput):void
+	private function setBaseTextInputStyles(input:TextInput):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.insetBackgroundSkinTextures;
@@ -1770,12 +1770,12 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		input.promptProperties.disabledTextFormat = this.disabledTextFormat;
 	}
 
-	protected function setTextInputStyles(input:TextInput):void
+	private function setTextInputStyles(input:TextInput):void
 	{
 		this.setBaseTextInputStyles(input);
 	}
 
-	protected function setSearchTextInputStyles(input:TextInput):void
+	private function setSearchTextInputStyles(input:TextInput):void
 	{
 		this.setBaseTextInputStyles(input);
 
@@ -1795,7 +1795,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 // ToggleSwitch
 //-------------------------
 
-	protected function setToggleSwitchStyles(toggleSwitch:ToggleSwitch):void
+	private function setToggleSwitchStyles(toggleSwitch:ToggleSwitch):void
 	{
 		toggleSwitch.trackLayoutMode = ToggleSwitch.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1803,7 +1803,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		toggleSwitch.disabledLabelProperties.textFormat = this.disabledTextFormat;
 	}
 
-	protected function setToggleSwitchOnTrackStyles(track:Button):void
+	private function setToggleSwitchOnTrackStyles(track:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.insetBackgroundSkinTextures;
@@ -1821,7 +1821,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setToggleSwitchThumbStyles(thumb:Button):void
+	private function setToggleSwitchThumbStyles(thumb:Button):void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.thumbSkinTextures;

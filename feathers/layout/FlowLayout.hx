@@ -116,7 +116,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _rowItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _rowItems:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * Quickly sets both <code>horizontalGap</code> and <code>verticalGap</code>
@@ -146,7 +146,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _horizontalGap:Number = 0;
+	private var _horizontalGap:Number = 0;
 
 	/**
 	 * The horizontal space, in pixels, between items.
@@ -174,7 +174,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _verticalGap:Number = 0;
+	private var _verticalGap:Number = 0;
 
 	/**
 	 * The vertical space, in pixels, between items.
@@ -231,7 +231,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The space, in pixels, above of items.
@@ -259,7 +259,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The space, in pixels, to the right of the items.
@@ -287,7 +287,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The space, in pixels, below the items.
@@ -315,7 +315,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The space, in pixels, to the left of the items.
@@ -343,7 +343,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -379,7 +379,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -415,7 +415,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _rowVerticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _rowVerticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -451,7 +451,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -479,7 +479,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -505,7 +505,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _hasVariableItemDimensions:Boolean = true;
+	private var _hasVariableItemDimensions:Boolean = true;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -543,12 +543,12 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected var _widthCache:Array = [];
+	private var _widthCache:Array = [];
 
 	/**
 	 * @private
 	 */
-	protected var _heightCache:Array = [];
+	private var _heightCache:Array = [];
 
 	/**
 	 * @inheritDoc
@@ -1215,7 +1215,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @private
 	 */
-	protected function calculateMaxScrollYAndRowHeightOfIndex(index:int, items:Vector.<DisplayObject>,
+	private function calculateMaxScrollYAndRowHeightOfIndex(index:int, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		if(!result)

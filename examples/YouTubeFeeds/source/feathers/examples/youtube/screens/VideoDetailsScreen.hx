@@ -146,7 +146,7 @@ class VideoDetailsScreen extends PanelScreen
 		super.draw();
 	}
 	
-	protected function refreshLayout():void
+	private function refreshLayout():void
 	{
 		if(this.actualHeight > this.actualWidth &&
 			this._thumbnail.layoutData != this._portraitThumbnailLayoutData) //portrait

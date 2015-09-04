@@ -90,7 +90,7 @@ public class VectorUintListCollectionDataDescriptor implements IListCollectionDa
 	/**
 	 * @private
 	 */
-	protected function checkForCorrectDataType(data:Object):void
+	private function checkForCorrectDataType(data:Object):void
 	{
 		if(!(data is Vector.<uint>))
 		{

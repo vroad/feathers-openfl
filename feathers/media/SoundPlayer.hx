@@ -166,7 +166,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected static const NO_SOUND_SOURCE_PLAY_ERROR:String = "Cannot play media when soundSource property has not been set.";
+	private static const NO_SOUND_SOURCE_PLAY_ERROR:String = "Cannot play media when soundSource property has not been set.";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all
@@ -188,7 +188,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return SoundPlayer.globalStyleProvider;
 	}
@@ -196,7 +196,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _sound:Sound;
+	private var _sound:Sound;
 	
 	/**
 	 * The <code>flash.media.Sound</code> object that has loaded the
@@ -212,7 +212,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _soundChannel:SoundChannel;
+	private var _soundChannel:SoundChannel;
 
 	/**
 	 * The currently playing <code>flash.media.SoundChannel</code>.
@@ -225,7 +225,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _soundSource:Object;
+	private var _soundSource:Object;
 
 	/**
 	 * A URL specified as a <code>String</code> representing a URL, a
@@ -304,7 +304,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _isLoading:Boolean = false;
+	private var _isLoading:Boolean = false;
 
 	/**
 	 * Indicates if the <code>flash.media.Sound</code> object is currently
@@ -318,7 +318,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _isLoaded:Boolean = false;
+	private var _isLoaded:Boolean = false;
 
 	/**
 	 * Indicates if the <code>flash.media.Sound</code> object has finished
@@ -335,7 +335,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _soundTransform:SoundTransform;
+	private var _soundTransform:SoundTransform;
 
 	/**
 	 * @inheritDoc
@@ -373,7 +373,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _autoPlay:Boolean = true;
+	private var _autoPlay:Boolean = true;
 
 	/**
 	 * Determines if the sound starts playing immediately when the
@@ -402,7 +402,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected var _loop:Boolean = false;
+	private var _loop:Boolean = false;
 
 	/**
 	 * Determines if, upon reaching the end of the sound, the playhead
@@ -433,7 +433,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override protected function playMedia():void
+	override private function playMedia():void
 	{
 		if(!this._soundSource)
 		{
@@ -460,7 +460,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override protected function pauseMedia():void
+	override private function pauseMedia():void
 	{
 		if(!this._soundChannel)
 		{
@@ -476,7 +476,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override protected function seekMedia(seconds:Number):void
+	override private function seekMedia(seconds:Number):void
 	{
 		this.pauseMedia();
 		this._currentTime = seconds;
@@ -489,7 +489,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function handleSoundComplete():void
+	private function handleSoundComplete():void
 	{
 		//return to the beginning
 		this.stop();
@@ -503,7 +503,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function loadSourceFromURL(url:String):void
+	private function loadSourceFromURL(url:String):void
 	{
 		this.loadSourceFromURLRequest(new URLRequest(url));
 	}
@@ -511,7 +511,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function loadSourceFromURLRequest(request:URLRequest):void
+	private function loadSourceFromURLRequest(request:URLRequest):void
 	{
 		this._isLoading = true;
 		if(this._sound)
@@ -531,7 +531,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function soundPlayer_enterFrameHandler(event:Event):void
+	private function soundPlayer_enterFrameHandler(event:Event):void
 	{
 		this._currentTime = this._soundChannel.position / 1000;
 		this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
@@ -542,7 +542,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * This isn't when the sound finishes playing. It's when the sound has
 	 * finished loading.
 	 */
-	protected function sound_completeHandler(event:flash.events.Event):void
+	private function sound_completeHandler(event:flash.events.Event):void
 	{
 		this._totalTime = this._sound.length / 1000;
 		this.dispatchEventWith(MediaPlayerEventType.TOTAL_TIME_CHANGE);
@@ -554,7 +554,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function sound_progressHandler(event:ProgressEvent):void
+	private function sound_progressHandler(event:ProgressEvent):void
 	{
 		var oldTotalTime:Number = this._totalTime;
 		this._totalTime = this._sound.length / 1000;
@@ -568,7 +568,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function sound_errorHandler(event:ErrorEvent):void
+	private function sound_errorHandler(event:ErrorEvent):void
 	{
 		//since it's just a string in both cases, we'll reuse event.type for
 		//the Starling event.
@@ -578,7 +578,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	protected function soundChannel_soundCompleteHandler(event:flash.events.Event):void
+	private function soundChannel_soundCompleteHandler(event:flash.events.Event):void
 	{
 		this.handleSoundComplete();
 	}

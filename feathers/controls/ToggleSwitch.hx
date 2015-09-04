@@ -271,7 +271,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var onLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ON_LABEL;
+	private var onLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ON_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>onLabelStyleName</code>.
@@ -283,7 +283,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #onLabelStyleName
 	 */
-	protected function get onLabelName():String
+	private function get onLabelName():String
 	{
 		return this.onLabelStyleName;
 	}
@@ -291,7 +291,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected function set onLabelName(value:String):void
+	private function set onLabelName(value:String):void
 	{
 		this.onLabelStyleName = value;
 	}
@@ -305,7 +305,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var offLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_OFF_LABEL;
+	private var offLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_OFF_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>offLabelStyleName</code>.
@@ -317,7 +317,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #offLabelStyleName
 	 */
-	protected function get offLabelName():String
+	private function get offLabelName():String
 	{
 		return this.offLabelStyleName;
 	}
@@ -325,7 +325,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected function set offLabelName(value:String):void
+	private function set offLabelName(value:String):void
 	{
 		this.offLabelStyleName = value;
 	}
@@ -343,7 +343,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #customOnTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var onTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_ON_TRACK;
+	private var onTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_ON_TRACK;
 
 	/**
 	 * DEPRECATED: Replaced by <code>onTrackStyleName</code>.
@@ -355,7 +355,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #onTrackStyleName
 	 */
-	protected function get onTrackName():String
+	private function get onTrackName():String
 	{
 		return this.onTrackStyleName;
 	}
@@ -363,7 +363,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected function set onTrackName(value:String):void
+	private function set onTrackName(value:String):void
 	{
 		this.onTrackStyleName = value;
 	}
@@ -381,7 +381,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #customOffTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var offTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_OFF_TRACK;
+	private var offTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_OFF_TRACK;
 
 	/**
 	 * DEPRECATED: Replaced by <code>offTrackStyleName</code>.
@@ -393,7 +393,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #offTrackStyleName
 	 */
-	protected function get offTrackName():String
+	private function get offTrackName():String
 	{
 		return this.offTrackStyleName;
 	}
@@ -401,7 +401,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected function set offTrackName(value:String):void
+	private function set offTrackName(value:String):void
 	{
 		this.offTrackStyleName = value;
 	}
@@ -418,7 +418,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #customThumbStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	private var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>tabStyleName</code>.
@@ -430,7 +430,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #tabStyleName
 	 */
-	protected function get thumbName():String
+	private function get thumbName():String
 	{
 		return this.thumbStyleName;
 	}
@@ -438,7 +438,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected function set thumbName(value:String):void
+	private function set thumbName(value:String):void
 	{
 		this.thumbStyleName = value;
 	}
@@ -1479,7 +1479,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected var _customOnTrackStyleName:String;
+	private var _customOnTrackStyleName:String;
 
 	/**
 	 * A style name to add to the toggle switch's on track sub-component.
@@ -1550,7 +1550,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected var _onTrackProperties:PropertyProxy;
+	private var _onTrackProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the toggle switch's "on" track,
@@ -1679,7 +1679,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected var _customOffTrackStyleName:String;
+	private var _customOffTrackStyleName:String;
 
 	/**
 	 * A style name to add to the toggle switch's off track sub-component.
@@ -1750,7 +1750,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected var _offTrackProperties:PropertyProxy;
+	private var _offTrackProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the toggle switch's "off" track,
@@ -1877,7 +1877,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	protected var _customThumbStyleName:String;
+	private var _customThumbStyleName:String;
 
 	/**
 	 * A style name to add to the toggle switch's thumb sub-component.

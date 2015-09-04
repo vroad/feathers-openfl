@@ -25,12 +25,12 @@ public class AutoCompleteScreen extends PanelScreen
 
 	private var _input:AutoComplete;
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return AutoCompleteScreen.globalStyleProvider;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

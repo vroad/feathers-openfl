@@ -1166,7 +1166,7 @@ public class TextArea extends Scroller implements INativeFocusOwner
 	/**
 	 * @private
 	 */
-	override protected function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(this._isEditable)
 		{
@@ -1178,7 +1178,7 @@ public class TextArea extends Scroller implements INativeFocusOwner
 	/**
 	 * @private
 	 */
-	protected function textEditor_changeHandler(event:Event):void
+	private function textEditor_changeHandler(event:Event):void
 	{
 		if(this._ignoreTextChanges)
 		{

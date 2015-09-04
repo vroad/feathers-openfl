@@ -193,7 +193,7 @@ class CalloutPopUpContentManager extends EventDispatcher implements IPopUpConten
 	/**
 	 * @private
 	 */
-	protected function callout_removedFromStageHandler(event:Event):void
+	private function callout_removedFromStageHandler(event:Event):void
 	{
 		this.cleanup();
 		this.dispatchEventWith(Event.CLOSE);

@@ -28,7 +28,7 @@ public class WebViewScreen extends PanelScreen
 	private var _browser:WebView;
 	private var _locationInput:TextInput;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

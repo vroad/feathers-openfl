@@ -45,13 +45,13 @@ package feathers.themes
 		 * @private
 		 */
 		[Embed(source="/../assets/images/aeon_desktop.png")]
-		protected static const ATLAS_BITMAP:Class<Dynamic>;
+		private static const ATLAS_BITMAP:Class<Dynamic>;
 
 		/**
 		 * @private
 		 */
 		[Embed(source="/../assets/images/aeon_desktop.xml",mimeType="application/octet-stream")]
-		protected static const ATLAS_XML:Class<Dynamic>;
+		private static const ATLAS_XML:Class<Dynamic>;
 
 		/**
 		 * Constructor.
@@ -66,7 +66,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		override protected function initialize():void
+		override private function initialize():void
 		{
 			var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 			var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, 1);
@@ -80,7 +80,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected function atlasTexture_onRestore():void
+		private function atlasTexture_onRestore():void
 		{
 			var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 			this.atlas.texture.root.uploadBitmapData(atlasBitmapData);

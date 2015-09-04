@@ -69,7 +69,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_TAB_FACTORY:String = "tabFactory";
+	private static const INVALIDATION_FLAG_TAB_FACTORY:String = "tabFactory";
 
 	/**
 	 * @private
@@ -199,7 +199,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static function defaultTabFactory():ToggleButton
+	private static function defaultTabFactory():ToggleButton
 	{
 		return new ToggleButton();
 	}
@@ -224,7 +224,7 @@ public class TabBar extends FeathersControl
 	 * @see #customTabStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var tabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
+	private var tabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>tabStyleName</code>.
@@ -236,7 +236,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #tabStyleName
 	 */
-	protected function get tabName():String
+	private function get tabName():String
 	{
 		return this.tabStyleName;
 	}
@@ -244,7 +244,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set tabName(value:String):void
+	private function set tabName(value:String):void
 	{
 		this.tabStyleName = value;
 	}
@@ -262,7 +262,7 @@ public class TabBar extends FeathersControl
 	 * @see #customFirstTabName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var firstTabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
+	private var firstTabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>firstTabStyleName</code>.
@@ -274,7 +274,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #firstTabStyleName
 	 */
-	protected function get firstTabName():String
+	private function get firstTabName():String
 	{
 		return this.firstTabStyleName;
 	}
@@ -282,7 +282,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set firstTabName(value:String):void
+	private function set firstTabName(value:String):void
 	{
 		this.firstTabStyleName = value;
 	}
@@ -300,7 +300,7 @@ public class TabBar extends FeathersControl
 	 * @see #customLastTabName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var lastTabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
+	private var lastTabStyleName:String = DEFAULT_CHILD_STYLE_NAME_TAB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>lastTabStyleName</code>.
@@ -312,7 +312,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #lastTabStyleName
 	 */
-	protected function get lastTabName():String
+	private function get lastTabName():String
 	{
 		return this.lastTabStyleName;
 	}
@@ -320,7 +320,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set lastTabName(value:String):void
+	private function set lastTabName(value:String):void
 	{
 		this.lastTabStyleName = value;
 	}
@@ -328,47 +328,47 @@ public class TabBar extends FeathersControl
 	/**
 	 * The toggle group.
 	 */
-	protected var toggleGroup:ToggleGroup;
+	private var toggleGroup:ToggleGroup;
 
 	/**
 	 * @private
 	 */
-	protected var activeFirstTab:ToggleButton;
+	private var activeFirstTab:ToggleButton;
 
 	/**
 	 * @private
 	 */
-	protected var inactiveFirstTab:ToggleButton;
+	private var inactiveFirstTab:ToggleButton;
 
 	/**
 	 * @private
 	 */
-	protected var activeLastTab:ToggleButton;
+	private var activeLastTab:ToggleButton;
 
 	/**
 	 * @private
 	 */
-	protected var inactiveLastTab:ToggleButton;
+	private var inactiveLastTab:ToggleButton;
 
 	/**
 	 * @private
 	 */
-	protected var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _layoutItems:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var activeTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var activeTabs:Vector.<ToggleButton> = new <ToggleButton>[];
 
 	/**
 	 * @private
 	 */
-	protected var inactiveTabs:Vector.<ToggleButton> = new <ToggleButton>[];
+	private var inactiveTabs:Vector.<ToggleButton> = new <ToggleButton>[];
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return TabBar.globalStyleProvider;
 	}
@@ -376,7 +376,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _dataProvider:ListCollection;
+	private var _dataProvider:ListCollection;
 
 	/**
 	 * The collection of data to be displayed with tabs. The default
@@ -465,27 +465,27 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var verticalLayout:VerticalLayout;
+	private var verticalLayout:VerticalLayout;
 
 	/**
 	 * @private
 	 */
-	protected var horizontalLayout:HorizontalLayout;
+	private var horizontalLayout:HorizontalLayout;
 
 	/**
 	 * @private
 	 */
-	protected var _viewPortBounds:ViewPortBounds = new ViewPortBounds();
+	private var _viewPortBounds:ViewPortBounds = new ViewPortBounds();
 
 	/**
 	 * @private
 	 */
-	protected var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
+	private var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
 
 	/**
 	 * @private
 	 */
-	protected var _direction:String = DIRECTION_HORIZONTAL;
+	private var _direction:String = DIRECTION_HORIZONTAL;
 
 	[Inspectable(type="String",enumeration="horizontal,vertical")]
 	/**
@@ -523,7 +523,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
 
 	[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
@@ -563,7 +563,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
+	private var _verticalAlign:String = VERTICAL_ALIGN_JUSTIFY;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -603,7 +603,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _distributeTabSizes:Boolean = true;
+	private var _distributeTabSizes:Boolean = true;
 
 	/**
 	 * If <code>true</code>, the tabs will be equally sized in the direction
@@ -642,7 +642,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * Space, in pixels, between tabs.
@@ -675,7 +675,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _firstGap:Number = NaN;
+	private var _firstGap:Number = NaN;
 
 	/**
 	 * Space, in pixels, between the first two tabs. If <code>NaN</code>,
@@ -714,7 +714,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _lastGap:Number = NaN;
+	private var _lastGap:Number = NaN;
 
 	/**
 	 * Space, in pixels, between the last two tabs. If <code>NaN</code>,
@@ -788,7 +788,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the tab bar's top edge and the
@@ -823,7 +823,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the tab bar's right edge and
@@ -858,7 +858,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the tab bar's bottom edge and
@@ -893,7 +893,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the tab bar's left edge and the
@@ -928,7 +928,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _tabFactory:Function = defaultTabFactory;
+	private var _tabFactory:Function = defaultTabFactory;
 
 	/**
 	 * Creates a new tab. A tab must be an instance of <code>ToggleButton</code>.
@@ -981,7 +981,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _firstTabFactory:Function;
+	private var _firstTabFactory:Function;
 
 	/**
 	 * Creates a new first tab. If the <code>firstTabFactory</code> is
@@ -1036,7 +1036,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _lastTabFactory:Function;
+	private var _lastTabFactory:Function;
 
 	/**
 	 * Creates a new last tab. If the <code>lastTabFactory</code> is
@@ -1091,7 +1091,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _tabInitializer:Function = defaultTabInitializer;
+	private var _tabInitializer:Function = defaultTabInitializer;
 
 	/**
 	 * Modifies the properties of an individual tab, using an item from the
@@ -1135,12 +1135,12 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _ignoreSelectionChanges:Boolean = false;
+	private var _ignoreSelectionChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _selectedIndex:int = -1;
+	private var _selectedIndex:int = -1;
 
 	/**
 	 * The index of the currently selected tab. Returns -1 if no tab is
@@ -1237,7 +1237,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customTabStyleName:String;
+	private var _customTabStyleName:String;
 
 	/**
 	 * A style name to add to all tabs in this tab bar. Typically used by a
@@ -1304,7 +1304,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customFirstTabStyleName:String;
+	private var _customFirstTabStyleName:String;
 
 	/**
 	 * A style name to add to the first tab in this tab bar. Typically used
@@ -1370,7 +1370,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customLastTabStyleName:String;
+	private var _customLastTabStyleName:String;
 
 	/**
 	 * A style name to add to the last tab in this tab bar. Typically used
@@ -1436,7 +1436,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _tabProperties:PropertyProxy;
+	private var _tabProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for all of the tab bar's tabs, and
@@ -1527,7 +1527,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.toggleGroup = new ToggleGroup();
 		this.toggleGroup.isSelectionRequired = true;
@@ -1537,7 +1537,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
@@ -1577,7 +1577,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function commitSelection():void
+	private function commitSelection():void
 	{
 		this.toggleGroup.selectedIndex = this._selectedIndex;
 	}
@@ -1585,7 +1585,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function commitEnabled():void
+	private function commitEnabled():void
 	{
 		for each(var tab:ToggleButton in this.activeTabs)
 		{
@@ -1596,7 +1596,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshTabStyles():void
+	private function refreshTabStyles():void
 	{
 		for(var propertyName:String in this._tabProperties)
 		{
@@ -1611,7 +1611,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshLayoutStyles():void
+	private function refreshLayoutStyles():void
 	{
 		if(this._direction == DIRECTION_VERTICAL)
 		{
@@ -1662,7 +1662,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function defaultTabInitializer(tab:ToggleButton, item:Object):void
+	private function defaultTabInitializer(tab:ToggleButton, item:Object):void
 	{
 		if(item is Object)
 		{
@@ -1692,7 +1692,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshTabs(isFactoryInvalid:Boolean):void
+	private function refreshTabs(isFactoryInvalid:Boolean):void
 	{
 		var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
 		this._ignoreSelectionChanges = true;
@@ -1771,7 +1771,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function clearInactiveTabs():void
+	private function clearInactiveTabs():void
 	{
 		var itemCount:int = this.inactiveTabs.length;
 		for(var i:int = 0; i < itemCount; i++)
@@ -1796,7 +1796,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createFirstTab(item:Object):ToggleButton
+	private function createFirstTab(item:Object):ToggleButton
 	{
 		if(this.inactiveFirstTab)
 		{
@@ -1829,7 +1829,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createLastTab(item:Object):ToggleButton
+	private function createLastTab(item:Object):ToggleButton
 	{
 		if(this.inactiveLastTab)
 		{
@@ -1862,7 +1862,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function createTab(item:Object):ToggleButton
+	private function createTab(item:Object):ToggleButton
 	{
 		if(this.inactiveTabs.length == 0)
 		{
@@ -1889,7 +1889,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function destroyTab(tab:ToggleButton):void
+	private function destroyTab(tab:ToggleButton):void
 	{
 		this.toggleGroup.removeItem(tab);
 		this.removeChild(tab, true);
@@ -1898,7 +1898,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutTabs():void
+	private function layoutTabs():void
 	{
 		this._viewPortBounds.x = 0;
 		this._viewPortBounds.y = 0;
@@ -1929,7 +1929,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function childProperties_onChange(proxy:PropertyProxy, name:String):void
+	private function childProperties_onChange(proxy:PropertyProxy, name:String):void
 	{
 		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
@@ -1937,7 +1937,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function toggleGroup_changeHandler(event:Event):void
+	private function toggleGroup_changeHandler(event:Event):void
 	{
 		if(this._ignoreSelectionChanges)
 		{
@@ -1949,7 +1949,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex >= index)
 		{
@@ -1964,7 +1964,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex > index)
 		{
@@ -2001,7 +2001,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_resetHandler(event:Event):void
+	private function dataProvider_resetHandler(event:Event):void
 	{
 		if(this._dataProvider.length > 0)
 		{
@@ -2030,7 +2030,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex == index)
 		{
@@ -2046,7 +2046,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function dataProvider_updateItemHandler(event:Event, index:int):void
+	private function dataProvider_updateItemHandler(event:Event, index:int):void
 	{
 		//no need to dispatch a change event. the index and the item are the
 		//same. the item's properties have changed, but that doesn't require

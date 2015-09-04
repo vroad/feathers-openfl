@@ -278,7 +278,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Boolean = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -303,7 +303,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected var _layout:ILayout;
+	private var _layout:ILayout;
 
 	/**
 	 * Controls the way that the container's children are positioned and
@@ -342,7 +342,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
+	private var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
 
 	[Inspectable(type="String",enumeration="stage,content")]
 	/**
@@ -393,7 +393,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Boolean = false;
 
 	/**
 	 * @private
@@ -731,7 +731,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	override protected function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -749,7 +749,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected function scrollContainer_addedToStageHandler(event:Event):void
+	private function scrollContainer_addedToStageHandler(event:Event):void
 	{
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 		{
@@ -760,7 +760,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected function scrollContainer_removedFromStageHandler(event:Event):void
+	private function scrollContainer_removedFromStageHandler(event:Event):void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -768,7 +768,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected function child_resizeHandler(event:Event):void
+	private function child_resizeHandler(event:Event):void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -780,7 +780,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected function child_layoutDataChangeHandler(event:Event):void
+	private function child_layoutDataChangeHandler(event:Event):void
 	{
 		if(this._ignoreChildChanges)
 		{
@@ -792,7 +792,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}

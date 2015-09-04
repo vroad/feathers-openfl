@@ -150,7 +150,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return SeekSlider.globalStyleProvider;
 	}
@@ -158,7 +158,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:ITimedMediaPlayer;
+	private var _mediaPlayer:ITimedMediaPlayer;
 
 	/**
 	 * @inheritDoc
@@ -202,7 +202,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function updateValueFromMediaPlayerCurrentTime():void
+	private function updateValueFromMediaPlayerCurrentTime():void
 	{
 		if(this.isDragging)
 		{
@@ -216,7 +216,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function seekSlider_changeHandler(event:Event):void
+	private function seekSlider_changeHandler(event:Event):void
 	{
 		if(!this._mediaPlayer)
 		{
@@ -228,7 +228,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function seekSlider_endInteractionHandler(event:Event):void
+	private function seekSlider_endInteractionHandler(event:Event):void
 	{
 		//we may have ignored some changes from the media player while we
 		//were dragging, so we should update the value if it's out of sync.
@@ -238,7 +238,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_currentTimeChangeHandler(event:Event):void
+	private function mediaPlayer_currentTimeChangeHandler(event:Event):void
 	{
 		this.updateValueFromMediaPlayerCurrentTime();
 	}
@@ -246,7 +246,7 @@ public class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_totalTimeChangeHandler(event:Event):void
+	private function mediaPlayer_totalTimeChangeHandler(event:Event):void
 	{
 		this.maximum = this._mediaPlayer.totalTime;
 	}

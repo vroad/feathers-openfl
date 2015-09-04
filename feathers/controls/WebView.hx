@@ -122,27 +122,27 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static const STAGE_WEB_VIEW_NOT_SUPPORTED_ERROR:String = "Feathers WebView is only supported in Adobe AIR. It cannot be used in Adobe Flash Player.";
+	private static const STAGE_WEB_VIEW_NOT_SUPPORTED_ERROR:String = "Feathers WebView is only supported in Adobe AIR. It cannot be used in Adobe Flash Player.";
 
 	/**
 	 * @private
 	 */
-	protected static const USE_NATIVE_ERROR:String = "The useNative property may only be set before the WebView component validates for the first time.";
+	private static const USE_NATIVE_ERROR:String = "The useNative property may only be set before the WebView component validates for the first time.";
 
 	/**
 	 * @private
 	 */
-	protected static const DEFAULT_SIZE:Number = 320;
+	private static const DEFAULT_SIZE:Number = 320;
 
 	/**
 	 * @private
 	 */
-	protected static const STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME:String = "flash.media.StageWebView";
+	private static const STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME:String = "flash.media.StageWebView";
 
 	/**
 	 * @private
 	 */
-	protected static var STAGE_WEB_VIEW_CLASS:Class;
+	private static var STAGE_WEB_VIEW_CLASS:Class;
 
 	/**
 	 * Indicates if this component is supported on the current platform.
@@ -175,12 +175,12 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var stageWebView:Object;
+	private var stageWebView:Object;
 
 	/**
 	 * @private
 	 */
-	protected var _useNative:Boolean = false;
+	private var _useNative:Boolean = false;
 
 	/**
 	 * Determines if the system native web browser control is used or if
@@ -355,7 +355,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.createStageWebView();
 	}
@@ -363,7 +363,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -390,7 +390,7 @@ public class WebView extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -417,7 +417,7 @@ public class WebView extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function createStageWebView():void
+	private function createStageWebView():void
 	{
 		if(isSupported)
 		{
@@ -436,7 +436,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshViewPort():void
+	private function refreshViewPort():void
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageWebViewViewPort:Rectangle = this.stageWebView.viewPort;
@@ -478,7 +478,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function webView_addedToStageHandler(event:starling.events.Event):void
+	private function webView_addedToStageHandler(event:starling.events.Event):void
 	{
 		this.stageWebView.stage = Starling.current.nativeStage;
 		this.addEventListener(starling.events.Event.ENTER_FRAME, webView_enterFrameHandler);
@@ -487,7 +487,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function webView_removedFromStageHandler(event:starling.events.Event):void
+	private function webView_removedFromStageHandler(event:starling.events.Event):void
 	{
 		if(this.stageWebView)
 		{
@@ -499,7 +499,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function webView_enterFrameHandler(event:starling.events.Event):void
+	private function webView_enterFrameHandler(event:starling.events.Event):void
 	{
 		var target:DisplayObject = this;
 		do
@@ -518,7 +518,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stageWebView_errorHandler(event:ErrorEvent):void
+	private function stageWebView_errorHandler(event:ErrorEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.ERROR, false, event);
 	}
@@ -526,12 +526,12 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stageWebView_locationChangeHandler(event:flash.events.Event):void
+	private function stageWebView_locationChangeHandler(event:flash.events.Event):void
 	{
 		this.dispatchEventWith(FeathersEventType.LOCATION_CHANGE);
 	}
 	
-	protected function stageWebView_completeHandler(event:flash.events.Event):void
+	private function stageWebView_completeHandler(event:flash.events.Event):void
 	{
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}

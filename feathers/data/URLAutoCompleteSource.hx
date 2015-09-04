@@ -62,7 +62,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected static function defaultParseResultFunction(result:String):Object
+	private static function defaultParseResultFunction(result:String):Object
 	{
 		return JSON.parse(result);
 	}
@@ -79,12 +79,12 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected var _cachedResult:String;
+	private var _cachedResult:String;
 
 	/**
 	 * @private
 	 */
-	protected var _urlRequestFunction:Function;
+	private var _urlRequestFunction:Function;
 
 	/**
 	 * A function called by the auto-complete source that builds the
@@ -126,7 +126,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected var _parseResultFunction:Function = defaultParseResultFunction;
+	private var _parseResultFunction:Function = defaultParseResultFunction;
 
 	/**
 	 * A function that parses the result loaded from the URL. Any plain-text
@@ -174,17 +174,17 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected var _savedSuggestionsCollection:ListCollection;
+	private var _savedSuggestionsCollection:ListCollection;
 
 	/**
 	 * @private
 	 */
-	protected var _savedTextToMatch:String;
+	private var _savedTextToMatch:String;
 
 	/**
 	 * @private
 	 */
-	protected var _urlLoader:URLLoader;
+	private var _urlLoader:URLLoader;
 
 	/**
 	 * @copy feathers.data.IAutoCompleteSource#load()
@@ -230,7 +230,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected function parseData(resultText:String, textToMatch:String, suggestions:ListCollection):void
+	private function parseData(resultText:String, textToMatch:String, suggestions:ListCollection):void
 	{
 		var parseResultFunction:Function = this._parseResultFunction;
 		if(parseResultFunction.length === 2)
@@ -248,7 +248,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected function urlLoader_completeHandler(event:flash.events.Event):void
+	private function urlLoader_completeHandler(event:flash.events.Event):void
 	{
 		var suggestions:ListCollection = this._savedSuggestionsCollection;
 		this._savedSuggestionsCollection = null;
@@ -274,7 +274,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	protected function urlLoader_errorHandler(event:ErrorEvent):void
+	private function urlLoader_errorHandler(event:ErrorEvent):void
 	{
 		var result:ListCollection = this._savedSuggestionsCollection;
 		result.removeAll();

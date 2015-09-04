@@ -467,7 +467,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var labelStyleName:String = DEFAULT_CHILD_STYLE_NAME_LABEL;
+	private var labelStyleName:String = DEFAULT_CHILD_STYLE_NAME_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>labelStyleName</code>.
@@ -479,7 +479,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelStyleName
 	 */
-	protected function get labelName():String
+	private function get labelName():String
 	{
 		return this.labelStyleName;
 	}
@@ -487,7 +487,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set labelName(value:String):void
+	private function set labelName(value:String):void
 	{
 		this.labelStyleName = value;
 	}
@@ -2215,7 +2215,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _scaleWhenDown:Number = 1;
+	private var _scaleWhenDown:Number = 1;
 
 	/**
 	 * The button renders at this scale in the down state.
@@ -2243,7 +2243,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _scaleWhenHovering:Number = 1;
+	private var _scaleWhenHovering:Number = 1;
 
 	/**
 	 * The button renders at this scale in the hover state.
@@ -2271,7 +2271,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _ignoreIconResizes:Boolean = false;
+	private var _ignoreIconResizes:Boolean = false;
 
 	/**
 	 * @private
@@ -2706,7 +2706,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function refreshMaxLabelSize(forMeasurement:Boolean):void
+	private function refreshMaxLabelSize(forMeasurement:Boolean):void
 	{
 		if(Std.is(this.currentIcon, IValidating))
 		{
@@ -3099,7 +3099,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function currentIcon_resizeHandler():void
+	private function currentIcon_resizeHandler():void
 	{
 		if(this._ignoreIconResizes)
 		{

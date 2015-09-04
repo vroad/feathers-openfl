@@ -12,7 +12,7 @@ public class ContentScreen extends Screen
 
 	public var color:uint;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.backgroundSkin = new Quad(1, 1, this.color);
 	}

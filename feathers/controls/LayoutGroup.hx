@@ -60,7 +60,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * Flag to indicate that the clipping has changed.
 	 */
-	protected static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
+	private static const INVALIDATION_FLAG_CLIPPING:String = "clipping";
 
 	/**
 	 * The layout group will auto size itself to fill the entire stage.
@@ -337,7 +337,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
+	private var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
 
 	[Inspectable(type="String",enumeration="stage,content")]
 	/**
@@ -387,7 +387,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Boolean = false;
 
 	/**
 	 * @private
@@ -778,7 +778,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshClipRect():void
+	private function refreshClipRect():void
 	{
 		if(!this._clipContent)
 		{
@@ -800,7 +800,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutGroup_addedToStageHandler(event:Event):void
+	private function layoutGroup_addedToStageHandler(event:Event):void
 	{
 		if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 		{
@@ -811,7 +811,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function layoutGroup_removedFromStageHandler(event:Event):void
+	private function layoutGroup_removedFromStageHandler(event:Event):void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -851,7 +851,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}

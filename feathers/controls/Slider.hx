@@ -325,7 +325,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #customMinimumTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var minimumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
+	private var minimumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
 
 	/**
 	 * DEPRECATED: Replaced by <code>minimumTrackStyleName</code>.
@@ -337,7 +337,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #minimumTrackStyleName
 	 */
-	protected function get minimumTrackName():String
+	private function get minimumTrackName():String
 	{
 		return this.minimumTrackStyleName;
 	}
@@ -345,7 +345,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected function set minimumTrackName(value:String):void
+	private function set minimumTrackName(value:String):void
 	{
 		this.minimumTrackStyleName = value;
 	}
@@ -363,7 +363,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #customMaximumTrackStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var maximumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
+	private var maximumTrackStyleName:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
 
 	/**
 	 * DEPRECATED: Replaced by <code>maximumTrackStyleName</code>.
@@ -375,7 +375,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #maximumTrackStyleName
 	 */
-	protected function get maximumTrackName():String
+	private function get maximumTrackName():String
 	{
 		return this.maximumTrackStyleName;
 	}
@@ -383,7 +383,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected function set maximumTrackName(value:String):void
+	private function set maximumTrackName(value:String):void
 	{
 		this.maximumTrackStyleName = value;
 	}
@@ -400,7 +400,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #customThumbStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	private var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>thumbStyleName</code>.
@@ -412,7 +412,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #thumbStyleName
 	 */
-	protected function get thumbName():String
+	private function get thumbName():String
 	{
 		return this.thumbStyleName;
 	}
@@ -420,7 +420,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected function set thumbName(value:String):void
+	private function set thumbName(value:String):void
 	{
 		this.thumbStyleName = value;
 	}
@@ -815,7 +815,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _thumbOffset:Number = 0;
+	private var _thumbOffset:Number = 0;
 
 	/**
 	 *
@@ -852,7 +852,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _minimumPadding:Number = 0;
+	private var _minimumPadding:Number = 0;
 
 	/**
 	 * The space, in pixels, between the minimum position of the thumb and
@@ -1149,7 +1149,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _customMinimumTrackStyleName:String;
+	private var _customMinimumTrackStyleName:String;
 
 	/**
 	 * A style name to add to the slider's minimum track sub-component.
@@ -1351,7 +1351,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _customMaximumTrackStyleName:String;
+	private var _customMaximumTrackStyleName:String;
 
 	/**
 	 * A style name to add to the slider's maximum track sub-component.
@@ -1553,7 +1553,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _customThumbStyleName:String;
+	private var _customThumbStyleName:String;
 
 	/**
 	 * A style name to add to the slider's thumb sub-component. Typically
@@ -1726,12 +1726,12 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	protected var _touchValue:Number;
+	private var _touchValue:Number;
 
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(this._value < this._minimum)
 		{

@@ -196,7 +196,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #customThumbStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	private var thumbStyleName:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * DEPRECATED: Replaced by <code>thumbStyleName</code>.
@@ -208,7 +208,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #thumbStyleName
 	 */
-	protected function get thumbName():String
+	private function get thumbName():String
 	{
 		return this.thumbStyleName;
 	}
@@ -216,7 +216,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected function set thumbName(value:String):void
+	private function set thumbName(value:String):void
 	{
 		this.thumbStyleName = value;
 	}
@@ -782,7 +782,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _customThumbStyleName:String;
+	private var _customThumbStyleName:String;
 
 	/**
 	 * A style name to add to the scroll bar's thumb sub-component.
@@ -853,7 +853,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	protected var _thumbProperties:PropertyProxy;
+	private var _thumbProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the scroll bar's thumb, and the

@@ -538,7 +538,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -577,7 +577,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected var _distributeWidths:Boolean = false;
+	private var _distributeWidths:Boolean = false;
 
 	/**
 	 * Distributes the width of the view port equally to each item. If the
@@ -1706,7 +1706,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, explicitHeight:Number,
+	private function validateItems(items:Vector.<DisplayObject>, explicitHeight:Number,
 		minHeight:Number, maxHeight:Number, distributedWidth:Number):void
 	{
 		//if the alignment is justified, then we want to set the height of
@@ -1960,7 +1960,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	protected function calculateMaxScrollXOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	private function calculateMaxScrollXOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
 	{
 		if(this._useVirtualLayout)
 		{

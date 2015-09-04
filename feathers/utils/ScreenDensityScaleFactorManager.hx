@@ -75,7 +75,7 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	protected static const IOS_TABLET_DENSITY_SCALE_FACTOR:Number = 1.23484848484848;
+	private static const IOS_TABLET_DENSITY_SCALE_FACTOR:Number = 1.23484848484848;
 
 	/**
 	 * Constructor.
@@ -94,17 +94,17 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	protected var _starling:Starling;
+	private var _starling:Starling;
 
 	/**
 	 * @private
 	 */
-	protected var _calculatedScaleFactor:Number;
+	private var _calculatedScaleFactor:Number;
 	
 	/**
 	 * @private
 	 */
-	protected function calculateScaleFactor():Number
+	private function calculateScaleFactor():Number
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
 		var screenDensity:Number = DeviceCapabilities.dpi;
@@ -143,7 +143,7 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	protected function updateStarlingStageDimensions():void
+	private function updateStarlingStageDimensions():void
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
 		var needsToBeDivisibleByTwo:Boolean = int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
@@ -173,7 +173,7 @@ public class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	protected function nativeStage_resizeHandler(event:Event):void
+	private function nativeStage_resizeHandler(event:Event):void
 	{
 		this.updateStarlingStageDimensions();
 	}

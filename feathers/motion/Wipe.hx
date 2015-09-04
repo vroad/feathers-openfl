@@ -23,7 +23,7 @@ public class Wipe
 	/**
 	 * @private
 	 */
-	protected static const SCREEN_REQUIRED_ERROR:String = "Cannot transition if both old screen and new screen are null.";
+	private static const SCREEN_REQUIRED_ERROR:String = "Cannot transition if both old screen and new screen are null.";
 
 	/**
 	 * Creates a transition function for a screen navigator that wipes the

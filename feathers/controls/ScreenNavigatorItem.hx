@@ -47,7 +47,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _screen:Object;
+	private var _screen:Object;
 	
 	/**
 	 * The screen to be displayed by the <code>ScreenNavigator</code>. It
@@ -90,7 +90,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _events:Object;
+	private var _events:Object;
 	
 	/**
 	 * A set of key-value pairs representing actions that should be
@@ -126,7 +126,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _properties:Object;
+	private var _properties:Object;
 	
 	/**
 	 * A set of key-value pairs representing properties to be set on the

@@ -225,7 +225,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 * @see #customDecrementButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var decrementButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
+	private var decrementButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>decrementButtonStyleName</code>.
@@ -237,7 +237,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see #decrementButtonStyleName
 	 */
-	protected function get decrementButtonName():String
+	private function get decrementButtonName():String
 	{
 		return this.decrementButtonStyleName;
 	}
@@ -245,7 +245,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected function set decrementButtonName(value:String):void
+	private function set decrementButtonName(value:String):void
 	{
 		this.decrementButtonStyleName = value;
 	}
@@ -263,7 +263,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 * @see #customIncrementButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var incrementButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
+	private var incrementButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>incrementButtonStyleName</code>.
@@ -275,7 +275,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see #incrementButtonStyleName
 	 */
-	protected function get incrementButtonName():String
+	private function get incrementButtonName():String
 	{
 		return this.incrementButtonStyleName;
 	}
@@ -283,7 +283,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected function set incrementButtonName(value:String):void
+	private function set incrementButtonName(value:String):void
 	{
 		this.incrementButtonStyleName = value;
 	}
@@ -301,7 +301,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 * @see #customTextInputStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var textInputStyleName:String = DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT;
+	private var textInputStyleName:String = DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT;
 
 	/**
 	 * DEPRECATED: Replaced by <code>textInputStyleName</code>.
@@ -313,7 +313,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see #textInputStyleName
 	 */
-	protected function get textInputName():String
+	private function get textInputName():String
 	{
 		return this.textInputStyleName;
 	}
@@ -321,7 +321,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected function set textInputName(value:String):void
+	private function set textInputName(value:String):void
 	{
 		this.textInputStyleName = value;
 	}
@@ -562,7 +562,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _valueFormatFunction:Function;
+	private var _valueFormatFunction:Function;
 
 	/**
 	 * A callback that formats the numeric stepper's value as a string to
@@ -605,7 +605,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _valueParseFunction:Function;
+	private var _valueParseFunction:Function;
 
 	/**
 	 * A callback that accepts the displayed text of the numeric stepper and
@@ -643,7 +643,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var currentRepeatAction:Function;
+	private var currentRepeatAction:Function;
 
 	/**
 	 * @private
@@ -868,7 +868,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _customDecrementButtonStyleName:String;
+	private var _customDecrementButtonStyleName:String;
 
 	/**
 	 * A style name to add to the numeric stepper's decrement button
@@ -1106,7 +1106,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _customIncrementButtonStyleName:String;
+	private var _customIncrementButtonStyleName:String;
 
 	/**
 	 * A style name to add to the numeric stepper's increment button
@@ -1177,7 +1177,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _incrementButtonProperties:PropertyProxy;
+	private var _incrementButtonProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the numeric stepper's increment
@@ -1343,7 +1343,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected var _customTextInputStyleName:String;
+	private var _customTextInputStyleName:String;
 
 	/**
 	 * A style name to add to the numeric stepper's text input sub-component.
@@ -1845,7 +1845,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected function refreshDisplayedText():void
+	private function refreshDisplayedText():void
 	{
 		if(this._valueFormatFunction != null)
 		{
@@ -1860,7 +1860,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	/**
 	 * @private
 	 */
-	protected function refreshTypicalText():void
+	private function refreshTypicalText():void
 	{
 		var typicalText:String = "";
 		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.int(this._minimum)).length, ("" + Std.int(this._maximum)).length), ("" + Std.int(this._step)).length);

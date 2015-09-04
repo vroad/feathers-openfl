@@ -102,85 +102,85 @@ package feathers.themes
 		 * @private
 		 * The theme's custom style name for the increment button of a horizontal ScrollBar.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
+		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the decrement button of a horizontal ScrollBar.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
+		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal ScrollBar.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
+		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a horizontal ScrollBar.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
+		private static const THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the increment button of a vertical ScrollBar.
 		 */
-		protected static const THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
+		private static const THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the decrement button of a vertical ScrollBar.
 		 */
-		protected static const THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
+		private static const THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical ScrollBar.
 		 */
-		protected static const THEME_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
+		private static const THEME_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a vertical ScrollBar.
 		 */
-		protected static const THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
+		private static const THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal SimpleScrollBar.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
+		private static const THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical SimpleScrollBar.
 		 */
-		protected static const THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
+		private static const THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a horizontal Slider.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
+		private static const THEME_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a horizontal Slider.
 		 */
-		protected static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
+		private static const THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the thumb of a vertical Slider.
 		 */
-		protected static const THEME_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
+		private static const THEME_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
 
 		/**
 		 * @private
 		 * The theme's custom style name for the minimum track of a vertical Slider.
 		 */
-		protected static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
+		private static const THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
 
 		/**
 		 * The name of the font used by controls in this theme. This font is not
@@ -188,36 +188,36 @@ package feathers.themes
 		 */
 		inline public static var FONT_NAME:String = "_sans";
 
-		protected static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 4, 1, 14);
-		protected static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 70, 10);
-		protected static const SELECTED_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 52, 10);
-		protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(4, 4, 55, 16);
-		protected static const STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
-		protected static const STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
-		protected static const HSLIDER_FIRST_REGION:Float = 2;
-		protected static const HSLIDER_SECOND_REGION:Float = 75;
-		protected static const TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 148, 18);
-		protected static const VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
-		protected static const VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
-		protected static const VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
-		protected static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
-		protected static const HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
-		protected static const HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
-		protected static const SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
-		protected static const PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 2, 2);
-		protected static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 0, 4, 28);
+		private static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 4, 1, 14);
+		private static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 70, 10);
+		private static const SELECTED_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 52, 10);
+		private static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(4, 4, 55, 16);
+		private static const STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
+		private static const STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
+		private static const HSLIDER_FIRST_REGION:Float = 2;
+		private static const HSLIDER_SECOND_REGION:Float = 75;
+		private static const TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 148, 18);
+		private static const VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
+		private static const VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
+		private static const VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
+		private static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
+		private static const HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
+		private static const HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
+		private static const SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
+		private static const PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 2, 2);
+		private static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(0, 0, 4, 28);
 
-		protected static const BACKGROUND_COLOR:uint = 0x869CA7;
-		protected static const MODAL_OVERLAY_COLOR:uint = 0xDDDDDD;
-		protected static const PRIMARY_TEXT_COLOR:uint = 0x0B333C;
-		protected static const DISABLED_TEXT_COLOR:uint = 0x5B6770;
-		protected static const MODAL_OVERLAY_ALPHA:Float = 0.5;
+		private static const BACKGROUND_COLOR:uint = 0x869CA7;
+		private static const MODAL_OVERLAY_COLOR:uint = 0xDDDDDD;
+		private static const PRIMARY_TEXT_COLOR:uint = 0x0B333C;
+		private static const DISABLED_TEXT_COLOR:uint = 0x5B6770;
+		private static const MODAL_OVERLAY_ALPHA:Float = 0.5;
 
 		/**
 		 * The default global text renderer factory for this theme creates a
 		 * TextFieldTextRenderer.
 		 */
-		protected static function textRendererFactory():ITextRenderer
+		private static function textRendererFactory():ITextRenderer
 		{
 			return new TextFieldTextRenderer();
 		}
@@ -226,7 +226,7 @@ package feathers.themes
 		 * The default global text editor factory for this theme creates a
 		 * TextFieldTextEditor.
 		 */
-		protected static function textEditorFactory():ITextEditor
+		private static function textEditorFactory():ITextEditor
 		{
 			return new TextFieldTextEditor();
 		}
@@ -234,12 +234,12 @@ package feathers.themes
 		/**
 		 * This theme's scroll bar type is ScrollBar.
 		 */
-		protected static function scrollBarFactory():IScrollBar
+		private static function scrollBarFactory():IScrollBar
 		{
 			return new ScrollBar();
 		}
 
-		protected static function popUpOverlayFactory():DisplayObject
+		private static function popUpOverlayFactory():DisplayObject
 		{
 			var quad:Quad = new Quad(100, 100, MODAL_OVERLAY_COLOR);
 			quad.alpha = MODAL_OVERLAY_ALPHA;
@@ -250,7 +250,7 @@ package feathers.themes
 		 * SmartDisplayObjectValueSelectors will use ImageLoader instead of
 		 * Image so that we can use extra features like pixel snapping.
 		 */
-		protected static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
+		private static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 		{
 			var displayObject:ImageLoader = oldDisplayObject as ImageLoader;
 			if(!displayObject)
@@ -272,74 +272,74 @@ package feathers.themes
 		/**
 		 * Skins are scaled by a value based on the content scale factor.
 		 */
-		protected var scale:Float = 1;
+		private var scale:Float = 1;
 
 		/**
 		 * A smaller font size for details.
 		 */
-		protected var smallFontSize:Int;
+		private var smallFontSize:Int;
 
 		/**
 		 * A normal font size.
 		 */
-		protected var regularFontSize:Int;
+		private var regularFontSize:Int;
 
 		/**
 		 * A larger font size for headers.
 		 */
-		protected var largeFontSize:Int;
+		private var largeFontSize:Int;
 
 		/**
 		 * The size, in pixels, of major regions in the grid. Used for sizing
 		 * containers and larger UI controls.
 		 */
-		protected var gridSize:Int;
+		private var gridSize:Int;
 
 		/**
 		 * The size, in pixels, of minor regions in the grid. Used for larger
 		 * padding and gaps.
 		 */
-		protected var gutterSize:Int;
+		private var gutterSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller padding and gaps within the major
 		 * regions in the grid.
 		 */
-		protected var smallGutterSize:Int;
+		private var smallGutterSize:Int;
 
 		/**
 		 * The size, in pixels, of very smaller padding and gaps.
 		 */
-		protected var extraSmallGutterSize:Int;
+		private var extraSmallGutterSize:Int;
 
 		/**
 		 * The minimum width, in pixels, of some types of buttons.
 		 */
-		protected var buttonMinWidth:Int;
+		private var buttonMinWidth:Int;
 
 		/**
 		 * The width, in pixels, of UI controls that span across multiple grid regions.
 		 */
-		protected var wideControlSize:Int;
+		private var wideControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a typical UI control.
 		 */
-		protected var controlSize:Int;
+		private var controlSize:Int;
 
 		/**
 		 * The size, in pixels, of smaller UI controls.
 		 */
-		protected var smallControlSize:Int;
+		private var smallControlSize:Int;
 
 		/**
 		 * The size, in pixels, of a border around any control.
 		 */
-		protected var borderSize:Int;
+		private var borderSize:Int;
 
-		protected var calloutBackgroundMinSize:Int;
-		protected var progressBarFillMinSize:Int;
-		protected var popUpSize:Int;
+		private var calloutBackgroundMinSize:Int;
+		private var progressBarFillMinSize:Int;
+		private var popUpSize:Int;
 
 		/**
 		 * The texture atlas that contains skins for this theme. This base class
@@ -347,144 +347,144 @@ package feathers.themes
 		 * load the assets somehow and set the <code>atlas</code> member
 		 * variable before calling <code>initialize()</code>.
 		 */
-		protected var atlas:TextureAtlas;
+		private var atlas:TextureAtlas;
 
 		/**
 		 * A TextFormat for most UI controls and text.
 		 */
-		protected var defaultTextFormat:TextFormat;
+		private var defaultTextFormat:TextFormat;
 
 		/**
 		 * A TextFormat for most disabled UI controls and text.
 		 */
-		protected var disabledTextFormat:TextFormat;
+		private var disabledTextFormat:TextFormat;
 
 		/**
 		 * A TextFormat for larger text.
 		 */
-		protected var headingTextFormat:TextFormat;
+		private var headingTextFormat:TextFormat;
 
 		/**
 		 * A TextFormat for larger, disabled text.
 		 */
-		protected var headingDisabledTextFormat:TextFormat;
+		private var headingDisabledTextFormat:TextFormat;
 
 		/**
 		 * A TextFormat for smaller text.
 		 */
-		protected var detailTextFormat:TextFormat;
+		private var detailTextFormat:TextFormat;
 
 		/**
 		 * A TextFormat for smaller, disabled text.
 		 */
-		protected var detailDisabledTextFormat:TextFormat;
+		private var detailDisabledTextFormat:TextFormat;
 
-		protected var focusIndicatorSkinTextures:Scale9Textures;
+		private var focusIndicatorSkinTextures:Scale9Textures;
 
-		protected var buttonUpSkinTextures:Scale9Textures;
-		protected var buttonHoverSkinTextures:Scale9Textures;
-		protected var buttonDownSkinTextures:Scale9Textures;
-		protected var buttonDisabledSkinTextures:Scale9Textures;
-		protected var buttonSelectedUpSkinTextures:Scale9Textures;
-		protected var buttonSelectedHoverSkinTextures:Scale9Textures;
-		protected var buttonSelectedDownSkinTextures:Scale9Textures;
-		protected var buttonSelectedDisabledSkinTextures:Scale9Textures;
+		private var buttonUpSkinTextures:Scale9Textures;
+		private var buttonHoverSkinTextures:Scale9Textures;
+		private var buttonDownSkinTextures:Scale9Textures;
+		private var buttonDisabledSkinTextures:Scale9Textures;
+		private var buttonSelectedUpSkinTextures:Scale9Textures;
+		private var buttonSelectedHoverSkinTextures:Scale9Textures;
+		private var buttonSelectedDownSkinTextures:Scale9Textures;
+		private var buttonSelectedDisabledSkinTextures:Scale9Textures;
 
-		protected var tabUpSkinTextures:Scale9Textures;
-		protected var tabHoverSkinTextures:Scale9Textures;
-		protected var tabDownSkinTextures:Scale9Textures;
-		protected var tabDisabledSkinTextures:Scale9Textures;
-		protected var tabSelectedUpSkinTextures:Scale9Textures;
-		protected var tabSelectedDisabledSkinTextures:Scale9Textures;
+		private var tabUpSkinTextures:Scale9Textures;
+		private var tabHoverSkinTextures:Scale9Textures;
+		private var tabDownSkinTextures:Scale9Textures;
+		private var tabDisabledSkinTextures:Scale9Textures;
+		private var tabSelectedUpSkinTextures:Scale9Textures;
+		private var tabSelectedDisabledSkinTextures:Scale9Textures;
 
-		protected var stepperIncrementButtonUpSkinTextures:Scale9Textures;
-		protected var stepperIncrementButtonHoverSkinTextures:Scale9Textures;
-		protected var stepperIncrementButtonDownSkinTextures:Scale9Textures;
-		protected var stepperIncrementButtonDisabledSkinTextures:Scale9Textures;
+		private var stepperIncrementButtonUpSkinTextures:Scale9Textures;
+		private var stepperIncrementButtonHoverSkinTextures:Scale9Textures;
+		private var stepperIncrementButtonDownSkinTextures:Scale9Textures;
+		private var stepperIncrementButtonDisabledSkinTextures:Scale9Textures;
 
-		protected var stepperDecrementButtonUpSkinTextures:Scale9Textures;
-		protected var stepperDecrementButtonHoverSkinTextures:Scale9Textures;
-		protected var stepperDecrementButtonDownSkinTextures:Scale9Textures;
-		protected var stepperDecrementButtonDisabledSkinTextures:Scale9Textures;
+		private var stepperDecrementButtonUpSkinTextures:Scale9Textures;
+		private var stepperDecrementButtonHoverSkinTextures:Scale9Textures;
+		private var stepperDecrementButtonDownSkinTextures:Scale9Textures;
+		private var stepperDecrementButtonDisabledSkinTextures:Scale9Textures;
 
-		protected var hSliderThumbUpSkinTexture:Texture;
-		protected var hSliderThumbHoverSkinTexture:Texture;
-		protected var hSliderThumbDownSkinTexture:Texture;
-		protected var hSliderThumbDisabledSkinTexture:Texture;
-		protected var hSliderTrackSkinTextures:Scale3Textures;
+		private var hSliderThumbUpSkinTexture:Texture;
+		private var hSliderThumbHoverSkinTexture:Texture;
+		private var hSliderThumbDownSkinTexture:Texture;
+		private var hSliderThumbDisabledSkinTexture:Texture;
+		private var hSliderTrackSkinTextures:Scale3Textures;
 
-		protected var vSliderThumbUpSkinTexture:Texture;
-		protected var vSliderThumbHoverSkinTexture:Texture;
-		protected var vSliderThumbDownSkinTexture:Texture;
-		protected var vSliderThumbDisabledSkinTexture:Texture;
-		protected var vSliderTrackSkinTextures:Scale3Textures;
+		private var vSliderThumbUpSkinTexture:Texture;
+		private var vSliderThumbHoverSkinTexture:Texture;
+		private var vSliderThumbDownSkinTexture:Texture;
+		private var vSliderThumbDisabledSkinTexture:Texture;
+		private var vSliderTrackSkinTextures:Scale3Textures;
 
-		protected var itemRendererUpSkinTexture:Texture;
-		protected var itemRendererHoverSkinTexture:Texture;
-		protected var itemRendererSelectedUpSkinTexture:Texture;
+		private var itemRendererUpSkinTexture:Texture;
+		private var itemRendererHoverSkinTexture:Texture;
+		private var itemRendererSelectedUpSkinTexture:Texture;
 
-		protected var headerBackgroundSkinTextures:Scale9Textures;
-		protected var groupedListHeaderBackgroundSkinTextures:Scale9Textures;
+		private var headerBackgroundSkinTextures:Scale9Textures;
+		private var groupedListHeaderBackgroundSkinTextures:Scale9Textures;
 
-		protected var checkUpIconTexture:Texture;
-		protected var checkHoverIconTexture:Texture;
-		protected var checkDownIconTexture:Texture;
-		protected var checkDisabledIconTexture:Texture;
-		protected var checkSelectedUpIconTexture:Texture;
-		protected var checkSelectedHoverIconTexture:Texture;
-		protected var checkSelectedDownIconTexture:Texture;
-		protected var checkSelectedDisabledIconTexture:Texture;
+		private var checkUpIconTexture:Texture;
+		private var checkHoverIconTexture:Texture;
+		private var checkDownIconTexture:Texture;
+		private var checkDisabledIconTexture:Texture;
+		private var checkSelectedUpIconTexture:Texture;
+		private var checkSelectedHoverIconTexture:Texture;
+		private var checkSelectedDownIconTexture:Texture;
+		private var checkSelectedDisabledIconTexture:Texture;
 
-		protected var radioUpIconTexture:Texture;
-		protected var radioHoverIconTexture:Texture;
-		protected var radioDownIconTexture:Texture;
-		protected var radioDisabledIconTexture:Texture;
-		protected var radioSelectedUpIconTexture:Texture;
-		protected var radioSelectedHoverIconTexture:Texture;
-		protected var radioSelectedDownIconTexture:Texture;
-		protected var radioSelectedDisabledIconTexture:Texture;
+		private var radioUpIconTexture:Texture;
+		private var radioHoverIconTexture:Texture;
+		private var radioDownIconTexture:Texture;
+		private var radioDisabledIconTexture:Texture;
+		private var radioSelectedUpIconTexture:Texture;
+		private var radioSelectedHoverIconTexture:Texture;
+		private var radioSelectedDownIconTexture:Texture;
+		private var radioSelectedDisabledIconTexture:Texture;
 
-		protected var pageIndicatorNormalSkinTexture:Texture;
-		protected var pageIndicatorSelectedSkinTexture:Texture;
+		private var pageIndicatorNormalSkinTexture:Texture;
+		private var pageIndicatorSelectedSkinTexture:Texture;
 
-		protected var pickerListUpIconTexture:Texture;
-		protected var pickerListHoverIconTexture:Texture;
-		protected var pickerListDownIconTexture:Texture;
-		protected var pickerListDisabledIconTexture:Texture;
+		private var pickerListUpIconTexture:Texture;
+		private var pickerListHoverIconTexture:Texture;
+		private var pickerListDownIconTexture:Texture;
+		private var pickerListDisabledIconTexture:Texture;
 
-		protected var textInputBackgroundSkinTextures:Scale9Textures;
-		protected var textInputBackgroundDisabledSkinTextures:Scale9Textures;
-		protected var textInputSearchIconTexture:Texture;
-		protected var textInputSearchIconDisabledTexture:Texture;
+		private var textInputBackgroundSkinTextures:Scale9Textures;
+		private var textInputBackgroundDisabledSkinTextures:Scale9Textures;
+		private var textInputSearchIconTexture:Texture;
+		private var textInputSearchIconDisabledTexture:Texture;
 
-		protected var vScrollBarThumbUpSkinTextures:Scale9Textures;
-		protected var vScrollBarThumbHoverSkinTextures:Scale9Textures;
-		protected var vScrollBarThumbDownSkinTextures:Scale9Textures;
-		protected var vScrollBarTrackSkinTextures:Scale9Textures;
-		protected var vScrollBarThumbIconTexture:Texture;
-		protected var vScrollBarStepButtonUpSkinTextures:Scale9Textures;
-		protected var vScrollBarStepButtonHoverSkinTextures:Scale9Textures;
-		protected var vScrollBarStepButtonDownSkinTextures:Scale9Textures;
-		protected var vScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
-		protected var vScrollBarDecrementButtonIconTexture:Texture;
-		protected var vScrollBarIncrementButtonIconTexture:Texture;
+		private var vScrollBarThumbUpSkinTextures:Scale9Textures;
+		private var vScrollBarThumbHoverSkinTextures:Scale9Textures;
+		private var vScrollBarThumbDownSkinTextures:Scale9Textures;
+		private var vScrollBarTrackSkinTextures:Scale9Textures;
+		private var vScrollBarThumbIconTexture:Texture;
+		private var vScrollBarStepButtonUpSkinTextures:Scale9Textures;
+		private var vScrollBarStepButtonHoverSkinTextures:Scale9Textures;
+		private var vScrollBarStepButtonDownSkinTextures:Scale9Textures;
+		private var vScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
+		private var vScrollBarDecrementButtonIconTexture:Texture;
+		private var vScrollBarIncrementButtonIconTexture:Texture;
 
-		protected var hScrollBarThumbUpSkinTextures:Scale9Textures;
-		protected var hScrollBarThumbHoverSkinTextures:Scale9Textures;
-		protected var hScrollBarThumbDownSkinTextures:Scale9Textures;
-		protected var hScrollBarTrackSkinTextures:Scale9Textures;
-		protected var hScrollBarThumbIconTexture:Texture;
-		protected var hScrollBarStepButtonUpSkinTextures:Scale9Textures;
-		protected var hScrollBarStepButtonHoverSkinTextures:Scale9Textures;
-		protected var hScrollBarStepButtonDownSkinTextures:Scale9Textures;
-		protected var hScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
-		protected var hScrollBarDecrementButtonIconTexture:Texture;
-		protected var hScrollBarIncrementButtonIconTexture:Texture;
+		private var hScrollBarThumbUpSkinTextures:Scale9Textures;
+		private var hScrollBarThumbHoverSkinTextures:Scale9Textures;
+		private var hScrollBarThumbDownSkinTextures:Scale9Textures;
+		private var hScrollBarTrackSkinTextures:Scale9Textures;
+		private var hScrollBarThumbIconTexture:Texture;
+		private var hScrollBarStepButtonUpSkinTextures:Scale9Textures;
+		private var hScrollBarStepButtonHoverSkinTextures:Scale9Textures;
+		private var hScrollBarStepButtonDownSkinTextures:Scale9Textures;
+		private var hScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
+		private var hScrollBarDecrementButtonIconTexture:Texture;
+		private var hScrollBarIncrementButtonIconTexture:Texture;
 
-		protected var simpleBorderBackgroundSkinTextures:Scale9Textures;
-		protected var panelBorderBackgroundSkinTextures:Scale9Textures;
+		private var simpleBorderBackgroundSkinTextures:Scale9Textures;
+		private var panelBorderBackgroundSkinTextures:Scale9Textures;
 
-		protected var progressBarFillSkinTexture:Texture;
+		private var progressBarFillSkinTexture:Texture;
 
 		/**
 		 * Disposes the texture atlas before calling super.dispose()
@@ -505,7 +505,7 @@ package feathers.themes
 		 * Initializes the theme. Expected to be called by subclasses after the
 		 * assets have been loaded and the skin texture atlas has been created.
 		 */
-		protected function initialize():void
+		private function initialize():void
 		{
 			this.initializeScale();
 			this.initializeDimensions();
@@ -520,7 +520,7 @@ package feathers.themes
 		 * Initializes the value used for scaling things like textures and font
 		 * sizes.
 		 */
-		protected function initializeScale():void
+		private function initializeScale():void
 		{
 			//Starling automatically accounts for the contentScaleFactor on Mac
 			//HiDPI screens, and converts pixels to points, so we don't need to
@@ -531,7 +531,7 @@ package feathers.themes
 		/**
 		 * Initializes common values used for setting the dimensions of components.
 		 */
-		protected function initializeDimensions():void
+		private function initializeDimensions():void
 		{
 			this.gridSize = Math.round(30 * this.scale);
 			this.extraSmallGutterSize = Math.round(2 * this.scale);
@@ -550,7 +550,7 @@ package feathers.themes
 		/**
 		 * Sets the stage background color.
 		 */
-		protected function initializeStage():void
+		private function initializeStage():void
 		{
 			Starling.current.stage.color = BACKGROUND_COLOR;
 			Starling.current.nativeStage.color = BACKGROUND_COLOR;
@@ -559,7 +559,7 @@ package feathers.themes
 		/**
 		 * Initializes global variables (not including global style providers).
 		 */
-		protected function initializeGlobals():void
+		private function initializeGlobals():void
 		{
 			FocusManager.setEnabledForStage(Starling.current.stage, true);
 
@@ -573,7 +573,7 @@ package feathers.themes
 		/**
 		 * Initializes font sizes and formats.
 		 */
-		protected function initializeFonts():void
+		private function initializeFonts():void
 		{
 			this.smallFontSize = Math.round(10 * this.scale);
 			this.regularFontSize = Math.round(11 * this.scale);
@@ -591,7 +591,7 @@ package feathers.themes
 		 * Initializes the textures by extracting them from the atlas and
 		 * setting up any scaling grids that are needed.
 		 */
-		protected function initializeTextures():void
+		private function initializeTextures():void
 		{
 			this.focusIndicatorSkinTextures = new Scale9Textures(this.atlas.getTexture("focus-indicator-skin"), FOCUS_INDICATOR_SCALE_9_GRID);
 
@@ -706,7 +706,7 @@ package feathers.themes
 		/**
 		 * Sets global style providers for all components.
 		 */
-		protected function initializeStyleProviders():void
+		private function initializeStyleProviders():void
 		{
 			//alert
 			this.getStyleProviderForClass(Alert).defaultStyleFunction = this.setAlertStyles;
@@ -840,12 +840,12 @@ package feathers.themes
 			this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_NAME_THUMB, this.setToggleSwitchThumbStyles);
 		}
 
-		protected function pageIndicatorNormalSymbolFactory():Image
+		private function pageIndicatorNormalSymbolFactory():Image
 		{
 			return new Image(this.pageIndicatorNormalSkinTexture);
 		}
 
-		protected function pageIndicatorSelectedSymbolFactory():Image
+		private function pageIndicatorSelectedSymbolFactory():Image
 		{
 			return new Image(this.pageIndicatorSelectedSkinTexture);
 		}
@@ -854,7 +854,7 @@ package feathers.themes
 	// Shared
 	//-------------------------
 
-		protected function setScrollerStyles(scroller:Scroller):void
+		private function setScrollerStyles(scroller:Scroller):void
 		{
 			scroller.clipContent = true;
 			scroller.horizontalScrollBarFactory = scrollBarFactory;
@@ -867,7 +867,7 @@ package feathers.themes
 	// Alert
 	//-------------------------
 
-		protected function setAlertStyles(alert:Alert):void
+		private function setAlertStyles(alert:Alert):void
 		{
 			this.setScrollerStyles(alert);
 
@@ -883,7 +883,7 @@ package feathers.themes
 			alert.maxHeight = this.popUpSize;
 		}
 
-		protected function setAlertButtonGroupStyles(group:ButtonGroup):void
+		private function setAlertButtonGroupStyles(group:ButtonGroup):void
 		{
 			group.direction = ButtonGroup.DIRECTION_HORIZONTAL;
 			group.horizontalAlign = ButtonGroup.HORIZONTAL_ALIGN_CENTER;
@@ -893,7 +893,7 @@ package feathers.themes
 			group.padding = this.smallGutterSize;
 		}
 
-		protected function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):void
+		private function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 			renderer.wordWrap = true;
@@ -903,7 +903,7 @@ package feathers.themes
 	// Button
 	//-------------------------
 
-		protected function setBaseButtonStyles(button:Button):void
+		private function setBaseButtonStyles(button:Button):void
 		{
 			button.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 			button.focusPadding = -1;
@@ -921,7 +921,7 @@ package feathers.themes
 			button.minHeight = this.smallControlSize;
 		}
 
-		protected function setButtonStyles(button:Button):void
+		private function setButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.buttonUpSkinTextures;
@@ -947,7 +947,7 @@ package feathers.themes
 			button.minHeight = this.controlSize;
 		}
 
-		protected function setQuietButtonStyles(button:Button):void
+		private function setQuietButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = null;
@@ -979,7 +979,7 @@ package feathers.themes
 	// ButtonGroup
 	//-------------------------
 
-		protected function setButtonGroupStyles(group:ButtonGroup):void
+		private function setButtonGroupStyles(group:ButtonGroup):void
 		{
 			group.gap = this.smallGutterSize;
 		}
@@ -988,7 +988,7 @@ package feathers.themes
 	// Callout
 	//-------------------------
 
-		protected function setCalloutStyles(callout:Callout):void
+		private function setCalloutStyles(callout:Callout):void
 		{
 			callout.backgroundSkin = new Scale9Image(panelBorderBackgroundSkinTextures);
 
@@ -1007,7 +1007,7 @@ package feathers.themes
 	// Check
 	//-------------------------
 
-		protected function setCheckStyles(check:Check):void
+		private function setCheckStyles(check:Check):void
 		{
 			var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1045,7 +1045,7 @@ package feathers.themes
 	// Drawers
 	//-------------------------
 
-		protected function setDrawersStyles(drawers:Drawers):void
+		private function setDrawersStyles(drawers:Drawers):void
 		{
 			var overlaySkin:Quad = new Quad(10, 10, MODAL_OVERLAY_COLOR);
 			overlaySkin.alpha = MODAL_OVERLAY_ALPHA;
@@ -1056,7 +1056,7 @@ package feathers.themes
 	// GroupedList
 	//-------------------------
 
-		protected function setGroupedListStyles(list:GroupedList):void
+		private function setGroupedListStyles(list:GroupedList):void
 		{
 			this.setScrollerStyles(list);
 
@@ -1072,7 +1072,7 @@ package feathers.themes
 
 		//see List section for item renderer styles
 
-		protected function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+		private function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
 		{
 			renderer.backgroundSkin = new Scale9Image(groupedListHeaderBackgroundSkinTextures);
 			renderer.backgroundSkin.height = this.controlSize;
@@ -1088,7 +1088,7 @@ package feathers.themes
 			renderer.minHeight = this.controlSize;
 		}
 
-		protected function setInsetGroupedListStyles(list:GroupedList):void
+		private function setInsetGroupedListStyles(list:GroupedList):void
 		{
 			this.setScrollerStyles(list);
 
@@ -1107,7 +1107,7 @@ package feathers.themes
 			list.layout = layout;
 		}
 
-		protected function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+		private function setInsetGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
 		{
 			renderer.contentLabelProperties.textFormat = this.defaultTextFormat;
 			renderer.contentLabelProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1124,7 +1124,7 @@ package feathers.themes
 	// Header
 	//-------------------------
 
-		protected function setHeaderStyles(header:Header):void
+		private function setHeaderStyles(header:Header):void
 		{
 			header.backgroundSkin = new Scale9Image(headerBackgroundSkinTextures);
 
@@ -1147,19 +1147,19 @@ package feathers.themes
 	// Label
 	//-------------------------
 
-		protected function setLabelStyles(label:Label):void
+		private function setLabelStyles(label:Label):void
 		{
 			label.textRendererProperties.textFormat = this.defaultTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.disabledTextFormat;
 		}
 
-		protected function setHeadingLabelStyles(label:Label):void
+		private function setHeadingLabelStyles(label:Label):void
 		{
 			label.textRendererProperties.textFormat = this.headingTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.headingDisabledTextFormat;
 		}
 
-		protected function setDetailLabelStyles(label:Label):void
+		private function setDetailLabelStyles(label:Label):void
 		{
 			label.textRendererProperties.textFormat = this.detailTextFormat;
 			label.textRendererProperties.disabledTextFormat = this.detailDisabledTextFormat;
@@ -1169,7 +1169,7 @@ package feathers.themes
 	// List
 	//-------------------------
 
-		protected function setListStyles(list:List):void
+		private function setListStyles(list:List):void
 		{
 			this.setScrollerStyles(list);
 
@@ -1183,7 +1183,7 @@ package feathers.themes
 			list.padding = this.borderSize;
 		}
 
-		protected function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+		private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.itemRendererUpSkinTexture;
@@ -1214,12 +1214,12 @@ package feathers.themes
 			renderer.useStateDelayTimer = false;
 		}
 
-		protected function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):void
+		private function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 		}
 
-		protected function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):void
+		private function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):void
 		{
 			renderer.textFormat = this.defaultTextFormat;
 		}
@@ -1228,7 +1228,7 @@ package feathers.themes
 	// NumericStepper
 	//-------------------------
 
-		protected function setNumericStepperStyles(stepper:NumericStepper):void
+		private function setNumericStepperStyles(stepper:NumericStepper):void
 		{
 			stepper.buttonLayoutMode = NumericStepper.BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL;
 
@@ -1236,7 +1236,7 @@ package feathers.themes
 			stepper.focusPadding = -1;
 		}
 
-		protected function setNumericStepperIncrementButtonStyles(button:Button):void
+		private function setNumericStepperIncrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.stepperIncrementButtonUpSkinTextures;
@@ -1253,7 +1253,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setNumericStepperDecrementButtonStyles(button:Button):void
+		private function setNumericStepperDecrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.stepperDecrementButtonUpSkinTextures;
@@ -1270,7 +1270,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setNumericStepperTextInputStyles(input:TextInput):void
+		private function setNumericStepperTextInputStyles(input:TextInput):void
 		{
 			input.minWidth = this.controlSize;
 			input.minHeight = this.controlSize;
@@ -1298,7 +1298,7 @@ package feathers.themes
 	// PageIndicator
 	//-------------------------
 
-		protected function setPageIndicatorStyles(pageIndicator:PageIndicator):void
+		private function setPageIndicatorStyles(pageIndicator:PageIndicator):void
 		{
 			pageIndicator.interactionMode = PageIndicator.INTERACTION_MODE_PRECISE;
 
@@ -1315,7 +1315,7 @@ package feathers.themes
 	// Panel
 	//-------------------------
 
-		protected function setPanelStyles(panel:Panel):void
+		private function setPanelStyles(panel:Panel):void
 		{
 			this.setScrollerStyles(panel);
 
@@ -1327,7 +1327,7 @@ package feathers.themes
 			panel.paddingLeft = this.gutterSize;
 		}
 
-		protected function setPanelHeaderStyles(header:Header):void
+		private function setPanelHeaderStyles(header:Header):void
 		{
 			header.titleProperties.textFormat = this.defaultTextFormat;
 			header.titleProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1346,18 +1346,18 @@ package feathers.themes
 	// PickerList
 	//-------------------------
 
-		protected function setPickerListStyles(list:PickerList):void
+		private function setPickerListStyles(list:PickerList):void
 		{
 			list.popUpContentManager = new DropDownPopUpContentManager();
 		}
 
-		protected function setPickerListListStyles(list:List):void
+		private function setPickerListListStyles(list:List):void
 		{
 			this.setListStyles(list);
 			list.maxHeight = this.wideControlSize;
 		}
 
-		protected function setPickerListButtonStyles(button:Button):void
+		private function setPickerListButtonStyles(button:Button):void
 		{
 			this.setButtonStyles(button);
 
@@ -1385,7 +1385,7 @@ package feathers.themes
 	// ProgressBar
 	//-------------------------
 
-		protected function setProgressBarStyles(progress:ProgressBar):void
+		private function setProgressBarStyles(progress:ProgressBar):void
 		{
 			var backgroundSkin:Scale9Image = new Scale9Image(simpleBorderBackgroundSkinTextures);
 			if(progress.direction == ProgressBar.DIRECTION_VERTICAL)
@@ -1416,7 +1416,7 @@ package feathers.themes
 	// Radio
 	//-------------------------
 
-		protected function setRadioStyles(radio:Radio):void
+		private function setRadioStyles(radio:Radio):void
 		{
 			var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1454,7 +1454,7 @@ package feathers.themes
 	// ScrollBar
 	//-------------------------
 
-		protected function setHorizontalScrollBarStyles(scrollBar:ScrollBar):void
+		private function setHorizontalScrollBarStyles(scrollBar:ScrollBar):void
 		{
 			scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1464,7 +1464,7 @@ package feathers.themes
 			scrollBar.customMinimumTrackName = THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK;
 		}
 
-		protected function setVerticalScrollBarStyles(scrollBar:ScrollBar):void
+		private function setVerticalScrollBarStyles(scrollBar:ScrollBar):void
 		{
 			scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1474,7 +1474,7 @@ package feathers.themes
 			scrollBar.customMinimumTrackName = THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK;
 		}
 
-		protected function setHorizontalScrollBarIncrementButtonStyles(button:Button):void
+		private function setHorizontalScrollBarIncrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarStepButtonUpSkinTextures;
@@ -1496,7 +1496,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setHorizontalScrollBarDecrementButtonStyles(button:Button):void
+		private function setHorizontalScrollBarDecrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = hScrollBarStepButtonUpSkinTextures;
@@ -1518,7 +1518,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setHorizontalScrollBarThumbStyles(thumb:Button):void
+		private function setHorizontalScrollBarThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -1537,14 +1537,14 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		protected function setHorizontalScrollBarMinimumTrackStyles(track:Button):void
+		private function setHorizontalScrollBarMinimumTrackStyles(track:Button):void
 		{
 			track.defaultSkin = new Scale9Image(this.hScrollBarTrackSkinTextures);
 
 			track.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalScrollBarIncrementButtonStyles(button:Button):void
+		private function setVerticalScrollBarIncrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1566,7 +1566,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalScrollBarDecrementButtonStyles(button:Button):void
+		private function setVerticalScrollBarDecrementButtonStyles(button:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1588,7 +1588,7 @@ package feathers.themes
 			button.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalScrollBarThumbStyles(thumb:Button):void
+		private function setVerticalScrollBarThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -1607,7 +1607,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalScrollBarMinimumTrackStyles(track:Button):void
+		private function setVerticalScrollBarMinimumTrackStyles(track:Button):void
 		{
 			track.defaultSkin = new Scale9Image(this.vScrollBarTrackSkinTextures);
 
@@ -1618,12 +1618,12 @@ package feathers.themes
 	// ScrollContainer
 	//-------------------------
 
-		protected function setScrollContainerStyles(container:ScrollContainer):void
+		private function setScrollContainerStyles(container:ScrollContainer):void
 		{
 			this.setScrollerStyles(container);
 		}
 
-		protected function setToolbarScrollContainerStyles(container:ScrollContainer):void
+		private function setToolbarScrollContainerStyles(container:ScrollContainer):void
 		{
 			this.setScrollerStyles(container);
 
@@ -1647,7 +1647,7 @@ package feathers.themes
 	// ScrollText
 	//-------------------------
 
-		protected function setScrollTextStyles(text:ScrollText):void
+		private function setScrollTextStyles(text:ScrollText):void
 		{
 			this.setScrollerStyles(text);
 
@@ -1660,17 +1660,17 @@ package feathers.themes
 	// SimpleScrollBar
 	//-------------------------
 
-		protected function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+		private function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
 		{
 			scrollBar.customThumbName = THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 
-		protected function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+		private function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
 		{
 			scrollBar.customThumbName = THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 
-		protected function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):void
+		private function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -1689,7 +1689,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalSimpleScrollBarThumbStyles(thumb:Button):void
+		private function setVerticalSimpleScrollBarThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -1712,7 +1712,7 @@ package feathers.themes
 	// Slider
 	//-------------------------
 
-		protected function setSliderStyles(slider:Slider):void
+		private function setSliderStyles(slider:Slider):void
 		{
 			slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_SINGLE;
 			slider.minimumPadding = slider.maximumPadding = -vSliderThumbUpSkinTexture.height / 2;
@@ -1737,7 +1737,7 @@ package feathers.themes
 			slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 		}
 
-		protected function setHorizontalSliderThumbStyles(thumb:Button):void
+		private function setHorizontalSliderThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1755,7 +1755,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		protected function setHorizontalSliderMinimumTrackStyles(track:Button):void
+		private function setHorizontalSliderMinimumTrackStyles(track:Button):void
 		{
 			var defaultSkin:Scale3Image = new Scale3Image(this.hSliderTrackSkinTextures)
 			defaultSkin.width = this.wideControlSize;
@@ -1764,7 +1764,7 @@ package feathers.themes
 			track.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalSliderThumbStyles(thumb:Button):void
+		private function setVerticalSliderThumbStyles(thumb:Button):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1782,7 +1782,7 @@ package feathers.themes
 			thumb.hasLabelTextRenderer = false;
 		}
 
-		protected function setVerticalSliderMinimumTrackStyles(track:Button):void
+		private function setVerticalSliderMinimumTrackStyles(track:Button):void
 		{
 			var defaultSkin:Scale3Image = new Scale3Image(this.vSliderTrackSkinTextures);
 			defaultSkin.height = this.wideControlSize;
@@ -1795,14 +1795,14 @@ package feathers.themes
 	// TabBar
 	//-------------------------
 
-		protected function setTabBarStyles(tabBar:TabBar):void
+		private function setTabBarStyles(tabBar:TabBar):void
 		{
 			tabBar.distributeTabSizes = false;
 			tabBar.horizontalAlign = TabBar.HORIZONTAL_ALIGN_LEFT;
 			tabBar.verticalAlign = TabBar.VERTICAL_ALIGN_JUSTIFY;
 		}
 
-		protected function setTabStyles(tab:ToggleButton):void
+		private function setTabStyles(tab:ToggleButton):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.tabUpSkinTextures;
@@ -1834,7 +1834,7 @@ package feathers.themes
 	// TextArea
 	//-------------------------
 
-		protected function setTextAreaStyles(textArea:TextArea):void
+		private function setTextAreaStyles(textArea:TextArea):void
 		{
 			this.setScrollerStyles(textArea);
 
@@ -1862,7 +1862,7 @@ package feathers.themes
 	// TextInput
 	//-------------------------
 
-		protected function setBaseTextInputStyles(input:TextInput):void
+		private function setBaseTextInputStyles(input:TextInput):void
 		{
 			var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 			skinSelector.defaultValue = this.textInputBackgroundSkinTextures;
@@ -1892,12 +1892,12 @@ package feathers.themes
 			input.promptProperties.disabledTextFormat = this.disabledTextFormat;
 		}
 
-		protected function setTextInputStyles(input:TextInput):void
+		private function setTextInputStyles(input:TextInput):void
 		{
 			this.setBaseTextInputStyles(input);
 		}
 
-		protected function setSearchTextInputStyles(input:TextInput):void
+		private function setSearchTextInputStyles(input:TextInput):void
 		{
 			this.setBaseTextInputStyles(input);
 
@@ -1917,7 +1917,7 @@ package feathers.themes
 	// ToggleSwitch
 	//-------------------------
 
-		protected function setToggleSwitchStyles(toggle:ToggleSwitch):void
+		private function setToggleSwitchStyles(toggle:ToggleSwitch):void
 		{
 			toggle.trackLayoutMode = ToggleSwitch.TRACK_LAYOUT_MODE_SINGLE;
 			toggle.labelAlign = ToggleSwitch.LABEL_ALIGN_MIDDLE;
@@ -1928,14 +1928,14 @@ package feathers.themes
 			toggle.focusPadding = -1;
 		}
 
-		protected function setToggleSwitchOnTrackStyles(track:Button):void
+		private function setToggleSwitchOnTrackStyles(track:Button):void
 		{
 			track.defaultSkin = new Scale9Image(buttonSelectedUpSkinTextures);
 
 			track.hasLabelTextRenderer = false;
 		}
 
-		protected function setToggleSwitchThumbStyles(thumb:Button):void
+		private function setToggleSwitchThumbStyles(thumb:Button):void
 		{
 			this.setButtonStyles(thumb);
 

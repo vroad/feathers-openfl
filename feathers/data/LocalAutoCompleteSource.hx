@@ -45,7 +45,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	/**
 	 * @private
 	 */
-	protected static function defaultCompareFunction(item:Object, textToMatch:String):Boolean
+	private static function defaultCompareFunction(item:Object, textToMatch:String):Boolean
 	{
 		return item.toString().toLowerCase().indexOf(textToMatch.toLowerCase()) >= 0;
 	}
@@ -83,7 +83,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	/**
 	 * @private
 	 */
-	protected var _compareFunction:Function = defaultCompareFunction;
+	private var _compareFunction:Function = defaultCompareFunction;
 
 	/**
 	 * A function used to compare items from the data provider with the

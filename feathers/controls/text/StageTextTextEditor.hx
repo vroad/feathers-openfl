@@ -1072,17 +1072,17 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Boolean = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text editor is
@@ -1814,7 +1814,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshViewPortAndFontSize():void
+	private function refreshViewPortAndFontSize():void
 	{
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		var desktopGutterPositionOffset:Float = 0;
@@ -1901,7 +1901,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function refreshMeasureTextFieldDimensions():void
+	private function refreshMeasureTextFieldDimensions():void
 	{
 		//the +4 is accounting for the TextField gutter
 		this._measureTextField.width = this.actualWidth + 4;
@@ -2039,7 +2039,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	private function hasFocus_enterFrameHandler(event:starling.events.Event):void
 	{
 		if(this._stageTextHasFocus)
 		{
@@ -2064,7 +2064,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	protected function stageText_keyDownHandler(event:KeyboardEvent):void
+	private function stageText_keyDownHandler(event:KeyboardEvent):void
 	{
 #if flash
 		if(!this._multiline && (event.keyCode == Keyboard.ENTER || event.keyCode == Keyboard.NEXT))

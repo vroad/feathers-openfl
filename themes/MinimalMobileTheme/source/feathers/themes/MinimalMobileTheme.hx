@@ -45,19 +45,19 @@ public class MinimalMobileTheme extends BaseMinimalMobileTheme
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_mobile.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class<Dynamic>;
+	private static const ATLAS_XML:Class<Dynamic>;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_mobile.png")]
-	protected static const ATLAS_BITMAP:Class<Dynamic>;
+	private static const ATLAS_BITMAP:Class<Dynamic>;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/fonts/pf_ronda_seven.fnt",mimeType="application/octet-stream")]
-	protected static const FONT_XML:Class<Dynamic>;
+	private static const FONT_XML:Class<Dynamic>;
 
 	/**
 	 * Constructor.
@@ -71,7 +71,7 @@ public class MinimalMobileTheme extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
@@ -88,7 +88,7 @@ public class MinimalMobileTheme extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	protected function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);

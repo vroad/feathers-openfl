@@ -244,7 +244,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected var _scrollStep:int = 0;
+	private var _scrollStep:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -353,7 +353,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's top edge and
@@ -382,7 +382,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's right edge and
@@ -411,7 +411,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's bottom edge and
@@ -440,7 +440,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's left edge and
@@ -469,7 +469,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function measure(result:Point = null):Point
+	override private function measure(result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -526,7 +526,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
+	override private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
 	{
 		pointY += this._verticalScrollPosition;
 		return this.textField.getCharIndexAtPoint(pointX, pointY);
@@ -535,7 +535,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function refreshSnapshotParameters():void
+	override private function refreshSnapshotParameters():void
 	{
 		var textFieldWidth:Number = this._visibleWidth - this._paddingLeft - this._paddingRight;
 		if(textFieldWidth !== textFieldWidth) //isNaN
@@ -594,7 +594,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function refreshTextFieldSize():void
+	override private function refreshTextFieldSize():void
 	{
 		var oldIgnoreScrolling:Boolean = this._ignoreScrolling;
 		var gutterDimensionsOffset:Number = 4;
@@ -617,7 +617,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function commitStylesAndData(textField:TextField):void
+	override private function commitStylesAndData(textField:TextField):void
 	{
 		super.commitStylesAndData(textField);
 		if(textField == this.textField)
@@ -629,7 +629,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function transformTextField():void
+	override private function transformTextField():void
 	{
 		if(!this.textField.visible)
 		{
@@ -664,7 +664,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function positionSnapshot():void
+	override private function positionSnapshot():void
 	{
 		if(!this.textSnapshot)
 		{
@@ -678,7 +678,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function checkIfNewSnapshotIsNeeded():void
+	override private function checkIfNewSnapshotIsNeeded():void
 	{
 		super.checkIfNewSnapshotIsNeeded();
 		this._needsNewTexture ||= this.isInvalid(INVALIDATION_FLAG_SCROLL);
@@ -687,7 +687,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function textField_focusInHandler(event:FocusEvent):void
+	override private function textField_focusInHandler(event:FocusEvent):void
 	{
 		this.textField.addEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusInHandler(event);
@@ -697,7 +697,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override protected function textField_focusOutHandler(event:FocusEvent):void
+	override private function textField_focusOutHandler(event:FocusEvent):void
 	{
 		this.textField.removeEventListener(Event.SCROLL, textField_scrollHandler);
 		super.textField_focusOutHandler(event);
@@ -707,7 +707,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	protected function textField_scrollHandler(event:Event):void
+	private function textField_scrollHandler(event:Event):void
 	{
 		//for some reason, the text field's scroll positions don't work
 		//properly unless we access the values here. weird.

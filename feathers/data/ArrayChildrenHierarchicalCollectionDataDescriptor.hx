@@ -185,7 +185,7 @@ public class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHiera
 	/**
 	 * @private
 	 */
-	protected function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Boolean
+	private function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Boolean
 	{
 		var index:int = branch.indexOf(item);
 		if(index >= 0)

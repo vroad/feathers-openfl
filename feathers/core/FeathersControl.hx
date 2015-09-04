@@ -437,12 +437,12 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	/**
 	 * @private
 	 */
-	protected var _isInitializing:Boolean = false;
+	private var _isInitializing:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isInitialized:Boolean = false;
+	private var _isInitialized:Boolean = false;
 
 	/**
 	 * Determines if the component has been initialized yet. The
@@ -2187,7 +2187,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	/**
 	 * @private
 	 */
-	protected function styleNameList_changeHandler(event:Event):void
+	private function styleNameList_changeHandler(event:Event):void
 	{
 		if(!this._styleProvider)
 		{

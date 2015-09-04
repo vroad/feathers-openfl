@@ -30,7 +30,7 @@ public class FourWayTransitionScreen extends PanelScreen
 	public var leftTransition:Function;
 	public var rightTransition:Function;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

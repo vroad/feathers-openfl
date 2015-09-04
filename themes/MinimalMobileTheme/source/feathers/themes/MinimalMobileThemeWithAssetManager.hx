@@ -75,7 +75,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	 * @private
 	 * The name of the texture atlas in the asset manager.
 	 */
-	protected static const ATLAS_NAME:String = "minimal_mobile";
+	private static const ATLAS_NAME:String = "minimal_mobile";
 
 	/**
 	 * Constructor.
@@ -91,7 +91,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	protected var assetPaths:Vector.<String> = new <String>
+	private var assetPaths:Vector.<String> = new <String>
 	[
 		"images/minimal_mobile.xml",
 		"images/minimal_mobile.png",
@@ -101,7 +101,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	protected var assetManager:AssetManager;
+	private var assetManager:AssetManager;
 
 	/**
 	 * @private
@@ -119,7 +119,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
 		var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
@@ -131,7 +131,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	protected function assetManager_onProgress(progress:Float):void
+	private function assetManager_onProgress(progress:Float):void
 	{
 		if(progress < 1)
 		{
@@ -144,7 +144,7 @@ public class MinimalMobileThemeWithAssetManager extends BaseMinimalMobileTheme
 	/**
 	 * @private
 	 */
-	protected function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
+	private function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
 	{
 		this.assetManager = assetManager;
 		if(!this.assetManager)

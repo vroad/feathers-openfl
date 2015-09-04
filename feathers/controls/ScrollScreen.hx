@@ -306,7 +306,7 @@ class ScrollScreen extends ScrollContainer implements IScreen
 	/**
 	 * @private
 	 */
-	protected var _owner:Object;
+	private var _owner:Object;
 
 	/**
 	 * @inheritDoc

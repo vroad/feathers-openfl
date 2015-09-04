@@ -38,12 +38,12 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected static var HELPER_QUAD:Quad = new Quad(1, 1);
+	private static var HELPER_QUAD:Quad = new Quad(1, 1);
 	
 	/**
 	 * @private
 	 */
-	protected static const MAX_BAR_COUNT:int = 256;
+	private static const MAX_BAR_COUNT:int = 256;
 
 	/**
 	 * Constructor
@@ -56,7 +56,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return SpectrumBarGraphVisualizer.globalStyleProvider;
 	}
@@ -64,22 +64,22 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var _bars:QuadBatch;
+	private var _bars:QuadBatch;
 
 	/**
 	 * @private
 	 */
-	protected var _bytes:ByteArray = new ByteArray();
+	private var _bytes:ByteArray = new ByteArray();
 
 	/**
 	 * @private
 	 */
-	protected var _barValues:Vector.<Number> = new <Number>[];
+	private var _barValues:Vector.<Number> = new <Number>[];
 
 	/**
 	 * @private
 	 */
-	protected var _barCount:int = 16;
+	private var _barCount:int = 16;
 
 	/**
 	 * The number of bars displayed by the visualizer.
@@ -113,7 +113,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The gap, in pixels, between the bars.
@@ -139,7 +139,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var _color:uint = 0x000000;
+	private var _color:uint = 0x000000;
 
 	/**
 	 * The color of the bars.
@@ -165,7 +165,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:ITimedMediaPlayer;
+	private var _mediaPlayer:ITimedMediaPlayer;
 
 	/**
 	 * @inheritDoc
@@ -209,7 +209,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._bars = new QuadBatch();
 		this.addChild(this._bars);
@@ -218,7 +218,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		this.autoSizeIfNeeded();
 		this.layoutBarGraph();
@@ -228,7 +228,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -252,7 +252,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function layoutBarGraph():void
+	private function layoutBarGraph():void
 	{
 		this._bars.reset();
 		if(!this._mediaPlayer.isPlaying)
@@ -319,7 +319,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function handlePlaybackStateChange():void
+	private function handlePlaybackStateChange():void
 	{
 		if(this._mediaPlayer.isPlaying)
 		{
@@ -334,7 +334,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_playbackStateChange(event:Event):void
+	private function mediaPlayer_playbackStateChange(event:Event):void
 	{
 		this.handlePlaybackStateChange();
 	}
@@ -342,7 +342,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function peakVisualizer_enterFrameHandler(event:Event):void
+	private function peakVisualizer_enterFrameHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}

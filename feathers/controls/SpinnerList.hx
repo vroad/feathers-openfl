@@ -82,7 +82,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		if(SpinnerList.globalStyleProvider)
 		{
@@ -182,7 +182,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	protected var _selectionOverlaySkin:DisplayObject;
+	private var _selectionOverlaySkin:DisplayObject;
 
 	/**
 	 * An optional skin to display in the horizontal or vertical center of
@@ -230,7 +230,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(this._layout == null)
 		{
@@ -258,7 +258,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function refreshMinAndMaxScrollPositions():void
+	override private function refreshMinAndMaxScrollPositions():void
 	{
 		super.refreshMinAndMaxScrollPositions();
 		if(this._maxVerticalScrollPosition != this._minVerticalScrollPosition)
@@ -274,7 +274,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function handlePendingScroll():void
+	override private function handlePendingScroll():void
 	{
 		if(this.pendingItemIndex >= 0)
 		{
@@ -297,7 +297,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function layoutChildren():void
+	override private function layoutChildren():void
 	{
 		super.layoutChildren();
 
@@ -327,7 +327,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	protected function calculateNearestPageIndexForItem(itemIndex:int, currentPageIndex:int, maxPageIndex:int):int
+	private function calculateNearestPageIndexForItem(itemIndex:int, currentPageIndex:int, maxPageIndex:int):int
 	{
 		if(maxPageIndex != int.MAX_VALUE)
 		{
@@ -356,7 +356,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	protected function spinnerList_scrollCompleteHandler(event:Event):void
+	private function spinnerList_scrollCompleteHandler(event:Event):void
 	{
 		var itemCount:int = this._dataProvider.length;
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
@@ -377,7 +377,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	protected function spinnerList_triggeredHandler(event:Event, item:Object):void
+	private function spinnerList_triggeredHandler(event:Event, item:Object):void
 	{
 		var itemIndex:int = this._dataProvider.getItemIndex(item);
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
@@ -395,7 +395,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override protected function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(!this._dataProvider)
 		{

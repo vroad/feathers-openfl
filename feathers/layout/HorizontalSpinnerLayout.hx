@@ -95,12 +95,12 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between items.
@@ -153,7 +153,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, above the items.
@@ -181,7 +181,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, above the items.
@@ -209,7 +209,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom,justify")]
 	/**
@@ -243,7 +243,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -271,7 +271,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -309,7 +309,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _beforeVirtualizedItemCount:int = 0;
+	private var _beforeVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -335,7 +335,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _afterVirtualizedItemCount:int = 0;
+	private var _afterVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -361,7 +361,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -391,7 +391,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -429,7 +429,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Number = NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -476,7 +476,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Number = NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -1005,7 +1005,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, distributedWidth:Number, justifyHeight:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, distributedWidth:Number, justifyHeight:Number):void
 	{
 		//if the alignment is justified, then we want to set the height of
 		//each item before validating because setting one dimension may
@@ -1043,7 +1043,7 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	/**
 	 * @private
 	 */
-	protected function prepareTypicalItem(justifyHeight:Number):void
+	private function prepareTypicalItem(justifyHeight:Number):void
 	{
 		if(!this._typicalItem)
 		{

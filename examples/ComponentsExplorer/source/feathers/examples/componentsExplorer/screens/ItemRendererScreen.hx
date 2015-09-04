@@ -118,7 +118,7 @@ import starling.events.Event;
 		}
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		if(this.settings.hasIcon)
 		{

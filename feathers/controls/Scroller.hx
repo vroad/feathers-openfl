@@ -483,7 +483,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected static const FUZZY_PAGE_SIZE_PADDING:Number = 0.000001;
+	private static const FUZZY_PAGE_SIZE_PADDING:Number = 0.000001;
 
 	/**
 	 * @private
@@ -496,7 +496,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected static function defaultThrowEase(ratio:Number):Number
+	private static function defaultThrowEase(ratio:Number):Number
 	{
 		ratio -= 1;
 		return 1 - ratio * ratio * ratio * ratio;
@@ -526,7 +526,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #customHorizontalScrollBarStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var horizontalScrollBarStyleName:String = DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR;
+	private var horizontalScrollBarStyleName:String = DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR;
 
 	/**
 	 * DEPRECATED: Replaced by <code>horizontalScrollBarStyleName</code>.
@@ -538,7 +538,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #horizontalScrollBarStyleName
 	 */
-	protected function get horizontalScrollBarName():String
+	private function get horizontalScrollBarName():String
 	{
 		return this.horizontalScrollBarStyleName;
 	}
@@ -546,7 +546,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set horizontalScrollBarName(value:String):void
+	private function set horizontalScrollBarName(value:String):void
 	{
 		this.horizontalScrollBarStyleName = value;
 	}
@@ -564,7 +564,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #customVerticalScrollBarStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var verticalScrollBarStyleName:String = DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR;
+	private var verticalScrollBarStyleName:String = DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR;
 
 	/**
 	 * DEPRECATED: Replaced by <code>verticalScrollBarStyleName</code>.
@@ -576,7 +576,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #verticalScrollBarStyleName
 	 */
-	protected function get verticalScrollBarName():String
+	private function get verticalScrollBarName():String
 	{
 		return this.verticalScrollBarStyleName;
 	}
@@ -584,7 +584,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set verticalScrollBarName(value:String):void
+	private function set verticalScrollBarName(value:String):void
 	{
 		this.verticalScrollBarStyleName = value;
 	}
@@ -622,7 +622,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _topViewPortOffset:Number;
+	private var _topViewPortOffset:Number;
 
 	/**
 	 * @private
@@ -889,12 +889,12 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _snapOnComplete:Boolean = false;
+	private var _snapOnComplete:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _horizontalScrollBarFactory:Function = defaultScrollBarFactory;
+	private var _horizontalScrollBarFactory:Function = defaultScrollBarFactory;
 
 	/**
 	 * Creates the horizontal scroll bar. The horizontal scroll bar must be
@@ -945,7 +945,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customHorizontalScrollBarStyleName:String;
+	private var _customHorizontalScrollBarStyleName:String;
 
 	/**
 	 * A style name to add to the container's horizontal scroll bar
@@ -1016,7 +1016,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _horizontalScrollBarProperties:PropertyProxy;
+	private var _horizontalScrollBarProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the container's horizontal
@@ -1188,7 +1188,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customVerticalScrollBarStyleName:String;
+	private var _customVerticalScrollBarStyleName:String;
 
 	/**
 	 * A style name to add to the container's vertical scroll bar
@@ -1259,7 +1259,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _verticalScrollBarProperties:PropertyProxy;
+	private var _verticalScrollBarProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the container's vertical scroll
@@ -1501,7 +1501,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _minHorizontalPageIndex:int = 0;
+	private var _minHorizontalPageIndex:int = 0;
 
 	/**
 	 * The minimum horizontal page index that may be displayed by this
@@ -1519,7 +1519,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _maxHorizontalPageIndex:int = 0;
+	private var _maxHorizontalPageIndex:int = 0;
 
 	/**
 	 * The maximum horizontal page index that may be displayed by this
@@ -1801,7 +1801,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _minVerticalPageIndex:int = 0;
+	private var _minVerticalPageIndex:int = 0;
 
 	/**
 	 * The minimum vertical page index that may be displayed by this
@@ -1819,7 +1819,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _maxVerticalPageIndex:int = 0;
+	private var _maxVerticalPageIndex:int = 0;
 
 	/**
 	 * The maximum vertical page index that may be displayed by this
@@ -2903,7 +2903,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _verticalMouseWheelScrollDirection:String = MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL;
+	private var _verticalMouseWheelScrollDirection:String = MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL;
 
 	/**
 	 * The direction of scrolling when the user scrolls the mouse wheel
@@ -2938,7 +2938,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _throwEase:Object = defaultThrowEase;
+	private var _throwEase:Object = defaultThrowEase;
 
 	/**
 	 * The easing function used for "throw" animations.
@@ -2973,7 +2973,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _snapScrollPositionsToPixels:Boolean = true;
+	private var _snapScrollPositionsToPixels:Boolean = true;
 
 	/**
 	 * If enabled, the scroll position will always be adjusted to whole
@@ -3061,7 +3061,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #pendingHorizontalPageIndex
 	 */
-	protected var hasPendingHorizontalPageIndex:Boolean = false;
+	private var hasPendingHorizontalPageIndex:Boolean = false;
 
 	/**
 	 * A flag that indicates if the scroller should scroll to a new page
@@ -3070,7 +3070,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #pendingVerticalPageIndex
 	 */
-	protected var hasPendingVerticalPageIndex:Boolean = false;
+	private var hasPendingVerticalPageIndex:Boolean = false;
 
 	/**
 	 * The pending horizontal page index to scroll to after validating. The
@@ -3079,7 +3079,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #hasPendingHorizontalPageIndex
 	 */
-	protected var pendingHorizontalPageIndex:int;
+	private var pendingHorizontalPageIndex:int;
 
 	/**
 	 * The pending vertical page index to scroll to after validating. The
@@ -3088,7 +3088,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #hasPendingVerticalPageIndex
 	 */
-	protected var pendingVerticalPageIndex:int;
+	private var pendingVerticalPageIndex:int;
 
 	/**
 	 * The duration of the pending scroll action.
@@ -3698,7 +3698,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function refreshFocusIndicator():void
+	override private function refreshFocusIndicator():void
 	{
 		if(this._focusIndicatorSkin)
 		{
@@ -3727,7 +3727,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function refreshViewPortBoundsWithoutFixedScrollBars():void
+	private function refreshViewPortBoundsWithoutFixedScrollBars():void
 	{
 		var horizontalWidthOffset:Float = this._leftViewPortOffset + this._rightViewPortOffset;
 		var verticalHeightOffset:Float = this._topViewPortOffset + this._bottomViewPortOffset;
@@ -4737,7 +4737,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	protected function throwToPage(targetHorizontalPageIndex:int, targetVerticalPageIndex:int, duration:Number = 0.5):void
+	private function throwToPage(targetHorizontalPageIndex:int, targetVerticalPageIndex:int, duration:Number = 0.5):void
 	{
 		var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= this._minHorizontalPageIndex)
@@ -6068,7 +6068,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		super.focusInHandler(event);
 		this.stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -6077,7 +6077,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		super.focusOutHandler(event);
 		this.stage.removeEventListener(KeyboardEvent.KEY_DOWN, stage_keyDownHandler);
@@ -6086,7 +6086,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function stage_keyDownHandler(event:KeyboardEvent):void
+	private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.keyCode == Keyboard.HOME)
 		{

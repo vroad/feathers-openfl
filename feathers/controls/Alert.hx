@@ -277,7 +277,7 @@ class Alert extends Panel
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var messageStyleName:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
+	private var messageStyleName:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
 
 	/**
 	 * DEPRECATED: Replaced by <code>messageStyleName</code>.
@@ -289,7 +289,7 @@ class Alert extends Panel
 	 *
 	 * @see #messageStyleName
 	 */
-	protected function get messageName():String
+	private function get messageName():String
 	{
 		return this.messageStyleName;
 	}
@@ -297,7 +297,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected function set messageName(value:String):void
+	private function set messageName(value:String):void
 	{
 		this.messageStyleName = value;
 	}
@@ -597,7 +597,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	protected var _customMessageStyleName:String;
+	private var _customMessageStyleName:String;
 
 	/**
 	 * A style name to add to the alert's message text renderer

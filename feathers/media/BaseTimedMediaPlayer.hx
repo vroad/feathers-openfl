@@ -128,7 +128,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	/**
 	 * @private
 	 */
-	protected var _isPlaying:Boolean = false;
+	private var _isPlaying:Boolean = false;
 
 	/**
 	 * @inheritDoc
@@ -143,7 +143,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	/**
 	 * @private
 	 */
-	protected var _currentTime:Number = 0;
+	private var _currentTime:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -158,7 +158,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	/**
 	 * @private
 	 */
-	protected var _totalTime:Number = 0;
+	private var _totalTime:Number = 0;
 
 	/**
 	 * @inheritDoc
@@ -251,7 +251,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * are expected override this function with a custom implementation for
 	 * their specific type of media content.
 	 */
-	protected function playMedia():void
+	private function playMedia():void
 	{
 		
 	}
@@ -261,7 +261,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * expected override this function with a custom implementation for
 	 * their specific type of media content.
 	 */
-	protected function pauseMedia():void
+	private function pauseMedia():void
 	{
 
 	}
@@ -271,7 +271,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 * time, in seconds. Subclasses are expected override this function with
 	 * a custom implementation for their specific type of media content.
 	 */
-	protected function seekMedia(seconds:Number):void
+	private function seekMedia(seconds:Number):void
 	{
 
 	}

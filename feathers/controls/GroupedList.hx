@@ -585,7 +585,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Boolean = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -1108,7 +1108,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customItemRendererStyleName:String;
+	private var _customItemRendererStyleName:String;
 
 	/**
 	 * A style name to add to all item renderers in this list. Typically
@@ -1370,7 +1370,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customFirstItemRendererStyleName:String;
+	private var _customFirstItemRendererStyleName:String;
 
 	/**
 	 * A style name to add to all item renderers in this grouped list that
@@ -1545,7 +1545,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customLastItemRendererStyleName:String;
+	private var _customLastItemRendererStyleName:String;
 
 	/**
 	 * A style name to add to all item renderers in this grouped list that
@@ -1720,7 +1720,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customSingleItemRendererStyleName:String;
+	private var _customSingleItemRendererStyleName:String;
 
 	/**
 	 * A style name to add to all item renderers in this grouped list that
@@ -1794,7 +1794,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate header renderers. Must implement the
@@ -1887,7 +1887,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customHeaderRendererStyleName:String = DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER;
+	private var _customHeaderRendererStyleName:String = DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER;
 
 	/**
 	 * A style name to add to all header renderers in this grouped list.
@@ -2137,7 +2137,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customFooterRendererStyleName:String = DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER;
+	private var _customFooterRendererStyleName:String = DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER;
 
 	/**
 	 * A style name to add to all footer renderers in this grouped list.
@@ -2204,7 +2204,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _footerRendererProperties:PropertyProxy;
+	private var _footerRendererProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for all of the list's footer
@@ -2488,7 +2488,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _keyScrollDuration:Number = 0.25;
+	private var _keyScrollDuration:Number = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when the selected item is
@@ -2811,7 +2811,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	override protected function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(this._dataProvider == null)
 		{
@@ -2933,7 +2933,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_addItemHandler(event:Event, indices:Array):void
+	private function dataProvider_addItemHandler(event:Event, indices:Array):void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -2962,7 +2962,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_removeItemHandler(event:Event, indices:Array):void
+	private function dataProvider_removeItemHandler(event:Event, indices:Array):void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -3009,7 +3009,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_replaceItemHandler(event:Event, indices:Array):void
+	private function dataProvider_replaceItemHandler(event:Event, indices:Array):void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
@@ -3037,7 +3037,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataViewPort_changeHandler(event:Event):void
+	private function dataViewPort_changeHandler(event:Event):void
 	{
 		this.setSelectedLocation(this.dataViewPort.selectedGroupIndex, this.dataViewPort.selectedItemIndex);
 	}

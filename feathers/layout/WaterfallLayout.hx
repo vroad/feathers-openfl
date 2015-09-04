@@ -115,7 +115,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _horizontalGap:Number = 0;
+	private var _horizontalGap:Number = 0;
 
 	/**
 	 * The horizontal space, in pixels, between columns.
@@ -143,7 +143,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _verticalGap:Number = 0;
+	private var _verticalGap:Number = 0;
 
 	/**
 	 * The vertical space, in pixels, between items in a column.
@@ -200,7 +200,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The space, in pixels, that appears on top, above the items.
@@ -228,7 +228,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the right of the items.
@@ -256,7 +256,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The space, in pixels, that appears on the bottom, below the items.
@@ -284,7 +284,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the left of the items.
@@ -312,7 +312,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_CENTER;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -345,7 +345,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:int = 0;
 
 	/**
 	 * Requests that the layout uses a specific number of columns, if
@@ -386,7 +386,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -414,7 +414,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -440,7 +440,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _hasVariableItemDimensions:Boolean = true;
+	private var _hasVariableItemDimensions:Boolean = true;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -478,7 +478,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected var _heightCache:Array = [];
+	private var _heightCache:Array = [];
 
 	/**
 	 * @inheritDoc
@@ -1150,7 +1150,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	protected function calculateMaxScrollYOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	private function calculateMaxScrollYOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
 	{
 		if(items.length == 0)
 		{

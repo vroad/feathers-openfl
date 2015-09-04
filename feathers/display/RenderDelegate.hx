@@ -46,7 +46,7 @@ public class RenderDelegate extends DisplayObject
 	/**
 	 * @private
 	 */
-	protected var _target:DisplayObject;
+	private var _target:DisplayObject;
 
 	/**
 	 * The displaying object being rendered.

@@ -69,7 +69,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return StackScreenNavigator.globalStyleProvider;
 	}
@@ -77,7 +77,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected var _pushTransition:Function;
+	private var _pushTransition:Function;
 
 	/**
 	 * Typically used to provide some kind of animation or visual effect,
@@ -145,7 +145,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected var _popTransition:Function;
+	private var _popTransition:Function;
 
 	/**
 	 * Typically used to provide some kind of animation or visual effect,
@@ -213,7 +213,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected var _popToRootTransition:Function = null;
+	private var _popToRootTransition:Function = null;
 
 	/**
 	 * Typically used to provide some kind of animation or visual effect, a
@@ -285,27 +285,27 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected var _stack:Vector.<StackItem> = new <StackItem>[];
+	private var _stack:Vector.<StackItem> = new <StackItem>[];
 
 	/**
 	 * @private
 	 */
-	protected var _pushScreenEvents:Object = {};
+	private var _pushScreenEvents:Object = {};
 
 	/**
 	 * @private
 	 */
-	protected var _popScreenEvents:Vector.<String>;
+	private var _popScreenEvents:Vector.<String>;
 
 	/**
 	 * @private
 	 */
-	protected var _popToRootScreenEvents:Vector.<String>;
+	private var _popToRootScreenEvents:Vector.<String>;
 
 	/**
 	 * @private
 	 */
-	protected var _tempRootScreenID:String;
+	private var _tempRootScreenID:String;
 
 	/**
 	 * Sets the first screen at the bottom of the stack, or the root screen.
@@ -534,7 +534,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override protected function prepareActiveScreen():void
+	override private function prepareActiveScreen():void
 	{
 		var item:StackScreenNavigatorItem = StackScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Object = item.pushEvents;
@@ -621,7 +621,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override protected function cleanupActiveScreen():void
+	override private function cleanupActiveScreen():void
 	{
 		var item:StackScreenNavigatorItem = StackScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var pushEvents:Object = item.pushEvents;
@@ -696,7 +696,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function createPushScreenEventListener(screenID:String):Function
+	private function createPushScreenEventListener(screenID:String):Function
 	{
 		var self:StackScreenNavigator = this;
 		var eventListener:Function = function(event:Event, data:Object):void
@@ -710,7 +710,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function createPushScreenSignalListener(screenID:String, signal:Object):Function
+	private function createPushScreenSignalListener(screenID:String, signal:Object):Function
 	{
 		var self:StackScreenNavigator = this;
 		if(signal.valueClasses.length == 1)
@@ -740,7 +740,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function popEventListener(event:Event):void
+	private function popEventListener(event:Event):void
 	{
 		this.popScreen();
 	}
@@ -748,7 +748,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function popSignalListener(...rest:Array):void
+	private function popSignalListener(...rest:Array):void
 	{
 		this.popScreen();
 	}
@@ -756,7 +756,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function popToRootEventListener(event:Event):void
+	private function popToRootEventListener(event:Event):void
 	{
 		this.popToRootScreen();
 	}
@@ -764,7 +764,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function popToRootSignalListener(...rest:Array):void
+	private function popToRootSignalListener(...rest:Array):void
 	{
 		this.popToRootScreen();
 	}
@@ -772,7 +772,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function stackScreenNavigator_initializeHandler(event:Event):void
+	private function stackScreenNavigator_initializeHandler(event:Event):void
 	{
 		if(this._tempRootScreenID !== null)
 		{

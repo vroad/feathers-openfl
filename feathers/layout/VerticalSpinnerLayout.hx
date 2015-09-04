@@ -86,12 +86,12 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+	private var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
 
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between items.
@@ -144,7 +144,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the right of the items.
@@ -172,7 +172,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, to the left of the items.
@@ -200,7 +200,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_JUSTIFY;
 
 	[Inspectable(type="String",enumeration="left,center,right,justify")]
 	/**
@@ -234,7 +234,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Boolean = true;
 
 	/**
 	 * @inheritDoc
@@ -262,7 +262,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _requestedRowCount:int = 0;
+	private var _requestedRowCount:int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -300,7 +300,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _beforeVirtualizedItemCount:int = 0;
+	private var _beforeVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -326,7 +326,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _afterVirtualizedItemCount:int = 0;
+	private var _afterVirtualizedItemCount:int = 0;
 
 	/**
 	 * @inheritDoc
@@ -352,7 +352,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _typicalItem:DisplayObject;
+	private var _typicalItem:DisplayObject;
 
 	/**
 	 * @inheritDoc
@@ -382,7 +382,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -420,7 +420,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _typicalItemWidth:Number = NaN;
+	private var _typicalItemWidth:Number = NaN;
 
 	/**
 	 * Used to reset the width, in pixels, of the <code>typicalItem</code>
@@ -467,7 +467,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected var _typicalItemHeight:Number = NaN;
+	private var _typicalItemHeight:Number = NaN;
 
 	/**
 	 * Used to reset the height, in pixels, of the <code>typicalItem</code>
@@ -998,7 +998,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, justifyWidth:Number, distributedHeight:Number):void
+	private function validateItems(items:Vector.<DisplayObject>, justifyWidth:Number, distributedHeight:Number):void
 	{
 		//if the alignment is justified, then we want to set the width of
 		//each item before validating because setting one dimension may
@@ -1036,7 +1036,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	protected function prepareTypicalItem(justifyWidth:Number):void
+	private function prepareTypicalItem(justifyWidth:Number):void
 	{
 		if(!this._typicalItem)
 		{

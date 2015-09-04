@@ -75,7 +75,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	 * @private
 	 * The name of the texture atlas in the asset manager.
 	 */
-	protected static const ATLAS_NAME:String = "minimal_desktop";
+	private static const ATLAS_NAME:String = "minimal_desktop";
 
 	/**
 	 * Constructor.
@@ -91,7 +91,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	protected var assetPaths:Vector.<String> = new <String>
+	private var assetPaths:Vector.<String> = new <String>
 	[
 		"images/minimal_desktop.xml",
 		"images/minimal_desktop.png",
@@ -101,7 +101,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected var assetManager:AssetManager;
+	private var assetManager:AssetManager;
 
 	/**
 	 * @private
@@ -119,7 +119,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
 		var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
@@ -130,7 +130,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function assetManager_onProgress(progress:Float):void
+	private function assetManager_onProgress(progress:Float):void
 	{
 		if(progress < 1)
 		{
@@ -143,7 +143,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function loadAssets(assetsBasePath:Dynamic, assetManager:AssetManager):void
+	private function loadAssets(assetsBasePath:Dynamic, assetManager:AssetManager):void
 	{
 		this.assetManager = assetManager;
 		if(!this.assetManager)

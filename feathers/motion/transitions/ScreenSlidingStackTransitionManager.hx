@@ -75,17 +75,17 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _pushTransition:Function;
+	private var _pushTransition:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _popTransition:Function;
+	private var _popTransition:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _duration:Number = 0.25;
+	private var _duration:Number = 0.25;
 
 	/**
 	 * The duration of the transition, measured in seconds.
@@ -114,7 +114,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _delay:Number = 0.1;
+	private var _delay:Number = 0.1;
 
 	/**
 	 * A delay before the transition starts, measured in seconds. This may
@@ -145,7 +145,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _ease:Object = Transitions.EASE_OUT;
+	private var _ease:Object = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function to use.

@@ -152,7 +152,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return VolumeSlider.globalStyleProvider;
 	}
@@ -160,12 +160,12 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected var _ignoreChanges:Boolean = false;
+	private var _ignoreChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:IAudioPlayer;
+	private var _mediaPlayer:IAudioPlayer;
 
 	/**
 	 * @inheritDoc
@@ -196,7 +196,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function refreshVolumeFromMediaPlayer():void
+	private function refreshVolumeFromMediaPlayer():void
 	{
 		var oldIgnoreChanges:Boolean = this._ignoreChanges;
 		this._ignoreChanges = true;
@@ -214,7 +214,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_soundTransformChangeHandler(event:Event):void
+	private function mediaPlayer_soundTransformChangeHandler(event:Event):void
 	{
 		this.refreshVolumeFromMediaPlayer();
 	}
@@ -222,7 +222,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	protected function volumeSlider_changeHandler(event:Event):void
+	private function volumeSlider_changeHandler(event:Event):void
 	{
 		if(!this._mediaPlayer || this._ignoreChanges)
 		{

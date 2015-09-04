@@ -263,7 +263,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var iconLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
+	private var iconLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>iconLabelStyleName</code>.
@@ -275,7 +275,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see #iconLabelStyleName
 	 */
-	protected function get iconLabelName():String
+	private function get iconLabelName():String
 	{
 		return this.iconLabelStyleName;
 	}
@@ -283,7 +283,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	protected function set iconLabelName(value:String):void
+	private function set iconLabelName(value:String):void
 	{
 		this.iconLabelStyleName = value;
 	}
@@ -294,7 +294,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var accessoryLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
+	private var accessoryLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>accessoryLabelStyleName</code>.
@@ -306,7 +306,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see #accessoryLabelStyleName
 	 */
-	protected function get accessoryLabelName():String
+	private function get accessoryLabelName():String
 	{
 		return this.accessoryLabelStyleName;
 	}
@@ -314,7 +314,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	protected function set accessoryLabelName(value:String):void
+	private function set accessoryLabelName(value:String):void
 	{
 		this.accessoryLabelStyleName = value;
 	}
@@ -322,7 +322,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	protected var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Boolean = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -4126,7 +4126,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	override protected function refreshMaxLabelSize(forMeasurement:Boolean):void
+	override private function refreshMaxLabelSize(forMeasurement:Boolean):void
 	{
 		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)

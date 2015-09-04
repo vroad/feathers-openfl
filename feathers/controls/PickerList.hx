@@ -225,7 +225,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #customButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var buttonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	private var buttonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>buttonStyleName</code>.
@@ -237,7 +237,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #buttonStyleName
 	 */
-	protected function get buttonName():String
+	private function get buttonName():String
 	{
 		return this.buttonStyleName;
 	}
@@ -245,7 +245,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set buttonName(value:String):void
+	private function set buttonName(value:String):void
 	{
 		this.buttonStyleName = value;
 	}
@@ -263,7 +263,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #customListStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var listStyleName:String = DEFAULT_CHILD_STYLE_NAME_LIST;
+	private var listStyleName:String = DEFAULT_CHILD_STYLE_NAME_LIST;
 
 	/**
 	 * DEPRECATED: Replaced by <code>listStyleName</code>.
@@ -275,7 +275,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #listStyleName
 	 */
-	protected function get listName():String
+	private function get listName():String
 	{
 		return this.listStyleName;
 	}
@@ -283,7 +283,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function set listName(value:String):void
+	private function set listName(value:String):void
 	{
 		this.listStyleName = value;
 	}
@@ -803,7 +803,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customButtonStyleName:String;
+	private var _customButtonStyleName:String;
 
 	/**
 	 * A style name to add to the picker list's button sub-component.
@@ -1005,7 +1005,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected var _customListStyleName:String;
+	private var _customListStyleName:String;
 
 	/**
 	 * A style name to add to the picker list's list sub-component.
@@ -1842,7 +1842,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function list_triggeredHandler(event:Event):void
+	private function list_triggeredHandler(event:Event):void
 	{
 		if(!this._isEnabled)
 		{
@@ -1854,7 +1854,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function dataProvider_multipleEventHandler():void
+	private function dataProvider_multipleEventHandler():void
 	{
 		//we need to ensure that the pop-up list has received the new
 		//selected index, or it might update the selected index to an
@@ -1865,7 +1865,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	protected function stage_keyUpHandler(event:KeyboardEvent):void
+	private function stage_keyUpHandler(event:KeyboardEvent):void
 	{
 		if(!this._popUpContentManager.isOpen)
 		{

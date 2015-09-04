@@ -76,7 +76,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected var _transition:Function;
+	private var _transition:Function;
 
 	/**
 	 * Typically used to provide some kind of animation or visual effect,
@@ -224,7 +224,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override protected function prepareActiveScreen():void
+	override private function prepareActiveScreen():void
 	{
 		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
 		var events:Dynamic = item.events;
@@ -269,7 +269,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override protected function cleanupActiveScreen():void
+	override private function cleanupActiveScreen():void
 	{
 		var item:ScreenNavigatorItem = cast(this._screens[this._activeScreenID], ScreenNavigatorItem);
 		var events:Dynamic = item.events;
@@ -308,7 +308,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function createShowScreenEventListener(screenID:String):Function
+	private function createShowScreenEventListener(screenID:String):Function
 	{
 		var self:ScreenNavigator = this;
 		var eventListener:Dynamic = function(event:Event):Void
@@ -322,7 +322,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	protected function createShowScreenSignalListener(screenID:String, signal:Object):Function
+	private function createShowScreenSignalListener(screenID:String, signal:Object):Function
 	{
 		var self:ScreenNavigator = this;
 		var signalListener:Dynamic->Void;

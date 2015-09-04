@@ -138,17 +138,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _snapshotVisibleWidth:int = 0;
+	private var _snapshotVisibleWidth:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotVisibleHeight:int = 0;
+	private var _snapshotVisibleHeight:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
@@ -1036,17 +1036,17 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Boolean = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text renderer is
@@ -1088,7 +1088,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _useSnapshotDelayWorkaround:Boolean = false;
+	private var _useSnapshotDelayWorkaround:Boolean = false;
 
 	/**
 	 * Fixes an issue where <code>flash.text.TextField</code> renders
@@ -1676,7 +1676,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function createTextureOnRestoreCallback(snapshot:Image):void
+	private function createTextureOnRestoreCallback(snapshot:Image):void
 	{
 		var self:TextFieldTextRenderer = this;
 		var texture:Texture = snapshot.texture;
@@ -1695,7 +1695,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function drawTextFieldRegionToBitmapData(textFieldX:Number, textFieldY:Number,
+	private function drawTextFieldRegionToBitmapData(textFieldX:Number, textFieldY:Number,
 		bitmapWidth:Number, bitmapHeight:Number, bitmapData:BitmapData = null):BitmapData
 	{
 		var scaleFactor:Number = Starling.contentScaleFactor;

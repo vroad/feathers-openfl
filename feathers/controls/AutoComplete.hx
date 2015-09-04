@@ -96,7 +96,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
+	private static const INVALIDATION_FLAG_LIST_FACTORY:String = "listFactory";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the pop-up
@@ -119,7 +119,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected static function defaultListFactory():List
+	private static function defaultListFactory():List
 	{
 		return new List();
 	}
@@ -145,7 +145,7 @@ public class AutoComplete extends TextInput
 	 * @see #customListStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var listStyleName:String = DEFAULT_CHILD_STYLE_NAME_LIST;
+	private var listStyleName:String = DEFAULT_CHILD_STYLE_NAME_LIST;
 
 	/**
 	 * The list sub-component.
@@ -155,17 +155,17 @@ public class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see #createList()
 	 */
-	protected var list:List;
+	private var list:List;
 
 	/**
 	 * @private
 	 */
-	protected var _listCollection:ListCollection;
+	private var _listCollection:ListCollection;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		if(AutoComplete.globalStyleProvider)
 		{
@@ -177,12 +177,12 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _originalText:String;
+	private var _originalText:String;
 
 	/**
 	 * @private
 	 */
-	protected var _source:IAutoCompleteSource;
+	private var _source:IAutoCompleteSource;
 
 	/**
 	 * The source of the suggestions that appear in the pop-up list.
@@ -231,7 +231,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _autoCompleteDelay:Number = 0.5;
+	private var _autoCompleteDelay:Number = 0.5;
 
 	/**
 	 * The time, in seconds, after the text has changed before requesting
@@ -262,7 +262,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _minimumAutoCompleteLength:int = 2;
+	private var _minimumAutoCompleteLength:int = 2;
 
 	/**
 	 * The minimum number of entered characters required to request
@@ -294,7 +294,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _popUpContentManager:IPopUpContentManager;
+	private var _popUpContentManager:IPopUpContentManager;
 
 	/**
 	 * A manager that handles the details of how to display the pop-up list.
@@ -339,7 +339,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _listFactory:Function;
+	private var _listFactory:Function;
 
 	/**
 	 * A function used to generate the pop-up list sub-component. The list
@@ -388,7 +388,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _customListStyleName:String;
+	private var _customListStyleName:String;
 
 	/**
 	 * A style name to add to the list sub-component of the
@@ -435,7 +435,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _listProperties:PropertyProxy;
+	private var _listProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the auto-complete's pop-up list
@@ -511,27 +511,27 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected var _ignoreAutoCompleteChanges:Boolean = false;
+	private var _ignoreAutoCompleteChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _lastChangeTime:int = 0;
+	private var _lastChangeTime:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _listHasFocus:Boolean = false;
+	private var _listHasFocus:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isOpenListPending:Boolean = false;
+	private var _isOpenListPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isCloseListPending:Boolean = false;
+	private var _isCloseListPending:Boolean = false;
 
 	/**
 	 * Opens the pop-up list, if it isn't already open.
@@ -608,7 +608,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 
@@ -622,7 +622,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var listFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);
@@ -653,7 +653,7 @@ public class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see #customListStyleName
 	 */
-	protected function createList():void
+	private function createList():void
 	{
 		if(this.list)
 		{
@@ -678,7 +678,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function refreshListProperties():void
+	private function refreshListProperties():void
 	{
 		for(var propertyName:String in this._listProperties)
 		{
@@ -690,7 +690,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function handlePendingActions():void
+	private function handlePendingActions():void
 	{
 		if(this._isOpenListPending)
 		{
@@ -705,7 +705,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	override protected function focusInHandler(event:Event):void
+	override private function focusInHandler(event:Event):void
 	{
 		//the priority here is 1 so that this listener is called before
 		//starling's listener. we want to know the list's selected index
@@ -717,7 +717,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	override protected function focusOutHandler(event:Event):void
+	override private function focusOutHandler(event:Event):void
 	{
 		Starling.current.nativeStage.removeEventListener(flash.events.KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
 		super.focusOutHandler(event);
@@ -726,7 +726,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function nativeStage_keyDownHandler(event:flash.events.KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:flash.events.KeyboardEvent):void
 	{
 		if(!this._popUpContentManager.isOpen)
 		{
@@ -774,7 +774,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function autoComplete_changeHandler(event:Event):void
+	private function autoComplete_changeHandler(event:Event):void
 	{
 		if(this._ignoreAutoCompleteChanges || !this._source || !this.hasFocus)
 		{
@@ -805,7 +805,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function autoComplete_enterFrameHandler():void
+	private function autoComplete_enterFrameHandler():void
 	{
 		var currentTime:int = getTimer();
 		var secondsSinceLastUpdate:Number = (currentTime - this._lastChangeTime) / 1000;
@@ -820,7 +820,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function dataProvider_completeHandler(event:Event, data:ListCollection):void
+	private function dataProvider_completeHandler(event:Event, data:ListCollection):void
 	{
 		this.list.dataProvider = data;
 		if(data.length == 0)
@@ -837,7 +837,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function list_changeHandler(event:Event):void
+	private function list_changeHandler(event:Event):void
 	{
 		if(!this.list.selectedItem)
 		{
@@ -853,7 +853,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function popUpContentManager_openHandler(event:Event):void
+	private function popUpContentManager_openHandler(event:Event):void
 	{
 		this.dispatchEventWith(Event.OPEN);
 	}
@@ -861,7 +861,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function popUpContentManager_closeHandler(event:Event):void
+	private function popUpContentManager_closeHandler(event:Event):void
 	{
 		this.dispatchEventWith(Event.CLOSE);
 	}
@@ -869,7 +869,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function list_removedFromStageHandler(event:Event):void
+	private function list_removedFromStageHandler(event:Event):void
 	{
 		if(this._focusManager)
 		{
@@ -880,7 +880,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function list_triggeredHandler(event:Event):void
+	private function list_triggeredHandler(event:Event):void
 	{
 		if(!this._isEnabled)
 		{
@@ -893,7 +893,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	protected function stage_keyUpHandler(event:starling.events.KeyboardEvent):void
+	private function stage_keyUpHandler(event:starling.events.KeyboardEvent):void
 	{
 		if(!this._popUpContentManager.isOpen)
 		{

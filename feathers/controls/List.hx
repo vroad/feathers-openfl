@@ -333,7 +333,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Boolean = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -1024,7 +1024,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _customItemRendererStyleName:String;
+	private var _customItemRendererStyleName:String;
 
 	/**
 	 * A style name to add to all item renderers in this list. Typically
@@ -1090,7 +1090,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _itemRendererProperties:PropertyProxy;
+	private var _itemRendererProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for all of the list's item
@@ -1182,7 +1182,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected var _keyScrollDuration:Number = 0.25;
+	private var _keyScrollDuration:Number = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when the selected item is
@@ -1395,7 +1395,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	override protected function stage_keyDownHandler(event:KeyboardEvent):void
+	override private function stage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(this._dataProvider == null)
 		{
@@ -1455,7 +1455,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_addItemHandler(event:Event, index:int):void
+	private function dataProvider_addItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex == -1)
 		{
@@ -1483,7 +1483,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_removeItemHandler(event:Event, index:int):void
+	private function dataProvider_removeItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex == -1)
 		{
@@ -1518,7 +1518,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	protected function dataProvider_replaceItemHandler(event:Event, index:int):void
+	private function dataProvider_replaceItemHandler(event:Event, index:int):void
 	{
 		if(this._selectedIndex == -1)
 		{

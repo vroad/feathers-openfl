@@ -41,45 +41,45 @@ import starling.textures.TextureAtlas;
 public class TrainTimesTheme extends StyleNameFunctionTheme
 {
 	[Embed(source="/../assets/images/traintimes.png")]
-	protected static const ATLAS_IMAGE:Class;
+	private static const ATLAS_IMAGE:Class;
 
 	[Embed(source="/../assets/images/traintimes.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class;
+	private static const ATLAS_XML:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontName="SourceSansPro",mimeType="application/x-font",embedAsCFF="false")]
-	protected static const SOURCE_SANS_PRO_REGULAR:Class;
+	private static const SOURCE_SANS_PRO_REGULAR:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-Bold.ttf",fontName="SourceSansProBold",fontWeight="bold",mimeType="application/x-font",embedAsCFF="false")]
-	protected static const SOURCE_SANS_PRO_BOLD:Class;
+	private static const SOURCE_SANS_PRO_BOLD:Class;
 
 	[Embed(source="/../assets/fonts/SourceSansPro-BoldIt.ttf",fontName="SourceSansProBoldItalic",fontWeight="bold",fontStyle="italic",mimeType="application/x-font",embedAsCFF="false")]
-	protected static const SOURCE_SANS_PRO_BOLD_ITALIC:Class;
+	private static const SOURCE_SANS_PRO_BOLD_ITALIC:Class;
 
-	protected static const TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
+	private static const TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 
-	protected static const ORIGINAL_DPI_IPHONE_RETINA:int = 326;
-	protected static const ORIGINAL_DPI_IPAD_RETINA:int = 264;
+	private static const ORIGINAL_DPI_IPHONE_RETINA:int = 326;
+	private static const ORIGINAL_DPI_IPAD_RETINA:int = 264;
 
-	protected static const HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
-	protected static const SCROLL_BAR_THUMB_REGION1:int = 5;
-	protected static const SCROLL_BAR_THUMB_REGION2:int = 14;
+	private static const HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
+	private static const SCROLL_BAR_THUMB_REGION1:int = 5;
+	private static const SCROLL_BAR_THUMB_REGION2:int = 14;
 
-	protected static const PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
-	protected static const DETAIL_TEXT_COLOR:uint = 0x64908a;
+	private static const PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
+	private static const DETAIL_TEXT_COLOR:uint = 0x64908a;
 
-	protected static function textRendererFactory():ITextRenderer
+	private static function textRendererFactory():ITextRenderer
 	{
 		var renderer:TextFieldTextRenderer = new TextFieldTextRenderer();
 		renderer.embedFonts = true;
 		return renderer;
 	}
 
-	protected static function textEditorFactory():ITextEditor
+	private static function textEditorFactory():ITextEditor
 	{
 		return new StageTextTextEditor();
 	}
 
-	protected static function popUpOverlayFactory():DisplayObject
+	private static function popUpOverlayFactory():DisplayObject
 	{
 		var quad:Quad = new Quad(100, 100, 0x1a1a1a);
 		quad.alpha = 0.85;
@@ -92,31 +92,31 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		this.initialize();
 	}
 
-	protected var scale:Number = 1;
+	private var scale:Number = 1;
 
-	protected var primaryBackground:TiledImage;
+	private var primaryBackground:TiledImage;
 
-	protected var defaultTextFormat:TextFormat;
-	protected var selectedTextFormat:TextFormat;
-	protected var headerTitleTextFormat:TextFormat;
-	protected var stationListNameTextFormat:TextFormat;
-	protected var stationListDetailTextFormat:TextFormat;
+	private var defaultTextFormat:TextFormat;
+	private var selectedTextFormat:TextFormat;
+	private var headerTitleTextFormat:TextFormat;
+	private var stationListNameTextFormat:TextFormat;
+	private var stationListDetailTextFormat:TextFormat;
 
-	protected var atlas:TextureAtlas;
-	protected var atlasBitmapData:BitmapData;
-	protected var mainBackgroundTexture:Texture;
-	protected var headerBackgroundTextures:Scale9Textures;
-	protected var stationListNormalIconTexture:Texture;
-	protected var stationListFirstNormalIconTexture:Texture;
-	protected var stationListLastNormalIconTexture:Texture;
-	protected var stationListSelectedIconTexture:Texture;
-	protected var stationListFirstSelectedIconTexture:Texture;
-	protected var stationListLastSelectedIconTexture:Texture;
-	protected var confirmIconTexture:Texture;
-	protected var cancelIconTexture:Texture;
-	protected var backIconTexture:Texture;
-	protected var horizontalScrollBarThumbSkinTextures:Scale3Textures;
-	protected var verticalScrollBarThumbSkinTextures:Scale3Textures;
+	private var atlas:TextureAtlas;
+	private var atlasBitmapData:BitmapData;
+	private var mainBackgroundTexture:Texture;
+	private var headerBackgroundTextures:Scale9Textures;
+	private var stationListNormalIconTexture:Texture;
+	private var stationListFirstNormalIconTexture:Texture;
+	private var stationListLastNormalIconTexture:Texture;
+	private var stationListSelectedIconTexture:Texture;
+	private var stationListFirstSelectedIconTexture:Texture;
+	private var stationListLastSelectedIconTexture:Texture;
+	private var confirmIconTexture:Texture;
+	private var cancelIconTexture:Texture;
+	private var backIconTexture:Texture;
+	private var horizontalScrollBarThumbSkinTextures:Scale3Textures;
+	private var verticalScrollBarThumbSkinTextures:Scale3Textures;
 
 	override public function dispose():void
 	{
@@ -139,7 +139,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		super.dispose();
 	}
 
-	protected function initialize():void
+	private function initialize():void
 	{
 		this.initializeScale();
 		this.initializeGlobals();
@@ -148,7 +148,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		this.initializeStyleProviders();
 	}
 
-	protected function initializeStage():void
+	private function initializeStage():void
 	{
 		this.primaryBackground = new TiledImage(this.mainBackgroundTexture);
 		this.primaryBackground.width = Starling.current.stage.stageWidth;
@@ -157,7 +157,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		Starling.current.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 	}
 
-	protected function initializeScale():void
+	private function initializeScale():void
 	{
 		var scaledDPI:int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
@@ -172,7 +172,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		this.scale = scaledDPI / originalDPI;
 	}
 
-	protected function initializeGlobals():void
+	private function initializeGlobals():void
 	{
 		FeathersControl.defaultTextRendererFactory = textRendererFactory;
 		FeathersControl.defaultTextEditorFactory = textEditorFactory;
@@ -182,7 +182,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 			Callout.stagePaddingLeft = 16 * this.scale;
 	}
 
-	protected function initializeTextures():void
+	private function initializeTextures():void
 	{
 		var atlasBitmapData:BitmapData = (new ATLAS_IMAGE()).bitmapData;
 		this.atlas = new TextureAtlas(Texture.fromBitmapData(atlasBitmapData, false), XML(new ATLAS_XML()));
@@ -226,7 +226,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		this.stationListDetailTextFormat.letterSpacing = 6 * this.scale;
 	}
 
-	protected function initializeStyleProviders():void
+	private function initializeStyleProviders():void
 	{
 		this.getStyleProviderForClass(Button).defaultStyleFunction = setButtonStyles;
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(StationListItemRenderer.CHILD_STYLE_NAME_STATION_LIST_CONFIRM_BUTTON, setConfirmButtonStyles);
@@ -243,14 +243,14 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		this.getStyleProviderForClass(ScrollContainer).setFunctionForStyleName(StationListItemRenderer.CHILD_STYLE_NAME_STATION_LIST_ACTION_CONTAINER, setActionContainerStyles);
 	}
 
-	protected function imageLoaderFactory():ImageLoader
+	private function imageLoaderFactory():ImageLoader
 	{
 		var image:ImageLoader = new ImageLoader();
 		image.textureScale = this.scale;
 		return image;
 	}
 
-	protected function horizontalScrollBarFactory():SimpleScrollBar
+	private function horizontalScrollBarFactory():SimpleScrollBar
 	{
 		var scrollBar:SimpleScrollBar = new SimpleScrollBar();
 		scrollBar.direction = SimpleScrollBar.DIRECTION_HORIZONTAL;
@@ -261,7 +261,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		return scrollBar;
 	}
 
-	protected function verticalScrollBarFactory():SimpleScrollBar
+	private function verticalScrollBarFactory():SimpleScrollBar
 	{
 		var scrollBar:SimpleScrollBar = new SimpleScrollBar();
 		scrollBar.direction = SimpleScrollBar.DIRECTION_VERTICAL;
@@ -272,24 +272,24 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		return scrollBar;
 	}
 
-	protected function setNoStyles(target:DisplayObject):void {}
+	private function setNoStyles(target:DisplayObject):void {}
 
-	protected function setLabelStyles(label:Label):void
+	private function setLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.defaultTextFormat;
 	}
 
-	protected function setStationListNameLabelStyles(label:Label):void
+	private function setStationListNameLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.stationListNameTextFormat;
 	}
 
-	protected function setStationListDetailLabelStyles(label:Label):void
+	private function setStationListDetailLabelStyles(label:Label):void
 	{
 		label.textRendererProperties.textFormat = this.stationListDetailTextFormat;
 	}
 
-	protected function setButtonStyles(button:Button):void
+	private function setButtonStyles(button:Button):void
 	{
 		var defaultIcon:ImageLoader = new ImageLoader();
 		defaultIcon.source = this.backIconTexture;
@@ -300,7 +300,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		button.minTouchWidth = button.minTouchHeight = 88 * this.scale;
 	}
 
-	protected function setConfirmButtonStyles(button:Button):void
+	private function setConfirmButtonStyles(button:Button):void
 	{
 		var defaultIcon:ImageLoader = new ImageLoader();
 		defaultIcon.source = this.confirmIconTexture;
@@ -311,7 +311,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		button.minTouchWidth = button.minTouchHeight = 88 * this.scale;
 	}
 
-	protected function setCancelButtonStyles(button:Button):void
+	private function setCancelButtonStyles(button:Button):void
 	{
 		var defaultIcon:ImageLoader = new ImageLoader();
 		defaultIcon.source = this.cancelIconTexture;
@@ -322,7 +322,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		button.minTouchWidth = button.minTouchHeight = 88 * this.scale;
 	}
 
-	protected function setHeaderStyles(header:Header):void
+	private function setHeaderStyles(header:Header):void
 	{
 		header.useExtraPaddingForOSStatusBar = true;
 		
@@ -337,7 +337,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		header.titleProperties.textFormat = this.headerTitleTextFormat;
 	}
 
-	protected function setStationListStyles(list:List):void
+	private function setStationListStyles(list:List):void
 	{
 		list.horizontalScrollBarFactory = this.horizontalScrollBarFactory;
 		list.verticalScrollBarFactory = this.verticalScrollBarFactory;
@@ -345,14 +345,14 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		list.itemRendererType = StationListItemRenderer;
 	}
 
-	protected function setTimesListStyles(list:List):void
+	private function setTimesListStyles(list:List):void
 	{
 		list.horizontalScrollBarFactory = this.horizontalScrollBarFactory;
 		list.verticalScrollBarFactory = this.verticalScrollBarFactory;
 		list.customItemRendererStyleName = TIMES_LIST_ITEM_RENDERER_NAME;
 	}
 
-	protected function setTimesListItemRendererStyles(renderer:DefaultListItemRenderer):void
+	private function setTimesListItemRendererStyles(renderer:DefaultListItemRenderer):void
 	{
 		var defaultSkin:Quad = new Quad(88 * this.scale, 88 * this.scale, 0xff00ff);
 		defaultSkin.alpha = 0;
@@ -365,7 +365,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		renderer.paddingRight = 16 * this.scale;
 	}
 
-	protected function setStationListItemRendererStyles(renderer:StationListItemRenderer):void
+	private function setStationListItemRendererStyles(renderer:StationListItemRenderer):void
 	{
 		renderer.paddingLeft = 44 * this.scale;
 		renderer.paddingRight = 32 * this.scale
@@ -378,7 +378,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		renderer.lastSelectedIconTexture = this.stationListLastSelectedIconTexture;
 	}
 
-	protected function setActionContainerStyles(container:ScrollContainer):void
+	private function setActionContainerStyles(container:ScrollContainer):void
 	{
 		var backgroundSkin:Quad = new Quad(48 * this.scale, 48 * this.scale, 0xcc2a41);
 		container.backgroundSkin = backgroundSkin;
@@ -391,7 +391,7 @@ public class TrainTimesTheme extends StyleNameFunctionTheme
 		container.layout = layout;
 	}
 
-	protected function stage_resizeHandler(event:ResizeEvent):void
+	private function stage_resizeHandler(event:ResizeEvent):void
 	{
 		this.primaryBackground.width = event.width;
 		this.primaryBackground.height = event.height;

@@ -91,7 +91,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	protected var _callBeforeOriginalStyleProvider:Boolean = false;
+	private var _callBeforeOriginalStyleProvider:Boolean = false;
 
 	/**
 	 * Determines if the add on function should be called before the

@@ -44,7 +44,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return SoundChannelPeakVisualizer.globalStyleProvider;
 	}
@@ -52,17 +52,17 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var leftPeakBar:Quad;
+	private var leftPeakBar:Quad;
 
 	/**
 	 * @private
 	 */
-	protected var rightPeakBar:Quad;
+	private var rightPeakBar:Quad;
 
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The gap, in pixels, between the bars.
@@ -88,7 +88,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:SoundPlayer;
+	private var _mediaPlayer:SoundPlayer;
 
 	/**
 	 * @inheritDoc
@@ -132,7 +132,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this.leftPeakBar)
 		{
@@ -149,7 +149,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		this.autoSizeIfNeeded();
 		
@@ -177,7 +177,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -201,7 +201,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function handlePlaybackStateChange():void
+	private function handlePlaybackStateChange():void
 	{
 		if(this._mediaPlayer.isPlaying)
 		{
@@ -216,7 +216,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_playbackStateChange(event:Event):void
+	private function mediaPlayer_playbackStateChange(event:Event):void
 	{
 		this.handlePlaybackStateChange();
 	}
@@ -224,7 +224,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	protected function peakVisualizer_enterFrameHandler(event:Event):void
+	private function peakVisualizer_enterFrameHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}

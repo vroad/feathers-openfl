@@ -78,7 +78,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected static const INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY:String = "volumeSliderFactory";
+	private static const INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY:String = "volumeSliderFactory";
 	
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -100,7 +100,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected static function defaultVolumeSliderFactory():VolumeSlider
+	private static function defaultVolumeSliderFactory():VolumeSlider
 	{
 		var slider:VolumeSlider = new VolumeSlider();
 		slider.direction = VolumeSlider.DIRECTION_VERTICAL;
@@ -130,37 +130,37 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 * @see #customListStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var volumeSliderStyleName:String = DEFAULT_CHILD_STYLE_NAME_VOLUME_SLIDER;
+	private var volumeSliderStyleName:String = DEFAULT_CHILD_STYLE_NAME_VOLUME_SLIDER;
 
 	/**
 	 * @private
 	 */
-	protected var slider:VolumeSlider;
+	private var slider:VolumeSlider;
 
 	/**
 	 * @private
 	 */
-	protected var _oldVolume:Number;
+	private var _oldVolume:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreChanges:Boolean = false;
+	private var _ignoreChanges:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _touchPointID:int = -1;
+	private var _touchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	protected var _popUpTouchPointID:int = -1;
+	private var _popUpTouchPointID:int = -1;
 
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return MuteToggleButton.globalStyleProvider;
 	}
@@ -168,7 +168,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:IAudioPlayer;
+	private var _mediaPlayer:IAudioPlayer;
 
 	/**
 	 * @inheritDoc
@@ -199,7 +199,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _popUpContentManager:IPopUpContentManager;
+	private var _popUpContentManager:IPopUpContentManager;
 
 	/**
 	 * A manager that handles the details of how to display the pop-up
@@ -245,7 +245,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _showVolumeSliderOnHover:Boolean = false;
+	private var _showVolumeSliderOnHover:Boolean = false;
 
 	/**
 	 * Determines if a <code>VolumeSlider</code> component is displayed as a
@@ -284,7 +284,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _volumeSliderFactory:Function;
+	private var _volumeSliderFactory:Function;
 
 	/**
 	 * A function used to generate the button's pop-up volume slider
@@ -336,7 +336,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _customVolumeSliderStyleName:String;
+	private var _customVolumeSliderStyleName:String;
 
 	/**
 	 * A style name to add to the button's volume slider sub-component.
@@ -384,7 +384,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _volumeSliderProperties:PropertyProxy;
+	private var _volumeSliderProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for the button's pop-up volume
@@ -460,12 +460,12 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected var _isOpenPopUpPending:Boolean = false;
+	private var _isOpenPopUpPending:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _isClosePopUpPending:Boolean = false;
+	private var _isClosePopUpPending:Boolean = false;
 
 	/**
 	 * Opens the pop-up list, if it isn't already open.
@@ -536,7 +536,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this._popUpContentManager)
 		{
@@ -550,7 +550,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
 		var volumeSliderFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
@@ -581,7 +581,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 * @see #listFactory
 	 * @see #customListStyleName
 	 */
-	protected function createVolumeSlider():void
+	private function createVolumeSlider():void
 	{
 		if(this.slider)
 		{
@@ -605,7 +605,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function refreshVolumeSliderProperties():void
+	private function refreshVolumeSliderProperties():void
 	{
 		for(var propertyName:String in this._volumeSliderProperties)
 		{
@@ -618,7 +618,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function handlePendingActions():void
+	private function handlePendingActions():void
 	{
 		if(this._isOpenPopUpPending)
 		{
@@ -633,7 +633,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function refreshVolumeFromMediaPlayer():void
+	private function refreshVolumeFromMediaPlayer():void
 	{
 		var oldIgnoreChanges:Boolean = this._ignoreChanges;
 		this._ignoreChanges = true;
@@ -651,7 +651,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_soundTransformChangeHandler(event:Event):void
+	private function mediaPlayer_soundTransformChangeHandler(event:Event):void
 	{
 		this.refreshVolumeFromMediaPlayer();
 	}
@@ -659,7 +659,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function muteToggleButton_changeHandler(event:Event):void
+	private function muteToggleButton_changeHandler(event:Event):void
 	{
 		if(this._ignoreChanges || !this._mediaPlayer)
 		{
@@ -693,7 +693,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function muteToggleButton_touchHandler(event:TouchEvent):void
+	private function muteToggleButton_touchHandler(event:TouchEvent):void
 	{
 		if(!this.slider)
 		{
@@ -729,7 +729,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function volumeSlider_touchHandler(event:TouchEvent):void
+	private function volumeSlider_touchHandler(event:TouchEvent):void
 	{
 		if(this._popUpTouchPointID >= 0)
 		{
@@ -759,7 +759,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function popUpContentManager_openHandler(event:Event):void
+	private function popUpContentManager_openHandler(event:Event):void
 	{
 		this.dispatchEventWith(Event.OPEN);
 	}
@@ -767,7 +767,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	protected function popUpContentManager_closeHandler(event:Event):void
+	private function popUpContentManager_closeHandler(event:Event):void
 	{
 		this.slider.removeEventListener(TouchEvent.TOUCH, volumeSlider_touchHandler);
 		this.dispatchEventWith(Event.CLOSE);

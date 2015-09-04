@@ -571,7 +571,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	protected var _requestedRowCount:int = 0;
+	private var _requestedRowCount:int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -1722,7 +1722,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	protected function validateItems(items:Vector.<DisplayObject>, explicitWidth:Number,
+	private function validateItems(items:Vector.<DisplayObject>, explicitWidth:Number,
 		minWidth:Number, maxWidth:Number, distributedHeight:Number):void
 	{
 		//if the alignment is justified, then we want to set the width of
@@ -1978,7 +1978,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	protected function calculateMaxScrollYOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	private function calculateMaxScrollYOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
 	{
 		if(this._useVirtualLayout)
 		{

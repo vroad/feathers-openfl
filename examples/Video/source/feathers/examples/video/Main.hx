@@ -33,16 +33,16 @@ public class Main extends Sprite
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 	
-	protected var _videoPlayer:VideoPlayer
-	protected var _controls:LayoutGroup;
-	protected var _playPauseButton:PlayPauseToggleButton;
-	protected var _seekSlider:SeekSlider;
-	protected var _muteButton:MuteToggleButton;
-	protected var _fullScreenButton:FullScreenToggleButton;
-	protected var _view:ImageLoader;
+	private var _videoPlayer:VideoPlayer
+	private var _controls:LayoutGroup;
+	private var _playPauseButton:PlayPauseToggleButton;
+	private var _seekSlider:SeekSlider;
+	private var _muteButton:MuteToggleButton;
+	private var _fullScreenButton:FullScreenToggleButton;
+	private var _view:ImageLoader;
 	
-	protected var _fullScreenItem:NativeMenuItem;
-	protected var _fileToOpen:File;
+	private var _fullScreenItem:NativeMenuItem;
+	private var _fileToOpen:File;
 	
 	private function addedToStageHandler(event:starling.events.Event):void
 	{
@@ -87,7 +87,7 @@ public class Main extends Sprite
 		this._view.layoutData = viewLayoutData;
 	}
 	
-	protected function createMenu():void
+	private function createMenu():void
 	{
 		var menu:NativeMenu;
 		if(NativeApplication.supportsMenu)
@@ -141,18 +141,18 @@ public class Main extends Sprite
 		}
 	}
 	
-	protected function videoPlayer_readyHandler(event:Event):void
+	private function videoPlayer_readyHandler(event:Event):void
 	{
 		this._view.source = this._videoPlayer.texture;
 		this._controls.touchable = true;
 	}
 
-	protected function videoPlayer_displayStateChangeHandler(event:Event):void
+	private function videoPlayer_displayStateChangeHandler(event:Event):void
 	{
 		this._fullScreenItem.label = this._videoPlayer.isFullScreen ? "Exit Full Screen" : "Enter Full Screen";
 	}
 	
-	protected function openItem_selectHandler(event:flash.events.Event):void
+	private function openItem_selectHandler(event:flash.events.Event):void
 	{
 		this._fileToOpen = new File();
 		this._fileToOpen.addEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
@@ -163,7 +163,7 @@ public class Main extends Sprite
 		]);
 	}
 	
-	protected function closeItem_selectHandler(event:flash.events.Event):void
+	private function closeItem_selectHandler(event:flash.events.Event):void
 	{
 		//we don't need to dispose the texture here. the VideoPlayer will
 		//do it automatically when videoSource is changed.
@@ -172,14 +172,14 @@ public class Main extends Sprite
 		this._controls.touchable = false;
 	}
 	
-	protected function fileToOpen_cancelHandler(event:flash.events.Event):void
+	private function fileToOpen_cancelHandler(event:flash.events.Event):void
 	{
 		this._fileToOpen.removeEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
 		this._fileToOpen.removeEventListener(flash.events.Event.CANCEL, fileToOpen_cancelHandler);
 		this._fileToOpen = null;
 	}
 
-	protected function fileToOpen_selectHandler(event:flash.events.Event):void
+	private function fileToOpen_selectHandler(event:flash.events.Event):void
 	{
 		if(this._videoPlayer.videoSource === this._fileToOpen.url)
 		{
@@ -196,17 +196,17 @@ public class Main extends Sprite
 		this._fileToOpen = null;
 	}
 	
-	protected function fullScreenItem_selectHandler(event:flash.events.Event):void
+	private function fullScreenItem_selectHandler(event:flash.events.Event):void
 	{
 		this._videoPlayer.toggleFullScreen();
 	}
 	
-	protected function minimizeItem_selectHandler(event:flash.events.Event):void
+	private function minimizeItem_selectHandler(event:flash.events.Event):void
 	{
 		Starling.current.nativeStage.nativeWindow.minimize();
 	}
 
-	protected function zoomItem_selectHandler(event:flash.events.Event):void
+	private function zoomItem_selectHandler(event:flash.events.Event):void
 	{
 		Starling.current.nativeStage.nativeWindow.maximize();
 	}

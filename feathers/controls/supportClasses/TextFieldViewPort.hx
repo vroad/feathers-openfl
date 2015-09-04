@@ -159,7 +159,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	protected var _styleSheet:StyleSheet;
+	private var _styleSheet:StyleSheet;
 
 	/**
 	 * @see feathers.controls.ScrollText#styleSheet
@@ -771,7 +771,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		super.render(support, parentAlpha);
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this._textFieldContainer = new Sprite();
 		this._textFieldContainer.visible = false;
@@ -785,7 +785,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._textFieldContainer.addChild(this._textField);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
@@ -922,7 +922,7 @@ public class TextFieldViewPort extends FeathersControl implements IViewPort
 		this._textFieldContainer.visible = true;
 	}
 
-	protected function textField_linkHandler(event:TextEvent):void
+	private function textField_linkHandler(event:TextEvent):void
 	{
 		this.dispatchEventWith(Event.TRIGGERED, false, event.text);
 	}

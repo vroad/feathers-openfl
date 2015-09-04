@@ -39,7 +39,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 
 	public static var globalStyleProvider:IStyleProvider;
 
-	protected static function defaultLoaderFactory():ImageLoader
+	private static function defaultLoaderFactory():ImageLoader
 	{
 		return new ImageLoader();
 	}
@@ -50,18 +50,18 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return StationListItemRenderer.globalStyleProvider;
 	}
 
-	protected var background:Quad;
-	protected var actionContainer:ScrollContainer;
-	protected var confirmButton:Button;
-	protected var cancelButton:Button;
-	protected var nameLabel:Label;
-	protected var detailsLabel:Label;
-	protected var icon:ImageLoader;
+	private var background:Quad;
+	private var actionContainer:ScrollContainer;
+	private var confirmButton:Button;
+	private var cancelButton:Button;
+	private var nameLabel:Label;
+	private var detailsLabel:Label;
+	private var icon:ImageLoader;
 
 	private var _touchPointID:Int = -1;
 

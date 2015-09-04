@@ -40,13 +40,13 @@ public class Main extends LayoutGroup
 		super();
 	}
 
-	protected var selectedImage:ImageLoader;
-	protected var list:List;
-	protected var message:Label;
-	protected var apiLoader:URLLoader;
-	protected var fadeTween:Tween;
+	private var selectedImage:ImageLoader;
+	private var list:List;
+	private var message:Label;
+	private var apiLoader:URLLoader;
+	private var fadeTween:Tween;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 
@@ -102,7 +102,7 @@ public class Main extends LayoutGroup
 		this.addChild(this.message);
 	}
 
-	protected function list_changeHandler(event:starling.events.Event):void
+	private function list_changeHandler(event:starling.events.Event):void
 	{
 		this.selectedImage.visible = false;
 		if(this.fadeTween)
@@ -152,7 +152,7 @@ public class Main extends LayoutGroup
 		this.message.text = "Error loading images.";
 	}
 
-	protected function loader_completeHandler(event:starling.events.Event):void
+	private function loader_completeHandler(event:starling.events.Event):void
 	{
 		this.selectedImage.alpha = 0;
 		this.selectedImage.visible = true;

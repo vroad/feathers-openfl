@@ -181,14 +181,14 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	protected var _contentX:Number = 0;
+	private var _contentX:Number = 0;
 
 	public function get contentX():Number
 	{
 		return this._contentX;
 	}
 
-	protected var _contentY:Number = 0;
+	private var _contentY:Number = 0;
 
 	public function get contentY():Number
 	{
@@ -929,7 +929,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		super.dispose();
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);

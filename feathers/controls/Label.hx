@@ -343,22 +343,22 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Number = NaN;
 
 	/**
 	 * @private
 	 */
-	protected var currentBackgroundSkin:DisplayObject;
+	private var currentBackgroundSkin:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _backgroundSkin:DisplayObject;
+	private var _backgroundSkin:DisplayObject;
 
 	/**
 	 * The default background to display behind the label's text.
@@ -397,7 +397,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _backgroundDisabledSkin:DisplayObject;
+	private var _backgroundDisabledSkin:DisplayObject;
 
 	/**
 	 * A background to display when the label is disabled.
@@ -470,7 +470,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _paddingTop:Number = 0;
+	private var _paddingTop:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's top edge and the
@@ -504,7 +504,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _paddingRight:Number = 0;
+	private var _paddingRight:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's right edge and
@@ -538,7 +538,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _paddingBottom:Number = 0;
+	private var _paddingBottom:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's bottom edge and
@@ -572,7 +572,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	protected var _paddingLeft:Number = 0;
+	private var _paddingLeft:Number = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's left edge and the
@@ -606,7 +606,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
 		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
@@ -743,7 +743,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * Choose the appropriate background skin based on the control's current
 	 * state.
 	 */
-	protected function refreshBackgroundSkin():void
+	private function refreshBackgroundSkin():void
 	{
 		var newCurrentBackgroundSkin:DisplayObject = this._backgroundSkin;
 		if(!this._isEnabled && this._backgroundDisabledSkin)
@@ -782,7 +782,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * Positions and sizes children based on the actual width and height
 	 * values.
 	 */
-	protected function layoutChildren():void
+	private function layoutChildren():void
 	{
 		if(this.currentBackgroundSkin)
 		{

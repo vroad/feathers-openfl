@@ -179,36 +179,36 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected static const PLAY_STATUS_CODE_NETSTREAM_PLAY_COMPLETE:String = "NetStream.Play.Complete";
+	private static const PLAY_STATUS_CODE_NETSTREAM_PLAY_COMPLETE:String = "NetStream.Play.Complete";
 	/**
 	 * @private
 	 */
-	protected static const NET_STATUS_CODE_NETSTREAM_PLAY_STOP:String = "NetStream.Play.Stop";
+	private static const NET_STATUS_CODE_NETSTREAM_PLAY_STOP:String = "NetStream.Play.Stop";
 
 	/**
 	 * @private
 	 */
-	protected static const NET_STATUS_CODE_NETSTREAM_PLAY_STREAMNOTFOUND:String = "NetStream.Play.StreamNotFound";
+	private static const NET_STATUS_CODE_NETSTREAM_PLAY_STREAMNOTFOUND:String = "NetStream.Play.StreamNotFound";
 
 	/**
 	 * @private
 	 */
-	protected static const NET_STATUS_CODE_NETSTREAM_SEEK_NOTIFY:String = "NetStream.Seek.Notify";
+	private static const NET_STATUS_CODE_NETSTREAM_SEEK_NOTIFY:String = "NetStream.Seek.Notify";
 
 	/**
 	 * @private
 	 */
-	protected static const NO_VIDEO_SOURCE_PLAY_ERROR:String = "Cannot play media when videoSource property has not been set.";
+	private static const NO_VIDEO_SOURCE_PLAY_ERROR:String = "Cannot play media when videoSource property has not been set.";
 
 	/**
 	 * @private
 	 */
-	protected static const NO_VIDEO_SOURCE_PAUSE_ERROR:String = "Cannot pause media when videoSource property has not been set.";
+	private static const NO_VIDEO_SOURCE_PAUSE_ERROR:String = "Cannot pause media when videoSource property has not been set.";
 
 	/**
 	 * @private
 	 */
-	protected static const NO_VIDEO_SOURCE_SEEK_ERROR:String = "Cannot seek media when videoSource property has not been set.";
+	private static const NO_VIDEO_SOURCE_SEEK_ERROR:String = "Cannot seek media when videoSource property has not been set.";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all
@@ -230,7 +230,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return VideoPlayer.globalStyleProvider;
 	}
@@ -238,17 +238,17 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _fullScreenContainer:LayoutGroup;
+	private var _fullScreenContainer:LayoutGroup;
 
 	/**
 	 * @private
 	 */
-	protected var _ignoreDisplayListEvents:Boolean = false;
+	private var _ignoreDisplayListEvents:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _soundTransform:SoundTransform;
+	private var _soundTransform:SoundTransform;
 
 	/**
 	 * @inheritDoc
@@ -286,12 +286,12 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _isWaitingForTextureReady:Boolean = false;
+	private var _isWaitingForTextureReady:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _texture:Texture;
+	private var _texture:Texture;
 
 	/**
 	 * The texture used to display the video. This texture is not
@@ -363,12 +363,12 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _netConnection:NetConnection;
+	private var _netConnection:NetConnection;
 
 	/**
 	 * @private
 	 */
-	protected var _netStream:NetStream;
+	private var _netStream:NetStream;
 
 	/**
 	 * The <code>flash.net.NetStream</code> object used to play the video.
@@ -383,7 +383,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _videoSource:String;
+	private var _videoSource:String;
 
 	/**
 	 * A string representing the video URL or any other accepted value that
@@ -449,7 +449,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _autoPlay:Boolean = true;
+	private var _autoPlay:Boolean = true;
 
 	/**
 	 * Determines if the video starts playing immediately when the
@@ -478,7 +478,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _isFullScreen:Boolean = false;
+	private var _isFullScreen:Boolean = false;
 
 	/**
 	 * Indicates if the video player is currently full screen or not. When
@@ -498,7 +498,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _normalDisplayState:String = StageDisplayState.NORMAL;
+	private var _normalDisplayState:String = StageDisplayState.NORMAL;
 
 	[Inspectable(type="String",enumeration="fullScreenInteractive,fullScreen,normal")]
 	/**
@@ -554,7 +554,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _fullScreenDisplayState:String = StageDisplayState.FULL_SCREEN_INTERACTIVE;
+	private var _fullScreenDisplayState:String = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 
 	[Inspectable(type="String",enumeration="fullScreenInteractive,fullScreen,normal")]
 	/**
@@ -606,7 +606,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected var _hideRootWhenFullScreen:Boolean = true;
+	private var _hideRootWhenFullScreen:Boolean = true;
 
 	/**
 	 * Determines if the Starling root display object is hidden when the
@@ -729,7 +729,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function playMedia():void
+	override private function playMedia():void
 	{
 		if(!this._videoSource)
 		{
@@ -770,7 +770,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function pauseMedia():void
+	override private function pauseMedia():void
 	{
 		if(!this._videoSource)
 		{
@@ -783,7 +783,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function seekMedia(seconds:Number):void
+	override private function seekMedia(seconds:Number):void
 	{
 		if(!this._videoSource)
 		{
@@ -796,7 +796,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function disposeNetStream():void
+	private function disposeNetStream():void
 	{
 		if(!this._netStream)
 		{
@@ -812,7 +812,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function videoPlayer_enterFrameHandler(event:Event):void
+	private function videoPlayer_enterFrameHandler(event:Event):void
 	{
 		this._currentTime = this._netStream.time;
 		this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
@@ -821,7 +821,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function videoTexture_onRestore():void
+	private function videoTexture_onRestore():void
 	{
 		this.pauseMedia();
 		this._isWaitingForTextureReady = true;
@@ -834,7 +834,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function videoTexture_onComplete():void
+	private function videoTexture_onComplete():void
 	{
 		this._isWaitingForTextureReady = false;
 		//the texture is ready to be displayed
@@ -845,7 +845,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function videoTexture_onRestoreComplete():void
+	private function videoTexture_onRestoreComplete():void
 	{
 		//seek back to the video's current time from when the context was
 		//was lost. we couldn't seek when we started playing the video
@@ -861,7 +861,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function netStream_onMetaData(metadata:Object):void
+	private function netStream_onMetaData(metadata:Object):void
 	{
 		this.dispatchEventWith(MediaPlayerEventType.DIMENSIONS_CHANGE);
 		this._totalTime = metadata.duration;
@@ -871,7 +871,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function netStream_onPlayStatus(data:Object):void
+	private function netStream_onPlayStatus(data:Object):void
 	{
 		var code:String = data.code as String;
 		switch(code)
@@ -892,7 +892,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function netStream_ioErrorHandler(event:IOErrorEvent):void
+	private function netStream_ioErrorHandler(event:IOErrorEvent):void
 	{
 		this.dispatchEventWith(event.type, false, event);
 	}
@@ -900,7 +900,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	protected function netStream_netStatusHandler(event:NetStatusEvent):void
+	private function netStream_netStatusHandler(event:NetStatusEvent):void
 	{
 		var code:String = event.info.code;
 		switch(code)
@@ -940,7 +940,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function mediaPlayer_addedHandler(event:Event):void
+	override private function mediaPlayer_addedHandler(event:Event):void
 	{
 		if(this._ignoreDisplayListEvents)
 		{
@@ -952,7 +952,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override protected function mediaPlayer_removedHandler(event:Event):void
+	override private function mediaPlayer_removedHandler(event:Event):void
 	{
 		if(this._ignoreDisplayListEvents)
 		{

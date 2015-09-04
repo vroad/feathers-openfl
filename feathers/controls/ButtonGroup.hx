@@ -259,7 +259,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #customButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var buttonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	private var buttonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>buttonStyleName</code>.
@@ -271,7 +271,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #buttonStyleName
 	 */
-	protected function get buttonName():String
+	private function get buttonName():String
 	{
 		return this.buttonStyleName;
 	}
@@ -279,7 +279,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set buttonName(value:String):void
+	private function set buttonName(value:String):void
 	{
 		this.buttonStyleName = value;
 	}
@@ -293,7 +293,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #customFirstButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var firstButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	private var firstButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>firstButtonStyleName</code>.
@@ -305,7 +305,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #firstButtonStyleName
 	 */
-	protected function get firstButtonName():String
+	private function get firstButtonName():String
 	{
 		return this.firstButtonStyleName;
 	}
@@ -313,7 +313,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set firstButtonName(value:String):void
+	private function set firstButtonName(value:String):void
 	{
 		this.firstButtonStyleName = value;
 	}
@@ -327,7 +327,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #customLastButtonStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var lastButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	private var lastButtonStyleName:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * DEPRECATED: Replaced by <code>lastButtonStyleName</code>.
@@ -339,7 +339,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #lastButtonStyleName
 	 */
-	protected function get lastButtonName():String
+	private function get lastButtonName():String
 	{
 		return this.lastButtonStyleName;
 	}
@@ -347,7 +347,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set lastButtonName(value:String):void
+	private function set lastButtonName(value:String):void
 	{
 		this.lastButtonStyleName = value;
 	}
@@ -1182,7 +1182,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customButtonStyleName:String;
+	private var _customButtonStyleName:String;
 
 	/**
 	 * A style name to add to all buttons in this button group. Typically
@@ -1249,7 +1249,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customFirstButtonStyleName:String;
+	private var _customFirstButtonStyleName:String;
 
 	/**
 	 * A style name to add to the first button in this button group.
@@ -1316,7 +1316,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _customLastButtonStyleName:String;
+	private var _customLastButtonStyleName:String;
 
 	/**
 	 * A style name to add to the last button in this button group.
@@ -1383,7 +1383,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _buttonProperties:PropertyProxy;
+	private var _buttonProperties:PropertyProxy;
 
 	/**
 	 * An object that stores properties for all of the button group's

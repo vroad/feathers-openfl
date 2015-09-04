@@ -77,22 +77,22 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _pushSlideTransition:Function;
+	private var _pushSlideTransition:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _popSlideTransition:Function;
+	private var _popSlideTransition:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _crossfadeTransition:Function;
+	private var _crossfadeTransition:Function;
 
 	/**
 	 * @private
 	 */
-	protected var _duration:Number = 0.25;
+	private var _duration:Number = 0.25;
 
 	/**
 	 * The duration of the transition, measured in seconds.
@@ -122,7 +122,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _delay:Number = 0.1;
+	private var _delay:Number = 0.1;
 
 	/**
 	 * A delay before the transition starts, measured in seconds. This may
@@ -154,7 +154,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	protected var _ease:Object = Transitions.EASE_OUT;
+	private var _ease:Object = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function to use.

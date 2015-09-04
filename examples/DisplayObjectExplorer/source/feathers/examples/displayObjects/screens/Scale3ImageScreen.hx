@@ -83,7 +83,7 @@ public class Scale3ImageScreen extends PanelScreen
 		this.addChild(this._bottomButton);
 	}
 
-	override protected function layoutChildren():void
+	override private function layoutChildren():void
 	{
 		super.layoutChildren();
 		

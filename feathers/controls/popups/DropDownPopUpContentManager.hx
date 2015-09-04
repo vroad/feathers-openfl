@@ -126,7 +126,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _isModal:Boolean = false;
+	private var _isModal:Boolean = false;
 
 	/**
 	 * Determines if the pop-up will be modal or not.
@@ -158,7 +158,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _overlayFactory:Function;
+	private var _overlayFactory:Function;
 
 	/**
 	 * If <code>isModal</code> is <code>true</code>, this function may be
@@ -200,7 +200,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _gap:Number = 0;
+	private var _gap:Number = 0;
 
 	/**
 	 * The space, in pixels, between the source and the pop-up.
@@ -223,7 +223,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _primaryDirection:String = PRIMARY_DIRECTION_DOWN;
+	private var _primaryDirection:String = PRIMARY_DIRECTION_DOWN;
 
 	/**
 	 * The space, in pixels, between the source and the pop-up.
@@ -249,7 +249,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _fitContentMinWidthToOrigin:Boolean = true;
+	private var _fitContentMinWidthToOrigin:Boolean = true;
 
 	/**
 	 * If enabled, the pop-up content's <code>minWidth</code> property will
@@ -274,12 +274,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalX:Number;
+	private var _lastGlobalX:Number;
 
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalY:Number;
+	private var _lastGlobalY:Number;
 
 	/**
 	 * @inheritDoc
@@ -497,7 +497,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function stage_enterFrameHandler(event:Event):void
+	private function stage_enterFrameHandler(event:Event):void
 	{
 		this.source.getBounds(this.source.stage, HELPER_RECTANGLE);
 		if(HELPER_RECTANGLE.x != this._lastGlobalX || HELPER_RECTANGLE.y != this._lastGlobalY)
@@ -509,7 +509,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function content_removedFromStageHandler(event:Event):void
+	private function content_removedFromStageHandler(event:Event):void
 	{
 		this.close();
 	}
@@ -517,7 +517,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	protected function nativeStage_keyDownHandler(event:KeyboardEvent):void
+	private function nativeStage_keyDownHandler(event:KeyboardEvent):void
 	{
 		if(event.isDefaultPrevented())
 		{

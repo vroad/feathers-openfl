@@ -263,7 +263,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var _textFieldSnapshotClipRect:Rectangle = new Rectangle();
+	private var _textFieldSnapshotClipRect:Rectangle = new Rectangle();
 
 	/**
 	 * @private
@@ -278,17 +278,17 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
@@ -1099,7 +1099,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var _useGutter:Boolean = false;
+	private var _useGutter:Boolean = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -1200,7 +1200,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Boolean = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text editor is
@@ -1242,7 +1242,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var _useSnapshotDelayWorkaround:Boolean = false;
+	private var _useSnapshotDelayWorkaround:Boolean = false;
 
 	/**
 	 * Fixes an issue where <code>flash.text.TextField</code> renders
@@ -1280,7 +1280,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected var resetScrollOnFocusOut:Boolean = true;
+	private var resetScrollOnFocusOut:Boolean = true;
 
 	/**
 	 * @private
@@ -1778,7 +1778,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
+	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
 	{
 		return this.textField.getCharIndexAtPoint(pointX, pointY);
 	}
@@ -1786,7 +1786,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected function refreshTextFieldSize():void
+	private function refreshTextFieldSize():void
 	{
 		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
@@ -2059,7 +2059,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected function hasFocus_enterFrameHandler(event:Event):void
+	private function hasFocus_enterFrameHandler(event:Event):void
 	{
 		if(this.textSnapshot != null)
 		{
@@ -2090,7 +2090,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected function refreshSnapshot_enterFrameHandler(event:Event):void
+	private function refreshSnapshot_enterFrameHandler(event:Event):void
 	{
 		this.removeEventListener(Event.ENTER_FRAME, refreshSnapshot_enterFrameHandler);
 		this.refreshSnapshot();
@@ -2099,7 +2099,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	protected function stage_touchHandler(event:TouchEvent):void
+	private function stage_touchHandler(event:TouchEvent):void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
 		if(!touch) //we only care about began touches

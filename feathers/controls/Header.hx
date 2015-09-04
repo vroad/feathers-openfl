@@ -226,7 +226,7 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var titleStyleName:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
+	private var titleStyleName:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
 
 	/**
 	 * DEPRECATED: Replaced by <code>titleStyleName</code>.
@@ -238,7 +238,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleStyleName
 	 */
-	protected function get titleName():String
+	private function get titleName():String
 	{
 		return this.titleStyleName;
 	}
@@ -246,7 +246,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set titleName(value:String):void
+	private function set titleName(value:String):void
 	{
 		this.titleStyleName = value;
 	}
@@ -260,7 +260,7 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var itemStyleName:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
+	private var itemStyleName:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
 
 	/**
 	 * DEPRECATED: Replaced by <code>itemStyleName</code>.
@@ -272,7 +272,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #itemStyleName
 	 */
-	protected function get itemName():String
+	private function get itemName():String
 	{
 		return this.itemStyleName;
 	}
@@ -280,7 +280,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function set itemName(value:String):void
+	private function set itemName(value:String):void
 	{
 		this.itemStyleName = value;
 	}

@@ -84,7 +84,7 @@ public class ListVideosScreen extends PanelScreen
 		return this._list.selectedItem as VideoDetails;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();
@@ -144,7 +144,7 @@ public class ListVideosScreen extends PanelScreen
 		return header;
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 

@@ -73,7 +73,7 @@ package feathers.themes
 		 * @private
 		 * The name of the texture atlas in the asset manager.
 		 */
-		protected static const ATLAS_NAME:String = "aeon_desktop";
+		private static const ATLAS_NAME:String = "aeon_desktop";
 
 		/**
 		 * Constructor.
@@ -88,13 +88,13 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected var assetManager:AssetManager;
+		private var assetManager:AssetManager;
 
 		/**
 		 * @private
 		 * The paths to each of the assets, relative to the base path.
 		 */
-		protected var assetPaths:Vector.<String> = new <String>
+		private var assetPaths:Vector.<String> = new <String>
 		[
 			"images/aeon_desktop.xml",
 			"images/aeon_desktop.png"
@@ -116,7 +116,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		override protected function initialize():void
+		override private function initialize():void
 		{
 			this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
 			super.initialize();
@@ -125,7 +125,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected function assetManager_onProgress(progress:Float):void
+		private function assetManager_onProgress(progress:Float):void
 		{
 			if(progress < 1)
 			{
@@ -138,7 +138,7 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		protected function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
+		private function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
 		{
 			this.assetManager = assetManager;
 			if(!this.assetManager)

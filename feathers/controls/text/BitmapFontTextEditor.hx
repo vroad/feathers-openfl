@@ -142,12 +142,12 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected static const LINE_FEED:String = "\n";
+	private static const LINE_FEED:String = "\n";
 
 	/**
 	 * @private
 	 */
-	protected static const CARRIAGE_RETURN:String = "\r";
+	private static const CARRIAGE_RETURN:String = "\r";
 
 	/**
 	 * Constructor.
@@ -583,7 +583,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected var _nativeFocus:Sprite;
+	private var _nativeFocus:Sprite;
 
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
@@ -991,7 +991,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function positionCursorAtCharIndex(index:int):void
+	private function positionCursorAtCharIndex(index:int):void
 	{
 		if(index < 0)
 		{
@@ -1026,7 +1026,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function getCursorIndexFromSelectionRange():int
+	private function getCursorIndexFromSelectionRange():int
 	{
 		var cursorIndex:int = this._selectionEndIndex;
 		if(this.touchPointID >= 0 && this._selectionAnchorIndex >= 0 && this._selectionAnchorIndex == this._selectionEndIndex)
@@ -1039,7 +1039,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function positionSelectionBackground():void
+	private function positionSelectionBackground():void
 	{
 		var font:BitmapFont = this.currentTextFormat.font;
 		var customSize:Float = this.currentTextFormat.size;
@@ -1114,7 +1114,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function hasFocus_enterFrameHandler(event:starling.events.Event):void
+	private function hasFocus_enterFrameHandler(event:starling.events.Event):void
 	{
 		var target:DisplayObject = this;
 		do
@@ -1132,7 +1132,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function textEditor_touchHandler(event:TouchEvent):void
+	private function textEditor_touchHandler(event:TouchEvent):void
 	{
 		if(!this._isEnabled)
 		{
@@ -1386,7 +1386,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_textInputHandler(event:TextEvent):void
+	private function nativeFocus_textInputHandler(event:TextEvent):void
 	{
 		if(!this._isEditable || !this._isEnabled)
 		{
@@ -1408,7 +1408,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_selectAllHandler(event:flash.events.Event):void
+	private function nativeFocus_selectAllHandler(event:flash.events.Event):void
 	{
 		if(!this._isEnabled)
 		{
@@ -1421,7 +1421,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_cutHandler(event:flash.events.Event):void
+	private function nativeFocus_cutHandler(event:flash.events.Event):void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1438,7 +1438,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_copyHandler(event:flash.events.Event):void
+	private function nativeFocus_copyHandler(event:flash.events.Event):void
 	{
 		if(!this._isEnabled || this._selectionBeginIndex == this._selectionEndIndex || this._displayAsPassword)
 		{
@@ -1450,7 +1450,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @private
 	 */
-	protected function nativeFocus_pasteHandler(event:flash.events.Event):void
+	private function nativeFocus_pasteHandler(event:flash.events.Event):void
 	{
 		#if flash
 		if(!this._isEditable || !this._isEnabled)

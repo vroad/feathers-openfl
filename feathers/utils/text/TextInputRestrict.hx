@@ -20,7 +20,7 @@ public class TextInputRestrict
 	/**
 	 * @private
 	 */
-	protected static const REQUIRES_ESCAPE:Dictionary = new Dictionary();
+	private static const REQUIRES_ESCAPE:Dictionary = new Dictionary();
 	REQUIRES_ESCAPE[/\[/g] = "\\[";
 	REQUIRES_ESCAPE[/\]/g] = "\\]";
 	REQUIRES_ESCAPE[/\{/g] = "\\{";
@@ -46,12 +46,12 @@ public class TextInputRestrict
 	/**
 	 * @private
 	 */
-	protected var _restrictStartsWithExclude:Boolean = false;
+	private var _restrictStartsWithExclude:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _restricts:Vector.<RegExp>
+	private var _restricts:Vector.<RegExp>
 
 	/**
 	 * @private
@@ -202,7 +202,7 @@ public class TextInputRestrict
 	/**
 	 * @private
 	 */
-	protected function createRestrictRegExp(restrict:String, isExcluding:Boolean):RegExp
+	private function createRestrictRegExp(restrict:String, isExcluding:Boolean):RegExp
 	{
 		if(!isExcluding && restrict.indexOf("^") == 0)
 		{

@@ -38,7 +38,7 @@ public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		if(!this._layout)
 		{
@@ -50,7 +50,7 @@ public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	protected function handleAddedChild(child:DisplayObject):void
+	private function handleAddedChild(child:DisplayObject):void
 	{
 		if(child is IMediaPlayerControl)
 		{
@@ -71,7 +71,7 @@ public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	protected function handleRemovedChild(child:DisplayObject):void
+	private function handleRemovedChild(child:DisplayObject):void
 	{
 		if(child is IMediaPlayerControl)
 		{
@@ -92,7 +92,7 @@ public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_addedHandler(event:Event):void
+	private function mediaPlayer_addedHandler(event:Event):void
 	{
 		var addedChild:DisplayObject = DisplayObject(event.target);
 		this.handleAddedChild(addedChild);
@@ -101,7 +101,7 @@ public class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_removedHandler(event:Event):void
+	private function mediaPlayer_removedHandler(event:Event):void
 	{
 		var removedChild:DisplayObject = DisplayObject(event.target);
 		this.handleRemovedChild(removedChild);

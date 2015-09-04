@@ -61,7 +61,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _screen:Object;
+	private var _screen:Object;
 
 	/**
 	 * The screen to be displayed by the <code>ScreenNavigator</code>. It
@@ -104,7 +104,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _pushEvents:Object;
+	private var _pushEvents:Object;
 
 	/**
 	 * A set of key-value pairs representing actions that should be
@@ -140,7 +140,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _popEvents:Vector.<String>;
+	private var _popEvents:Vector.<String>;
 
 	/**
 	 * A list of events that will cause the screen navigator to pop this
@@ -169,7 +169,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _popToRootEvents:Vector.<String>;
+	private var _popToRootEvents:Vector.<String>;
 
 	/**
 	 * A list of events that will cause the screen navigator to clear its
@@ -194,7 +194,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _properties:Object;
+	private var _properties:Object;
 
 	/**
 	 * A set of key-value pairs representing properties to be set on the
@@ -222,7 +222,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _pushTransition:Function;
+	private var _pushTransition:Function;
 
 	/**
 	 * A custom push transition for this screen only. If <code>null</code>,
@@ -286,7 +286,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	protected var _popTransition:Function;
+	private var _popTransition:Function;
 
 	/**
 	 * A custom pop transition for this screen only. If <code>null</code>,

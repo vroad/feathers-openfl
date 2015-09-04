@@ -62,7 +62,7 @@ public class MainMenuScreen extends PanelScreen
 		return this._list.selectedItem as VideoFeed;
 	}
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		super.initialize();
 
@@ -104,7 +104,7 @@ public class MainMenuScreen extends PanelScreen
 		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 	}
 
-	override protected function draw():void
+	override private function draw():void
 	{
 		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
 

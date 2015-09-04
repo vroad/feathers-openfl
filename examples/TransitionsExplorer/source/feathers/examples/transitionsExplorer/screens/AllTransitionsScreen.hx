@@ -34,7 +34,7 @@ public class AllTransitionsScreen extends PanelScreen
 	public var savedVerticalScrollPosition:Number = 0;
 	public var savedSelectedIndex:int = -1;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

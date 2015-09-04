@@ -41,17 +41,17 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	protected var _lastStarling:Starling;
+	private var _lastStarling:Starling;
 
 	/**
 	 * @private
 	 */
-	protected var _starlings:Vector.<Starling> = new <Starling>[];
+	private var _starlings:Vector.<Starling> = new <Starling>[];
 
 	/**
 	 * @private
 	 */
-	protected var _starlingData:Dictionary = new Dictionary(true);
+	private var _starlingData:Dictionary = new Dictionary(true);
 
 	/**
 	 * @private
@@ -97,7 +97,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	override protected function createRegistry():void
+	override private function createRegistry():void
 	{
 		this._registry = new StyleProviderRegistry(true, this.styleProviderFactory);
 	}
@@ -105,7 +105,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * Gets stored data associated with the specified Starling instance.
 	 */
-	protected function getStarlingData(starling:Starling):Object
+	private function getStarlingData(starling:Starling):Object
 	{
 		return this._starlingData[starling];
 	}
@@ -114,7 +114,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Stores data associated with the specified Starling instance. To clear
 	 * data, pass <code>null</code>.
 	 */
-	protected function setStarlingData(starling:Starling, data:Object):void
+	private function setStarlingData(starling:Starling, data:Object):void
 	{
 		if(data === null)
 		{
@@ -128,7 +128,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * Subclasses must override this function to switch assets to the
 	 * specified Starling instance.
 	 */
-	protected function changeStarling(starling:Starling, data:Object):void
+	private function changeStarling(starling:Starling, data:Object):void
 	{
 		throw new AbstractMethodError();
 	}
@@ -138,7 +138,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 * This function ensures that the correct textures are loaded for the
 	 * current Starling instance.
 	 */
-	protected function verifyCurrentStarling(target:DisplayObject):void
+	private function verifyCurrentStarling(target:DisplayObject):void
 	{
 		var stage:Stage = target.stage;
 		if(!stage)
@@ -170,7 +170,7 @@ public class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	/**
 	 * @private
 	 */
-	protected function styleProviderFactory():AddOnFunctionStyleProvider
+	private function styleProviderFactory():AddOnFunctionStyleProvider
 	{
 		var originalStyleProvider:StyleNameFunctionStyleProvider = new StyleNameFunctionStyleProvider();
 		var addOnStyleProvider:AddOnFunctionStyleProvider = new AddOnFunctionStyleProvider(originalStyleProvider, this.verifyCurrentStarling);

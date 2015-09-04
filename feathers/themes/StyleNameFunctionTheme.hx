@@ -58,7 +58,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	/**
 	 * @private
 	 */
-	protected function createRegistry():void
+	private function createRegistry():void
 	{
 		this._registry = new StyleProviderRegistry();
 	}

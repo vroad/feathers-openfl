@@ -58,7 +58,7 @@ public class Main extends LayoutGroup
 	private var _menu:StackScreenNavigator;
 	private var _content:ScreenNavigator;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		this.layout = new AnchorLayout();
 

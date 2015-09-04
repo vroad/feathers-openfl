@@ -184,17 +184,17 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Number = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _textLineContainer:Sprite;
+	private var _textLineContainer:Sprite;
 
 	/**
 	 * @private
@@ -236,17 +236,17 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _snapshotVisibleWidth:int = 0;
+	private var _snapshotVisibleWidth:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _snapshotVisibleHeight:int = 0;
+	private var _snapshotVisibleHeight:int = 0;
 
 	/**
 	 * @private
 	 */
-	protected var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Boolean = false;
 
 	/**
 	 * @private
@@ -1115,7 +1115,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Boolean = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text renderer is
@@ -1650,7 +1650,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function createTextureOnRestoreCallback(snapshot:Image):void
+	private function createTextureOnRestoreCallback(snapshot:Image):void
 	{
 		var self:TextBlockTextRenderer = this;
 		var texture:Texture = snapshot.texture;
@@ -1678,7 +1678,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	protected function drawTextLinesRegionToBitmapData(textLinesX:Number, textLinesY:Number,
+	private function drawTextLinesRegionToBitmapData(textLinesX:Number, textLinesY:Number,
 		bitmapWidth:Number, bitmapHeight:Number, bitmapData:BitmapData = null):BitmapData
 	{
 		var clipWidth:Number = this._snapshotVisibleWidth - textLinesX;

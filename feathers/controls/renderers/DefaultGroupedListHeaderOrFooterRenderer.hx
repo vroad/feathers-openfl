@@ -134,7 +134,7 @@ import starling.display.DisplayObject;
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var contentLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL;
+	private var contentLabelStyleName:String = DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL;
 
 	/**
 	 * DEPRECATED: Replaced by <code>contentLabelStyleName</code>.
@@ -146,7 +146,7 @@ import starling.display.DisplayObject;
 	 *
 	 * @see #contentLabelStyleName
 	 */
-	protected function get contentLabelName():String
+	private function get contentLabelName():String
 	{
 		return this.contentLabelStyleName;
 	}
@@ -154,7 +154,7 @@ import starling.display.DisplayObject;
 	/**
 	 * @private
 	 */
-	protected function set contentLabelName(value:String):void
+	private function set contentLabelName(value:String):void
 	{
 		this.contentLabelStyleName = value;
 	}

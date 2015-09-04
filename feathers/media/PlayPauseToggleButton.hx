@@ -70,7 +70,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	override protected function get defaultStyleProvider():IStyleProvider
+	override private function get defaultStyleProvider():IStyleProvider
 	{
 		return PlayPauseToggleButton.globalStyleProvider;
 	}
@@ -78,7 +78,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	protected var _mediaPlayer:ITimedMediaPlayer;
+	private var _mediaPlayer:ITimedMediaPlayer;
 
 	/**
 	 * @inheritDoc
@@ -113,7 +113,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	protected var _touchableWhenPlaying:Boolean = true;
+	private var _touchableWhenPlaying:Boolean = true;
 
 	/**
 	 * Determines if the button may be touched when the media player is
@@ -142,7 +142,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	protected function refreshState():void
+	private function refreshState():void
 	{
 		if(!this._mediaPlayer)
 		{
@@ -156,7 +156,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	protected function playPlayButton_triggeredHandler(event:Event):void
+	private function playPlayButton_triggeredHandler(event:Event):void
 	{
 		this._mediaPlayer.togglePlayPause();
 	}
@@ -164,7 +164,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	protected function mediaPlayer_playbackStateChangeHandler(event:Event):void
+	private function mediaPlayer_playbackStateChangeHandler(event:Event):void
 	{
 		this.refreshState();
 	}

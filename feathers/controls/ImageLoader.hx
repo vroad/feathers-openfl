@@ -839,7 +839,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
+	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
 	[Inspectable(type="String",enumeration="left,center,right")]
 	/**
@@ -884,7 +884,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _verticalAlign:String = VERTICAL_ALIGN_TOP;
+	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
 	/**
@@ -1651,7 +1651,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function isATFURL(sourceURL:String):Boolean
+	private function isATFURL(sourceURL:String):Boolean
 	{
 		var index:int = sourceURL.indexOf("?");
 		if(index >= 0)
@@ -2023,7 +2023,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function loader_progressHandler(event:ProgressEvent):void
+	private function loader_progressHandler(event:ProgressEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.PROGRESS, false, event.bytesLoaded / event.bytesTotal);
 	}
@@ -2031,7 +2031,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function loader_ioErrorHandler(event:IOErrorEvent):void
+	private function loader_ioErrorHandler(event:IOErrorEvent):void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(flash.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_ioErrorHandler);
@@ -2047,7 +2047,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function loader_securityErrorHandler(event:SecurityErrorEvent):void
+	private function loader_securityErrorHandler(event:SecurityErrorEvent):void
 	{
 		this.loader.contentLoaderInfo.removeEventListener(openfl.events.Event.COMPLETE, loader_completeHandler);
 		this.loader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, loader_ioErrorHandler);
@@ -2090,7 +2090,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rawDataLoader_progressHandler(event:ProgressEvent):void
+	private function rawDataLoader_progressHandler(event:ProgressEvent):void
 	{
 		this.dispatchEventWith(FeathersEventType.PROGRESS, false, event.bytesLoaded / event.bytesTotal);
 	}
@@ -2098,7 +2098,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rawDataLoader_ioErrorHandler(event:ErrorEvent):void
+	private function rawDataLoader_ioErrorHandler(event:ErrorEvent):void
 	{
 		this.urlLoader.removeEventListener(flash.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(ProgressEvent.PROGRESS, rawDataLoader_progressHandler);
@@ -2115,7 +2115,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function rawDataLoader_securityErrorHandler(event:ErrorEvent):void
+	private function rawDataLoader_securityErrorHandler(event:ErrorEvent):void
 	{
 		this.urlLoader.removeEventListener(openfl.events.Event.COMPLETE, rawDataLoader_completeHandler);
 		this.urlLoader.removeEventListener(ProgressEvent.PROGRESS, rawDataLoader_progressHandler);

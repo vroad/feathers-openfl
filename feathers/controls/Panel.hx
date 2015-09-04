@@ -274,7 +274,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #customHeaderStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var headerStyleName:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
+	private var headerStyleName:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * DEPRECATED: Replaced by <code>headerStyleName</code>.
@@ -286,7 +286,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #headerStyleName
 	 */
-	protected function get headerName():String
+	private function get headerName():String
 	{
 		return this.headerStyleName;
 	}
@@ -294,7 +294,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function set headerName(value:String):void
+	private function set headerName(value:String):void
 	{
 		this.headerStyleName = value;
 	}
@@ -312,7 +312,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #customFooterStyleName
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	protected var footerStyleName:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
+	private var footerStyleName:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
 
 	/**
 	 * DEPRECATED: Replaced by <code>footerStyleName</code>.
@@ -324,7 +324,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footerStyleName
 	 */
-	protected function get footerName():String
+	private function get footerName():String
 	{
 		return this.footerStyleName;
 	}
@@ -332,7 +332,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected function set footerName(value:String):void
+	private function set footerName(value:String):void
 	{
 		this.footerStyleName = value;
 	}
@@ -348,7 +348,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _title:String = null;
+	private var _title:String = null;
 
 	/**
 	 * The panel's title to display in the header.
@@ -392,7 +392,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _headerTitleField:String = "title";
+	private var _headerTitleField:String = "title";
 
 	/**
 	 * A property of the header that should be used to display the panel's
@@ -441,7 +441,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _headerFactory:Function;
+	private var _headerFactory:Function;
 
 	/**
 	 * A function used to generate the panel's header sub-component.
@@ -500,7 +500,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customHeaderStyleName:String;
+	private var _customHeaderStyleName:String;
 
 	/**
 	 * A style name to add to the panel's header sub-component. Typically
@@ -716,7 +716,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	protected var _customFooterStyleName:String;
+	private var _customFooterStyleName:String;
 
 	/**
 	 * A style name to add to the panel's footer sub-component. Typically

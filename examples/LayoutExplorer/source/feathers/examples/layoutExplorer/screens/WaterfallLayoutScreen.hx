@@ -28,7 +28,7 @@ public class WaterfallLayoutScreen extends PanelScreen
 
 	public var settings:WaterfallLayoutSettings;
 
-	override protected function initialize():void
+	override private function initialize():void
 	{
 		//never forget to call super.initialize()
 		super.initialize();

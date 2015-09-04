@@ -121,7 +121,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected static var SIGNAL_TYPE:Class;
+	private static var SIGNAL_TYPE:Class;
 
 	/**
 	 * The screen navigator will auto size itself to fill the entire stage.
@@ -140,7 +140,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * The default transition function.
 	 */
-	protected static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
+	private static function defaultTransition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
 	{
 		//in short, do nothing
 		completeCallback();
@@ -174,7 +174,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _activeScreenID:String;
+	private var _activeScreenID:String;
 
 	/**
 	 * The string identifier for the currently active screen.
@@ -187,7 +187,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _activeScreen:DisplayObject;
+	private var _activeScreen:DisplayObject;
 
 	/**
 	 * A reference to the currently active screen.
@@ -200,37 +200,37 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _screens:Object = {};
+	private var _screens:Object = {};
 
 	/**
 	 * @private
 	 */
-	protected var _previousScreenInTransitionID:String;
+	private var _previousScreenInTransitionID:String;
 
 	/**
 	 * @private
 	 */
-	protected var _previousScreenInTransition:DisplayObject;
+	private var _previousScreenInTransition:DisplayObject;
 
 	/**
 	 * @private
 	 */
-	protected var _nextScreenID:String = null;
+	private var _nextScreenID:String = null;
 
 	/**
 	 * @private
 	 */
-	protected var _nextScreenTransition:Function = null;
+	private var _nextScreenTransition:Function = null;
 
 	/**
 	 * @private
 	 */
-	protected var _clearAfterTransition:Boolean = false;
+	private var _clearAfterTransition:Boolean = false;
 
 	/**
 	 * @private
 	 */
-	protected var _clipContent:Boolean = false;
+	private var _clipContent:Boolean = false;
 
 	/**
 	 * Determines if the navigator's content should be clipped to the width
@@ -268,7 +268,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
+	private var _autoSizeMode:String = AUTO_SIZE_MODE_STAGE;
 
 	[Inspectable(type="String",enumeration="stage,content")]
 	/**
@@ -318,7 +318,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _waitingTransition:Function;
+	private var _waitingTransition:Function;
 
 	/**
 	 * @private
@@ -328,7 +328,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected var _isTransitionActive:Boolean = false;
+	private var _isTransitionActive:Boolean = false;
 
 	/**
 	 * Indicates whether the screen navigator is currently transitioning
@@ -413,7 +413,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	override protected function draw():void
+	override private function draw():void
 	{
 		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
@@ -458,7 +458,7 @@ public class BaseScreenNavigator extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	protected function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Boolean
 	{
 		var needsWidth:Boolean = this.explicitWidth !== this.explicitWidth; //isNaN
 		var needsHeight:Boolean = this.explicitHeight !== this.explicitHeight; //isNaN
@@ -505,7 +505,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function addScreenInternal(id:String, item:IScreenNavigatorItem):void
+	private function addScreenInternal(id:String, item:IScreenNavigatorItem):void
 	{
 		if(this._screens.hasOwnProperty(id))
 		{
@@ -517,7 +517,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function refreshClipRect():void
+	private function refreshClipRect():void
 	{
 		if(!this._clipContent)
 		{
@@ -536,7 +536,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function removeScreenInternal(id:String):IScreenNavigatorItem
+	private function removeScreenInternal(id:String):IScreenNavigatorItem
 	{
 		if(!this._screens.hasOwnProperty(id))
 		{
@@ -561,7 +561,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function showScreenInternal(id:String, transition:Function, properties:Object = null):DisplayObject
+	private function showScreenInternal(id:String, transition:Function, properties:Object = null):DisplayObject
 	{
 		if(!this.hasScreen(id))
 		{
@@ -651,7 +651,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function clearScreenInternal(transition:Function = null):void
+	private function clearScreenInternal(transition:Function = null):void
 	{
 		if(!this._activeScreen)
 		{
@@ -695,7 +695,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function prepareActiveScreen():void
+	private function prepareActiveScreen():void
 	{
 		throw new AbstractMethodError();
 	}
@@ -703,7 +703,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function cleanupActiveScreen():void
+	private function cleanupActiveScreen():void
 	{
 		throw new AbstractMethodError();
 	}
@@ -711,7 +711,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function transitionComplete(cancelTransition:Boolean = false):void
+	private function transitionComplete(cancelTransition:Boolean = false):void
 	{
 		this._isTransitionActive = false;
 		if(cancelTransition)
@@ -773,7 +773,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function screenNavigator_addedToStageHandler(event:Event):void
+	private function screenNavigator_addedToStageHandler(event:Event):void
 	{
 		this.stage.addEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -781,7 +781,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function screenNavigator_removedFromStageHandler(event:Event):void
+	private function screenNavigator_removedFromStageHandler(event:Event):void
 	{
 		this.stage.removeEventListener(Event.RESIZE, stage_resizeHandler);
 	}
@@ -789,7 +789,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function activeScreen_resizeHandler(event:Event):void
+	private function activeScreen_resizeHandler(event:Event):void
 	{
 		if(this._isValidating || this._autoSizeMode != AUTO_SIZE_MODE_CONTENT)
 		{
@@ -801,7 +801,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	protected function stage_resizeHandler(event:Event):void
+	private function stage_resizeHandler(event:Event):void
 	{
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
