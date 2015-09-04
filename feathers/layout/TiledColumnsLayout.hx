@@ -1566,8 +1566,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
-		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, true, scrollX, scrollY);
 	}
@@ -1576,7 +1576,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	 * @inheritDoc
 	 */
 	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>,
-		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, false);
 	}
@@ -2037,8 +2037,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number,
-		width:Number, height:Number, result:Point = null, nearest:Bool = false, scrollX:Number = 0, scrollY:Number = 0):Point
+	private function calculateScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float,
+		width:Float, height:Float, result:Point = null, nearest:Bool = false, scrollX:Float = 0, scrollY:Float = 0):Point
 	{
 		if(!result)
 		{
@@ -2047,13 +2047,13 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
 		var itemCount:Int = items.length;
-		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
-		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		var tileWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
+		var tileHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		//a virtual layout assumes that all items are the same size as
 		//the typical item, so we don't need to measure every item in
 		//that case
@@ -2070,8 +2070,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				{
 					continue;
 				}
-				var itemWidth:Number = item.width;
-				var itemHeight:Number = item.height;
+				var itemWidth:Float = item.width;
+				var itemHeight:Float = item.height;
 				if(itemWidth > tileWidth)
 				{
 					tileWidth = itemWidth;
@@ -2117,7 +2117,7 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 			{
 				horizontalTileCount = 1;
 			}
-			var perPage:Number = horizontalTileCount * verticalTileCount;
+			var perPage:Float = horizontalTileCount * verticalTileCount;
 			var pageIndex:Int = index / perPage;
 			if(this._paging == PAGING_HORIZONTAL)
 			{
@@ -2132,10 +2132,10 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else
 		{
-			var resultX:Number = this._paddingLeft + ((tileWidth + this._horizontalGap) * Int(index / verticalTileCount));
+			var resultX:Float = this._paddingLeft + ((tileWidth + this._horizontalGap) * Int(index / verticalTileCount));
 			if(nearest)
 			{
-				var rightPosition:Number = resultX - (width - tileWidth);
+				var rightPosition:Float = resultX - (width - tileWidth);
 				if(scrollX >= rightPosition && scrollX <= resultX)
 				{
 					//keep the current scroll position because the item is already
@@ -2144,8 +2144,8 @@ class TiledColumnsLayout extends EventDispatcher implements IVirtualLayout
 				}
 				else
 				{
-					var leftDifference:Number = Math.abs(resultX - scrollX);
-					var rightDifference:Number = Math.abs(rightPosition - scrollX);
+					var leftDifference:Float = Math.abs(resultX - scrollX);
+					var rightDifference:Float = Math.abs(rightPosition - scrollX);
 					if(rightDifference < leftDifference)
 					{
 						resultX = rightPosition;

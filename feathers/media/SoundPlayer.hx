@@ -476,7 +476,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override private function seekMedia(seconds:Number):Void
+	override private function seekMedia(seconds:Float):Void
 	{
 		this.pauseMedia();
 		this._currentTime = seconds;
@@ -556,7 +556,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 */
 	private function sound_progressHandler(event:ProgressEvent):Void
 	{
-		var oldTotalTime:Number = this._totalTime;
+		var oldTotalTime:Float = this._totalTime;
 		this._totalTime = this._sound.length / 1000;
 		if(oldTotalTime != this._totalTime)
 		{

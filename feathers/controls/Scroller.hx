@@ -483,7 +483,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static const FUZZY_PAGE_SIZE_PADDING:Number = 0.000001;
+	private static const FUZZY_PAGE_SIZE_PADDING:Float = 0.000001;
 
 	/**
 	 * @private
@@ -496,7 +496,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private static function defaultThrowEase(ratio:Number):Number
+	private static function defaultThrowEase(ratio:Float):Float
 	{
 		ratio -= 1;
 		return 1 - ratio * ratio * ratio * ratio;
@@ -622,7 +622,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _topViewPortOffset:Number;
+	private var _topViewPortOffset:Float;
 
 	/**
 	 * @private
@@ -3737,7 +3737,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		//view port fills the entire bounds.
 		this._viewPort.visibleWidth = this.explicitWidth - horizontalWidthOffset;
 		this._viewPort.visibleHeight = this.explicitHeight - verticalHeightOffset;
-		var minVisibleWidth:Number = this._minWidth - horizontalWidthOffset;
+		var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
 		if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
 		 this.originalBackgroundWidth > minVisibleWidth)
 		{
@@ -3751,7 +3751,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		}
 		this._viewPort.minVisibleWidth = minVisibleWidth;
 		this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
-		var minVisibleHeight:Number = this._minHeight - verticalHeightOffset;
+		var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
 		if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
 			this.originalBackgroundHeight > minVisibleHeight)
 		{
@@ -3789,7 +3789,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			//if we didn't need to do any measurement, we would have skipped
 			//setting this stuff earlier, and now is the last chance
-			var minVisibleWidth:Number = this._minWidth - horizontalWidthOffset;
+			var minVisibleWidth:Float = this._minWidth - horizontalWidthOffset;
 			if(this.originalBackgroundWidth === this.originalBackgroundWidth && //!isNaN
 				this.originalBackgroundWidth > minVisibleWidth)
 			{
@@ -3803,7 +3803,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 			this._viewPort.minVisibleWidth = minVisibleWidth;
 			this._viewPort.maxVisibleWidth = this._maxWidth - horizontalWidthOffset;
-			var minVisibleHeight:Number = this._minHeight - verticalHeightOffset;
+			var minVisibleHeight:Float = this._minHeight - verticalHeightOffset;
 			if(this.originalBackgroundHeight === this.originalBackgroundHeight && //!isNaN
 				this.originalBackgroundHeight > minVisibleHeight)
 			{
@@ -3940,11 +3940,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		if(this._viewPort != null)
 		{
 			this._minHorizontalScrollPosition = this._viewPort.contentX;
-			if(this._viewPort.width == Number.POSITIVE_INFINITY)
+			if(this._viewPort.width == Float.POSITIVE_INFINITY)
 			{
 				//we don't want to risk the possibility of negative infinity
 				//being added to positive infinity. the result is NaN.
-				this._maxHorizontalScrollPosition = Number.POSITIVE_INFINITY;
+				this._maxHorizontalScrollPosition = Float.POSITIVE_INFINITY;
 			}
 			else
 			{
@@ -3955,11 +3955,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				this._maxHorizontalScrollPosition = this._minHorizontalScrollPosition;
 			}
 			this._minVerticalScrollPosition = this._viewPort.contentY;
-			if(this._viewPort.height == Number.POSITIVE_INFINITY)
+			if(this._viewPort.height == Float.POSITIVE_INFINITY)
 			{
 				//we don't want to risk the possibility of negative infinity
 				//being added to positive infinity. the result is NaN.
-				this._maxVerticalScrollPosition = Number.POSITIVE_INFINITY;
+				this._maxVerticalScrollPosition = Float.POSITIVE_INFINITY;
 			}
 			else
 			{
@@ -3993,12 +3993,12 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._snapToPages)
 		{
-			var horizontalScrollRange:Number = this._maxHorizontalScrollPosition - this._minHorizontalScrollPosition;
-			if(horizontalScrollRange == Number.POSITIVE_INFINITY)
+			var horizontalScrollRange:Float = this._maxHorizontalScrollPosition - this._minHorizontalScrollPosition;
+			if(horizontalScrollRange == Float.POSITIVE_INFINITY)
 			{
 				//trying to put positive infinity into an int results in 0
 				//so we need a special case to provide a large int value.
-				if(this._minHorizontalScrollPosition == Number.NEGATIVE_INFINITY)
+				if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY)
 				{
 					this._minHorizontalPageIndex = Int.MIN_VALUE;
 				}
@@ -4013,7 +4013,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				this._minHorizontalPageIndex = 0;
 				//floating point errors could result in the max page index
 				//being 1 larger than it should be.
-				var roundedDownRange:Number = roundDownToNearest(horizontalScrollRange, this.actualPageWidth);
+				var roundedDownRange:Float = roundDownToNearest(horizontalScrollRange, this.actualPageWidth);
 				if((horizontalScrollRange - roundedDownRange) < FUZZY_PAGE_SIZE_PADDING)
 				{
 					horizontalScrollRange = roundedDownRange;
@@ -4021,12 +4021,12 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				this._maxHorizontalPageIndex = Math.ceil(horizontalScrollRange / this.actualPageWidth);
 			}
 
-			var verticalScrollRange:Number = this._maxVerticalScrollPosition - this._minVerticalScrollPosition;
-			if(verticalScrollRange == Number.POSITIVE_INFINITY)
+			var verticalScrollRange:Float = this._maxVerticalScrollPosition - this._minVerticalScrollPosition;
+			if(verticalScrollRange == Float.POSITIVE_INFINITY)
 			{
 				//trying to put positive infinity into an int results in 0
 				//so we need a special case to provide a large int value.
-				if(this._minVerticalScrollPosition == Number.NEGATIVE_INFINITY)
+				if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY)
 				{
 					this._minVerticalPageIndex = Int.MIN_VALUE;
 				}
@@ -4075,18 +4075,18 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				{
 					this._horizontalPageIndex = this._minHorizontalPageIndex;
 				}
-				else if(this._minHorizontalScrollPosition == Number.NEGATIVE_INFINITY && this._horizontalScrollPosition < 0)
+				else if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY && this._horizontalScrollPosition < 0)
 				{
 					this._horizontalPageIndex = Math.floor(this._horizontalScrollPosition / this.actualPageWidth);
 				}
-				else if(this._maxHorizontalScrollPosition == Number.POSITIVE_INFINITY && this._horizontalScrollPosition >= 0)
+				else if(this._maxHorizontalScrollPosition == Float.POSITIVE_INFINITY && this._horizontalScrollPosition >= 0)
 				{
 					this._horizontalPageIndex = Math.floor(this._horizontalScrollPosition / this.actualPageWidth);
 				}
 				else
 				{
 					var adjustedHorizontalScrollPosition:Float = this._horizontalScrollPosition - this._minHorizontalScrollPosition;
-					var unroundedPageIndex:Number = adjustedHorizontalScrollPosition / this.actualPageWidth;
+					var unroundedPageIndex:Float = adjustedHorizontalScrollPosition / this.actualPageWidth;
 					var nextPageIndex:Int = Math.ceil(unroundedPageIndex);
 					if(unroundedPageIndex != nextPageIndex && (nextPageIndex - unroundedPageIndex) < FUZZY_PAGE_SIZE_PADDING)
 					{
@@ -4126,11 +4126,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				{
 					this._verticalPageIndex = this._minVerticalPageIndex;
 				}
-				else if(this._minVerticalScrollPosition == Number.NEGATIVE_INFINITY && this._verticalScrollPosition < 0)
+				else if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY && this._verticalScrollPosition < 0)
 				{
 					this._verticalPageIndex = Math.floor(this._verticalScrollPosition / this.actualPageHeight);
 				}
-				else if(this._maxVerticalScrollPosition == Number.POSITIVE_INFINITY && this._verticalScrollPosition >= 0)
+				else if(this._maxVerticalScrollPosition == Float.POSITIVE_INFINITY && this._verticalScrollPosition >= 0)
 				{
 					this._verticalPageIndex = Math.floor(this._verticalScrollPosition / this.actualPageHeight);
 				}
@@ -4475,13 +4475,13 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		}
 		clipRect.x = this._horizontalScrollPosition;
 		clipRect.y = this._verticalScrollPosition;
-		var clipWidth:Number = this.actualWidth - this._leftViewPortOffset - this._rightViewPortOffset;
+		var clipWidth:Float = this.actualWidth - this._leftViewPortOffset - this._rightViewPortOffset;
 		if(clipWidth < 0)
 		{
 			clipWidth = 0;
 		}
 		clipRect.width = clipWidth;
-		var clipHeight:Number = this.actualHeight - this._topViewPortOffset - this._bottomViewPortOffset;
+		var clipHeight:Float = this.actualHeight - this._topViewPortOffset - this._bottomViewPortOffset;
 		if(clipHeight < 0)
 		{
 			clipHeight = 0;
@@ -4737,7 +4737,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	private function throwToPage(targetHorizontalPageIndex:Int, targetVerticalPageIndex:Int, duration:Number = 0.5):Void
+	private function throwToPage(targetHorizontalPageIndex:Int, targetVerticalPageIndex:Int, duration:Float = 0.5):Void
 	{
 		var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= this._minHorizontalPageIndex)
@@ -4924,7 +4924,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//we need to use Math.round() on these values to avoid
 				//floating-point errors that could result in the values
 				//being rounded down too far.
-				if(this._minHorizontalScrollPosition == Number.NEGATIVE_INFINITY)
+				if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY)
 				{
 					targetHorizontalPageIndex = Math.round(snappedPageHorizontalScrollPosition / this.actualPageWidth);
 				}
@@ -5012,7 +5012,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//we need to use Math.round() on these values to avoid
 				//floating-point errors that could result in the values
 				//being rounded down too far.
-				if(this._minVerticalScrollPosition == Number.NEGATIVE_INFINITY)
+				if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY)
 				{
 					targetVerticalPageIndex = Math.round(snappedPageVerticalScrollPosition / this.actualPageHeight);
 				}
@@ -5835,9 +5835,9 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				return;
 			}
-			var targetHorizontalScrollPosition:Number = this._horizontalScrollPosition;
-			var targetVerticalScrollPosition:Number = this._verticalScrollPosition;
-			var scrollStep:Number = this._verticalMouseWheelScrollStep;
+			var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
+			var targetVerticalScrollPosition:Float = this._verticalScrollPosition;
+			var scrollStep:Float = this._verticalMouseWheelScrollStep;
 			if(this._verticalMouseWheelScrollDirection == MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL)
 			{
 				if(scrollStep != scrollStep) //isNaN

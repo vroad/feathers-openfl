@@ -338,8 +338,8 @@ class SpinnerList extends List
 		var currentItemIndex:Int = currentPageIndex % itemCount;
 		if(itemIndex < currentItemIndex)
 		{
-			var previousPageIndex:Number = fullDataProviderOffsets * itemCount + itemIndex;
-			var nextPageIndex:Number = (fullDataProviderOffsets + 1) * itemCount + itemIndex;
+			var previousPageIndex:Float = fullDataProviderOffsets * itemCount + itemIndex;
+			var nextPageIndex:Float = (fullDataProviderOffsets + 1) * itemCount + itemIndex;
 		}
 		else
 		{

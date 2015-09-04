@@ -112,14 +112,14 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
-	function get_currentTime():Number;
+	function get_currentTime():Float;
 
 	/**
 	 * The maximum position of the playhead, in seconds.
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
-	function get_totalTime():Number;
+	function get_totalTime():Float;
 
 	/**
 	 * Determines if the media content is currently playing.
@@ -166,6 +166,6 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	/**
 	 * Seeks the media content to a specific position, in seconds.
 	 */
-	function seek(seconds:Number):Void;
+	function seek(seconds:Float):Void;
 }
 }

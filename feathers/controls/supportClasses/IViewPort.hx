@@ -12,27 +12,27 @@ import feathers.core.IFeathersControl;
 [ExcludeClass]
 public interface IViewPort extends IFeathersControl
 {
-	function get_visibleWidth():Number;
-	function set_visibleWidth(value:Number):Number;
-	function get_minVisibleWidth():Number;
-	function set_minVisibleWidth(value:Number):Number;
-	function get_maxVisibleWidth():Number;
-	function set_maxVisibleWidth(value:Number):Number;
-	function get_visibleHeight():Number;
-	function set_visibleHeight(value:Number):Number;
-	function get_minVisibleHeight():Number;
-	function set_minVisibleHeight(value:Number):Number;
-	function get_maxVisibleHeight():Number;
-	function set_maxVisibleHeight(value:Number):Number;
+	function get_visibleWidth():Float;
+	function set_visibleWidth(value:Float):Float;
+	function get_minVisibleWidth():Float;
+	function set_minVisibleWidth(value:Float):Float;
+	function get_maxVisibleWidth():Float;
+	function set_maxVisibleWidth(value:Float):Float;
+	function get_visibleHeight():Float;
+	function set_visibleHeight(value:Float):Float;
+	function get_minVisibleHeight():Float;
+	function set_minVisibleHeight(value:Float):Float;
+	function get_maxVisibleHeight():Float;
+	function set_maxVisibleHeight(value:Float):Float;
 
-	function get_contentX():Number;
-	function get_contentY():Number;
+	function get_contentX():Float;
+	function get_contentY():Float;
 
-	function get_horizontalScrollPosition():Number;
-	function set_horizontalScrollPosition(value:Number):Number;
-	function get_verticalScrollPosition():Number;
-	function set_verticalScrollPosition(value:Number):Number;
-	function get_horizontalScrollStep():Number;
-	function get_verticalScrollStep():Number;
+	function get_horizontalScrollPosition():Float;
+	function set_horizontalScrollPosition(value:Float):Float;
+	function get_verticalScrollPosition():Float;
+	function set_verticalScrollPosition(value:Float):Float;
+	function get_horizontalScrollStep():Float;
+	function get_verticalScrollStep():Float;
 }
 }

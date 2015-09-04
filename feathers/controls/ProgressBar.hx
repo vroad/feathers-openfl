@@ -768,7 +768,7 @@ class ProgressBar extends FeathersControl
 
 		if(this._minimum === this._maximum)
 		{
-			var percentage:Number = 1;
+			var percentage:Float = 1;
 		}
 		else
 		{

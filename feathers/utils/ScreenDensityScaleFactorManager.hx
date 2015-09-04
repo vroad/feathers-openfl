@@ -75,7 +75,7 @@ class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	private static const IOS_TABLET_DENSITY_SCALE_FACTOR:Number = 1.23484848484848;
+	private static const IOS_TABLET_DENSITY_SCALE_FACTOR:Float = 1.23484848484848;
 
 	/**
 	 * Constructor.
@@ -99,15 +99,15 @@ class ScreenDensityScaleFactorManager
 	/**
 	 * @private
 	 */
-	private var _calculatedScaleFactor:Number;
+	private var _calculatedScaleFactor:Float;
 	
 	/**
 	 * @private
 	 */
-	private function calculateScaleFactor():Number
+	private function calculateScaleFactor():Float
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
-		var screenDensity:Number = DeviceCapabilities.dpi;
+		var screenDensity:Float = DeviceCapabilities.dpi;
 		//workaround because these rules derived from Android's behavior
 		//would "incorrectly" give iPads a lower scale factor than iPhones
 		//when both devices have the same scale factor natively.
@@ -130,7 +130,7 @@ class ScreenDensityScaleFactorManager
 				previousBucket = bucket;
 				continue;
 			}
-			var midDPI:Number = (bucket.density + previousBucket.density) / 2;
+			var midDPI:Float = (bucket.density + previousBucket.density) / 2;
 			if(screenDensity < midDPI)
 			{
 				return previousBucket.scale;
@@ -147,13 +147,13 @@ class ScreenDensityScaleFactorManager
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
 		var needsToBeDivisibleByTwo:Bool = Int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
-		var starlingStageWidth:Number = Int(nativeStage.stageWidth / this._calculatedScaleFactor);
+		var starlingStageWidth:Float = Int(nativeStage.stageWidth / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageWidth = roundDownToNearest(starlingStageWidth, 2);
 		}
 		this._starling.stage.stageWidth = starlingStageWidth;
-		var starlingStageHeight:Number = Int(nativeStage.stageHeight / this._calculatedScaleFactor);
+		var starlingStageHeight:Float = Int(nativeStage.stageHeight / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageHeight = roundDownToNearest(starlingStageHeight, 2);
@@ -182,14 +182,14 @@ class ScreenDensityScaleFactorManager
 
 class ScreenDensityBucket
 {
-public function ScreenDensityBucket(dpi:Number, scale:Number)
+public function ScreenDensityBucket(dpi:Float, scale:Float)
 {
 	this.density = dpi;
 	this.scale = scale;
 }
 
-public var density:Number;
-public var scale:Number;
+public var density:Float;
+public var scale:Float;
 }
 
 

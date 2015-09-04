@@ -92,14 +92,14 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _duration:Number = 0.25;
+	private var _duration:Float = 0.25;
 
 	/**
 	 * The duration of the transition, measured in seconds.
 	 *
 	 * @default 0.25
 	 */
-	public function get_duration():Number
+	public function get_duration():Float
 	{
 		return this._duration;
 	}
@@ -107,7 +107,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	public function set_duration(value:Number):Number
+	public function set_duration(value:Float):Float
 	{
 		if(this._duration == value)
 		{
@@ -122,7 +122,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _delay:Number = 0.1;
+	private var _delay:Float = 0.1;
 
 	/**
 	 * A delay before the transition starts, measured in seconds. This may
@@ -131,7 +131,7 @@ class OldFadeNewSlideTransitionManager
 	 *
 	 * @default 0.1
 	 */
-	public function get_delay():Number
+	public function get_delay():Float
 	{
 		return this._delay;
 	}
@@ -139,7 +139,7 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	public function set_delay(value:Number):Number
+	public function set_delay(value:Float):Float
 	{
 		if(this._delay == value)
 		{

@@ -57,14 +57,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _layoutResult:LayoutBoundsResult = new LayoutBoundsResult();
 
-	private var _minVisibleWidth:Number = 0;
+	private var _minVisibleWidth:Float = 0;
 
-	public function get_minVisibleWidth():Number
+	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
 
-	public function set_minVisibleWidth(value:Number):Number
+	public function set_minVisibleWidth(value:Float):Float
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -78,14 +78,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
-	public function get_maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
 
-	public function set_maxVisibleWidth(value:Number):Number
+	public function set_maxVisibleWidth(value:Float):Float
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -99,16 +99,16 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var actualVisibleWidth:Number = NaN;
+	private var actualVisibleWidth:Float = NaN;
 
-	private var explicitVisibleWidth:Number = NaN;
+	private var explicitVisibleWidth:Float = NaN;
 
-	public function get_visibleWidth():Number
+	public function get_visibleWidth():Float
 	{
 		return this.actualVisibleWidth;
 	}
 
-	public function set_visibleWidth(value:Number):Number
+	public function set_visibleWidth(value:Float):Float
 	{
 		if(this.explicitVisibleWidth == value ||
 			(value != value && this.explicitVisibleWidth != this.explicitVisibleWidth)) //isNaN
@@ -119,14 +119,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _minVisibleHeight:Number = 0;
+	private var _minVisibleHeight:Float = 0;
 
-	public function get_minVisibleHeight():Number
+	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
 
-	public function set_minVisibleHeight(value:Number):Number
+	public function set_minVisibleHeight(value:Float):Float
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -140,14 +140,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
-	public function get_maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
 
-	public function set_maxVisibleHeight(value:Number):Number
+	public function set_maxVisibleHeight(value:Float):Float
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -161,16 +161,16 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var actualVisibleHeight:Number;
+	private var actualVisibleHeight:Float;
 
-	private var explicitVisibleHeight:Number = NaN;
+	private var explicitVisibleHeight:Float = NaN;
 
-	public function get_visibleHeight():Number
+	public function get_visibleHeight():Float
 	{
 		return this.actualVisibleHeight;
 	}
 
-	public function set_visibleHeight(value:Number):Number
+	public function set_visibleHeight(value:Float):Float
 	{
 		if(this.explicitVisibleHeight == value ||
 			(value != value && this.explicitVisibleHeight != this.explicitVisibleHeight)) //isNaN
@@ -181,21 +181,21 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _contentX:Number = 0;
+	private var _contentX:Float = 0;
 
-	public function get_contentX():Number
+	public function get_contentX():Float
 	{
 		return this._contentX;
 	}
 
-	private var _contentY:Number = 0;
+	private var _contentY:Float = 0;
 
-	public function get_contentY():Number
+	public function get_contentY():Float
 	{
 		return this._contentY;
 	}
 
-	public function get_horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Float
 	{
 		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
@@ -215,8 +215,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return 0;
 		}
 		var itemRenderer:IGroupedListItemRenderer = renderers[0];
-		var itemRendererWidth:Number = itemRenderer.width;
-		var itemRendererHeight:Number = itemRenderer.height;
+		var itemRendererWidth:Float = itemRenderer.width;
+		var itemRendererHeight:Float = itemRenderer.height;
 		if(itemRendererWidth < itemRendererHeight)
 		{
 			return itemRendererWidth;
@@ -224,7 +224,7 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		return itemRendererHeight;
 	}
 
-	public function get_verticalScrollStep():Number
+	public function get_verticalScrollStep():Float
 	{
 		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
@@ -244,8 +244,8 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 			return 0;
 		}
 		var itemRenderer:IGroupedListItemRenderer = renderers[0];
-		var itemRendererWidth:Number = itemRenderer.width;
-		var itemRendererHeight:Number = itemRenderer.height;
+		var itemRendererWidth:Float = itemRenderer.width;
+		var itemRendererHeight:Float = itemRenderer.height;
 		if(itemRendererWidth < itemRendererHeight)
 		{
 			return itemRendererWidth;
@@ -838,14 +838,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 	}
 
-	private var _horizontalScrollPosition:Number = 0;
+	private var _horizontalScrollPosition:Float = 0;
 
-	public function get_horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
 
-	public function set_horizontalScrollPosition(value:Number):Number
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -855,14 +855,14 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	private var _verticalScrollPosition:Number = 0;
+	private var _verticalScrollPosition:Float = 0;
 
-	public function get_verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
 
-	public function set_verticalScrollPosition(value:Number):Number
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -1659,21 +1659,21 @@ class GroupedListDataViewPort extends FeathersControl implements IViewPort
 		if(useVirtualLayout)
 		{
 			virtualLayout.measureViewPort(totalLayoutCount, this._viewPortBounds, HELPER_POINT);
-			var viewPortWidth:Number = HELPER_POINT.x;
-			var viewPortHeight:Number = HELPER_POINT.y;
+			var viewPortWidth:Float = HELPER_POINT.x;
+			var viewPortHeight:Float = HELPER_POINT.y;
 			virtualLayout.getVisibleIndicesAtScrollPosition(this._horizontalScrollPosition, this._verticalScrollPosition, viewPortWidth, viewPortHeight, totalLayoutCount, HELPER_VECTOR);
 
 			averageItemsPerGroup /= groupCount;
 
 			if(this._typicalItemRenderer)
 			{
-				var minimumTypicalItemEdge:Number = this._typicalItemRenderer.height;
+				var minimumTypicalItemEdge:Float = this._typicalItemRenderer.height;
 				if(this._typicalItemRenderer.width < minimumTypicalItemEdge)
 				{
 					minimumTypicalItemEdge = this._typicalItemRenderer.width;
 				}
 
-				var maximumViewPortEdge:Number = viewPortWidth;
+				var maximumViewPortEdge:Float = viewPortWidth;
 				if(viewPortHeight > viewPortWidth)
 				{
 					maximumViewPortEdge = viewPortHeight;

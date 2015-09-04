@@ -1996,7 +1996,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	{
 		if(this._valueParseFunction != null)
 		{
-			var newValue:Number = this._valueParseFunction(this.textInput.text);
+			var newValue:Float = this._valueParseFunction(this.textInput.text);
 		}
 		else
 		{

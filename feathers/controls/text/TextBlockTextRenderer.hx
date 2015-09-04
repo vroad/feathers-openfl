@@ -184,12 +184,12 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Float = 0;
 
 	/**
 	 * @private
@@ -1212,8 +1212,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 			if(this._updateSnapshotOnScaleChange)
 			{
-				var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-				var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+				var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+				var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 				if(globalScaleX != this._lastGlobalScaleX || globalScaleY != this._lastGlobalScaleY)
 				{
 					//the snapshot needs to be updated because the scale has
@@ -1222,11 +1222,11 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 					this.validate();
 				}
 			}
-			var scaleFactor:Number = Starling.current.contentScaleFactor;
+			var scaleFactor:Float = Starling.current.contentScaleFactor;
 			if(!this._nativeFilters || this._nativeFilters.length === 0)
 			{
-				var offsetX:Number = 0;
-				var offsetY:Number = 0;
+				var offsetX:Float = 0;
+				var offsetY:Float = 0;
 			}
 			else
 			{
@@ -1240,20 +1240,20 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			}
 
 			var snapshotIndex:Int = -1;
-			var totalBitmapWidth:Number = this._snapshotWidth;
-			var totalBitmapHeight:Number = this._snapshotHeight;
-			var xPosition:Number = offsetX;
-			var yPosition:Number = offsetY;
+			var totalBitmapWidth:Float = this._snapshotWidth;
+			var totalBitmapHeight:Float = this._snapshotHeight;
+			var xPosition:Float = offsetX;
+			var yPosition:Float = offsetY;
 			do
 			{
-				var currentBitmapWidth:Number = totalBitmapWidth;
+				var currentBitmapWidth:Float = totalBitmapWidth;
 				if(currentBitmapWidth > this._maxTextureDimensions)
 				{
 					currentBitmapWidth = this._maxTextureDimensions;
 				}
 				do
 				{
-					var currentBitmapHeight:Number = totalBitmapHeight;
+					var currentBitmapHeight:Float = totalBitmapHeight;
 					if(currentBitmapHeight > this._maxTextureDimensions)
 					{
 						currentBitmapHeight = this._maxTextureDimensions;
@@ -1473,11 +1473,11 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 
 		if(sizeInvalid)
 		{
-			var scaleFactor:Number = Starling.current.contentScaleFactor;
+			var scaleFactor:Float = Starling.current.contentScaleFactor;
 			//these are getting put into an int later, so we don't want it
 			//to possibly round down and cut off part of the text. 
-			var rectangleSnapshotWidth:Number = Math.ceil(this.actualWidth * scaleFactor);
-			var rectangleSnapshotHeight:Number = Math.ceil(this.actualHeight * scaleFactor);
+			var rectangleSnapshotWidth:Float = Math.ceil(this.actualWidth * scaleFactor);
+			var rectangleSnapshotHeight:Float = Math.ceil(this.actualHeight * scaleFactor);
 			if(this._updateSnapshotOnScaleChange)
 			{
 				this.getTransformationMatrix(this.stage, HELPER_MATRIX);
@@ -1656,7 +1656,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		var texture:Texture = snapshot.texture;
 		texture.root.onRestore = function():Void
 		{
-			var scaleFactor:Number = Starling.contentScaleFactor;
+			var scaleFactor:Float = Starling.contentScaleFactor;
 			if(texture.scale != scaleFactor)
 			{
 				//if we've changed between scale factors, we need to
@@ -1678,11 +1678,11 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private function drawTextLinesRegionToBitmapData(textLinesX:Number, textLinesY:Number,
-		bitmapWidth:Number, bitmapHeight:Number, bitmapData:BitmapData = null):BitmapData
+	private function drawTextLinesRegionToBitmapData(textLinesX:Float, textLinesY:Float,
+		bitmapWidth:Float, bitmapHeight:Float, bitmapData:BitmapData = null):BitmapData
 	{
-		var clipWidth:Number = this._snapshotVisibleWidth - textLinesX;
-		var clipHeight:Number = this._snapshotVisibleHeight - textLinesY;
+		var clipWidth:Float = this._snapshotVisibleWidth - textLinesX;
+		var clipHeight:Float = this._snapshotVisibleHeight - textLinesY;
 		if(!bitmapData || bitmapData.width != bitmapWidth || bitmapData.height != bitmapHeight)
 		{
 			if(bitmapData)
@@ -1696,7 +1696,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			//clear the bitmap data and reuse it
 			bitmapData.fillRect(bitmapData.rect, 0x00ff00ff);
 		}
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		var starling:Starling = stageToStarling(this.stage);
 		if(starling && starling.supportHighResolutions)
 		{
@@ -1718,12 +1718,12 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		}
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.scale(scaleFactor, scaleFactor);
@@ -1731,8 +1731,8 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			HELPER_MATRIX.scale(globalScaleX, globalScaleY);
 		}
-		var totalBitmapWidth:Number = this._snapshotWidth;
-		var totalBitmapHeight:Number = this._snapshotHeight;
+		var totalBitmapWidth:Float = this._snapshotWidth;
+		var totalBitmapHeight:Float = this._snapshotHeight;
 		var snapshot:Image;
 		do
 		{

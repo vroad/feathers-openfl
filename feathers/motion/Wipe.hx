@@ -36,7 +36,7 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -44,7 +44,7 @@ class Wipe
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var xOffset:Number = oldScreen ? -oldScreen.width : -newScreen.width;
+			var xOffset:Float = oldScreen ? -oldScreen.width : -newScreen.width;
 			new WipeTween(newScreen, oldScreen, xOffset, 0, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -60,7 +60,7 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -68,7 +68,7 @@ class Wipe
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var xOffset:Number = oldScreen ? oldScreen.width : newScreen.width;
+			var xOffset:Float = oldScreen ? oldScreen.width : newScreen.width;
 			new WipeTween(newScreen, oldScreen, xOffset, 0, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -84,7 +84,7 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -92,7 +92,7 @@ class Wipe
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var yOffset:Number = oldScreen ? -oldScreen.height : -newScreen.height;
+			var yOffset:Float = oldScreen ? -oldScreen.height : -newScreen.height;
 			new WipeTween(newScreen, oldScreen, 0, yOffset, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -108,7 +108,7 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -116,7 +116,7 @@ class Wipe
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var yOffset:Number = oldScreen ? oldScreen.height : newScreen.height;
+			var yOffset:Float = oldScreen ? oldScreen.height : newScreen.height;
 			new WipeTween(newScreen, oldScreen, 0, yOffset, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -135,7 +135,7 @@ import starling.display.Sprite;
 class WipeTween extends Tween
 {
 public function WipeTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	xOffset:Number, yOffset:Number, duration:Number, ease:Object, onCompleteCallback:Function,
+	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	var clipRect:Rectangle;
@@ -256,8 +256,8 @@ private var _temporaryOldScreenParent:Sprite;
 private var _temporaryNewScreenParent:Sprite;
 private var _savedOldScreen:DisplayObject;
 private var _savedNewScreen:DisplayObject;
-private var _savedXOffset:Number;
-private var _savedYOffset:Number;
+private var _savedXOffset:Float;
+private var _savedYOffset:Float;
 private var _onCompleteCallback:Function;
 
 private function updateNewScreen():Void

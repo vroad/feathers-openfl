@@ -31,7 +31,7 @@ class AllTransitionsScreen extends PanelScreen
 
 	private var _list:List;
 
-	public var savedVerticalScrollPosition:Number = 0;
+	public var savedVerticalScrollPosition:Float = 0;
 	public var savedSelectedIndex:Int = -1;
 
 	override private function initialize():Void

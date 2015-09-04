@@ -62,12 +62,12 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
-	public function get_gap():Number
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -75,7 +75,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Number):Number
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -156,7 +156,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 		if(this._mediaPlayer && this._mediaPlayer.soundChannel)
 		{
 			var soundChannel:SoundChannel = this._mediaPlayer.soundChannel;
-			var maxHeight:Number = this.actualHeight - 1;
+			var maxHeight:Float = this.actualHeight - 1;
 			this.leftPeakBar.height = 1 + maxHeight * soundChannel.leftPeak;
 			this.rightPeakBar.height = 1 + maxHeight * soundChannel.rightPeak;
 		}
@@ -165,7 +165,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 			this.leftPeakBar.height = 1;
 			this.rightPeakBar.height = 1;
 		}
-		var barWidth:Number = (this.actualWidth / 2) - this._gap;
+		var barWidth:Float = (this.actualWidth / 2) - this._gap;
 		this.leftPeakBar.y = this.actualHeight - this.leftPeakBar.height;
 		this.leftPeakBar.width = barWidth;
 		this.rightPeakBar.x = barWidth + this._gap;
@@ -185,12 +185,12 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 		{
 			return false;
 		}
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			newWidth = 4 + this._gap;
 		}
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			newHeight = 3;

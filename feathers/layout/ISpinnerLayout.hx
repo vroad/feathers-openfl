@@ -17,6 +17,6 @@ public interface ISpinnerLayout extends ILayout
 	/**
 	 * The interval, in pixels, between snapping points.
 	 */
-	function get_snapInterval():Number;
+	function get_snapInterval():Float;
 }
 }

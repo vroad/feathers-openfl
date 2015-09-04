@@ -231,7 +231,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private var _autoCompleteDelay:Number = 0.5;
+	private var _autoCompleteDelay:Float = 0.5;
 
 	/**
 	 * The time, in seconds, after the text has changed before requesting
@@ -246,7 +246,7 @@ class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
-	public function get_autoCompleteDelay():Number
+	public function get_autoCompleteDelay():Float
 	{
 		return this._autoCompleteDelay;
 	}
@@ -254,7 +254,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set_autoCompleteDelay(value:Number):Number
+	public function set_autoCompleteDelay(value:Float):Float
 	{
 		this._autoCompleteDelay = value;
 	}
@@ -278,7 +278,7 @@ class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
-	public function get_minimumAutoCompleteLength():Number
+	public function get_minimumAutoCompleteLength():Float
 	{
 		return this._minimumAutoCompleteLength;
 	}
@@ -286,7 +286,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set_minimumAutoCompleteLength(value:Number):Number
+	public function set_minimumAutoCompleteLength(value:Float):Float
 	{
 		this._minimumAutoCompleteLength = value;
 	}
@@ -808,7 +808,7 @@ class AutoComplete extends TextInput
 	private function autoComplete_enterFrameHandler():Void
 	{
 		var currentTime:Int = getTimer();
-		var secondsSinceLastUpdate:Number = (currentTime - this._lastChangeTime) / 1000;
+		var secondsSinceLastUpdate:Float = (currentTime - this._lastChangeTime) / 1000;
 		if(secondsSinceLastUpdate < this._autoCompleteDelay)
 		{
 			return;

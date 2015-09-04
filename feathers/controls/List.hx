@@ -1182,7 +1182,7 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private var _keyScrollDuration:Number = 0.25;
+	private var _keyScrollDuration:Float = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when the selected item is
@@ -1196,7 +1196,7 @@ class List extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
-	public function get_keyScrollDuration():Number
+	public function get_keyScrollDuration():Float
 	{
 		return this._keyScrollDuration;
 	}
@@ -1204,7 +1204,7 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set_keyScrollDuration(value:Number):Number
+	public function set_keyScrollDuration(value:Float):Float
 	{
 		this._keyScrollDuration = value;
 	}
@@ -1563,7 +1563,7 @@ class List extends Scroller implements IFocusContainer
 			return;
 		}
 
-		var scrollOffsetX:Number = scrollOffset.x;
+		var scrollOffsetX:Float = scrollOffset.x;
 		this._startHorizontalScrollPosition += scrollOffsetX;
 		this._horizontalScrollPosition += scrollOffsetX;
 		if(this._horizontalAutoScrollTween)
@@ -1572,7 +1572,7 @@ class List extends Scroller implements IFocusContainer
 			this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
 		}
 
-		var scrollOffsetY:Number = scrollOffset.y;
+		var scrollOffsetY:Float = scrollOffset.y;
 		this._startVerticalScrollPosition += scrollOffsetY;
 		this._verticalScrollPosition += scrollOffsetY;
 		if(this._verticalAutoScrollTween)

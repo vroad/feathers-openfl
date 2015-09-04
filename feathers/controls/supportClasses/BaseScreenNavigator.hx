@@ -473,7 +473,7 @@ class BaseScreenNavigator extends FeathersControl
 			IValidating(this._activeScreen).validate();
 		}
 
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)
@@ -486,7 +486,7 @@ class BaseScreenNavigator extends FeathersControl
 			}
 		}
 
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_CONTENT || !this.stage)

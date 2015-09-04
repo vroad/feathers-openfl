@@ -37,7 +37,7 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -73,7 +73,7 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -109,7 +109,7 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -145,7 +145,7 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -175,7 +175,7 @@ class Reveal
 	 * @private
 	 */
 	private static function slideOutOldScreen(oldScreen:DisplayObject,
-		xOffset:Number, yOffset:Number, duration:Number, ease:Object,
+		xOffset:Float, yOffset:Float, duration:Float, ease:Object,
 		tweenProperties:Object, onComplete:Function):Void
 	{
 		var tween:Tween = new Tween(oldScreen, duration, ease);
@@ -212,7 +212,7 @@ import starling.display.Sprite;
 class RevealTween extends Tween
 {
 public function RevealTween(oldScreen:DisplayObject, newScreen:DisplayObject,
-	xOffset:Number, yOffset:Number, duration:Number, ease:Object, onCompleteCallback:Function,
+	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	var clipRect:Rectangle = new Rectangle();
@@ -285,8 +285,8 @@ public function RevealTween(oldScreen:DisplayObject, newScreen:DisplayObject,
 	Starling.juggler.add(this);
 }
 
-private var _savedXOffset:Number;
-private var _savedYOffset:Number;
+private var _savedXOffset:Float;
+private var _savedYOffset:Float;
 private var _savedNewScreen:DisplayObject;
 private var _savedOldScreen:DisplayObject;
 private var _temporaryParent:Sprite;

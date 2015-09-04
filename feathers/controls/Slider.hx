@@ -815,7 +815,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	private var _thumbOffset:Number = 0;
+	private var _thumbOffset:Float = 0;
 
 	/**
 	 *
@@ -831,7 +831,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @default 0
 	 */
-	public function get_thumbOffset():Number
+	public function get_thumbOffset():Float
 	{
 		return this._thumbOffset;
 	}
@@ -839,7 +839,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	public function set_thumbOffset(value:Number):Number
+	public function set_thumbOffset(value:Float):Float
 	{
 		if(this._thumbOffset == value)
 		{
@@ -852,7 +852,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	private var _minimumPadding:Number = 0;
+	private var _minimumPadding:Float = 0;
 
 	/**
 	 * The space, in pixels, between the minimum position of the thumb and
@@ -1726,7 +1726,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	/**
 	 * @private
 	 */
-	private var _touchValue:Number;
+	private var _touchValue:Float;
 
 	/**
 	 * @private
@@ -2072,7 +2072,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 		
 		if(this._minimum === this._maximum)
 		{
-			var percentage:Number = 1;
+			var percentage:Float = 1;
 		}
 		else
 		{

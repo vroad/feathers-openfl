@@ -36,7 +36,7 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -72,7 +72,7 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -108,7 +108,7 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -144,7 +144,7 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -174,7 +174,7 @@ class Cover
 	 * @private
 	 */
 	private static function slideInNewScreen(newScreen:DisplayObject,
-		duration:Number, ease:Object, tweenProperties:Object, onComplete:Function):Void
+		duration:Float, ease:Object, tweenProperties:Object, onComplete:Function):Void
 	{
 		var tween:Tween = new Tween(newScreen, duration, ease);
 		if(newScreen.x != 0)
@@ -210,7 +210,7 @@ import starling.display.Sprite;
 class CoverTween extends Tween
 {
 public function CoverTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	xOffset:Number, yOffset:Number, duration:Number, ease:Object, onCompleteCallback:Function,
+	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	var clipRect:Rectangle = new Rectangle(0, 0, oldScreen.width, oldScreen.height);
@@ -266,8 +266,8 @@ public function CoverTween(newScreen:DisplayObject, oldScreen:DisplayObject,
 	Starling.juggler.add(this);
 }
 
-private var _savedXOffset:Number;
-private var _savedYOffset:Number;
+private var _savedXOffset:Float;
+private var _savedYOffset:Float;
 private var _savedOldScreen:DisplayObject;
 private var _savedNewScreen:DisplayObject;
 private var _temporaryParent:Sprite;

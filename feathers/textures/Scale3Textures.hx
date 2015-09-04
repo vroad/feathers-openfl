@@ -68,7 +68,7 @@ class Scale3Textures
 			textureFrame = HELPER_RECTANGLE;
 			textureFrame.setTo(0, 0, texture.width, texture.height);
 		}
-		var sumRegions:Number = firstRegionSize + secondRegionSize;
+		var sumRegions:Float = firstRegionSize + secondRegionSize;
 		if(direction == DIRECTION_HORIZONTAL)
 		{
 			if(sumRegions > textureFrame.width)

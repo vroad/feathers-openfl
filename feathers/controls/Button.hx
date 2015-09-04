@@ -2215,7 +2215,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _scaleWhenDown:Number = 1;
+	private var _scaleWhenDown:Float = 1;
 
 	/**
 	 * The button renders at this scale in the down state.
@@ -2227,7 +2227,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 1
 	 */
-	public function get_scaleWhenDown():Number
+	public function get_scaleWhenDown():Float
 	{
 		return this._scaleWhenDown;
 	}
@@ -2235,7 +2235,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_scaleWhenDown(value:Number):Number
+	public function set_scaleWhenDown(value:Float):Float
 	{
 		this._scaleWhenDown = value;
 	}
@@ -2243,7 +2243,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _scaleWhenHovering:Number = 1;
+	private var _scaleWhenHovering:Float = 1;
 
 	/**
 	 * The button renders at this scale in the hover state.
@@ -2255,7 +2255,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 1
 	 */
-	public function get_scaleWhenHovering():Number
+	public function get_scaleWhenHovering():Float
 	{
 		return this._scaleWhenHovering;
 	}
@@ -2263,7 +2263,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_scaleWhenHovering(value:Number):Number
+	public function set_scaleWhenHovering(value:Float):Float
 	{
 		this._scaleWhenHovering = value;
 	}
@@ -2276,9 +2276,9 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var scale:Number = 1;
+		var scale:Float = 1;
 		if(this._currentState == STATE_DOWN)
 		{
 			scale = this._scaleWhenDown;
@@ -2712,8 +2712,8 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			cast(this.currentIcon, IValidating).validate();
 		}
-		var calculatedWidth:Number = this.actualWidth;
-		var calculatedHeight:Number = this.actualHeight;
+		var calculatedWidth:Float = this.actualWidth;
+		var calculatedHeight:Float = this.actualHeight;
 		if(forMeasurement)
 		{
 			calculatedWidth = this.explicitWidth;

@@ -140,7 +140,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _oldVolume:Number;
+	private var _oldVolume:Float;
 
 	/**
 	 * @private
@@ -678,7 +678,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 		}
 		else
 		{
-			var newVolume:Number = this._oldVolume;
+			var newVolume:Float = this._oldVolume;
 			if(newVolume != newVolume) //isNaN
 			{
 				//volume was already zero, so we should fall back to some

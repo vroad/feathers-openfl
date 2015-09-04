@@ -34,7 +34,7 @@ class Slide
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createSlideLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createSlideLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -72,7 +72,7 @@ class Slide
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createSlideRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createSlideRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -110,7 +110,7 @@ class Slide
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createSlideUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createSlideUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -148,7 +148,7 @@ class Slide
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createSlideDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createSlideDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -185,7 +185,7 @@ import starling.display.DisplayObject;
 class SlideTween extends Tween
 {
 public function SlideTween(target:DisplayObject, otherTarget:DisplayObject,
-	xOffset:Number, yOffset:Number, duration:Number, ease:Object,
+	xOffset:Float, yOffset:Float, duration:Float, ease:Object,
 	onCompleteCallback:Function, tweenProperties:Object)
 {
 	super(target, duration, ease);
@@ -220,8 +220,8 @@ public function SlideTween(target:DisplayObject, otherTarget:DisplayObject,
 private var _navigator:DisplayObject;
 private var _otherTarget:DisplayObject;
 private var _onCompleteCallback:Function;
-private var _xOffset:Number = 0;
-private var _yOffset:Number = 0;
+private var _xOffset:Float = 0;
+private var _yOffset:Float = 0;
 
 private function updateOtherTarget():Void
 {

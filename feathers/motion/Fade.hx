@@ -34,7 +34,7 @@ class Fade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFadeInTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFadeInTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -75,7 +75,7 @@ class Fade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFadeOutTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFadeOutTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -117,7 +117,7 @@ class Fade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCrossfadeTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCrossfadeTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -151,7 +151,7 @@ import starling.display.DisplayObject;
 class FadeTween extends Tween
 {
 public function FadeTween(target:DisplayObject, otherTarget:DisplayObject,
-	duration:Number, ease:Object, onCompleteCallback:Function,
+	duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	super(target, duration, ease);

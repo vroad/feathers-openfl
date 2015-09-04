@@ -2639,7 +2639,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	private function layoutThumb():Void
 	{
 		var range:Float = this._maximum - this._minimum;
-		this.thumb.visible = range > 0 && range < Number.POSITIVE_INFINITY && this._isEnabled;
+		this.thumb.visible = range > 0 && range < Float.POSITIVE_INFINITY && this._isEnabled;
 		if(!this.thumb.visible)
 		{
 			return;
@@ -2648,9 +2648,9 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
 
-		var contentWidth:Number = this.actualWidth - this._paddingLeft - this._paddingRight;
-		var contentHeight:Number = this.actualHeight - this._paddingTop - this._paddingBottom;
-		var adjustedPage:Number = this._page;
+		var contentWidth:Float = this.actualWidth - this._paddingLeft - this._paddingRight;
+		var contentHeight:Float = this.actualHeight - this._paddingTop - this._paddingBottom;
+		var adjustedPage:Float = this._page;
 		if(this._page == 0)
 		{
 			adjustedPage = this._step;
@@ -2686,11 +2686,11 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function layoutTrackWithMinMax():Void
 	{
-		var range:Number = this._maximum - this._minimum;
-		this.minimumTrack.touchable = range > 0 && range < Number.POSITIVE_INFINITY;
+		var range:Float = this._maximum - this._minimum;
+		this.minimumTrack.touchable = range > 0 && range < Float.POSITIVE_INFINITY;
 		if(this.maximumTrack)
 		{
-			this.maximumTrack.touchable = range > 0 && range < Number.POSITIVE_INFINITY;
+			this.maximumTrack.touchable = range > 0 && range < Float.POSITIVE_INFINITY;
 		}
 
 		var showButtons:Bool = this._maximum != this._minimum;
@@ -2757,8 +2757,8 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function layoutTrackWithSingle():Void
 	{
-		var range:Number = this._maximum - this._minimum;
-		this.minimumTrack.touchable = range > 0 && range < Number.POSITIVE_INFINITY;
+		var range:Float = this._maximum - this._minimum;
+		this.minimumTrack.touchable = range > 0 && range < Float.POSITIVE_INFINITY;
 
 		var showButtons:Bool = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
@@ -2859,8 +2859,8 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function adjustPage():Void
 	{
-		var range:Number = this._maximum - this._minimum;
-		var adjustedPage:Number = this._page;
+		var range:Float = this._maximum - this._minimum;
+		var adjustedPage:Float = this._page;
 		if(this._page == 0)
 		{
 			adjustedPage = this._step;
@@ -2871,7 +2871,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		}
 		if(this._touchValue < this._value)
 		{
-			var newValue:Number = Math.max(this._touchValue, this._value - adjustedPage);
+			var newValue:Float = Math.max(this._touchValue, this._value - adjustedPage);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);

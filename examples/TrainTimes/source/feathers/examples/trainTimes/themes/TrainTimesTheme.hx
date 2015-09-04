@@ -92,7 +92,7 @@ class TrainTimesTheme extends StyleNameFunctionTheme
 		this.initialize();
 	}
 
-	private var scale:Number = 1;
+	private var scale:Float = 1;
 
 	private var primaryBackground:TiledImage;
 

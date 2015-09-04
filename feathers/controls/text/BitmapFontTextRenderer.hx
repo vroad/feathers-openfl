@@ -485,7 +485,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			fontSizeScale = 1;
 		}
-		var baseline:Number = font.baseline;
+		var baseline:Float = font.baseline;
 		//for some reason, if we don't call a function right here,
 		//compiling with the flex 4.6 SDK will throw a VerifyError
 		//for a stack overflow.

@@ -195,11 +195,11 @@ interface IFeathersControl extends IValidating
 	/**
 	 * @copy feathers.core.FeathersControl#setSize()
 	 */
-	function setSize(width:Number, height:Number):Void;
+	function setSize(width:Float, height:Float):Void;
 
 	/**
 	 * @copy feathers.core.FeathersControl#move()
 	 */
-	function move(x:Number, y:Number):Void;
+	function move(x:Float, y:Float):Void;
 }
 }

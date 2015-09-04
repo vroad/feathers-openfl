@@ -4138,7 +4138,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 			}
 		}
 		calculatedWidth -= (this._paddingLeft + this._paddingRight);
-		var calculatedHeight:Number = this.actualHeight;
+		var calculatedHeight:Float = this.actualHeight;
 		if(forMeasurement)
 		{
 			calculatedHeight = this.explicitHeight;

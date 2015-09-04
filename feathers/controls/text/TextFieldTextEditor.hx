@@ -278,12 +278,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Float = 0;
 
 	/**
 	 * @private
@@ -863,7 +863,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _sharpness:Number = 0;
+	private var _sharpness:Float = 0;
 
 	/**
 	 * The sharpness of the glyph edges in this text field. This property
@@ -882,7 +882,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get_sharpness():Number
+	public function get_sharpness():Float
 	{
 		return this._sharpness;
 	}
@@ -890,7 +890,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_sharpness(value:Number):Number
+	public function set_sharpness(value:Float):Float
 	{
 		if(this._sharpness == value)
 		{
@@ -903,7 +903,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _thickness:Number = 0;
+	private var _thickness:Float = 0;
 
 	/**
 	 * The thickness of the glyph edges in this text field. This property
@@ -922,7 +922,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get_thickness():Number
+	public function get_thickness():Float
 	{
 		return this._thickness;
 	}
@@ -930,7 +930,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_thickness(value:Number):Number
+	public function set_thickness(value:Float):Float
 	{
 		if(this._thickness == value)
 		{
@@ -1356,8 +1356,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 				{
 					gutterPositionOffset = 0;
 				}
-				var positionX:Number = position.x - this.textSnapshot.x + gutterPositionOffset;
-				var positionY:Number = position.y - this.textSnapshot.y + gutterPositionOffset;
+				var positionX:Float = position.x - this.textSnapshot.x + gutterPositionOffset;
+				var positionY:Float = position.y - this.textSnapshot.y + gutterPositionOffset;
 				if(positionX < 0)
 				{
 					this._pendingSelectionBeginIndex = this._pendingSelectionEndIndex = 0;
@@ -1778,7 +1778,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
+	private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
 		return this.textField.getCharIndexAtPoint(pointX, pointY);
 	}
@@ -1807,8 +1807,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		this._textFieldSnapshotClipRect.x = 0;
 		this._textFieldSnapshotClipRect.y = 0;
 
-		var scaleFactor:Number = Starling.contentScaleFactor;
-		var clipWidth:Number = this.actualWidth * scaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
+		var clipWidth:Float = this.actualWidth * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
@@ -1818,7 +1818,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		{
 			clipWidth = 0;
 		}
-		var clipHeight:Number = this.actualHeight * scaleFactor;
+		var clipHeight:Float = this.actualHeight * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			clipHeight *= matrixToScaleY(HELPER_MATRIX);
@@ -1845,9 +1845,9 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
-		var smallerGlobalScale:Number = globalScaleX;
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+		var smallerGlobalScale:Float = globalScaleX;
 		if(globalScaleY < smallerGlobalScale)
 		{
 			smallerGlobalScale = globalScaleY;
@@ -1870,8 +1870,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
 		#end
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
-		var gutterPositionOffset:Number = 0;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
+		var gutterPositionOffset:Float = 0;
 		if(!this._useGutter)
 		{
 			gutterPositionOffset = 2 * smallerGlobalScale;
@@ -1972,12 +1972,12 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		{
 			gutterPositionOffset = 0;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		}
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.translate(this._textFieldOffsetX - gutterPositionOffset, this._textFieldOffsetY - gutterPositionOffset);

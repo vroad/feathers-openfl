@@ -22,14 +22,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 	{
 	}
 
-	private var _minVisibleWidth:Number = 0;
+	private var _minVisibleWidth:Float = 0;
 
-	public function get_minVisibleWidth():Number
+	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
 
-	public function set_minVisibleWidth(value:Number):Number
+	public function set_minVisibleWidth(value:Float):Float
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -43,14 +43,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
-	public function get_maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
 
-	public function set_maxVisibleWidth(value:Number):Number
+	public function set_maxVisibleWidth(value:Float):Float
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -64,11 +64,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _actualVisibleWidth:Number = 0;
+	private var _actualVisibleWidth:Float = 0;
 
-	private var _explicitVisibleWidth:Number = NaN;
+	private var _explicitVisibleWidth:Float = NaN;
 
-	public function get_visibleWidth():Number
+	public function get_visibleWidth():Float
 	{
 		if(this._explicitVisibleWidth != this._explicitVisibleWidth) //isNaN
 		{
@@ -77,7 +77,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._explicitVisibleWidth;
 	}
 
-	public function set_visibleWidth(value:Number):Number
+	public function set_visibleWidth(value:Float):Float
 	{
 		if(this._explicitVisibleWidth == value ||
 			(value != value && this._explicitVisibleWidth != this._explicitVisibleWidth)) //isNaN
@@ -88,14 +88,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _minVisibleHeight:Number = 0;
+	private var _minVisibleHeight:Float = 0;
 
-	public function get_minVisibleHeight():Number
+	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
 
-	public function set_minVisibleHeight(value:Number):Number
+	public function set_minVisibleHeight(value:Float):Float
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -109,14 +109,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
-	public function get_maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
 
-	public function set_maxVisibleHeight(value:Number):Number
+	public function set_maxVisibleHeight(value:Float):Float
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -130,11 +130,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _actualVisibleHeight:Number = 0;
+	private var _actualVisibleHeight:Float = 0;
 
-	private var _explicitVisibleHeight:Number = NaN;
+	private var _explicitVisibleHeight:Float = NaN;
 
-	public function get_visibleHeight():Number
+	public function get_visibleHeight():Float
 	{
 		if(this._explicitVisibleHeight != this._explicitVisibleHeight) //isNaN
 		{
@@ -143,7 +143,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this._explicitVisibleHeight;
 	}
 
-	public function set_visibleHeight(value:Number):Number
+	public function set_visibleHeight(value:Float):Float
 	{
 		if(this._explicitVisibleHeight == value ||
 			(value != value && this._explicitVisibleHeight != this._explicitVisibleHeight)) //isNaN
@@ -154,21 +154,21 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	private var _contentX:Number = 0;
+	private var _contentX:Float = 0;
 
-	public function get_contentX():Number
+	public function get_contentX():Float
 	{
 		return this._contentX;
 	}
 
-	private var _contentY:Number = 0;
+	private var _contentY:Float = 0;
 
-	public function get_contentY():Number
+	public function get_contentY():Float
 	{
 		return this._contentY;
 	}
 
-	public function get_horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Float
 	{
 		if(this.actualWidth < this.actualHeight)
 		{
@@ -177,7 +177,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this.actualHeight / 10;
 	}
 
-	public function get_verticalScrollStep():Number
+	public function get_verticalScrollStep():Float
 	{
 		if(this.actualWidth < this.actualHeight)
 		{
@@ -186,14 +186,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this.actualHeight / 10;
 	}
 
-	private var _horizontalScrollPosition:Number = 0;
+	private var _horizontalScrollPosition:Float = 0;
 
-	public function get_horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
 
-	public function set_horizontalScrollPosition(value:Number):Number
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		if(this._horizontalScrollPosition == value)
 		{
@@ -203,14 +203,14 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 	}
 
-	private var _verticalScrollPosition:Number = 0;
+	private var _verticalScrollPosition:Float = 0;
 
-	public function get_verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
 
-	public function set_verticalScrollPosition(value:Number):Number
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -278,10 +278,10 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	override private function handleManualLayout():Void
 	{
-		var minX:Number = 0;
-		var minY:Number = 0;
-		var explicitViewPortWidth:Number = this.viewPortBounds.explicitWidth;
-		var maxX:Number = explicitViewPortWidth;
+		var minX:Float = 0;
+		var minY:Float = 0;
+		var explicitViewPortWidth:Float = this.viewPortBounds.explicitWidth;
+		var maxX:Float = explicitViewPortWidth;
 		//for some reason, if we don't call a function right here,
 		//compiling with the flex 4.6 SDK will throw a VerifyError
 		//for a stack overflow.
@@ -293,8 +293,8 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			maxX = 0;
 		}
-		var explicitViewPortHeight:Number = this.viewPortBounds.explicitHeight;
-		var maxY:Number = explicitViewPortHeight;
+		var explicitViewPortHeight:Float = this.viewPortBounds.explicitHeight;
+		var maxY:Float = explicitViewPortHeight;
 		//see explanation above the previous call to this function.
 		this.doNothing();
 		if(maxY != maxY) //isNaN
@@ -310,10 +310,10 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 			{
 				IValidating(item).validate();
 			}
-			var itemX:Number = item.x;
-			var itemY:Number = item.y;
-			var itemMaxX:Number = itemX + item.width;
-			var itemMaxY:Number = itemY + item.height;
+			var itemX:Float = item.x;
+			var itemY:Float = item.y;
+			var itemMaxX:Float = itemX + item.width;
+			var itemMaxY:Float = itemY + item.height;
 			if(itemX === itemX && //!isNaN
 				itemX < minX)
 			{
@@ -337,11 +337,11 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		}
 		this._contentX = minX;
 		this._contentY = minY;
-		var minWidth:Number = this.viewPortBounds.minWidth;
-		var maxWidth:Number = this.viewPortBounds.maxWidth;
-		var minHeight:Number = this.viewPortBounds.minHeight;
-		var maxHeight:Number = this.viewPortBounds.maxHeight;
-		var calculatedWidth:Number = maxX - minX;
+		var minWidth:Float = this.viewPortBounds.minWidth;
+		var maxWidth:Float = this.viewPortBounds.maxWidth;
+		var minHeight:Float = this.viewPortBounds.minHeight;
+		var maxHeight:Float = this.viewPortBounds.maxHeight;
+		var calculatedWidth:Float = maxX - minX;
 		if(calculatedWidth < minWidth)
 		{
 			calculatedWidth = minWidth;
@@ -350,7 +350,7 @@ class LayoutViewPort extends LayoutGroup implements IViewPort
 		{
 			calculatedWidth = maxWidth;
 		}
-		var calculatedHeight:Number = maxY - minY;
+		var calculatedHeight:Float = maxY - minY;
 		if(calculatedHeight < minHeight)
 		{
 			calculatedHeight = minHeight;

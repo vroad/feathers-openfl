@@ -343,12 +343,12 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Number = NaN;
+	private var originalBackgroundWidth:Float = NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Number = NaN;
+	private var originalBackgroundHeight:Float = NaN;
 
 	/**
 	 * @private
@@ -451,7 +451,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get_padding():Number
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -459,7 +459,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Number):Number
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -470,7 +470,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's top edge and the
@@ -483,7 +483,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get_paddingTop():Number
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -491,7 +491,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Number):Number
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -504,7 +504,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's right edge and
@@ -517,7 +517,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get_paddingRight():Number
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -525,7 +525,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Number):Number
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -538,7 +538,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's bottom edge and
@@ -551,7 +551,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get_paddingBottom():Number
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -559,7 +559,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Number):Number
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -572,7 +572,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the label's left edge and the
@@ -585,7 +585,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get_paddingLeft():Number
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -593,7 +593,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Number):Number
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{

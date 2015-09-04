@@ -35,7 +35,7 @@ class Cube
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCubeLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCubeLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -57,7 +57,7 @@ class Cube
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCubeRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCubeRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -79,7 +79,7 @@ class Cube
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCubeUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCubeUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -101,7 +101,7 @@ class Cube
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCubeDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCubeDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -129,8 +129,8 @@ import starling.display.Sprite3D;
 class CubeTween extends Tween
 {
 public function CubeTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-		rotationYOffset:Number, rotationXOffset:Number,
-		duration:Number, ease:Object, onCompleteCallback:Function,
+		rotationYOffset:Float, rotationXOffset:Float,
+		duration:Float, ease:Object, onCompleteCallback:Function,
 		tweenProperties:Object)
 {
 	var cube:CulledSprite3D = new CulledSprite3D();
@@ -251,7 +251,7 @@ private function cleanupTween():Void
 
 class CulledSprite3D extends Sprite3D
 {
-override public function render(support:RenderSupport, parentAlpha:Number):Void
+override public function render(support:RenderSupport, parentAlpha:Float):Void
 {
 	Starling.current.context.setCulling(Context3DTriangleFace.BACK);
 	super.render(support, parentAlpha);

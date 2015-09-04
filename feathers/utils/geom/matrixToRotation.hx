@@ -14,10 +14,10 @@ import flash.geom.Matrix;
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/Matrix.html flash.geom.Matrix
  */
-public function matrixToRotation(matrix:Matrix):Number
+public function matrixToRotation(matrix:Matrix):Float
 {
-	var c:Number = matrix.c;
-	var d:Number = matrix.d;
+	var c:Float = matrix.c;
+	var d:Float = matrix.d;
 	return -Math.atan(c / d);
 }
 }

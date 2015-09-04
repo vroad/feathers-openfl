@@ -1398,7 +1398,7 @@ class ImageLoader extends FeathersControl
 				newWidth = this._currentTextureWidth * this._textureScale;
 				if(this._scaleContent && this._maintainAspectRatio)
 				{
-					var heightScale:Number = 1;
+					var heightScale:Float = 1;
 					if(!needsHeight)
 					{
 						heightScale = this.explicitHeight / (this._currentTextureHeight * this._textureScale);
@@ -1432,7 +1432,7 @@ class ImageLoader extends FeathersControl
 				newHeight = this._currentTextureHeight * this._textureScale;
 				if(this._scaleContent && this._maintainAspectRatio)
 				{
-					var widthScale:Number = 1;
+					var widthScale:Float = 1;
 					if(!needsWidth)
 					{
 						widthScale = this.explicitWidth / (this._currentTextureWidth * this._textureScale);
@@ -1602,8 +1602,8 @@ class ImageLoader extends FeathersControl
 		}
 		else
 		{
-			var imageWidth:Number = this._currentTextureWidth * this._textureScale;
-			var imageHeight:Number = this._currentTextureHeight * this._textureScale;
+			var imageWidth:Float = this._currentTextureWidth * this._textureScale;
+			var imageHeight:Float = this._currentTextureHeight * this._textureScale;
 			if(this._horizontalAlign === HORIZONTAL_ALIGN_RIGHT)
 			{
 				this.image.x = this.actualWidth - this._paddingRight - imageWidth;

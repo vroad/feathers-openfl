@@ -74,7 +74,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _barValues:Vector.<Number> = new <Number>[];
+	private var _barValues:Vector.<Float> = new <Float>[];
 
 	/**
 	 * @private
@@ -113,12 +113,12 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
-	public function get_gap():Number
+	public function get_gap():Float
 	{
 		return this._gap;
 	}
@@ -126,7 +126,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	public function set_gap(value:Number):Number
+	public function set_gap(value:Float):Float
 	{
 		if(this._gap == value)
 		{
@@ -236,12 +236,12 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		{
 			return false;
 		}
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			newWidth = this._barCount * (this._gap + 1) - this._gap;
 		}
-		var newHeight:Number = this.explicitHeight;
+		var newHeight:Float = this.explicitHeight;
 		if(needsHeight)
 		{
 			newHeight = 10;
@@ -260,7 +260,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 			return;
 		}
 		var barCount:Int = this._barCount;
-		var barWidth:Number = ((this.actualWidth + this._gap) / barCount) - this._gap;
+		var barWidth:Float = ((this.actualWidth + this._gap) / barCount) - this._gap;
 		if(barWidth < 0 || this.actualHeight <= 0)
 		{
 			return;
@@ -277,7 +277,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 			this._barValues[i] = 0;
 			for(var j:Int = 0; j < valuesPerBar; j++)
 			{
-				var float:Number = this._bytes.readFloat();
+				var float:Float = this._bytes.readFloat();
 				if(float > 1)
 				{
 					float = 1;
@@ -302,8 +302,8 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 			this._barValues[i] /= (2 * valuesPerBar);
 		}
 		
-		var xPosition:Number = 0;
-		var maxHeight:Number = this.actualHeight - 1;
+		var xPosition:Float = 0;
+		var maxHeight:Float = this.actualHeight - 1;
 		HELPER_QUAD.color = this._color;
 		for(i = 0; i < barCount; i++)
 		{

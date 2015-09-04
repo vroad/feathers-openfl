@@ -38,7 +38,7 @@ class Flip
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFlipLeftTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFlipLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -61,7 +61,7 @@ class Flip
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFlipRightTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFlipRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -84,7 +84,7 @@ class Flip
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFlipUpTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFlipUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -107,7 +107,7 @@ class Flip
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createFlipDownTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createFlipDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -132,8 +132,8 @@ import starling.display.Sprite3D;
 class FlipTween extends Tween
 {
 public function FlipTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	rotationYOffset:Number, rotationXOffset:Number,
-	duration:Number, ease:Object, onCompleteCallback:Function,
+	rotationYOffset:Float, rotationXOffset:Float,
+	duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 
@@ -256,8 +256,8 @@ public function FlipTween(newScreen:DisplayObject, oldScreen:DisplayObject,
 private var _navigator:DisplayObjectContainer;
 private var _otherTarget:Sprite3D;
 private var _onCompleteCallback:Function;
-private var _rotationYOffset:Number = 0;
-private var _rotationXOffset:Number = 0;
+private var _rotationYOffset:Float = 0;
+private var _rotationXOffset:Float = 0;
 private var _savedNewScreen:DisplayObject;
 private var _savedOldScreen:DisplayObject;
 

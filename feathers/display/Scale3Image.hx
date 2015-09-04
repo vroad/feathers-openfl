@@ -531,7 +531,7 @@ class Scale3Image extends Sprite implements IValidating
 				sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;
 				if(sumFirstAndThird > this._height)
 				{
-					var distortionScale:Number = (this._height / sumFirstAndThird);
+					var distortionScale:Float = (this._height / sumFirstAndThird);
 					scaledFirstRegionSize *= distortionScale;
 					scaledThirdRegionSize *= distortionScale;
 					sumFirstAndThird = scaledFirstRegionSize + scaledThirdRegionSize;

@@ -19,15 +19,15 @@ class IrisTransitionScreen extends PanelScreen
 {
 	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
-		var randomX:Number = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
-		var randomY:Number = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
+		var randomX:Float = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
+		var randomY:Float = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
 		Iris.createIrisCloseTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	
 	private static function irisOpenAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
 	{
-		var randomX:Number = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
-		var randomY:Number = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
+		var randomX:Float = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
+		var randomY:Float = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
 		Iris.createIrisOpenTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	

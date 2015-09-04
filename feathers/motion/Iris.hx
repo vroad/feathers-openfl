@@ -38,7 +38,7 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisOpenTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -48,8 +48,8 @@ class Iris
 			}
 			if(oldScreen)
 			{
-				var originX:Number = oldScreen.width / 2;
-				var originY:Number = oldScreen.height / 2;
+				var originX:Float = oldScreen.width / 2;
+				var originY:Float = oldScreen.height / 2;
 			}
 			else
 			{
@@ -69,7 +69,7 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransitionAt(x:Number, y:Number, duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisOpenTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -90,7 +90,7 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransition(duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisCloseTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -100,8 +100,8 @@ class Iris
 			}
 			if(oldScreen)
 			{
-				var originX:Number = oldScreen.width / 2;
-				var originY:Number = oldScreen.height / 2;
+				var originX:Float = oldScreen.width / 2;
+				var originY:Float = oldScreen.height / 2;
 			}
 			else
 			{
@@ -121,7 +121,7 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransitionAt(x:Number, y:Number, duration:Number = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisCloseTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -147,31 +147,31 @@ import starling.display.DisplayObject;
 class IrisTween extends Tween
 {
 public function IrisTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	originX:Number, originY:Number, openIris:Bool, duration:Number, ease:Object,
+	originX:Float, originY:Float, openIris:Bool, duration:Float, ease:Object,
 	onCompleteCallback:Function, tweenProperties:Object)
 {
 	if(newScreen)
 	{
-		var width:Number = newScreen.width;
-		var height:Number = newScreen.height;
+		var width:Float = newScreen.width;
+		var height:Float = newScreen.height;
 	}
 	else
 	{
 		width = oldScreen.width;
 		height = oldScreen.height;
 	}
-	var halfWidth:Number = width / 2;
-	var halfHeight:Number = height / 2;
+	var halfWidth:Float = width / 2;
+	var halfHeight:Float = height / 2;
 	var p1:Point = new Point(halfWidth, halfHeight);
 	var p2:Point = new Point(originX, originY);
-	var radiusFromCenter:Number = p1.length;
+	var radiusFromCenter:Float = p1.length;
 	if(p1.equals(p2))
 	{
-		var radius:Number = radiusFromCenter;
+		var radius:Float = radiusFromCenter;
 	}
 	else
 	{
-		var distanceFromCenterToOrigin:Number = Point.distance(p1, p2);
+		var distanceFromCenterToOrigin:Float = Point.distance(p1, p2);
 		radius = radiusFromCenter + distanceFromCenterToOrigin;
 	}
 	var maskTarget:Canvas;
@@ -263,8 +263,8 @@ private var _oldScreenDelegate:RenderDelegate;
 private var _savedOldScreen:DisplayObject;
 private var _savedNewScreen:DisplayObject;
 private var _onCompleteCallback:Function;
-private var _savedWidth:Number;
-private var _savedHeight:Number;
+private var _savedWidth:Float;
+private var _savedHeight:Float;
 
 private function cleanupTween():Void
 {

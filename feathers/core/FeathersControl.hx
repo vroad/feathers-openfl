@@ -1839,7 +1839,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 * @see #x
 	 * @see #y
 	 */
-	public function move(x:Number, y:Number):Void
+	public function move(x:Float, y:Float):Void
 	{
 		this.x = x;
 		this.y = y;

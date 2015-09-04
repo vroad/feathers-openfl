@@ -132,7 +132,7 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static const DEFAULT_SIZE:Number = 320;
+	private static const DEFAULT_SIZE:Float = 320;
 
 	/**
 	 * @private
@@ -278,7 +278,7 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
 		this.refreshViewPort();
 		super.render(support, parentAlpha);
@@ -398,12 +398,12 @@ class WebView extends FeathersControl
 		{
 			return false;
 		}
-		var newWidth:Number = this.explicitWidth;
+		var newWidth:Float = this.explicitWidth;
 		if(needsWidth)
 		{
 			newWidth = DEFAULT_SIZE;
 		}
-		var newHeight:Number = this.explicitWidth;
+		var newHeight:Float = this.explicitWidth;
 		if(needsHeight)
 		{
 			newHeight = DEFAULT_SIZE;
@@ -447,24 +447,24 @@ class WebView extends FeathersControl
 
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		stageWebViewViewPort.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
 		stageWebViewViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
-		var viewPortWidth:Number = Math.round(this.actualWidth * scaleFactor * globalScaleX);
+		var viewPortWidth:Float = Math.round(this.actualWidth * scaleFactor * globalScaleX);
 		if(viewPortWidth < 1 ||
 			viewPortWidth != viewPortWidth) //isNaN
 		{
 			viewPortWidth = 1;
 		}
-		var viewPortHeight:Number = Math.round(this.actualHeight * scaleFactor * globalScaleY);
+		var viewPortHeight:Float = Math.round(this.actualHeight * scaleFactor * globalScaleY);
 		if(viewPortHeight < 1 ||
 			viewPortHeight != viewPortHeight) //isNaN
 		{

@@ -60,12 +60,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _minVisibleWidth:Number = 0;
+	private var _minVisibleWidth:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_minVisibleWidth():Number
+	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
 	}
@@ -73,7 +73,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_minVisibleWidth(value:Number):Number
+	public function set_minVisibleWidth(value:Float):Float
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -90,12 +90,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
 	}
@@ -103,7 +103,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_maxVisibleWidth(value:Number):Number
+	public function set_maxVisibleWidth(value:Float):Float
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -120,12 +120,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _visibleWidth:Number = NaN;
+	private var _visibleWidth:Float = NaN;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_visibleWidth():Number
+	public function get_visibleWidth():Float
 	{
 		return this._visibleWidth;
 	}
@@ -133,7 +133,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_visibleWidth(value:Number):Number
+	public function set_visibleWidth(value:Float):Float
 	{
 		if(this._visibleWidth == value ||
 			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN
@@ -147,12 +147,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _minVisibleHeight:Number = 0;
+	private var _minVisibleHeight:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_minVisibleHeight():Number
+	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
 	}
@@ -160,7 +160,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_minVisibleHeight(value:Number):Number
+	public function set_minVisibleHeight(value:Float):Float
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -177,12 +177,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
 	}
@@ -190,7 +190,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_maxVisibleHeight(value:Number):Number
+	public function set_maxVisibleHeight(value:Float):Float
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -207,12 +207,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _visibleHeight:Number = NaN;
+	private var _visibleHeight:Float = NaN;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_visibleHeight():Number
+	public function get_visibleHeight():Float
 	{
 		return this._visibleHeight;
 	}
@@ -220,7 +220,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_visibleHeight(value:Number):Number
+	public function set_visibleHeight(value:Float):Float
 	{
 		if(this._visibleHeight == value ||
 			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN
@@ -231,12 +231,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	public function get_contentX():Number
+	public function get_contentX():Float
 	{
 		return 0;
 	}
 
-	public function get_contentY():Number
+	public function get_contentY():Float
 	{
 		return 0;
 	}
@@ -249,7 +249,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get_horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
@@ -257,7 +257,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
-	public function get_verticalScrollStep():Number
+	public function get_verticalScrollStep():Float
 	{
 		return this._scrollStep;
 	}
@@ -265,12 +265,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollPosition:Number = 0;
+	private var _horizontalScrollPosition:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -278,7 +278,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_horizontalScrollPosition(value:Number):Number
+	public function set_horizontalScrollPosition(value:Float):Float
 	{
 		//this value is basically ignored because the text does not scroll
 		//horizontally. instead, it wraps.
@@ -288,12 +288,12 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _verticalScrollPosition:Number = 0;
+	private var _verticalScrollPosition:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
 	}
@@ -301,7 +301,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_verticalScrollPosition(value:Number):Number
+	public function set_verticalScrollPosition(value:Float):Float
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -316,7 +316,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override public function get_baseline():Number
+	override public function get_baseline():Float
 	{
 		return super.baseline + this._paddingTop + this._verticalScrollPosition;
 	}
@@ -334,7 +334,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get_padding():Number
+	public function get_padding():Float
 	{
 		return this._paddingTop;
 	}
@@ -342,7 +342,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_padding(value:Number):Number
+	public function set_padding(value:Float):Float
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -353,7 +353,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _paddingTop:Number = 0;
+	private var _paddingTop:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's top edge and
@@ -361,7 +361,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
-	public function get_paddingTop():Number
+	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
 	}
@@ -369,7 +369,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_paddingTop(value:Number):Number
+	public function set_paddingTop(value:Float):Float
 	{
 		if(this._paddingTop == value)
 		{
@@ -382,7 +382,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _paddingRight:Number = 0;
+	private var _paddingRight:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's right edge and
@@ -390,7 +390,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
-	public function get_paddingRight():Number
+	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
 	}
@@ -398,7 +398,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_paddingRight(value:Number):Number
+	public function set_paddingRight(value:Float):Float
 	{
 		if(this._paddingRight == value)
 		{
@@ -411,7 +411,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _paddingBottom:Number = 0;
+	private var _paddingBottom:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's bottom edge and
@@ -419,7 +419,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
-	public function get_paddingBottom():Number
+	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
 	}
@@ -427,7 +427,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_paddingBottom(value:Number):Number
+	public function set_paddingBottom(value:Float):Float
 	{
 		if(this._paddingBottom == value)
 		{
@@ -440,7 +440,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _paddingLeft:Number = 0;
+	private var _paddingLeft:Float = 0;
 
 	/**
 	 * The minimum space, in pixels, between the view port's left edge and
@@ -448,7 +448,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
-	public function get_paddingLeft():Number
+	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
 	}
@@ -456,7 +456,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	public function set_paddingLeft(value:Number):Number
+	public function set_paddingLeft(value:Float):Float
 	{
 		if(this._paddingLeft == value)
 		{
@@ -480,13 +480,13 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 
 		this.commitStylesAndData(this.measureTextField);
 
-		var gutterDimensionsOffset:Number = 4;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
 		}
 
-		var newWidth:Number = this._visibleWidth;
+		var newWidth:Float = this._visibleWidth;
 		this.measureTextField.width = newWidth - this._paddingLeft - this._paddingRight + gutterDimensionsOffset;
 		if(needsWidth)
 		{
@@ -500,7 +500,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 				newWidth = this._maxVisibleWidth;
 			}
 		}
-		var newHeight:Number = this.measureTextField.height + this._paddingTop + this._paddingBottom - gutterDimensionsOffset;
+		var newHeight:Float = this.measureTextField.height + this._paddingTop + this._paddingBottom - gutterDimensionsOffset;
 		if(this._useGutter)
 		{
 			newHeight += 4;
@@ -526,7 +526,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	override private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
+	override private function getSelectionIndexAtPoint(pointX:Float, pointY:Float):Int
 	{
 		pointY += this._verticalScrollPosition;
 		return this.textField.getCharIndexAtPoint(pointX, pointY);
@@ -537,10 +537,10 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 */
 	override private function refreshSnapshotParameters():Void
 	{
-		var textFieldWidth:Number = this._visibleWidth - this._paddingLeft - this._paddingRight;
+		var textFieldWidth:Float = this._visibleWidth - this._paddingLeft - this._paddingRight;
 		if(textFieldWidth != textFieldWidth) //isNaN
 		{
-			if(this._maxVisibleWidth < Number.POSITIVE_INFINITY)
+			if(this._maxVisibleWidth < Float.POSITIVE_INFINITY)
 			{
 				textFieldWidth = this._maxVisibleWidth - this._paddingLeft - this._paddingRight;
 			}
@@ -549,10 +549,10 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 				textFieldWidth = this._minVisibleWidth - this._paddingLeft - this._paddingRight;
 			}
 		}
-		var textFieldHeight:Number = this._visibleHeight - this._paddingTop - this._paddingBottom;
+		var textFieldHeight:Float = this._visibleHeight - this._paddingTop - this._paddingBottom;
 		if(textFieldHeight != textFieldHeight) //isNaN
 		{
-			if(this._maxVisibleHeight < Number.POSITIVE_INFINITY)
+			if(this._maxVisibleHeight < Float.POSITIVE_INFINITY)
 			{
 				textFieldHeight = this._maxVisibleHeight - this._paddingTop - this._paddingBottom;
 			}
@@ -567,8 +567,8 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		this._textFieldSnapshotClipRect.x = 0;
 		this._textFieldSnapshotClipRect.y = 0;
 
-		var scaleFactor:Number = Starling.contentScaleFactor;
-		var clipWidth:Number = textFieldWidth * scaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor;
+		var clipWidth:Float = textFieldWidth * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
@@ -578,7 +578,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			clipWidth = 0;
 		}
-		var clipHeight:Number = textFieldHeight * scaleFactor;
+		var clipHeight:Float = textFieldHeight * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			clipHeight *= matrixToScaleY(HELPER_MATRIX);
@@ -597,14 +597,14 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	override private function refreshTextFieldSize():Void
 	{
 		var oldIgnoreScrolling:Bool = this._ignoreScrolling;
-		var gutterDimensionsOffset:Number = 4;
+		var gutterDimensionsOffset:Float = 4;
 		if(this._useGutter)
 		{
 			gutterDimensionsOffset = 0;
 		}
 		this._ignoreScrolling = true;
 		this.textField.width = this._visibleWidth - this._paddingLeft - this._paddingRight + gutterDimensionsOffset;
-		var textFieldHeight:Number = this._visibleHeight - this._paddingTop - this._paddingBottom + gutterDimensionsOffset;
+		var textFieldHeight:Float = this._visibleHeight - this._paddingTop - this._paddingBottom + gutterDimensionsOffset;
 		if(this.textField.height != textFieldHeight)
 		{
 			this.textField.height = textFieldHeight;
@@ -635,21 +635,21 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		var nativeScaleFactor:Number = 1;
+		var nativeScaleFactor:Float = 1;
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
-		var scaleX:Number = matrixToScaleX(HELPER_MATRIX) * scaleFactor;
-		var scaleY:Number = matrixToScaleY(HELPER_MATRIX) * scaleFactor;
-		var offsetX:Number = Math.round(this._paddingLeft * scaleX);
-		var offsetY:Number = Math.round((this._paddingTop + this._verticalScrollPosition) * scaleY);
+		var scaleX:Float = matrixToScaleX(HELPER_MATRIX) * scaleFactor;
+		var scaleY:Float = matrixToScaleY(HELPER_MATRIX) * scaleFactor;
+		var offsetX:Float = Math.round(this._paddingLeft * scaleX);
+		var offsetY:Float = Math.round((this._paddingTop + this._verticalScrollPosition) * scaleY);
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
-		var gutterPositionOffset:Number = 2;
+		var gutterPositionOffset:Float = 2;
 		if(this._useGutter)
 		{
 			gutterPositionOffset = 0;
@@ -711,8 +711,8 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		//for some reason, the text field's scroll positions don't work
 		//properly unless we access the values here. weird.
-		var scrollH:Number = this.textField.scrollH;
-		var scrollV:Number = this.textField.scrollV;
+		var scrollH:Float = this.textField.scrollH;
+		var scrollV:Float = this.textField.scrollV;
 		if(this._ignoreScrolling)
 		{
 			return;
@@ -720,7 +720,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		var scroller:Scroller = Scroller(this.parent);
 		if(scroller.maxVerticalScrollPosition > 0 && this.textField.maxScrollV > 1)
 		{
-			var calculatedVerticalScrollPosition:Number = scroller.maxVerticalScrollPosition * (scrollV - 1) / (this.textField.maxScrollV - 1);
+			var calculatedVerticalScrollPosition:Float = scroller.maxVerticalScrollPosition * (scrollV - 1) / (this.textField.maxScrollV - 1);
 			scroller.verticalScrollPosition = roundToNearest(calculatedVerticalScrollPosition, this._scrollStep);
 		}
 	}

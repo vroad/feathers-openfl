@@ -143,14 +143,14 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _currentTime:Number = 0;
+	private var _currentTime:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
-	public function get_currentTime():Number
+	public function get_currentTime():Float
 	{
 		return this._currentTime;
 	}
@@ -158,14 +158,14 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _totalTime:Number = 0;
+	private var _totalTime:Float = 0;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
-	public function get_totalTime():Number
+	public function get_totalTime():Float
 	{
 		return this._totalTime;
 	}
@@ -240,7 +240,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	/**
 	 * @inheritDoc
 	 */
-	public function seek(seconds:Number):Void
+	public function seek(seconds:Float):Void
 	{
 		this.seekMedia(seconds);
 		this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
@@ -271,7 +271,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	 * time, in seconds. Subclasses are expected override this function with
 	 * a custom implementation for their specific type of media content.
 	 */
-	private function seekMedia(seconds:Number):Void
+	private function seekMedia(seconds:Float):Void
 	{
 
 	}

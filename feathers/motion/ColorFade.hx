@@ -30,7 +30,7 @@ class ColorFade
 	 * This was accidentally named wrong. It is included for temporary
 	 * backward compatibility.
 	 */
-	public static function createBlackFadeToBlackTransition(duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createBlackFadeToBlackTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return createBlackFadeTransition(duration, ease, tweenProperties);
 	}
@@ -46,7 +46,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createBlackFadeTransition(duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createBlackFadeTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return createColorFadeTransition(0x000000, duration, ease, tweenProperties);
 	}
@@ -61,7 +61,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWhiteFadeTransition(duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWhiteFadeTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return createColorFadeTransition(0xffffff, duration, ease, tweenProperties);
 	}
@@ -77,7 +77,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createColorFadeTransition(color:UInt, duration:Number = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createColorFadeTransition(color:UInt, duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
 	{
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
 		{
@@ -113,7 +113,7 @@ import starling.display.Quad;
 class ColorFadeTween extends Tween
 {
 public function ColorFadeTween(target:DisplayObject, otherTarget:DisplayObject,
-	color:UInt, duration:Number, ease:Object, onCompleteCallback:Function,
+	color:UInt, duration:Float, ease:Object, onCompleteCallback:Function,
 	tweenProperties:Object)
 {
 	super(target, duration, ease);
@@ -156,7 +156,7 @@ private var _onCompleteCallback:Function;
 
 private function updateOverlay():Void
 {
-	var progress:Number = this.progress;
+	var progress:Float = this.progress;
 	if(progress < 0.5)
 	{
 		this._overlay.alpha = progress * 2;

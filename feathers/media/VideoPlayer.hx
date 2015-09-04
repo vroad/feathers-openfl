@@ -337,7 +337,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	public function get_nativeWidth():Number
+	public function get_nativeWidth():Float
 	{
 		if(this._texture)
 		{
@@ -351,7 +351,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	public function get_nativeHeight():Number
+	public function get_nativeHeight():Float
 	{
 		if(this._texture)
 		{
@@ -783,7 +783,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function seekMedia(seconds:Number):Void
+	override private function seekMedia(seconds:Float):Void
 	{
 		if(!this._videoSource)
 		{

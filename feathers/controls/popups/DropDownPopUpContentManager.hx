@@ -200,7 +200,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private var _gap:Number = 0;
+	private var _gap:Float = 0;
 
 	/**
 	 * The space, in pixels, between the source and the pop-up.
@@ -274,12 +274,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private var _lastGlobalX:Number;
+	private var _lastGlobalX:Float;
 
 	/**
 	 * @private
 	 */
-	private var _lastGlobalY:Number;
+	private var _lastGlobalY:Float;
 
 	/**
 	 * @inheritDoc
@@ -366,7 +366,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			}
 		}
 
-		var sourceWidth:Number = this.source.width;
+		var sourceWidth:Float = this.source.width;
 		var hasSetBounds:Bool = false;
 		var uiContent:IFeathersControl = this.content as IFeathersControl;
 		if(this._fitContentMinWidthToOrigin && uiContent && uiContent.minWidth < sourceWidth)
@@ -400,7 +400,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		this._lastGlobalX = globalOrigin.x;
 		this._lastGlobalY = globalOrigin.y;
 
-		var downSpace:Number = (stage.stageHeight - this.content.height) - (globalOrigin.y + globalOrigin.height + this._gap);
+		var downSpace:Float = (stage.stageHeight - this.content.height) - (globalOrigin.y + globalOrigin.height + this._gap);
 		//skip this if the primary direction is up
 		if(this._primaryDirection == PRIMARY_DIRECTION_DOWN && downSpace >= 0)
 		{
@@ -453,8 +453,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	private function layoutAbove(globalOrigin:Rectangle):Void
 	{
-		var idealXPosition:Number = globalOrigin.x;
-		var xPosition:Number = this.content.stage.stageWidth - this.content.width;
+		var idealXPosition:Float = globalOrigin.x;
+		var xPosition:Float = this.content.stage.stageWidth - this.content.width;
 		if(xPosition > idealXPosition)
 		{
 			xPosition = idealXPosition;
@@ -472,8 +472,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 */
 	private function layoutBelow(globalOrigin:Rectangle):Void
 	{
-		var idealXPosition:Number = globalOrigin.x;
-		var xPosition:Number = this.content.stage.stageWidth - this.content.width;
+		var idealXPosition:Float = globalOrigin.x;
+		var xPosition:Float = this.content.stage.stageWidth - this.content.width;
 		if(xPosition > idealXPosition)
 		{
 			xPosition = idealXPosition;

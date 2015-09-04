@@ -249,8 +249,8 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 */
 	private function updateText():Void
 	{
-		var currentTime:Number = this._mediaPlayer ? this._mediaPlayer.currentTime : 0;
-		var totalTime:Number = this._mediaPlayer ? this._mediaPlayer.totalTime : 0;
+		var currentTime:Float = this._mediaPlayer ? this._mediaPlayer.currentTime : 0;
+		var totalTime:Float = this._mediaPlayer ? this._mediaPlayer.totalTime : 0;
 		var displayMode:String = this._displayMode;
 		if(this._isToggled)
 		{
@@ -290,7 +290,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private function secondsToTimeString(seconds:Number):String
+	private function secondsToTimeString(seconds:Float):String
 	{
 		var isNegative:Bool = seconds < 0;
 		if(isNegative)

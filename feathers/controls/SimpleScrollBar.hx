@@ -1045,7 +1045,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		}
 
 		var range:Float = this._maximum - this._minimum;
-		var adjustedPage:Number = this._page;
+		var adjustedPage:Float = this._page;
 		if(adjustedPage === 0)
 		{
 			//fall back to using step!
@@ -1055,8 +1055,8 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			adjustedPage = range;
 		}
-		var newWidth:Number = this.explicitWidth;
-		var newHeight:Number = this.explicitHeight;
+		var newWidth:Float = this.explicitWidth;
+		var newHeight:Float = this.explicitHeight;
 		if(needsWidth)
 		{
 			if(this._direction == DIRECTION_VERTICAL)
@@ -1167,9 +1167,9 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
 
-		var contentWidth:Number = this.actualWidth - this._paddingLeft - this._paddingRight;
-		var contentHeight:Number = this.actualHeight - this._paddingTop - this._paddingBottom;
-		var adjustedPage:Number = this._page;
+		var contentWidth:Float = this.actualWidth - this._paddingLeft - this._paddingRight;
+		var contentHeight:Float = this.actualHeight - this._paddingTop - this._paddingBottom;
+		var adjustedPage:Float = this._page;
 		if(this._page == 0)
 		{
 			adjustedPage = this._step;
@@ -1190,9 +1190,9 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			this.thumb.width = this.thumbOriginalWidth;
-			var thumbMinHeight:Number = this.thumb.minHeight > 0 ? this.thumb.minHeight : this.thumbOriginalHeight;
-			var thumbHeight:Number = contentHeight * adjustedPage / range;
-			var heightOffset:Number = contentHeight - thumbHeight;
+			var thumbMinHeight:Float = this.thumb.minHeight > 0 ? this.thumb.minHeight : this.thumbOriginalHeight;
+			var thumbHeight:Float = contentHeight * adjustedPage / range;
+			var heightOffset:Float = contentHeight - thumbHeight;
 			if(heightOffset > thumbHeight)
 			{
 				heightOffset = thumbHeight;
@@ -1219,9 +1219,9 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		}
 		else //horizontal
 		{
-			var thumbMinWidth:Number = this.thumb.minWidth > 0 ? this.thumb.minWidth : this.thumbOriginalWidth;
-			var thumbWidth:Number = contentWidth * adjustedPage / range;
-			var widthOffset:Number = contentWidth - thumbWidth;
+			var thumbMinWidth:Float = this.thumb.minWidth > 0 ? this.thumb.minWidth : this.thumbOriginalWidth;
+			var thumbWidth:Float = contentWidth * adjustedPage / range;
+			var widthOffset:Float = contentWidth - thumbWidth;
 			if(widthOffset > thumbWidth)
 			{
 				widthOffset = thumbWidth;
@@ -1287,8 +1287,8 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 */
 	private function adjustPage():Void
 	{
-		var range:Number = this._maximum - this._minimum;
-		var adjustedPage:Number = this._page;
+		var range:Float = this._maximum - this._minimum;
+		var adjustedPage:Float = this._page;
 		if(adjustedPage === 0)
 		{
 			adjustedPage = this._step;
@@ -1299,7 +1299,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		}
 		if(this._touchValue < this._value)
 		{
-			var newValue:Number = Math.max(this._touchValue, this._value - adjustedPage);
+			var newValue:Float = Math.max(this._touchValue, this._value - adjustedPage);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);

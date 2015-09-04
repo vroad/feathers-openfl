@@ -1567,8 +1567,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
-		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float, items:Vector.<DisplayObject>,
+		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, true, scrollX, scrollY);
 	}
@@ -1576,7 +1576,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
 		return this.calculateScrollPositionForIndex(index, items, x, y, width, height, result, false);
 	}
@@ -2038,8 +2038,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 * @inheritDoc
 	 */
 	public function calculateScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>,
-		x:Number, y:Number, width:Number, height:Number, result:Point = null,
-		nearest:Bool = false, scrollX:Number = 0, scrollY:Number = 0):Point
+		x:Float, y:Float, width:Float, height:Float, result:Point = null,
+		nearest:Bool = false, scrollX:Float = 0, scrollY:Float = 0):Point
 	{
 		if(!result)
 		{
@@ -2049,13 +2049,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
+			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
+			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
 		var itemCount:Int = items.length;
-		var tileWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
-		var tileHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
+		var tileWidth:Float = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
+		var tileHeight:Float = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		//a virtual layout assumes that all items are the same size as
 		//the typical item, so we don't need to measure every item in
 		//that case
@@ -2072,8 +2072,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				{
 					continue;
 				}
-				var itemWidth:Number = item.width;
-				var itemHeight:Number = item.height;
+				var itemWidth:Float = item.width;
+				var itemHeight:Float = item.height;
 				if(itemWidth > tileWidth)
 				{
 					tileWidth = itemWidth;
@@ -2119,7 +2119,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 			{
 				verticalTileCount = 1;
 			}
-			var perPage:Number = horizontalTileCount * verticalTileCount;
+			var perPage:Float = horizontalTileCount * verticalTileCount;
 			var pageIndex:Int = index / perPage;
 			if(this._paging == PAGING_HORIZONTAL)
 			{
@@ -2134,10 +2134,10 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else
 		{
-			var resultY:Number = this._paddingTop + ((tileHeight + this._verticalGap) * Int(index / horizontalTileCount));
+			var resultY:Float = this._paddingTop + ((tileHeight + this._verticalGap) * Int(index / horizontalTileCount));
 			if(nearest)
 			{
-				var bottomPosition:Number = resultY - (height - tileHeight);
+				var bottomPosition:Float = resultY - (height - tileHeight);
 				if(scrollY >= bottomPosition && scrollY <= resultY)
 				{
 					//keep the current scroll position because the item is already
@@ -2146,8 +2146,8 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				}
 				else
 				{
-					var topDifference:Number = Math.abs(resultY - scrollY);
-					var bottomDifference:Number = Math.abs(bottomPosition - scrollY);
+					var topDifference:Float = Math.abs(resultY - scrollY);
+					var bottomDifference:Float = Math.abs(bottomPosition - scrollY);
 					if(bottomDifference < topDifference)
 					{
 						resultY = bottomPosition;

@@ -2488,7 +2488,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private var _keyScrollDuration:Number = 0.25;
+	private var _keyScrollDuration:Float = 0.25;
 
 	/**
 	 * The duration, in seconds, of the animation when the selected item is
@@ -2502,7 +2502,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
-	public function get_keyScrollDuration():Number
+	public function get_keyScrollDuration():Float
 	{
 		return this._keyScrollDuration;
 	}
@@ -2510,7 +2510,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set_keyScrollDuration(value:Number):Number
+	public function set_keyScrollDuration(value:Float):Float
 	{
 		this._keyScrollDuration = value;
 	}
@@ -2585,7 +2585,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * <listing version="3.0">
 	 * list.scrollToDisplayIndex( 2 );</listing>
 	 */
-	public function scrollToDisplayIndex(groupIndex:Int, itemIndex:Int = -1, animationDuration:Number = 0):Void
+	public function scrollToDisplayIndex(groupIndex:Int, itemIndex:Int = -1, animationDuration:Float = 0):Void
 	{
 		//cancel any pending scroll to a different page or scroll position.
 		//we can have only one type of pending scroll at a time.
@@ -3053,7 +3053,7 @@ class GroupedList extends Scroller implements IFocusContainer
 			return;
 		}
 
-		var scrollOffsetX:Number = scrollOffset.x;
+		var scrollOffsetX:Float = scrollOffset.x;
 		this._startHorizontalScrollPosition += scrollOffsetX;
 		this._horizontalScrollPosition += scrollOffsetX;
 		if(this._horizontalAutoScrollTween)
@@ -3062,7 +3062,7 @@ class GroupedList extends Scroller implements IFocusContainer
 			this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
 		}
 
-		var scrollOffsetY:Number = scrollOffset.y;
+		var scrollOffsetY:Float = scrollOffset.y;
 		this._startVerticalScrollPosition += scrollOffsetY;
 		this._verticalScrollPosition += scrollOffsetY;
 		if(this._verticalAutoScrollTween)

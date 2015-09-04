@@ -1072,12 +1072,12 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleX:Number = 0;
+	private var _lastGlobalScaleX:Float = 0;
 
 	/**
 	 * @private
 	 */
-	private var _lastGlobalScaleY:Number = 0;
+	private var _lastGlobalScaleY:Float = 0;
 
 	/**
 	 * @private
@@ -1175,7 +1175,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 
 		if(this.textSnapshot)
 		{
-			var desktopGutterPositionOffset:Number = 0;
+			var desktopGutterPositionOffset:Float = 0;
 			if(this._stageTextIsTextField)
 			{
 				desktopGutterPositionOffset = 2;
@@ -1756,7 +1756,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var newTexture:Texture = null;
 		if(this.textSnapshot == null || this._needsNewTexture)
 		{
-			var scaleFactor:Number = Starling.contentScaleFactor;
+			var scaleFactor:Float = Starling.contentScaleFactor;
 			//skip Texture.fromBitmapData() because we don't want
 			//it to create an onRestore function that will be
 			//immediately discarded for garbage collection. 
@@ -1786,8 +1786,8 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			}
 		}
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-		var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-		var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
+		var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.textSnapshot.scaleX = 1 / globalScaleX;
@@ -1827,9 +1827,9 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		if(this._stageTextHasFocus || this._updateSnapshotOnScaleChange)
 		{
-			var globalScaleX:Number = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Number = matrixToScaleY(HELPER_MATRIX);
-			var smallerGlobalScale:Number = globalScaleX;
+			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
+			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+			var smallerGlobalScale:Float = globalScaleX;
 			if(globalScaleY < smallerGlobalScale)
 			{
 				smallerGlobalScale = globalScaleY;
@@ -1857,7 +1857,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Number = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageTextViewPort:Rectangle = this.stageText.viewPort;
 		if(!stageTextViewPort)

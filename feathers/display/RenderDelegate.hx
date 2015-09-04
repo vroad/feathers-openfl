@@ -71,10 +71,10 @@ class RenderDelegate extends DisplayObject
 	{
 		resultRect = this._target.getBounds(this._target, resultRect);
 		this.getTransformationMatrix(targetSpace, HELPER_MATRIX);
-		var minX:Number = Number.MAX_VALUE;
-		var maxX:Number = -Number.MAX_VALUE;
-		var minY:Number = Number.MAX_VALUE;
-		var maxY:Number = -Number.MAX_VALUE;
+		var minX:Float = Float.MAX_VALUE;
+		var maxX:Float = -Float.MAX_VALUE;
+		var minY:Float = Float.MAX_VALUE;
+		var maxY:Float = -Float.MAX_VALUE;
 		for(var i:Int = 0; i < 4; i++)
 		{
 			MatrixUtil.transformCoords(HELPER_MATRIX, i % 2 == 0 ? 0 : resultRect.width, i < 2 ? 0 : resultRect.height, HELPER_POINT);
@@ -102,9 +102,9 @@ class RenderDelegate extends DisplayObject
 	/**
 	 * @private
 	 */
-	override public function render(support:RenderSupport, parentAlpha:Number):Void
+	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		var oldAlpha:Number = this._target.alpha;
+		var oldAlpha:Float = this._target.alpha;
 		this._target.alpha = this.alpha;
 		this._target.render(support, parentAlpha);
 		this._target.alpha = oldAlpha;

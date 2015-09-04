@@ -854,8 +854,8 @@ class Alert extends Panel
 		var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 		this._ignoreFooterResizing = true;
 
-		var oldHeaderWidth:Number = this.header.width;
-		var oldHeaderHeight:Number = this.header.height;
+		var oldHeaderWidth:Float = this.header.width;
+		var oldHeaderHeight:Float = this.header.height;
 		this.header.width = this.explicitWidth;
 		this.header.maxWidth = this._maxWidth;
 		this.header.height = Math.NaN;
