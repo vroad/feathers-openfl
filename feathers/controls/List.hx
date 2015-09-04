@@ -350,7 +350,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set isChildFocusEnabled(value:Boolean):void
+	public function set_isChildFocusEnabled(value:Boolean):Boolean
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -1053,7 +1053,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customItemRendererStyleName(value:String):void
+	public function set_customItemRendererStyleName(value:String):String
 	{
 		if(this._customItemRendererStyleName == value)
 		{
@@ -1082,7 +1082,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set itemRendererName(value:String):void
+	public function set_itemRendererName(value:String):String
 	{
 		this.customItemRendererStyleName = value;
 	}
@@ -1204,7 +1204,7 @@ public class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set keyScrollDuration(value:Number):void
+	public function set_keyScrollDuration(value:Number):Number
 	{
 		this._keyScrollDuration = value;
 	}

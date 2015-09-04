@@ -376,7 +376,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set minimumTrackName(value:String):void
+	private function set_minimumTrackName(value:String):String
 	{
 		this.minimumTrackStyleName = value;
 	}
@@ -414,7 +414,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set maximumTrackName(value:String):void
+	private function set_maximumTrackName(value:String):String
 	{
 		this.maximumTrackStyleName = value;
 	}
@@ -451,7 +451,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set thumbName(value:String):void
+	private function set_thumbName(value:String):String
 	{
 		this.thumbStyleName = value;
 	}
@@ -489,7 +489,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set decrementButtonName(value:String):void
+	private function set_decrementButtonName(value:String):String
 	{
 		this.decrementButtonStyleName = value;
 	}
@@ -527,7 +527,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set incrementButtonName(value:String):void
+	private function set_incrementButtonName(value:String):String
 	{
 		this.incrementButtonStyleName = value;
 	}
@@ -1213,7 +1213,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customMinimumTrackStyleName(value:String):void
+	public function set_customMinimumTrackStyleName(value:String):String
 	{
 		if(this._customMinimumTrackStyleName == value)
 		{
@@ -1242,7 +1242,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customMinimumTrackName(value:String):void
+	public function set_customMinimumTrackName(value:String):String
 	{
 		this.customMinimumTrackStyleName = value;
 	}
@@ -1415,7 +1415,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customMaximumTrackStyleName(value:String):void
+	public function set_customMaximumTrackStyleName(value:String):String
 	{
 		if(this._customMaximumTrackStyleName == value)
 		{
@@ -1444,7 +1444,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customMaximumTrackName(value:String):void
+	public function set_customMaximumTrackName(value:String):String
 	{
 		this.customMaximumTrackStyleName = value;
 	}
@@ -1617,7 +1617,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customThumbStyleName(value:String):void
+	public function set_customThumbStyleName(value:String):String
 	{
 		if(this._customThumbStyleName == value)
 		{
@@ -1646,7 +1646,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):void
+	public function set_customThumbName(value:String):String
 	{
 		this.customThumbStyleName = value;
 	}
@@ -1819,7 +1819,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customDecrementButtonStyleName(value:String):void
+	public function set_customDecrementButtonStyleName(value:String):String
 	{
 		if(this._customDecrementButtonStyleName == value)
 		{
@@ -1848,7 +1848,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customDecrementButtonName(value:String):void
+	public function set_customDecrementButtonName(value:String):String
 	{
 		this.customDecrementButtonStyleName = value;
 	}
@@ -2022,7 +2022,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customIncrementButtonStyleName(value:String):void
+	public function set_customIncrementButtonStyleName(value:String):String
 	{
 		if(this._customIncrementButtonStyleName == value)
 		{
@@ -2051,7 +2051,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customIncrementButtonName(value:String):void
+	public function set_customIncrementButtonName(value:String):String
 	{
 		this.customIncrementButtonStyleName = value;
 	}

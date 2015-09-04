@@ -91,7 +91,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{
@@ -130,7 +130,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	public function set touchableWhenPlaying(value:Boolean):void
+	public function set_touchableWhenPlaying(value:Boolean):Boolean
 	{
 		if(this._touchableWhenPlaying == value)
 		{

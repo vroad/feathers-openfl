@@ -378,7 +378,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set backgroundSkin(value:DisplayObject):void
+	public function set_backgroundSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundSkin == value)
 		{
@@ -417,7 +417,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set backgroundDisabledSkin(value:DisplayObject):void
+	public function set_backgroundDisabledSkin(value:DisplayObject):DisplayObject
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
@@ -459,7 +459,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set_padding(value:Number):Number
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -491,7 +491,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set_paddingTop(value:Number):Number
 	{
 		if(this._paddingTop == value)
 		{
@@ -525,7 +525,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set_paddingRight(value:Number):Number
 	{
 		if(this._paddingRight == value)
 		{
@@ -559,7 +559,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set_paddingBottom(value:Number):Number
 	{
 		if(this._paddingBottom == value)
 		{
@@ -593,7 +593,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set_paddingLeft(value:Number):Number
 	{
 		if(this._paddingLeft == value)
 		{

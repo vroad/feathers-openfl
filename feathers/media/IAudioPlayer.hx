@@ -50,6 +50,6 @@ public interface IAudioPlayer extends ITimedMediaPlayer
 	/**
 	 * @private
 	 */
-	function set soundTransform(value:SoundTransform):void;
+	function set_soundTransform(value:SoundTransform):SoundTransform;
 }
 }

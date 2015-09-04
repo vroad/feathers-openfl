@@ -546,7 +546,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function set horizontalScrollBarName(value:String):void
+	private function set_horizontalScrollBarName(value:String):String
 	{
 		this.horizontalScrollBarStyleName = value;
 	}
@@ -584,7 +584,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function set verticalScrollBarName(value:String):void
+	private function set_verticalScrollBarName(value:String):String
 	{
 		this.verticalScrollBarStyleName = value;
 	}
@@ -979,7 +979,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customHorizontalScrollBarStyleName(value:String):void
+	public function set_customHorizontalScrollBarStyleName(value:String):String
 	{
 		if(this._customHorizontalScrollBarStyleName == value)
 		{
@@ -1008,7 +1008,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customHorizontalScrollBarName(value:String):void
+	public function set_customHorizontalScrollBarName(value:String):String
 	{
 		this.customHorizontalScrollBarStyleName = value;
 	}
@@ -1222,7 +1222,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customVerticalScrollBarStyleName(value:String):void
+	public function set_customVerticalScrollBarStyleName(value:String):String
 	{
 		if(this._customVerticalScrollBarStyleName == value)
 		{
@@ -1251,7 +1251,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set customVerticalScrollBarName(value:String):void
+	public function set_customVerticalScrollBarName(value:String):String
 	{
 		this.customVerticalScrollBarStyleName = value;
 	}
@@ -2930,7 +2930,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set verticalMouseWheelScrollDirection(value:String):void
+	public function set_verticalMouseWheelScrollDirection(value:String):String
 	{
 		this._verticalMouseWheelScrollDirection = value;
 	}

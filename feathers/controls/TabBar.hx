@@ -244,7 +244,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set tabName(value:String):void
+	private function set_tabName(value:String):String
 	{
 		this.tabStyleName = value;
 	}
@@ -282,7 +282,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set firstTabName(value:String):void
+	private function set_firstTabName(value:String):String
 	{
 		this.firstTabStyleName = value;
 	}
@@ -320,7 +320,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set lastTabName(value:String):void
+	private function set_lastTabName(value:String):String
 	{
 		this.lastTabStyleName = value;
 	}
@@ -420,7 +420,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):void
+	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		if(this._dataProvider == value)
 		{
@@ -510,7 +510,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set direction(value:String):void
+	public function set_direction(value:String):String
 	{
 		if(this._direction == value)
 		{
@@ -550,7 +550,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -590,7 +590,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{
@@ -629,7 +629,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set distributeTabSizes(value:Boolean):void
+	public function set_distributeTabSizes(value:Boolean):Boolean
 	{
 		if(this._distributeTabSizes == value)
 		{
@@ -662,7 +662,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set_gap(value:Number):Number
 	{
 		if(this._gap == value)
 		{
@@ -701,7 +701,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstGap(value:Number):void
+	public function set_firstGap(value:Number):Number
 	{
 		if(this._firstGap == value)
 		{
@@ -740,7 +740,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastGap(value:Number):void
+	public function set_lastGap(value:Number):Number
 	{
 		if(this._lastGap == value)
 		{
@@ -777,7 +777,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set_padding(value:Number):Number
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -810,7 +810,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set_paddingTop(value:Number):Number
 	{
 		if(this._paddingTop == value)
 		{
@@ -845,7 +845,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set_paddingRight(value:Number):Number
 	{
 		if(this._paddingRight == value)
 		{
@@ -880,7 +880,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set_paddingBottom(value:Number):Number
 	{
 		if(this._paddingBottom == value)
 		{
@@ -915,7 +915,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set_paddingLeft(value:Number):Number
 	{
 		if(this._paddingLeft == value)
 		{
@@ -968,7 +968,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabFactory(value:Function):void
+	public function set_tabFactory(value:Function):Function
 	{
 		if(this._tabFactory == value)
 		{
@@ -1023,7 +1023,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set firstTabFactory(value:Function):void
+	public function set_firstTabFactory(value:Function):Function
 	{
 		if(this._firstTabFactory == value)
 		{
@@ -1078,7 +1078,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set lastTabFactory(value:Function):void
+	public function set_lastTabFactory(value:Function):Function
 	{
 		if(this._lastTabFactory == value)
 		{
@@ -1122,7 +1122,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabInitializer(value:Function):void
+	public function set_tabInitializer(value:Function):Function
 	{
 		if(this._tabInitializer == value)
 		{
@@ -1175,7 +1175,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedIndex(value:int):void
+	public function set_selectedIndex(value:int):int
 	{
 		if(this._selectedIndex == value)
 		{
@@ -1224,7 +1224,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set selectedItem(value:Object):void
+	public function set_selectedItem(value:Object):Object
 	{
 		if(!this._dataProvider)
 		{
@@ -1268,7 +1268,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customTabStyleName(value:String):void
+	public function set_customTabStyleName(value:String):String
 	{
 		if(this._customTabStyleName == value)
 		{
@@ -1296,7 +1296,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customTabName(value:String):void
+	public function set_customTabName(value:String):String
 	{
 		this.customTabStyleName = value;
 	}
@@ -1334,7 +1334,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstTabStyleName(value:String):void
+	public function set_customFirstTabStyleName(value:String):String
 	{
 		if(this._customFirstTabStyleName == value)
 		{
@@ -1362,7 +1362,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstTabName(value:String):void
+	public function set_customFirstTabName(value:String):String
 	{
 		this.customFirstTabStyleName = value;
 	}
@@ -1400,7 +1400,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastTabStyleName(value:String):void
+	public function set_customLastTabStyleName(value:String):String
 	{
 		if(this._customLastTabStyleName == value)
 		{
@@ -1428,7 +1428,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastTabName(value:String):void
+	public function set_customLastTabName(value:String):String
 	{
 		this.customLastTabStyleName = value;
 	}
@@ -1481,7 +1481,7 @@ public class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set tabProperties(value:Object):void
+	public function set_tabProperties(value:Object):Object
 	{
 		if(this._tabProperties == value)
 		{

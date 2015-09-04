@@ -106,7 +106,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set_gap(value:Number):Number
 	{
 		this.horizontalGap = value;
 		this.verticalGap = value;
@@ -130,7 +130,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set horizontalGap(value:Number):void
+	public function set_horizontalGap(value:Number):Number
 	{
 		if(this._horizontalGap == value)
 		{
@@ -158,7 +158,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set verticalGap(value:Number):void
+	public function set_verticalGap(value:Number):Number
 	{
 		if(this._verticalGap == value)
 		{
@@ -189,7 +189,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set_padding(value:Number):Number
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -215,7 +215,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set_paddingTop(value:Number):Number
 	{
 		if(this._paddingTop == value)
 		{
@@ -243,7 +243,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set_paddingRight(value:Number):Number
 	{
 		if(this._paddingRight == value)
 		{
@@ -271,7 +271,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set_paddingBottom(value:Number):Number
 	{
 		if(this._paddingBottom == value)
 		{
@@ -299,7 +299,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set_paddingLeft(value:Number):Number
 	{
 		if(this._paddingLeft == value)
 		{
@@ -332,7 +332,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -369,7 +369,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set requestedColumnCount(value:int):void
+	public function set_requestedColumnCount(value:int):int
 	{
 		if(value < 0)
 		{
@@ -401,7 +401,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set useVirtualLayout(value:Boolean):void
+	public function set_useVirtualLayout(value:Boolean):Boolean
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -427,7 +427,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:DisplayObject):void
+	public function set_typicalItem(value:DisplayObject):DisplayObject
 	{
 		if(this._typicalItem == value)
 		{
@@ -457,7 +457,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @private
 	 */
-	public function set hasVariableItemDimensions(value:Boolean):void
+	public function set_hasVariableItemDimensions(value:Boolean):Boolean
 	{
 		if(this._hasVariableItemDimensions == value)
 		{

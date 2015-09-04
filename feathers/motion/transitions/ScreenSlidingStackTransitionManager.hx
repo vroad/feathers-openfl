@@ -100,7 +100,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	public function set duration(value:Number):void
+	public function set_duration(value:Number):Number
 	{
 		if(this._duration == value)
 		{
@@ -131,7 +131,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	public function set delay(value:Number):void
+	public function set_delay(value:Number):Number
 	{
 		if(this._delay == value)
 		{
@@ -160,7 +160,7 @@ class ScreenSlidingStackTransitionManager
 	/**
 	 * @private
 	 */
-	public function set ease(value:Object):void
+	public function set_ease(value:Object):Object
 	{
 		if(this._ease == value)
 		{

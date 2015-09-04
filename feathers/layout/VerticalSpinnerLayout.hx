@@ -106,7 +106,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set_gap(value:Number):Number
 	{
 		if(this._gap == value)
 		{
@@ -135,7 +135,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set_padding(value:Number):Number
 	{
 		this.paddingRight = value;
 		this.paddingLeft = value;
@@ -159,7 +159,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set_paddingRight(value:Number):Number
 	{
 		if(this._paddingRight == value)
 		{
@@ -187,7 +187,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set_paddingLeft(value:Number):Number
 	{
 		if(this._paddingLeft == value)
 		{
@@ -221,7 +221,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -249,7 +249,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set useVirtualLayout(value:Boolean):void
+	public function set_useVirtualLayout(value:Boolean):Boolean
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -283,7 +283,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set requestedRowCount(value:int):void
+	public function set_requestedRowCount(value:int):int
 	{
 		if(value < 0)
 		{
@@ -313,7 +313,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set beforeVirtualizedItemCount(value:int):void
+	public function set_beforeVirtualizedItemCount(value:int):int
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
@@ -339,7 +339,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set afterVirtualizedItemCount(value:int):void
+	public function set_afterVirtualizedItemCount(value:int):int
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
@@ -369,7 +369,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set typicalItem(value:DisplayObject):void
+	public function set_typicalItem(value:DisplayObject):DisplayObject
 	{
 		if(this._typicalItem == value)
 		{
@@ -407,7 +407,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set resetTypicalItemDimensionsOnMeasure(value:Boolean):void
+	public function set_resetTypicalItemDimensionsOnMeasure(value:Boolean):Boolean
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -454,7 +454,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set typicalItemWidth(value:Number):void
+	public function set_typicalItemWidth(value:Number):Number
 	{
 		if(this._typicalItemWidth == value)
 		{
@@ -501,7 +501,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @private
 	 */
-	public function set typicalItemHeight(value:Number):void
+	public function set_typicalItemHeight(value:Number):Number
 	{
 		if(this._typicalItemHeight == value)
 		{

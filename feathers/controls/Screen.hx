@@ -221,7 +221,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	public function set owner(value:Object):void
+	public function set_owner(value:Object):Object
 	{
 		this._owner = value;
 		return get_owner();

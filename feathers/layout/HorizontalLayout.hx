@@ -559,7 +559,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set requestedColumnCount(value:int):void
+	public function set_requestedColumnCount(value:int):int
 	{
 		if(value < 0)
 		{
@@ -595,7 +595,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set distributeWidths(value:Boolean):void
+	public function set_distributeWidths(value:Boolean):Boolean
 	{
 		if(this._distributeWidths == value)
 		{

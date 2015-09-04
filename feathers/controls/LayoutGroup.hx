@@ -363,7 +363,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):void
+	public function set_autoSizeMode(value:String):String
 	{
 		if(this._autoSizeMode == value)
 		{

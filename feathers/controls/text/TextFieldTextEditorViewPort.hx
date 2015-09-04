@@ -73,7 +73,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set minVisibleWidth(value:Number):void
+	public function set_minVisibleWidth(value:Number):Number
 	{
 		if(this._minVisibleWidth == value)
 		{
@@ -103,7 +103,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set maxVisibleWidth(value:Number):void
+	public function set_maxVisibleWidth(value:Number):Number
 	{
 		if(this._maxVisibleWidth == value)
 		{
@@ -133,7 +133,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set visibleWidth(value:Number):void
+	public function set_visibleWidth(value:Number):Number
 	{
 		if(this._visibleWidth == value ||
 			(value !== value && this._visibleWidth !== this._visibleWidth)) //isNaN
@@ -160,7 +160,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set minVisibleHeight(value:Number):void
+	public function set_minVisibleHeight(value:Number):Number
 	{
 		if(this._minVisibleHeight == value)
 		{
@@ -190,7 +190,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set maxVisibleHeight(value:Number):void
+	public function set_maxVisibleHeight(value:Number):Number
 	{
 		if(this._maxVisibleHeight == value)
 		{
@@ -220,7 +220,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set visibleHeight(value:Number):void
+	public function set_visibleHeight(value:Number):Number
 	{
 		if(this._visibleHeight == value ||
 			(value !== value && this._visibleHeight !== this._visibleHeight)) //isNaN
@@ -278,7 +278,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set horizontalScrollPosition(value:Number):void
+	public function set_horizontalScrollPosition(value:Number):Number
 	{
 		//this value is basically ignored because the text does not scroll
 		//horizontally. instead, it wraps.
@@ -301,7 +301,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set verticalScrollPosition(value:Number):void
+	public function set_verticalScrollPosition(value:Number):Number
 	{
 		if(this._verticalScrollPosition == value)
 		{
@@ -342,7 +342,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set padding(value:Number):void
+	public function set_padding(value:Number):Number
 	{
 		this.paddingTop = value;
 		this.paddingRight = value;
@@ -369,7 +369,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set paddingTop(value:Number):void
+	public function set_paddingTop(value:Number):Number
 	{
 		if(this._paddingTop == value)
 		{
@@ -398,7 +398,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set paddingRight(value:Number):void
+	public function set_paddingRight(value:Number):Number
 	{
 		if(this._paddingRight == value)
 		{
@@ -427,7 +427,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set paddingBottom(value:Number):void
+	public function set_paddingBottom(value:Number):Number
 	{
 		if(this._paddingBottom == value)
 		{
@@ -456,7 +456,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	public function set paddingLeft(value:Number):void
+	public function set_paddingLeft(value:Number):Number
 	{
 		if(this._paddingLeft == value)
 		{

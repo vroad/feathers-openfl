@@ -279,7 +279,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set buttonName(value:String):void
+	private function set_buttonName(value:String):String
 	{
 		this.buttonStyleName = value;
 	}
@@ -313,7 +313,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set firstButtonName(value:String):void
+	private function set_firstButtonName(value:String):String
 	{
 		this.firstButtonStyleName = value;
 	}
@@ -347,7 +347,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set lastButtonName(value:String):void
+	private function set_lastButtonName(value:String):String
 	{
 		this.lastButtonStyleName = value;
 	}
@@ -1212,7 +1212,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customButtonStyleName(value:String):void
+	public function set_customButtonStyleName(value:String):String
 	{
 		if(this._customButtonStyleName == value)
 		{
@@ -1241,7 +1241,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customButtonName(value:String):void
+	public function set_customButtonName(value:String):String
 	{
 		this.customButtonStyleName = value;
 	}
@@ -1279,7 +1279,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstButtonStyleName(value:String):void
+	public function set_customFirstButtonStyleName(value:String):String
 	{
 		if(this._customFirstButtonStyleName == value)
 		{
@@ -1308,7 +1308,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customFirstButtonName(value:String):void
+	public function set_customFirstButtonName(value:String):String
 	{
 		this.customFirstButtonStyleName = value;
 	}
@@ -1346,7 +1346,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastButtonStyleName(value:String):void
+	public function set_customLastButtonStyleName(value:String):String
 	{
 		if(this._customLastButtonStyleName == value)
 		{
@@ -1375,7 +1375,7 @@ class ButtonGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set customLastButtonName(value:String):void
+	public function set_customLastButtonName(value:String):String
 	{
 		this.customLastButtonStyleName = value;
 	}

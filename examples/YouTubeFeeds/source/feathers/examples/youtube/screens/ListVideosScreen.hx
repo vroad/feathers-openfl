@@ -58,7 +58,7 @@ public class ListVideosScreen extends PanelScreen
 		return this._model;
 	}
 
-	public function set model(value:YouTubeModel):void
+	public function set_model(value:YouTubeModel):YouTubeModel
 	{
 		if(this._model == value)
 		{

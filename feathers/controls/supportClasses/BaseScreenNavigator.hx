@@ -251,7 +251,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set clipContent(value:Boolean):void
+	public function set_clipContent(value:Boolean):Boolean
 	{
 		if(this._clipContent == value)
 		{
@@ -294,7 +294,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):void
+	public function set_autoSizeMode(value:String):String
 	{
 		if(this._autoSizeMode == value)
 		{

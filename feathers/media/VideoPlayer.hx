@@ -273,7 +273,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set soundTransform(value:SoundTransform):void
+	public function set_soundTransform(value:SoundTransform):SoundTransform
 	{
 		this._soundTransform = value;
 		if(this._netStream)
@@ -405,7 +405,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set videoSource(value:String):void
+	public function set_videoSource(value:String):String
 	{
 		if(this._videoSource === value)
 		{
@@ -470,7 +470,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set autoPlay(value:Boolean):void
+	public function set_autoPlay(value:Boolean):Boolean
 	{
 		this._autoPlay = value;
 	}
@@ -536,7 +536,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set normalDisplayState(value:String):void
+	public function set_normalDisplayState(value:String):String
 	{
 		if(this._normalDisplayState == value)
 		{
@@ -588,7 +588,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set fullScreenDisplayState(value:String):void
+	public function set_fullScreenDisplayState(value:String):String
 	{
 		if(this._fullScreenDisplayState == value)
 		{
@@ -630,7 +630,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set hideRootWhenFullScreen(value:Boolean):void
+	public function set_hideRootWhenFullScreen(value:Boolean):Boolean
 	{
 		this._hideRootWhenFullScreen = value;
 	}

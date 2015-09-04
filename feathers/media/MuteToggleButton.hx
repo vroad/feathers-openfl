@@ -181,7 +181,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{
@@ -220,7 +220,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set popUpContentManager(value:IPopUpContentManager):void
+	public function set_popUpContentManager(value:IPopUpContentManager):IPopUpContentManager
 	{
 		if(this._popUpContentManager == value)
 		{
@@ -271,7 +271,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set showVolumeSliderOnHover(value:Boolean):void
+	public function set_showVolumeSliderOnHover(value:Boolean):Boolean
 	{
 		if(this._showVolumeSliderOnHover == value)
 		{
@@ -323,7 +323,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set volumeSliderFactory(value:Function):void
+	public function set_volumeSliderFactory(value:Function):Function
 	{
 		if(this._volumeSliderFactory == value)
 		{
@@ -371,7 +371,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set customVolumeSliderStyleName(value:String):void
+	public function set_customVolumeSliderStyleName(value:String):String
 	{
 		if(this._customVolumeSliderStyleName == value)
 		{
@@ -426,7 +426,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	public function set volumeSliderProperties(value:Object):void
+	public function set_volumeSliderProperties(value:Object):Object
 	{
 		if(this._volumeSliderProperties == value)
 		{

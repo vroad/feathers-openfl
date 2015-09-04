@@ -216,7 +216,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	private function set thumbName(value:String):void
+	private function set_thumbName(value:String):String
 	{
 		this.thumbStyleName = value;
 	}
@@ -816,7 +816,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customThumbStyleName(value:String):void
+	public function set_customThumbStyleName(value:String):String
 	{
 		if(this._customThumbStyleName == value)
 		{
@@ -845,7 +845,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):void
+	public function set_customThumbName(value:String):String
 	{
 		this.customThumbStyleName = value;
 	}

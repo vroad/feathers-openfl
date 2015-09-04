@@ -592,7 +592,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	public function set requestedRowCount(value:int):void
+	public function set_requestedRowCount(value:int):int
 	{
 		if(value < 0)
 		{

@@ -98,7 +98,7 @@ public class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires snapToPages to be true.
 	 */
-	override public function set snapToPages(value:Boolean):void
+	override public function set_snapToPages(value:Boolean):Boolean
 	{
 		if(!value)
 		{
@@ -114,7 +114,7 @@ public class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires allowMultipleSelection to be false.
 	 */
-	override public function set allowMultipleSelection(value:Boolean):void
+	override public function set_allowMultipleSelection(value:Boolean):Boolean
 	{
 		if(value)
 		{
@@ -130,7 +130,7 @@ public class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires isSelectable to be true.
 	 */
-	override public function set isSelectable(value:Boolean):void
+	override public function set_isSelectable(value:Boolean):Boolean
 	{
 		if(!value)
 		{
@@ -142,7 +142,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override public function set layout(value:ILayout):void
+	override public function set_layout(value:ILayout):ILayout
 	{
 		if(value && !(value is ISpinnerLayout))
 		{
@@ -154,7 +154,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override public function set selectedIndex(value:int):void
+	override public function set_selectedIndex(value:int):int
 	{
 		if(this._selectedIndex != value)
 		{
@@ -166,7 +166,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override public function set dataProvider(value:ListCollection):void
+	override public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		super.dataProvider = value;
 		if(!this._dataProvider || this._dataProvider.length == 0)
@@ -209,7 +209,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	public function set selectionOverlaySkin(value:DisplayObject):void
+	public function set_selectionOverlaySkin(value:DisplayObject):DisplayObject
 	{
 		if(this._selectionOverlaySkin == value)
 		{

@@ -211,7 +211,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set source(value:IAutoCompleteSource):void
+	public function set_source(value:IAutoCompleteSource):IAutoCompleteSource
 	{
 		if(this._source == value)
 		{
@@ -254,7 +254,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set autoCompleteDelay(value:Number):void
+	public function set_autoCompleteDelay(value:Number):Number
 	{
 		this._autoCompleteDelay = value;
 	}
@@ -286,7 +286,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set minimumAutoCompleteLength(value:Number):void
+	public function set_minimumAutoCompleteLength(value:Number):Number
 	{
 		this._minimumAutoCompleteLength = value;
 	}
@@ -314,7 +314,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set popUpContentManager(value:IPopUpContentManager):void
+	public function set_popUpContentManager(value:IPopUpContentManager):IPopUpContentManager
 	{
 		if(this._popUpContentManager == value)
 		{
@@ -375,7 +375,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set listFactory(value:Function):void
+	public function set_listFactory(value:Function):Function
 	{
 		if(this._listFactory == value)
 		{
@@ -422,7 +422,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set customListStyleName(value:String):void
+	public function set_customListStyleName(value:String):String
 	{
 		if(this._customListStyleName == value)
 		{
@@ -477,7 +477,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set listProperties(value:Object):void
+	public function set_listProperties(value:Object):Object
 	{
 		if(this._listProperties == value)
 		{

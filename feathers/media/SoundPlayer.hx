@@ -251,7 +251,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set soundSource(value:Object):void
+	public function set_soundSource(value:Object):Object
 	{
 		if(this._soundSource === value)
 		{
@@ -360,7 +360,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set soundTransform(value:SoundTransform):void
+	public function set_soundTransform(value:SoundTransform):SoundTransform
 	{
 		this._soundTransform = value;
 		if(this._soundChannel)
@@ -394,7 +394,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set autoPlay(value:Boolean):void
+	public function set_autoPlay(value:Boolean):Boolean
 	{
 		this._autoPlay = value;
 	}
@@ -425,7 +425,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set loop(value:Boolean):void
+	public function set_loop(value:Boolean):Boolean
 	{
 		this._loop = value;
 	}

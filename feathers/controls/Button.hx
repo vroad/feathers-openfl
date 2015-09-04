@@ -487,7 +487,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function set labelName(value:String):void
+	private function set_labelName(value:String):String
 	{
 		this.labelStyleName = value;
 	}
@@ -2235,7 +2235,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set scaleWhenDown(value:Number):void
+	public function set_scaleWhenDown(value:Number):Number
 	{
 		this._scaleWhenDown = value;
 	}
@@ -2263,7 +2263,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set scaleWhenHovering(value:Number):void
+	public function set_scaleWhenHovering(value:Number):Number
 	{
 		this._scaleWhenHovering = value;
 	}

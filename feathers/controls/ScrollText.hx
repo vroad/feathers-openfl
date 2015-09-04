@@ -708,7 +708,7 @@ public class ScrollText extends Scroller
 	/**
 	 * @private
 	 */
-	public function set cacheAsBitmap(value:Boolean):void
+	public function set_cacheAsBitmap(value:Boolean):Boolean
 	{
 		if(this._cacheAsBitmap == value)
 		{

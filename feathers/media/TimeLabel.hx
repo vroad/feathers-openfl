@@ -109,7 +109,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{
@@ -151,7 +151,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set delimiter(value:String):void
+	public function set_delimiter(value:String):String
 	{
 		if(this._delimiter == value)
 		{
@@ -185,7 +185,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set displayMode(value:String):void
+	public function set_displayMode(value:String):String
 	{
 		if(this._displayMode == value)
 		{
@@ -234,7 +234,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set toggleDisplayMode(value:Boolean):void
+	public function set_toggleDisplayMode(value:Boolean):Boolean
 	{
 		if(this._toggleDisplayMode == value)
 		{

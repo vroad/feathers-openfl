@@ -107,7 +107,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set callBeforeOriginalStyleProvider(value:Boolean):void
+	public function set_callBeforeOriginalStyleProvider(value:Boolean):Boolean
 	{
 		this._callBeforeOriginalStyleProvider = value;
 	}

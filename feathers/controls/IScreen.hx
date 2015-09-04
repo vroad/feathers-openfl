@@ -36,5 +36,5 @@ interface IScreen extends IFeathersControl
 	/**
 	 * @private
 	 */
-	function set owner(value:Object):void;
+	function set_owner(value:Object):Object;
 }

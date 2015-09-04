@@ -1111,7 +1111,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set updateSnapshotOnScaleChange(value:Boolean):void
+	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{

@@ -150,7 +150,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set isModal(value:Boolean):void
+	public function set_isModal(value:Boolean):Boolean
 	{
 		this._isModal = value;
 	}
@@ -192,7 +192,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set overlayFactory(value:Function):void
+	public function set_overlayFactory(value:Function):Function
 	{
 		this._overlayFactory = value;
 	}
@@ -241,7 +241,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set primaryDirection(value:String):void
+	public function set_primaryDirection(value:String):String
 	{
 		this._primaryDirection = value;
 	}
@@ -266,7 +266,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set fitContentMinWidthToOrigin(value:Boolean):void
+	public function set_fitContentMinWidthToOrigin(value:Boolean):Boolean
 	{
 		this._fitContentMinWidthToOrigin = value;
 	}

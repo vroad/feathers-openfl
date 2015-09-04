@@ -295,7 +295,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	public function set isChildFocusEnabled(value:Boolean):void
+	public function set_isChildFocusEnabled(value:Boolean):Boolean
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -368,7 +368,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	public function set autoSizeMode(value:String):void
+	public function set_autoSizeMode(value:String):String
 	{
 		if(this._autoSizeMode == value)
 		{

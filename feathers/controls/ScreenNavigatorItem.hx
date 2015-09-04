@@ -82,7 +82,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set screen(value:Object):void
+	public function set_screen(value:Object):Object
 	{
 		this._screen = value;
 	}
@@ -114,7 +114,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set events(value:Object):void
+	public function set_events(value:Object):Object
 	{
 		if(!value)
 		{
@@ -142,7 +142,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set properties(value:Object):void
+	public function set_properties(value:Object):Object
 	{
 		if(!value)
 		{

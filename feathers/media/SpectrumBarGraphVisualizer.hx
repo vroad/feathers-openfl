@@ -92,7 +92,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set barCount(value:int):void
+	public function set_barCount(value:int):int
 	{
 		if(value > MAX_BAR_COUNT)
 		{
@@ -126,7 +126,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set_gap(value:Number):Number
 	{
 		if(this._gap == value)
 		{
@@ -152,7 +152,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set color(value:uint):void
+	public function set_color(value:uint):uint
 	{
 		if(this._color == value)
 		{
@@ -178,7 +178,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{

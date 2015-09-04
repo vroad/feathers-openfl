@@ -736,7 +736,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set scaleContent(value:Boolean):void
+	public function set_scaleContent(value:Boolean):Boolean
 	{
 		if(this._scaleContent == value)
 		{
@@ -826,7 +826,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set scaleMode(value:String):void
+	public function set_scaleMode(value:String):String
 	{
 		if(this._scaleMode == value)
 		{
@@ -871,7 +871,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set horizontalAlign(value:String):void
+	public function set_horizontalAlign(value:String):String
 	{
 		if(this._horizontalAlign == value)
 		{
@@ -916,7 +916,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set verticalAlign(value:String):void
+	public function set_verticalAlign(value:String):String
 	{
 		if(this._verticalAlign == value)
 		{

@@ -96,7 +96,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set screen(value:Object):void
+	public function set_screen(value:Object):Object
 	{
 		this._screen = value;
 	}
@@ -128,7 +128,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set pushEvents(value:Object):void
+	public function set_pushEvents(value:Object):Object
 	{
 		if(!value)
 		{
@@ -210,7 +210,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set properties(value:Object):void
+	public function set_properties(value:Object):Object
 	{
 		if(!value)
 		{
@@ -278,7 +278,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set pushTransition(value:Function):void
+	public function set_pushTransition(value:Function):Function
 	{
 		this._pushTransition = value;
 	}
@@ -342,7 +342,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popTransition(value:Function):void
+	public function set_popTransition(value:Function):Function
 	{
 		this._popTransition = value;
 	}

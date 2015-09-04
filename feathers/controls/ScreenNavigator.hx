@@ -132,7 +132,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set transition(value:Function):void
+	public function set_transition(value:Function):Function
 	{
 		if(this._transition == value)
 		{

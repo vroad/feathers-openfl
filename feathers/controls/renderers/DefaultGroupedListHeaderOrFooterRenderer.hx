@@ -154,7 +154,7 @@ import starling.display.DisplayObject;
 	/**
 	 * @private
 	 */
-	private function set contentLabelName(value:String):void
+	private function set_contentLabelName(value:String):String
 	{
 		this.contentLabelStyleName = value;
 	}

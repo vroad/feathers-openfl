@@ -291,7 +291,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	private function set onLabelName(value:String):void
+	private function set_onLabelName(value:String):String
 	{
 		this.onLabelStyleName = value;
 	}
@@ -325,7 +325,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	private function set offLabelName(value:String):void
+	private function set_offLabelName(value:String):String
 	{
 		this.offLabelStyleName = value;
 	}
@@ -363,7 +363,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	private function set onTrackName(value:String):void
+	private function set_onTrackName(value:String):String
 	{
 		this.onTrackStyleName = value;
 	}
@@ -401,7 +401,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	private function set offTrackName(value:String):void
+	private function set_offTrackName(value:String):String
 	{
 		this.offTrackStyleName = value;
 	}
@@ -438,7 +438,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	private function set thumbName(value:String):void
+	private function set_thumbName(value:String):String
 	{
 		this.thumbStyleName = value;
 	}
@@ -1513,7 +1513,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customOnTrackStyleName(value:String):void
+	public function set_customOnTrackStyleName(value:String):String
 	{
 		if(this._customOnTrackStyleName == value)
 		{
@@ -1542,7 +1542,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customOnTrackName(value:String):void
+	public function set_customOnTrackName(value:String):String
 	{
 		this.customOnTrackStyleName = value;
 	}
@@ -1713,7 +1713,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customOffTrackStyleName(value:String):void
+	public function set_customOffTrackStyleName(value:String):String
 	{
 		if(this._customOffTrackStyleName == value)
 		{
@@ -1742,7 +1742,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customOffTrackName(value:String):void
+	public function set_customOffTrackName(value:String):String
 	{
 		this.customOffTrackStyleName = value;
 	}
@@ -1911,7 +1911,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customThumbStyleName(value:String):void
+	public function set_customThumbStyleName(value:String):String
 	{
 		if(this._customThumbStyleName == value)
 		{
@@ -1940,7 +1940,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	/**
 	 * @private
 	 */
-	public function set customThumbName(value:String):void
+	public function set_customThumbName(value:String):String
 	{
 		this.customThumbStyleName = value;
 	}

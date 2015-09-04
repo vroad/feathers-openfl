@@ -24,6 +24,6 @@ public interface IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	function set mediaPlayer(value:IMediaPlayer):void;
+	function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer;
 }
 }

@@ -75,7 +75,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set gap(value:Number):void
+	public function set_gap(value:Number):Number
 	{
 		if(this._gap == value)
 		{
@@ -101,7 +101,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{

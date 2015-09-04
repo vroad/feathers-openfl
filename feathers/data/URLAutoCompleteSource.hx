@@ -113,7 +113,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	public function set urlRequestFunction(value:Function):void
+	public function set_urlRequestFunction(value:Function):Function
 	{
 		if(this._urlRequestFunction === value)
 		{
@@ -157,7 +157,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	/**
 	 * @private
 	 */
-	public function set parseResultFunction(value:Function):void
+	public function set_parseResultFunction(value:Function):Function
 	{
 		if(value === null)
 		{

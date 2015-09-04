@@ -67,7 +67,7 @@ public class FullScreenToggleButton extends ToggleButton implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	public function set mediaPlayer(value:IMediaPlayer):void
+	public function set_mediaPlayer(value:IMediaPlayer):IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{

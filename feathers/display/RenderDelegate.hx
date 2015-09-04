@@ -59,7 +59,7 @@ public class RenderDelegate extends DisplayObject
 	/**
 	 * @private
 	 */
-	public function set target(value:DisplayObject):void
+	public function set_target(value:DisplayObject):DisplayObject
 	{
 		this._target = value;
 	}

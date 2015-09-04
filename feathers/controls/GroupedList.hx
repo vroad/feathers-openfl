@@ -602,7 +602,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set isChildFocusEnabled(value:Boolean):void
+	public function set_isChildFocusEnabled(value:Boolean):Boolean
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -1141,7 +1141,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customItemRendererStyleName(value:String):void
+	public function set_customItemRendererStyleName(value:String):String
 	{
 		if(this._customItemRendererStyleName == value)
 		{
@@ -1170,7 +1170,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set itemRendererName(value:String):void
+	public function set_itemRendererName(value:String):String
 	{
 		this.customItemRendererStyleName = value;
 	}
@@ -1407,7 +1407,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customFirstItemRendererStyleName(value:String):void
+	public function set_customFirstItemRendererStyleName(value:String):String
 	{
 		if(this._customFirstItemRendererStyleName == value)
 		{
@@ -1436,7 +1436,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set firstItemRendererName(value:String):void
+	public function set_firstItemRendererName(value:String):String
 	{
 		this.customFirstItemRendererStyleName = value;
 	}
@@ -1582,7 +1582,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customLastItemRendererStyleName(value:String):void
+	public function set_customLastItemRendererStyleName(value:String):String
 	{
 		if(this._customLastItemRendererStyleName == value)
 		{
@@ -1611,7 +1611,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set lastItemRendererName(value:String):void
+	public function set_lastItemRendererName(value:String):String
 	{
 		this.customLastItemRendererStyleName = value;
 	}
@@ -1757,7 +1757,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customSingleItemRendererStyleName(value:String):void
+	public function set_customSingleItemRendererStyleName(value:String):String
 	{
 		if(this._customSingleItemRendererStyleName == value)
 		{
@@ -1786,7 +1786,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set singleItemRendererName(value:String):void
+	public function set_singleItemRendererName(value:String):String
 	{
 		this.customSingleItemRendererStyleName = value;
 	}
@@ -1917,7 +1917,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customHeaderRendererStyleName(value:String):void
+	public function set_customHeaderRendererStyleName(value:String):String
 	{
 		if(this._customHeaderRendererStyleName == value)
 		{
@@ -1946,7 +1946,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set headerRendererName(value:String):void
+	public function set_headerRendererName(value:String):String
 	{
 		this.customHeaderRendererStyleName = value;
 	}
@@ -2167,7 +2167,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set customFooterRendererStyleName(value:String):void
+	public function set_customFooterRendererStyleName(value:String):String
 	{
 		if(this._customFooterRendererStyleName == value)
 		{
@@ -2196,7 +2196,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set footerRendererName(value:String):void
+	public function set_footerRendererName(value:String):String
 	{
 		this.customFooterRendererStyleName = value;
 	}
@@ -2510,7 +2510,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set keyScrollDuration(value:Number):void
+	public function set_keyScrollDuration(value:Number):Number
 	{
 		this._keyScrollDuration = value;
 	}

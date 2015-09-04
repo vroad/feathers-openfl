@@ -196,7 +196,7 @@ public class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set useNative(value:Boolean):void
+	public function set_useNative(value:Boolean):Boolean
 	{
 		if(this.isCreated)
 		{

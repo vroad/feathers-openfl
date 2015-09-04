@@ -246,7 +246,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set titleName(value:String):void
+	private function set_titleName(value:String):String
 	{
 		this.titleStyleName = value;
 	}
@@ -280,7 +280,7 @@ class Header extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function set itemName(value:String):void
+	private function set_itemName(value:String):String
 	{
 		this.itemStyleName = value;
 	}

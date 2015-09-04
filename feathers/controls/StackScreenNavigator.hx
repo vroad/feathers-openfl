@@ -133,7 +133,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set pushTransition(value:Function):void
+	public function set_pushTransition(value:Function):Function
 	{
 		if(this._pushTransition == value)
 		{
@@ -201,7 +201,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set popTransition(value:Function):void
+	public function set_popTransition(value:Function):Function
 	{
 		if(this._popTransition == value)
 		{
@@ -273,7 +273,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set popToRootTransition(value:Function):void
+	public function set_popToRootTransition(value:Function):Function
 	{
 		if(this._popToRootTransition == value)
 		{
@@ -338,7 +338,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set rootScreenID(value:String):void
+	public function set_rootScreenID(value:String):String
 	{
 		if(this._isInitialized)
 		{

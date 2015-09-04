@@ -294,7 +294,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function set headerName(value:String):void
+	private function set_headerName(value:String):String
 	{
 		this.headerStyleName = value;
 	}
@@ -332,7 +332,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	private function set footerName(value:String):void
+	private function set_footerName(value:String):String
 	{
 		this.footerStyleName = value;
 	}
@@ -378,7 +378,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set title(value:String):void
+	public function set_title(value:String):String
 	{
 		if(this._title == value)
 		{
@@ -428,7 +428,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set headerTitleField(value:String):void
+	public function set_headerTitleField(value:String):String
 	{
 		if(this._headerTitleField == value)
 		{
@@ -535,7 +535,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customHeaderStyleName(value:String):void
+	public function set_customHeaderStyleName(value:String):String
 	{
 		if(this._customHeaderStyleName == value)
 		{
@@ -567,7 +567,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customHeaderName(value:String):void
+	public function set_customHeaderName(value:String):String
 	{
 		this.customHeaderStyleName = value;
 	}
@@ -751,7 +751,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customFooterStyleName(value:String):void
+	public function set_customFooterStyleName(value:String):String
 	{
 		if(this._customFooterStyleName == value)
 		{
@@ -783,7 +783,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	/**
 	 * @private
 	 */
-	public function set customFooterName(value:String):void
+	public function set_customFooterName(value:String):String
 	{
 		this.customFooterStyleName = value;
 	}

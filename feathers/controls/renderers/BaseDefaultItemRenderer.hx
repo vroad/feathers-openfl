@@ -283,7 +283,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	private function set iconLabelName(value:String):void
+	private function set_iconLabelName(value:String):String
 	{
 		this.iconLabelStyleName = value;
 	}
@@ -314,7 +314,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	private function set accessoryLabelName(value:String):void
+	private function set_accessoryLabelName(value:String):String
 	{
 		this.accessoryLabelStyleName = value;
 	}
@@ -339,7 +339,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	/**
 	 * @private
 	 */
-	public function set isChildFocusEnabled(value:Boolean):void
+	public function set_isChildFocusEnabled(value:Boolean):Boolean
 	{
 		this._isChildFocusEnabled = value;
 	}

@@ -297,7 +297,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	private function set messageName(value:String):void
+	private function set_messageName(value:String):String
 	{
 		this.messageStyleName = value;
 	}
@@ -631,7 +631,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set customMessageStyleName(value:String):void
+	public function set_customMessageStyleName(value:String):String
 	{
 		if(this._customMessageStyleName == value)
 		{
@@ -712,7 +712,7 @@ class Alert extends Panel
 	/**
 	 * @private
 	 */
-	public function set customButtonGroupStyleName(value:String):void
+	public function set_customButtonGroupStyleName(value:String):String
 	{
 		super.customFooterStyleName = value;
 	}

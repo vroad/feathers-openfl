@@ -809,7 +809,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set antiAliasType(value:String):void
+	public function set_antiAliasType(value:String):String
 	{
 		if(this._antiAliasType == value)
 		{
@@ -850,7 +850,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set gridFitType(value:String):void
+	public function set_gridFitType(value:String):String
 	{
 		if(this._gridFitType == value)
 		{
@@ -890,7 +890,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set sharpness(value:Number):void
+	public function set_sharpness(value:Number):Number
 	{
 		if(this._sharpness == value)
 		{
@@ -930,7 +930,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set thickness(value:Number):void
+	public function set_thickness(value:Number):Number
 	{
 		if(this._thickness == value)
 		{
@@ -969,7 +969,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set background(value:Boolean):void
+	public function set_background(value:Boolean):Boolean
 	{
 		if(this._background == value)
 		{
@@ -1007,7 +1007,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set backgroundColor(value:uint):void
+	public function set_backgroundColor(value:uint):uint
 	{
 		if(this._backgroundColor == value)
 		{
@@ -1048,7 +1048,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set border(value:Boolean):void
+	public function set_border(value:Boolean):Boolean
 	{
 		if(this._border == value)
 		{
@@ -1086,7 +1086,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set borderColor(value:uint):void
+	public function set_borderColor(value:uint):uint
 	{
 		if(this._borderColor == value)
 		{
@@ -1229,7 +1229,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set updateSnapshotOnScaleChange(value:Boolean):void
+	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
@@ -1267,7 +1267,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @private
 	 */
-	public function set useSnapshotDelayWorkaround(value:Boolean):void
+	public function set_useSnapshotDelayWorkaround(value:Boolean):Boolean
 	{
 		if(this._useSnapshotDelayWorkaround == value)
 		{

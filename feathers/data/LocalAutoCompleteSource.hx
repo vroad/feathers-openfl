@@ -75,7 +75,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	/**
 	 * @private
 	 */
-	public function set dataProvider(value:ListCollection):void
+	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		this._dataProvider = value;
 	}
@@ -103,7 +103,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	/**
 	 * @private
 	 */
-	public function set compareFunction(value:Function):void
+	public function set_compareFunction(value:Function):Function
 	{
 		if(value === null)
 		{
