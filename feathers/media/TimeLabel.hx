@@ -84,7 +84,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		if(TimeLabel.globalStyleProvider)
 		{
@@ -101,7 +101,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}
@@ -143,7 +143,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES
 	 */
-	public function get delimiter():String
+	public function get_delimiter():String
 	{
 		return this._delimiter;
 	}
@@ -177,7 +177,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * @see #DISPLAY_MODE_TOTAL_TIME
 	 * @see #DISPLAY_MODE_REMAINING_TIME
 	 */
-	public function get displayMode():String
+	public function get_displayMode():String
 	{
 		return this._displayMode;
 	}
@@ -226,7 +226,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
-	public function get toggleDisplayMode():Boolean
+	public function get_toggleDisplayMode():Boolean
 	{
 		return this._toggleDisplayMode;
 	}

@@ -98,7 +98,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 *
 	 * @default 0
 	 */
-	public function get gap():Number
+	public function get_gap():Number
 	{
 		return this._gap;
 	}
@@ -127,7 +127,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #paddingRight
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get_padding():Number
 	{
 		return this._paddingLeft;
 	}
@@ -151,7 +151,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get_paddingRight():Number
 	{
 		return this._paddingRight;
 	}
@@ -179,7 +179,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get_paddingLeft():Number
 	{
 		return this._paddingLeft;
 	}
@@ -213,7 +213,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 * @see #HORIZONTAL_ALIGN_JUSTIFY
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -241,7 +241,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Boolean
 	{
 		return this._useVirtualLayout;
 	}
@@ -275,7 +275,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 *
 	 * @default 0
 	 */
-	public function get requestedRowCount():int
+	public function get_requestedRowCount():int
 	{
 		return this._requestedRowCount;
 	}
@@ -305,7 +305,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @inheritDoc
 	 */
-	public function get beforeVirtualizedItemCount():int
+	public function get_beforeVirtualizedItemCount():int
 	{
 		return this._beforeVirtualizedItemCount;
 	}
@@ -331,7 +331,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @inheritDoc
 	 */
-	public function get afterVirtualizedItemCount():int
+	public function get_afterVirtualizedItemCount():int
 	{
 		return this._afterVirtualizedItemCount;
 	}
@@ -361,7 +361,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #typicalItemWidth
 	 * @see #typicalItemHeight
 	 */
-	public function get typicalItem():DisplayObject
+	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
 	}
@@ -399,7 +399,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get resetTypicalItemDimensionsOnMeasure():Boolean
+	public function get_resetTypicalItemDimensionsOnMeasure():Boolean
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
 	}
@@ -446,7 +446,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get typicalItemWidth():Number
+	public function get_typicalItemWidth():Number
 	{
 		return this._typicalItemWidth;
 	}
@@ -493,7 +493,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	 * @see #typicalItemWidth
 	 * @see #typicalItem
 	 */
-	public function get typicalItemHeight():Number
+	public function get_typicalItemHeight():Number
 	{
 		return this._typicalItemHeight;
 	}
@@ -514,7 +514,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @copy feathers.layout.ISpinnerLayout#snapInterval
 	 */
-	public function get snapInterval():Number
+	public function get_snapInterval():Number
 	{
 		return this._typicalItem.height + this._gap;
 	}
@@ -522,7 +522,7 @@ public class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLa
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Boolean
 	{
 		return true;
 	}

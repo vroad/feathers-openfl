@@ -538,7 +538,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #horizontalScrollBarStyleName
 	 */
-	private function get horizontalScrollBarName():String
+	private function get_horizontalScrollBarName():String
 	{
 		return this.horizontalScrollBarStyleName;
 	}
@@ -576,7 +576,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #verticalScrollBarStyleName
 	 */
-	private function get verticalScrollBarName():String
+	private function get_verticalScrollBarName():String
 	{
 		return this.verticalScrollBarStyleName;
 	}
@@ -612,7 +612,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get isFocusEnabled():Boolean
+	override public function get_isFocusEnabled():Boolean
 	{
 		return (this._maxVerticalScrollPosition != this._minVerticalScrollPosition ||
 			this._maxHorizontalScrollPosition != this._minHorizontalScrollPosition) &&
@@ -971,7 +971,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalScrollBarFactory
 	 * @see #horizontalScrollBarProperties
 	 */
-	public function get customHorizontalScrollBarStyleName():String
+	public function get_customHorizontalScrollBarStyleName():String
 	{
 		return this._customHorizontalScrollBarStyleName;
 	}
@@ -1000,7 +1000,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #customHorizontalScrollBarName
 	 */
-	public function get customHorizontalScrollBarName():String
+	public function get_customHorizontalScrollBarName():String
 	{
 		return this.customHorizontalScrollBarStyleName;
 	}
@@ -1214,7 +1214,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalScrollBarFactory
 	 * @see #verticalScrollBarProperties
 	 */
-	public function get customVerticalScrollBarStyleName():String
+	public function get_customVerticalScrollBarStyleName():String
 	{
 		return this._customVerticalScrollBarStyleName;
 	}
@@ -1243,7 +1243,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #customVerticalScrollBarStyleName
 	 */
-	public function get customVerticalScrollBarName():String
+	public function get_customVerticalScrollBarName():String
 	{
 		return this.customVerticalScrollBarStyleName;
 	}
@@ -1511,7 +1511,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalPageCount
 	 * @see #maxHorizontalPageIndex
 	 */
-	public function get minHorizontalPageIndex():int
+	public function get_minHorizontalPageIndex():int
 	{
 		return this._minHorizontalPageIndex;
 	}
@@ -1529,7 +1529,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalPageCount
 	 * @see #minHorizontalPageIndex
 	 */
-	public function get maxHorizontalPageIndex():int
+	public function get_maxHorizontalPageIndex():int
 	{
 		return this._maxHorizontalPageIndex;
 	}
@@ -1811,7 +1811,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalPageCount
 	 * @see #maxVerticalPageIndex
 	 */
-	public function get minVerticalPageIndex():int
+	public function get_minVerticalPageIndex():int
 	{
 		return this._minVerticalPageIndex;
 	}
@@ -1829,7 +1829,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalPageCount
 	 * @see #minVerticalPageIndex
 	 */
-	public function get maxVerticalPageIndex():int
+	public function get_maxVerticalPageIndex():int
 	{
 		return this._maxVerticalPageIndex;
 	}
@@ -2922,7 +2922,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 * @see #MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL
 	 */
-	public function get verticalMouseWheelScrollDirection():String
+	public function get_verticalMouseWheelScrollDirection():String
 	{
 		return this._verticalMouseWheelScrollDirection;
 	}

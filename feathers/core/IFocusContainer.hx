@@ -28,7 +28,7 @@ public interface IFocusContainer extends IFocusDisplayObject
 	 *
 	 * @see #isFocusEnabled
 	 */
-	function get isChildFocusEnabled():Boolean;
+	function get_isChildFocusEnabled():Boolean;
 
 	/**
 	 * @private

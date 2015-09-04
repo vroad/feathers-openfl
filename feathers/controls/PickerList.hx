@@ -237,7 +237,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #buttonStyleName
 	 */
-	private function get buttonName():String
+	private function get_buttonName():String
 	{
 		return this.buttonStyleName;
 	}
@@ -275,7 +275,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #listStyleName
 	 */
-	private function get listName():String
+	private function get_listName():String
 	{
 		return this.listStyleName;
 	}
@@ -829,7 +829,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see #buttonProperties
 	 */
-	public function get customButtonStyleName():String
+	public function get_customButtonStyleName():String
 	{
 		return this._customButtonStyleName;
 	}
@@ -858,7 +858,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #customButtonStyleName
 	 */
-	public function get customButtonName():String
+	public function get_customButtonName():String
 	{
 		return this.customButtonStyleName;
 	}
@@ -1031,7 +1031,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
-	public function get customListStyleName():String
+	public function get_customListStyleName():String
 	{
 		return this._customListStyleName;
 	}
@@ -1060,7 +1060,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #customListStyleName
 	 */
-	public function get customListName():String
+	public function get_customListName():String
 	{
 		return this.customListStyleName;
 	}

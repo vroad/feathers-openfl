@@ -152,7 +152,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return VolumeSlider.globalStyleProvider;
 	}
@@ -170,7 +170,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}

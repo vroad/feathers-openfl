@@ -345,7 +345,7 @@ public class TextInput extends FeathersControl implements IFocusDisplayObject, I
 	 * 
 	 * @see feathers.core.INativeFocusOwner
 	 */
-	public function get nativeFocus():InteractiveObject
+	public function get_nativeFocus():InteractiveObject
 	{
 		if(this.textEditor is INativeFocusOwner)
 		{

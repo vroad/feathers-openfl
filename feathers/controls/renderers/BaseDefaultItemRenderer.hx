@@ -275,7 +275,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see #iconLabelStyleName
 	 */
-	private function get iconLabelName():String
+	private function get_iconLabelName():String
 	{
 		return this.iconLabelStyleName;
 	}
@@ -306,7 +306,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see #accessoryLabelStyleName
 	 */
-	private function get accessoryLabelName():String
+	private function get_accessoryLabelName():String
 	{
 		return this.accessoryLabelStyleName;
 	}
@@ -331,7 +331,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Boolean
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}

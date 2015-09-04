@@ -238,7 +238,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #titleStyleName
 	 */
-	private function get titleName():String
+	private function get_titleName():String
 	{
 		return this.titleStyleName;
 	}
@@ -272,7 +272,7 @@ class Header extends FeathersControl
 	 *
 	 * @see #itemStyleName
 	 */
-	private function get itemName():String
+	private function get_itemName():String
 	{
 		return this.itemStyleName;
 	}

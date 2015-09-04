@@ -135,7 +135,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
-	public function get isPlaying():Boolean
+	public function get_isPlaying():Boolean
 	{
 		return this._isPlaying;
 	}
@@ -150,7 +150,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
-	public function get currentTime():Number
+	public function get_currentTime():Number
 	{
 		return this._currentTime;
 	}
@@ -165,7 +165,7 @@ public class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMedia
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
-	public function get totalTime():Number
+	public function get_totalTime():Number
 	{
 		return this._totalTime;
 	}

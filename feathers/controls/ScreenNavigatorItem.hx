@@ -74,7 +74,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public function get screen():Object
+	public function get_screen():Object
 	{
 		return this._screen;
 	}
@@ -106,7 +106,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #setFunctionForEvent()
 	 * @see #setScreenIDForEvent()
 	 */
-	public function get events():Object
+	public function get_events():Object
 	{
 		return this._events;
 	}
@@ -134,7 +134,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * property, and a pair's value is the value to be passed to the
 	 * screen's property.
 	 */
-	public function get properties():Object
+	public function get_properties():Object
 	{
 		return this._properties;
 	}
@@ -154,7 +154,7 @@ public class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @inheritDoc
 	 */
-	public function get canDispose():Boolean
+	public function get_canDispose():Boolean
 	{
 		return !(this._screen is DisplayObject);
 	}

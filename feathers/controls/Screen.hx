@@ -213,7 +213,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @inheritDoc
 	 */
-	public function get owner():Object
+	public function get_owner():Object
 	{
 		return this._owner;
 	}

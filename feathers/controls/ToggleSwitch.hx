@@ -283,7 +283,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #onLabelStyleName
 	 */
-	private function get onLabelName():String
+	private function get_onLabelName():String
 	{
 		return this.onLabelStyleName;
 	}
@@ -317,7 +317,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #offLabelStyleName
 	 */
-	private function get offLabelName():String
+	private function get_offLabelName():String
 	{
 		return this.offLabelStyleName;
 	}
@@ -355,7 +355,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #onTrackStyleName
 	 */
-	private function get onTrackName():String
+	private function get_onTrackName():String
 	{
 		return this.onTrackStyleName;
 	}
@@ -393,7 +393,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #offTrackStyleName
 	 */
-	private function get offTrackName():String
+	private function get_offTrackName():String
 	{
 		return this.offTrackStyleName;
 	}
@@ -430,7 +430,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #tabStyleName
 	 */
-	private function get thumbName():String
+	private function get_thumbName():String
 	{
 		return this.thumbStyleName;
 	}
@@ -1505,7 +1505,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #onTrackFactory
 	 * @see #onTrackProperties
 	 */
-	public function get customOnTrackStyleName():String
+	public function get_customOnTrackStyleName():String
 	{
 		return this._customOnTrackStyleName;
 	}
@@ -1534,7 +1534,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #customOnTrackStyleName
 	 */
-	public function get customOnTrackName():String
+	public function get_customOnTrackName():String
 	{
 		return this.customOnTrackStyleName;
 	}
@@ -1705,7 +1705,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #offTrackFactory
 	 * @see #offTrackProperties
 	 */
-	public function get customOffTrackStyleName():String
+	public function get_customOffTrackStyleName():String
 	{
 		return this._customOffTrackStyleName;
 	}
@@ -1734,7 +1734,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #customOffTrackStyleName
 	 */
-	public function get customOffTrackName():String
+	public function get_customOffTrackName():String
 	{
 		return this.customOffTrackStyleName;
 	}
@@ -1903,7 +1903,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
-	public function get customThumbStyleName():String
+	public function get_customThumbStyleName():String
 	{
 		return this._customThumbStyleName;
 	}
@@ -1932,7 +1932,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see #customThumbStyleName
 	 */
-	public function get customThumbName():String
+	public function get_customThumbName():String
 	{
 		return this.customThumbStyleName;
 	}

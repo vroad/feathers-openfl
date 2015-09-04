@@ -70,7 +70,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return PlayPauseToggleButton.globalStyleProvider;
 	}
@@ -83,7 +83,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}
@@ -122,7 +122,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	 * 
 	 * @default true
 	 */
-	public function get touchableWhenPlaying():Boolean
+	public function get_touchableWhenPlaying():Boolean
 	{
 		return this._touchableWhenPlaying;
 	}

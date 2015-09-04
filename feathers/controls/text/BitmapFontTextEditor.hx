@@ -588,7 +588,7 @@ public class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITex
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
-	public function get nativeFocus():InteractiveObject
+	public function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
 	}

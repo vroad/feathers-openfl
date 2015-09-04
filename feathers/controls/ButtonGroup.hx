@@ -271,7 +271,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #buttonStyleName
 	 */
-	private function get buttonName():String
+	private function get_buttonName():String
 	{
 		return this.buttonStyleName;
 	}
@@ -305,7 +305,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #firstButtonStyleName
 	 */
-	private function get firstButtonName():String
+	private function get_firstButtonName():String
 	{
 		return this.firstButtonStyleName;
 	}
@@ -339,7 +339,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #lastButtonStyleName
 	 */
-	private function get lastButtonName():String
+	private function get_lastButtonName():String
 	{
 		return this.lastButtonStyleName;
 	}
@@ -1204,7 +1204,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #DEFAULT_CHILD_STYLE_NAME_BUTTON
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customButtonStyleName():String
+	public function get_customButtonStyleName():String
 	{
 		return this._customButtonStyleName;
 	}
@@ -1233,7 +1233,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customButtonStyleName
 	 */
-	public function get customButtonName():String
+	public function get_customButtonName():String
 	{
 		return this.customButtonStyleName;
 	}
@@ -1271,7 +1271,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customFirstButtonStyleName():String
+	public function get_customFirstButtonStyleName():String
 	{
 		return this._customFirstButtonStyleName;
 	}
@@ -1300,7 +1300,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customFirstButtonStyleName
 	 */
-	public function get customFirstButtonName():String
+	public function get_customFirstButtonName():String
 	{
 		return this.customFirstButtonStyleName;
 	}
@@ -1338,7 +1338,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customLastButtonStyleName():String
+	public function get_customLastButtonStyleName():String
 	{
 		return this._customLastButtonStyleName;
 	}
@@ -1367,7 +1367,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customLastButtonStyleName
 	 */
-	public function get customLastButtonName():String
+	public function get_customLastButtonName():String
 	{
 		return this.customLastButtonStyleName;
 	}

@@ -56,7 +56,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return SpectrumBarGraphVisualizer.globalStyleProvider;
 	}
@@ -84,7 +84,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * The number of bars displayed by the visualizer.
 	 */
-	public function get barCount():int
+	public function get_barCount():int
 	{
 		return this._barCount;
 	}
@@ -118,7 +118,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
-	public function get gap():Number
+	public function get_gap():Number
 	{
 		return this._gap;
 	}
@@ -144,7 +144,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * The color of the bars.
 	 */
-	public function get color():uint
+	public function get_color():uint
 	{
 		return this._color;
 	}
@@ -170,7 +170,7 @@ public class SpectrumBarGraphVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}

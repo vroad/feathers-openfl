@@ -230,7 +230,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return VideoPlayer.globalStyleProvider;
 	}
@@ -261,7 +261,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/SoundTransform.html flash.media.SoundTransform
 	 * @see #event:soundTransformChange feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
 	 */
-	public function get soundTransform():SoundTransform
+	public function get_soundTransform():SoundTransform
 	{
 		if(!this._soundTransform)
 		{
@@ -321,7 +321,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #event:ready starling.events.Event.READY
 	 * @see feathers.controls.ImageLoader
 	 */
-	public function get texture():Texture
+	public function get_texture():Texture
 	{
 		//there can be runtime errors if the texture is rendered before it
 		//is ready, so we must return null until we're sure it's safe
@@ -337,7 +337,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	public function get nativeWidth():Number
+	public function get_nativeWidth():Number
 	{
 		if(this._texture)
 		{
@@ -351,7 +351,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	public function get nativeHeight():Number
+	public function get_nativeHeight():Number
 	{
 		if(this._texture)
 		{
@@ -375,7 +375,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * 
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html flash.net.NetStream
 	 */
-	public function get netStream():NetStream
+	public function get_netStream():NetStream
 	{
 		return this._netStream;
 	}
@@ -397,7 +397,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * 
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#play() Full description of flash.net.NetStream.play() in Adobe's Flash Platform API Reference
 	 */
-	public function get videoSource():String
+	public function get_videoSource():String
 	{
 		return this._videoSource;
 	}
@@ -462,7 +462,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #videoSource
 	 */
-	public function get autoPlay():Boolean
+	public function get_autoPlay():Boolean
 	{
 		return this._autoPlay;
 	}
@@ -490,7 +490,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #toggleFullScreen()
 	 * @see #event:displayStateChange feathers.events.MediaPlayerEventType.DISPLAY_STATE_CHANGE
 	 */
-	public function get isFullScreen():Boolean
+	public function get_isFullScreen():Boolean
 	{
 		return this._isFullScreen;
 	}
@@ -528,7 +528,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/StageDisplayState.html#NORMAL StageDisplayState.NORMAL
 	 * @see #fullScreenDisplayState
 	 */
-	public function get normalDisplayState():String
+	public function get_normalDisplayState():String
 	{
 		return this._normalDisplayState;
 	}
@@ -580,7 +580,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/StageDisplayState.html#NORMAL StageDisplayState.NORMAL
 	 * @see #normalDisplayState
 	 */
-	public function get fullScreenDisplayState():String
+	public function get_fullScreenDisplayState():String
 	{
 		return this._fullScreenDisplayState;
 	}
@@ -622,7 +622,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @default true
 	 */
-	public function get hideRootWhenFullScreen():Boolean
+	public function get_hideRootWhenFullScreen():Boolean
 	{
 		return this._hideRootWhenFullScreen;
 	}
@@ -638,7 +638,7 @@ public class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override public function get hasVisibleArea():Boolean
+	override public function get_hasVisibleArea():Boolean
 	{
 		if(this._isFullScreen)
 		{

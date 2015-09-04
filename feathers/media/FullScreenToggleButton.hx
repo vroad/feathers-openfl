@@ -46,7 +46,7 @@ public class FullScreenToggleButton extends ToggleButton implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return FullScreenToggleButton.globalStyleProvider;
 	}
@@ -59,7 +59,7 @@ public class FullScreenToggleButton extends ToggleButton implements IMediaPlayer
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}

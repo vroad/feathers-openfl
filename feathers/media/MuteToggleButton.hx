@@ -160,7 +160,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return MuteToggleButton.globalStyleProvider;
 	}
@@ -173,7 +173,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}
@@ -212,7 +212,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 *
 	 * @default null
 	 */
-	public function get popUpContentManager():IPopUpContentManager
+	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
 	}
@@ -263,7 +263,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 *
 	 * @see feathers.media.VolumeSlider
 	 */
-	public function get showVolumeSliderOnHover():Boolean
+	public function get_showVolumeSliderOnHover():Boolean
 	{
 		return this._showVolumeSliderOnHover;
 	}
@@ -315,7 +315,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 * @see #showVolumeSliderOnHover
 	 * @see #volumeSliderProperties
 	 */
-	public function get volumeSliderFactory():Function
+	public function get_volumeSliderFactory():Function
 	{
 		return this._volumeSliderFactory;
 	}
@@ -363,7 +363,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 * @see #volumeSliderFactory
 	 * @see #volumeSliderProperties
 	 */
-	public function get customVolumeSliderStyleName():String
+	public function get_customVolumeSliderStyleName():String
 	{
 		return this._customVolumeSliderStyleName;
 	}
@@ -414,7 +414,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 * @see #volumeSliderFactory
 	 * @see feathers.media.VolumeSlider
 	 */
-	public function get volumeSliderProperties():Object
+	public function get_volumeSliderProperties():Object
 	{
 		if(!this._volumeSliderProperties)
 		{

@@ -479,7 +479,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelStyleName
 	 */
-	private function get labelName():String
+	private function get_labelName():String
 	{
 		return this.labelStyleName;
 	}
@@ -2227,7 +2227,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 1
 	 */
-	public function get scaleWhenDown():Number
+	public function get_scaleWhenDown():Number
 	{
 		return this._scaleWhenDown;
 	}
@@ -2255,7 +2255,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @default 1
 	 */
-	public function get scaleWhenHovering():Number
+	public function get_scaleWhenHovering():Number
 	{
 		return this._scaleWhenHovering;
 	}

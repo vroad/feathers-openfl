@@ -248,7 +248,7 @@ public class TextArea extends Scroller implements INativeFocusOwner
 	 *
 	 * @see feathers.core.INativeFocusOwner
 	 */
-	public function get nativeFocus():InteractiveObject
+	public function get_nativeFocus():InteractiveObject
 	{
 		if(this.textEditorViewPort is INativeFocusOwner)
 		{

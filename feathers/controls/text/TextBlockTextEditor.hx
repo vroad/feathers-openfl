@@ -610,7 +610,7 @@ public class TextBlockTextEditor extends TextBlockTextRenderer implements ITextE
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
-	public function get nativeFocus():InteractiveObject
+	public function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
 	}

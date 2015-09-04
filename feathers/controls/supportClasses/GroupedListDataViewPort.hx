@@ -59,7 +59,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _minVisibleWidth:Number = 0;
 
-	public function get minVisibleWidth():Number
+	public function get_minVisibleWidth():Number
 	{
 		return this._minVisibleWidth;
 	}
@@ -80,7 +80,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Number
 	{
 		return this._maxVisibleWidth;
 	}
@@ -103,7 +103,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var explicitVisibleWidth:Number = NaN;
 
-	public function get visibleWidth():Number
+	public function get_visibleWidth():Number
 	{
 		return this.actualVisibleWidth;
 	}
@@ -121,7 +121,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _minVisibleHeight:Number = 0;
 
-	public function get minVisibleHeight():Number
+	public function get_minVisibleHeight():Number
 	{
 		return this._minVisibleHeight;
 	}
@@ -142,7 +142,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Number
 	{
 		return this._maxVisibleHeight;
 	}
@@ -165,7 +165,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var explicitVisibleHeight:Number = NaN;
 
-	public function get visibleHeight():Number
+	public function get_visibleHeight():Number
 	{
 		return this.actualVisibleHeight;
 	}
@@ -183,19 +183,19 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _contentX:Number = 0;
 
-	public function get contentX():Number
+	public function get_contentX():Number
 	{
 		return this._contentX;
 	}
 
 	private var _contentY:Number = 0;
 
-	public function get contentY():Number
+	public function get_contentY():Number
 	{
 		return this._contentY;
 	}
 
-	public function get horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Number
 	{
 		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
@@ -224,7 +224,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 		return itemRendererHeight;
 	}
 
-	public function get verticalScrollStep():Number
+	public function get_verticalScrollStep():Number
 	{
 		var renderers:Vector.<IGroupedListItemRenderer> = this._activeItemRenderers;
 		if(!renderers || renderers.length == 0)
@@ -295,7 +295,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _owner:GroupedList;
 
-	public function get owner():GroupedList
+	public function get_owner():GroupedList
 	{
 		return this._owner;
 	}
@@ -321,7 +321,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _dataProvider:HierarchicalCollection;
 
-	public function get dataProvider():HierarchicalCollection
+	public function get_dataProvider():HierarchicalCollection
 	{
 		return this._dataProvider;
 	}
@@ -361,7 +361,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _isSelectable:Boolean = true;
 
-	public function get isSelectable():Boolean
+	public function get_isSelectable():Boolean
 	{
 		return this._isSelectable;
 	}
@@ -382,21 +382,21 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _selectedGroupIndex:int = -1;
 
-	public function get selectedGroupIndex():int
+	public function get_selectedGroupIndex():int
 	{
 		return this._selectedGroupIndex;
 	}
 
 	private var _selectedItemIndex:int = -1;
 
-	public function get selectedItemIndex():int
+	public function get_selectedItemIndex():int
 	{
 		return this._selectedItemIndex;
 	}
 
 	private var _itemRendererType:Class;
 
-	public function get itemRendererType():Class
+	public function get_itemRendererType():Class
 	{
 		return this._itemRendererType;
 	}
@@ -414,7 +414,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _itemRendererFactory:Function;
 
-	public function get itemRendererFactory():Function
+	public function get_itemRendererFactory():Function
 	{
 		return this._itemRendererFactory;
 	}
@@ -432,7 +432,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customItemRendererStyleName:String;
 
-	public function get customItemRendererStyleName():String
+	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
 	}
@@ -449,7 +449,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _typicalItem:Object = null;
 
-	public function get typicalItem():Object
+	public function get_typicalItem():Object
 	{
 		return this._typicalItem;
 	}
@@ -466,7 +466,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _itemRendererProperties:PropertyProxy;
 
-	public function get itemRendererProperties():PropertyProxy
+	public function get_itemRendererProperties():PropertyProxy
 	{
 		return this._itemRendererProperties;
 	}
@@ -491,7 +491,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _firstItemRendererType:Class;
 
-	public function get firstItemRendererType():Class
+	public function get_firstItemRendererType():Class
 	{
 		return this._firstItemRendererType;
 	}
@@ -509,7 +509,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _firstItemRendererFactory:Function;
 
-	public function get firstItemRendererFactory():Function
+	public function get_firstItemRendererFactory():Function
 	{
 		return this._firstItemRendererFactory;
 	}
@@ -527,7 +527,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customFirstItemRendererStyleName:String;
 
-	public function get customFirstItemRendererStyleName():String
+	public function get_customFirstItemRendererStyleName():String
 	{
 		return this._customFirstItemRendererStyleName;
 	}
@@ -544,7 +544,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _lastItemRendererType:Class;
 
-	public function get lastItemRendererType():Class
+	public function get_lastItemRendererType():Class
 	{
 		return this._lastItemRendererType;
 	}
@@ -562,7 +562,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _lastItemRendererFactory:Function;
 
-	public function get lastItemRendererFactory():Function
+	public function get_lastItemRendererFactory():Function
 	{
 		return this._lastItemRendererFactory;
 	}
@@ -580,7 +580,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customLastItemRendererStyleName:String;
 
-	public function get customLastItemRendererStyleName():String
+	public function get_customLastItemRendererStyleName():String
 	{
 		return this._customLastItemRendererStyleName;
 	}
@@ -597,7 +597,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _singleItemRendererType:Class;
 
-	public function get singleItemRendererType():Class
+	public function get_singleItemRendererType():Class
 	{
 		return this._singleItemRendererType;
 	}
@@ -615,7 +615,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _singleItemRendererFactory:Function;
 
-	public function get singleItemRendererFactory():Function
+	public function get_singleItemRendererFactory():Function
 	{
 		return this._singleItemRendererFactory;
 	}
@@ -633,7 +633,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customSingleItemRendererStyleName:String;
 
-	public function get customSingleItemRendererStyleName():String
+	public function get_customSingleItemRendererStyleName():String
 	{
 		return this._customSingleItemRendererStyleName;
 	}
@@ -650,7 +650,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _headerRendererType:Class;
 
-	public function get headerRendererType():Class
+	public function get_headerRendererType():Class
 	{
 		return this._headerRendererType;
 	}
@@ -668,7 +668,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _headerRendererFactory:Function;
 
-	public function get headerRendererFactory():Function
+	public function get_headerRendererFactory():Function
 	{
 		return this._headerRendererFactory;
 	}
@@ -686,7 +686,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customHeaderRendererStyleName:String;
 
-	public function get customHeaderRendererStyleName():String
+	public function get_customHeaderRendererStyleName():String
 	{
 		return this._customHeaderRendererStyleName;
 	}
@@ -703,7 +703,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _headerRendererProperties:PropertyProxy;
 
-	public function get headerRendererProperties():PropertyProxy
+	public function get_headerRendererProperties():PropertyProxy
 	{
 		return this._headerRendererProperties;
 	}
@@ -728,7 +728,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _footerRendererType:Class;
 
-	public function get footerRendererType():Class
+	public function get_footerRendererType():Class
 	{
 		return this._footerRendererType;
 	}
@@ -746,7 +746,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _footerRendererFactory:Function;
 
-	public function get footerRendererFactory():Function
+	public function get_footerRendererFactory():Function
 	{
 		return this._footerRendererFactory;
 	}
@@ -764,7 +764,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _customFooterRendererStyleName:String;
 
-	public function get customFooterRendererStyleName():String
+	public function get_customFooterRendererStyleName():String
 	{
 		return this._customFooterRendererStyleName;
 	}
@@ -781,7 +781,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _footerRendererProperties:PropertyProxy;
 
-	public function get footerRendererProperties():PropertyProxy
+	public function get_footerRendererProperties():PropertyProxy
 	{
 		return this._footerRendererProperties;
 	}
@@ -809,7 +809,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _layout:ILayout;
 
-	public function get layout():ILayout
+	public function get_layout():ILayout
 	{
 		return this._layout;
 	}
@@ -840,7 +840,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _horizontalScrollPosition:Number = 0;
 
-	public function get horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Number
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -857,7 +857,7 @@ public class GroupedListDataViewPort extends FeathersControl implements IViewPor
 
 	private var _verticalScrollPosition:Number = 0;
 
-	public function get verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Number
 	{
 		return this._verticalScrollPosition;
 	}

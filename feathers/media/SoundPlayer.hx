@@ -188,7 +188,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return SoundPlayer.globalStyleProvider;
 	}
@@ -204,7 +204,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * 
 	 * @see #soundSource
 	 */
-	public function get sound():Sound
+	public function get_sound():Sound
 	{
 		return this._sound;
 	}
@@ -217,7 +217,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * The currently playing <code>flash.media.SoundChannel</code>.
 	 */
-	public function get soundChannel():SoundChannel
+	public function get_soundChannel():SoundChannel
 	{
 		return this._soundChannel;
 	}
@@ -243,7 +243,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequest.html flash.net.URLRequest
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Sound.html flash.media.Sound
 	 */
-	public function get soundSource():Object
+	public function get_soundSource():Object
 	{
 		return this._soundSource;
 	}
@@ -310,7 +310,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * Indicates if the <code>flash.media.Sound</code> object is currently
 	 * loading its content.
 	 */
-	public function get isLoading():Boolean
+	public function get_isLoading():Boolean
 	{
 		return this._isLoading;
 	}
@@ -327,7 +327,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see #event:loadProgress feathers.events.MediaPlayerEventType.LOAD_PROGRESS
 	 * @see #event:loadComplete feathers.events.MediaPlayerEventType.LOAD_COMPLETE
 	 */
-	public function get isLoaded():Boolean
+	public function get_isLoaded():Boolean
 	{
 		return this._isLoaded;
 	}
@@ -348,7 +348,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/SoundTransform.html flash.media.SoundTransform
 	 * @see #event:soundTransformChange feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
 	 */
-	public function get soundTransform():SoundTransform
+	public function get_soundTransform():SoundTransform
 	{
 		if(!this._soundTransform)
 		{
@@ -386,7 +386,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * 
 	 * @see #soundSource
 	 */
-	public function get autoPlay():Boolean
+	public function get_autoPlay():Boolean
 	{
 		return this._autoPlay;
 	}
@@ -417,7 +417,7 @@ public class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * <listing version="3.0">
 	 * soundPlayer.loop = true;</listing>
 	 */
-	public function get loop():Boolean
+	public function get_loop():Boolean
 	{
 		return this._loop;
 	}

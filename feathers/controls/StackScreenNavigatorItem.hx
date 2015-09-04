@@ -88,7 +88,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public function get screen():Object
+	public function get_screen():Object
 	{
 		return this._screen;
 	}
@@ -120,7 +120,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #setFunctionForPushEvent()
 	 * @see #setScreenIDForPushEvent()
 	 */
-	public function get pushEvents():Object
+	public function get_pushEvents():Object
 	{
 		return this._pushEvents;
 	}
@@ -149,7 +149,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopEvent()
 	 * @see #removePopEvent()
 	 */
-	public function get popEvents():Vector.<String>
+	public function get_popEvents():Vector.<String>
 	{
 		return this._popEvents;
 	}
@@ -178,7 +178,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopToRootEvent()
 	 * @see #removePopToRootEvent()
 	 */
-	public function get popToRootEvents():Vector.<String>
+	public function get_popToRootEvents():Vector.<String>
 	{
 		return this._popToRootEvents;
 	}
@@ -202,7 +202,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * property, and a pair's value is the value to be passed to the
 	 * screen's property.
 	 */
-	public function get properties():Object
+	public function get_properties():Object
 	{
 		return this._properties;
 	}
@@ -270,7 +270,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see feathers.controls.StackScreenNavigator#pushTransition
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get pushTransition():Function
+	public function get_pushTransition():Function
 	{
 		return this._pushTransition;
 	}
@@ -334,7 +334,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get popTransition():Function
+	public function get_popTransition():Function
 	{
 		return this._popTransition;
 	}
@@ -350,7 +350,7 @@ public class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @inheritDoc
 	 */
-	public function get canDispose():Boolean
+	public function get_canDispose():Boolean
 	{
 		return !(this._screen is DisplayObject);
 	}

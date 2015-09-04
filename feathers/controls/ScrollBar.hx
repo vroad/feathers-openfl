@@ -368,7 +368,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #minimumTrackStyleName
 	 */
-	private function get minimumTrackName():String
+	private function get_minimumTrackName():String
 	{
 		return this.minimumTrackStyleName;
 	}
@@ -406,7 +406,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #maximumTrackStyleName
 	 */
-	private function get maximumTrackName():String
+	private function get_maximumTrackName():String
 	{
 		return this.maximumTrackStyleName;
 	}
@@ -443,7 +443,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #thumbStyleName
 	 */
-	private function get thumbName():String
+	private function get_thumbName():String
 	{
 		return this.thumbStyleName;
 	}
@@ -481,7 +481,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #decrementButtonStyleName
 	 */
-	private function get decrementButtonName():String
+	private function get_decrementButtonName():String
 	{
 		return this.decrementButtonStyleName;
 	}
@@ -519,7 +519,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #incrementButtonStyleName
 	 */
-	private function get incrementButtonName():String
+	private function get_incrementButtonName():String
 	{
 		return this.incrementButtonStyleName;
 	}
@@ -1205,7 +1205,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
-	public function get customMinimumTrackStyleName():String
+	public function get_customMinimumTrackStyleName():String
 	{
 		return this._customMinimumTrackStyleName;
 	}
@@ -1234,7 +1234,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customMinimumTrackStyleName
 	 */
-	public function get customMinimumTrackName():String
+	public function get_customMinimumTrackName():String
 	{
 		return this.customMinimumTrackStyleName;
 	}
@@ -1407,7 +1407,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
-	public function get customMaximumTrackStyleName():String
+	public function get_customMaximumTrackStyleName():String
 	{
 		return this._customMaximumTrackStyleName;
 	}
@@ -1436,7 +1436,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customMaximumTrackStyleName
 	 */
-	public function get customMaximumTrackName():String
+	public function get_customMaximumTrackName():String
 	{
 		return this.customMaximumTrackStyleName;
 	}
@@ -1609,7 +1609,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
-	public function get customThumbStyleName():String
+	public function get_customThumbStyleName():String
 	{
 		return this._customThumbStyleName;
 	}
@@ -1638,7 +1638,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customThumbStyleName
 	 */
-	public function get customThumbName():String
+	public function get_customThumbName():String
 	{
 		return this.customThumbStyleName;
 	}
@@ -1811,7 +1811,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #decrementButtonFactory
 	 * @see #decrementButtonProperties
 	 */
-	public function get customDecrementButtonStyleName():String
+	public function get_customDecrementButtonStyleName():String
 	{
 		return this._customDecrementButtonStyleName;
 	}
@@ -1840,7 +1840,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customDecrementButtonStyleName
 	 */
-	public function get customDecrementButtonName():String
+	public function get_customDecrementButtonName():String
 	{
 		return this.customDecrementButtonStyleName;
 	}
@@ -2014,7 +2014,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #incrementButtonFactory
 	 * @see #incrementButtonProperties
 	 */
-	public function get customIncrementButtonStyleName():String
+	public function get_customIncrementButtonStyleName():String
 	{
 		return this._customIncrementButtonStyleName;
 	}
@@ -2043,7 +2043,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customIncrementButtonStyleName
 	 */
-	public function get customIncrementButtonName():String
+	public function get_customIncrementButtonName():String
 	{
 		return this.customIncrementButtonStyleName;
 	}

@@ -287,7 +287,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Boolean
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -360,7 +360,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
-	public function get autoSizeMode():String
+	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;
 	}
@@ -398,7 +398,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	/**
 	 * @private
 	 */
-	override public function get numChildren():int
+	override public function get_numChildren():int
 	{
 		if(!this.displayListBypassEnabled)
 		{

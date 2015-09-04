@@ -232,7 +232,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
-	public function get nativeFocus():InteractiveObject
+	public function get_nativeFocus():InteractiveObject
 	{
 		return this.textField;
 	}
@@ -801,7 +801,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html flash.text.AntiAliasType
 	 * @see #embedFonts
 	 */
-	public function get antiAliasType():String
+	public function get_antiAliasType():String
 	{
 		return this._antiAliasType;
 	}
@@ -842,7 +842,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html flash.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public function get gridFitType():String
+	public function get_gridFitType():String
 	{
 		return this._gridFitType;
 	}
@@ -882,7 +882,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#sharpness Full description of flash.text.TextField.sharpness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get sharpness():Number
+	public function get_sharpness():Number
 	{
 		return this._sharpness;
 	}
@@ -922,7 +922,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#thickness Full description of flash.text.TextField.thickness in Adobe's Flash Platform API Reference
 	 * @see #antiAliasType
 	 */
-	public function get thickness():Number
+	public function get_thickness():Number
 	{
 		return this._thickness;
 	}
@@ -961,7 +961,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get background():Boolean
+	public function get_background():Boolean
 	{
 		return this._background;
 	}
@@ -999,7 +999,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#backgroundColor Full description of flash.text.TextField.backgroundColor in Adobe's Flash Platform API Reference
 	 * @see #background
 	 */
-	public function get backgroundColor():uint
+	public function get_backgroundColor():uint
 	{
 		return this._backgroundColor;
 	}
@@ -1040,7 +1040,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get border():Boolean
+	public function get_border():Boolean
 	{
 		return this._border;
 	}
@@ -1078,7 +1078,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#borderColor Full description of flash.text.TextField.borderColor in Adobe's Flash Platform API Reference
 	 * @see #border
 	 */
-	public function get borderColor():uint
+	public function get_borderColor():uint
 	{
 		return this._borderColor;
 	}
@@ -1221,7 +1221,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 *
 	 * @default false
 	 */
-	public function get updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Boolean
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1259,7 +1259,7 @@ public class TextFieldTextEditor extends FeathersControl implements ITextEditor,
 	 *
 	 * @default false
 	 */
-	public function get useSnapshotDelayWorkaround():Boolean
+	public function get_useSnapshotDelayWorkaround():Boolean
 	{
 		return this._useSnapshotDelayWorkaround;
 	}

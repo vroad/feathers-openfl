@@ -51,7 +51,7 @@ public class RenderDelegate extends DisplayObject
 	/**
 	 * The displaying object being rendered.
 	 */
-	public function get target():DisplayObject
+	public function get_target():DisplayObject
 	{
 		return this._target;
 	}

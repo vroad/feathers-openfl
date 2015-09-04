@@ -98,7 +98,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 * @see #horizontalGap
 	 * @see #verticalGap
 	 */
-	public function get gap():Number
+	public function get_gap():Number
 	{
 		return this._horizontalGap;
 	}
@@ -122,7 +122,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get horizontalGap():Number
+	public function get_horizontalGap():Number
 	{
 		return this._horizontalGap;
 	}
@@ -150,7 +150,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get verticalGap():Number
+	public function get_verticalGap():Number
 	{
 		return this._verticalGap;
 	}
@@ -181,7 +181,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get_padding():Number
 	{
 		return this._paddingTop;
 	}
@@ -207,7 +207,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get_paddingTop():Number
 	{
 		return this._paddingTop;
 	}
@@ -235,7 +235,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get_paddingRight():Number
 	{
 		return this._paddingRight;
 	}
@@ -263,7 +263,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get_paddingBottom():Number
 	{
 		return this._paddingBottom;
 	}
@@ -291,7 +291,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get_paddingLeft():Number
 	{
 		return this._paddingLeft;
 	}
@@ -324,7 +324,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -361,7 +361,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default 0
 	 */
-	public function get requestedColumnCount():int
+	public function get_requestedColumnCount():int
 	{
 		return this._requestedColumnCount;
 	}
@@ -393,7 +393,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Boolean
 	{
 		return this._useVirtualLayout;
 	}
@@ -419,7 +419,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function get typicalItem():DisplayObject
+	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
 	}
@@ -449,7 +449,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	 *
 	 * @default true
 	 */
-	public function get hasVariableItemDimensions():Boolean
+	public function get_hasVariableItemDimensions():Boolean
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -470,7 +470,7 @@ public class WaterfallLayout extends EventDispatcher implements IVariableVirtual
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Boolean
 	{
 		return this._useVirtualLayout;
 	}

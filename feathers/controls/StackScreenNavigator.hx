@@ -69,7 +69,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return StackScreenNavigator.globalStyleProvider;
 	}
@@ -125,7 +125,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 * @see #pushScreen()
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get pushTransition():Function
+	public function get_pushTransition():Function
 	{
 		return this._pushTransition;
 	}
@@ -193,7 +193,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 * @see #popScreen()
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get popTransition():Function
+	public function get_popTransition():Function
 	{
 		return this._popTransition;
 	}
@@ -265,7 +265,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 * @see #popToRootScreen()
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get popToRootTransition():Function
+	public function get_popToRootTransition():Function
 	{
 		return this._popToRootTransition;
 	}
@@ -322,7 +322,7 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #popToRootScreen()
 	 */
-	public function get rootScreenID():String
+	public function get_rootScreenID():String
 	{
 		if(this._tempRootScreenID !== null)
 		{

@@ -92,7 +92,7 @@ class ScreenSlidingStackTransitionManager
 	 *
 	 * @default 0.25
 	 */
-	public function get duration():Number
+	public function get_duration():Number
 	{
 		return this._duration;
 	}
@@ -123,7 +123,7 @@ class ScreenSlidingStackTransitionManager
 	 *
 	 * @default 0.1
 	 */
-	public function get delay():Number
+	public function get_delay():Number
 	{
 		return this._delay;
 	}
@@ -152,7 +152,7 @@ class ScreenSlidingStackTransitionManager
 	 *
 	 * @default starling.animation.Transitions.EASE_OUT
 	 */
-	public function get ease():Object
+	public function get_ease():Object
 	{
 		return this._ease;
 	}

@@ -355,7 +355,7 @@ class LayoutGroup extends FeathersControl
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
-	public function get autoSizeMode():String
+	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;
 	}

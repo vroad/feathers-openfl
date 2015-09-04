@@ -179,7 +179,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * The string identifier for the currently active screen.
 	 */
-	public function get activeScreenID():String
+	public function get_activeScreenID():String
 	{
 		return this._activeScreenID;
 	}
@@ -192,7 +192,7 @@ public class BaseScreenNavigator extends FeathersControl
 	/**
 	 * A reference to the currently active screen.
 	 */
-	public function get activeScreen():DisplayObject
+	public function get_activeScreen():DisplayObject
 	{
 		return this._activeScreen;
 	}
@@ -243,7 +243,7 @@ public class BaseScreenNavigator extends FeathersControl
 	 *
 	 * @default false
 	 */
-	public function get clipContent():Boolean
+	public function get_clipContent():Boolean
 	{
 		return this._clipContent;
 	}
@@ -286,7 +286,7 @@ public class BaseScreenNavigator extends FeathersControl
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
-	public function get autoSizeMode():String
+	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;
 	}
@@ -334,7 +334,7 @@ public class BaseScreenNavigator extends FeathersControl
 	 * Indicates whether the screen navigator is currently transitioning
 	 * between screens.
 	 */
-	public function get isTransitionActive():Boolean
+	public function get_isTransitionActive():Boolean
 	{
 		return this._isTransitionActive;
 	}

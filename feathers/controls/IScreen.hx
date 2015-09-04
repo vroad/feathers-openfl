@@ -31,7 +31,7 @@ interface IScreen extends IFeathersControl
 	/**
 	 * The screen navigator that is currently displaying this screen.
 	 */
-	function get owner():Object;
+	function get_owner():Object;
 
 	/**
 	 * @private

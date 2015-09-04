@@ -342,7 +342,7 @@ public class List extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Boolean
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -1045,7 +1045,7 @@ public class List extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customItemRendererStyleName():String
+	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
 	}
@@ -1074,7 +1074,7 @@ public class List extends Scroller implements IFocusContainer
 	 *
 	 * @see #customItemRendererStyleName
 	 */
-	public function get itemRendererName():String
+	public function get_itemRendererName():String
 	{
 		return this.customItemRendererStyleName;
 	}
@@ -1196,7 +1196,7 @@ public class List extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
-	public function get keyScrollDuration():Number
+	public function get_keyScrollDuration():Number
 	{
 		return this._keyScrollDuration;
 	}

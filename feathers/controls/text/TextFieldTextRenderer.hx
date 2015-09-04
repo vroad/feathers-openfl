@@ -1067,7 +1067,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Boolean
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1105,7 +1105,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get useSnapshotDelayWorkaround():Boolean
+	public function get_useSnapshotDelayWorkaround():Boolean
 	{
 		return this._useSnapshotDelayWorkaround;
 	}

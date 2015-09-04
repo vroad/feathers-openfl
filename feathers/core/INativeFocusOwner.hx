@@ -27,6 +27,6 @@ public interface INativeFocusOwner extends IFocusDisplayObject
 	 * like any other display object that may receive focus but doesn't
 	 * implement <code>INativeFocusOwner</code>.</p>
 	 */
-	function get nativeFocus():InteractiveObject;
+	function get_nativeFocus():InteractiveObject;
 }
 }

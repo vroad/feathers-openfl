@@ -1136,7 +1136,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Boolean
 	{
 		return this._updateSnapshotOnScaleChange;
 	}

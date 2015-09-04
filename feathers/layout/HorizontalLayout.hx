@@ -551,7 +551,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
-	public function get requestedColumnCount():int
+	public function get_requestedColumnCount():int
 	{
 		return this._requestedColumnCount;
 	}
@@ -587,7 +587,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default false
 	 */
-	public function get distributeWidths():Boolean
+	public function get_distributeWidths():Boolean
 	{
 		return this._distributeWidths;
 	}

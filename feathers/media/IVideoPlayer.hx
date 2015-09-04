@@ -43,13 +43,13 @@ public interface IVideoPlayer extends IAudioPlayer
 	 * 
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	function get nativeWidth():Number;
+	function get_nativeWidth():Number;
 	
 	/**
 	 * The original, native height of the loaded video.
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
-	function get nativeHeight():Number;
+	function get_nativeHeight():Number;
 }
 }

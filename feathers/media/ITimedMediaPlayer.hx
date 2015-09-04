@@ -112,21 +112,21 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
-	function get currentTime():Number;
+	function get_currentTime():Number;
 
 	/**
 	 * The maximum position of the playhead, in seconds.
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
-	function get totalTime():Number;
+	function get_totalTime():Number;
 
 	/**
 	 * Determines if the media content is currently playing.
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
-	function get isPlaying():Boolean;
+	function get_isPlaying():Boolean;
 
 	/**
 	 * Toggles the media content between playing and paused states.

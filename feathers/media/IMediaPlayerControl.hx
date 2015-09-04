@@ -19,7 +19,7 @@ public interface IMediaPlayerControl
 	/**
 	 * The media player that this component controls.
 	 */
-	function get mediaPlayer():IMediaPlayer;
+	function get_mediaPlayer():IMediaPlayer;
 
 	/**
 	 * @private

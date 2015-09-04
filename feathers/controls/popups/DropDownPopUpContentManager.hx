@@ -142,7 +142,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default false
 	 */
-	public function get isModal():Boolean
+	public function get_isModal():Boolean
 	{
 		return this._isModal;
 	}
@@ -184,7 +184,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 * 
 	 * @see feathers.core.PopUpManager#overlayFactory
 	 */
-	public function get overlayFactory():Function
+	public function get_overlayFactory():Function
 	{
 		return this._overlayFactory;
 	}
@@ -233,7 +233,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 * @see #PRIMARY_DIRECTION_DOWN
 	 * @see #PRIMARY_DIRECTION_UP
 	 */
-	public function get primaryDirection():String
+	public function get_primaryDirection():String
 	{
 		return this._primaryDirection;
 	}
@@ -258,7 +258,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default true
 	 */
-	public function get fitContentMinWidthToOrigin():Boolean
+	public function get_fitContentMinWidthToOrigin():Boolean
 	{
 		return this._fitContentMinWidthToOrigin;
 	}

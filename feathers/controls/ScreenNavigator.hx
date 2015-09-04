@@ -124,7 +124,7 @@ public class ScreenNavigator extends BaseScreenNavigator
 	 * @see #clearScreen()
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get transition():Function
+	public function get_transition():Function
 	{
 		return this._transition;
 	}

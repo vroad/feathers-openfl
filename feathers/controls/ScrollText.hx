@@ -700,7 +700,7 @@ public class ScrollText extends Scroller
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#cacheAsBitmap Full description of flash.display.DisplayObject.cacheAsBitmap in Adobe's Flash Platform API Reference
 	 */
-	public function get cacheAsBitmap():Boolean
+	public function get_cacheAsBitmap():Boolean
 	{
 		return this._cacheAsBitmap;
 	}

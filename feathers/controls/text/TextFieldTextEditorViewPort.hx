@@ -65,7 +65,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get minVisibleWidth():Number
+	public function get_minVisibleWidth():Number
 	{
 		return this._minVisibleWidth;
 	}
@@ -95,7 +95,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Number
 	{
 		return this._maxVisibleWidth;
 	}
@@ -125,7 +125,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get visibleWidth():Number
+	public function get_visibleWidth():Number
 	{
 		return this._visibleWidth;
 	}
@@ -152,7 +152,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get minVisibleHeight():Number
+	public function get_minVisibleHeight():Number
 	{
 		return this._minVisibleHeight;
 	}
@@ -182,7 +182,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Number
 	{
 		return this._maxVisibleHeight;
 	}
@@ -212,7 +212,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get visibleHeight():Number
+	public function get_visibleHeight():Number
 	{
 		return this._visibleHeight;
 	}
@@ -231,12 +231,12 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
-	public function get contentX():Number
+	public function get_contentX():Number
 	{
 		return 0;
 	}
 
-	public function get contentY():Number
+	public function get_contentY():Number
 	{
 		return 0;
 	}
@@ -249,7 +249,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Number
 	{
 		return this._scrollStep;
 	}
@@ -257,7 +257,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get verticalScrollStep():Number
+	public function get_verticalScrollStep():Number
 	{
 		return this._scrollStep;
 	}
@@ -270,7 +270,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Number
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -293,7 +293,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @inheritDoc
 	 */
-	public function get verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Number
 	{
 		return this._verticalScrollPosition;
 	}
@@ -316,7 +316,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	/**
 	 * @private
 	 */
-	override public function get baseline():Number
+	override public function get_baseline():Number
 	{
 		return super.baseline + this._paddingTop + this._verticalScrollPosition;
 	}
@@ -334,7 +334,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get_padding():Number
 	{
 		return this._paddingTop;
 	}
@@ -361,7 +361,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get_paddingTop():Number
 	{
 		return this._paddingTop;
 	}
@@ -390,7 +390,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get_paddingRight():Number
 	{
 		return this._paddingRight;
 	}
@@ -419,7 +419,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get_paddingBottom():Number
 	{
 		return this._paddingBottom;
 	}
@@ -448,7 +448,7 @@ public class TextFieldTextEditorViewPort extends TextFieldTextEditor implements 
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get_paddingLeft():Number
 	{
 		return this._paddingLeft;
 	}

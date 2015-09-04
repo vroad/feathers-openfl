@@ -105,7 +105,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequest.html Full description of flash.net.URLRequest in Adobe's Flash Platform API Reference
 	 * @see #parseResultFunction
 	 */
-	public function get urlRequestFunction():Function
+	public function get_urlRequestFunction():Function
 	{
 		return this._urlRequestFunction;
 	}
@@ -149,7 +149,7 @@ public class URLAutoCompleteSource extends EventDispatcher implements IAutoCompl
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/JSON.html#parse() Full description of JSON.parse() in Adobe's Flash Platform API Reference
 	 * @see #urlRequestFunction
 	 */
-	public function get parseResultFunction():Function
+	public function get_parseResultFunction():Function
 	{
 		return this._parseResultFunction;
 	}

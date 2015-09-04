@@ -594,7 +594,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Boolean
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -1133,7 +1133,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customLastItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
-	public function get customItemRendererStyleName():String
+	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
 	}
@@ -1162,7 +1162,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customItemRendererStyleName
 	 */
-	public function get itemRendererName():String
+	public function get_itemRendererName():String
 	{
 		return this.customItemRendererStyleName;
 	}
@@ -1399,7 +1399,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customLastItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
-	public function get customFirstItemRendererStyleName():String
+	public function get_customFirstItemRendererStyleName():String
 	{
 		return this._customFirstItemRendererStyleName;
 	}
@@ -1428,7 +1428,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customFirstItemRendererStyleName
 	 */
-	public function get firstItemRendererName():String
+	public function get_firstItemRendererName():String
 	{
 		return this.customFirstItemRendererStyleName;
 	}
@@ -1574,7 +1574,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customFirstItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
-	public function get customLastItemRendererStyleName():String
+	public function get_customLastItemRendererStyleName():String
 	{
 		return this._customLastItemRendererStyleName;
 	}
@@ -1603,7 +1603,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customLastItemRendererStyleName
 	 */
-	public function get lastItemRendererName():String
+	public function get_lastItemRendererName():String
 	{
 		return this.customLastItemRendererStyleName;
 	}
@@ -1749,7 +1749,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customFirstItemRendererStyleName
 	 * @see #customLastItemRendererStyleName
 	 */
-	public function get customSingleItemRendererStyleName():String
+	public function get_customSingleItemRendererStyleName():String
 	{
 		return this._customSingleItemRendererStyleName;
 	}
@@ -1778,7 +1778,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customLastItemRendererStyleName
 	 */
-	public function get singleItemRendererName():String
+	public function get_singleItemRendererName():String
 	{
 		return this.customSingleItemRendererStyleName;
 	}
@@ -1909,7 +1909,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customHeaderRendererStyleName():String
+	public function get_customHeaderRendererStyleName():String
 	{
 		return this._customHeaderRendererStyleName;
 	}
@@ -1938,7 +1938,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customHeaderRendererStyleName
 	 */
-	public function get headerRendererName():String
+	public function get_headerRendererName():String
 	{
 		return this.customHeaderRendererStyleName;
 	}
@@ -2159,7 +2159,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public function get customFooterRendererStyleName():String
+	public function get_customFooterRendererStyleName():String
 	{
 		return this._customFooterRendererStyleName;
 	}
@@ -2188,7 +2188,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customFooterRendererStyleName
 	 */
-	public function get footerRendererName():String
+	public function get_footerRendererName():String
 	{
 		return this.customFooterRendererStyleName;
 	}
@@ -2502,7 +2502,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
-	public function get keyScrollDuration():Number
+	public function get_keyScrollDuration():Number
 	{
 		return this._keyScrollDuration;
 	}

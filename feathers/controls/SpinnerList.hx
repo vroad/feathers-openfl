@@ -82,7 +82,7 @@ public class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		if(SpinnerList.globalStyleProvider)
 		{
@@ -201,7 +201,7 @@ public class SpinnerList extends List
 	 *
 	 * @default null
 	 */
-	public function get selectionOverlaySkin():DisplayObject
+	public function get_selectionOverlaySkin():DisplayObject
 	{
 		return this._selectionOverlaySkin;
 	}

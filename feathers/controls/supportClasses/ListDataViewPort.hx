@@ -341,7 +341,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _customItemRendererStyleName:String;
 
-	public function get customItemRendererStyleName():String
+	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
 	}

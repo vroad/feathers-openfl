@@ -99,7 +99,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 *
 	 * @default false
 	 */
-	public function get callBeforeOriginalStyleProvider():Boolean
+	public function get_callBeforeOriginalStyleProvider():Boolean
 	{
 		return this._callBeforeOriginalStyleProvider;
 	}

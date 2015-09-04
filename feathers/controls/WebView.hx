@@ -147,7 +147,7 @@ public class WebView extends FeathersControl
 	/**
 	 * Indicates if this component is supported on the current platform.
 	 */
-	public static function get isSupported():Boolean
+	public static function get_isSupported():Boolean
 	{
 		if(!STAGE_WEB_VIEW_CLASS)
 		{
@@ -188,7 +188,7 @@ public class WebView extends FeathersControl
 	 *
 	 * <p>Note: Although it is not prohibited, with some content, failures can occur when the same process uses both the embedded and the system WebKit, so it is recommended that all StageWebViews in a given application be constructed with the same value for useNative. In addition, as HTMLLoader depends on the embedded WebKit, applications using HTMLLoader should only construct StageWebViews with useNative set to false.</p>
 	 */
-	public function get useNative():Boolean
+	public function get_useNative():Boolean
 	{
 		return this._useNative;
 	}
@@ -210,7 +210,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#location Full description of flash.media.StageWebView.location in Adobe's Flash Platform API Reference
 	 */
-	public function get location():String
+	public function get_location():String
 	{
 		if(this.stageWebView)
 		{
@@ -224,7 +224,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#title Full description of flash.media.StageWebView.title in Adobe's Flash Platform API Reference
 	 */
-	public function get title():String
+	public function get_title():String
 	{
 		if(this.stageWebView)
 		{
@@ -238,7 +238,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryBackEnabled Full description of flash.media.StageWebView.isHistoryBackEnabled in Adobe's Flash Platform API Reference
 	 */
-	public function get isHistoryBackEnabled():Boolean
+	public function get_isHistoryBackEnabled():Boolean
 	{
 		if(this.stageWebView)
 		{
@@ -252,7 +252,7 @@ public class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryForwardEnabled Full description of flash.media.StageWebView.isHistoryForwardEnabled in Adobe's Flash Platform API Reference
 	 */
-	public function get isHistoryForwardEnabled():Boolean
+	public function get_isHistoryForwardEnabled():Boolean
 	{
 		if(this.stageWebView)
 		{

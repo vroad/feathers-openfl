@@ -239,7 +239,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * The original screen density used for scaling.
 	 */
-	public function get originalDPI():Int
+	public function get_originalDPI():Int
 	{
 		return this._originalDPI;
 	}
@@ -253,7 +253,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	 * Indicates if the theme scales skins to match the screen density of
 	 * the device.
 	 */
-	public function get scaleToDPI():Bool
+	public function get_scaleToDPI():Bool
 	{
 		return this._scaleToDPI;
 	}

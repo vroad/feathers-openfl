@@ -24,7 +24,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _minVisibleWidth:Number = 0;
 
-	public function get minVisibleWidth():Number
+	public function get_minVisibleWidth():Number
 	{
 		return this._minVisibleWidth;
 	}
@@ -45,7 +45,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _maxVisibleWidth:Number = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleWidth():Number
+	public function get_maxVisibleWidth():Number
 	{
 		return this._maxVisibleWidth;
 	}
@@ -68,7 +68,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _explicitVisibleWidth:Number = NaN;
 
-	public function get visibleWidth():Number
+	public function get_visibleWidth():Number
 	{
 		if(this._explicitVisibleWidth !== this._explicitVisibleWidth) //isNaN
 		{
@@ -90,7 +90,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _minVisibleHeight:Number = 0;
 
-	public function get minVisibleHeight():Number
+	public function get_minVisibleHeight():Number
 	{
 		return this._minVisibleHeight;
 	}
@@ -111,7 +111,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _maxVisibleHeight:Number = Number.POSITIVE_INFINITY;
 
-	public function get maxVisibleHeight():Number
+	public function get_maxVisibleHeight():Number
 	{
 		return this._maxVisibleHeight;
 	}
@@ -134,7 +134,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _explicitVisibleHeight:Number = NaN;
 
-	public function get visibleHeight():Number
+	public function get_visibleHeight():Number
 	{
 		if(this._explicitVisibleHeight !== this._explicitVisibleHeight) //isNaN
 		{
@@ -156,19 +156,19 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _contentX:Number = 0;
 
-	public function get contentX():Number
+	public function get_contentX():Number
 	{
 		return this._contentX;
 	}
 
 	private var _contentY:Number = 0;
 
-	public function get contentY():Number
+	public function get_contentY():Number
 	{
 		return this._contentY;
 	}
 
-	public function get horizontalScrollStep():Number
+	public function get_horizontalScrollStep():Number
 	{
 		if(this.actualWidth < this.actualHeight)
 		{
@@ -177,7 +177,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 		return this.actualHeight / 10;
 	}
 
-	public function get verticalScrollStep():Number
+	public function get_verticalScrollStep():Number
 	{
 		if(this.actualWidth < this.actualHeight)
 		{
@@ -188,7 +188,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _horizontalScrollPosition:Number = 0;
 
-	public function get horizontalScrollPosition():Number
+	public function get_horizontalScrollPosition():Number
 	{
 		return this._horizontalScrollPosition;
 	}
@@ -205,7 +205,7 @@ public class LayoutViewPort extends LayoutGroup implements IViewPort
 
 	private var _verticalScrollPosition:Number = 0;
 
-	public function get verticalScrollPosition():Number
+	public function get_verticalScrollPosition():Number
 	{
 		return this._verticalScrollPosition;
 	}

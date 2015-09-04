@@ -289,7 +289,7 @@ class Alert extends Panel
 	 *
 	 * @see #messageStyleName
 	 */
-	private function get messageName():String
+	private function get_messageName():String
 	{
 		return this.messageStyleName;
 	}
@@ -623,7 +623,7 @@ class Alert extends Panel
 	 * @see #messageFactory
 	 * @see #messageProperties
 	 */
-	public function get customMessageStyleName():String
+	public function get_customMessageStyleName():String
 	{
 		return this._customMessageStyleName;
 	}
@@ -704,7 +704,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #buttonGroupProperties
 	 */
-	public function get customButtonGroupStyleName():String
+	public function get_customButtonGroupStyleName():String
 	{
 		return super.customFooterStyleName;
 	}
@@ -727,7 +727,7 @@ class Alert extends Panel
 	 *
 	 * @see #customButtonGroupStyleName
 	 */
-	public function get customButtonGroupName():String
+	public function get_customButtonGroupName():String
 	{
 		return this.customButtonGroupStyleName;
 	}

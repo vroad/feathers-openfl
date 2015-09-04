@@ -286,7 +286,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #headerStyleName
 	 */
-	private function get headerName():String
+	private function get_headerName():String
 	{
 		return this.headerStyleName;
 	}
@@ -324,7 +324,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #footerStyleName
 	 */
-	private function get footerName():String
+	private function get_footerName():String
 	{
 		return this.footerStyleName;
 	}
@@ -370,7 +370,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerTitleField
 	 * @see #headerFactory
 	 */
-	public function get title():String
+	public function get_title():String
 	{
 		return this._title;
 	}
@@ -420,7 +420,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #title
 	 * @see #headerFactory
 	 */
-	public function get headerTitleField():String
+	public function get_headerTitleField():String
 	{
 		return this._headerTitleField;
 	}
@@ -527,7 +527,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #headerProperties
 	 */
-	public function get customHeaderStyleName():String
+	public function get_customHeaderStyleName():String
 	{
 		return this._customHeaderStyleName;
 	}
@@ -559,7 +559,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #customHeaderStyleName
 	 */
-	public function get customHeaderName():String
+	public function get_customHeaderName():String
 	{
 		return this.customHeaderStyleName;
 	}
@@ -743,7 +743,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #footerProperties
 	 */
-	public function get customFooterStyleName():String
+	public function get_customFooterStyleName():String
 	{
 		return this._customFooterStyleName;
 	}
@@ -775,7 +775,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see #customFooterStyleName
 	 */
-	public function get customFooterName():String
+	public function get_customFooterName():String
 	{
 		return this.customFooterStyleName;
 	}

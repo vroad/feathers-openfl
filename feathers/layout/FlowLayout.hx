@@ -129,7 +129,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 * @see #horizontalGap
 	 * @see #verticalGap
 	 */
-	public function get gap():Number
+	public function get_gap():Number
 	{
 		return this._horizontalGap;
 	}
@@ -153,7 +153,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get horizontalGap():Number
+	public function get_horizontalGap():Number
 	{
 		return this._horizontalGap;
 	}
@@ -181,7 +181,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get verticalGap():Number
+	public function get_verticalGap():Number
 	{
 		return this._verticalGap;
 	}
@@ -212,7 +212,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get_padding():Number
 	{
 		return this._paddingTop;
 	}
@@ -238,7 +238,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get_paddingTop():Number
 	{
 		return this._paddingTop;
 	}
@@ -266,7 +266,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get_paddingRight():Number
 	{
 		return this._paddingRight;
 	}
@@ -294,7 +294,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get_paddingBottom():Number
 	{
 		return this._paddingBottom;
 	}
@@ -322,7 +322,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get_paddingLeft():Number
 	{
 		return this._paddingLeft;
 	}
@@ -358,7 +358,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 * @see #verticalAlign
 	 * @see #rowVerticalAlign
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -394,7 +394,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 * @see #horizontalAlign
 	 * @see #rowVerticalAlign
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
 	}
@@ -430,7 +430,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 * @see #horizontalAlign
 	 * @see #verticalAlign
 	 */
-	public function get rowVerticalAlign():String
+	public function get_rowVerticalAlign():String
 	{
 		return this._rowVerticalAlign;
 	}
@@ -458,7 +458,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default true
 	 */
-	public function get useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Boolean
 	{
 		return this._useVirtualLayout;
 	}
@@ -484,7 +484,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function get typicalItem():DisplayObject
+	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
 	}
@@ -514,7 +514,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @default true
 	 */
-	public function get hasVariableItemDimensions():Boolean
+	public function get_hasVariableItemDimensions():Boolean
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -535,7 +535,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	/**
 	 * @inheritDoc
 	 */
-	public function get requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Boolean
 	{
 		return this._useVirtualLayout;
 	}

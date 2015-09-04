@@ -728,7 +728,7 @@ class ImageLoader extends FeathersControl
 	 * @see #verticalAlign
 	 * @see #maintainAspectRatio
 	 */
-	public function get scaleContent():Boolean
+	public function get_scaleContent():Boolean
 	{
 		return this._scaleContent;
 	}
@@ -818,7 +818,7 @@ class ImageLoader extends FeathersControl
 	 * @see #maintainAspectRatio
 	 * @see http://doc.starling-framework.org/core/starling/utils/ScaleMode.html starling.utils.ScaleMode
 	 */
-	public function get scaleMode():String
+	public function get_scaleMode():String
 	{
 		return this._scaleMode;
 	}
@@ -863,7 +863,7 @@ class ImageLoader extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
-	public function get horizontalAlign():String
+	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
 	}
@@ -908,7 +908,7 @@ class ImageLoader extends FeathersControl
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
-	public function get verticalAlign():String
+	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
 	}

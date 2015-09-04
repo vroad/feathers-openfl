@@ -53,7 +53,7 @@ public class MainMenuScreen extends PanelScreen
 	public var savedSelectedIndex:int = -1;
 	public var savedDataProvider:ListCollection;
 
-	public function get selectedCategory():VideoFeed
+	public function get_selectedCategory():VideoFeed
 	{
 		if(!this._list)
 		{

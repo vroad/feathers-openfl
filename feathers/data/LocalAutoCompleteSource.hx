@@ -67,7 +67,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	 * A collection of items to be used as a source for auto-complete
 	 * results.
 	 */
-	public function get dataProvider():ListCollection
+	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
 	}
@@ -95,7 +95,7 @@ public class LocalAutoCompleteSource extends EventDispatcher implements IAutoCom
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function( item:Object, textToMatch:String ):Boolean</pre>
 	 */
-	public function get compareFunction():Function
+	public function get_compareFunction():Function
 	{
 		return this._compareFunction;
 	}

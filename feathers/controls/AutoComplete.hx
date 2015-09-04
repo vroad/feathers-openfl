@@ -165,7 +165,7 @@ public class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		if(AutoComplete.globalStyleProvider)
 		{
@@ -203,7 +203,7 @@ public class AutoComplete extends TextInput
 	 * 
 	 * @default null
 	 */
-	public function get source():IAutoCompleteSource
+	public function get_source():IAutoCompleteSource
 	{
 		return this._source;
 	}
@@ -246,7 +246,7 @@ public class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
-	public function get autoCompleteDelay():Number
+	public function get_autoCompleteDelay():Number
 	{
 		return this._autoCompleteDelay;
 	}
@@ -278,7 +278,7 @@ public class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
-	public function get minimumAutoCompleteLength():Number
+	public function get_minimumAutoCompleteLength():Number
 	{
 		return this._minimumAutoCompleteLength;
 	}
@@ -306,7 +306,7 @@ public class AutoComplete extends TextInput
 	 *
 	 * @default null
 	 */
-	public function get popUpContentManager():IPopUpContentManager
+	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
 	}
@@ -367,7 +367,7 @@ public class AutoComplete extends TextInput
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
-	public function get listFactory():Function
+	public function get_listFactory():Function
 	{
 		return this._listFactory;
 	}
@@ -414,7 +414,7 @@ public class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
-	public function get customListStyleName():String
+	public function get_customListStyleName():String
 	{
 		return this._customListStyleName;
 	}
@@ -465,7 +465,7 @@ public class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
-	public function get listProperties():Object
+	public function get_listProperties():Object
 	{
 		if(!this._listProperties)
 		{

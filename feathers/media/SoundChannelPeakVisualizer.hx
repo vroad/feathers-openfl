@@ -44,7 +44,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @private
 	 */
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return SoundChannelPeakVisualizer.globalStyleProvider;
 	}
@@ -67,7 +67,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
-	public function get gap():Number
+	public function get_gap():Number
 	{
 		return this._gap;
 	}
@@ -93,7 +93,7 @@ public class SoundChannelPeakVisualizer extends FeathersControl implements IMedi
 	/**
 	 * @inheritDoc
 	 */
-	public function get mediaPlayer():IMediaPlayer
+	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
 	}

@@ -24,7 +24,7 @@ public interface IScreenNavigatorItem
 	 *
 	 * @see #getScreen()
 	 */
-	function get canDispose():Boolean;
+	function get_canDispose():Boolean;
 
 	/**
 	 * Returns a display object instance of this screen.

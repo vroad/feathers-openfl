@@ -53,7 +53,7 @@ public class ListVideosScreen extends PanelScreen
 
 	private var _model:YouTubeModel;
 
-	public function get model():YouTubeModel
+	public function get_model():YouTubeModel
 	{
 		return this._model;
 	}
@@ -75,7 +75,7 @@ public class ListVideosScreen extends PanelScreen
 	private var _loader:URLLoader;
 	private var _savedResult:Object;
 
-	public function get selectedVideo():VideoDetails
+	public function get_selectedVideo():VideoDetails
 	{
 		if(!this._list)
 		{

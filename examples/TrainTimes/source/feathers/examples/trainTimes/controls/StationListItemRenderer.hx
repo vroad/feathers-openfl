@@ -50,7 +50,7 @@ class StationListItemRenderer extends FeathersControl implements IListItemRender
 		this.addEventListener(TouchEvent.TOUCH, touchHandler);
 	}
 
-	override private function get defaultStyleProvider():IStyleProvider
+	override private function get_defaultStyleProvider():IStyleProvider
 	{
 		return StationListItemRenderer.globalStyleProvider;
 	}

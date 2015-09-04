@@ -370,7 +370,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundSkin():DisplayObject
+	public function get_backgroundSkin():DisplayObject
 	{
 		return this._backgroundSkin;
 	}
@@ -409,7 +409,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default null
 	 */
-	public function get backgroundDisabledSkin():DisplayObject
+	public function get_backgroundDisabledSkin():DisplayObject
 	{
 		return this._backgroundDisabledSkin;
 	}
@@ -451,7 +451,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
-	public function get padding():Number
+	public function get_padding():Number
 	{
 		return this._paddingTop;
 	}
@@ -483,7 +483,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingTop():Number
+	public function get_paddingTop():Number
 	{
 		return this._paddingTop;
 	}
@@ -517,7 +517,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingRight():Number
+	public function get_paddingRight():Number
 	{
 		return this._paddingRight;
 	}
@@ -551,7 +551,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingBottom():Number
+	public function get_paddingBottom():Number
 	{
 		return this._paddingBottom;
 	}
@@ -585,7 +585,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
-	public function get paddingLeft():Number
+	public function get_paddingLeft():Number
 	{
 		return this._paddingLeft;
 	}
