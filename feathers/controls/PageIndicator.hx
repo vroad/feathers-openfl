@@ -286,7 +286,7 @@ class PageIndicator extends FeathersControl
 	 */
 	public function set_selectedIndex(value:Int):Int
 	{
-		value = Std.int(Math.max(0, Math.min(value, this._pageCount - 1)));
+		value = Std.Int(Math.max(0, Math.min(value, this._pageCount - 1)));
 		if(this._selectedIndex == value)
 		{
 			return get_selectedIndex();
@@ -946,11 +946,11 @@ class PageIndicator extends FeathersControl
 					{
 						if(HELPER_POINT.y < this.selectedSymbol.y)
 						{
-							this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
+							this.selectedIndex = Std.Int(Math.max(0, this._selectedIndex - 1));
 						}
 						if(HELPER_POINT.y > (this.selectedSymbol.y + this.selectedSymbol.height))
 						{
-							this.selectedIndex = Std.int(Math.min(lastPageIndex, this._selectedIndex + 1));
+							this.selectedIndex = Std.Int(Math.min(lastPageIndex, this._selectedIndex + 1));
 						}
 					}
 				}
@@ -974,11 +974,11 @@ class PageIndicator extends FeathersControl
 					{
 						if(HELPER_POINT.x < this.selectedSymbol.x)
 						{
-							this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
+							this.selectedIndex = Std.Int(Math.max(0, this._selectedIndex - 1));
 						}
 						if(HELPER_POINT.x > (this.selectedSymbol.x + this.selectedSymbol.width))
 						{
-							this.selectedIndex = Std.int(Math.min(lastPageIndex, this._selectedIndex + 1));
+							this.selectedIndex = Std.Int(Math.min(lastPageIndex, this._selectedIndex + 1));
 						}
 					}
 				}

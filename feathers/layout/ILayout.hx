@@ -106,7 +106,7 @@ interface ILayout extends IFeathersEventDispatcher
 	 *
 	 * @see #getNearestScrollPositionForIndex()
 	 */
-	function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>,
+	function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point;
 
 	/**
@@ -127,7 +127,7 @@ interface ILayout extends IFeathersEventDispatcher
 	 *
 	 * @see #getScrollPositionForIndex()
 	 */
-	function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number,
+	function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number,
 		items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 }
 }

@@ -442,7 +442,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 		{
 			super.text = value;
 		}
-		var textLength:int = this._text.length;
+		var textLength:Int = this._text.length;
 		//we need to account for the possibility that the text is in the
 		//middle of being selected when it changes
 		if(this._selectionAnchorIndex > textLength)
@@ -636,7 +636,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			{
 				Starling.current.nativeStage.addChild(this._nativeFocus);
 			}
-			var newIndex:int = -1;
+			var newIndex:Int = -1;
 			if(position)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
@@ -926,7 +926,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfCharIndex(index);
-		cursorX = Std.int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Std.Int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 #if flash
@@ -961,9 +961,9 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	/**
 	 * @private
 	 */
-	private function getCursorIndexFromSelectionRange():int
+	private function getCursorIndexFromSelectionRange():Int
 	{
-		var cursorIndex:int = this._selectionEndIndex;
+		var cursorIndex:Int = this._selectionEndIndex;
 		if(this.touchPointID >= 0 && this._selectionAnchorIndex >= 0 && this._selectionAnchorIndex == this._selectionEndIndex)
 		{
 			cursorIndex = this._selectionBeginIndex;
@@ -1332,7 +1332,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			//ignore new lines
 			return;
 		}
-		var charCode:int = text.charCodeAt(0);
+		var charCode:Int = text.charCodeAt(0);
 		if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
 		{
 			this.replaceSelectedText(text);

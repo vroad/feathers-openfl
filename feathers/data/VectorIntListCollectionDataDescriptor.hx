@@ -27,46 +27,46 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):int
+	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<int>).length;
+		return (data as Vector.<Int>).length;
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int):Object
+	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<int>)[index];
+		return (data as Vector.<Int>)[index];
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):Void
+	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<int>)[index] = item as int;
+		(data as Vector.<Int>)[index] = item as Int;
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):Void
+	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<int>).splice(index, 0, item as int);
+		(data as Vector.<Int>).splice(index, 0, item as Int);
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int):Object
+	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<int>).splice(index, 1)[0];
+		return (data as Vector.<Int>).splice(index, 1)[0];
 	}
 
 	/**
@@ -75,16 +75,16 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	public function removeAll(data:Object):Void
 	{
 		this.checkForCorrectDataType(data);
-		(data as Vector.<int>).length = 0;
+		(data as Vector.<Int>).length = 0;
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):int
+	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
-		return (data as Vector.<int>).indexOf(item as int);
+		return (data as Vector.<Int>).indexOf(item as Int);
 	}
 	
 	/**
@@ -92,7 +92,7 @@ class VectorIntListCollectionDataDescriptor implements IListCollectionDataDescri
 	 */
 	private function checkForCorrectDataType(data:Object):Void
 	{
-		if(!(data is Vector.<int>))
+		if(!(data is Vector.<Int>))
 		{
 			throw new IllegalOperationError("Expected Vector.<int>. Received " + Object(data).constructor + " instead.");
 		}

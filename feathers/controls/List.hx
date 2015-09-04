@@ -1455,18 +1455,18 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, index:int):Void
+	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var newIndices:Vector.<Int> = new <Int>[];
+		var indexCount:Int = this._selectedIndices.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
 			if(currentIndex >= index)
 			{
 				currentIndex++;
@@ -1483,18 +1483,18 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, index:int):Void
+	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Vector.<int> = new <int>[];
-		var indexCount:int = this._selectedIndices.length;
-		for(var i:int = 0; i < indexCount; i++)
+		var newIndices:Vector.<Int> = new <Int>[];
+		var indexCount:Int = this._selectedIndices.length;
+		for(var i:Int = 0; i < indexCount; i++)
 		{
-			var currentIndex:int = this._selectedIndices.getItemAt(i) as int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
 			if(currentIndex == index)
 			{
 				selectionChanged = true;
@@ -1518,13 +1518,13 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
+	private function dataProvider_replaceItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex == -1)
 		{
 			return;
 		}
-		var indexOfIndex:int = this._selectedIndices.getItemIndex(index);
+		var indexOfIndex:Int = this._selectedIndices.getItemIndex(index);
 		if(indexOfIndex >= 0)
 		{
 			this._selectedIndices.removeItemAt(indexOfIndex);

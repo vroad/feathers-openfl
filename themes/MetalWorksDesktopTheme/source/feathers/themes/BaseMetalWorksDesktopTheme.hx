@@ -668,14 +668,14 @@ class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		this.extraSmallGutterSize = Math.round(2 * this.scale);
 		this.smallGutterSize = Math.round(4 * this.scale);
 		this.gutterSize = Math.round(8 * this.scale);
-		this.borderSize = Std.int(Math.max(1, Math.round(1 * this.scale)));
+		this.borderSize = Std.Int(Math.max(1, Math.round(1 * this.scale)));
 		this.controlSize = Math.round(22 * this.scale);
 		this.smallControlSize = Math.round(12 * this.scale);
 		this.calloutBackgroundMinSize = Math.round(5 * this.scale);
 		this.progressBarFillMinSize = Math.round(7 * this.scale);
 		this.scrollBarGutterSize = Math.round(4 * this.scale);
-		this.calloutArrowOverlapGap = Std.int(Math.min(-1, Math.round(-1 * this.scale)));
-		this.focusPaddingSize = Std.int(Math.min(-1, Math.round(-2 * this.scale)));
+		this.calloutArrowOverlapGap = Std.Int(Math.min(-1, Math.round(-1 * this.scale)));
+		this.focusPaddingSize = Std.Int(Math.min(-1, Math.round(-2 * this.scale)));
 		this.buttonMinWidth = this.gridSize * 2 + this.gutterSize;
 		this.wideControlSize = this.gridSize * 4 + this.gutterSize * 3;
 		this.popUpSize = this.gridSize * 10 + this.smallGutterSize * 9;

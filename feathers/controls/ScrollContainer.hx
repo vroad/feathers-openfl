@@ -398,7 +398,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	override public function get_numChildren():int
+	override public function get_numChildren():Int
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -498,7 +498,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	override public function addChildAt(child:DisplayObject, index:int):DisplayObject
+	override public function addChildAt(child:DisplayObject, index:Int):DisplayObject
 	{
 		if(!this.displayListBypassEnabled)
 		{
@@ -598,7 +598,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	{
 		var oldBypass:Bool = this.displayListBypassEnabled;
 		this.displayListBypassEnabled = false;
-		var index:int = super.getChildIndex(child);
+		var index:Int = super.getChildIndex(child);
 		this.displayListBypassEnabled = oldBypass;
 		return index;
 	}

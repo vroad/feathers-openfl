@@ -223,7 +223,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	private var _inactiveRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _activeRenderers:Vector.<IListItemRenderer> = new <IListItemRenderer>[];
 	private var _rendererMap:Dictionary = new Dictionary(true);
-	private var _minimumItemCount:int;
+	private var _minimumItemCount:Int;
 
 	private var _layoutIndexOffset:Int = 0;
 
@@ -583,7 +583,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			0, 0, this.actualVisibleWidth, this.actualVisibleHeight, result);
 	}
 
-	public function getNearestScrollPositionForIndex(index:int, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -709,7 +709,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			}
 			return;
 		}
-		var typicalItemIndex:int = 0;
+		var typicalItemIndex:Int = 0;
 		var newTypicalItemIsInDataProvider:Bool = false;
 		var typicalItem:Object = this._typicalItem;
 		if(typicalItem != null)
@@ -927,7 +927,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			virtualLayout.getVisibleIndicesAtScrollPosition(this._horizontalScrollPosition, this._verticalScrollPosition, HELPER_POINT.x, HELPER_POINT.y, itemCount, HELPER_VECTOR);
 		}
 
-		var unrenderedItemCount:int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
+		var unrenderedItemCount:Int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
 		if(useVirtualLayout && this._typicalItemIsInDataProvider && this._typicalItemRenderer &&
 			HELPER_VECTOR.indexOf(this._typicalItemRenderer.index) >= 0)
 		{
@@ -1099,10 +1099,10 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	{
 		//we may keep around some extra renderers to avoid too much
 		//allocation and garbage collection. they'll be hidden.
-		var itemCount:int = this._inactiveRenderers.length;
+		var itemCount:Int = this._inactiveRenderers.length;
 		if(allowKeep)
 		{
-			var keepCount:int = this._minimumItemCount - this._activeRenderers.length;
+			var keepCount:Int = this._minimumItemCount - this._activeRenderers.length;
 		}
 		else
 		{
@@ -1112,7 +1112,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			keepCount = itemCount;
 		}
-		for(var i:int = 0; i < keepCount; i++)
+		for(var i:Int = 0; i < keepCount; i++)
 		{
 			var renderer:IListItemRenderer = this._inactiveRenderers.shift();
 			if(renderer == null)

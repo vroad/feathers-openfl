@@ -323,7 +323,7 @@ class BaseScreenNavigator extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _waitingForTransitionFrameCount:int = 1;
+	private var _waitingForTransitionFrameCount:Int = 1;
 
 	/**
 	 * @private
@@ -401,7 +401,7 @@ class BaseScreenNavigator extends FeathersControl
 		{
 			result = new <String>[];
 		}
-		var pushIndex:int = 0;
+		var pushIndex:Int = 0;
 		for(var id:String in this._screens)
 		{
 			result[pushIndex] = id;

@@ -1863,18 +1863,18 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
-		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.int(this._minimum)).length, ("" + Std.int(this._maximum)).length), ("" + Std.int(this._step)).length);
+		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.Int(this._minimum)).length, ("" + Std.Int(this._maximum)).length), ("" + Std.Int(this._step)).length);
 
 		//roundToPrecision() helps us to avoid numbers like 1.00000000000000001
 		//caused by the inaccuracies of floating point math.
-		var maxCharactersAfterDecimal:Float = Math.max(Math.max(("" + roundToPrecision(this._minimum - Std.int(this._minimum), 10)).length,
-			("" + roundToPrecision(this._maximum - Std.int(this._maximum), 10)).length),
-			("" + roundToPrecision(this._step - Std.int(this._step), 10)).length) - 2;
+		var maxCharactersAfterDecimal:Float = Math.max(Math.max(("" + roundToPrecision(this._minimum - Std.Int(this._minimum), 10)).length,
+			("" + roundToPrecision(this._maximum - Std.Int(this._maximum), 10)).length),
+			("" + roundToPrecision(this._step - Std.Int(this._step), 10)).length) - 2;
 		if(maxCharactersAfterDecimal < 0)
 		{
 			maxCharactersAfterDecimal = 0;
 		}
-		var characterCount:Int = Std.int(maxCharactersBeforeDecimal + maxCharactersAfterDecimal);
+		var characterCount:Int = Std.Int(maxCharactersBeforeDecimal + maxCharactersAfterDecimal);
 		for(i in 0 ... characterCount)
 		{
 			typicalText += "0";

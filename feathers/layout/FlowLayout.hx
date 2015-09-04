@@ -595,8 +595,8 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var i:int = 0;
-		var itemCount:int = items.length;
+		var i:Int = 0;
+		var itemCount:Int = items.length;
 		var positionY:Number = boundsY + this._paddingTop;
 		var maxItemHeight:Number = 0;
 		var horizontalGap:Number = this._horizontalGap;
@@ -612,7 +612,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			var positionX:Number = boundsX + this._paddingLeft;
 			//we save the items in this row to align them later.
 			this._rowItems.length = 0;
-			var rowItemCount:int = 0;
+			var rowItemCount:Int = 0;
 
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
@@ -743,7 +743,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 				if(horizontalAlignOffsetX != 0)
 				{
-					for(var j:int = 0; j < rowItemCount; j++)
+					for(var j:Int = 0; j < rowItemCount; j++)
 					{
 						item = this._rowItems[j];
 						if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
@@ -847,7 +847,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function measureViewPort(itemCount:int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
+	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -892,7 +892,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 
-		var i:int = 0;
+		var i:Int = 0;
 		var positionY:Number = boundsY + this._paddingTop;
 		var maxItemHeight:Number = 0;
 		var horizontalGap:Number = this._horizontalGap;
@@ -906,7 +906,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			//this section prepares some variables needed for the following loop
 			maxItemHeight = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 			var positionX:Number = boundsX + this._paddingLeft;
-			var rowItemCount:int = 0;
+			var rowItemCount:Int = 0;
 
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
@@ -985,7 +985,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		result = this.calculateMaxScrollYAndRowHeightOfIndex(index, items, x, y, width, height, result);
@@ -1021,7 +1021,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		result = this.calculateMaxScrollYAndRowHeightOfIndex(index, items, x, y, width, height, result);
 		var maxScrollY:Number = result.x;
@@ -1069,7 +1069,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		delete this._widthCache[index];
 		delete this._heightCache[index];
@@ -1084,7 +1084,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		var widthValue:* = item ? item.width: undefined;
 		this._widthCache.splice(index, 0, widthValue);
@@ -1096,7 +1096,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
+	public function removeFromVariableVirtualCacheAtIndex(index:Int):Void
 	{
 		this._widthCache.splice(index, 1);
 		this._heightCache.splice(index, 1);
@@ -1105,7 +1105,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
 	{
 		if(result)
 		{
@@ -1113,7 +1113,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		else
 		{
-			result = new <int>[];
+			result = new <Int>[];
 		}
 		if(!this._useVirtualLayout)
 		{
@@ -1127,9 +1127,9 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var calculatedTypicalItemWidth:Number = this._typicalItem ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 
-		var resultLastIndex:int = 0;
+		var resultLastIndex:Int = 0;
 
-		var i:int = 0;
+		var i:Int = 0;
 		var positionY:Number = this._paddingTop;
 		var maxItemHeight:Number = 0;
 		var horizontalGap:Number = this._horizontalGap;
@@ -1149,7 +1149,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			//this section prepares some variables needed for the following loop
 			maxItemHeight = calculatedTypicalItemHeight;
 			var positionX:Number = this._paddingLeft;
-			var rowItemCount:int = 0;
+			var rowItemCount:Int = 0;
 
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
@@ -1215,7 +1215,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollYAndRowHeightOfIndex(index:int, items:Vector.<DisplayObject>,
+	private function calculateMaxScrollYAndRowHeightOfIndex(index:Int, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		if(!result)
@@ -1238,8 +1238,8 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var verticalGap:Number = this._verticalGap;
 		var maxItemHeight:Number = 0;
 		var positionY:Number = y + this._paddingTop;
-		var i:int = 0;
-		var itemCount:int = items.length;
+		var i:Int = 0;
+		var itemCount:Int = items.length;
 		var isLastRow:Bool = false;
 		do
 		{
@@ -1254,7 +1254,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			//this section prepares some variables needed for the following loop
 			maxItemHeight = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 			var positionX:Number = x + this._paddingLeft;
-			var rowItemCount:int = 0;
+			var rowItemCount:Int = 0;
 			for(; i < itemCount; i++)
 			{
 				var item:DisplayObject = items[i];

@@ -1219,7 +1219,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = Std.int(positionY / this._measureTextField.getLineMetrics(0).height);
+							var lineIndex:Int = Std.Int(positionY / this._measureTextField.getLineMetrics(0).height);
 							try
 							{
 #if flash
@@ -1585,7 +1585,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 #if flash
 		format.italic = this._fontPosture == "italic"/*FontPosture.ITALIC*/;
 #end
-		format.size = Std.int(this._fontSize * nativeScaleFactor);
+		format.size = Std.Int(this._fontSize * nativeScaleFactor);
 #if flash
 		format.bold = this._fontWeight == "bold"/*FontWeight.BOLD*/;
 #end
@@ -1739,7 +1739,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		var bitmapData:BitmapData = null;
 		try
 		{
-			bitmapData= new BitmapData(Std.int(viewPort.width * nativeScaleFactor), Std.int(viewPort.height * nativeScaleFactor), true, 0x00ff00ff);
+			bitmapData= new BitmapData(Std.Int(viewPort.width * nativeScaleFactor), Std.Int(viewPort.height * nativeScaleFactor), true, 0x00ff00ff);
 			this.stageText.drawViewPortToBitmapData(bitmapData);
 		} 
 		catch(error:Error) 
@@ -1749,7 +1749,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 			//snapshot that is half size. it's not ideal, but better than
 			//nothing.
 			bitmapData.dispose();
-			bitmapData = new BitmapData(Std.int(viewPort.width), Std.int(viewPort.height), true, 0x00ff00ff);
+			bitmapData = new BitmapData(Std.Int(viewPort.width), Std.Int(viewPort.height), true, 0x00ff00ff);
 			this.stageText.drawViewPortToBitmapData(bitmapData);
 		}
 
@@ -1886,7 +1886,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 		scaleFactor = Starling.contentScaleFactor;
 		//StageText's fontSize property is an int, so we need to
 		//specifically avoid using Number here.
-		var newFontSize:int = this._fontSize * scaleFactor * smallerGlobalScale;
+		var newFontSize:Int = this._fontSize * scaleFactor * smallerGlobalScale;
 		if(this.stageText.fontSize != newFontSize)
 		{
 			//we need to check if this value has changed because on iOS

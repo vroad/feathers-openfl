@@ -35,7 +35,7 @@ package
             this._starling.supportHighResolutions = true;
             this._starling.start();
 
-            this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, int.MAX_VALUE, true);
+            this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, Int.MAX_VALUE, true);
         }
 
         private function stage_resizeHandler(event:Event):Void

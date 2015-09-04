@@ -150,12 +150,12 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _touchPointID:int = -1;
+	private var _touchPointID:Int = -1;
 
 	/**
 	 * @private
 	 */
-	private var _popUpTouchPointID:int = -1;
+	private var _popUpTouchPointID:Int = -1;
 
 	/**
 	 * @private

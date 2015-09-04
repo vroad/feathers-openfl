@@ -88,7 +88,7 @@ class ScreenDensityScaleFactorManager
 		this.updateStarlingStageDimensions();
 		//this needs top priority because we don't want Starling's listener
 		//to get this event first use have bad dimensions.
-		nativeStage.addEventListener(Event.RESIZE, nativeStage_resizeHandler, false, int.MAX_VALUE, true);
+		nativeStage.addEventListener(Event.RESIZE, nativeStage_resizeHandler, false, Int.MAX_VALUE, true);
 	}
 
 	/**
@@ -121,8 +121,8 @@ class ScreenDensityScaleFactorManager
 			return bucket.scale;
 		}
 		var previousBucket:ScreenDensityBucket = bucket;
-		var bucketCount:int = BUCKETS.length;
-		for(var i:int = 1; i < bucketCount; i++)
+		var bucketCount:Int = BUCKETS.length;
+		for(var i:Int = 1; i < bucketCount; i++)
 		{
 			bucket = BUCKETS[i];
 			if(screenDensity > bucket.density)
@@ -146,14 +146,14 @@ class ScreenDensityScaleFactorManager
 	private function updateStarlingStageDimensions():Void
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
-		var needsToBeDivisibleByTwo:Bool = int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
-		var starlingStageWidth:Number = int(nativeStage.stageWidth / this._calculatedScaleFactor);
+		var needsToBeDivisibleByTwo:Bool = Int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
+		var starlingStageWidth:Number = Int(nativeStage.stageWidth / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageWidth = roundDownToNearest(starlingStageWidth, 2);
 		}
 		this._starling.stage.stageWidth = starlingStageWidth;
-		var starlingStageHeight:Number = int(nativeStage.stageHeight / this._calculatedScaleFactor);
+		var starlingStageHeight:Number = Int(nativeStage.stageHeight / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageHeight = roundDownToNearest(starlingStageHeight, 2);

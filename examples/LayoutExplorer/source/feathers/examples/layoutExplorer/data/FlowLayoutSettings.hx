@@ -8,7 +8,7 @@ class FlowLayoutSettings
 	{
 	}
 
-	public var itemCount:int = 75;
+	public var itemCount:Int = 75;
 	public var horizontalAlign:String = FlowLayout.HORIZONTAL_ALIGN_LEFT;
 	public var verticalAlign:String = FlowLayout.VERTICAL_ALIGN_TOP;
 	public var rowVerticalAlign:String = FlowLayout.VERTICAL_ALIGN_TOP;

@@ -2585,7 +2585,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * <listing version="3.0">
 	 * list.scrollToDisplayIndex( 2 );</listing>
 	 */
-	public function scrollToDisplayIndex(groupIndex:int, itemIndex:int = -1, animationDuration:Number = 0):Void
+	public function scrollToDisplayIndex(groupIndex:Int, itemIndex:Int = -1, animationDuration:Number = 0):Void
 	{
 		//cancel any pending scroll to a different page or scroll position.
 		//we can have only one type of pending scroll at a time.
@@ -2939,10 +2939,10 @@ class GroupedList extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var groupIndex:int = indices[0] as int;
+		var groupIndex:Int = indices[0] as Int;
 		if(indices.length > 1) //adding an item to a group
 		{
-			var itemIndex:int = indices[1] as int;
+			var itemIndex:Int = indices[1] as Int;
 			if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex >= itemIndex)
 			{
 				//adding an item at an index that is less than or equal to
@@ -2968,10 +2968,10 @@ class GroupedList extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var groupIndex:int = indices[0] as int;
+		var groupIndex:Int = indices[0] as Int;
 		if(indices.length > 1) //removing an item from a group
 		{
-			var itemIndex:int = indices[1] as int;
+			var itemIndex:Int = indices[1] as Int;
 			if(this._selectedGroupIndex == groupIndex)
 			{
 				if(this._selectedItemIndex == itemIndex)
@@ -3015,10 +3015,10 @@ class GroupedList extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var groupIndex:int = indices[0] as int;
+		var groupIndex:Int = indices[0] as Int;
 		if(indices.length > 1) //replacing an item from a group
 		{
-			var itemIndex:int = indices[1] as int;
+			var itemIndex:Int = indices[1] as Int;
 			if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex == itemIndex)
 			{
 				//replacing the selected item.

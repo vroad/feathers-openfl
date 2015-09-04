@@ -101,12 +101,12 @@ class TextInputRestrict
 			}
 			else if(this._restrict)
 			{
-				var startIndex:int = 0;
+				var startIndex:Int = 0;
 				var isExcluding:Bool = value.indexOf("^") == 0;
 				this._restrictStartsWithExclude = isExcluding;
 				do
 				{
-					var nextStartIndex:int = value.indexOf("^", startIndex + 1);
+					var nextStartIndex:Int = value.indexOf("^", startIndex + 1);
 					if(nextStartIndex >= 0)
 					{
 						var partialRestrict:String = value.substr(startIndex, nextStartIndex - startIndex);
@@ -133,7 +133,7 @@ class TextInputRestrict
 	/**
 	 * Accepts a character code and determines if it is allowed or not.
 	 */
-	public function isCharacterAllowed(charCode:int):Bool
+	public function isCharacterAllowed(charCode:Int):Bool
 	{
 		if(!this._restricts)
 		{
@@ -142,8 +142,8 @@ class TextInputRestrict
 		var character:String = String.fromCharCode(charCode);
 		var isExcluding:Bool = this._restrictStartsWithExclude;
 		var isIncluded:Bool = isExcluding;
-		var restrictCount:int = this._restricts.length;
-		for(var i:int = 0; i < restrictCount; i++)
+		var restrictCount:Int = this._restricts.length;
+		for(var i:Int = 0; i < restrictCount; i++)
 		{
 			var restrict:RegExp = this._restricts[i];
 			if(isExcluding)
@@ -169,14 +169,14 @@ class TextInputRestrict
 		{
 			return value;
 		}
-		var textLength:int = value.length;
-		var restrictCount:int = this._restricts.length;
-		for(var i:int = 0; i < textLength; i++)
+		var textLength:Int = value.length;
+		var restrictCount:Int = this._restricts.length;
+		for(var i:Int = 0; i < textLength; i++)
 		{
 			var character:String = value.charAt(i);
 			var isExcluding:Bool = this._restrictStartsWithExclude;
 			var isIncluded:Bool = isExcluding;
-			for(var j:int = 0; j < restrictCount; j++)
+			for(var j:Int = 0; j < restrictCount; j++)
 			{
 				var restrict:RegExp = this._restricts[j];
 				if(isExcluding)

@@ -1501,7 +1501,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _minHorizontalPageIndex:int = 0;
+	private var _minHorizontalPageIndex:Int = 0;
 
 	/**
 	 * The minimum horizontal page index that may be displayed by this
@@ -1511,7 +1511,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalPageCount
 	 * @see #maxHorizontalPageIndex
 	 */
-	public function get_minHorizontalPageIndex():int
+	public function get_minHorizontalPageIndex():Int
 	{
 		return this._minHorizontalPageIndex;
 	}
@@ -1519,7 +1519,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _maxHorizontalPageIndex:int = 0;
+	private var _maxHorizontalPageIndex:Int = 0;
 
 	/**
 	 * The maximum horizontal page index that may be displayed by this
@@ -1529,7 +1529,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalPageCount
 	 * @see #minHorizontalPageIndex
 	 */
-	public function get_maxHorizontalPageIndex():int
+	public function get_maxHorizontalPageIndex():Int
 	{
 		return this._maxHorizontalPageIndex;
 	}
@@ -1550,10 +1550,10 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public var horizontalPageCount(get, never):Int;
 	public function get_horizontalPageCount():Int
 	{
-		if(this._maxHorizontalPageIndex == int.MAX_VALUE ||
-			this._minHorizontalPageIndex == int.MIN_VALUE)
+		if(this._maxHorizontalPageIndex == Int.MAX_VALUE ||
+			this._minHorizontalPageIndex == Int.MIN_VALUE)
 		{
-			return int.MAX_VALUE;
+			return Int.MAX_VALUE;
 		}
 		return this._maxHorizontalPageIndex - this._minHorizontalPageIndex + 1;
 	}
@@ -1801,7 +1801,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _minVerticalPageIndex:int = 0;
+	private var _minVerticalPageIndex:Int = 0;
 
 	/**
 	 * The minimum vertical page index that may be displayed by this
@@ -1811,7 +1811,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalPageCount
 	 * @see #maxVerticalPageIndex
 	 */
-	public function get_minVerticalPageIndex():int
+	public function get_minVerticalPageIndex():Int
 	{
 		return this._minVerticalPageIndex;
 	}
@@ -1819,7 +1819,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _maxVerticalPageIndex:int = 0;
+	private var _maxVerticalPageIndex:Int = 0;
 
 	/**
 	 * The maximum vertical page index that may be displayed by this
@@ -1829,7 +1829,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalPageCount
 	 * @see #minVerticalPageIndex
 	 */
-	public function get_maxVerticalPageIndex():int
+	public function get_maxVerticalPageIndex():Int
 	{
 		return this._maxVerticalPageIndex;
 	}
@@ -1850,10 +1850,10 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public var verticalPageCount(get, never):Int;
 	public function get_verticalPageCount():Int
 	{
-		if(this._maxVerticalPageIndex == int.MAX_VALUE ||
-			this._minVerticalPageIndex == int.MIN_VALUE)
+		if(this._maxVerticalPageIndex == Int.MAX_VALUE ||
+			this._minVerticalPageIndex == Int.MIN_VALUE)
 		{
-			return int.MAX_VALUE;
+			return Int.MAX_VALUE;
 		}
 		return this._maxVerticalPageIndex - this._minVerticalPageIndex + 1;
 	}
@@ -3079,7 +3079,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #hasPendingHorizontalPageIndex
 	 */
-	private var pendingHorizontalPageIndex:int;
+	private var pendingHorizontalPageIndex:Int;
 
 	/**
 	 * The pending vertical page index to scroll to after validating. The
@@ -3088,7 +3088,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #hasPendingVerticalPageIndex
 	 */
-	private var pendingVerticalPageIndex:int;
+	private var pendingVerticalPageIndex:Int;
 
 	/**
 	 * The duration of the pending scroll action.
@@ -4000,13 +4000,13 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//so we need a special case to provide a large int value.
 				if(this._minHorizontalScrollPosition == Number.NEGATIVE_INFINITY)
 				{
-					this._minHorizontalPageIndex = int.MIN_VALUE;
+					this._minHorizontalPageIndex = Int.MIN_VALUE;
 				}
 				else
 				{
 					this._minHorizontalPageIndex = 0;
 				}
-				this._maxHorizontalPageIndex = int.MAX_VALUE;
+				this._maxHorizontalPageIndex = Int.MAX_VALUE;
 			}
 			else
 			{
@@ -4028,13 +4028,13 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//so we need a special case to provide a large int value.
 				if(this._minVerticalScrollPosition == Number.NEGATIVE_INFINITY)
 				{
-					this._minVerticalPageIndex = int.MIN_VALUE;
+					this._minVerticalPageIndex = Int.MIN_VALUE;
 				}
 				else
 				{
 					this._minVerticalPageIndex = 0;
 				}
-				this._maxVerticalPageIndex = int.MAX_VALUE;
+				this._maxVerticalPageIndex = Int.MAX_VALUE;
 			}
 			else
 			{
@@ -4087,7 +4087,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				{
 					var adjustedHorizontalScrollPosition:Float = this._horizontalScrollPosition - this._minHorizontalScrollPosition;
 					var unroundedPageIndex:Number = adjustedHorizontalScrollPosition / this.actualPageWidth;
-					var nextPageIndex:int = Math.ceil(unroundedPageIndex);
+					var nextPageIndex:Int = Math.ceil(unroundedPageIndex);
 					if(unroundedPageIndex != nextPageIndex && (nextPageIndex - unroundedPageIndex) < FUZZY_PAGE_SIZE_PADDING)
 					{
 						//we almost always want to round down, but a
@@ -4737,7 +4737,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #scrollToPageIndex()
 	 */
-	private function throwToPage(targetHorizontalPageIndex:int, targetVerticalPageIndex:int, duration:Number = 0.5):Void
+	private function throwToPage(targetHorizontalPageIndex:Int, targetVerticalPageIndex:Int, duration:Number = 0.5):Void
 	{
 		var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 		if(targetHorizontalPageIndex >= this._minHorizontalPageIndex)
@@ -4917,7 +4917,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 			if(snappedPageHorizontalScrollPosition == this._maxHorizontalScrollPosition)
 			{
-				var targetHorizontalPageIndex:int = this._maxHorizontalPageIndex;
+				var targetHorizontalPageIndex:Int = this._maxHorizontalPageIndex;
 			}
 			else
 			{
@@ -5005,7 +5005,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			var targetVerticalPageIndex:Int;
 			if(snappedPageVerticalScrollPosition == this._maxVerticalScrollPosition)
 			{
-				var targetVerticalPageIndex:int = this._maxVerticalPageIndex;
+				var targetVerticalPageIndex:Int = this._maxVerticalPageIndex;
 			}
 			else
 			{

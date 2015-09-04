@@ -206,7 +206,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var touchPointID:int = -1;
+	private var touchPointID:Int = -1;
 
 	/**
 	 * @private
@@ -297,9 +297,9 @@ class TimeLabel extends Label implements IMediaPlayerControl
 		{
 			seconds = -seconds;
 		}
-		var hours:int = int(seconds / 3600);
-		var minutes:int = int(seconds / 60);
-		seconds = int(seconds - (hours * 3600) - (minutes * 60));
+		var hours:Int = Int(seconds / 3600);
+		var minutes:Int = Int(seconds / 60);
+		seconds = Int(seconds - (hours * 3600) - (minutes * 60));
 		var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 		if(hours > 0)
 		{

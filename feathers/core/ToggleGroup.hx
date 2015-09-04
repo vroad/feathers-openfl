@@ -260,7 +260,7 @@ class ToggleGroup extends EventDispatcher
 		{
 			if(this._isSelectionRequired)
 			{
-				var maxSelectedIndex:int = this._items.length - 1;
+				var maxSelectedIndex:Int = this._items.length - 1;
 				if(this._selectedIndex > maxSelectedIndex)
 				{
 					//we want to keep the same index, if possible, but if

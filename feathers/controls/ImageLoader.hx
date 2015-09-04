@@ -1653,7 +1653,7 @@ class ImageLoader extends FeathersControl
 	 */
 	private function isATFURL(sourceURL:String):Bool
 	{
-		var index:int = sourceURL.indexOf("?");
+		var index:Int = sourceURL.indexOf("?");
 		if(index >= 0)
 		{
 			sourceURL = sourceURL.substr(0, index);

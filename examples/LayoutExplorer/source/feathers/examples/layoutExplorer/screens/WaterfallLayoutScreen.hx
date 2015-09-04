@@ -49,7 +49,7 @@ class WaterfallLayoutScreen extends PanelScreen
 		this.snapScrollPositionsToPixels = true;
 
 		var minQuadSize:Number = Math.round(Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 5);
-		for(var i:int = 0; i < this.settings.itemCount; i++)
+		for(var i:Int = 0; i < this.settings.itemCount; i++)
 		{
 			var height:Number = Math.round((minQuadSize + minQuadSize * Math.random()));
 			var quad:Quad = new Quad(minQuadSize, height, 0xff8800);

@@ -426,7 +426,7 @@ class TabBar extends FeathersControl
 		{
 			return;
 		}
-		var oldSelectedIndex:int = this.selectedIndex;
+		var oldSelectedIndex:Int = this.selectedIndex;
 		var oldSelectedItem:Object = this.selectedItem;
 		if(this._dataProvider)
 		{
@@ -1140,7 +1140,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _selectedIndex:int = -1;
+	private var _selectedIndex:Int = -1;
 
 	/**
 	 * The index of the currently selected tab. Returns -1 if no tab is
@@ -1167,7 +1167,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @see #selectedItem
 	 */
-	public function get_selectedIndex():int
+	public function get_selectedIndex():Int
 	{
 		return this._selectedIndex;
 	}
@@ -1175,7 +1175,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_selectedIndex(value:int):int
+	public function set_selectedIndex(value:Int):Int
 	{
 		if(this._selectedIndex == value)
 		{
@@ -1213,7 +1213,7 @@ class TabBar extends FeathersControl
 	 */
 	public function get_selectedItem():Object
 	{
-		var index:int = this.selectedIndex;
+		var index:Int = this.selectedIndex;
 		if(!this._dataProvider || index < 0 || index >= this._dataProvider.length)
 		{
 			return null;
@@ -1696,7 +1696,7 @@ class TabBar extends FeathersControl
 	{
 		var oldIgnoreSelectionChanges:Bool = this._ignoreSelectionChanges;
 		this._ignoreSelectionChanges = true;
-		var oldSelectedIndex:int = this.toggleGroup.selectedIndex;
+		var oldSelectedIndex:Int = this.toggleGroup.selectedIndex;
 		this.toggleGroup.removeAllItems();
 		var temp:Vector.<ToggleButton> = this.inactiveTabs;
 		this.inactiveTabs = this.activeTabs;
@@ -1725,10 +1725,10 @@ class TabBar extends FeathersControl
 		this.activeFirstTab = null;
 		this.activeLastTab = null;
 
-		var pushIndex:int = 0;
-		var itemCount:int = this._dataProvider ? this._dataProvider.length : 0;
-		var lastItemIndex:int = itemCount - 1;
-		for(var i:int = 0; i < itemCount; i++)
+		var pushIndex:Int = 0;
+		var itemCount:Int = this._dataProvider ? this._dataProvider.length : 0;
+		var lastItemIndex:Int = itemCount - 1;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:Object = this._dataProvider.getItemAt(i);
 			if(i == 0)
@@ -1753,7 +1753,7 @@ class TabBar extends FeathersControl
 		this._ignoreSelectionChanges = oldIgnoreSelectionChanges;
 		if(oldSelectedIndex >= 0)
 		{
-			var newSelectedIndex:int = this.activeTabs.length - 1;
+			var newSelectedIndex:Int = this.activeTabs.length - 1;
 			if(oldSelectedIndex < newSelectedIndex)
 			{
 				newSelectedIndex = oldSelectedIndex;
@@ -1773,8 +1773,8 @@ class TabBar extends FeathersControl
 	 */
 	private function clearInactiveTabs():Void
 	{
-		var itemCount:int = this.inactiveTabs.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = this.inactiveTabs.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var tab:ToggleButton = this.inactiveTabs.shift();
 			this.destroyTab(tab);
@@ -1949,7 +1949,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, index:int):Void
+	private function dataProvider_addItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex >= index)
 		{
@@ -1964,7 +1964,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, index:int):Void
+	private function dataProvider_removeItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex > index)
 		{
@@ -1973,9 +1973,9 @@ class TabBar extends FeathersControl
 		}
 		else if(this._selectedIndex == index)
 		{
-			var oldIndex:int = this._selectedIndex;
-			var newIndex:int = oldIndex;
-			var maxIndex:int = this._dataProvider.length - 1;
+			var oldIndex:Int = this._selectedIndex;
+			var newIndex:Int = oldIndex;
+			var maxIndex:Int = this._dataProvider.length - 1;
 			if(newIndex > maxIndex)
 			{
 				newIndex = maxIndex;
@@ -2030,7 +2030,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, index:int):Void
+	private function dataProvider_replaceItemHandler(event:Event, index:Int):Void
 	{
 		if(this._selectedIndex == index)
 		{
@@ -2046,7 +2046,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function dataProvider_updateItemHandler(event:Event, index:int):Void
+	private function dataProvider_updateItemHandler(event:Event, index:Int):Void
 	{
 		//no need to dispatch a change event. the index and the item are the
 		//same. the item's properties have changed, but that doesn't require

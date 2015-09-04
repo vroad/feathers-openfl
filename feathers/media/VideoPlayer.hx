@@ -692,8 +692,8 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 		{
 			this.root.visible = true;
 			PopUpManager.removePopUp(this._fullScreenContainer, false);
-			var childCount:int = this._fullScreenContainer.numChildren;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = this._fullScreenContainer.numChildren;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				var child:DisplayObject = this._fullScreenContainer.getChildAt(0);
 				this.addChild(child);

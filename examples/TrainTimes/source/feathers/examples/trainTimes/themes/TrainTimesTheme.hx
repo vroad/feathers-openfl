@@ -57,12 +57,12 @@ class TrainTimesTheme extends StyleNameFunctionTheme
 
 	private static const TIMES_LIST_ITEM_RENDERER_NAME:String = "traintimes-times-list-item-renderer";
 
-	private static const ORIGINAL_DPI_IPHONE_RETINA:int = 326;
-	private static const ORIGINAL_DPI_IPAD_RETINA:int = 264;
+	private static const ORIGINAL_DPI_IPHONE_RETINA:Int = 326;
+	private static const ORIGINAL_DPI_IPAD_RETINA:Int = 264;
 
 	private static const HEADER_SCALE9_GRID:Rectangle = new Rectangle(0, 0, 4, 5);
-	private static const SCROLL_BAR_THUMB_REGION1:int = 5;
-	private static const SCROLL_BAR_THUMB_REGION2:int = 14;
+	private static const SCROLL_BAR_THUMB_REGION1:Int = 5;
+	private static const SCROLL_BAR_THUMB_REGION2:Int = 14;
 
 	private static const PRIMARY_TEXT_COLOR:uint = 0xe8caa4;
 	private static const DETAIL_TEXT_COLOR:uint = 0x64908a;
@@ -159,10 +159,10 @@ class TrainTimesTheme extends StyleNameFunctionTheme
 
 	private function initializeScale():Void
 	{
-		var scaledDPI:int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
+		var scaledDPI:Int = DeviceCapabilities.dpi / Starling.contentScaleFactor;
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
-			var originalDPI:int = ORIGINAL_DPI_IPAD_RETINA;
+			var originalDPI:Int = ORIGINAL_DPI_IPAD_RETINA;
 		}
 		else
 		{

@@ -46,7 +46,7 @@ interface IScrollContainer extends IFeathersControl
 	 * Gets the direct child of the <code>Scroller</code> at a specific
 	 * index rather than delegating the call to the view port.
 	 */
-	function getRawChildAt(index:int):DisplayObject;
+	function getRawChildAt(index:Int):DisplayObject;
 
 	/**
 	 * Sets the index of a direct child of the <code>Scroller</code> rather

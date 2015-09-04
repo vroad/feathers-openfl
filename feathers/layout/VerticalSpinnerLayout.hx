@@ -262,7 +262,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _requestedRowCount:int = 0;
+	private var _requestedRowCount:Int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -275,7 +275,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	 *
 	 * @default 0
 	 */
-	public function get_requestedRowCount():int
+	public function get_requestedRowCount():Int
 	{
 		return this._requestedRowCount;
 	}
@@ -283,7 +283,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	public function set_requestedRowCount(value:int):int
+	public function set_requestedRowCount(value:Int):Int
 	{
 		if(value < 0)
 		{
@@ -300,12 +300,12 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _beforeVirtualizedItemCount:int = 0;
+	private var _beforeVirtualizedItemCount:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_beforeVirtualizedItemCount():int
+	public function get_beforeVirtualizedItemCount():Int
 	{
 		return this._beforeVirtualizedItemCount;
 	}
@@ -313,7 +313,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	public function set_beforeVirtualizedItemCount(value:int):int
+	public function set_beforeVirtualizedItemCount(value:Int):Int
 	{
 		if(this._beforeVirtualizedItemCount == value)
 		{
@@ -326,12 +326,12 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _afterVirtualizedItemCount:int = 0;
+	private var _afterVirtualizedItemCount:Int = 0;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_afterVirtualizedItemCount():int
+	public function get_afterVirtualizedItemCount():Int
 	{
 		return this._afterVirtualizedItemCount;
 	}
@@ -339,7 +339,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	public function set_afterVirtualizedItemCount(value:int):int
+	public function set_afterVirtualizedItemCount(value:Int):Int
 	{
 		if(this._afterVirtualizedItemCount == value)
 		{
@@ -571,8 +571,8 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		var maxItemWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Number = boundsY;
 		var gap:Number = this._gap;
-		var itemCount:int = items.length;
-		var totalItemCount:int = itemCount;
+		var itemCount:Int = items.length;
+		var totalItemCount:Int = itemCount;
 		if(this._useVirtualLayout)
 		{
 			//if the layout is virtualized, and the items all have the same
@@ -585,11 +585,11 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		//using a smaller array, we can improve performance by spending less
 		//time in the upcoming loops.
 		this._discoveredItemsCache.length = 0;
-		var discoveredItemsCacheLastIndex:int = 0;
+		var discoveredItemsCacheLastIndex:Int = 0;
 
 		//this first loop sets the y position of items, and it calculates
 		//the total height of all items
-		for(var i:int = 0; i < itemCount; i++)
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			if(item)
@@ -632,7 +632,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		//comment above where the discoveredItemsCache is initialized for
 		//details about why this is important.
 		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
-		var discoveredItemCount:int = discoveredItems.length;
+		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalWidth:Number = maxItemWidth + this._paddingLeft + this._paddingRight;
 		//the available width is the width of the viewport. if the explicit
@@ -717,7 +717,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 				var adjustedScrollY:Number = scrollY - verticalAlignOffsetY;
 				if(adjustedScrollY > 0)
 				{
-					item.y += totalHeight * int((adjustedScrollY + availableHeight) / totalHeight);
+					item.y += totalHeight * Int((adjustedScrollY + availableHeight) / totalHeight);
 					if(item.y >= (scrollY + availableHeight))
 					{
 						item.y -= totalHeight;
@@ -725,7 +725,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 				}
 				else if(adjustedScrollY < 0)
 				{
-					item.y += totalHeight * (int(adjustedScrollY / totalHeight) - 1);
+					item.y += totalHeight * (Int(adjustedScrollY / totalHeight) - 1);
 					if((item.y + item.height) < scrollY)
 					{
 						item.y += totalHeight;
@@ -801,7 +801,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function measureViewPort(itemCount:int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
+	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -887,7 +887,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
 	{
 		if(result)
 		{
@@ -895,7 +895,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		}
 		else
 		{
-			result = new <int>[];
+			result = new <Int>[];
 		}
 		if(!this._useVirtualLayout)
 		{
@@ -906,10 +906,10 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 		var gap:Number = this._gap;
 
-		var resultLastIndex:int = 0;
+		var resultLastIndex:Int = 0;
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
-		var maxVisibleTypicalItemCount:int = Math.ceil(height / (calculatedTypicalItemHeight + gap)) + 1;
+		var maxVisibleTypicalItemCount:Int = Math.ceil(height / (calculatedTypicalItemHeight + gap)) + 1;
 
 		var totalItemHeight:Number = itemCount * (calculatedTypicalItemHeight + gap) - gap;
 
@@ -923,8 +923,8 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 			{
 				scrollY += totalItemHeight;
 			}
-			var minimum:int = scrollY / (calculatedTypicalItemHeight + gap);
-			var maximum:int = minimum + maxVisibleTypicalItemCount;
+			var minimum:Int = scrollY / (calculatedTypicalItemHeight + gap);
+			var maximum:Int = minimum + maxVisibleTypicalItemCount;
 		}
 		else
 		{
@@ -947,7 +947,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 				minimum = 0;
 			}
 		}
-		for(var i:int = minimum; i <= maximum; i++)
+		for(var i:Int = minimum; i <= maximum; i++)
 		{
 			if(!canRepeatItems || (i >= 0 && i < itemCount))
 			{
@@ -969,7 +969,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		//normally, this isn't acceptable, but because the selection is
@@ -980,7 +980,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		this.prepareTypicalItem(width - this._paddingLeft - this._paddingRight);
 		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
@@ -1006,8 +1006,8 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		//layout if it happens after validation, causing more invalidation
 		var isJustified:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
 		var mustSetJustifyWidth:Bool = isJustified && justifyWidth === justifyWidth; //!isNaN
-		var itemCount:int = items.length;
-		for(var i:int = 0; i < itemCount; i++)
+		var itemCount:Int = items.length;
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			if(!item || (item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout))

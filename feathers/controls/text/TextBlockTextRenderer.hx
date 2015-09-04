@@ -236,12 +236,12 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _snapshotVisibleWidth:int = 0;
+	private var _snapshotVisibleWidth:Int = 0;
 
 	/**
 	 * @private
 	 */
-	private var _snapshotVisibleHeight:int = 0;
+	private var _snapshotVisibleHeight:Int = 0;
 
 	/**
 	 * @private
@@ -1239,7 +1239,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 				offsetY += Math.round(HELPER_MATRIX.ty) - HELPER_MATRIX.ty;
 			}
 
-			var snapshotIndex:int = -1;
+			var snapshotIndex:Int = -1;
 			var totalBitmapWidth:Number = this._snapshotWidth;
 			var totalBitmapHeight:Number = this._snapshotHeight;
 			var xPosition:Number = offsetX;
@@ -1504,44 +1504,44 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Std.int(Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions));
+					this._snapshotWidth = Std.Int(Std.Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotWidth = Std.int(rectangleSnapshotWidth);
+					this._snapshotWidth = Std.Int(rectangleSnapshotWidth);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Std.int(Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotWidth % this._maxTextureDimensions)));
+					this._snapshotWidth = Std.Int(Std.Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.Int(rectangleSnapshotWidth % this._maxTextureDimensions)));
 				}
 				else
 				{
-					this._snapshotWidth = getNextPowerOfTwo(Std.int(rectangleSnapshotWidth));
+					this._snapshotWidth = getNextPowerOfTwo(Std.Int(rectangleSnapshotWidth));
 				}
 			}
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Std.int(Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions));
+					this._snapshotHeight = Std.Int(Std.Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = Std.int(rectangleSnapshotHeight);
+					this._snapshotHeight = Std.Int(rectangleSnapshotHeight);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotHeight % this._maxTextureDimensions));
+					this._snapshotHeight = Std.Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.Int(rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = getNextPowerOfTwo(Std.int(rectangleSnapshotHeight));
+					this._snapshotHeight = getNextPowerOfTwo(Std.Int(rectangleSnapshotHeight));
 				}
 			}
 			var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
@@ -1917,7 +1917,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 		//for(; i < lineCount; i++)
 		while(i < lineCount)
 		{
-			HELPER_TEXT_LINES[Std.int(i - cacheIndex)] = textLines[i];
+			HELPER_TEXT_LINES[Std.Int(i - cacheIndex)] = textLines[i];
 			i++;
 		}
 		textLines = textLines.slice(0, cacheIndex);

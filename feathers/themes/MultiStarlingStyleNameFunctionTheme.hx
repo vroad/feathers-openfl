@@ -70,7 +70,7 @@ class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 */
 	public function addStarling(starling:Starling):Void
 	{
-		var index:int = this._starlings.indexOf(starling);
+		var index:Int = this._starlings.indexOf(starling);
 		if(index >= 0)
 		{
 			throw new ArgumentError("Cannot add a Starling instance to a theme more than once.");
@@ -84,7 +84,7 @@ class MultiStarlingStyleNameFunctionTheme extends StyleNameFunctionTheme
 	 */
 	public function removeStarling(starling:Starling):Void
 	{
-		var index:int = this._starlings.indexOf(starling);
+		var index:Int = this._starlings.indexOf(starling);
 		if(index < 0)
 		{
 			throw new ArgumentError("Cannot remove a Starling instance that has not been added.");

@@ -27,7 +27,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):int
+	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<Number>).length;
@@ -36,7 +36,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int):Object
+	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<Number>)[index];
@@ -45,7 +45,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):Void
+	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<Number>)[index] = item as Number;
@@ -54,7 +54,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):Void
+	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<Number>).splice(index, 0, item as Number);
@@ -63,7 +63,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int):Object
+	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<Number>).splice(index, 1)[0];
@@ -81,7 +81,7 @@ class VectorNumberListCollectionDataDescriptor implements IListCollectionDataDes
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):int
+	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<Number>).indexOf(item as Number);

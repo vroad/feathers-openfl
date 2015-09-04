@@ -154,7 +154,7 @@ class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	override public function set_selectedIndex(value:int):int
+	override public function set_selectedIndex(value:Int):Int
 	{
 		if(this._selectedIndex != value)
 		{
@@ -278,7 +278,7 @@ class SpinnerList extends List
 	{
 		if(this.pendingItemIndex >= 0)
 		{
-			var itemIndex:int = this.pendingItemIndex;
+			var itemIndex:Int = this.pendingItemIndex;
 			this.pendingItemIndex = -1;
 			if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 			{
@@ -327,15 +327,15 @@ class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	private function calculateNearestPageIndexForItem(itemIndex:int, currentPageIndex:int, maxPageIndex:int):int
+	private function calculateNearestPageIndexForItem(itemIndex:Int, currentPageIndex:Int, maxPageIndex:Int):Int
 	{
-		if(maxPageIndex != int.MAX_VALUE)
+		if(maxPageIndex != Int.MAX_VALUE)
 		{
 			return itemIndex;
 		}
-		var itemCount:int = this._dataProvider.length;
-		var fullDataProviderOffsets:int = currentPageIndex / itemCount;
-		var currentItemIndex:int = currentPageIndex % itemCount;
+		var itemCount:Int = this._dataProvider.length;
+		var fullDataProviderOffsets:Int = currentPageIndex / itemCount;
+		var currentItemIndex:Int = currentPageIndex % itemCount;
 		if(itemIndex < currentItemIndex)
 		{
 			var previousPageIndex:Number = fullDataProviderOffsets * itemCount + itemIndex;
@@ -358,10 +358,10 @@ class SpinnerList extends List
 	 */
 	private function spinnerList_scrollCompleteHandler(event:Event):Void
 	{
-		var itemCount:int = this._dataProvider.length;
+		var itemCount:Int = this._dataProvider.length;
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 		{
-			var pageIndex:int = this._verticalPageIndex % itemCount;
+			var pageIndex:Int = this._verticalPageIndex % itemCount;
 		}
 		else if(this._maxHorizontalPageIndex != this._minHorizontalPageIndex)
 		{
@@ -379,7 +379,7 @@ class SpinnerList extends List
 	 */
 	private function spinnerList_triggeredHandler(event:Event, item:Object):Void
 	{
-		var itemIndex:int = this._dataProvider.getItemIndex(item);
+		var itemIndex:Int = this._dataProvider.getItemIndex(item);
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 		{
 			itemIndex = this.calculateNearestPageIndexForItem(itemIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
@@ -417,7 +417,7 @@ class SpinnerList extends List
 		}
 		else if(event.keyCode == Keyboard.UP)
 		{
-			var newIndex:int = this._selectedIndex - 1;
+			var newIndex:Int = this._selectedIndex - 1;
 			if(newIndex < 0)
 			{
 				newIndex = this._dataProvider.length + newIndex;
@@ -439,7 +439,7 @@ class SpinnerList extends List
 		{
 			if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 			{
-				var pageIndex:int = this.calculateNearestPageIndexForItem(this._selectedIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
+				var pageIndex:Int = this.calculateNearestPageIndexForItem(this._selectedIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
 				this.throwToPage(this._horizontalPageIndex, pageIndex, this._pageThrowDuration);
 			}
 			else if(this._maxHorizontalPageIndex != this._minHorizontalPageIndex)

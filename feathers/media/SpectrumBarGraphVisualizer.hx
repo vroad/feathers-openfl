@@ -43,7 +43,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private static const MAX_BAR_COUNT:int = 256;
+	private static const MAX_BAR_COUNT:Int = 256;
 
 	/**
 	 * Constructor
@@ -79,12 +79,12 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _barCount:int = 16;
+	private var _barCount:Int = 16;
 
 	/**
 	 * The number of bars displayed by the visualizer.
 	 */
-	public function get_barCount():int
+	public function get_barCount():Int
 	{
 		return this._barCount;
 	}
@@ -92,7 +92,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	public function set_barCount(value:int):int
+	public function set_barCount(value:Int):Int
 	{
 		if(value > MAX_BAR_COUNT)
 		{
@@ -259,7 +259,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		{
 			return;
 		}
-		var barCount:int = this._barCount;
+		var barCount:Int = this._barCount;
 		var barWidth:Number = ((this.actualWidth + this._gap) / barCount) - this._gap;
 		if(barWidth < 0 || this.actualHeight <= 0)
 		{
@@ -269,13 +269,13 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		SoundMixer.computeSpectrum(this._bytes, true, 0);
 		
 		this._barValues.length = barCount;
-		var valuesPerBar:int = 256 / barCount;
+		var valuesPerBar:Int = 256 / barCount;
 		//read left values
-		for(var i:int = 0; i < barCount; i++)
+		for(var i:Int = 0; i < barCount; i++)
 		{
 			//reset to zero first
 			this._barValues[i] = 0;
-			for(var j:int = 0; j < valuesPerBar; j++)
+			for(var j:Int = 0; j < valuesPerBar; j++)
 			{
 				var float:Number = this._bytes.readFloat();
 				if(float > 1)

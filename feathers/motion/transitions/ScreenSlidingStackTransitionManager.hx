@@ -218,7 +218,7 @@ class ScreenSlidingStackTransitionManager
 		{
 			newScreenClassAndID += "~" + cast(newScreen, IScreen).screenID;
 		}
-		var stackIndex:int = this._stack.indexOf(newScreenClassAndID);
+		var stackIndex:Int = this._stack.indexOf(newScreenClassAndID);
 		if(stackIndex < 0) //push
 		{
 			var oldScreenClassAndID:String = Type.getClassName(Type.getClass(oldScreen));

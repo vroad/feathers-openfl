@@ -59,8 +59,8 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 		if(child is DisplayObjectContainer)
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(child);
-			var childCount:int = container.numChildren;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = container.numChildren;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				child = container.getChildAt(i);
 				this.handleAddedChild(child);
@@ -80,8 +80,8 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 		if(child is DisplayObjectContainer)
 		{
 			var container:DisplayObjectContainer = DisplayObjectContainer(child);
-			var childCount:int = container.numChildren;
-			for(var i:int = 0; i < childCount; i++)
+			var childCount:Int = container.numChildren;
+			for(var i:Int = 0; i < childCount; i++)
 			{
 				child = container.getChildAt(i);
 				this.handleRemovedChild(child);

@@ -262,7 +262,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private var _minimumAutoCompleteLength:int = 2;
+	private var _minimumAutoCompleteLength:Int = 2;
 
 	/**
 	 * The minimum number of entered characters required to request
@@ -516,7 +516,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private var _lastChangeTime:int = 0;
+	private var _lastChangeTime:Int = 0;
 
 	/**
 	 * @private
@@ -738,8 +738,8 @@ class AutoComplete extends TextInput
 		{
 			return;
 		}
-		var oldSelectedIndex:int = this.list.selectedIndex;
-		var lastIndex:int = this.list.dataProvider.length - 1;
+		var oldSelectedIndex:Int = this.list.selectedIndex;
+		var lastIndex:Int = this.list.dataProvider.length - 1;
 		if(oldSelectedIndex < 0)
 		{
 			event.stopImmediatePropagation();
@@ -807,7 +807,7 @@ class AutoComplete extends TextInput
 	 */
 	private function autoComplete_enterFrameHandler():Void
 	{
-		var currentTime:int = getTimer();
+		var currentTime:Int = getTimer();
 		var secondsSinceLastUpdate:Number = (currentTime - this._lastChangeTime) / 1000;
 		if(secondsSinceLastUpdate < this._autoCompleteDelay)
 		{

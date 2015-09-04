@@ -345,7 +345,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:Int = 0;
 
 	/**
 	 * Requests that the layout uses a specific number of columns, if
@@ -361,7 +361,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
-	public function get_requestedColumnCount():int
+	public function get_requestedColumnCount():Int
 	{
 		return this._requestedColumnCount;
 	}
@@ -369,7 +369,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_requestedColumnCount(value:int):int
+	public function set_requestedColumnCount(value:Int):Int
 	{
 		if(value < 0)
 		{
@@ -548,7 +548,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 				availableWidth = maxWidth;
 			}
 		}
-		var columnCount:int = int((availableWidth + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
+		var columnCount:Int = Int((availableWidth + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
 		if(this._requestedColumnCount > 0 && columnCount > this._requestedColumnCount)
 		{
 			columnCount = this._requestedColumnCount;
@@ -558,7 +558,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			columnCount = 1;
 		}
 		var columnHeights:Vector.<Number> = new <Number>[];
-		for(var i:int = 0; i < columnCount; i++)
+		for(var i:Int = 0; i < columnCount; i++)
 		{
 			columnHeights[i] = this._paddingTop;
 		}
@@ -574,8 +574,8 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			horizontalAlignOffset = Math.round(((availableWidth - this._paddingLeft - this._paddingRight) - ((columnCount * (columnWidth + this._horizontalGap)) - this._horizontalGap)) / 2);
 		}
 
-		var itemCount:int = items.length;
-		var targetColumnIndex:int = 0;
+		var itemCount:Int = items.length;
+		var targetColumnIndex:Int = 0;
 		var targetColumnHeight:Number = columnHeights[targetColumnIndex];
 		for(i = 0; i < itemCount; i++)
 		{
@@ -651,7 +651,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 			}
 			targetColumnHeight += itemHeight;
-			for(var j:int = 0; j < columnCount; j++)
+			for(var j:Int = 0; j < columnCount; j++)
 			{
 				if(j === targetColumnIndex)
 				{
@@ -721,7 +721,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function measureViewPort(itemCount:int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
+	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
 		if(!result)
 		{
@@ -782,7 +782,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 				availableWidth = maxWidth;
 			}
 		}
-		var columnCount:int = int((availableWidth + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
+		var columnCount:Int = Int((availableWidth + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
 		if(this._requestedColumnCount > 0 && columnCount > this._requestedColumnCount)
 		{
 			columnCount = this._requestedColumnCount;
@@ -806,13 +806,13 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			if(this._hasVariableItemDimensions)
 			{
 				var columnHeights:Vector.<Number> = new <Number>[];
-				for(var i:int = 0; i < columnCount; i++)
+				for(var i:Int = 0; i < columnCount; i++)
 				{
 					columnHeights[i] = this._paddingTop;
 				}
 				columnHeights.fixed = true;
 
-				var targetColumnIndex:int = 0;
+				var targetColumnIndex:Int = 0;
 				var targetColumnHeight:Number = columnHeights[targetColumnIndex];
 				for(i = 0; i < itemCount; i++)
 				{
@@ -829,7 +829,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 						itemHeight = calculatedTypicalItemHeight;
 					}
 					targetColumnHeight += itemHeight;
-					for(var j:int = 0; j < columnCount; j++)
+					for(var j:Int = 0; j < columnCount; j++)
 					{
 						if(j === targetColumnIndex)
 						{
@@ -885,7 +885,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:int, result:Vector.<int> = null):Vector.<int>
+	public function getVisibleIndicesAtScrollPosition(scrollX:Number, scrollY:Number, width:Number, height:Number, itemCount:Int, result:Vector.<Int> = null):Vector.<Int>
 	{
 		if(result)
 		{
@@ -893,7 +893,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		else
 		{
-			result = new <int>[];
+			result = new <Int>[];
 		}
 		if(!this._useVirtualLayout)
 		{
@@ -908,7 +908,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 
 		var columnWidth:Number = calculatedTypicalItemWidth;
-		var columnCount:int = int((width + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
+		var columnCount:Int = Int((width + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
 		if(this._requestedColumnCount > 0 && columnCount > this._requestedColumnCount)
 		{
 			columnCount = this._requestedColumnCount;
@@ -917,18 +917,18 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			columnCount = 1;
 		}
-		var resultLastIndex:int = 0;
+		var resultLastIndex:Int = 0;
 		if(this._hasVariableItemDimensions)
 		{
 			var columnHeights:Vector.<Number> = new <Number>[];
-			for(var i:int = 0; i < columnCount; i++)
+			for(var i:Int = 0; i < columnCount; i++)
 			{
 				columnHeights[i] = this._paddingTop;
 			}
 			columnHeights.fixed = true;
 
 			var maxPositionY:Number = scrollY + height;
-			var targetColumnIndex:int = 0;
+			var targetColumnIndex:Int = 0;
 			var targetColumnHeight:Number = columnHeights[targetColumnIndex];
 			for(i = 0; i < itemCount; i++)
 			{
@@ -945,7 +945,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 					itemHeight = calculatedTypicalItemHeight;
 				}
 				targetColumnHeight += itemHeight;
-				for(var j:int = 0; j < columnCount; j++)
+				for(var j:Int = 0; j < columnCount; j++)
 				{
 					if(j === targetColumnIndex)
 					{
@@ -973,9 +973,9 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
-		var maxVisibleTypicalItemCount:int = Math.ceil(height / (calculatedTypicalItemHeight + this._verticalGap)) + 1;
+		var maxVisibleTypicalItemCount:Int = Math.ceil(height / (calculatedTypicalItemHeight + this._verticalGap)) + 1;
 		//we're calculating the minimum and maximum rows
-		var minimum:int = (scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._verticalGap);
+		var minimum:Int = (scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._verticalGap);
 		if(minimum < 0)
 		{
 			minimum = 0;
@@ -983,7 +983,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		//if we're scrolling beyond the final item, we should keep the
 		//indices consistent so that items aren't destroyed and
 		//recreated unnecessarily
-		var maximum:int = minimum + maxVisibleTypicalItemCount;
+		var maximum:Int = minimum + maxVisibleTypicalItemCount;
 		if(maximum >= itemCount)
 		{
 			maximum = itemCount - 1;
@@ -997,7 +997,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			for(j = 0; j < columnCount; j++)
 			{
-				var index:int = (i * columnCount) + j;
+				var index:Int = (i * columnCount) + j;
 				if(index >= 0 && i < itemCount)
 				{
 					result[resultLastIndex] = index;
@@ -1027,7 +1027,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function resetVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		delete this._heightCache[index];
 		if(item)
@@ -1040,7 +1040,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):Void
+	public function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
 		var heightValue:* = item ? item.height : undefined;
 		this._heightCache.splice(index, 0, heightValue);
@@ -1049,7 +1049,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function removeFromVariableVirtualCacheAtIndex(index:int):Void
+	public function removeFromVariableVirtualCacheAtIndex(index:Int):Void
 	{
 		this._heightCache.splice(index, 1);
 	}
@@ -1057,7 +1057,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		var maxScrollY:Number = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
@@ -1114,7 +1114,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		var maxScrollY:Number = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
@@ -1150,7 +1150,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollYOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	private function calculateMaxScrollYOfIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
 	{
 		if(items.length == 0)
 		{
@@ -1184,7 +1184,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			columnWidth = item.width;
 		}
 
-		var columnCount:int = int((width + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
+		var columnCount:Int = Int((width + this._horizontalGap - this._paddingLeft - this._paddingRight) / (columnWidth + this._horizontalGap));
 		if(this._requestedColumnCount > 0 && columnCount > this._requestedColumnCount)
 		{
 			columnCount = this._requestedColumnCount;
@@ -1194,14 +1194,14 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 			columnCount = 1;
 		}
 		var columnHeights:Vector.<Number> = new <Number>[];
-		for(var i:int = 0; i < columnCount; i++)
+		for(var i:Int = 0; i < columnCount; i++)
 		{
 			columnHeights[i] = this._paddingTop;
 		}
 		columnHeights.fixed = true;
 
-		var itemCount:int = items.length;
-		var targetColumnIndex:int = 0;
+		var itemCount:Int = items.length;
+		var targetColumnIndex:Int = 0;
 		var targetColumnHeight:Number = columnHeights[targetColumnIndex];
 		for(i = 0; i < itemCount; i++)
 		{
@@ -1271,7 +1271,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 			}
 			targetColumnHeight += itemHeight;
-			for(var j:int = 0; j < columnCount; j++)
+			for(var j:Int = 0; j < columnCount; j++)
 			{
 				if(j === targetColumnIndex)
 				{

@@ -1369,7 +1369,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = Std.int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
+							var lineIndex:Int = Std.Int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
 							try
 							{
 								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex)#if flash + this.textField.getLineLength(lineIndex) #end;
@@ -1778,7 +1778,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):int
+	private function getSelectionIndexAtPoint(pointX:Number, pointY:Number):Int
 	{
 		return this.textField.getCharIndexAtPoint(pointX, pointY);
 	}

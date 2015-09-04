@@ -75,7 +75,7 @@ class RenderDelegate extends DisplayObject
 		var maxX:Number = -Number.MAX_VALUE;
 		var minY:Number = Number.MAX_VALUE;
 		var maxY:Number = -Number.MAX_VALUE;
-		for(var i:int = 0; i < 4; i++)
+		for(var i:Int = 0; i < 4; i++)
 		{
 			MatrixUtil.transformCoords(HELPER_MATRIX, i % 2 == 0 ? 0 : resultRect.width, i < 2 ? 0 : resultRect.height, HELPER_POINT);
 			if(HELPER_POINT.x < minX)

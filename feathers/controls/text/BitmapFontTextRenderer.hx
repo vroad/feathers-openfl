@@ -608,7 +608,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
+				currentX += charData.getKerning(Std.Int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -811,7 +811,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
+				currentX += charData.getKerning(Std.Int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -1133,7 +1133,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
+				currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
 			}
 			currentX += currentKerning + charData.xAdvance * scale;
 			if(currentX > width)
@@ -1169,7 +1169,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
+					currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
 				}
 				currentX += currentKerning + charData.xAdvance * scale + customLetterSpacing;
 				previousCharID = charID;
@@ -1192,7 +1192,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
+					currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
 				}
 				currentX -= (currentKerning + charData.xAdvance * scale + customLetterSpacing);
 				if(currentX <= width)

@@ -135,12 +135,12 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get_fontSize():int
+	public function get_fontSize():Int
 	{
-		return this._textFormat.size as int;
+		return this._textFormat.size as Int;
 	}
 
-	public function set_fontSize(value:int):int
+	public function set_fontSize(value:Int):Int
 	{
 		if(this._textFormat.size == value)
 		{
@@ -179,12 +179,12 @@ public final class StageTextField extends EventDispatcher
 		this._locale = value;
 	}
 
-	public function get_maxChars():int
+	public function get_maxChars():Int
 	{
 		return this._textField.maxChars;
 	}
 
-	public function set_maxChars(value:int):int
+	public function set_maxChars(value:Int):Int
 	{
 		this._textField.maxChars = value;
 	}
@@ -216,12 +216,12 @@ public final class StageTextField extends EventDispatcher
 		this._returnKeyLabel = value;
 	}
 
-	public function get_selectionActiveIndex():int
+	public function get_selectionActiveIndex():Int
 	{
 		return this._textField.selectionBeginIndex;
 	}
 
-	public function get_selectionAnchorIndex():int
+	public function get_selectionAnchorIndex():Int
 	{
 		return this._textField.selectionEndIndex;
 	}
@@ -358,7 +358,7 @@ public final class StageTextField extends EventDispatcher
 		bitmap.draw(this._textField);
 	}
 
-	public function selectRange(anchorIndex:int, activeIndex:int):Void
+	public function selectRange(anchorIndex:Int, activeIndex:Int):Void
 	{
 		this._textField.setSelection(anchorIndex, activeIndex);
 	}

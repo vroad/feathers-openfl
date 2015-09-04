@@ -27,7 +27,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object):int
+	public function getLength(data:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>).length;
@@ -36,7 +36,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:int):Object
+	public function getItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>)[index];
@@ -45,7 +45,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:int):Void
+	public function setItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<*>)[index] = item;
@@ -54,7 +54,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:int):Void
+	public function addItemAt(data:Object, item:Object, index:Int):Void
 	{
 		this.checkForCorrectDataType(data);
 		(data as Vector.<*>).splice(index, 0, item);
@@ -63,7 +63,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:int):Object
+	public function removeItemAt(data:Object, index:Int):Object
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>).splice(index, 1)[0];
@@ -81,7 +81,7 @@ class VectorListCollectionDataDescriptor implements IListCollectionDataDescripto
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemIndex(data:Object, item:Object):int
+	public function getItemIndex(data:Object, item:Object):Int
 	{
 		this.checkForCorrectDataType(data);
 		return (data as Vector.<*>).indexOf(item);

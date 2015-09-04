@@ -69,7 +69,7 @@ class ListVideosScreen extends PanelScreen
 	}
 
 	public var savedVerticalScrollPosition:Number = 0;
-	public var savedSelectedIndex:int = -1;
+	public var savedSelectedIndex:Int = -1;
 	public var savedDataProvider:ListCollection;
 
 	private var _loader:URLLoader;
@@ -204,8 +204,8 @@ class ListVideosScreen extends PanelScreen
 		
 		var items:Vector.<VideoDetails> = new <VideoDetails>[];
 		var videos:Array = result.items as Array;
-		var videoCount:int = videos.length;
-		for(var i:int = 0; i < videoCount; i++)
+		var videoCount:Int = videos.length;
+		for(var i:Int = 0; i < videoCount; i++)
 		{
 			var video:Object = videos[i];
 			var item:VideoDetails = new VideoDetails();

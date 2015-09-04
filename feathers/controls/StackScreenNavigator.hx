@@ -388,8 +388,8 @@ class StackScreenNavigator extends BaseScreenNavigator
 	 */
 	public function removeScreen(id:String):StackScreenNavigatorItem
 	{
-		var stackCount:int = this._stack.length;
-		for(var i:int = stackCount - 1; i >= 0; i--)
+		var stackCount:Int = this._stack.length;
+		for(var i:Int = stackCount - 1; i >= 0; i--)
 		{
 			var item:StackItem = this._stack[i];
 			if(item.id == id)
@@ -579,8 +579,8 @@ class StackScreenNavigator extends BaseScreenNavigator
 			//creating a copy because this array could change before the screen
 			//is removed.
 			var popEvents:Vector.<String> = item.popEvents.slice();
-			var eventCount:int = popEvents.length;
-			for(var i:int = 0; i < eventCount; i++)
+			var eventCount:Int = popEvents.length;
+			for(var i:Int = 0; i < eventCount; i++)
 			{
 				eventName = popEvents[i];
 				signal = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;
@@ -657,8 +657,8 @@ class StackScreenNavigator extends BaseScreenNavigator
 		this._pushScreenEvents[this._activeScreenID] = null;
 		if(this._popScreenEvents)
 		{
-			var eventCount:int = this._popScreenEvents.length;
-			for(var i:int = 0; i < eventCount; i++)
+			var eventCount:Int = this._popScreenEvents.length;
+			for(var i:Int = 0; i < eventCount; i++)
 			{
 				eventName = this._popScreenEvents[i];
 				signal = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;

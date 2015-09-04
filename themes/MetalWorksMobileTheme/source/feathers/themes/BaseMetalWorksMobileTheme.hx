@@ -658,7 +658,7 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 	 */
 	private function initializeScale():Void
 	{
-		var scaledDPI:Int = Std.int(DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
+		var scaledDPI:Int = Std.Int(DeviceCapabilities.dpi / Starling.current.contentScaleFactor);
 		this._originalDPI = scaledDPI;
 		if(this._scaleToDPI)
 		{

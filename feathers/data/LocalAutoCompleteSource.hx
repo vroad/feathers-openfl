@@ -131,7 +131,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 			return;
 		}
 		var compareFunction:Function = this._compareFunction;
-		for(var i:int = 0; i < this._dataProvider.length; i++)
+		for(var i:Int = 0; i < this._dataProvider.length; i++)
 		{
 			var item:Object = this._dataProvider.getItemAt(i);
 			if(compareFunction(item, textToMatch))

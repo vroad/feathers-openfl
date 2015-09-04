@@ -361,7 +361,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 		{
 			return get_dataProvider();
 		}
-		var oldSelectedIndex:int = this.selectedIndex;
+		var oldSelectedIndex:Int = this.selectedIndex;
 		var oldSelectedItem:Object = this.selectedItem;
 		if(this._dataProvider)
 		{

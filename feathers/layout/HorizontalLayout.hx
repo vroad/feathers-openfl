@@ -538,7 +538,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _requestedColumnCount:int = 0;
+	private var _requestedColumnCount:Int = 0;
 
 	/**
 	 * Requests that the layout set the view port dimensions to display a
@@ -551,7 +551,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
-	public function get_requestedColumnCount():int
+	public function get_requestedColumnCount():Int
 	{
 		return this._requestedColumnCount;
 	}
@@ -559,7 +559,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_requestedColumnCount(value:int):int
+	public function set_requestedColumnCount(value:Int):Int
 	{
 		if(value < 0)
 		{
@@ -936,8 +936,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var maxItemHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		var positionX:Number = boundsX + this._paddingLeft;
-		var itemCount:int = items.length;
-		var totalItemCount:int = itemCount;
+		var itemCount:Int = items.length;
+		var totalItemCount:Int = itemCount;
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
 			//if the layout is virtualized, and the items all have the same
@@ -950,21 +950,21 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				positionX = positionX - this._gap + this._firstGap;
 			}
 		}
-		var secondToLastIndex:int = totalItemCount - 2;
+		var secondToLastIndex:Int = totalItemCount - 2;
 		//this cache is used to save non-null items in virtual layouts. by
 		//using a smaller array, we can improve performance by spending less
 		//time in the upcoming loops.
 		this._discoveredItemsCache.length = 0;
-		var discoveredItemsCacheLastIndex:int = 0;
+		var discoveredItemsCacheLastIndex:Int = 0;
 
 		//this first loop sets the x position of items, and it calculates
 		//the total width of all items
-		for(var i:int = 0; i < itemCount; i++)
+		for(var i:Int = 0; i < itemCount; i++)
 		{
 			var item:DisplayObject = items[i];
 			//if we're trimming some items at the beginning, we need to
 			//adjust i to account for the missing items in the array
-			var iNormalized:int = i + this._beforeVirtualizedItemCount;
+			var iNormalized:Int = i + this._beforeVirtualizedItemCount;
 
 			//pick the gap that will follow this item. the first and second
 			//to last items may have different gaps.
@@ -1090,7 +1090,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//comment above where the discoveredItemsCache is initialized for
 		//details about why this is important.
 		var discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
-		var discoveredItemCount:int = discoveredItems.length;
+		var discoveredItemCount:Int = discoveredItems.length;
 
 		var totalHeight:Number = maxItemHeight + this._paddingTop + this._paddingBottom;
 		//the available height is the height of the viewport. if the explicit
@@ -1455,10 +1455,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 
 		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
 		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
-		var resultLastIndex:int = 0;
+		var resultLastIndex:Int = 0;
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
-		var maxVisibleTypicalItemCount:int = Math.ceil(width / (calculatedTypicalItemWidth + this._gap)) + 1;
+		var maxVisibleTypicalItemCount:Int = Math.ceil(width / (calculatedTypicalItemWidth + this._gap)) + 1;
 		if(!this._hasVariableItemDimensions)
 		{
 			//this case can be optimized because we know that every item has
@@ -1484,7 +1484,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 					indexOffset = Math.ceil(((width - totalItemWidth) / (calculatedTypicalItemWidth + this._gap)) / 2);
 				}
 			}
-			var minimum:Int = Std.int((scrollX - this._paddingLeft) / (calculatedTypicalItemWidth + this._gap));
+			var minimum:Int = Std.Int((scrollX - this._paddingLeft) / (calculatedTypicalItemWidth + this._gap));
 			if(minimum < 0)
 			{
 				minimum = 0;
@@ -1493,7 +1493,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			//if we're scrolling beyond the final item, we should keep the
 			//indices consistent so that items aren't destroyed and
 			//recreated unnecessarily
-			var maximum:int = minimum + maxVisibleTypicalItemCount;
+			var maximum:Int = minimum + maxVisibleTypicalItemCount;
 			if(maximum >= itemCount)
 			{
 				maximum = itemCount - 1;
@@ -1566,8 +1566,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//similar to above, in order to avoid costly destruction and
 		//creation of item renderers, we're going to fill in some extra
 		//indices
-		var resultLength:int = result.length;
-		var visibleItemCountDifference:int = maxVisibleTypicalItemCount - resultLength;
+		var resultLength:Int = result.length;
+		var visibleItemCountDifference:Int = maxVisibleTypicalItemCount - resultLength;
 		if(visibleItemCountDifference > 0 && resultLength > 0)
 		{
 			//add extra items before the first index
@@ -1610,7 +1610,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getNearestScrollPositionForIndex(index:int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
+	public function getNearestScrollPositionForIndex(index:Int, scrollX:Number, scrollY:Number, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		var maxScrollX:Number = this.calculateMaxScrollXOfIndex(index, items, x, y, width, height);
@@ -1667,7 +1667,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function getScrollPositionForIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
+	public function getScrollPositionForIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number, result:Point = null):Point
 	{
 		var maxScrollX:Number = this.calculateMaxScrollXOfIndex(index, items, x, y, width, height);
 		if(this._useVirtualLayout)
@@ -1960,7 +1960,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private function calculateMaxScrollXOfIndex(index:int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
+	private function calculateMaxScrollXOfIndex(index:Int, items:Vector.<DisplayObject>, x:Number, y:Number, width:Number, height:Number):Number
 	{
 		if(this._useVirtualLayout)
 		{
@@ -1974,10 +1974,10 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var positionX:Number = x + this._paddingLeft;
 		var lastWidth:Number = 0;
 		var gap:Number = this._gap;
-		var startIndexOffset:int = 0;
+		var startIndexOffset:Int = 0;
 		var endIndexOffset:Number = 0;
-		var itemCount:int = items.length;
-		var totalItemCount:int = itemCount;
+		var itemCount:Int = items.length;
+		var totalItemCount:Int = itemCount;
 		if(this._useVirtualLayout && !this._hasVariableItemDimensions)
 		{
 			totalItemCount += this._beforeVirtualizedItemCount + this._afterVirtualizedItemCount;
@@ -2001,11 +2001,11 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			positionX += (startIndexOffset * (calculatedTypicalItemWidth + this._gap));
 		}
 		index -= (startIndexOffset + endIndexOffset);
-		var secondToLastIndex:int = totalItemCount - 2;
-		for(var i:int = 0; i <= index; i++)
+		var secondToLastIndex:Int = totalItemCount - 2;
+		for(var i:Int = 0; i <= index; i++)
 		{
 			var item:DisplayObject = items[i];
-			var iNormalized:int = i + startIndexOffset;
+			var iNormalized:Int = i + startIndexOffset;
 			if(hasFirstGap && iNormalized == 0)
 			{
 				gap = this._firstGap;

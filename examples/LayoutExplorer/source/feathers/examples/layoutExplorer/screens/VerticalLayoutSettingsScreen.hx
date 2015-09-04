@@ -175,7 +175,7 @@ import starling.events.Event;
 
 	private function itemCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.itemCount = Std.int(this._itemCountStepper.value);
+		this.settings.itemCount = Std.Int(this._itemCountStepper.value);
 	}
 
 	private function horizontalAlignPicker_changeHandler(event:Event):Void

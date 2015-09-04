@@ -426,7 +426,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 		{
 			this._popEvents = new <String>[];
 		}
-		var index:int = this._popEvents.indexOf(eventType);
+		var index:Int = this._popEvents.indexOf(eventType);
 		if(index >= 0)
 		{
 			return;
@@ -454,7 +454,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 		{
 			return;
 		}
-		var index:int = this._popEvents.indexOf(eventType);
+		var index:Int = this._popEvents.indexOf(eventType);
 		if(index >= 0)
 		{
 			return;
@@ -482,7 +482,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 		{
 			this._popToRootEvents = new <String>[];
 		}
-		var index:int = this._popToRootEvents.indexOf(eventType);
+		var index:Int = this._popToRootEvents.indexOf(eventType);
 		if(index >= 0)
 		{
 			return;
@@ -510,7 +510,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 		{
 			return;
 		}
-		var index:int = this._popToRootEvents.indexOf(eventType);
+		var index:Int = this._popToRootEvents.indexOf(eventType);
 		if(index >= 0)
 		{
 			return;
