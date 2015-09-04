@@ -117,7 +117,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_LABEL:String = "feathers-button-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_LABEL:String = "feathers-button-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.DEFAULT_CHILD_STYLE_NAME_LABEL</code>.
@@ -129,7 +129,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#DEFAULT_CHILD_STYLE_NAME_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_LABEL:String = DEFAULT_CHILD_STYLE_NAME_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_LABEL:String = DEFAULT_CHILD_STYLE_NAME_LABEL;
 
 	/**
 	 * An alternate style name to use with <code>Button</code> to allow a
@@ -151,7 +151,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON:String = "feathers-call-to-action-button";
+	inline public static var ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON:String = "feathers-call-to-action-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON</code>.
@@ -163,7 +163,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON
 	 */
-	public static const ALTERNATE_NAME_CALL_TO_ACTION_BUTTON:String = ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON;
+	inline public static var ALTERNATE_NAME_CALL_TO_ACTION_BUTTON:String = ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON;
 
 	/**
 	 * An alternate style name to use with <code>Button</code> to allow a
@@ -185,7 +185,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_QUIET_BUTTON:String = "feathers-quiet-button";
+	inline public static var ALTERNATE_STYLE_NAME_QUIET_BUTTON:String = "feathers-quiet-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.ALTERNATE_STYLE_NAME_QUIET_BUTTON</code>.
@@ -197,7 +197,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#ALTERNATE_STYLE_NAME_QUIET_BUTTON
 	 */
-	public static const ALTERNATE_NAME_QUIET_BUTTON:String = ALTERNATE_STYLE_NAME_QUIET_BUTTON;
+	inline public static var ALTERNATE_NAME_QUIET_BUTTON:String = ALTERNATE_STYLE_NAME_QUIET_BUTTON;
 
 	/**
 	 * An alternate style name to use with <code>Button</code> to allow a
@@ -221,7 +221,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_DANGER_BUTTON:String = "feathers-danger-button";
+	inline public static var ALTERNATE_STYLE_NAME_DANGER_BUTTON:String = "feathers-danger-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.ALTERNATE_STYLE_NAME_DANGER_BUTTON</code>.
@@ -233,7 +233,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#ALTERNATE_STYLE_NAME_DANGER_BUTTON
 	 */
-	public static const ALTERNATE_NAME_DANGER_BUTTON:String = ALTERNATE_STYLE_NAME_DANGER_BUTTON;
+	inline public static var ALTERNATE_NAME_DANGER_BUTTON:String = ALTERNATE_STYLE_NAME_DANGER_BUTTON;
 
 	/**
 	 * An alternate style name to use with <code>Button</code> to allow a
@@ -256,7 +256,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_BACK_BUTTON:String = "feathers-back-button";
+	inline public static var ALTERNATE_STYLE_NAME_BACK_BUTTON:String = "feathers-back-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.ALTERNATE_STYLE_NAME_BACK_BUTTON</code>.
@@ -268,7 +268,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#ALTERNATE_STYLE_NAME_BACK_BUTTON
 	 */
-	public static const ALTERNATE_NAME_BACK_BUTTON:String = ALTERNATE_STYLE_NAME_BACK_BUTTON;
+	inline public static var ALTERNATE_NAME_BACK_BUTTON:String = ALTERNATE_STYLE_NAME_BACK_BUTTON;
 
 	/**
 	 * An alternate style name to use with <code>Button</code> to allow a
@@ -291,7 +291,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_FORWARD_BUTTON:String = "feathers-forward-button";
+	inline public static var ALTERNATE_STYLE_NAME_FORWARD_BUTTON:String = "feathers-forward-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Button.ALTERNATE_STYLE_NAME_FORWARD_BUTTON</code>.
@@ -303,7 +303,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Button#ALTERNATE_STYLE_NAME_FORWARD_BUTTON
 	 */
-	public static const ALTERNATE_NAME_FORWARD_BUTTON:String = ALTERNATE_STYLE_NAME_FORWARD_BUTTON;
+	inline public static var ALTERNATE_NAME_FORWARD_BUTTON:String = ALTERNATE_STYLE_NAME_FORWARD_BUTTON;
 	
 	/**
 	 * Identifier for the button's up state. Can be used for styling purposes.

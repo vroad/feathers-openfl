@@ -31,7 +31,7 @@ public class IrisTransitionScreen extends PanelScreen
 		Iris.createIrisOpenTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	
-	public static const TRANSITION:String = "transition";
+	inline public static var TRANSITION:String = "transition";
 	
 	public function IrisTransitionScreen()
 	{

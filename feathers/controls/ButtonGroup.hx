@@ -215,7 +215,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_BUTTON:String = "feathers-button-group-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_BUTTON:String = "feathers-button-group-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ButtonGroup.DEFAULT_CHILD_STYLE_NAME_BUTTON</code>.
@@ -227,7 +227,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see ButtonGroup#DEFAULT_CHILD_STYLE_NAME_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * @private

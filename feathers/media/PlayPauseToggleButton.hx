@@ -43,7 +43,7 @@ public class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerC
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_OVERLAY_PLAY_PAUSE_TOGGLE_BUTTON:String = "feathers-overlay-play-pause-toggle-button";
+	inline public static var ALTERNATE_STYLE_NAME_OVERLAY_PLAY_PAUSE_TOGGLE_BUTTON:String = "feathers-overlay-play-pause-toggle-button";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all

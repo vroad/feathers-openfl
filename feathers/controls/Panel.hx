@@ -51,7 +51,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-header";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-header";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Panel.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
@@ -63,14 +63,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see Panel#DEFAULT_CHILD_STYLE_NAME_HEADER
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
+	inline public static var DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the footer.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-footer";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-footer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Panel.DEFAULT_CHILD_STYLE_NAME_FOOTER</code>.
@@ -82,7 +82,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see Panel#DEFAULT_CHILD_STYLE_NAME_FOOTER
 	 */
-	public static const DEFAULT_CHILD_NAME_FOOTER:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
+	inline public static var DEFAULT_CHILD_NAME_FOOTER:String = DEFAULT_CHILD_STYLE_NAME_FOOTER;
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -169,14 +169,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -197,14 +197,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 *
 	 * @see feathers.controls.ScrollContainer#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_CONTENT
 	 *
 	 * @see feathers.controls.ScrollContainer#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Panel</code>

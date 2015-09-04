@@ -27,7 +27,7 @@ import starling.textures.Texture;
 
 public class MainMenuScreen extends PanelScreen
 {
-	public static const LIST_VIDEOS:String = "listVideos";
+	inline public static var LIST_VIDEOS:String = "listVideos";
 
 	private static const PART_PARAMETER:String = "?part=snippet"; //must be first
 	private static const CHART_PARAMETER:String = "&chart=mostPopular";

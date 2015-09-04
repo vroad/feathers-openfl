@@ -35,7 +35,7 @@ import starling.events.Event;
 
 public class ListVideosScreen extends PanelScreen
 {
-	public static const SHOW_VIDEO_DETAILS:String = "showVideoDetails";
+	inline public static var SHOW_VIDEO_DETAILS:String = "showVideoDetails";
 	
 	private static const YOUTUBE_VIDEO_URL:String = "https://www.youtube.com/watch?v=";
 

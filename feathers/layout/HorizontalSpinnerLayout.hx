@@ -62,28 +62,28 @@ public class HorizontalSpinnerLayout extends EventDispatcher implements ISpinner
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The items will be aligned to the middle of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The items will be aligned to the bottom of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The items will fill the height of the bounds.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * Constructor.

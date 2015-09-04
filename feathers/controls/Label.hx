@@ -49,7 +49,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_HEADING:String = "feathers-heading-label";
+	inline public static var ALTERNATE_STYLE_NAME_HEADING:String = "feathers-heading-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Label.ALTERNATE_STYLE_NAME_HEADING</code>.
@@ -61,7 +61,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see Label#ALTERNATE_STYLE_NAME_HEADING
 	 */
-	public static const ALTERNATE_NAME_HEADING:String = ALTERNATE_STYLE_NAME_HEADING;
+	inline public static var ALTERNATE_NAME_HEADING:String = ALTERNATE_STYLE_NAME_HEADING;
 
 	/**
 	 * An alternate style name to use with <code>Label</code> to allow a
@@ -83,7 +83,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_DETAIL:String = "feathers-detail-label";
+	inline public static var ALTERNATE_STYLE_NAME_DETAIL:String = "feathers-detail-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Label.ALTERNATE_STYLE_NAME_DETAIL</code>.
@@ -95,7 +95,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @see Label#ALTERNATE_STYLE_NAME_DETAIL
 	 */
-	public static const ALTERNATE_NAME_DETAIL:String = ALTERNATE_STYLE_NAME_DETAIL;
+	inline public static var ALTERNATE_NAME_DETAIL:String = ALTERNATE_STYLE_NAME_DETAIL;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Label</code>

@@ -129,7 +129,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_OFF_LABEL:String = "feathers-toggle-switch-off-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_OFF_LABEL:String = "feathers-toggle-switch-off-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_OFF_LABEL</code>.
@@ -141,14 +141,14 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see ToggleSwitch#DEFAULT_CHILD_STYLE_NAME_OFF_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_OFF_LABEL:String = DEFAULT_CHILD_STYLE_NAME_OFF_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_OFF_LABEL:String = DEFAULT_CHILD_STYLE_NAME_OFF_LABEL;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the on label.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_ON_LABEL:String = "feathers-toggle-switch-on-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_ON_LABEL:String = "feathers-toggle-switch-on-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_ON_LABEL</code>.
@@ -160,14 +160,14 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see ToggleSwitch#DEFAULT_CHILD_STYLE_NAME_ON_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_ON_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ON_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_ON_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ON_LABEL;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the off track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_OFF_TRACK:String = "feathers-toggle-switch-off-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_OFF_TRACK:String = "feathers-toggle-switch-off-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_OFF_TRACK</code>.
@@ -179,14 +179,14 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see ToggleSwitch#DEFAULT_CHILD_STYLE_NAME_OFF_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_OFF_TRACK:String = DEFAULT_CHILD_STYLE_NAME_OFF_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_OFF_TRACK:String = DEFAULT_CHILD_STYLE_NAME_OFF_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the on track.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_ON_TRACK:String = "feathers-toggle-switch-on-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_ON_TRACK:String = "feathers-toggle-switch-on-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_ON_TRACK</code>.
@@ -198,14 +198,14 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see ToggleSwitch#DEFAULT_CHILD_STYLE_NAME_ON_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_ON_TRACK:String = DEFAULT_CHILD_STYLE_NAME_ON_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_ON_TRACK:String = DEFAULT_CHILD_STYLE_NAME_ON_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-toggle-switch-thumb";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-toggle-switch-thumb";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
@@ -217,7 +217,7 @@ class ToggleSwitch extends FeathersControl implements IToggle implements IFocusD
 	 *
 	 * @see ToggleSwitch#DEFAULT_CHILD_STYLE_NAME_THUMB
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ToggleSwitch</code>

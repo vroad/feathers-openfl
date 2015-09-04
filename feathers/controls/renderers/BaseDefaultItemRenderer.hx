@@ -41,7 +41,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_ICON_LABEL:String = "feathers-item-renderer-icon-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_ICON_LABEL:String = "feathers-item-renderer-icon-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ICON_LABEL</code>.
@@ -53,7 +53,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see BaseDefaultItemRenderer#DEFAULT_CHILD_STYLE_NAME_ICON_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_ICON_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_ICON_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ICON_LABEL;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -61,7 +61,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL:String = "feathers-item-renderer-accessory-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL:String = "feathers-item-renderer-accessory-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL</code>.
@@ -73,7 +73,7 @@ public class BaseDefaultItemRenderer extends ToggleButton implements IFocusConta
 	 *
 	 * @see BaseDefaultItemRenderer#DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_ACCESSORY_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_ACCESSORY_LABEL:String = DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL;
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_TOP

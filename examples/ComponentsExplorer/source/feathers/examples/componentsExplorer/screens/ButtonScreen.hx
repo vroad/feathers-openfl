@@ -16,7 +16,7 @@ import starling.events.Event;
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public static const CHILD_STYLE_NAME_ICON_BUTTON:String = "components-explorer-button-screen-icon-button";
+	inline public static var CHILD_STYLE_NAME_ICON_BUTTON:String = "components-explorer-button-screen-icon-button";
 	
 	public function new()
 	{

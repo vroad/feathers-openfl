@@ -225,7 +225,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST:String = "feathers-inset-grouped-list";
+	inline public static var ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST:String = "feathers-inset-grouped-list";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST</code>.
@@ -237,14 +237,14 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST
 	 */
-	public static const ALTERNATE_NAME_INSET_GROUPED_LIST:String = ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST;
+	inline public static var ALTERNATE_NAME_INSET_GROUPED_LIST:String = ALTERNATE_STYLE_NAME_INSET_GROUPED_LIST;
 
 	/**
 	 * The default name to use with header renderers.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER:String = "feathers-grouped-list-header-renderer";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER:String = "feathers-grouped-list-header-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER</code>.
@@ -256,7 +256,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER_RENDERER:String = DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER;
+	inline public static var DEFAULT_CHILD_NAME_HEADER_RENDERER:String = DEFAULT_CHILD_STYLE_NAME_HEADER_RENDERER;
 
 	/**
 	 * An alternate name to use with header renderers to give them an inset
@@ -270,7 +270,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER:String = "feathers-grouped-list-inset-header-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER:String = "feathers-grouped-list-inset-header-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER</code>.
@@ -282,14 +282,14 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_HEADER_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_HEADER_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_HEADER_RENDERER;
 
 	/**
 	 * The default name to use with footer renderers.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER:String = "feathers-grouped-list-footer-renderer";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER:String = "feathers-grouped-list-footer-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER</code>.
@@ -301,7 +301,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER
 	 */
-	public static const DEFAULT_CHILD_NAME_FOOTER_RENDERER:String = DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER;
+	inline public static var DEFAULT_CHILD_NAME_FOOTER_RENDERER:String = DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER;
 
 	/**
 	 * An alternate name to use with footer renderers to give them an inset
@@ -313,7 +313,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 * <listing version="3.0">
 	 * list.customFooterRendererStyleName = GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER;</listing>
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER:String = "feathers-grouped-list-inset-footer-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER:String = "feathers-grouped-list-inset-footer-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER</code>.
@@ -325,7 +325,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_FOOTER_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_FOOTER_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_FOOTER_RENDERER;
 
 	/**
 	 * An alternate name to use with item renderers to give them an inset
@@ -339,7 +339,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER:String = "feathers-grouped-list-inset-item-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER:String = "feathers-grouped-list-inset-item-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER</code>.
@@ -351,7 +351,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_ITEM_RENDERER;
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -366,7 +366,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER:String = "feathers-grouped-list-inset-first-item-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER:String = "feathers-grouped-list-inset-first-item-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER</code>.
@@ -378,7 +378,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_FIRST_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_FIRST_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_FIRST_ITEM_RENDERER;
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -393,7 +393,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER:String = "feathers-grouped-list-inset-last-item-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER:String = "feathers-grouped-list-inset-last-item-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER</code>.
@@ -405,7 +405,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_LAST_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_LAST_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_LAST_ITEM_RENDERER;
 
 	/**
 	 * An alternate name to use for item renderers to give them an inset
@@ -421,7 +421,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER:String = "feathers-grouped-list-inset-single-item-renderer";
+	inline public static var ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER:String = "feathers-grouped-list-inset-single-item-renderer";
 
 	/**
 	 * DEPRECATED: Replaced by <code>GroupedList.ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER</code>.
@@ -433,7 +433,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see GroupedList#ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER
 	 */
-	public static const ALTERNATE_CHILD_NAME_INSET_SINGLE_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER;
+	inline public static var ALTERNATE_CHILD_NAME_INSET_SINGLE_ITEM_RENDERER:String = ALTERNATE_CHILD_STYLE_NAME_INSET_SINGLE_ITEM_RENDERER;
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -478,7 +478,7 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
@@ -527,14 +527,14 @@ public class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL

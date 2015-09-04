@@ -192,7 +192,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-scroll-bar-minimum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-scroll-bar-minimum-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollBar.DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK</code>.
@@ -204,7 +204,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see ScrollBar#DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the maximum
@@ -212,7 +212,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-scroll-bar-maximum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-scroll-bar-maximum-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollBar.DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK</code>.
@@ -224,14 +224,14 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see ScrollBar#DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-scroll-bar-thumb";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-scroll-bar-thumb";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollBar.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
@@ -243,7 +243,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see ScrollBar#DEFAULT_CHILD_STYLE_NAME_THUMB
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the decrement
@@ -251,7 +251,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON:String = "feathers-scroll-bar-decrement-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON:String = "feathers-scroll-bar-decrement-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollBar.DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON</code>.
@@ -263,7 +263,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see ScrollBar#DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the increment
@@ -271,7 +271,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON:String = "feathers-scroll-bar-increment-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON:String = "feathers-scroll-bar-increment-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollBar.DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON</code>.
@@ -283,7 +283,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see ScrollBar#DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollBar</code>

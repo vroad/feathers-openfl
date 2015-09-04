@@ -222,7 +222,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The content will be aligned horizontally to the center of the
@@ -230,7 +230,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The content will be aligned horizontally to the right edge of the
@@ -238,7 +238,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * The content will be aligned vertically to the top edge of the
@@ -246,7 +246,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The content will be aligned vertically to the middle of the
@@ -254,7 +254,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The content will be aligned vertically to the bottom edge of the
@@ -262,7 +262,7 @@ class ImageLoader extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ImageLoader</code>

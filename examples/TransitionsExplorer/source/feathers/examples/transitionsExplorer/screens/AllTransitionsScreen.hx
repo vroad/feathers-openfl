@@ -15,15 +15,15 @@ import starling.textures.Texture;
 
 public class AllTransitionsScreen extends PanelScreen
 {
-	public static const COLOR_FADE:String = "colorFade";
-	public static const COVER:String = "cover";
-	public static const CUBE:String = "cube";
-	public static const FADE:String = "fade";
-	public static const FLIP:String = "flip";
-	public static const IRIS:String = "iris";
-	public static const REVEAL:String = "reveal";
-	public static const SLIDE:String = "slide";
-	public static const WIPE:String = "wipe";
+	inline public static var COLOR_FADE:String = "colorFade";
+	inline public static var COVER:String = "cover";
+	inline public static var CUBE:String = "cube";
+	inline public static var FADE:String = "fade";
+	inline public static var FLIP:String = "flip";
+	inline public static var IRIS:String = "iris";
+	inline public static var REVEAL:String = "reveal";
+	inline public static var SLIDE:String = "slide";
+	inline public static var WIPE:String = "wipe";
 
 	public function AllTransitionsScreen()
 	{

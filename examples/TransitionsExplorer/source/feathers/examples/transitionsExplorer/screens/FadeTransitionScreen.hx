@@ -16,7 +16,7 @@ import starling.events.Event;
 
 public class FadeTransitionScreen extends PanelScreen
 {
-	public static const TRANSITION:String = "transition";
+	inline public static var TRANSITION:String = "transition";
 
 	public function FadeTransitionScreen()
 	{

@@ -83,7 +83,7 @@ class Alert extends Panel
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-alert-header";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-alert-header";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
@@ -95,14 +95,14 @@ class Alert extends Panel
 	 *
 	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_HEADER
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
+	inline public static var DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the button group.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP:String = "feathers-alert-button-group";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP</code>.
@@ -114,14 +114,14 @@ class Alert extends Panel
 	 *
 	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON_GROUP:String = DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP;
+	inline public static var DEFAULT_CHILD_NAME_BUTTON_GROUP:String = DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the message.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MESSAGE:String = "feathers-alert-message";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MESSAGE:String = "feathers-alert-message";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Alert.DEFAULT_CHILD_STYLE_NAME_MESSAGE</code>.
@@ -133,7 +133,7 @@ class Alert extends Panel
 	 *
 	 * @see Alert#DEFAULT_CHILD_STYLE_NAME_MESSAGE
 	 */
-	public static const DEFAULT_CHILD_NAME_MESSAGE:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
+	inline public static var DEFAULT_CHILD_NAME_MESSAGE:String = DEFAULT_CHILD_STYLE_NAME_MESSAGE;
 
 	/**
 	 * Returns a new <code>Alert</code> instance when <code>Alert.show()</code>

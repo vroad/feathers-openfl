@@ -19,7 +19,7 @@ import starling.events.Event;
 
 public class FlowLayoutScreen extends PanelScreen
 {
-	public static const SHOW_SETTINGS:String = "showSettings";
+	inline public static var SHOW_SETTINGS:String = "showSettings";
 
 	public function FlowLayoutScreen()
 	{

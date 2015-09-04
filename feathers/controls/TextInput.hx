@@ -239,7 +239,7 @@ public class TextInput extends FeathersControl implements IFocusDisplayObject, I
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
+	inline public static var ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT:String = "feathers-search-text-input";
 
 	/**
 	 * DEPRECATED: Replaced by <code>TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT</code>.
@@ -251,7 +251,7 @@ public class TextInput extends FeathersControl implements IFocusDisplayObject, I
 	 *
 	 * @see TextInput#ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT
 	 */
-	public static const ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT;
+	inline public static var ALTERNATE_NAME_SEARCH_TEXT_INPUT:String = ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT;
 
 	/**
 	 * The text editor, icon, and prompt will be aligned vertically to the

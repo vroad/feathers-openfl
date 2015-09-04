@@ -89,7 +89,7 @@ import starling.display.DisplayObject;
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL:String = "feathers-header-footer-renderer-content-label";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL:String = "feathers-header-footer-renderer-content-label";
 
 	/**
 	 * DEPRECATED: Replaced by <code>DefaultGroupedListHeaderOrFooterRenderer.DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL</code>.
@@ -101,7 +101,7 @@ import starling.display.DisplayObject;
 	 *
 	 * @see DefaultGroupedListHeaderOrFooterRenderer#DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL
 	 */
-	public static const DEFAULT_CHILD_NAME_CONTENT_LABEL:String = DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL;
+	inline public static var DEFAULT_CHILD_NAME_CONTENT_LABEL:String = DEFAULT_CHILD_STYLE_NAME_CONTENT_LABEL;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>DefaultGroupedListHeaderOrFooterRenderer</code>

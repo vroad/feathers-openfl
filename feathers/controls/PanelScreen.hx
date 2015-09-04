@@ -151,7 +151,7 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-screen-header";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_HEADER:String = "feathers-panel-screen-header";
 
 	/**
 	 * DEPRECATED: Replaced by <code>PanelScreen.DEFAULT_CHILD_STYLE_NAME_HEADER</code>.
@@ -163,14 +163,14 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @see PanelScreen#DEFAULT_CHILD_STYLE_NAME_HEADER
 	 */
-	public static const DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
+	inline public static var DEFAULT_CHILD_NAME_HEADER:String = DEFAULT_CHILD_STYLE_NAME_HEADER;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the footer.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-screen-footer";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_FOOTER:String = "feathers-panel-screen-footer";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -257,14 +257,14 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -285,14 +285,14 @@ class PanelScreen extends Panel implements IScreen
 	 *
 	 * @see feathers.controls.ScrollContainer#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * @copy feathers.controls.ScrollContainer#AUTO_SIZE_MODE_CONTENT
 	 *
 	 * @see feathers.controls.ScrollContainer#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PanelScreen</code>

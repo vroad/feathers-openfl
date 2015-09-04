@@ -16,7 +16,7 @@ import starling.events.Event;
 
 public class ColorFadeTransitionScreen extends PanelScreen
 {
-	public static const TRANSITION:String = "transition";
+	inline public static var TRANSITION:String = "transition";
 
 	private static function fadeToRandomColor(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):void
 	{

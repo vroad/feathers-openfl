@@ -39,14 +39,14 @@ public class StackScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * The screen navigator will auto size itself to fit its content.
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>StackScreenNavigator</code>

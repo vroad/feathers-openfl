@@ -86,7 +86,7 @@ public class MuteToggleButton extends ToggleButton implements IMediaPlayerContro
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_VOLUME_SLIDER:String = "feathers-volume-toggle-button-volume-slider";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_VOLUME_SLIDER:String = "feathers-volume-toggle-button-volume-slider";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all

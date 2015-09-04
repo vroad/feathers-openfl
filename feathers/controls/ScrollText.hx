@@ -120,7 +120,7 @@ public class ScrollText extends Scroller
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
@@ -169,14 +169,14 @@ public class ScrollText extends Scroller
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL

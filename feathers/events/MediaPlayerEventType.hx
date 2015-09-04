@@ -28,45 +28,45 @@ public class MediaPlayerEventType
 	 * Dispatched when a media player changes to the full-screen display mode
 	 * or back to the normal display mode.
 	 */
-	public static const DISPLAY_STATE_CHANGE:String = "displayStageChange";
+	inline public static var DISPLAY_STATE_CHANGE:String = "displayStageChange";
 
 	/**
 	 * Dispatched when a media player's playback state changes, such as when
 	 * it begins playing or is paused.
 	 */
-	public static const PLAYBACK_STATE_CHANGE:String = "playbackStageChange";
+	inline public static var PLAYBACK_STATE_CHANGE:String = "playbackStageChange";
 	
 	/**
 	 * Dispatched when a media player's total playhead time changes.
 	 */
-	public static const TOTAL_TIME_CHANGE:String = "totalTimeChange";
+	inline public static var TOTAL_TIME_CHANGE:String = "totalTimeChange";
 	
 	/**
 	 * Dispatched when a media player's current playhead time changes.
 	 */
-	public static const CURRENT_TIME_CHANGE:String = "currentTimeChange";
+	inline public static var CURRENT_TIME_CHANGE:String = "currentTimeChange";
 
 	/**
 	 * Dispatched when the original, native width or height of a video
 	 * player's content is calculated.
 	 */
-	public static const DIMENSIONS_CHANGE:String = "dimensionsChange";
+	inline public static var DIMENSIONS_CHANGE:String = "dimensionsChange";
 
 	/**
 	 * Dispatched when a media player's sound transform is changed.
 	 */
-	public static const SOUND_TRANSFORM_CHANGE:String = "soundTransformChange";
+	inline public static var SOUND_TRANSFORM_CHANGE:String = "soundTransformChange";
 
 	/**
 	 * Dispatched periodically when a media player's content is loading to
 	 * indicate the current progress.
 	 */
-	public static const LOAD_PROGRESS:String = "loadProgress";
+	inline public static var LOAD_PROGRESS:String = "loadProgress";
 
 	/**
 	 * Dispatched when a media player's content is fully loaded and it
 	 * may be played to completion without buffering.
 	 */
-	public static const LOAD_COMPLETE:String = "loadComplete";
+	inline public static var LOAD_COMPLETE:String = "loadComplete";
 }
 }

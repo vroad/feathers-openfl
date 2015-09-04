@@ -145,7 +145,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_BUTTON:String = "feathers-picker-list-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_BUTTON:String = "feathers-picker-list-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>PickerList.DEFAULT_CHILD_STYLE_NAME_BUTTON</code>.
@@ -157,7 +157,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see PickerList#DEFAULT_CHILD_STYLE_NAME_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_BUTTON;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the pop-up
@@ -165,7 +165,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_LIST:String = "feathers-picker-list-list";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_LIST:String = "feathers-picker-list-list";
 
 	/**
 	 * DEPRECATED: Replaced by <code>PickerList.DEFAULT_CHILD_STYLE_NAME_LIST</code>.
@@ -177,7 +177,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see PickerList#DEFAULT_CHILD_STYLE_NAME_LIST
 	 */
-	public static const DEFAULT_CHILD_NAME_LIST:String = DEFAULT_CHILD_STYLE_NAME_LIST;
+	inline public static var DEFAULT_CHILD_NAME_LIST:String = DEFAULT_CHILD_STYLE_NAME_LIST;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>PickerList</code>

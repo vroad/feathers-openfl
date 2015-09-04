@@ -147,14 +147,14 @@ class Screen extends LayoutGroup implements IScreen
 	 *
 	 * @see feathers.controls.LayoutGroup#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * @copy feathers.controls.LayoutGroup#AUTO_SIZE_MODE_CONTENT
 	 *
 	 * @see feathers.controls.LayoutGroup#autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Screen</code>

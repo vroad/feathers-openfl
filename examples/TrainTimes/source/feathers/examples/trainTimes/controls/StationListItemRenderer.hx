@@ -23,11 +23,11 @@ import starling.textures.Texture;
 
 class StationListItemRenderer extends FeathersControl implements IListItemRenderer
 {
-	public static const CHILD_STYLE_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
-	public static const CHILD_STYLE_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
-	public static const CHILD_STYLE_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
-	public static const CHILD_STYLE_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
-	public static const CHILD_STYLE_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST_NAME_LABEL:String = "stationListNameLabel";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST_DETAILS_LABEL:String = "stationListDetailsLabel";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST_ACTION_CONTAINER:String = "stationListActionContainer";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST_CONFIRM_BUTTON:String = "stationListConfirmButton";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST_CANCEL_BUTTON:String = "stationListCancelButton";
 
 	private static var HELPER_POINT:Point = new Point();
 	private static var HELPER_TOUCHES_VECTOR:Array<Touch> = new Array();

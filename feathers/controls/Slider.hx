@@ -217,7 +217,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-slider-minimum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-slider-minimum-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK</code>.
@@ -229,7 +229,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_MINIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -237,7 +237,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-slider-maximum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-slider-maximum-track";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK</code>.
@@ -249,14 +249,14 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK
 	 */
-	public static const DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
+	inline public static var DEFAULT_CHILD_NAME_MAXIMUM_TRACK:String = DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-slider-thumb";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-slider-thumb";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Slider.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
@@ -268,7 +268,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see Slider#DEFAULT_CHILD_STYLE_NAME_THUMB
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>Slider</code>

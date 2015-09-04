@@ -90,7 +90,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON:String = "feathers-numeric-stepper-decrement-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON:String = "feathers-numeric-stepper-decrement-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>NumericStepper.DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON</code>.
@@ -102,7 +102,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see NumericStepper#DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_DECREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the increment
@@ -110,7 +110,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON:String = "feathers-numeric-stepper-increment-button";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON:String = "feathers-numeric-stepper-increment-button";
 
 	/**
 	 * DEPRECATED: Replaced by <code>NumericStepper.DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON</code>.
@@ -122,7 +122,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see NumericStepper#DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON
 	 */
-	public static const DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
+	inline public static var DEFAULT_CHILD_NAME_INCREMENT_BUTTON:String = DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the text
@@ -130,7 +130,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT:String = "feathers-numeric-stepper-text-input";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT:String = "feathers-numeric-stepper-text-input";
 
 	/**
 	 * DEPRECATED: Replaced by <code>NumericStepper.DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT</code>.
@@ -142,7 +142,7 @@ public class NumericStepper extends FeathersControl implements IRange, INativeFo
 	 *
 	 * @see NumericStepper#DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT
 	 */
-	public static const DEFAULT_CHILD_NAME_TEXT_INPUT:String = DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT;
+	inline public static var DEFAULT_CHILD_NAME_TEXT_INPUT:String = DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT;
 
 	/**
 	 * The decrement button will be placed on the left side of the text

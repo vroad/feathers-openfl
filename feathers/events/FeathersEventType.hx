@@ -116,7 +116,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	public static const TRANSITION_IN_START:String = "transitionInStart";
+	inline public static var TRANSITION_IN_START:String = "transitionInStart";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_IN_COMPLETE</code> event type is
@@ -125,7 +125,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	public static const TRANSITION_IN_COMPLETE:String = "transitionInComplete";
+	inline public static var TRANSITION_IN_COMPLETE:String = "transitionInComplete";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_OUT_START</code> event type is
@@ -134,7 +134,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	public static const TRANSITION_OUT_START:String = "transitionOutStart";
+	inline public static var TRANSITION_OUT_START:String = "transitionOutStart";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_OUT_COMPLETE</code> event type is
@@ -143,7 +143,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	public static const TRANSITION_OUT_COMPLETE:String = "transitionOutComplete";
+	inline public static var TRANSITION_OUT_COMPLETE:String = "transitionOutComplete";
 
 	/**
 	 * The <code>FeathersEventType.TRANSITION_CANCEL</code> event type is
@@ -152,7 +152,7 @@ class FeathersEventType
 	 *
 	 * @see feathers.controls.ScreenNavigator
 	 */
-	public static const TRANSITION_CANCEL:String = "transitionCancel";
+	inline public static var TRANSITION_CANCEL:String = "transitionCancel";
 
 	/**
 	 * The <code>FeathersEventType.FOCUS_IN</code> event type is used by
@@ -221,20 +221,20 @@ class FeathersEventType
 	 *
 	 * @see feathers.core.ITextEditor
 	 */
-	public static const SOFT_KEYBOARD_DEACTIVATE:String = "softKeyboardDeactivate";
+	inline public static var SOFT_KEYBOARD_DEACTIVATE:String = "softKeyboardDeactivate";
 
 	/**
 	 * The <code>FeathersEventType.PROGRESS</code> event type is used by
 	 * Feathers classes with long-running tasks to indicate that progress
 	 * has been made, but the task is incomplete.
 	 */
-	public static const PROGRESS:String = "progress";
+	inline public static var PROGRESS:String = "progress";
 
 	/**
 	 * The <code>FeathersEventType.LOCATION_CHANGE</code> event type is used
 	 * by the Feathers <code>WebView</code> component to indicate that its
 	 * location has changed.
 	 */
-	public static const LOCATION_CHANGE:String = "locationChange";
+	inline public static var LOCATION_CHANGE:String = "locationChange";
 }
 }

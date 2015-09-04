@@ -54,7 +54,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_UP:String = "up";
+	inline public static var STATE_UP:String = "up";
 
 	/**
 	 * @copy feathers.controls.Button#STATE_DOWN
@@ -63,7 +63,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_DOWN:String = "down";
+	inline public static var STATE_DOWN:String = "down";
 
 	/**
 	 * @copy feathers.controls.Button#STATE_HOVER
@@ -72,7 +72,7 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_HOVER:String = "hover";
+	inline public static var STATE_HOVER:String = "hover";
 
 	/**
 	 * @copy feathers.controls.Button#STATE_DISABLED
@@ -81,35 +81,35 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * @see #stateToIconFunction
 	 * @see #stateToLabelPropertiesFunction
 	 */
-	public static const STATE_DISABLED:String = "disabled";
+	inline public static var STATE_DISABLED:String = "disabled";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_TOP
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_TOP:String = "top";
+	inline public static var ICON_POSITION_TOP:String = "top";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_RIGHT
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_RIGHT:String = "right";
+	inline public static var ICON_POSITION_RIGHT:String = "right";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_BOTTOM
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_BOTTOM:String = "bottom";
+	inline public static var ICON_POSITION_BOTTOM:String = "bottom";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_LEFT
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_LEFT:String = "left";
+	inline public static var ICON_POSITION_LEFT:String = "left";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_MANUAL
@@ -118,63 +118,63 @@ class Radio extends ToggleButton implements IGroupedToggle
 	 * @see #iconOffsetX
 	 * @see #iconOffsetY
 	 */
-	public static const ICON_POSITION_MANUAL:String = "manual";
+	inline public static var ICON_POSITION_MANUAL:String = "manual";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_LEFT_BASELINE
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_LEFT_BASELINE:String = "leftBaseline";
+	inline public static var ICON_POSITION_LEFT_BASELINE:String = "leftBaseline";
 
 	/**
 	 * @copy feathers.controls.Button#ICON_POSITION_RIGHT_BASELINE
 	 *
 	 * @see #iconPosition
 	 */
-	public static const ICON_POSITION_RIGHT_BASELINE:String = "rightBaseline";
+	inline public static var ICON_POSITION_RIGHT_BASELINE:String = "rightBaseline";
 
 	/**
 	 * @copy feathers.controls.Button#HORIZONTAL_ALIGN_LEFT
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * @copy feathers.controls.Button#HORIZONTAL_ALIGN_CENTER
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * @copy feathers.controls.Button#HORIZONTAL_ALIGN_RIGHT
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * @copy feathers.controls.Button#VERTICAL_ALIGN_TOP
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * @copy feathers.controls.Button#VERTICAL_ALIGN_MIDDLE
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * @copy feathers.controls.Button#VERTICAL_ALIGN_BOTTOM
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 	
 	/**
 	 * If a <code>Radio</code> has not been added to a <code>ToggleGroup</code>,

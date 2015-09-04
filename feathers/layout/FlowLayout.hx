@@ -64,7 +64,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #rowVerticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * If the total item height is smaller than the height of the bounds,
@@ -72,7 +72,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #rowVerticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * If the total item height is smaller than the height of the bounds,
@@ -80,7 +80,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #rowVerticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -88,7 +88,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -96,7 +96,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * If the total item width is smaller than the width of the bounds, the
@@ -104,7 +104,7 @@ public class FlowLayout extends EventDispatcher implements IVariableVirtualLayou
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * Constructor.

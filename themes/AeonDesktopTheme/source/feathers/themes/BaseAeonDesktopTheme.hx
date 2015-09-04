@@ -186,7 +186,7 @@ package feathers.themes
 		 * The name of the font used by controls in this theme. This font is not
 		 * embedded. It is the default sans-serif system font.
 		 */
-		public static const FONT_NAME:String = "_sans";
+		inline public static var FONT_NAME:String = "_sans";
 
 		protected static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 4, 1, 14);
 		protected static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(6, 6, 70, 10);

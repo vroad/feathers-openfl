@@ -29,14 +29,14 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The slider's thumb may be dragged vertically (on the y-axis).
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The slider has only one track, that fills the full length of the
@@ -46,7 +46,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #trackLayoutMode
 	 */
-	public static const TRACK_LAYOUT_MODE_SINGLE:String = "single";
+	inline public static var TRACK_LAYOUT_MODE_SINGLE:String = "single";
 
 	/**
 	 * The slider has two tracks, stretching to fill each side of the slider
@@ -65,7 +65,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 * @see feathers.display.Scale3Image
 	 * @see feathers.display.TiledImage
 	 */
-	public static const TRACK_LAYOUT_MODE_MIN_MAX:String = "minMax";
+	inline public static var TRACK_LAYOUT_MODE_MIN_MAX:String = "minMax";
 
 	/**
 	 * The slider's track dimensions fill the full width and height of the
@@ -73,7 +73,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #trackScaleMode
 	 */
-	public static const TRACK_SCALE_MODE_EXACT_FIT:String = "exactFit";
+	inline public static var TRACK_SCALE_MODE_EXACT_FIT:String = "exactFit";
 
 	/**
 	 * If the slider's direction is horizontal, the width of the track will
@@ -83,7 +83,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #trackScaleMode
 	 */
-	public static const TRACK_SCALE_MODE_DIRECTIONAL:String = "directional";
+	inline public static var TRACK_SCALE_MODE_DIRECTIONAL:String = "directional";
 
 	/**
 	 * When the track is touched, the slider's thumb jumps directly to the
@@ -92,7 +92,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #trackInteractionMode
 	 */
-	public static const TRACK_INTERACTION_MODE_TO_VALUE:String = "toValue";
+	inline public static var TRACK_INTERACTION_MODE_TO_VALUE:String = "toValue";
 
 	/**
 	 * When the track is touched, the <code>value</code> is increased or
@@ -101,7 +101,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see #trackInteractionMode
 	 */
-	public static const TRACK_INTERACTION_MODE_BY_PAGE:String = "byPage";
+	inline public static var TRACK_INTERACTION_MODE_BY_PAGE:String = "byPage";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -109,7 +109,7 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-volume-slider-minimum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK:String = "feathers-volume-slider-minimum-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the
@@ -117,14 +117,14 @@ public class VolumeSlider extends Slider implements IMediaPlayerControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-volume-slider-maximum-track";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK:String = "feathers-volume-slider-maximum-track";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the thumb.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-volume-slider-thumb";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-volume-slider-thumb";
 	
 	/**
 	 * The default <code>IStyleProvider</code> for all

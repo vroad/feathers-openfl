@@ -18,7 +18,7 @@ import starling.events.Event;
 
 class StationScreen extends Screen
 {
-	public static const CHILD_STYLE_NAME_STATION_LIST:String = "stationList";
+	inline public static var CHILD_STYLE_NAME_STATION_LIST:String = "stationList";
 
 	@:keep public function new()
 	{

@@ -158,7 +158,7 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_ITEM:String = "feathers-header-item";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_ITEM:String = "feathers-header-item";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Header.DEFAULT_CHILD_STYLE_NAME_ITEM</code>.
@@ -170,7 +170,7 @@ class Header extends FeathersControl
 	 *
 	 * @see Header#DEFAULT_CHILD_STYLE_NAME_ITEM
 	 */
-	public static const DEFAULT_CHILD_NAME_ITEM:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
+	inline public static var DEFAULT_CHILD_NAME_ITEM:String = DEFAULT_CHILD_STYLE_NAME_ITEM;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the header's
@@ -178,7 +178,7 @@ class Header extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_TITLE:String = "feathers-header-title";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_TITLE:String = "feathers-header-title";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Header.DEFAULT_CHILD_STYLE_NAME_TITLE</code>.
@@ -190,7 +190,7 @@ class Header extends FeathersControl
 	 *
 	 * @see Header#DEFAULT_CHILD_STYLE_NAME_TITLE
 	 */
-	public static const DEFAULT_CHILD_NAME_TITLE:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
+	inline public static var DEFAULT_CHILD_NAME_TITLE:String = DEFAULT_CHILD_STYLE_NAME_TITLE;
 
 	/**
 	 * @private

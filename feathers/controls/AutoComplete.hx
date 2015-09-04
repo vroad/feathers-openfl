@@ -104,7 +104,7 @@ public class AutoComplete extends TextInput
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_LIST:String = "feathers-auto-complete-list";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_LIST:String = "feathers-auto-complete-list";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all

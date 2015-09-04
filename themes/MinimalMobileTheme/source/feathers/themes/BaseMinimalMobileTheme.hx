@@ -98,7 +98,7 @@ public class BaseMinimalMobileTheme extends StyleNameFunctionTheme
 	/**
 	 * The name of the embedded bitmap font used by controls in this theme.
 	 */
-	public static const FONT_NAME:String = "PF Ronda Seven";
+	inline public static var FONT_NAME:String = "PF Ronda Seven";
 
 	/**
 	 * @private

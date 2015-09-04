@@ -91,7 +91,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_TOOLBAR:String = "feathers-toolbar-scroll-container";
+	inline public static var ALTERNATE_STYLE_NAME_TOOLBAR:String = "feathers-toolbar-scroll-container";
 
 	/**
 	 * DEPRECATED: Replaced by <code>ScrollContainer.ALTERNATE_STYLE_NAME_TOOLBAR</code>.
@@ -103,7 +103,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see ScrollContainer#ALTERNATE_STYLE_NAME_TOOLBAR
 	 */
-	public static const ALTERNATE_NAME_TOOLBAR:String = ALTERNATE_STYLE_NAME_TOOLBAR;
+	inline public static var ALTERNATE_NAME_TOOLBAR:String = ALTERNATE_STYLE_NAME_TOOLBAR;
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_POLICY_AUTO
@@ -148,7 +148,7 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * @copy feathers.controls.Scroller#SCROLL_BAR_DISPLAY_MODE_NONE
@@ -197,14 +197,14 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * @copy feathers.controls.Scroller#MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * @copy feathers.controls.Scroller#DECELERATION_RATE_NORMAL
@@ -225,14 +225,14 @@ public class ScrollContainer extends Scroller implements IScrollContainer, IFocu
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * The container will auto size itself to fit its content.
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>ScrollContainer</code>

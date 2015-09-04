@@ -67,14 +67,14 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_STAGE:String = "stage";
+	inline public static var AUTO_SIZE_MODE_STAGE:String = "stage";
 
 	/**
 	 * The layout group will auto size itself to fit its content.
 	 *
 	 * @see #autoSizeMode
 	 */
-	public static const AUTO_SIZE_MODE_CONTENT:String = "content";
+	inline public static var AUTO_SIZE_MODE_CONTENT:String = "content";
 
 	/**
 	 * An alternate style name to use with <code>LayoutGroup</code> to
@@ -96,7 +96,7 @@ class LayoutGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const ALTERNATE_STYLE_NAME_TOOLBAR:String = "feathers-toolbar-layout-group";
+	inline public static var ALTERNATE_STYLE_NAME_TOOLBAR:String = "feathers-toolbar-layout-group";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>LayoutGroup</code>

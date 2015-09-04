@@ -94,14 +94,14 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * The tabs are displayed in order from top to bottom.
 	 *
 	 * @see #direction
 	 */
-	public static const DIRECTION_VERTICAL:String = "vertical";
+	inline public static var DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The tabs will be aligned horizontally to the left edge of the tab
@@ -109,14 +109,14 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+	inline public static var HORIZONTAL_ALIGN_LEFT:String = "left";
 
 	/**
 	 * The tabs will be aligned horizontally to the center of the tab bar.
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+	inline public static var HORIZONTAL_ALIGN_CENTER:String = "center";
 
 	/**
 	 * The tabs will be aligned horizontally to the right edge of the tab
@@ -124,7 +124,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #horizontalAlign
 	 */
-	public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+	inline public static var HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 	/**
 	 * If the direction is vertical, each tab will fill the entire width of
@@ -134,21 +134,21 @@ public class TabBar extends FeathersControl
 	 * @see #horizontalAlign
 	 * @see #direction
 	 */
-	public static const HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var HORIZONTAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The tabs will be aligned vertically to the top edge of the tab bar.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_TOP:String = "top";
+	inline public static var VERTICAL_ALIGN_TOP:String = "top";
 
 	/**
 	 * The tabs will be aligned vertically to the middle of the tab bar.
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
+	inline public static var VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 	/**
 	 * The tabs will be aligned vertically to the bottom edge of the tab
@@ -156,7 +156,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see #verticalAlign
 	 */
-	public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+	inline public static var VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 	/**
 	 * If the direction is horizontal, each tab will fill the entire height
@@ -166,14 +166,14 @@ public class TabBar extends FeathersControl
 	 * @see #verticalAlign
 	 * @see #direction
 	 */
-	public static const VERTICAL_ALIGN_JUSTIFY:String = "justify";
+	inline public static var VERTICAL_ALIGN_JUSTIFY:String = "justify";
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the tabs.
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_TAB:String = "feathers-tab-bar-tab";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_TAB:String = "feathers-tab-bar-tab";
 
 	/**
 	 * DEPRECATED: Replaced by <code>TabBar.DEFAULT_CHILD_STYLE_NAME_TAB</code>.
@@ -185,7 +185,7 @@ public class TabBar extends FeathersControl
 	 *
 	 * @see TabBar#DEFAULT_CHILD_STYLE_NAME_TAB
 	 */
-	public static const DEFAULT_CHILD_NAME_TAB:String = DEFAULT_CHILD_STYLE_NAME_TAB;
+	inline public static var DEFAULT_CHILD_NAME_TAB:String = DEFAULT_CHILD_STYLE_NAME_TAB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>TabBar</code>

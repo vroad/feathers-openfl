@@ -15,7 +15,7 @@ import starling.events.Event;
 
 class TimesScreen extends PanelScreen
 {
-	public static const CHILD_STYLE_NAME_TIMES_LIST:String = "timesList";
+	inline public static var CHILD_STYLE_NAME_TIMES_LIST:String = "timesList";
 
 	private static var NORTH_TIMES:Array<TimeData> =
 	[

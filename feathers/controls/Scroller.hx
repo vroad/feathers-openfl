@@ -328,7 +328,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.controls.Scroller#scrollBarDisplayMode
 	 */
-	public static const SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
+	inline public static var SCROLL_BAR_DISPLAY_MODE_FIXED_FLOAT:String = "fixedFloat";
 
 	/**
 	 * The scroll bars are never visible.
@@ -388,14 +388,14 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_VERTICAL:String = "vertical";
 
 	/**
 	 * The scroller will scroll horizontally when the mouse wheel is scrolled.
 	 *
 	 * @see feathers.controls.Scroller#verticalMouseWheelScrollDirection
 	 */
-	public static const MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
+	inline public static var MOUSE_WHEEL_SCROLL_DIRECTION_HORIZONTAL:String = "horizontal";
 
 	/**
 	 * Flag to indicate that the clipping has changed.
@@ -446,7 +446,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR:String = "feathers-scroller-horizontal-scroll-bar";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR:String = "feathers-scroller-horizontal-scroll-bar";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Scroller.DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR</code>.
@@ -458,7 +458,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Scroller#DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR
 	 */
-	public static const DEFAULT_CHILD_NAME_HORIZONTAL_SCROLL_BAR:String = DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR;
+	inline public static var DEFAULT_CHILD_NAME_HORIZONTAL_SCROLL_BAR:String = DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR;
 
 	/**
 	 * The default value added to the <code>styleNameList</code> of the vertical
@@ -466,7 +466,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR:String = "feathers-scroller-vertical-scroll-bar";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR:String = "feathers-scroller-vertical-scroll-bar";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Scroller.DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR</code>.
@@ -478,7 +478,7 @@ public class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see Scroller#DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR
 	 */
-	public static const DEFAULT_CHILD_NAME_VERTICAL_SCROLL_BAR:String = DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR;
+	inline public static var DEFAULT_CHILD_NAME_VERTICAL_SCROLL_BAR:String = DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR;
 
 	/**
 	 * @private

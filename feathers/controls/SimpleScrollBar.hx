@@ -144,7 +144,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
-	public static const DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
+	inline public static var DEFAULT_CHILD_STYLE_NAME_THUMB:String = "feathers-simple-scroll-bar-thumb";
 
 	/**
 	 * DEPRECATED: Replaced by <code>Scroller.DEFAULT_CHILD_STYLE_NAME_THUMB</code>.
@@ -156,7 +156,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see Scroller#DEFAULT_CHILD_STYLE_NAME_THUMB
 	 */
-	public static const DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
+	inline public static var DEFAULT_CHILD_NAME_THUMB:String = DEFAULT_CHILD_STYLE_NAME_THUMB;
 
 	/**
 	 * The default <code>IStyleProvider</code> for all <code>SimpleScrollBar</code>

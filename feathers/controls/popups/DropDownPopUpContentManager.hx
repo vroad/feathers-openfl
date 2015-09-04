@@ -87,14 +87,14 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 * 
 	 * @see #primaryDirection
 	 */
-	public static const PRIMARY_DIRECTION_DOWN:String = "down";
+	inline public static var PRIMARY_DIRECTION_DOWN:String = "down";
 
 	/**
 	 * The pop-up content will be positioned above the source, if possible.
 	 *
 	 * @see #primaryDirection
 	 */
-	public static const PRIMARY_DIRECTION_UP:String = "up";
+	inline public static var PRIMARY_DIRECTION_UP:String = "up";
 	
 	/**
 	 * Constructor.

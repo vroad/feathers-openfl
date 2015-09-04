@@ -38,14 +38,14 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
-	public static const DISPLAY_MODE_CURRENT_TIME:String = "currentTime";
+	inline public static var DISPLAY_MODE_CURRENT_TIME:String = "currentTime";
 	
 	/**
 	 * The label displays only the total time of the media content.
 	 * 
 	 * @see #displayMode
 	 */
-	public static const DISPLAY_MODE_TOTAL_TIME:String = "totalTime";
+	inline public static var DISPLAY_MODE_TOTAL_TIME:String = "totalTime";
 
 	/**
 	 * The label displays only the remaining time of the media content. In
@@ -53,7 +53,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
-	public static const DISPLAY_MODE_REMAINING_TIME:String = "remainingTime";
+	inline public static var DISPLAY_MODE_REMAINING_TIME:String = "remainingTime";
 
 	/**
 	 * The label displays the current time of the media content, followed by
@@ -62,7 +62,7 @@ public class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
-	public static const DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES:String = "currentAndTotalTimes";
+	inline public static var DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES:String = "currentAndTotalTimes";
 
 	/**
 	 * The default <code>IStyleProvider</code> for all
