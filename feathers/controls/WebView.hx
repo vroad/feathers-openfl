@@ -147,7 +147,7 @@ class WebView extends FeathersControl
 	/**
 	 * Indicates if this component is supported on the current platform.
 	 */
-	public static function get_isSupported():Boolean
+	public static function get_isSupported():Bool
 	{
 		if(!STAGE_WEB_VIEW_CLASS)
 		{
@@ -180,7 +180,7 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _useNative:Boolean = false;
+	private var _useNative:Bool = false;
 
 	/**
 	 * Determines if the system native web browser control is used or if
@@ -188,7 +188,7 @@ class WebView extends FeathersControl
 	 *
 	 * <p>Note: Although it is not prohibited, with some content, failures can occur when the same process uses both the embedded and the system WebKit, so it is recommended that all StageWebViews in a given application be constructed with the same value for useNative. In addition, as HTMLLoader depends on the embedded WebKit, applications using HTMLLoader should only construct StageWebViews with useNative set to false.</p>
 	 */
-	public function get_useNative():Boolean
+	public function get_useNative():Bool
 	{
 		return this._useNative;
 	}
@@ -196,7 +196,7 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_useNative(value:Boolean):Boolean
+	public function set_useNative(value:Bool):Bool
 	{
 		if(this.isCreated)
 		{
@@ -238,7 +238,7 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryBackEnabled Full description of flash.media.StageWebView.isHistoryBackEnabled in Adobe's Flash Platform API Reference
 	 */
-	public function get_isHistoryBackEnabled():Boolean
+	public function get_isHistoryBackEnabled():Bool
 	{
 		if(this.stageWebView)
 		{
@@ -252,7 +252,7 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryForwardEnabled Full description of flash.media.StageWebView.isHistoryForwardEnabled in Adobe's Flash Platform API Reference
 	 */
-	public function get_isHistoryForwardEnabled():Boolean
+	public function get_isHistoryForwardEnabled():Bool
 	{
 		if(this.stageWebView)
 		{
@@ -365,8 +365,8 @@ class WebView extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		sizeInvalid = this.autoSizeIfNeeded() || sizeInvalid;
 		if(sizeInvalid)
 		{
@@ -390,10 +390,10 @@ class WebView extends FeathersControl
 	 * <p>Meant for internal use, and subclasses may override this function
 	 * with a custom implementation.</p>
 	 */
-	private function autoSizeIfNeeded():Boolean
+	private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth != this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight != this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

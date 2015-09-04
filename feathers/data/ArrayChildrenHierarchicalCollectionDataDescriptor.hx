@@ -166,7 +166,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 			branch = branch[index][childrenField] as Array;
 		}
 
-		var isFound:Boolean = this.findItemInBranch(branch, item, result);
+		var isFound:Bool = this.findItemInBranch(branch, item, result);
 		if(!isFound)
 		{
 			result.length = 0;
@@ -177,7 +177,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function isBranch(node:Object):Boolean
+	public function isBranch(node:Object):Bool
 	{
 		return node.hasOwnProperty(this.childrenField) && node[this.childrenField] is Array;
 	}
@@ -185,7 +185,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @private
 	 */
-	private function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Boolean
+	private function findItemInBranch(branch:Array, item:Object, result:Vector.<int>):Bool
 	{
 		var index:int = branch.indexOf(item);
 		if(index >= 0)
@@ -201,7 +201,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 			if(this.isBranch(branchItem))
 			{
 				result.push(i);
-				var isFound:Boolean = this.findItemInBranch(branchItem[childrenField] as Array, item, result);
+				var isFound:Bool = this.findItemInBranch(branchItem[childrenField] as Array, item, result);
 				if(isFound)
 				{
 					return true;

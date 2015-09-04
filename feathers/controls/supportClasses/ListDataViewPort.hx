@@ -710,7 +710,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			return;
 		}
 		var typicalItemIndex:int = 0;
-		var newTypicalItemIsInDataProvider:Boolean = false;
+		var newTypicalItemIsInDataProvider:Bool = false;
 		var typicalItem:Object = this._typicalItem;
 		if(typicalItem != null)
 		{
@@ -940,7 +940,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._minimumItemCount = unrenderedItemCount;
 		}
-		var canUseBeforeAndAfter:Boolean = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
+		var canUseBeforeAndAfter:Bool = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
 			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		var index:Int;
@@ -1095,7 +1095,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 	}
 
-	private function freeInactiveRenderers(allowKeep:Boolean):Void
+	private function freeInactiveRenderers(allowKeep:Bool):Void
 	{
 		//we may keep around some extra renderers to avoid too much
 		//allocation and garbage collection. they'll be hidden.

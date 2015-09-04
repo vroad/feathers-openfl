@@ -2693,7 +2693,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 			this.maximumTrack.touchable = range > 0 && range < Number.POSITIVE_INFINITY;
 		}
 
-		var showButtons:Boolean = this._maximum != this._minimum;
+		var showButtons:Bool = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			this.minimumTrack.x = 0;
@@ -2760,7 +2760,7 @@ class ScrollBar extends FeathersControl implements IDirectionalScrollBar
 		var range:Number = this._maximum - this._minimum;
 		this.minimumTrack.touchable = range > 0 && range < Number.POSITIVE_INFINITY;
 
-		var showButtons:Boolean = this._maximum != this._minimum;
+		var showButtons:Bool = this._maximum != this._minimum;
 		if(this._direction == DIRECTION_VERTICAL)
 		{
 			this.minimumTrack.x = 0;

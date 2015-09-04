@@ -81,12 +81,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _isHTML:Boolean = false;
+	private var _isHTML:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#isHTML
 	 */
-	public function get_isHTML():Boolean
+	public function get_isHTML():Bool
 	{
 		return this._isHTML;
 	}
@@ -94,7 +94,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_isHTML(value:Boolean):Boolean
+	public function set_isHTML(value:Bool):Bool
 	{
 		if(this._isHTML == value)
 		{
@@ -185,12 +185,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _embedFonts:Boolean = false;
+	private var _embedFonts:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#embedFonts
 	 */
-	public function get_embedFonts():Boolean
+	public function get_embedFonts():Bool
 	{
 		return this._embedFonts;
 	}
@@ -198,7 +198,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_embedFonts(value:Boolean):Boolean
+	public function set_embedFonts(value:Bool):Bool
 	{
 		if(this._embedFonts == value)
 		{
@@ -237,12 +237,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _background:Boolean = false;
+	private var _background:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#background
 	 */
-	public function get_background():Boolean
+	public function get_background():Bool
 	{
 		return this._background;
 	}
@@ -250,7 +250,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_background(value:Boolean):Boolean
+	public function set_background(value:Bool):Bool
 	{
 		if(this._background == value)
 		{
@@ -289,12 +289,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _border:Boolean = false;
+	private var _border:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#border
 	 */
-	public function get_border():Boolean
+	public function get_border():Bool
 	{
 		return this._border;
 	}
@@ -302,7 +302,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_border(value:Boolean):Boolean
+	public function set_border(value:Bool):Bool
 	{
 		if(this._border == value)
 		{
@@ -341,12 +341,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _cacheAsBitmap:Boolean = true;
+	private var _cacheAsBitmap:Bool = true;
 
 	/**
 	 * @see feathers.controls.ScrollText#cacheAsBitmap
 	 */
-	public function get_cacheAsBitmap():Boolean
+	public function get_cacheAsBitmap():Bool
 	{
 		return this._cacheAsBitmap;
 	}
@@ -354,7 +354,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_cacheAsBitmap(value:Boolean):Boolean
+	public function set_cacheAsBitmap(value:Bool):Bool
 	{
 		if(this._cacheAsBitmap == value)
 		{
@@ -367,12 +367,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _condenseWhite:Boolean = false;
+	private var _condenseWhite:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#condenseWhite
 	 */
-	public function get_condenseWhite():Boolean
+	public function get_condenseWhite():Bool
 	{
 		return this._condenseWhite;
 	}
@@ -380,7 +380,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_condenseWhite(value:Boolean):Boolean
+	public function set_condenseWhite(value:Bool):Bool
 	{
 		if(this._condenseWhite == value)
 		{
@@ -393,12 +393,12 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	private var _displayAsPassword:Boolean = false;
+	private var _displayAsPassword:Bool = false;
 
 	/**
 	 * @see feathers.controls.ScrollText#displayAsPassword
 	 */
-	public function get_displayAsPassword():Boolean
+	public function get_displayAsPassword():Bool
 	{
 		return this._displayAsPassword;
 	}
@@ -406,7 +406,7 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 	/**
 	 * @private
 	 */
-	public function set_displayAsPassword(value:Boolean):Boolean
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		if(this._displayAsPassword == value)
 		{
@@ -787,11 +787,11 @@ class TextFieldViewPort extends FeathersControl implements IViewPort
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
-		var scrollInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SCROLL);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(stylesInvalid)
 		{

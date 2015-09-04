@@ -113,7 +113,7 @@ class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _touchableWhenPlaying:Boolean = true;
+	private var _touchableWhenPlaying:Bool = true;
 
 	/**
 	 * Determines if the button may be touched when the media player is
@@ -122,7 +122,7 @@ class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerControl
 	 * 
 	 * @default true
 	 */
-	public function get_touchableWhenPlaying():Boolean
+	public function get_touchableWhenPlaying():Bool
 	{
 		return this._touchableWhenPlaying;
 	}
@@ -130,7 +130,7 @@ class PlayPauseToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set_touchableWhenPlaying(value:Boolean):Boolean
+	public function set_touchableWhenPlaying(value:Bool):Bool
 	{
 		if(this._touchableWhenPlaying == value)
 		{

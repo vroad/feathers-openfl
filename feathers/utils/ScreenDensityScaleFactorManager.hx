@@ -146,7 +146,7 @@ class ScreenDensityScaleFactorManager
 	private function updateStarlingStageDimensions():Void
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
-		var needsToBeDivisibleByTwo:Boolean = int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
+		var needsToBeDivisibleByTwo:Bool = int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
 		var starlingStageWidth:Number = int(nativeStage.stageWidth / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{

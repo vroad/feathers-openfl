@@ -710,7 +710,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _scaleContent:Boolean = true;
+	private var _scaleContent:Bool = true;
 
 	/**
 	 * Determines if the content will be scaled if the dimensions of the
@@ -728,7 +728,7 @@ class ImageLoader extends FeathersControl
 	 * @see #verticalAlign
 	 * @see #maintainAspectRatio
 	 */
-	public function get_scaleContent():Boolean
+	public function get_scaleContent():Bool
 	{
 		return this._scaleContent;
 	}
@@ -736,7 +736,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_scaleContent(value:Boolean):Boolean
+	public function set_scaleContent(value:Bool):Bool
 	{
 		if(this._scaleContent == value)
 		{
@@ -749,7 +749,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _maintainAspectRatio:Boolean = true;
+	private var _maintainAspectRatio:Bool = true;
 
 	/**
 	 * Determines if the aspect ratio of the texture is maintained when the
@@ -1651,7 +1651,7 @@ class ImageLoader extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function isATFURL(sourceURL:String):Boolean
+	private function isATFURL(sourceURL:String):Bool
 	{
 		var index:int = sourceURL.indexOf("?");
 		if(index >= 0)

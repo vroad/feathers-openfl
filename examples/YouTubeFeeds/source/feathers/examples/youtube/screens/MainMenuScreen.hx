@@ -106,7 +106,7 @@ class MainMenuScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
 		if(!this.savedDataProvider && dataInvalid)
@@ -151,7 +151,7 @@ class MainMenuScreen extends PanelScreen
 		for(var i:int = 0; i < categoryCount; i++)
 		{
 			var category:Object = categories[i];
-			var assignable:Boolean = category.snippet.assignable as Boolean; 
+			var assignable:Bool = category.snippet.assignable as Bool; 
 			if(!assignable)
 			{
 				continue;

@@ -128,14 +128,14 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _isPlaying:Boolean = false;
+	private var _isPlaying:Bool = false;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
-	public function get_isPlaying():Boolean
+	public function get_isPlaying():Bool
 	{
 		return this._isPlaying;
 	}

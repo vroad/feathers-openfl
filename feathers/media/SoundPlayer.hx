@@ -304,13 +304,13 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private var _isLoading:Boolean = false;
+	private var _isLoading:Bool = false;
 
 	/**
 	 * Indicates if the <code>flash.media.Sound</code> object is currently
 	 * loading its content.
 	 */
-	public function get_isLoading():Boolean
+	public function get_isLoading():Bool
 	{
 		return this._isLoading;
 	}
@@ -318,7 +318,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private var _isLoaded:Boolean = false;
+	private var _isLoaded:Bool = false;
 
 	/**
 	 * Indicates if the <code>flash.media.Sound</code> object has finished
@@ -327,7 +327,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see #event:loadProgress feathers.events.MediaPlayerEventType.LOAD_PROGRESS
 	 * @see #event:loadComplete feathers.events.MediaPlayerEventType.LOAD_COMPLETE
 	 */
-	public function get_isLoaded():Boolean
+	public function get_isLoaded():Bool
 	{
 		return this._isLoaded;
 	}
@@ -373,7 +373,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private var _autoPlay:Boolean = true;
+	private var _autoPlay:Bool = true;
 
 	/**
 	 * Determines if the sound starts playing immediately when the
@@ -386,7 +386,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * 
 	 * @see #soundSource
 	 */
-	public function get_autoPlay():Boolean
+	public function get_autoPlay():Bool
 	{
 		return this._autoPlay;
 	}
@@ -394,7 +394,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set_autoPlay(value:Boolean):Boolean
+	public function set_autoPlay(value:Bool):Bool
 	{
 		this._autoPlay = value;
 	}
@@ -402,7 +402,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private var _loop:Boolean = false;
+	private var _loop:Bool = false;
 
 	/**
 	 * Determines if, upon reaching the end of the sound, the playhead
@@ -417,7 +417,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * <listing version="3.0">
 	 * soundPlayer.loop = true;</listing>
 	 */
-	public function get_loop():Boolean
+	public function get_loop():Bool
 	{
 		return this._loop;
 	}
@@ -425,7 +425,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set_loop(value:Boolean):Boolean
+	public function set_loop(value:Bool):Bool
 	{
 		this._loop = value;
 	}

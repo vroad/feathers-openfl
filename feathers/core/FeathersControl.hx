@@ -437,12 +437,12 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	/**
 	 * @private
 	 */
-	private var _isInitializing:Boolean = false;
+	private var _isInitializing:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isInitialized:Boolean = false;
+	private var _isInitialized:Bool = false;
 
 	/**
 	 * Determines if the component has been initialized yet. The

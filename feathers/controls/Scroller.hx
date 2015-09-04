@@ -612,7 +612,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	override public function get_isFocusEnabled():Boolean
+	override public function get_isFocusEnabled():Bool
 	{
 		return (this._maxVerticalScrollPosition != this._minVerticalScrollPosition ||
 			this._maxHorizontalScrollPosition != this._minHorizontalScrollPosition) &&
@@ -889,7 +889,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _snapOnComplete:Boolean = false;
+	private var _snapOnComplete:Bool = false;
 
 	/**
 	 * @private
@@ -2973,7 +2973,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _snapScrollPositionsToPixels:Boolean = true;
+	private var _snapScrollPositionsToPixels:Bool = true;
 
 	/**
 	 * If enabled, the scroll position will always be adjusted to whole
@@ -3061,7 +3061,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * 
 	 * @see #pendingHorizontalPageIndex
 	 */
-	private var hasPendingHorizontalPageIndex:Boolean = false;
+	private var hasPendingHorizontalPageIndex:Bool = false;
 
 	/**
 	 * A flag that indicates if the scroller should scroll to a new page
@@ -3070,7 +3070,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #pendingVerticalPageIndex
 	 */
-	private var hasPendingVerticalPageIndex:Boolean = false;
+	private var hasPendingVerticalPageIndex:Bool = false;
 
 	/**
 	 * The pending horizontal page index to scroll to after validating. The

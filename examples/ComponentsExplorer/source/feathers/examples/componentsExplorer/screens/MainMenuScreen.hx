@@ -110,7 +110,7 @@ class MainMenuScreen extends PanelScreen
 		this._list.autoHideBackground = true;
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
 
-		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
+		var isTablet:Bool = DeviceCapabilities.isTablet(Starling.current.nativeStage);
 		var itemRendererAccessorySourceFunction:Function = null;
 		if(!isTablet)
 		{

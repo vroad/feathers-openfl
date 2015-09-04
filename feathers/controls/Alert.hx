@@ -849,9 +849,9 @@ class Alert extends Panel
 			cast(this._icon, IValidating).validate();
 		}
 
-		var oldIgnoreHeaderResizing:Boolean = this._ignoreHeaderResizing;
+		var oldIgnoreHeaderResizing:Bool = this._ignoreHeaderResizing;
 		this._ignoreHeaderResizing = true;
-		var oldIgnoreFooterResizing:Boolean = this._ignoreFooterResizing;
+		var oldIgnoreFooterResizing:Bool = this._ignoreFooterResizing;
 		this._ignoreFooterResizing = true;
 
 		var oldHeaderWidth:Number = this.header.width;

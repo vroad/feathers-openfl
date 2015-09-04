@@ -49,7 +49,7 @@ class ListVideosScreen extends PanelScreen
 	private var _list:List;
 	private var _message:Label;
 
-	private var _isTransitioning:Boolean = false;
+	private var _isTransitioning:Bool = false;
 
 	private var _model:YouTubeModel;
 
@@ -146,7 +146,7 @@ class ListVideosScreen extends PanelScreen
 
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
 
 		//only load the list of videos if don't have restored results
 		if(!this.savedDataProvider && dataInvalid)
@@ -199,8 +199,8 @@ class ListVideosScreen extends PanelScreen
 		this._message.visible = false;
 		
 		var stage:Stage = Starling.current.stage;
-		var useHighQualityThumbnail:Boolean = Math.min(stage.stageWidth, stage.stageHeight) > 350;
-		var useHTTP:Boolean = Capabilities.playerType != "Desktop";
+		var useHighQualityThumbnail:Bool = Math.min(stage.stageWidth, stage.stageHeight) > 350;
+		var useHTTP:Bool = Capabilities.playerType != "Desktop";
 		
 		var items:Vector.<VideoDetails> = new <VideoDetails>[];
 		var videos:Array = result.items as Array;

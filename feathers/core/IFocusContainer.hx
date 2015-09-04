@@ -28,11 +28,11 @@ public interface IFocusContainer extends IFocusDisplayObject
 	 *
 	 * @see #isFocusEnabled
 	 */
-	function get_isChildFocusEnabled():Boolean;
+	function get_isChildFocusEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_isChildFocusEnabled(value:Boolean):Boolean;
+	function set_isChildFocusEnabled(value:Bool):Bool;
 }
 }

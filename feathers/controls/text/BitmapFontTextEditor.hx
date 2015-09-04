@@ -757,8 +757,8 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
 		
 		super.draw();
 		

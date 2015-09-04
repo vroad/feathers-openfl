@@ -585,7 +585,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Bool = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -594,7 +594,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get_isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -602,7 +602,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set_isChildFocusEnabled(value:Boolean):Boolean
+	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -2817,7 +2817,7 @@ class GroupedList extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var changedSelection:Boolean = false;
+		var changedSelection:Bool = false;
 		if(event.keyCode == Keyboard.HOME)
 		{
 			if(this._dataProvider.getLength() > 0 && this._dataProvider.getLength(0) > 0)

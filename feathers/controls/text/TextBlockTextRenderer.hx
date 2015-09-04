@@ -246,7 +246,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
@@ -1115,7 +1115,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Bool = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text renderer is
@@ -1136,7 +1136,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get_updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Bool
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1144,7 +1144,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
+	public function set_updateSnapshotOnScaleChange(value:Bool):Bool
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
@@ -1499,7 +1499,7 @@ class TextBlockTextRenderer extends FeathersControl implements ITextRenderer
 				rectangleSnapshotWidth = HELPER_RECTANGLE.width;
 				rectangleSnapshotHeight = HELPER_RECTANGLE.height;
 			}
-			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
+			var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)

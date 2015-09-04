@@ -68,7 +68,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function hasProperty(name:*):Boolean
+	override flash_proxy function hasProperty(name:*):Bool
 	{
 		return this._storage.hasOwnProperty(name);
 	}
@@ -111,7 +111,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function deleteProperty(name:*):Boolean
+	override flash_proxy function deleteProperty(name:*):Bool
 	{
 		var nameAsString:String = name is QName ? QName(name).localName : name.toString();
 		var index:int = this._names.indexOf(nameAsString);
@@ -131,7 +131,7 @@ public final dynamic class PropertyProxy extends Proxy
 				this._names.splice(index, 1);
 			}
 		}
-		var result:Boolean = delete this._storage[nameAsString];
+		var result:Bool = delete this._storage[nameAsString];
 		if(result)
 		{
 			this.fireOnChangeCallback(nameAsString);

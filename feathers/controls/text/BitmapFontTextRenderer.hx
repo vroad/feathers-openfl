@@ -614,8 +614,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
-				var currentCharIsWhitespace:Boolean = charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB;
-				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
+				var currentCharIsWhitespace:Bool = charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB;
+				var previousCharIsWhitespace:Bool = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
 				if(currentCharIsWhitespace)
 				{
 					if(!previousCharIsWhitespace)
@@ -817,8 +817,8 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			var offsetX:Float = charData.xAdvance * scale;
 			if(this._wordWrap)
 			{
-				var currentCharIsWhitespace:Boolean = charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB;
-				var previousCharIsWhitespace:Boolean = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
+				var currentCharIsWhitespace:Bool = charID == CHARACTER_ID_SPACE || charID == CHARACTER_ID_TAB;
+				var previousCharIsWhitespace:Bool = previousCharID == CHARACTER_ID_SPACE || previousCharID == CHARACTER_ID_TAB;
 				if(currentCharIsWhitespace)
 				{
 					if(!previousCharIsWhitespace)

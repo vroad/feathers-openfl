@@ -278,7 +278,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	private var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Bool = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -287,7 +287,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get_isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -295,7 +295,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	public function set_isChildFocusEnabled(value:Boolean):Boolean
+	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -393,7 +393,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	private var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Bool = false;
 
 	/**
 	 * @private
@@ -711,7 +711,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	 */
 	override private function draw():Void
 	{
-		var layoutInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
+		var layoutInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LAYOUT);
 
 		if(layoutInvalid)
 		{
@@ -722,7 +722,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 			this.layoutViewPort.layout = this._layout;
 		}
 
-		var oldIgnoreChildChanges:Boolean = this._ignoreChildChanges;
+		var oldIgnoreChildChanges:Bool = this._ignoreChildChanges;
 		this._ignoreChildChanges = true;
 		super.draw();
 		this._ignoreChildChanges = oldIgnoreChildChanges;
@@ -731,10 +731,10 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	/**
 	 * @private
 	 */
-	override private function autoSizeIfNeeded():Boolean
+	override private function autoSizeIfNeeded():Bool
 	{
-		var needsWidth:Boolean = this.explicitWidth != this.explicitWidth; //isNaN
-		var needsHeight:Boolean = this.explicitHeight != this.explicitHeight; //isNaN
+		var needsWidth:Bool = this.explicitWidth != this.explicitWidth; //isNaN
+		var needsHeight:Bool = this.explicitHeight != this.explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			return false;

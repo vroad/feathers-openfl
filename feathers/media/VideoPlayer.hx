@@ -243,7 +243,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _ignoreDisplayListEvents:Boolean = false;
+	private var _ignoreDisplayListEvents:Bool = false;
 
 	/**
 	 * @private
@@ -286,7 +286,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _isWaitingForTextureReady:Boolean = false;
+	private var _isWaitingForTextureReady:Bool = false;
 
 	/**
 	 * @private
@@ -449,7 +449,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _autoPlay:Boolean = true;
+	private var _autoPlay:Bool = true;
 
 	/**
 	 * Determines if the video starts playing immediately when the
@@ -462,7 +462,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #videoSource
 	 */
-	public function get_autoPlay():Boolean
+	public function get_autoPlay():Bool
 	{
 		return this._autoPlay;
 	}
@@ -470,7 +470,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set_autoPlay(value:Boolean):Boolean
+	public function set_autoPlay(value:Bool):Bool
 	{
 		this._autoPlay = value;
 	}
@@ -478,7 +478,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _isFullScreen:Boolean = false;
+	private var _isFullScreen:Bool = false;
 
 	/**
 	 * Indicates if the video player is currently full screen or not. When
@@ -490,7 +490,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #toggleFullScreen()
 	 * @see #event:displayStateChange feathers.events.MediaPlayerEventType.DISPLAY_STATE_CHANGE
 	 */
-	public function get_isFullScreen():Boolean
+	public function get_isFullScreen():Bool
 	{
 		return this._isFullScreen;
 	}
@@ -606,7 +606,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _hideRootWhenFullScreen:Boolean = true;
+	private var _hideRootWhenFullScreen:Bool = true;
 
 	/**
 	 * Determines if the Starling root display object is hidden when the
@@ -622,7 +622,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @default true
 	 */
-	public function get_hideRootWhenFullScreen():Boolean
+	public function get_hideRootWhenFullScreen():Bool
 	{
 		return this._hideRootWhenFullScreen;
 	}
@@ -630,7 +630,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set_hideRootWhenFullScreen(value:Boolean):Boolean
+	public function set_hideRootWhenFullScreen(value:Bool):Bool
 	{
 		this._hideRootWhenFullScreen = value;
 	}
@@ -638,7 +638,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	override public function get_hasVisibleArea():Boolean
+	override public function get_hasVisibleArea():Bool
 	{
 		if(this._isFullScreen)
 		{
@@ -686,7 +686,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 		}
 		var starling:Starling = stageToStarling(this.stage);
 		var nativeStage:Stage = starling.nativeStage;
-		var oldIgnoreDisplayListEvents:Boolean = this._ignoreDisplayListEvents;
+		var oldIgnoreDisplayListEvents:Bool = this._ignoreDisplayListEvents;
 		this._ignoreDisplayListEvents = true;
 		if(this._isFullScreen)
 		{

@@ -234,14 +234,14 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get_useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -249,7 +249,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	public function set_useVirtualLayout(value:Boolean):Boolean
+	public function set_useVirtualLayout(value:Bool):Bool
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -382,7 +382,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	private var _resetTypicalItemDimensionsOnMeasure:Boolean = false;
+	private var _resetTypicalItemDimensionsOnMeasure:Bool = false;
 
 	/**
 	 * If set to <code>true</code>, the width and height of the
@@ -399,7 +399,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	 * @see #typicalItemHeight
 	 * @see #typicalItem
 	 */
-	public function get_resetTypicalItemDimensionsOnMeasure():Boolean
+	public function get_resetTypicalItemDimensionsOnMeasure():Bool
 	{
 		return this._resetTypicalItemDimensionsOnMeasure;
 	}
@@ -407,7 +407,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @private
 	 */
-	public function set_resetTypicalItemDimensionsOnMeasure(value:Boolean):Boolean
+	public function set_resetTypicalItemDimensionsOnMeasure(value:Bool):Bool
 	{
 		if(this._resetTypicalItemDimensionsOnMeasure == value)
 		{
@@ -522,7 +522,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 	/**
 	 * @inheritDoc
 	 */
-	public function get_requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Bool
 	{
 		return true;
 	}
@@ -678,7 +678,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 			}
 		}
 
-		var canRepeatItems:Boolean = totalHeight > availableHeight;
+		var canRepeatItems:Bool = totalHeight > availableHeight;
 		if(canRepeatItems)
 		{
 			totalHeight += gap;
@@ -814,8 +814,8 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
-		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;
@@ -915,7 +915,7 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 
 		scrollY -= Math.round((height - calculatedTypicalItemHeight) / 2);
 
-		var canRepeatItems:Boolean = totalItemHeight > height;
+		var canRepeatItems:Bool = totalItemHeight > height;
 		if(canRepeatItems)
 		{
 			scrollY %= totalItemHeight;
@@ -1004,8 +1004,8 @@ class VerticalSpinnerLayout extends EventDispatcher implements ISpinnerLayout, I
 		//each item before validating because setting one dimension may
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
-		var isJustified:Boolean = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
-		var mustSetJustifyWidth:Boolean = isJustified && justifyWidth === justifyWidth; //!isNaN
+		var isJustified:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
+		var mustSetJustifyWidth:Bool = isJustified && justifyWidth === justifyWidth; //!isNaN
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)
 		{

@@ -55,7 +55,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	private var _ignoreScrolling:Boolean = false;
+	private var _ignoreScrolling:Bool = false;
 
 	/**
 	 * @private
@@ -476,7 +476,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 			result = new Point();
 		}
 
-		var needsWidth:Boolean = this._visibleWidth != this._visibleWidth; //isNaN
+		var needsWidth:Bool = this._visibleWidth != this._visibleWidth; //isNaN
 
 		this.commitStylesAndData(this.measureTextField);
 
@@ -596,7 +596,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 */
 	override private function refreshTextFieldSize():Void
 	{
-		var oldIgnoreScrolling:Boolean = this._ignoreScrolling;
+		var oldIgnoreScrolling:Bool = this._ignoreScrolling;
 		var gutterDimensionsOffset:Number = 4;
 		if(this._useGutter)
 		{

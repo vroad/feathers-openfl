@@ -684,7 +684,7 @@ class ScrollText extends Scroller
 	/**
 	 * @private
 	 */
-	private var _cacheAsBitmap:Boolean = true;
+	private var _cacheAsBitmap:Bool = true;
 
 	/**
 	 * If set to <code>true</code>, an internal bitmap representation of the
@@ -700,7 +700,7 @@ class ScrollText extends Scroller
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html#cacheAsBitmap Full description of flash.display.DisplayObject.cacheAsBitmap in Adobe's Flash Platform API Reference
 	 */
-	public function get_cacheAsBitmap():Boolean
+	public function get_cacheAsBitmap():Bool
 	{
 		return this._cacheAsBitmap;
 	}
@@ -708,7 +708,7 @@ class ScrollText extends Scroller
 	/**
 	 * @private
 	 */
-	public function set_cacheAsBitmap(value:Boolean):Boolean
+	public function set_cacheAsBitmap(value:Bool):Bool
 	{
 		if(this._cacheAsBitmap == value)
 		{
@@ -721,7 +721,7 @@ class ScrollText extends Scroller
 	/**
 	 * @private
 	 */
-	private var _condenseWhite:Boolean = false;
+	private var _condenseWhite:Bool = false;
 
 	/**
 	 * A boolean value that specifies whether extra white space (spaces,

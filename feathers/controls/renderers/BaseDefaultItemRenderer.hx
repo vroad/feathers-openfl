@@ -322,7 +322,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Bool = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -331,7 +331,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get_isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -339,7 +339,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set_isChildFocusEnabled(value:Boolean):Boolean
+	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -4028,7 +4028,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	{
 		var oldIgnoreAccessoryResizes:Bool = this._ignoreAccessoryResizes;
 		this._ignoreAccessoryResizes = true;
-		var oldIgnoreIconResizes:Boolean = this._ignoreIconResizes;
+		var oldIgnoreIconResizes:Bool = this._ignoreIconResizes;
 		this._ignoreIconResizes = true;
 		this.refreshMaxLabelSize(false);
 		var labelRenderer:DisplayObject = null;
@@ -4126,7 +4126,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	/**
 	 * @private
 	 */
-	override private function refreshMaxLabelSize(forMeasurement:Boolean):Void
+	override private function refreshMaxLabelSize(forMeasurement:Bool):Void
 	{
 		var calculatedWidth:Float = this.actualWidth;
 		if(forMeasurement)
@@ -4170,9 +4170,9 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 
 		var hasIconToLeftOrRight:Bool = this.currentIcon != null && (this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 			this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE);
-		var hasIconToTopOrBottom:Boolean = this.currentIcon && (this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM);
-		var hasAccessoryToLeftOrRight:Boolean = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
-		var hasAccessoryToTopOrBottom:Boolean = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_TOP || this._accessoryPosition == ACCESSORY_POSITION_BOTTOM);
+		var hasIconToTopOrBottom:Bool = this.currentIcon && (this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM);
+		var hasAccessoryToLeftOrRight:Bool = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
+		var hasAccessoryToTopOrBottom:Bool = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_TOP || this._accessoryPosition == ACCESSORY_POSITION_BOTTOM);
 
 		if(this.accessoryLabel != null)
 		{

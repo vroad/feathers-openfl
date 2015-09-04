@@ -37,7 +37,7 @@ public final class StageTextField extends EventDispatcher
 
 	private var _textField:TextField;
 	private var _textFormat:TextFormat;
-	private var _isComplete:Boolean = false;
+	private var _isComplete:Bool = false;
 
 	private var _autoCapitalize:String = "none";
 
@@ -51,14 +51,14 @@ public final class StageTextField extends EventDispatcher
 		this._autoCapitalize = value;
 	}
 
-	private var _autoCorrect:Boolean = false;
+	private var _autoCorrect:Bool = false;
 
-	public function get_autoCorrect():Boolean
+	public function get_autoCorrect():Bool
 	{
 		return this._autoCorrect;
 	}
 
-	public function set_autoCorrect(value:Boolean):Boolean
+	public function set_autoCorrect(value:Bool):Bool
 	{
 		this._autoCorrect = value;
 	}
@@ -81,22 +81,22 @@ public final class StageTextField extends EventDispatcher
 		this._textField.setTextFormat(this._textFormat);
 	}
 
-	public function get_displayAsPassword():Boolean
+	public function get_displayAsPassword():Bool
 	{
 		return this._textField.displayAsPassword;
 	}
 
-	public function set_displayAsPassword(value:Boolean):Boolean
+	public function set_displayAsPassword(value:Bool):Bool
 	{
 		this._textField.displayAsPassword = value;
 	}
 
-	public function get_editable():Boolean
+	public function get_editable():Bool
 	{
 		return this._textField.type == TextFieldType.INPUT;
 	}
 
-	public function set_editable(value:Boolean):Boolean
+	public function set_editable(value:Bool):Bool
 	{
 		this._textField.type = value ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
 	}
@@ -189,7 +189,7 @@ public final class StageTextField extends EventDispatcher
 		this._textField.maxChars = value;
 	}
 
-	public function get_multiline():Boolean
+	public function get_multiline():Bool
 	{
 		return this._textField.multiline;
 	}
@@ -319,12 +319,12 @@ public final class StageTextField extends EventDispatcher
 		this.dispatchCompleteIfPossible();
 	}
 
-	public function get_visible():Boolean
+	public function get_visible():Bool
 	{
 		return this._textField.visible;
 	}
 
-	public function set_visible(value:Boolean):Boolean
+	public function set_visible(value:Bool):Bool
 	{
 		this._textField.visible = value;
 	}
@@ -380,7 +380,7 @@ public final class StageTextField extends EventDispatcher
 	{
 		this._textField = new TextField();
 		this._textField.type = TextFieldType.INPUT;
-		var isMultiline:Boolean = initOptions && initOptions.hasOwnProperty("multiline") && initOptions.multiline;
+		var isMultiline:Bool = initOptions && initOptions.hasOwnProperty("multiline") && initOptions.multiline;
 		this._textField.multiline = isMultiline;
 		this._textField.wordWrap = isMultiline;
 		this._textField.addEventListener(Event.CHANGE, textField_eventHandler);

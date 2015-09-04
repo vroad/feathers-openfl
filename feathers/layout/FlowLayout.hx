@@ -451,14 +451,14 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get_useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -466,7 +466,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_useVirtualLayout(value:Boolean):Boolean
+	public function set_useVirtualLayout(value:Bool):Bool
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -505,7 +505,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _hasVariableItemDimensions:Boolean = true;
+	private var _hasVariableItemDimensions:Bool = true;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -514,7 +514,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default true
 	 */
-	public function get_hasVariableItemDimensions():Boolean
+	public function get_hasVariableItemDimensions():Bool
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -522,7 +522,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_hasVariableItemDimensions(value:Boolean):Boolean
+	public function set_hasVariableItemDimensions(value:Bool):Bool
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
@@ -535,7 +535,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function get_requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -572,7 +572,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 		
 		//let's figure out if we can show multiple rows
-		var supportsMultipleRows:Boolean = true;
+		var supportsMultipleRows:Bool = true;
 		var availableRowWidth:Number = explicitWidth;
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
@@ -874,7 +874,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
 		//let's figure out if we can show multiple rows
-		var supportsMultipleRows:Boolean = true;
+		var supportsMultipleRows:Bool = true;
 		var availableRowWidth:Number = explicitWidth;
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
@@ -1240,7 +1240,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var positionY:Number = y + this._paddingTop;
 		var i:int = 0;
 		var itemCount:int = items.length;
-		var isLastRow:Boolean = false;
+		var isLastRow:Bool = false;
 		do
 		{
 			if(isLastRow)

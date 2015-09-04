@@ -148,7 +148,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
@@ -1046,7 +1046,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Bool = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text renderer is
@@ -1067,7 +1067,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get_updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Bool
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1075,7 +1075,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
+	public function set_updateSnapshotOnScaleChange(value:Bool):Bool
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
@@ -1088,7 +1088,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	private var _useSnapshotDelayWorkaround:Boolean = false;
+	private var _useSnapshotDelayWorkaround:Bool = false;
 
 	/**
 	 * Fixes an issue where <code>flash.text.TextField</code> renders
@@ -1105,7 +1105,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	 *
 	 * @default false
 	 */
-	public function get_useSnapshotDelayWorkaround():Boolean
+	public function get_useSnapshotDelayWorkaround():Bool
 	{
 		return this._useSnapshotDelayWorkaround;
 	}
@@ -1113,7 +1113,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	/**
 	 * @private
 	 */
-	public function set_useSnapshotDelayWorkaround(value:Boolean):Boolean
+	public function set_useSnapshotDelayWorkaround(value:Bool):Bool
 	{
 		if(this._useSnapshotDelayWorkaround == value)
 		{
@@ -1520,7 +1520,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				rectangleSnapshotWidth = HELPER_RECTANGLE.width;
 				rectangleSnapshotHeight = HELPER_RECTANGLE.height;
 			}
-			var canUseRectangleTexture:Boolean = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
+			var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)

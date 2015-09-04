@@ -145,7 +145,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _ignoreChanges:Boolean = false;
+	private var _ignoreChanges:Bool = false;
 
 	/**
 	 * @private
@@ -245,7 +245,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _showVolumeSliderOnHover:Boolean = false;
+	private var _showVolumeSliderOnHover:Bool = false;
 
 	/**
 	 * Determines if a <code>VolumeSlider</code> component is displayed as a
@@ -263,7 +263,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 *
 	 * @see feathers.media.VolumeSlider
 	 */
-	public function get_showVolumeSliderOnHover():Boolean
+	public function get_showVolumeSliderOnHover():Bool
 	{
 		return this._showVolumeSliderOnHover;
 	}
@@ -271,7 +271,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set_showVolumeSliderOnHover(value:Boolean):Boolean
+	public function set_showVolumeSliderOnHover(value:Bool):Bool
 	{
 		if(this._showVolumeSliderOnHover == value)
 		{
@@ -460,12 +460,12 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _isOpenPopUpPending:Boolean = false;
+	private var _isOpenPopUpPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isClosePopUpPending:Boolean = false;
+	private var _isClosePopUpPending:Bool = false;
 
 	/**
 	 * Opens the pop-up list, if it isn't already open.
@@ -552,8 +552,8 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	override private function draw():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var volumeSliderFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var volumeSliderFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
 		
 		if(volumeSliderFactoryInvalid)
 		{
@@ -635,7 +635,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function refreshVolumeFromMediaPlayer():Void
 	{
-		var oldIgnoreChanges:Boolean = this._ignoreChanges;
+		var oldIgnoreChanges:Bool = this._ignoreChanges;
 		this._ignoreChanges = true;
 		if(this._mediaPlayer)
 		{

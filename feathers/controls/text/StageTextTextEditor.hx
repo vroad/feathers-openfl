@@ -1082,7 +1082,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	private var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Bool = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text editor is
@@ -1103,7 +1103,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 *
 	 * @default false
 	 */
-	public function get_updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Bool
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1111,7 +1111,7 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	/**
 	 * @private
 	 */
-	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
+	public function set_updateSnapshotOnScaleChange(value:Bool):Bool
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
@@ -1498,10 +1498,10 @@ class StageTextTextEditor extends FeathersControl implements IMultilineTextEdito
 	 */
 	private function layout(sizeInvalid:Bool):Void
 	{
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var skinInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SKIN);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var skinInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SKIN);
 
 		if(sizeInvalid || stylesInvalid || skinInvalid || stateInvalid)
 		{

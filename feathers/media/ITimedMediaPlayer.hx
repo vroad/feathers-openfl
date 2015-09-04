@@ -126,7 +126,7 @@ public interface ITimedMediaPlayer extends IMediaPlayer
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
-	function get_isPlaying():Boolean;
+	function get_isPlaying():Bool;
 
 	/**
 	 * Toggles the media content between playing and paused states.

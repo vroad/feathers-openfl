@@ -288,7 +288,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _needsNewTexture:Boolean = false;
+	private var _needsNewTexture:Bool = false;
 
 	/**
 	 * @private
@@ -943,7 +943,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _background:Boolean = false;
+	private var _background:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a background fill. Use the
@@ -961,7 +961,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#background Full description of flash.text.TextField.background in Adobe's Flash Platform API Reference
 	 * @see #backgroundColor
 	 */
-	public function get_background():Boolean
+	public function get_background():Bool
 	{
 		return this._background;
 	}
@@ -969,7 +969,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_background(value:Boolean):Boolean
+	public function set_background(value:Bool):Bool
 	{
 		if(this._background == value)
 		{
@@ -1020,7 +1020,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _border:Boolean = false;
+	private var _border:Bool = false;
 
 	/**
 	 * Specifies whether the text field has a border. Use the
@@ -1040,7 +1040,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#border Full description of flash.text.TextField.border in Adobe's Flash Platform API Reference
 	 * @see #borderColor
 	 */
-	public function get_border():Boolean
+	public function get_border():Bool
 	{
 		return this._border;
 	}
@@ -1048,7 +1048,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_border(value:Boolean):Boolean
+	public function set_border(value:Bool):Bool
 	{
 		if(this._border == value)
 		{
@@ -1099,7 +1099,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _useGutter:Boolean = false;
+	private var _useGutter:Bool = false;
 
 	/**
 	 * Determines if the 2-pixel gutter around the edges of the
@@ -1200,7 +1200,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _updateSnapshotOnScaleChange:Boolean = false;
+	private var _updateSnapshotOnScaleChange:Bool = false;
 
 	/**
 	 * Refreshes the texture snapshot every time that the text editor is
@@ -1221,7 +1221,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 *
 	 * @default false
 	 */
-	public function get_updateSnapshotOnScaleChange():Boolean
+	public function get_updateSnapshotOnScaleChange():Bool
 	{
 		return this._updateSnapshotOnScaleChange;
 	}
@@ -1229,7 +1229,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_updateSnapshotOnScaleChange(value:Boolean):Boolean
+	public function set_updateSnapshotOnScaleChange(value:Bool):Bool
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
@@ -1242,7 +1242,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _useSnapshotDelayWorkaround:Boolean = false;
+	private var _useSnapshotDelayWorkaround:Bool = false;
 
 	/**
 	 * Fixes an issue where <code>flash.text.TextField</code> renders
@@ -1259,7 +1259,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 *
 	 * @default false
 	 */
-	public function get_useSnapshotDelayWorkaround():Boolean
+	public function get_useSnapshotDelayWorkaround():Bool
 	{
 		return this._useSnapshotDelayWorkaround;
 	}
@@ -1267,7 +1267,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_useSnapshotDelayWorkaround(value:Boolean):Boolean
+	public function set_useSnapshotDelayWorkaround(value:Bool):Bool
 	{
 		if(this._useSnapshotDelayWorkaround == value)
 		{
@@ -1280,7 +1280,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var resetScrollOnFocusOut:Boolean = true;
+	private var resetScrollOnFocusOut:Bool = true;
 
 	/**
 	 * @private
@@ -2107,7 +2107,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 			return;
 		}
 		touch.getLocation(this.stage, HELPER_POINT);
-		var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+		var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 		if(isInBounds) //if the touch is in the text editor, it's all good
 		{
 			return;

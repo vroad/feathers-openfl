@@ -2039,7 +2039,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 	 */
 	public function calculateScrollPositionForIndex(index:int, items:Vector.<DisplayObject>,
 		x:Number, y:Number, width:Number, height:Number, result:Point = null,
-		nearest:Boolean = false, scrollX:Number = 0, scrollY:Number = 0):Point
+		nearest:Bool = false, scrollX:Number = 0, scrollY:Number = 0):Point
 	{
 		if(!result)
 		{

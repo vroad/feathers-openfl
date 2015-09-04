@@ -126,7 +126,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private var _isModal:Boolean = false;
+	private var _isModal:Bool = false;
 
 	/**
 	 * Determines if the pop-up will be modal or not.
@@ -142,7 +142,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default false
 	 */
-	public function get_isModal():Boolean
+	public function get_isModal():Bool
 	{
 		return this._isModal;
 	}
@@ -150,7 +150,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set_isModal(value:Boolean):Boolean
+	public function set_isModal(value:Bool):Bool
 	{
 		this._isModal = value;
 	}
@@ -249,7 +249,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	private var _fitContentMinWidthToOrigin:Boolean = true;
+	private var _fitContentMinWidthToOrigin:Bool = true;
 
 	/**
 	 * If enabled, the pop-up content's <code>minWidth</code> property will
@@ -258,7 +258,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default true
 	 */
-	public function get_fitContentMinWidthToOrigin():Boolean
+	public function get_fitContentMinWidthToOrigin():Bool
 	{
 		return this._fitContentMinWidthToOrigin;
 	}
@@ -266,7 +266,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set_fitContentMinWidthToOrigin(value:Boolean):Boolean
+	public function set_fitContentMinWidthToOrigin(value:Bool):Bool
 	{
 		this._fitContentMinWidthToOrigin = value;
 	}
@@ -367,7 +367,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		}
 
 		var sourceWidth:Number = this.source.width;
-		var hasSetBounds:Boolean = false;
+		var hasSetBounds:Bool = false;
 		var uiContent:IFeathersControl = this.content as IFeathersControl;
 		if(this._fitContentMinWidthToOrigin && uiContent && uiContent.minWidth < sourceWidth)
 		{

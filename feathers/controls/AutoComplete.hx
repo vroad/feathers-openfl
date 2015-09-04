@@ -511,7 +511,7 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private var _ignoreAutoCompleteChanges:Boolean = false;
+	private var _ignoreAutoCompleteChanges:Bool = false;
 
 	/**
 	 * @private
@@ -521,17 +521,17 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	private var _listHasFocus:Boolean = false;
+	private var _listHasFocus:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isOpenListPending:Boolean = false;
+	private var _isOpenListPending:Bool = false;
 
 	/**
 	 * @private
 	 */
-	private var _isCloseListPending:Boolean = false;
+	private var _isCloseListPending:Bool = false;
 
 	/**
 	 * Opens the pop-up list, if it isn't already open.
@@ -624,8 +624,8 @@ class AutoComplete extends TextInput
 	 */
 	override private function draw():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var listFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var listFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_LIST_FACTORY);
 
 		super.draw();
 
@@ -732,8 +732,8 @@ class AutoComplete extends TextInput
 		{
 			return;
 		}
-		var isDown:Boolean = event.keyCode == Keyboard.DOWN;
-		var isUp:Boolean = event.keyCode == Keyboard.UP;
+		var isDown:Bool = event.keyCode == Keyboard.DOWN;
+		var isUp:Bool = event.keyCode == Keyboard.UP;
 		if(!isDown && !isUp)
 		{
 			return;
@@ -760,7 +760,7 @@ class AutoComplete extends TextInput
 			(isUp && oldSelectedIndex == 0))
 		{
 			event.stopImmediatePropagation();
-			var oldIgnoreAutoCompleteChanges:Boolean = this._ignoreAutoCompleteChanges;
+			var oldIgnoreAutoCompleteChanges:Bool = this._ignoreAutoCompleteChanges;
 			this._ignoreAutoCompleteChanges = true;
 			this.text = this._originalText;
 			this._ignoreAutoCompleteChanges = oldIgnoreAutoCompleteChanges;
@@ -843,7 +843,7 @@ class AutoComplete extends TextInput
 		{
 			return;
 		}
-		var oldIgnoreAutoCompleteChanges:Boolean = this._ignoreAutoCompleteChanges;
+		var oldIgnoreAutoCompleteChanges:Bool = this._ignoreAutoCompleteChanges;
 		this._ignoreAutoCompleteChanges = true;
 		this.text = this.list.selectedItem.toString();
 		this.selectRange(this.text.length, this.text.length);

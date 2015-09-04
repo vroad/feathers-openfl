@@ -2271,7 +2271,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _ignoreIconResizes:Boolean = false;
+	private var _ignoreIconResizes:Bool = false;
 
 	/**
 	 * @private
@@ -2662,7 +2662,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function layoutContent():Void
 	{
-		var oldIgnoreIconResizes:Boolean = this._ignoreIconResizes;
+		var oldIgnoreIconResizes:Bool = this._ignoreIconResizes;
 		this._ignoreIconResizes = true;
 		this.refreshMaxLabelSize(false);
 		if(this._label != null && this.labelTextRenderer != null && this.currentIcon != null)
@@ -2706,7 +2706,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private function refreshMaxLabelSize(forMeasurement:Boolean):Void
+	private function refreshMaxLabelSize(forMeasurement:Bool):Void
 	{
 		if(Std.is(this.currentIcon, IValidating))
 		{

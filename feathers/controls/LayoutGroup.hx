@@ -387,7 +387,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _ignoreChildChanges:Boolean = false;
+	private var _ignoreChildChanges:Bool = false;
 
 	/**
 	 * @private
@@ -598,7 +598,7 @@ class LayoutGroup extends FeathersControl
 			this.refreshViewPortBounds();
 			if(this._layout != null)
 			{
-				var oldIgnoreChildChanges:Boolean = this._ignoreChildChanges;
+				var oldIgnoreChildChanges:Bool = this._ignoreChildChanges;
 				this._ignoreChildChanges = true;
 				this._layout.layout(this.items, this.viewPortBounds, this._layoutResult);
 				this._ignoreChildChanges = oldIgnoreChildChanges;
@@ -719,7 +719,7 @@ class LayoutGroup extends FeathersControl
 		{
 			maxY = 0;
 		}
-		var oldIgnoreChildChanges:Boolean = this._ignoreChildChanges;
+		var oldIgnoreChildChanges:Bool = this._ignoreChildChanges;
 		this._ignoreChildChanges = true;
 		var itemCount:Int = this.items.length;
 		for(i in 0 ... itemCount)

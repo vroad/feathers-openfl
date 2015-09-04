@@ -933,8 +933,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		var hasDistributedHeight:Bool = distributedHeight == distributedHeight; //!isNaN
 
 		//this section prepares some variables needed for the following loop
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var maxItemWidth:Number = this._useVirtualLayout ? calculatedTypicalItemWidth : 0;
 		var positionY:Number = boundsY + this._paddingTop;
 		var indexOffset:int = 0;
@@ -1460,8 +1460,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var resultLastIndex:int = 0;
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
@@ -1729,7 +1729,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//each item before validating because setting one dimension may
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
-		var isJustified:Boolean = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
+		var isJustified:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
 		var itemCount:int = items.length;
 		for(var i:int = 0; i < itemCount; i++)
 		{
@@ -1987,8 +1987,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var positionY:Number = y + this._paddingTop;
 		var lastHeight:Number = 0;
 		var gap:Number = this._gap;

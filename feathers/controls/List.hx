@@ -333,7 +333,7 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private var _isChildFocusEnabled:Boolean = true;
+	private var _isChildFocusEnabled:Bool = true;
 
 	/**
 	 * @copy feathers.core.IFocusContainer#isChildFocusEnabled
@@ -342,7 +342,7 @@ class List extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
-	public function get_isChildFocusEnabled():Boolean
+	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
 	}
@@ -350,7 +350,7 @@ class List extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	public function set_isChildFocusEnabled(value:Boolean):Boolean
+	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
 	}
@@ -1401,7 +1401,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var changedSelection:Boolean = false;
+		var changedSelection:Bool = false;
 		if(event.keyCode == Keyboard.HOME)
 		{
 			if(this._dataProvider.length > 0)
@@ -1461,7 +1461,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var selectionChanged:Boolean = false;
+		var selectionChanged:Bool = false;
 		var newIndices:Vector.<int> = new <int>[];
 		var indexCount:int = this._selectedIndices.length;
 		for(var i:int = 0; i < indexCount; i++)
@@ -1489,7 +1489,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			return;
 		}
-		var selectionChanged:Boolean = false;
+		var selectionChanged:Bool = false;
 		var newIndices:Vector.<int> = new <int>[];
 		var indexCount:int = this._selectedIndices.length;
 		for(var i:int = 0; i < indexCount; i++)

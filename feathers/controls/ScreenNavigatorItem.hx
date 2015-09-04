@@ -154,7 +154,7 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @inheritDoc
 	 */
-	public function get_canDispose():Boolean
+	public function get_canDispose():Bool
 	{
 		return !(this._screen is DisplayObject);
 	}

@@ -334,7 +334,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function findPreviousContainerFocus(container:DisplayObjectContainer, beforeChild:DisplayObject, fallbackToGlobal:Boolean):IFocusDisplayObject
+	private function findPreviousContainerFocus(container:DisplayObjectContainer, beforeChild:DisplayObject, fallbackToGlobal:Bool):IFocusDisplayObject
 	{
 		if(Std.is(container, LayoutViewPort))
 		{
@@ -455,7 +455,7 @@ class DefaultFocusManager implements IFocusManager
 	/**
 	 * @private
 	 */
-	private function findNextContainerFocus(container:DisplayObjectContainer, afterChild:DisplayObject, fallbackToGlobal:Boolean):IFocusDisplayObject
+	private function findNextContainerFocus(container:DisplayObjectContainer, afterChild:DisplayObject, fallbackToGlobal:Bool):IFocusDisplayObject
 	{
 		if(Std.is(container, LayoutViewPort))
 		{

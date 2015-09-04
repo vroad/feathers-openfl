@@ -45,7 +45,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	/**
 	 * @private
 	 */
-	private static function defaultCompareFunction(item:Object, textToMatch:String):Boolean
+	private static function defaultCompareFunction(item:Object, textToMatch:String):Bool
 	{
 		return item.toString().toLowerCase().indexOf(textToMatch.toLowerCase()) >= 0;
 	}

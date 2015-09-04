@@ -603,7 +603,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _distributeTabSizes:Boolean = true;
+	private var _distributeTabSizes:Bool = true;
 
 	/**
 	 * If <code>true</code>, the tabs will be equally sized in the direction
@@ -621,7 +621,7 @@ class TabBar extends FeathersControl
 	 *
 	 * @default true
 	 */
-	public function get_distributeTabSizes():Boolean
+	public function get_distributeTabSizes():Bool
 	{
 		return this._distributeTabSizes;
 	}
@@ -629,7 +629,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	public function set_distributeTabSizes(value:Boolean):Boolean
+	public function set_distributeTabSizes(value:Bool):Bool
 	{
 		if(this._distributeTabSizes == value)
 		{
@@ -1135,7 +1135,7 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var _ignoreSelectionChanges:Boolean = false;
+	private var _ignoreSelectionChanges:Bool = false;
 
 	/**
 	 * @private
@@ -1539,12 +1539,12 @@ class TabBar extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var dataInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var selectionInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SELECTED);
-		var tabFactoryInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_TAB_FACTORY);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var selectionInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SELECTED);
+		var tabFactoryInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TAB_FACTORY);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(dataInvalid || tabFactoryInvalid)
 		{
@@ -1692,9 +1692,9 @@ class TabBar extends FeathersControl
 	/**
 	 * @private
 	 */
-	private function refreshTabs(isFactoryInvalid:Boolean):Void
+	private function refreshTabs(isFactoryInvalid:Bool):Void
 	{
-		var oldIgnoreSelectionChanges:Boolean = this._ignoreSelectionChanges;
+		var oldIgnoreSelectionChanges:Bool = this._ignoreSelectionChanges;
 		this._ignoreSelectionChanges = true;
 		var oldSelectedIndex:int = this.toggleGroup.selectedIndex;
 		this.toggleGroup.removeAllItems();

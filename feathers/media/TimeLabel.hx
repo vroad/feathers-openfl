@@ -201,7 +201,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _isToggled:Boolean = false;
+	private var _isToggled:Bool = false;
 
 	/**
 	 * @private
@@ -211,7 +211,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	private var _toggleDisplayMode:Boolean = false;
+	private var _toggleDisplayMode:Bool = false;
 
 	/**
 	 * If the <code>displayMode</code> property is set to
@@ -226,7 +226,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
-	public function get_toggleDisplayMode():Boolean
+	public function get_toggleDisplayMode():Bool
 	{
 		return this._toggleDisplayMode;
 	}
@@ -234,7 +234,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set_toggleDisplayMode(value:Boolean):Boolean
+	public function set_toggleDisplayMode(value:Bool):Bool
 	{
 		if(this._toggleDisplayMode == value)
 		{
@@ -292,7 +292,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 */
 	private function secondsToTimeString(seconds:Number):String
 	{
-		var isNegative:Boolean = seconds < 0;
+		var isNegative:Bool = seconds < 0;
 		if(isNegative)
 		{
 			seconds = -seconds;
@@ -356,7 +356,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 			if(touch.phase == TouchPhase.ENDED)
 			{
 				touch.getLocation(this.stage, HELPER_POINT);
-				var isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
+				var isInBounds:Bool = this.contains(this.stage.hitTest(HELPER_POINT, true));
 				if(isInBounds)
 				{
 					this._isToggled = !this._isToggled;

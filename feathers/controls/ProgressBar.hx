@@ -641,9 +641,9 @@ class ProgressBar extends FeathersControl
 	 */
 	override private function draw():Void
 	{
-		var stylesInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_STATE);
-		var sizeInvalid:Boolean = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 
 		if(stylesInvalid || stateInvalid)
 		{

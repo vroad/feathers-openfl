@@ -147,7 +147,7 @@ import starling.display.DisplayObject;
 class IrisTween extends Tween
 {
 public function IrisTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	originX:Number, originY:Number, openIris:Boolean, duration:Number, ease:Object,
+	originX:Number, originY:Number, openIris:Bool, duration:Number, ease:Object,
 	onCompleteCallback:Function, tweenProperties:Object)
 {
 	if(newScreen)

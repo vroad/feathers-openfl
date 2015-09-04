@@ -60,7 +60,7 @@ class MainMenuScreen extends PanelScreen
 
 		this.title = "Layouts in Feathers";
 
-		var isTablet:Boolean = DeviceCapabilities.isTablet(Starling.current.nativeStage);
+		var isTablet:Bool = DeviceCapabilities.isTablet(Starling.current.nativeStage);
 
 		this.layout = new AnchorLayout();
 

@@ -386,14 +386,14 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _useVirtualLayout:Boolean = true;
+	private var _useVirtualLayout:Bool = true;
 
 	/**
 	 * @inheritDoc
 	 *
 	 * @default true
 	 */
-	public function get_useVirtualLayout():Boolean
+	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -401,7 +401,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_useVirtualLayout(value:Boolean):Boolean
+	public function set_useVirtualLayout(value:Bool):Bool
 	{
 		if(this._useVirtualLayout == value)
 		{
@@ -440,7 +440,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _hasVariableItemDimensions:Boolean = true;
+	private var _hasVariableItemDimensions:Bool = true;
 
 	/**
 	 * When the layout is virtualized, and this value is true, the items may
@@ -449,7 +449,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default true
 	 */
-	public function get_hasVariableItemDimensions():Boolean
+	public function get_hasVariableItemDimensions():Bool
 	{
 		return this._hasVariableItemDimensions;
 	}
@@ -457,7 +457,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_hasVariableItemDimensions(value:Boolean):Boolean
+	public function set_hasVariableItemDimensions(value:Bool):Bool
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
@@ -470,7 +470,7 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
-	public function get_requiresLayoutOnScroll():Boolean
+	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._useVirtualLayout;
 	}
@@ -494,8 +494,8 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
-		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 
 		if(this._useVirtualLayout)
 		{
@@ -735,8 +735,8 @@ class WaterfallLayout extends EventDispatcher implements IVariableVirtualLayout
 		var explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 		var explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
-		var needsWidth:Boolean = explicitWidth != explicitWidth; //isNaN
-		var needsHeight:Boolean = explicitHeight != explicitHeight; //isNaN
+		var needsWidth:Bool = explicitWidth != explicitWidth; //isNaN
+		var needsHeight:Bool = explicitHeight != explicitHeight; //isNaN
 		if(!needsWidth && !needsHeight)
 		{
 			result.x = explicitWidth;

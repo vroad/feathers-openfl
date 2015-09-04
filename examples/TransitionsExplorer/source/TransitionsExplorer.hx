@@ -39,7 +39,7 @@ package
         private function showLaunchImage():Void
         {
             var filePath:String;
-            var isPortraitOnly:Boolean = false;
+            var isPortraitOnly:Bool = false;
             if(Capabilities.manufacturer.indexOf("iOS") >= 0)
             {
                 if(Capabilities.screenResolutionX == 1242 && Capabilities.screenResolutionY == 2208)

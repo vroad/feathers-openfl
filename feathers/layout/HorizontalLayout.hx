@@ -577,7 +577,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _distributeWidths:Boolean = false;
+	private var _distributeWidths:Bool = false;
 
 	/**
 	 * Distributes the width of the view port equally to each item. If the
@@ -587,7 +587,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default false
 	 */
-	public function get_distributeWidths():Boolean
+	public function get_distributeWidths():Bool
 	{
 		return this._distributeWidths;
 	}
@@ -595,7 +595,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	public function set_distributeWidths(value:Boolean):Boolean
+	public function set_distributeWidths(value:Bool):Bool
 	{
 		if(this._distributeWidths == value)
 		{
@@ -932,8 +932,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var hasDistributedWidth:Bool = distributedWidth == distributedWidth; //!isNaN
 
 		//this section prepares some variables needed for the following loop
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var maxItemHeight:Number = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 		var positionX:Number = boundsX + this._paddingLeft;
 		var itemCount:int = items.length;
@@ -1453,8 +1453,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
 		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var resultLastIndex:int = 0;
 		//we add one extra here because the first item renderer in view may
 		//be partially obscured, which would reveal an extra item renderer.
@@ -1713,7 +1713,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		//each item before validating because setting one dimension may
 		//cause the other dimension to change, and that will invalidate the
 		//layout if it happens after validation, causing more invalidation
-		var isJustified:Boolean = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY;
+		var isJustified:Bool = this._verticalAlign == VERTICAL_ALIGN_JUSTIFY;
 		var itemCount:Int = items.length;
 		//for(var i:Int = 0; i < itemCount; i++)
 		for(i in 0 ... itemCount)
@@ -1969,8 +1969,8 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			var calculatedTypicalItemHeight:Number = this._typicalItem ? this._typicalItem.height : 0;
 		}
 
-		var hasFirstGap:Boolean = this._firstGap === this._firstGap; //!isNaN
-		var hasLastGap:Boolean = this._lastGap === this._lastGap; //!isNaN
+		var hasFirstGap:Bool = this._firstGap === this._firstGap; //!isNaN
+		var hasLastGap:Bool = this._lastGap === this._lastGap; //!isNaN
 		var positionX:Number = x + this._paddingLeft;
 		var lastWidth:Number = 0;
 		var gap:Number = this._gap;

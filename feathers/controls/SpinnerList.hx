@@ -98,7 +98,7 @@ class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires snapToPages to be true.
 	 */
-	override public function set_snapToPages(value:Boolean):Boolean
+	override public function set_snapToPages(value:Bool):Bool
 	{
 		if(!value)
 		{
@@ -114,7 +114,7 @@ class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires allowMultipleSelection to be false.
 	 */
-	override public function set_allowMultipleSelection(value:Boolean):Boolean
+	override public function set_allowMultipleSelection(value:Bool):Bool
 	{
 		if(value)
 		{
@@ -130,7 +130,7 @@ class SpinnerList extends List
 	 *
 	 * @throws ArgumentError SpinnerList requires isSelectable to be true.
 	 */
-	override public function set_isSelectable(value:Boolean):Boolean
+	override public function set_isSelectable(value:Bool):Bool
 	{
 		if(!value)
 		{
@@ -401,7 +401,7 @@ class SpinnerList extends List
 		{
 			return;
 		}
-		var changedSelection:Boolean = false;
+		var changedSelection:Bool = false;
 		if(event.keyCode == Keyboard.HOME)
 		{
 			if(this._dataProvider.length > 0)

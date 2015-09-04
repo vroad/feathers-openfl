@@ -91,7 +91,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	private var _callBeforeOriginalStyleProvider:Boolean = false;
+	private var _callBeforeOriginalStyleProvider:Bool = false;
 
 	/**
 	 * Determines if the add on function should be called before the
@@ -99,7 +99,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 *
 	 * @default false
 	 */
-	public function get_callBeforeOriginalStyleProvider():Boolean
+	public function get_callBeforeOriginalStyleProvider():Bool
 	{
 		return this._callBeforeOriginalStyleProvider;
 	}
@@ -107,7 +107,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	/**
 	 * @private
 	 */
-	public function set_callBeforeOriginalStyleProvider(value:Boolean):Boolean
+	public function set_callBeforeOriginalStyleProvider(value:Bool):Bool
 	{
 		this._callBeforeOriginalStyleProvider = value;
 	}

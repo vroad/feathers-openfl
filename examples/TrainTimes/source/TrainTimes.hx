@@ -40,15 +40,15 @@ class TrainTimes extends Sprite
 
 	private var _starling:Starling;
 	private var _launchImage:Loader;
-	private var _savedAutoOrients:Boolean;
+	private var _savedAutoOrients:Bool;
 
 	private function showLaunchImage():Void
 	{
 		var filePath:String;
-		var isPortraitOnly:Boolean = false;
+		var isPortraitOnly:Bool = false;
 		if(Capabilities.manufacturer.indexOf("iOS") >= 0)
 		{
-			var isCurrentlyPortrait:Boolean = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
+			var isCurrentlyPortrait:Bool = this.stage.orientation == StageOrientation.DEFAULT || this.stage.orientation == StageOrientation.UPSIDE_DOWN;
 			if(Capabilities.screenResolutionX == 1242 && Capabilities.screenResolutionY == 2208)
 			{
 				//iphone 6 plus
