@@ -45,18 +45,18 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	 * @private
 	 */
 	[Embed(source="/../assets/images/metalworks_desktop.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class;
+	inline private static var ATLAS_XML:Class;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/images/metalworks_desktop.png")]
-	protected static const ATLAS_BITMAP:Class;
+	inline private static var ATLAS_BITMAP:Class;
 
 	/**
 	 * @private
 	 */
-	protected static const ATLAS_SCALE_FACTOR:int = 2;
+	inline private static var ATLAS_SCALE_FACTOR:Int = 2;
 
 	/**
 	 * Constructor.
@@ -71,7 +71,7 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():Void
 	{
 		this.initializeTextureAtlas();
 		super.initialize();
@@ -80,7 +80,7 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function initializeTextureAtlas():void
+	private function initializeTextureAtlas():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, ATLAS_SCALE_FACTOR);
@@ -92,7 +92,7 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);

@@ -46,19 +46,19 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_desktop.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class;
+	inline private static var ATLAS_XML:Class;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/images/minimal_desktop.png")]
-	protected static const ATLAS_BITMAP:Class;
+	inline private static var ATLAS_BITMAP:Class;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/fonts/pf_ronda_seven_desktop.fnt",mimeType="application/octet-stream")]
-	protected static const FONT_XML:Class;
+	inline private static var FONT_XML:Class;
 
 	/**
 	 * Constructor.
@@ -72,7 +72,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():Void
 	{
 		this.initializeTextureAtlas();
 		this.initializeBitmapFont();
@@ -82,7 +82,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function initializeTextureAtlas():void
+	private function initializeTextureAtlas():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, ATLAS_SCALE_FACTOR);
@@ -94,7 +94,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function initializeBitmapFont():void
+	private function initializeBitmapFont():Void
 	{
 		var bitmapFont:BitmapFont = new BitmapFont(this.atlas.getTexture(FONT_TEXTURE_NAME), XML(new FONT_XML()));
 		TextField.registerBitmapFont(bitmapFont, FONT_NAME);
@@ -103,7 +103,7 @@ public class MinimalDesktopTheme extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);

@@ -110,121 +110,121 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * @private
 	 * The theme's custom style name for the increment button of a horizontal ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-increment-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a horizontal ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-horizontal-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a horizontal ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "aeon-horizontal-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-horizontal-scroll-bar-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the increment button of a vertical ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "aeon-vertical-scroll-bar-increment-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a vertical ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "aeon-vertical-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a vertical ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "aeon-vertical-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical ScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "aeon-vertical-scroll-bar-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a horizontal SimpleScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-horizontal-simple-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a vertical SimpleScrollBar.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "aeon-vertical-simple-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a horizontal Slider.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SLIDER_THUMB:String = "aeon-horizontal-slider-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal Slider.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a vertical Slider.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SLIDER_THUMB:String = "aeon-vertical-slider-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical Slider.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
+	inline private static var THEME_STYLE_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-volume-slider-minimum-track";
+	inline private static var THEME_STYLE_NAME_VERTICAL_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-vertical-volume-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a vertical VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_VERTICAL_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-vertical-volume-slider-maximum-track";
+	inline private static var THEME_STYLE_NAME_VERTICAL_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-vertical-volume-slider-maximum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-volume-slider-minimum-track";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-horizontal-volume-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a horizontal VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_HORIZONTAL_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-horizontal-volume-slider-maximum-track";
+	inline private static var THEME_STYLE_NAME_HORIZONTAL_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-horizontal-volume-slider-maximum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a pop-up VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-pop-up-volume-slider-minimum-track";
+	inline private static var THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MINIMUM_TRACK:String = "aeon-pop-up-volume-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a pop-up VolumeSlider.
 	 */
-	protected static const THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-pop-up-volume-slider-maximum-track";
+	inline private static var THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MAXIMUM_TRACK:String = "aeon-pop-up-volume-slider-maximum-track";
 
 	/**
 	 * The name of the font used by controls in this theme. This font is not
@@ -232,44 +232,44 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 */
 	public static const FONT_NAME:String = "_sans";
 
-	protected static const FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 2, 2);
-	protected static const BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 7);
-	protected static const TAB_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 15);
-	protected static const STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
-	protected static const STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
-	protected static const SLIDER_TRACK_FIRST_REGION:Number = 3;
-	protected static const SLIDER_TRACK_SECOND_REGION:Number = 1;
-	protected static const TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
-	protected static const VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
-	protected static const VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
-	protected static const VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
-	protected static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
-	protected static const HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
-	protected static const HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
-	protected static const SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
-	protected static const PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	protected static const HEADER_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 28);
-	protected static const SEEK_SLIDER_MINIMUM_TRACK_FIRST_REGION:Number = 3;
-	protected static const SEEK_SLIDER_MINIMUM_TRACK_SECOND_REGION:Number = 1;
-	protected static const SEEK_SLIDER_MAXIMUM_TRACK_FIRST_REGION:Number = 1;
-	protected static const SEEK_SLIDER_MAXIMUM_TRACK_SECOND_REGION:Number = 1;
+	inline private static var FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 2, 2);
+	inline private static var BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 7);
+	inline private static var TAB_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 15);
+	inline private static var STEPPER_INCREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 9, 15, 1);
+	inline private static var STEPPER_DECREMENT_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 15, 1);
+	inline private static var SLIDER_TRACK_FIRST_REGION:Float = 3;
+	inline private static var SLIDER_TRACK_SECOND_REGION:Float = 1;
+	inline private static var TEXT_INPUT_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
+	inline private static var VERTICAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(2, 5, 6, 42);
+	inline private static var VERTICAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(2, 1, 11, 2);
+	inline private static var VERTICAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 11, 10);
+	inline private static var HORIZONTAL_SCROLL_BAR_THUMB_SCALE_9_GRID:Rectangle = new Rectangle(5, 2, 42, 6);
+	inline private static var HORIZONTAL_SCROLL_BAR_TRACK_SCALE_9_GRID:Rectangle = new Rectangle(1, 2, 2, 11);
+	inline private static var HORIZONTAL_SCROLL_BAR_STEP_BUTTON_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 10, 11);
+	inline private static var SIMPLE_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(2, 2, 2, 2);
+	inline private static var PANEL_BORDER_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	inline private static var HEADER_SCALE_9_GRID:Rectangle = new Rectangle(1, 1, 2, 28);
+	inline private static var SEEK_SLIDER_MINIMUM_TRACK_FIRST_REGION:Float = 3;
+	inline private static var SEEK_SLIDER_MINIMUM_TRACK_SECOND_REGION:Float = 1;
+	inline private static var SEEK_SLIDER_MAXIMUM_TRACK_FIRST_REGION:Float = 1;
+	inline private static var SEEK_SLIDER_MAXIMUM_TRACK_SECOND_REGION:Float = 1;
 	
-	protected static const ITEM_RENDERER_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 4, 4);
-	protected static const PROGRESS_BAR_FILL_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 4, 4);
+	inline private static var ITEM_RENDERER_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 4, 4);
+	inline private static var PROGRESS_BAR_FILL_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 4, 4);
 
-	protected static const BACKGROUND_COLOR:uint = 0x869CA7;
-	protected static const MODAL_OVERLAY_COLOR:uint = 0xDDDDDD;
-	protected static const MODAL_OVERLAY_ALPHA:Number = 0.5;
-	protected static const PRIMARY_TEXT_COLOR:uint = 0x0B333C;
-	protected static const DISABLED_TEXT_COLOR:uint = 0x5B6770;
-	protected static const VIDEO_OVERLAY_COLOR:uint = 0xc9e0eE;
-	protected static const VIDEO_OVERLAY_ALPHA:Number = 0.25;
+	inline private static var BACKGROUND_COLOR:UInt = 0x869CA7;
+	inline private static var MODAL_OVERLAY_COLOR:UInt = 0xDDDDDD;
+	inline private static var MODAL_OVERLAY_ALPHA:Float = 0.5;
+	inline private static var PRIMARY_TEXT_COLOR:UInt = 0x0B333C;
+	inline private static var DISABLED_TEXT_COLOR:UInt = 0x5B6770;
+	inline private static var VIDEO_OVERLAY_COLOR:UInt = 0xc9e0eE;
+	inline private static var VIDEO_OVERLAY_ALPHA:Float = 0.25;
 
 	/**
 	 * The default global text renderer factory for this theme creates a
 	 * TextFieldTextRenderer.
 	 */
-	protected static function textRendererFactory():ITextRenderer
+	private static function textRendererFactory():ITextRenderer
 	{
 		return new TextFieldTextRenderer();
 	}
@@ -278,7 +278,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * The default global text editor factory for this theme creates a
 	 * TextFieldTextEditor.
 	 */
-	protected static function textEditorFactory():ITextEditor
+	private static function textEditorFactory():ITextEditor
 	{
 		return new TextFieldTextEditor();
 	}
@@ -286,12 +286,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * This theme's scroll bar type is ScrollBar.
 	 */
-	protected static function scrollBarFactory():IScrollBar
+	private static function scrollBarFactory():IScrollBar
 	{
 		return new ScrollBar();
 	}
 
-	protected static function popUpOverlayFactory():DisplayObject
+	private static function popUpOverlayFactory():DisplayObject
 	{
 		var quad:Quad = new Quad(100, 100, MODAL_OVERLAY_COLOR);
 		quad.alpha = MODAL_OVERLAY_ALPHA;
@@ -302,7 +302,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * SmartDisplayObjectValueSelectors will use ImageLoader instead of
 	 * Image so that we can use extra features like pixel snapping.
 	 */
-	protected static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
+	private static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
 		var displayObject:ImageLoader = oldDisplayObject as ImageLoader;
 		if(!displayObject)
@@ -324,75 +324,75 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Skins are scaled by a value based on the content scale factor.
 	 */
-	protected var scale:Number = 1;
+	private var scale:Float = 1;
 
 	/**
 	 * A smaller font size for details.
 	 */
-	protected var smallFontSize:int;
+	private var smallFontSize:Int;
 
 	/**
 	 * A normal font size.
 	 */
-	protected var regularFontSize:int;
+	private var regularFontSize:Int;
 
 	/**
 	 * A larger font size for headers.
 	 */
-	protected var largeFontSize:int;
+	private var largeFontSize:Int;
 
 	/**
 	 * The size, in pixels, of major regions in the grid. Used for sizing
 	 * containers and larger UI controls.
 	 */
-	protected var gridSize:int;
+	private var gridSize:Int;
 
 	/**
 	 * The size, in pixels, of minor regions in the grid. Used for larger
 	 * padding and gaps.
 	 */
-	protected var gutterSize:int;
+	private var gutterSize:Int;
 
 	/**
 	 * The size, in pixels, of smaller padding and gaps within the major
 	 * regions in the grid.
 	 */
-	protected var smallGutterSize:int;
+	private var smallGutterSize:Int;
 
 	/**
 	 * The size, in pixels, of very smaller padding and gaps.
 	 */
-	protected var extraSmallGutterSize:int;
+	private var extraSmallGutterSize:Int;
 
 	/**
 	 * The minimum width, in pixels, of some types of buttons.
 	 */
-	protected var buttonMinWidth:int;
+	private var buttonMinWidth:Int;
 
 	/**
 	 * The width, in pixels, of UI controls that span across multiple grid regions.
 	 */
-	protected var wideControlSize:int;
+	private var wideControlSize:Int;
 
 	/**
 	 * The size, in pixels, of a typical UI control.
 	 */
-	protected var controlSize:int;
+	private var controlSize:Int;
 
 	/**
 	 * The size, in pixels, of smaller UI controls.
 	 */
-	protected var smallControlSize:int;
+	private var smallControlSize:Int;
 
 	/**
 	 * The size, in pixels, of a border around any control.
 	 */
-	protected var borderSize:int;
+	private var borderSize:Int;
 
-	protected var calloutBackgroundMinSize:int;
-	protected var progressBarFillMinSize:int;
-	protected var popUpSize:int;
-	protected var popUpVolumeSliderPaddingSize:int;
+	private var calloutBackgroundMinSize:Int;
+	private var progressBarFillMinSize:Int;
+	private var popUpSize:Int;
+	private var popUpVolumeSliderPaddingSize:Int;
 
 	/**
 	 * The texture atlas that contains skins for this theme. This base class
@@ -400,178 +400,178 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * load the assets somehow and set the <code>atlas</code> member
 	 * variable before calling <code>initialize()</code>.
 	 */
-	protected var atlas:TextureAtlas;
+	private var atlas:TextureAtlas;
 
 	/**
 	 * A TextFormat for most UI controls and text.
 	 */
-	protected var defaultTextFormat:TextFormat;
+	private var defaultTextFormat:TextFormat;
 
 	/**
 	 * A TextFormat for most disabled UI controls and text.
 	 */
-	protected var disabledTextFormat:TextFormat;
+	private var disabledTextFormat:TextFormat;
 
 	/**
 	 * A TextFormat for larger text.
 	 */
-	protected var headingTextFormat:TextFormat;
+	private var headingTextFormat:TextFormat;
 
 	/**
 	 * A TextFormat for larger, disabled text.
 	 */
-	protected var headingDisabledTextFormat:TextFormat;
+	private var headingDisabledTextFormat:TextFormat;
 
 	/**
 	 * A TextFormat for smaller text.
 	 */
-	protected var detailTextFormat:TextFormat;
+	private var detailTextFormat:TextFormat;
 
 	/**
 	 * A TextFormat for smaller, disabled text.
 	 */
-	protected var detailDisabledTextFormat:TextFormat;
+	private var detailDisabledTextFormat:TextFormat;
 
-	protected var focusIndicatorSkinTextures:Scale9Textures;
+	private var focusIndicatorSkinTextures:Scale9Textures;
 
-	protected var buttonUpSkinTextures:Scale9Textures;
-	protected var buttonHoverSkinTextures:Scale9Textures;
-	protected var buttonDownSkinTextures:Scale9Textures;
-	protected var buttonDisabledSkinTextures:Scale9Textures;
-	protected var toggleButtonSelectedUpSkinTextures:Scale9Textures;
-	protected var toggleButtonSelectedHoverSkinTextures:Scale9Textures;
-	protected var toggleButtonSelectedDownSkinTextures:Scale9Textures;
-	protected var toggleButtonSelectedDisabledSkinTextures:Scale9Textures;
-	protected var quietButtonHoverSkinTextures:Scale9Textures;
-	protected var callToActionButtonUpSkinTextures:Scale9Textures;
-	protected var callToActionButtonHoverSkinTextures:Scale9Textures;
-	protected var dangerButtonUpSkinTextures:Scale9Textures;
-	protected var dangerButtonHoverSkinTextures:Scale9Textures;
-	protected var dangerButtonDownSkinTextures:Scale9Textures;
-	protected var backButtonUpIconTexture:Texture;
-	protected var backButtonDisabledIconTexture:Texture;
-	protected var forwardButtonUpIconTexture:Texture;
-	protected var forwardButtonDisabledIconTexture:Texture;
+	private var buttonUpSkinTextures:Scale9Textures;
+	private var buttonHoverSkinTextures:Scale9Textures;
+	private var buttonDownSkinTextures:Scale9Textures;
+	private var buttonDisabledSkinTextures:Scale9Textures;
+	private var toggleButtonSelectedUpSkinTextures:Scale9Textures;
+	private var toggleButtonSelectedHoverSkinTextures:Scale9Textures;
+	private var toggleButtonSelectedDownSkinTextures:Scale9Textures;
+	private var toggleButtonSelectedDisabledSkinTextures:Scale9Textures;
+	private var quietButtonHoverSkinTextures:Scale9Textures;
+	private var callToActionButtonUpSkinTextures:Scale9Textures;
+	private var callToActionButtonHoverSkinTextures:Scale9Textures;
+	private var dangerButtonUpSkinTextures:Scale9Textures;
+	private var dangerButtonHoverSkinTextures:Scale9Textures;
+	private var dangerButtonDownSkinTextures:Scale9Textures;
+	private var backButtonUpIconTexture:Texture;
+	private var backButtonDisabledIconTexture:Texture;
+	private var forwardButtonUpIconTexture:Texture;
+	private var forwardButtonDisabledIconTexture:Texture;
 
-	protected var tabUpSkinTextures:Scale9Textures;
-	protected var tabHoverSkinTextures:Scale9Textures;
-	protected var tabDownSkinTextures:Scale9Textures;
-	protected var tabDisabledSkinTextures:Scale9Textures;
-	protected var tabSelectedUpSkinTextures:Scale9Textures;
-	protected var tabSelectedDisabledSkinTextures:Scale9Textures;
+	private var tabUpSkinTextures:Scale9Textures;
+	private var tabHoverSkinTextures:Scale9Textures;
+	private var tabDownSkinTextures:Scale9Textures;
+	private var tabDisabledSkinTextures:Scale9Textures;
+	private var tabSelectedUpSkinTextures:Scale9Textures;
+	private var tabSelectedDisabledSkinTextures:Scale9Textures;
 
-	protected var stepperIncrementButtonUpSkinTextures:Scale9Textures;
-	protected var stepperIncrementButtonHoverSkinTextures:Scale9Textures;
-	protected var stepperIncrementButtonDownSkinTextures:Scale9Textures;
-	protected var stepperIncrementButtonDisabledSkinTextures:Scale9Textures;
+	private var stepperIncrementButtonUpSkinTextures:Scale9Textures;
+	private var stepperIncrementButtonHoverSkinTextures:Scale9Textures;
+	private var stepperIncrementButtonDownSkinTextures:Scale9Textures;
+	private var stepperIncrementButtonDisabledSkinTextures:Scale9Textures;
 
-	protected var stepperDecrementButtonUpSkinTextures:Scale9Textures;
-	protected var stepperDecrementButtonHoverSkinTextures:Scale9Textures;
-	protected var stepperDecrementButtonDownSkinTextures:Scale9Textures;
-	protected var stepperDecrementButtonDisabledSkinTextures:Scale9Textures;
+	private var stepperDecrementButtonUpSkinTextures:Scale9Textures;
+	private var stepperDecrementButtonHoverSkinTextures:Scale9Textures;
+	private var stepperDecrementButtonDownSkinTextures:Scale9Textures;
+	private var stepperDecrementButtonDisabledSkinTextures:Scale9Textures;
 
-	protected var hSliderThumbUpSkinTexture:Texture;
-	protected var hSliderThumbHoverSkinTexture:Texture;
-	protected var hSliderThumbDownSkinTexture:Texture;
-	protected var hSliderThumbDisabledSkinTexture:Texture;
-	protected var hSliderTrackEnabledSkinTextures:Scale3Textures;
+	private var hSliderThumbUpSkinTexture:Texture;
+	private var hSliderThumbHoverSkinTexture:Texture;
+	private var hSliderThumbDownSkinTexture:Texture;
+	private var hSliderThumbDisabledSkinTexture:Texture;
+	private var hSliderTrackEnabledSkinTextures:Scale3Textures;
 
-	protected var vSliderThumbUpSkinTexture:Texture;
-	protected var vSliderThumbHoverSkinTexture:Texture;
-	protected var vSliderThumbDownSkinTexture:Texture;
-	protected var vSliderThumbDisabledSkinTexture:Texture;
-	protected var vSliderTrackEnabledSkinTextures:Scale3Textures;
+	private var vSliderThumbUpSkinTexture:Texture;
+	private var vSliderThumbHoverSkinTexture:Texture;
+	private var vSliderThumbDownSkinTexture:Texture;
+	private var vSliderThumbDisabledSkinTexture:Texture;
+	private var vSliderTrackEnabledSkinTextures:Scale3Textures;
 
-	protected var itemRendererUpSkinTexture:Texture;
-	protected var itemRendererHoverSkinTexture:Texture;
-	protected var itemRendererSelectedUpSkinTexture:Texture;
+	private var itemRendererUpSkinTexture:Texture;
+	private var itemRendererHoverSkinTexture:Texture;
+	private var itemRendererSelectedUpSkinTexture:Texture;
 
-	protected var headerBackgroundSkinTextures:Scale9Textures;
-	protected var groupedListHeaderBackgroundSkinTextures:Scale9Textures;
+	private var headerBackgroundSkinTextures:Scale9Textures;
+	private var groupedListHeaderBackgroundSkinTextures:Scale9Textures;
 
-	protected var checkUpIconTexture:Texture;
-	protected var checkHoverIconTexture:Texture;
-	protected var checkDownIconTexture:Texture;
-	protected var checkDisabledIconTexture:Texture;
-	protected var checkSelectedUpIconTexture:Texture;
-	protected var checkSelectedHoverIconTexture:Texture;
-	protected var checkSelectedDownIconTexture:Texture;
-	protected var checkSelectedDisabledIconTexture:Texture;
+	private var checkUpIconTexture:Texture;
+	private var checkHoverIconTexture:Texture;
+	private var checkDownIconTexture:Texture;
+	private var checkDisabledIconTexture:Texture;
+	private var checkSelectedUpIconTexture:Texture;
+	private var checkSelectedHoverIconTexture:Texture;
+	private var checkSelectedDownIconTexture:Texture;
+	private var checkSelectedDisabledIconTexture:Texture;
 
-	protected var radioUpIconTexture:Texture;
-	protected var radioHoverIconTexture:Texture;
-	protected var radioDownIconTexture:Texture;
-	protected var radioDisabledIconTexture:Texture;
-	protected var radioSelectedUpIconTexture:Texture;
-	protected var radioSelectedHoverIconTexture:Texture;
-	protected var radioSelectedDownIconTexture:Texture;
-	protected var radioSelectedDisabledIconTexture:Texture;
+	private var radioUpIconTexture:Texture;
+	private var radioHoverIconTexture:Texture;
+	private var radioDownIconTexture:Texture;
+	private var radioDisabledIconTexture:Texture;
+	private var radioSelectedUpIconTexture:Texture;
+	private var radioSelectedHoverIconTexture:Texture;
+	private var radioSelectedDownIconTexture:Texture;
+	private var radioSelectedDisabledIconTexture:Texture;
 
-	protected var pageIndicatorNormalSkinTexture:Texture;
-	protected var pageIndicatorSelectedSkinTexture:Texture;
+	private var pageIndicatorNormalSkinTexture:Texture;
+	private var pageIndicatorSelectedSkinTexture:Texture;
 
-	protected var pickerListUpIconTexture:Texture;
-	protected var pickerListHoverIconTexture:Texture;
-	protected var pickerListDownIconTexture:Texture;
-	protected var pickerListDisabledIconTexture:Texture;
+	private var pickerListUpIconTexture:Texture;
+	private var pickerListHoverIconTexture:Texture;
+	private var pickerListDownIconTexture:Texture;
+	private var pickerListDisabledIconTexture:Texture;
 
-	protected var textInputBackgroundEnabledSkinTextures:Scale9Textures;
-	protected var textInputBackgroundDisabledSkinTextures:Scale9Textures;
-	protected var textInputSearchIconTexture:Texture;
-	protected var textInputSearchIconDisabledTexture:Texture;
+	private var textInputBackgroundEnabledSkinTextures:Scale9Textures;
+	private var textInputBackgroundDisabledSkinTextures:Scale9Textures;
+	private var textInputSearchIconTexture:Texture;
+	private var textInputSearchIconDisabledTexture:Texture;
 
-	protected var vScrollBarThumbUpSkinTextures:Scale9Textures;
-	protected var vScrollBarThumbHoverSkinTextures:Scale9Textures;
-	protected var vScrollBarThumbDownSkinTextures:Scale9Textures;
-	protected var vScrollBarTrackSkinTextures:Scale9Textures;
-	protected var vScrollBarThumbIconTexture:Texture;
-	protected var vScrollBarStepButtonUpSkinTextures:Scale9Textures;
-	protected var vScrollBarStepButtonHoverSkinTextures:Scale9Textures;
-	protected var vScrollBarStepButtonDownSkinTextures:Scale9Textures;
-	protected var vScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
-	protected var vScrollBarDecrementButtonIconTexture:Texture;
-	protected var vScrollBarIncrementButtonIconTexture:Texture;
+	private var vScrollBarThumbUpSkinTextures:Scale9Textures;
+	private var vScrollBarThumbHoverSkinTextures:Scale9Textures;
+	private var vScrollBarThumbDownSkinTextures:Scale9Textures;
+	private var vScrollBarTrackSkinTextures:Scale9Textures;
+	private var vScrollBarThumbIconTexture:Texture;
+	private var vScrollBarStepButtonUpSkinTextures:Scale9Textures;
+	private var vScrollBarStepButtonHoverSkinTextures:Scale9Textures;
+	private var vScrollBarStepButtonDownSkinTextures:Scale9Textures;
+	private var vScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
+	private var vScrollBarDecrementButtonIconTexture:Texture;
+	private var vScrollBarIncrementButtonIconTexture:Texture;
 
-	protected var hScrollBarThumbUpSkinTextures:Scale9Textures;
-	protected var hScrollBarThumbHoverSkinTextures:Scale9Textures;
-	protected var hScrollBarThumbDownSkinTextures:Scale9Textures;
-	protected var hScrollBarTrackSkinTextures:Scale9Textures;
-	protected var hScrollBarThumbIconTexture:Texture;
-	protected var hScrollBarStepButtonUpSkinTextures:Scale9Textures;
-	protected var hScrollBarStepButtonHoverSkinTextures:Scale9Textures;
-	protected var hScrollBarStepButtonDownSkinTextures:Scale9Textures;
-	protected var hScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
-	protected var hScrollBarDecrementButtonIconTexture:Texture;
-	protected var hScrollBarIncrementButtonIconTexture:Texture;
+	private var hScrollBarThumbUpSkinTextures:Scale9Textures;
+	private var hScrollBarThumbHoverSkinTextures:Scale9Textures;
+	private var hScrollBarThumbDownSkinTextures:Scale9Textures;
+	private var hScrollBarTrackSkinTextures:Scale9Textures;
+	private var hScrollBarThumbIconTexture:Texture;
+	private var hScrollBarStepButtonUpSkinTextures:Scale9Textures;
+	private var hScrollBarStepButtonHoverSkinTextures:Scale9Textures;
+	private var hScrollBarStepButtonDownSkinTextures:Scale9Textures;
+	private var hScrollBarStepButtonDisabledSkinTextures:Scale9Textures;
+	private var hScrollBarDecrementButtonIconTexture:Texture;
+	private var hScrollBarIncrementButtonIconTexture:Texture;
 
-	protected var simpleBorderBackgroundSkinTextures:Scale9Textures;
-	protected var insetBorderBackgroundSkinTextures:Scale9Textures;
-	protected var panelBorderBackgroundSkinTextures:Scale9Textures;
-	protected var alertBorderBackgroundSkinTextures:Scale9Textures;
+	private var simpleBorderBackgroundSkinTextures:Scale9Textures;
+	private var insetBorderBackgroundSkinTextures:Scale9Textures;
+	private var panelBorderBackgroundSkinTextures:Scale9Textures;
+	private var alertBorderBackgroundSkinTextures:Scale9Textures;
 
-	protected var progressBarFillSkinTexture:Texture;
+	private var progressBarFillSkinTexture:Texture;
 
 	//media textures
-	protected var playPauseButtonPlayUpIconTexture:Texture;
-	protected var playPauseButtonPauseUpIconTexture:Texture;
-	protected var overlayPlayPauseButtonPlayUpIconTexture:Texture;
-	protected var fullScreenToggleButtonEnterUpIconTexture:Texture;
-	protected var fullScreenToggleButtonExitUpIconTexture:Texture;
-	protected var muteToggleButtonLoudUpIconTexture:Texture;
-	protected var muteToggleButtonMutedUpIconTexture:Texture;
-	protected var horizontalVolumeSliderMinimumTrackSkinTexture:Texture;
-	protected var horizontalVolumeSliderMaximumTrackSkinTexture:Texture;
-	protected var verticalVolumeSliderMinimumTrackSkinTexture:Texture;
-	protected var verticalVolumeSliderMaximumTrackSkinTexture:Texture;
-	protected var popUpVolumeSliderMinimumTrackSkinTexture:Texture;
-	protected var popUpVolumeSliderMaximumTrackSkinTexture:Texture;
-	protected var seekSliderMinimumTrackSkinTextures:Scale3Textures;
-	protected var seekSliderMaximumTrackSkinTextures:Scale3Textures;
+	private var playPauseButtonPlayUpIconTexture:Texture;
+	private var playPauseButtonPauseUpIconTexture:Texture;
+	private var overlayPlayPauseButtonPlayUpIconTexture:Texture;
+	private var fullScreenToggleButtonEnterUpIconTexture:Texture;
+	private var fullScreenToggleButtonExitUpIconTexture:Texture;
+	private var muteToggleButtonLoudUpIconTexture:Texture;
+	private var muteToggleButtonMutedUpIconTexture:Texture;
+	private var horizontalVolumeSliderMinimumTrackSkinTexture:Texture;
+	private var horizontalVolumeSliderMaximumTrackSkinTexture:Texture;
+	private var verticalVolumeSliderMinimumTrackSkinTexture:Texture;
+	private var verticalVolumeSliderMaximumTrackSkinTexture:Texture;
+	private var popUpVolumeSliderMinimumTrackSkinTexture:Texture;
+	private var popUpVolumeSliderMaximumTrackSkinTexture:Texture;
+	private var seekSliderMinimumTrackSkinTextures:Scale3Textures;
+	private var seekSliderMaximumTrackSkinTextures:Scale3Textures;
 
 	/**
 	 * Disposes the texture atlas before calling super.dispose()
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		if(this.atlas)
 		{
@@ -597,7 +597,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * Initializes the theme. Expected to be called by subclasses after the
 	 * assets have been loaded and the skin texture atlas has been created.
 	 */
-	protected function initialize():void
+	private function initialize():Void
 	{
 		this.initializeScale();
 		this.initializeDimensions();
@@ -612,7 +612,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * Initializes the value used for scaling things like textures and font
 	 * sizes.
 	 */
-	protected function initializeScale():void
+	private function initializeScale():Void
 	{
 		//Starling automatically accounts for the contentScaleFactor on Mac
 		//HiDPI screens, and converts pixels to points, so we don't need to
@@ -623,7 +623,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes common values used for setting the dimensions of components.
 	 */
-	protected function initializeDimensions():void
+	private function initializeDimensions():Void
 	{
 		this.gridSize = Math.round(30 * this.scale);
 		this.extraSmallGutterSize = Math.round(2 * this.scale);
@@ -643,7 +643,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Sets the stage background color.
 	 */
-	protected function initializeStage():void
+	private function initializeStage():Void
 	{
 		Starling.current.stage.color = BACKGROUND_COLOR;
 		Starling.current.nativeStage.color = BACKGROUND_COLOR;
@@ -652,7 +652,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes global variables (not including global style providers).
 	 */
-	protected function initializeGlobals():void
+	private function initializeGlobals():Void
 	{
 		FocusManager.setEnabledForStage(Starling.current.stage, true);
 
@@ -666,7 +666,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Initializes font sizes and formats.
 	 */
-	protected function initializeFonts():void
+	private function initializeFonts():Void
 	{
 		this.smallFontSize = Math.round(10 * this.scale);
 		this.regularFontSize = Math.round(11 * this.scale);
@@ -684,7 +684,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	 * Initializes the textures by extracting them from the atlas and
 	 * setting up any scaling grids that are needed.
 	 */
-	protected function initializeTextures():void
+	private function initializeTextures():Void
 	{
 		this.focusIndicatorSkinTextures = new Scale9Textures(this.atlas.getTexture("focus-indicator-skin0000"), FOCUS_INDICATOR_SCALE_9_GRID);
 
@@ -827,7 +827,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Sets global style providers for all components.
 	 */
-	protected function initializeStyleProviders():void
+	private function initializeStyleProviders():Void
 	{
 		//alert
 		this.getStyleProviderForClass(Alert).defaultStyleFunction = this.setAlertStyles;
@@ -1003,12 +1003,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_VOLUME_SLIDER_MAXIMUM_TRACK, this.setVerticalVolumeSliderMaximumTrackStyles);
 	}
 
-	protected function pageIndicatorNormalSymbolFactory():Image
+	private function pageIndicatorNormalSymbolFactory():Image
 	{
 		return new Image(this.pageIndicatorNormalSkinTexture);
 	}
 
-	protected function pageIndicatorSelectedSymbolFactory():Image
+	private function pageIndicatorSelectedSymbolFactory():Image
 	{
 		return new Image(this.pageIndicatorSelectedSkinTexture);
 	}
@@ -1017,7 +1017,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Shared
 //-------------------------
 
-	protected function setScrollerStyles(scroller:Scroller):void
+	private function setScrollerStyles(scroller:Scroller):Void
 	{
 		scroller.clipContent = true;
 		scroller.horizontalScrollBarFactory = scrollBarFactory;
@@ -1029,7 +1029,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		scroller.focusPadding = 0;
 	}
 
-	protected function setDropDownListStyles(list:List):void
+	private function setDropDownListStyles(list:List):Void
 	{
 		this.setListStyles(list);
 		list.maxHeight = this.wideControlSize;
@@ -1039,7 +1039,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Alert
 //-------------------------
 
-	protected function setAlertStyles(alert:Alert):void
+	private function setAlertStyles(alert:Alert):Void
 	{
 		this.setScrollerStyles(alert);
 
@@ -1057,7 +1057,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		alert.maxHeight = this.popUpSize;
 	}
 
-	protected function setAlertButtonGroupStyles(group:ButtonGroup):void
+	private function setAlertButtonGroupStyles(group:ButtonGroup):Void
 	{
 		group.direction = ButtonGroup.DIRECTION_HORIZONTAL;
 		group.horizontalAlign = ButtonGroup.HORIZONTAL_ALIGN_CENTER;
@@ -1067,7 +1067,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		group.padding = this.smallGutterSize;
 	}
 
-	protected function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):void
+	private function setAlertMessageTextRendererStyles(renderer:TextFieldTextRenderer):Void
 	{
 		renderer.textFormat = this.defaultTextFormat;
 		renderer.wordWrap = true;
@@ -1077,7 +1077,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Button
 //-------------------------
 
-	protected function setBaseButtonStyles(button:Button):void
+	private function setBaseButtonStyles(button:Button):Void
 	{
 		button.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 		button.focusPadding = -1;
@@ -1095,7 +1095,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.smallControlSize;
 	}
 
-	protected function setButtonStyles(button:Button):void
+	private function setButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
@@ -1121,7 +1121,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setQuietButtonStyles(button:Button):void
+	private function setQuietButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = null;
@@ -1149,7 +1149,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setCallToActionButtonStyles(button:Button):void
+	private function setCallToActionButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.callToActionButtonUpSkinTextures;
@@ -1168,7 +1168,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setDangerButtonStyles(button:Button):void
+	private function setDangerButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.dangerButtonUpSkinTextures;
@@ -1187,7 +1187,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setBackButtonStyles(button:Button):void
+	private function setBackButtonStyles(button:Button):Void
 	{
 		this.setButtonStyles(button);
 		
@@ -1204,7 +1204,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.iconPosition = Button.ICON_POSITION_LEFT_BASELINE;
 	}
 
-	protected function setForwardButtonStyles(button:Button):void
+	private function setForwardButtonStyles(button:Button):Void
 	{
 		this.setButtonStyles(button);
 
@@ -1225,7 +1225,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ButtonGroup
 //-------------------------
 
-	protected function setButtonGroupStyles(group:ButtonGroup):void
+	private function setButtonGroupStyles(group:ButtonGroup):Void
 	{
 		group.gap = this.smallGutterSize;
 	}
@@ -1234,7 +1234,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Callout
 //-------------------------
 
-	protected function setCalloutStyles(callout:Callout):void
+	private function setCalloutStyles(callout:Callout):Void
 	{
 		callout.backgroundSkin = new Scale9Image(panelBorderBackgroundSkinTextures);
 
@@ -1253,7 +1253,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Check
 //-------------------------
 
-	protected function setCheckStyles(check:Check):void
+	private function setCheckStyles(check:Check):Void
 	{
 		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1291,7 +1291,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Drawers
 //-------------------------
 
-	protected function setDrawersStyles(drawers:Drawers):void
+	private function setDrawersStyles(drawers:Drawers):Void
 	{
 		var overlaySkin:Quad = new Quad(10, 10, MODAL_OVERLAY_COLOR);
 		overlaySkin.alpha = MODAL_OVERLAY_ALPHA;
@@ -1302,7 +1302,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // GroupedList
 //-------------------------
 
-	protected function setGroupedListStyles(list:GroupedList):void
+	private function setGroupedListStyles(list:GroupedList):Void
 	{
 		this.setScrollerStyles(list);
 
@@ -1315,7 +1315,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 
 	//see List section for item renderer styles
 
-	protected function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+	private function setGroupedListHeaderOrFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):Void
 	{
 		renderer.backgroundSkin = new Scale9Image(this.groupedListHeaderBackgroundSkinTextures);
 		renderer.backgroundSkin.height = this.controlSize;
@@ -1331,7 +1331,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.minHeight = this.controlSize;
 	}
 
-	protected function setInsetGroupedListStyles(list:GroupedList):void
+	private function setInsetGroupedListStyles(list:GroupedList):Void
 	{
 		this.setScrollerStyles(list);
 
@@ -1355,7 +1355,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		list.layout = layout;
 	}
 
-	protected function setInsetGroupedListItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+	private function setInsetGroupedListItemRendererStyles(renderer:BaseDefaultItemRenderer):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.itemRendererUpSkinTexture;
@@ -1378,7 +1378,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.paddingLeft = this.gutterSize;
 		renderer.gap = this.extraSmallGutterSize;
 		renderer.minGap = this.extraSmallGutterSize;
-		renderer.accessoryGap = Number.POSITIVE_INFINITY;
+		renderer.accessoryGap = Float.POSITIVE_INFINITY;
 		renderer.minAccessoryGap = this.smallGutterSize;
 		renderer.minWidth = this.controlSize;
 		renderer.minHeight = this.controlSize;
@@ -1386,7 +1386,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.useStateDelayTimer = false;
 	}
 
-	protected function setInsetGroupedListHeaderRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+	private function setInsetGroupedListHeaderRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):Void
 	{
 		renderer.contentLabelProperties.textFormat = this.defaultTextFormat;
 		renderer.contentLabelProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1399,7 +1399,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.minHeight = this.controlSize;
 	}
 
-	protected function setInsetGroupedListFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):void
+	private function setInsetGroupedListFooterRendererStyles(renderer:DefaultGroupedListHeaderOrFooterRenderer):Void
 	{
 		renderer.contentLabelProperties.textFormat = this.defaultTextFormat;
 		renderer.contentLabelProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1416,7 +1416,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Header
 //-------------------------
 
-	protected function setHeaderStyles(header:Header):void
+	private function setHeaderStyles(header:Header):Void
 	{
 		header.backgroundSkin = new Scale9Image(this.headerBackgroundSkinTextures);
 
@@ -1439,19 +1439,19 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Label
 //-------------------------
 
-	protected function setLabelStyles(label:Label):void
+	private function setLabelStyles(label:Label):Void
 	{
 		label.textRendererProperties.textFormat = this.defaultTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.disabledTextFormat;
 	}
 
-	protected function setHeadingLabelStyles(label:Label):void
+	private function setHeadingLabelStyles(label:Label):Void
 	{
 		label.textRendererProperties.textFormat = this.headingTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.headingDisabledTextFormat;
 	}
 
-	protected function setDetailLabelStyles(label:Label):void
+	private function setDetailLabelStyles(label:Label):Void
 	{
 		label.textRendererProperties.textFormat = this.detailTextFormat;
 		label.textRendererProperties.disabledTextFormat = this.detailDisabledTextFormat;
@@ -1461,7 +1461,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // LayoutGroup
 //-------------------------
 
-	protected function setToolbarLayoutGroupStyles(group:LayoutGroup):void
+	private function setToolbarLayoutGroupStyles(group:LayoutGroup):Void
 	{
 		if(!group.layout)
 		{
@@ -1483,7 +1483,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // List
 //-------------------------
 
-	protected function setListStyles(list:List):void
+	private function setListStyles(list:List):Void
 	{
 		this.setScrollerStyles(list);
 
@@ -1494,7 +1494,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		list.padding = this.borderSize;
 	}
 
-	protected function setItemRendererStyles(renderer:BaseDefaultItemRenderer):void
+	private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.itemRendererUpSkinTexture;
@@ -1517,7 +1517,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.paddingLeft = this.smallGutterSize;
 		renderer.gap = this.extraSmallGutterSize;
 		renderer.minGap = this.extraSmallGutterSize;
-		renderer.accessoryGap = Number.POSITIVE_INFINITY;
+		renderer.accessoryGap = Float.POSITIVE_INFINITY;
 		renderer.minAccessoryGap = this.smallGutterSize;
 		renderer.minWidth = this.controlSize;
 		renderer.minHeight = this.controlSize;
@@ -1525,12 +1525,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		renderer.useStateDelayTimer = false;
 	}
 
-	protected function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):void
+	private function setItemRendererAccessoryLabelStyles(renderer:TextFieldTextRenderer):Void
 	{
 		renderer.textFormat = this.defaultTextFormat;
 	}
 
-	protected function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):void
+	private function setItemRendererIconLabelStyles(renderer:TextFieldTextRenderer):Void
 	{
 		renderer.textFormat = this.defaultTextFormat;
 	}
@@ -1539,7 +1539,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // NumericStepper
 //-------------------------
 
-	protected function setNumericStepperStyles(stepper:NumericStepper):void
+	private function setNumericStepperStyles(stepper:NumericStepper):Void
 	{
 		stepper.buttonLayoutMode = NumericStepper.BUTTON_LAYOUT_MODE_RIGHT_SIDE_VERTICAL;
 
@@ -1547,7 +1547,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		stepper.focusPadding = -1;
 	}
 
-	protected function setNumericStepperIncrementButtonStyles(button:Button):void
+	private function setNumericStepperIncrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.stepperIncrementButtonUpSkinTextures;
@@ -1564,7 +1564,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setNumericStepperDecrementButtonStyles(button:Button):void
+	private function setNumericStepperDecrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.stepperDecrementButtonUpSkinTextures;
@@ -1581,7 +1581,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setNumericStepperTextInputStyles(input:TextInput):void
+	private function setNumericStepperTextInputStyles(input:TextInput):Void
 	{
 		input.minWidth = this.controlSize;
 		input.minHeight = this.controlSize;
@@ -1609,7 +1609,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // PanelScreen
 //-------------------------
 
-	protected function setPanelScreenStyles(screen:PanelScreen):void
+	private function setPanelScreenStyles(screen:PanelScreen):Void
 	{
 		this.setScrollerStyles(screen);
 	}
@@ -1618,7 +1618,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // PageIndicator
 //-------------------------
 
-	protected function setPageIndicatorStyles(pageIndicator:PageIndicator):void
+	private function setPageIndicatorStyles(pageIndicator:PageIndicator):Void
 	{
 		pageIndicator.interactionMode = PageIndicator.INTERACTION_MODE_PRECISE;
 
@@ -1635,7 +1635,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Panel
 //-------------------------
 
-	protected function setPanelStyles(panel:Panel):void
+	private function setPanelStyles(panel:Panel):Void
 	{
 		this.setScrollerStyles(panel);
 
@@ -1647,7 +1647,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		panel.paddingLeft = this.gutterSize;
 	}
 
-	protected function setPanelHeaderStyles(header:Header):void
+	private function setPanelHeaderStyles(header:Header):Void
 	{
 		header.titleProperties.textFormat = this.defaultTextFormat;
 		header.titleProperties.disabledTextFormat = this.disabledTextFormat;
@@ -1666,12 +1666,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // PickerList
 //-------------------------
 
-	protected function setPickerListStyles(list:PickerList):void
+	private function setPickerListStyles(list:PickerList):Void
 	{
 		list.popUpContentManager = new DropDownPopUpContentManager();
 	}
 
-	protected function setPickerListButtonStyles(button:Button):void
+	private function setPickerListButtonStyles(button:Button):Void
 	{
 		this.setButtonStyles(button);
 
@@ -1688,7 +1688,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		}
 		button.stateToIconFunction = iconSelector.updateValue;
 
-		button.gap = Number.POSITIVE_INFINITY; //fill as completely as possible
+		button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
 		button.minGap = this.smallGutterSize;
 		button.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 		button.iconPosition = Button.ICON_POSITION_RIGHT;
@@ -1699,7 +1699,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ProgressBar
 //-------------------------
 
-	protected function setProgressBarStyles(progress:ProgressBar):void
+	private function setProgressBarStyles(progress:ProgressBar):Void
 	{
 		var backgroundSkin:Scale9Image = new Scale9Image(this.simpleBorderBackgroundSkinTextures);
 		if(progress.direction == ProgressBar.DIRECTION_VERTICAL)
@@ -1730,7 +1730,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Radio
 //-------------------------
 
-	protected function setRadioStyles(radio:Radio):void
+	private function setRadioStyles(radio:Radio):Void
 	{
 		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -1768,7 +1768,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ScrollBar
 //-------------------------
 
-	protected function setHorizontalScrollBarStyles(scrollBar:ScrollBar):void
+	private function setHorizontalScrollBarStyles(scrollBar:ScrollBar):Void
 	{
 		scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1778,7 +1778,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		scrollBar.customMinimumTrackStyleName = THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK;
 	}
 
-	protected function setVerticalScrollBarStyles(scrollBar:ScrollBar):void
+	private function setVerticalScrollBarStyles(scrollBar:ScrollBar):Void
 	{
 		scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
@@ -1788,7 +1788,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		scrollBar.customMinimumTrackStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK;
 	}
 
-	protected function setHorizontalScrollBarIncrementButtonStyles(button:Button):void
+	private function setHorizontalScrollBarIncrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.hScrollBarStepButtonUpSkinTextures;
@@ -1810,7 +1810,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalScrollBarDecrementButtonStyles(button:Button):void
+	private function setHorizontalScrollBarDecrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = hScrollBarStepButtonUpSkinTextures;
@@ -1832,7 +1832,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalScrollBarThumbStyles(thumb:Button):void
+	private function setHorizontalScrollBarThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -1851,14 +1851,14 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		thumb.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalScrollBarMinimumTrackStyles(track:Button):void
+	private function setHorizontalScrollBarMinimumTrackStyles(track:Button):Void
 	{
 		track.defaultSkin = new Scale9Image(this.hScrollBarTrackSkinTextures);
 
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalScrollBarIncrementButtonStyles(button:Button):void
+	private function setVerticalScrollBarIncrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1880,7 +1880,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalScrollBarDecrementButtonStyles(button:Button):void
+	private function setVerticalScrollBarDecrementButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.vScrollBarStepButtonUpSkinTextures;
@@ -1902,7 +1902,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalScrollBarThumbStyles(thumb:Button):void
+	private function setVerticalScrollBarThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -1921,7 +1921,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		thumb.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalScrollBarMinimumTrackStyles(track:Button):void
+	private function setVerticalScrollBarMinimumTrackStyles(track:Button):Void
 	{
 		track.defaultSkin = new Scale9Image(this.vScrollBarTrackSkinTextures);
 
@@ -1932,12 +1932,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ScrollContainer
 //-------------------------
 
-	protected function setScrollContainerStyles(container:ScrollContainer):void
+	private function setScrollContainerStyles(container:ScrollContainer):Void
 	{
 		this.setScrollerStyles(container);
 	}
 
-	protected function setToolbarScrollContainerStyles(container:ScrollContainer):void
+	private function setToolbarScrollContainerStyles(container:ScrollContainer):Void
 	{
 		this.setScrollerStyles(container);
 
@@ -1962,7 +1962,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ScrollScreen
 //-------------------------
 
-	protected function setScrollScreenStyles(screen:ScrollScreen):void
+	private function setScrollScreenStyles(screen:ScrollScreen):Void
 	{
 		this.setScrollerStyles(screen);
 	}
@@ -1971,7 +1971,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ScrollText
 //-------------------------
 
-	protected function setScrollTextStyles(text:ScrollText):void
+	private function setScrollTextStyles(text:ScrollText):Void
 	{
 		this.setScrollerStyles(text);
 
@@ -1984,17 +1984,17 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // SimpleScrollBar
 //-------------------------
 
-	protected function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+	private function setHorizontalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):Void
 	{
 		scrollBar.customThumbStyleName = THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB;
 	}
 
-	protected function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):void
+	private function setVerticalSimpleScrollBarStyles(scrollBar:SimpleScrollBar):Void
 	{
 		scrollBar.customThumbStyleName = THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB;
 	}
 
-	protected function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):void
+	private function setHorizontalSimpleScrollBarThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.hScrollBarThumbUpSkinTextures;
@@ -2013,7 +2013,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		thumb.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalSimpleScrollBarThumbStyles(thumb:Button):void
+	private function setVerticalSimpleScrollBarThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.vScrollBarThumbUpSkinTextures;
@@ -2036,7 +2036,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // Slider
 //-------------------------
 
-	protected function setSliderStyles(slider:Slider):void
+	private function setSliderStyles(slider:Slider):Void
 	{
 		slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_SINGLE;
 		slider.minimumPadding = slider.maximumPadding = -vSliderThumbUpSkinTexture.height / 2;
@@ -2061,7 +2061,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
 	}
 
-	protected function setHorizontalSliderThumbStyles(thumb:Button):void
+	private function setHorizontalSliderThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -2079,7 +2079,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		thumb.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalSliderMinimumTrackStyles(track:Button):void
+	private function setHorizontalSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:Scale3Image = new Scale3Image(this.hSliderTrackEnabledSkinTextures)
 		defaultSkin.width = this.wideControlSize;
@@ -2090,7 +2090,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalSliderThumbStyles(thumb:Button):void
+	private function setVerticalSliderThumbStyles(thumb:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
@@ -2108,7 +2108,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		thumb.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalSliderMinimumTrackStyles(track:Button):void
+	private function setVerticalSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:Scale3Image = new Scale3Image(this.vSliderTrackEnabledSkinTextures);
 		defaultSkin.height = this.wideControlSize;
@@ -2123,14 +2123,14 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // TabBar
 //-------------------------
 
-	protected function setTabBarStyles(tabBar:TabBar):void
+	private function setTabBarStyles(tabBar:TabBar):Void
 	{
 		tabBar.distributeTabSizes = false;
 		tabBar.horizontalAlign = TabBar.HORIZONTAL_ALIGN_LEFT;
 		tabBar.verticalAlign = TabBar.VERTICAL_ALIGN_JUSTIFY;
 	}
 
-	protected function setTabStyles(tab:ToggleButton):void
+	private function setTabStyles(tab:ToggleButton):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.tabUpSkinTextures;
@@ -2164,7 +2164,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // TextArea
 //-------------------------
 
-	protected function setTextAreaStyles(textArea:TextArea):void
+	private function setTextAreaStyles(textArea:TextArea):Void
 	{
 		this.setScrollerStyles(textArea);
 
@@ -2193,7 +2193,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // TextInput
 //-------------------------
 
-	protected function setBaseTextInputStyles(input:TextInput):void
+	private function setBaseTextInputStyles(input:TextInput):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.textInputBackgroundEnabledSkinTextures;
@@ -2223,12 +2223,12 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		input.promptProperties.disabledTextFormat = this.disabledTextFormat;
 	}
 
-	protected function setTextInputStyles(input:TextInput):void
+	private function setTextInputStyles(input:TextInput):Void
 	{
 		this.setBaseTextInputStyles(input);
 	}
 
-	protected function setSearchTextInputStyles(input:TextInput):void
+	private function setSearchTextInputStyles(input:TextInput):Void
 	{
 		this.setBaseTextInputStyles(input);
 
@@ -2248,7 +2248,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // ToggleSwitch
 //-------------------------
 
-	protected function setToggleSwitchStyles(toggle:ToggleSwitch):void
+	private function setToggleSwitchStyles(toggle:ToggleSwitch):Void
 	{
 		toggle.trackLayoutMode = ToggleSwitch.TRACK_LAYOUT_MODE_SINGLE;
 		toggle.labelAlign = ToggleSwitch.LABEL_ALIGN_MIDDLE;
@@ -2259,7 +2259,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		toggle.focusPadding = -1;
 	}
 
-	protected function setToggleSwitchOnTrackStyles(track:Button):void
+	private function setToggleSwitchOnTrackStyles(track:Button):Void
 	{
 		var defaultSkin:Scale9Image = new Scale9Image(this.toggleButtonSelectedUpSkinTextures);
 		defaultSkin.width = 2 * this.controlSize + this.smallControlSize;
@@ -2268,7 +2268,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setToggleSwitchThumbStyles(thumb:Button):void
+	private function setToggleSwitchThumbStyles(thumb:Button):Void
 	{
 		this.setButtonStyles(thumb);
 
@@ -2289,7 +2289,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // PlayPauseToggleButton
 //-------------------------
 
-	protected function setPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):void
+	private function setPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = null;
@@ -2331,7 +2331,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setOverlayPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):void
+	private function setOverlayPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):Void
 	{
 		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		iconSelector.setValueForState(this.overlayPlayPauseButtonPlayUpIconTexture, Button.STATE_UP, false);
@@ -2358,7 +2358,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // FullScreenToggleButton
 //-------------------------
 
-	protected function setFullScreenToggleButtonStyles(button:FullScreenToggleButton):void
+	private function setFullScreenToggleButtonStyles(button:FullScreenToggleButton):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = null;
@@ -2404,7 +2404,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // VolumeSlider
 //-------------------------
 
-	protected function setVolumeSliderStyles(slider:VolumeSlider):void
+	private function setVolumeSliderStyles(slider:VolumeSlider):Void
 	{
 		slider.trackLayoutMode = VolumeSlider.TRACK_LAYOUT_MODE_MIN_MAX;
 		slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
@@ -2426,16 +2426,16 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		}
 	}
 
-	protected function setVolumeSliderThumbStyles(button:Button):void
+	private function setVolumeSliderThumbStyles(button:Button):Void
 	{
-		var thumbSize:Number = 6 * this.scale;
+		var thumbSize:Float = 6 * this.scale;
 		button.defaultSkin = new Quad(thumbSize, thumbSize);
 		button.defaultSkin.width = 0;
 		button.defaultSkin.height = 0;
 		button.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalVolumeSliderMinimumTrackStyles(track:Button):void
+	private function setHorizontalVolumeSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2444,7 +2444,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setHorizontalVolumeSliderMaximumTrackStyles(track:Button):void
+	private function setHorizontalVolumeSliderMaximumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2454,7 +2454,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalVolumeSliderMinimumTrackStyles(track:Button):void
+	private function setVerticalVolumeSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2464,7 +2464,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setVerticalVolumeSliderMaximumTrackStyles(track:Button):void
+	private function setVerticalVolumeSliderMaximumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2477,7 +2477,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // MuteToggleButton
 //-------------------------
 
-	protected function setMuteToggleButtonStyles(button:MuteToggleButton):void
+	private function setMuteToggleButtonStyles(button:MuteToggleButton):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = null;
@@ -2520,7 +2520,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		button.minHeight = this.controlSize;
 	}
 
-	protected function setPopUpVolumeSliderStyles(slider:VolumeSlider):void
+	private function setPopUpVolumeSliderStyles(slider:VolumeSlider):Void
 	{
 		slider.direction = VolumeSlider.DIRECTION_VERTICAL;
 		slider.trackLayoutMode = VolumeSlider.TRACK_LAYOUT_MODE_MIN_MAX;
@@ -2535,7 +2535,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		slider.customMaximumTrackStyleName = THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MAXIMUM_TRACK;
 	}
 
-	protected function setPopUpVolumeSliderMinimumTrackStyles(track:Button):void
+	private function setPopUpVolumeSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2545,7 +2545,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setPopUpVolumeSliderMaximumTrackStyles(track:Button):void
+	private function setPopUpVolumeSliderMaximumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:ImageLoader = new ImageLoader();
 		defaultSkin.scaleContent = false;
@@ -2558,7 +2558,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 // SeekSlider
 //-------------------------
 
-	protected function setSeekSliderStyles(slider:SeekSlider):void
+	private function setSeekSliderStyles(slider:SeekSlider):Void
 	{
 		slider.direction = SeekSlider.DIRECTION_HORIZONTAL;
 		slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_MIN_MAX;
@@ -2572,7 +2572,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		slider.minHeight = this.smallControlSize;
 	}
 
-	protected function setSeekSliderMinimumTrackStyles(track:Button):void
+	private function setSeekSliderMinimumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:Scale3Image = new Scale3Image(this.seekSliderMinimumTrackSkinTextures, this.scale);
 		defaultSkin.width = this.wideControlSize;
@@ -2581,7 +2581,7 @@ public class BaseAeonDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-	protected function setSeekSliderMaximumTrackStyles(track:Button):void
+	private function setSeekSliderMaximumTrackStyles(track:Button):Void
 	{
 		var defaultSkin:Scale3Image = new Scale3Image(this.seekSliderMaximumTrackSkinTextures, this.scale);
 		defaultSkin.width = this.wideControlSize;

@@ -75,7 +75,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	 * @private
 	 * The name of the texture atlas in the asset manager.
 	 */
-	protected static const ATLAS_NAME:String = "minimal_desktop";
+	inline private static var ATLAS_NAME:String = "minimal_desktop";
 
 	/**
 	 * Constructor.
@@ -91,7 +91,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	protected var assetPaths:Vector.<String> = new <String>
+	private var assetPaths:Vector.<String> = new <String>
 	[
 		"images/" + ATLAS_NAME + ".xml",
 		"images/" + ATLAS_NAME + ".png",
@@ -101,12 +101,12 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected var assetManager:AssetManager;
+	private var assetManager:AssetManager;
 
 	/**
 	 * @private
 	 */
-	override public function dispose():void
+	override public function dispose():Void
 	{
 		super.dispose();
 		if(this.assetManager)
@@ -119,7 +119,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():Void
 	{
 		this.initializeTextureAtlas();
 		this.initializeBitmapFont();
@@ -129,7 +129,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function initializeTextureAtlas():void
+	private function initializeTextureAtlas():Void
 	{
 		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
 	}
@@ -137,7 +137,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function initializeBitmapFont():void
+	private function initializeBitmapFont():Void
 	{
 		var font:BitmapFont = TextField.getBitmapFont(FONT_TEXTURE_NAME);
 		TextField.registerBitmapFont(font, FONT_NAME);
@@ -146,7 +146,7 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function assetManager_onProgress(progress:Number):void
+	private function assetManager_onProgress(progress:Float):Void
 	{
 		if(progress < 1)
 		{
@@ -159,9 +159,9 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 	/**
 	 * @private
 	 */
-	protected function loadAssets(assetsBasePath:String, assetManager:AssetManager):void
+	private function loadAssets(assetsBasePath:String, assetManager:AssetManager):Void
 	{
-		var oldScaleFactor:Number = -1;
+		var oldScaleFactor:Float = -1;
 		if(assetManager)
 		{
 			oldScaleFactor = assetManager.scaleFactor;
@@ -178,8 +178,8 @@ public class MinimalDesktopThemeWithAssetManager extends BaseMinimalDesktopTheme
 			assetsBasePath += "/";
 		}
 		var assetPaths:Vector.<String> = this.assetPaths;
-		var assetCount:int = assetPaths.length;
-		for(var i:int = 0; i < assetCount; i++)
+		var assetCount:Int = assetPaths.length;
+		for(var i:Int = 0; i < assetCount; i++)
 		{
 			var asset:String = assetPaths[i];
 			this.assetManager.enqueue(assetsBasePath + asset);

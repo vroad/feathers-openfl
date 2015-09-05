@@ -45,18 +45,18 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	 * @private
 	 */
 	[Embed(source="/../assets/images/metalworks_mobile.xml",mimeType="application/octet-stream")]
-	protected static const ATLAS_XML:Class;
+	inline private static var ATLAS_XML:Class;
 
 	/**
 	 * @private
 	 */
 	[Embed(source="/../assets/images/metalworks_mobile.png")]
-	protected static const ATLAS_BITMAP:Class;
+	inline private static var ATLAS_BITMAP:Class;
 
 	/**
 	 * Constructor.
 	 */
-	public function MetalWorksMobileTheme(scaleToDPI:Boolean = true)
+	public function MetalWorksMobileTheme(scaleToDPI:Bool = true)
 	{
 		super(scaleToDPI);
 		this.initialize();
@@ -66,7 +66,7 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	/**
 	 * @private
 	 */
-	override protected function initialize():void
+	override private function initialize():Void
 	{
 		this.initializeTextureAtlas();
 		super.initialize();
@@ -75,7 +75,7 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	/**
 	 * @private
 	 */
-	protected function initializeTextureAtlas():void
+	private function initializeTextureAtlas():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
@@ -87,7 +87,7 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	/**
 	 * @private
 	 */
-	protected function atlasTexture_onRestore():void
+	private function atlasTexture_onRestore():Void
 	{
 		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
