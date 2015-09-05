@@ -1,31 +1,29 @@
 /*
-Copyright 2012-2015 Bowler Hat LLC
+ Copyright (c) 2014 Josh Tynjala
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-*/
-package feathers.themes
-{
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+ */
+package feathers.themes;
 import feathers.controls.Alert;
-import feathers.controls.AutoComplete;
 import feathers.controls.Button;
 import feathers.controls.ButtonGroup;
 import feathers.controls.Callout;
@@ -35,7 +33,6 @@ import feathers.controls.GroupedList;
 import feathers.controls.Header;
 import feathers.controls.ImageLoader;
 import feathers.controls.Label;
-import feathers.controls.LayoutGroup;
 import feathers.controls.List;
 import feathers.controls.NumericStepper;
 import feathers.controls.PageIndicator;
@@ -61,8 +58,12 @@ import feathers.controls.renderers.BaseDefaultItemRenderer;
 import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
 import feathers.controls.renderers.DefaultGroupedListItemRenderer;
 import feathers.controls.renderers.DefaultListItemRenderer;
+import feathers.controls.text.BitmapFontTextEditor;
+import feathers.controls.text.BitmapFontTextRenderer;
 import feathers.controls.text.TextBlockTextEditor;
 import feathers.controls.text.TextBlockTextRenderer;
+import feathers.controls.text.TextFieldTextEditor;
+import feathers.controls.text.TextFieldTextRenderer;
 import feathers.core.FeathersControl;
 import feathers.core.FocusManager;
 import feathers.core.PopUpManager;
@@ -70,27 +71,25 @@ import feathers.display.Scale3Image;
 import feathers.display.Scale9Image;
 import feathers.display.TiledImage;
 import feathers.layout.HorizontalLayout;
-import feathers.layout.VerticalLayout;
-import feathers.media.FullScreenToggleButton;
-import feathers.media.MuteToggleButton;
-import feathers.media.PlayPauseToggleButton;
-import feathers.media.SeekSlider;
-import feathers.media.VideoPlayer;
-import feathers.media.VolumeSlider;
 import feathers.skins.SmartDisplayObjectStateValueSelector;
 import feathers.skins.StandardIcons;
+import feathers.text.BitmapFontTextFormat;
 import feathers.textures.Scale3Textures;
 import feathers.textures.Scale9Textures;
+import openfl.Assets;
+import openfl.text.Font;
 
-import flash.geom.Rectangle;
-import flash.text.TextFormat;
-import flash.text.engine.CFFHinting;
-import flash.text.engine.ElementFormat;
-import flash.text.engine.FontDescription;
-import flash.text.engine.FontLookup;
-import flash.text.engine.FontPosture;
-import flash.text.engine.FontWeight;
-import flash.text.engine.RenderingMode;
+import openfl.geom.Rectangle;
+import openfl.text.TextFormat;
+#if flash
+import openfl.text.engine.CFFHinting;
+import openfl.text.engine.ElementFormat;
+import openfl.text.engine.FontDescription;
+import openfl.text.engine.FontLookup;
+import openfl.text.engine.FontPosture;
+import openfl.text.engine.FontWeight;
+import openfl.text.engine.RenderingMode;
+#end
 
 import starling.core.Starling;
 import starling.display.DisplayObject;
@@ -107,19 +106,23 @@ import starling.textures.TextureAtlas;
  * @see MetalWorksDesktopTheme
  * @see MetalWorksDesktopThemeWithAssetManager
  */
-public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
+class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 {
-	[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontFamily="SourceSansPro",fontWeight="normal",mimeType="application/x-font",embedAsCFF="true")]
-	inline private static var SOURCE_SANS_PRO_REGULAR:Class;
+	//[Embed(source="/../assets/fonts/SourceSansPro-Regular.ttf",fontFamily="SourceSansPro",fontWeight="normal",mimeType="application/x-font",embedAsCFF="true")]
+	//inline private static var SOURCE_SANS_PRO_REGULAR:Class<Dynamic>;
+	inline private static var SOURCE_SANS_PRO_REGULAR_FILE_NAME = "assets/fonts/SourceSansPro-Regular.ttf";
 
-	[Embed(source="/../assets/fonts/SourceSansPro-Semibold.ttf",fontFamily="SourceSansPro",fontWeight="bold",mimeType="application/x-font",embedAsCFF="true")]
-	inline private static var SOURCE_SANS_PRO_SEMIBOLD:Class;
+	//[Embed(source="/../assets/fonts/SourceSansPro-Semibold.ttf",fontFamily="SourceSansPro",fontWeight="bold",mimeType="application/x-font",embedAsCFF="true")]
+	//inline private static var SOURCE_SANS_PRO_SEMIBOLD:Class<Dynamic>;
+	inline private static var SOURCE_SANS_PRO_SEMIBOLD_FILE_NAME = "assets/fonts/SourceSansPro-Semibold.ttf";
 
 	/**
 	 * The name of the embedded font used by controls in this theme. Comes
 	 * in normal and bold weights.
 	 */
-	public static const FONT_NAME:String = "SourceSansPro";
+	inline public static var FONT_NAME:String = "SourceSansPro";
+	inline private static var ELEMENT_FORMAT_STR:String = #if flash "elementFormat" #else "textFormat" #end;
+	inline private static var DISABLED_ELEMENT_FORMAT_STR:String = #if flash "disabledElementFormat" #else "disabledTextFormat" #end;
 
 	inline private static var PRIMARY_BACKGROUND_COLOR:UInt = 0x4a4137;
 	inline private static var LIGHT_TEXT_COLOR:UInt = 0xe5e5e5;
@@ -127,6 +130,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	inline private static var SELECTED_TEXT_COLOR:UInt = 0xff9900;
 	inline private static var DISABLED_TEXT_COLOR:UInt = 0x8a8a8a;
 	inline private static var DARK_DISABLED_TEXT_COLOR:UInt = 0x383430;
+	inline private static var LIST_BACKGROUND_COLOR:UInt = 0x36322e;
+	inline private static var LIST_BACKGROUND_HOVER_COLOR:UInt = 0xff7700;
 	inline private static var GROUPED_LIST_HEADER_BACKGROUND_COLOR:UInt = 0x292523;
 	inline private static var GROUPED_LIST_FOOTER_BACKGROUND_COLOR:UInt = 0x292523;
 	inline private static var SCROLL_BAR_TRACK_COLOR:UInt = 0x1a1816;
@@ -136,149 +141,133 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	inline private static var MODAL_OVERLAY_ALPHA:Float = 0.8;
 	inline private static var DRAWER_OVERLAY_COLOR:UInt = 0x29241e;
 	inline private static var DRAWER_OVERLAY_ALPHA:Float = 0.4;
-	inline private static var VIDEO_OVERLAY_COLOR:UInt = 0x1a1816;
-	inline private static var VIDEO_OVERLAY_ALPHA:Float = 0.2;
 
-	inline private static var DEFAULT_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 1);
-	inline private static var SIMPLE_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
-	inline private static var BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 16);
-	inline private static var TOGGLE_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 1, 14);
-	inline private static var SCROLL_BAR_STEP_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 6, 6);
-	inline private static var VOLUME_SLIDER_TRACK_SCALE9_GRID:Rectangle = new Rectangle(12, 12, 1, 1);
+	private static var DEFAULT_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 1);
+	private static var SIMPLE_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
+	private static var BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 16);
+	private static var BUTTON_SELECTED_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 1, 14);
+	private static var SCROLL_BAR_STEP_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 3, 1, 7);
 	inline private static var BACK_BUTTON_SCALE3_REGION1:Float = 13;
 	inline private static var BACK_BUTTON_SCALE3_REGION2:Float = 1;
 	inline private static var FORWARD_BUTTON_SCALE3_REGION1:Float = 3;
 	inline private static var FORWARD_BUTTON_SCALE3_REGION2:Float = 1;
-	inline private static var FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
-	inline private static var TAB_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 11);
+	private static var FOCUS_INDICATOR_SCALE_9_GRID:Rectangle = new Rectangle(5, 5, 1, 1);
+	private static var TAB_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 11);
 	inline private static var SCROLL_BAR_THUMB_REGION1:Int = 5;
 	inline private static var SCROLL_BAR_THUMB_REGION2:Int = 14;
-	
-	inline private static var ITEM_RENDERER_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 1, 1);
-	inline private static var ITEM_RENDERER_SELECTED_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 1, 22);
 
 	/**
 	 * @private
 	 * The theme's custom style name for the increment button of a horizontal ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "metalworks-desktop-horizontal-scroll-bar-increment-button";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON:String = "metalworks-desktop-horizontal-scroll-bar-increment-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a horizontal ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "metalworks-desktop-horizontal-scroll-bar-decrement-button";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON:String = "metalworks-desktop-horizontal-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a horizontal ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "metalworks-desktop-horizontal-scroll-bar-thumb";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB:String = "metalworks-desktop-horizontal-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "metalworks-desktop-horizontal-scroll-bar-minimum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK:String = "metalworks-desktop-horizontal-scroll-bar-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a horizontal ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MAXIMUM_TRACK:String = "metalworks-desktop-horizontal-scroll-bar-maximum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SCROLL_BAR_MAXIMUM_TRACK:String = "metalworks-desktop-horizontal-scroll-bar-maximum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the increment button of a vertical ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "metalworks-desktop-vertical-scroll-bar-increment-button";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON:String = "metalworks-desktop-vertical-scroll-bar-increment-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the decrement button of a vertical ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "metalworks-desktop-vertical-scroll-bar-decrement-button";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON:String = "metalworks-desktop-vertical-scroll-bar-decrement-button";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a vertical ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "metalworks-desktop-vertical-scroll-bar-thumb";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_THUMB:String = "metalworks-desktop-vertical-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "metalworks-desktop-vertical-scroll-bar-minimum-track";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK:String = "metalworks-desktop-vertical-scroll-bar-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a vertical ScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK:String = "metalworks-desktop-vertical-scroll-bar-maximum-track";
+	inline private static var THEME_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK:String = "metalworks-desktop-vertical-scroll-bar-maximum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a horizontal SimpleScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "metalworks-desktop-horizontal-simple-scroll-bar-thumb";
+	inline private static var THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB:String = "metalworks-desktop-horizontal-simple-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the thumb of a vertical SimpleScrollBar.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "metalworks-desktop-vertical-simple-scroll-bar-thumb";
+	inline private static var THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB:String = "metalworks-desktop-vertical-simple-scroll-bar-thumb";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a horizontal slider.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "metalworks-desktop-horizontal-slider-minimum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK:String = "metalworks-desktop-horizontal-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a horizontal slider.
 	 */
-	inline private static var THEME_STYLE_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK:String = "metalworks-desktop-horizontal-slider-maximum-track";
+	inline private static var THEME_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK:String = "metalworks-desktop-horizontal-slider-maximum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the minimum track of a vertical slider.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "metalworks-desktop-vertical-slider-minimum-track";
+	inline private static var THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK:String = "metalworks-desktop-vertical-slider-minimum-track";
 
 	/**
 	 * @private
 	 * The theme's custom style name for the maximum track of a vertical slider.
 	 */
-	inline private static var THEME_STYLE_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK:String = "metalworks-desktop-vertical-slider-maximum-track";
-
-	/**
-	 * @private
-	 */
-	inline private static var THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_THUMB:String = "metalworks-desktop-pop-up-volume-slider-thumb";
-
-	/**
-	 * @private
-	 */
-	inline private static var THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MINIMUM_TRACK:String = "metalworks-desktop-pop-up-volume-slider-minimum-track";
+	inline private static var THEME_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK:String = "metalworks-desktop-vertical-slider-maximum-track";
 
 	/**
 	 * The default global text renderer factory for this theme creates a
 	 * TextBlockTextRenderer.
 	 */
-	private static function textRendererFactory():TextBlockTextRenderer
+	private static function textRendererFactory():#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end
 	{
-		return new TextBlockTextRenderer();
+		return new #if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end ();
 	}
 
 	/**
 	 * The default global text editor factory for this theme creates a
 	 * TextBlockTextEditor.
 	 */
-	private static function textEditorFactory():TextBlockTextEditor
+	private static function textEditorFactory():#if flash TextBlockTextEditor #elseif html5 TextFieldTextEditor #else BitmapFontTextEditor #end
 	{
-		return new TextBlockTextEditor();
+		return new #if flash TextBlockTextEditor #elseif html5 TextFieldTextEditor #else BitmapFontTextEditor #end ();
 	}
 
 	/**
@@ -307,8 +296,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 */
 	private static function textureValueTypeHandler(value:Texture, oldDisplayObject:DisplayObject = null):DisplayObject
 	{
-		var displayObject:ImageLoader = oldDisplayObject as ImageLoader;
-		if(!displayObject)
+		var displayObject:ImageLoader = cast(oldDisplayObject, ImageLoader);
+		if(displayObject == null)
 		{
 			displayObject = new ImageLoader();
 		}
@@ -319,8 +308,9 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	/**
 	 * Constructor.
 	 */
-	public function BaseMetalWorksDesktopTheme()
+	public function new()
 	{
+		super();
 	}
 
 	/**
@@ -401,8 +391,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private var progressBarFillMinSize:Int;
 	private var scrollBarGutterSize:Int;
 	private var popUpSize:Int;
-	private var popUpVolumeSliderPaddingSize:Int;
 
+	#if flash
 	/**
 	 * The FTE FontDescription used for text of a normal weight.
 	 */
@@ -412,6 +402,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 * The FTE FontDescription used for text of a bold weight.
 	 */
 	private var boldFontDescription:FontDescription;
+	#end
 
 	/**
 	 * ScrollText uses TextField instead of FTE, so it has a separate TextFormat.
@@ -423,6 +414,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 */
 	private var scrollTextDisabledTextFormat:TextFormat;
 
+	#if flash
 	/**
 	 * An ElementFormat with a dark tint used for UI controls.
 	 */
@@ -488,6 +480,35 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 * An ElementFormat used for smaller, disabled text.
 	 */
 	private var smallDisabledElementFormat:ElementFormat;
+	#elseif html5
+	private var darkUIElementFormat:TextFormat;
+	private var lightUIElementFormat:TextFormat;
+	private var selectedUIElementFormat:TextFormat;
+	private var lightUIDisabledElementFormat:TextFormat;
+	private var darkUIDisabledElementFormat:TextFormat;
+	private var largeDarkElementFormat:TextFormat;
+	private var largeLightElementFormat:TextFormat;
+	private var largeDisabledElementFormat:TextFormat;
+	private var darkElementFormat:TextFormat;
+	private var lightElementFormat:TextFormat;
+	private var disabledElementFormat:TextFormat;
+	private var smallLightElementFormat:TextFormat;
+	private var smallDisabledElementFormat:TextFormat;
+	#else
+	private var darkUIElementFormat:BitmapFontTextFormat;
+	private var lightUIElementFormat:BitmapFontTextFormat;
+	private var selectedUIElementFormat:BitmapFontTextFormat;
+	private var lightUIDisabledElementFormat:BitmapFontTextFormat;
+	private var darkUIDisabledElementFormat:BitmapFontTextFormat;
+	private var largeDarkElementFormat:BitmapFontTextFormat;
+	private var largeLightElementFormat:BitmapFontTextFormat;
+	private var largeDisabledElementFormat:BitmapFontTextFormat;
+	private var darkElementFormat:BitmapFontTextFormat;
+	private var lightElementFormat:BitmapFontTextFormat;
+	private var disabledElementFormat:BitmapFontTextFormat;
+	private var smallLightElementFormat:BitmapFontTextFormat;
+	private var smallDisabledElementFormat:BitmapFontTextFormat;
+	#end
 
 	/**
 	 * The texture atlas that contains skins for this theme. This base class
@@ -507,8 +528,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private var buttonUpSkinTextures:Scale9Textures;
 	private var buttonDownSkinTextures:Scale9Textures;
 	private var buttonDisabledSkinTextures:Scale9Textures;
-	private var toggleButtonSelectedUpSkinTextures:Scale9Textures;
-	private var toggleButtonSelectedDisabledSkinTextures:Scale9Textures;
+	private var buttonSelectedUpSkinTextures:Scale9Textures;
+	private var buttonSelectedDisabledSkinTextures:Scale9Textures;
 	private var buttonQuietHoverSkinTextures:Scale9Textures;
 	private var buttonCallToActionUpSkinTextures:Scale9Textures;
 	private var buttonCallToActionDownSkinTextures:Scale9Textures;
@@ -542,9 +563,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private var checkSelectedDisabledIconTexture:Texture;
 	private var pageIndicatorNormalSkinTexture:Texture;
 	private var pageIndicatorSelectedSkinTexture:Texture;
-	private var itemRendererUpSkinTexture:Texture;
-	private var itemRendererHoverSkinTexture:Texture;
-	private var itemRendererSelectedUpSkinTexture:Texture;
+	private var itemRendererSelectedSkinTexture:Texture;
 	private var backgroundPopUpSkinTextures:Scale9Textures;
 	private var calloutTopArrowSkinTexture:Texture;
 	private var calloutRightArrowSkinTexture:Texture;
@@ -575,42 +594,13 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private var searchIconTexture:Texture;
 	private var searchIconDisabledTexture:Texture;
 
-	//media textures
-	private var playPauseButtonPlayUpIconTexture:Texture;
-	private var playPauseButtonPlayDownIconTexture:Texture;
-	private var playPauseButtonPauseUpIconTexture:Texture;
-	private var playPauseButtonPauseDownIconTexture:Texture;
-	private var overlayPlayPauseButtonPlayUpIconTexture:Texture;
-	private var overlayPlayPauseButtonPlayDownIconTexture:Texture;
-	private var fullScreenToggleButtonEnterUpIconTexture:Texture;
-	private var fullScreenToggleButtonEnterDownIconTexture:Texture;
-	private var fullScreenToggleButtonExitUpIconTexture:Texture;
-	private var fullScreenToggleButtonExitDownIconTexture:Texture;
-	private var muteToggleButtonLoudUpIconTexture:Texture;
-	private var muteToggleButtonLoudDownIconTexture:Texture;
-	private var muteToggleButtonMutedUpIconTexture:Texture;
-	private var muteToggleButtonMutedDownIconTexture:Texture;
-	private var volumeSliderMinimumTrackSkinTexture:Texture;
-	private var volumeSliderMaximumTrackSkinTexture:Texture;
-	private var popUpVolumeSliderTrackSkinTextures:Scale9Textures;
-
 	/**
 	 * Disposes the texture atlas before calling super.dispose()
 	 */
 	override public function dispose():Void
 	{
-		if(this.atlas)
+		if(this.atlas != null)
 		{
-			//these are saved globally, so we want to clear them out
-			if(StandardIcons.listDrillDownAccessoryTexture.root == this.atlas.texture.root)
-			{
-				StandardIcons.listDrillDownAccessoryTexture = null;
-			}
-			
-			//if anything is keeping a reference to the texture, we don't
-			//want it to keep a reference to the theme too.
-			this.atlas.texture.root.onRestore = null;
-			
 			this.atlas.dispose();
 			this.atlas = null;
 		}
@@ -678,18 +668,17 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		this.extraSmallGutterSize = Math.round(2 * this.scale);
 		this.smallGutterSize = Math.round(4 * this.scale);
 		this.gutterSize = Math.round(8 * this.scale);
-		this.borderSize = Math.max(1, Math.round(1 * this.scale));
+		this.borderSize = Std.Int(Math.max(1, Math.round(1 * this.scale)));
 		this.controlSize = Math.round(22 * this.scale);
 		this.smallControlSize = Math.round(12 * this.scale);
 		this.calloutBackgroundMinSize = Math.round(5 * this.scale);
 		this.progressBarFillMinSize = Math.round(7 * this.scale);
 		this.scrollBarGutterSize = Math.round(4 * this.scale);
-		this.calloutArrowOverlapGap = Math.min(-2, Math.round(-2 * this.scale));
-		this.focusPaddingSize = Math.min(-1, Math.round(-2 * this.scale));
+		this.calloutArrowOverlapGap = Std.Int(Math.min(-1, Math.round(-1 * this.scale)));
+		this.focusPaddingSize = Std.Int(Math.min(-1, Math.round(-2 * this.scale)));
 		this.buttonMinWidth = this.gridSize * 2 + this.gutterSize;
 		this.wideControlSize = this.gridSize * 4 + this.gutterSize * 3;
 		this.popUpSize = this.gridSize * 10 + this.smallGutterSize * 9;
-		this.popUpVolumeSliderPaddingSize = Math.round(10 * this.scale);
 	}
 
 	/**
@@ -698,13 +687,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private function initializeFonts():Void
 	{
 		this.smallFontSize = Math.round(11 * this.scale);
-		this.regularFontSize = Math.round(14 * this.scale);
-		this.largeFontSize = Math.round(18 * this.scale);
+		this.regularFontSize = Math.round(13 * this.scale);
+		this.largeFontSize = Math.round(15 * this.scale);
 
 		//these are for components that don't use FTE
 		this.scrollTextTextFormat = new TextFormat("_sans", this.regularFontSize, LIGHT_TEXT_COLOR);
 		this.scrollTextDisabledTextFormat = new TextFormat("_sans", this.regularFontSize, DISABLED_TEXT_COLOR);
 
+		#if flash
 		this.regularFontDescription = new FontDescription(FONT_NAME, FontWeight.NORMAL, FontPosture.NORMAL, FontLookup.EMBEDDED_CFF, RenderingMode.CFF, CFFHinting.NONE);
 		this.boldFontDescription = new FontDescription(FONT_NAME, FontWeight.BOLD, FontPosture.NORMAL, FontLookup.EMBEDDED_CFF, RenderingMode.CFF, CFFHinting.NONE);
 
@@ -724,6 +714,47 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		this.largeDarkElementFormat = new ElementFormat(this.regularFontDescription, this.largeFontSize, DARK_TEXT_COLOR);
 		this.largeLightElementFormat = new ElementFormat(this.regularFontDescription, this.largeFontSize, LIGHT_TEXT_COLOR);
 		this.largeDisabledElementFormat = new ElementFormat(this.regularFontDescription, this.largeFontSize, DISABLED_TEXT_COLOR);
+		#elseif html5
+		var regularFont:Font = Assets.getFont(SOURCE_SANS_PRO_REGULAR_FILE_NAME);
+		var boldFont:Font = Assets.getFont(SOURCE_SANS_PRO_SEMIBOLD_FILE_NAME);
+		
+		this.darkUIElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
+		this.lightUIElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
+		this.selectedUIElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, SELECTED_TEXT_COLOR);
+		this.lightUIDisabledElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
+		this.darkUIDisabledElementFormat = new TextFormat(boldFont.fontName, this.regularFontSize, DARK_DISABLED_TEXT_COLOR);
+
+		this.darkElementFormat = new TextFormat(regularFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
+		this.lightElementFormat = new TextFormat(regularFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
+		this.disabledElementFormat = new TextFormat(regularFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
+
+		this.smallLightElementFormat = new TextFormat(regularFont.fontName, this.smallFontSize, LIGHT_TEXT_COLOR);
+		this.smallDisabledElementFormat = new TextFormat(regularFont.fontName, this.smallFontSize, DISABLED_TEXT_COLOR);
+
+		this.largeDarkElementFormat = new TextFormat(regularFont.fontName, this.largeFontSize, DARK_TEXT_COLOR);
+		this.largeLightElementFormat = new TextFormat(regularFont.fontName, this.largeFontSize, LIGHT_TEXT_COLOR);
+		this.largeDisabledElementFormat = new TextFormat(regularFont.fontName, this.largeFontSize, DISABLED_TEXT_COLOR);
+		#else
+		var regularFont:Font = Assets.getFont(SOURCE_SANS_PRO_REGULAR_FILE_NAME);
+		var boldFont:Font = Assets.getFont(SOURCE_SANS_PRO_SEMIBOLD_FILE_NAME);
+		
+		this.darkUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
+		this.lightUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
+		this.selectedUIElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, SELECTED_TEXT_COLOR);
+		this.lightUIDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
+		this.darkUIDisabledElementFormat = new BitmapFontTextFormat(boldFont.fontName, this.regularFontSize, DARK_DISABLED_TEXT_COLOR);
+
+		this.darkElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.regularFontSize, DARK_TEXT_COLOR);
+		this.lightElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.regularFontSize, LIGHT_TEXT_COLOR);
+		this.disabledElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.regularFontSize, DISABLED_TEXT_COLOR);
+
+		this.smallLightElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.smallFontSize, LIGHT_TEXT_COLOR);
+		this.smallDisabledElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.smallFontSize, DISABLED_TEXT_COLOR);
+
+		this.largeDarkElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.largeFontSize, DARK_TEXT_COLOR);
+		this.largeLightElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.largeFontSize, LIGHT_TEXT_COLOR);
+		this.largeDisabledElementFormat = new BitmapFontTextFormat(regularFont.fontName, this.largeFontSize, DISABLED_TEXT_COLOR);
+		#end
 	}
 
 	/**
@@ -732,125 +763,106 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 */
 	private function initializeTextures():Void
 	{
-		var backgroundSkinTexture:Texture = this.atlas.getTexture("background-skin0000");
-		var backgroundDisabledSkinTexture:Texture = this.atlas.getTexture("background-disabled-skin0000");
-		var backgroundFocusedSkinTexture:Texture = this.atlas.getTexture("background-focused-skin0000");
-		var backgroundPopUpSkinTexture:Texture = this.atlas.getTexture("background-popup-skin0000");
+		var backgroundSkinTexture:Texture = this.atlas.getTexture("background-skin");
+		var backgroundInsetSkinTexture:Texture = this.atlas.getTexture("background-inset-skin");
+		var backgroundDisabledSkinTexture:Texture = this.atlas.getTexture("background-disabled-skin");
+		var backgroundFocusedSkinTexture:Texture = this.atlas.getTexture("background-focused-skin");
+		var backgroundPopUpSkinTexture:Texture = this.atlas.getTexture("background-popup-skin");
 
-		var checkUpIconTexture:Texture = this.atlas.getTexture("check-up-icon0000");
-		var checkDownIconTexture:Texture = this.atlas.getTexture("check-down-icon0000");
-		var checkDisabledIconTexture:Texture = this.atlas.getTexture("check-disabled-icon0000");
+		var checkUpIconTexture:Texture = this.atlas.getTexture("check-up-icon");
+		var checkDownIconTexture:Texture = this.atlas.getTexture("check-down-icon");
+		var checkDisabledIconTexture:Texture = this.atlas.getTexture("check-disabled-icon");
 
-		this.focusIndicatorSkinTextures = new Scale9Textures(this.atlas.getTexture("focus-indicator-skin0000"), FOCUS_INDICATOR_SCALE_9_GRID);
+		this.focusIndicatorSkinTextures = new Scale9Textures(this.atlas.getTexture("focus-indicator-skin"), FOCUS_INDICATOR_SCALE_9_GRID);
 
 		this.backgroundSkinTextures = new Scale9Textures(backgroundSkinTexture, DEFAULT_SCALE9_GRID);
 		this.backgroundDisabledSkinTextures = new Scale9Textures(backgroundDisabledSkinTexture, DEFAULT_SCALE9_GRID);
 		this.backgroundFocusedSkinTextures = new Scale9Textures(backgroundFocusedSkinTexture, DEFAULT_SCALE9_GRID);
 		this.backgroundPopUpSkinTextures = new Scale9Textures(backgroundPopUpSkinTexture, SIMPLE_SCALE9_GRID);
-		this.listBackgroundSkinTextures = new Scale9Textures(this.atlas.getTexture("list-background-skin0000"), DEFAULT_SCALE9_GRID);
+		this.listBackgroundSkinTextures = new Scale9Textures(this.atlas.getTexture("list-background-skin"), DEFAULT_SCALE9_GRID);
 
-		this.buttonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-up-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("button-down-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("button-disabled-skin0000"), BUTTON_SCALE9_GRID);
-		this.toggleButtonSelectedUpSkinTextures = new Scale9Textures(this.atlas.getTexture("toggle-button-selected-up-skin0000"), TOGGLE_BUTTON_SCALE9_GRID);
-		this.toggleButtonSelectedDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("toggle-button-selected-disabled-skin0000"), TOGGLE_BUTTON_SCALE9_GRID);
-		this.buttonQuietHoverSkinTextures = new Scale9Textures(this.atlas.getTexture("quiet-button-hover-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonCallToActionUpSkinTextures = new Scale9Textures(this.atlas.getTexture("call-to-action-button-up-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonCallToActionDownSkinTextures = new Scale9Textures(this.atlas.getTexture("call-to-action-button-down-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonDangerUpSkinTextures = new Scale9Textures(this.atlas.getTexture("danger-button-up-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonDangerDownSkinTextures = new Scale9Textures(this.atlas.getTexture("danger-button-down-skin0000"), BUTTON_SCALE9_GRID);
-		this.buttonBackUpSkinTextures = new Scale3Textures(this.atlas.getTexture("back-button-up-skin0000"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
-		this.buttonBackDownSkinTextures = new Scale3Textures(this.atlas.getTexture("back-button-down-skin0000"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
-		this.buttonBackDisabledSkinTextures = new Scale3Textures(this.atlas.getTexture("back-button-disabled-skin0000"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
-		this.buttonForwardUpSkinTextures = new Scale3Textures(this.atlas.getTexture("forward-button-up-skin0000"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
-		this.buttonForwardDownSkinTextures = new Scale3Textures(this.atlas.getTexture("forward-button-down-skin0000"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
-		this.buttonForwardDisabledSkinTextures = new Scale3Textures(this.atlas.getTexture("forward-button-disabled-skin0000"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
+		this.buttonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-up-skin"), BUTTON_SCALE9_GRID);
+		this.buttonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("button-down-skin"), BUTTON_SCALE9_GRID);
+		this.buttonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("button-disabled-skin"), BUTTON_SCALE9_GRID);
+		this.buttonSelectedUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-selected-up-skin"), BUTTON_SELECTED_SCALE9_GRID);
+		this.buttonSelectedDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("button-selected-disabled-skin"), BUTTON_SELECTED_SCALE9_GRID);
+		this.buttonQuietHoverSkinTextures = new Scale9Textures(this.atlas.getTexture("button-quiet-hover-skin"), BUTTON_SCALE9_GRID);
+		this.buttonCallToActionUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-call-to-action-up-skin"), BUTTON_SCALE9_GRID);
+		this.buttonCallToActionDownSkinTextures = new Scale9Textures(this.atlas.getTexture("button-call-to-action-down-skin"), BUTTON_SCALE9_GRID);
+		this.buttonDangerUpSkinTextures = new Scale9Textures(this.atlas.getTexture("button-danger-up-skin"), BUTTON_SCALE9_GRID);
+		this.buttonDangerDownSkinTextures = new Scale9Textures(this.atlas.getTexture("button-danger-down-skin"), BUTTON_SCALE9_GRID);
+		this.buttonBackUpSkinTextures = new Scale3Textures(this.atlas.getTexture("button-back-up-skin"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
+		this.buttonBackDownSkinTextures = new Scale3Textures(this.atlas.getTexture("button-back-down-skin"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
+		this.buttonBackDisabledSkinTextures = new Scale3Textures(this.atlas.getTexture("button-back-disabled-skin"), BACK_BUTTON_SCALE3_REGION1, BACK_BUTTON_SCALE3_REGION2);
+		this.buttonForwardUpSkinTextures = new Scale3Textures(this.atlas.getTexture("button-forward-up-skin"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
+		this.buttonForwardDownSkinTextures = new Scale3Textures(this.atlas.getTexture("button-forward-down-skin"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
+		this.buttonForwardDisabledSkinTextures = new Scale3Textures(this.atlas.getTexture("button-forward-disabled-skin"), FORWARD_BUTTON_SCALE3_REGION1, FORWARD_BUTTON_SCALE3_REGION2);
 
-		this.tabUpSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-up-skin0000"), TAB_SCALE9_GRID);
-		this.tabDownSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-down-skin0000"), TAB_SCALE9_GRID);
-		this.tabDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-disabled-skin0000"), TAB_SCALE9_GRID);
-		this.tabSelectedSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-selected-up-skin0000"), TAB_SCALE9_GRID);
-		this.tabSelectedDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-selected-disabled-skin0000"), TAB_SCALE9_GRID);
+		this.tabUpSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-up-skin"), TAB_SCALE9_GRID);
+		this.tabDownSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-down-skin"), TAB_SCALE9_GRID);
+		this.tabDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-disabled-skin"), TAB_SCALE9_GRID);
+		this.tabSelectedSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-selected-skin"), TAB_SCALE9_GRID);
+		this.tabSelectedDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("tab-selected-disabled-skin"), TAB_SCALE9_GRID);
 
-		this.pickerListButtonIconTexture = this.atlas.getTexture("picker-list-icon0000");
-		this.pickerListButtonIconSelectedTexture = this.atlas.getTexture("picker-list-selected-icon0000");
-		this.pickerListButtonIconDisabledTexture = this.atlas.getTexture("picker-list-disabled-icon0000");
+		this.pickerListButtonIconTexture = this.atlas.getTexture("picker-list-icon");
+		this.pickerListButtonIconSelectedTexture = this.atlas.getTexture("picker-list-icon-selected");
+		this.pickerListButtonIconDisabledTexture = this.atlas.getTexture("picker-list-icon-disabled");
 
 		this.radioUpIconTexture = checkUpIconTexture;
 		this.radioDownIconTexture = checkDownIconTexture;
 		this.radioDisabledIconTexture = checkDisabledIconTexture;
-		this.radioSelectedUpIconTexture = this.atlas.getTexture("radio-selected-up-icon0000");
-		this.radioSelectedDownIconTexture = this.atlas.getTexture("radio-selected-down-icon0000");
-		this.radioSelectedDisabledIconTexture = this.atlas.getTexture("radio-selected-disabled-icon0000");
+		this.radioSelectedUpIconTexture = this.atlas.getTexture("radio-selected-up-icon");
+		this.radioSelectedDownIconTexture = this.atlas.getTexture("radio-selected-down-icon");
+		this.radioSelectedDisabledIconTexture = this.atlas.getTexture("radio-selected-disabled-icon");
 
 		this.checkUpIconTexture = checkUpIconTexture;
 		this.checkDownIconTexture = checkDownIconTexture;
 		this.checkDisabledIconTexture = checkDisabledIconTexture;
-		this.checkSelectedUpIconTexture = this.atlas.getTexture("check-selected-up-icon0000");
-		this.checkSelectedDownIconTexture = this.atlas.getTexture("check-selected-down-icon0000");
-		this.checkSelectedDisabledIconTexture = this.atlas.getTexture("check-selected-disabled-icon0000");
+		this.checkSelectedUpIconTexture = this.atlas.getTexture("check-selected-up-icon");
+		this.checkSelectedDownIconTexture = this.atlas.getTexture("check-selected-down-icon");
+		this.checkSelectedDisabledIconTexture = this.atlas.getTexture("check-selected-disabled-icon");
 
-		this.pageIndicatorSelectedSkinTexture = this.atlas.getTexture("page-indicator-selected-symbol0000");
-		this.pageIndicatorNormalSkinTexture = this.atlas.getTexture("page-indicator-symbol0000");
+		this.pageIndicatorSelectedSkinTexture = this.atlas.getTexture("page-indicator-selected-skin");
+		this.pageIndicatorNormalSkinTexture = this.atlas.getTexture("page-indicator-normal-skin");
 
-		this.searchIconTexture = this.atlas.getTexture("search-icon0000");
-		this.searchIconDisabledTexture = this.atlas.getTexture("search-disabled-icon0000");
+		this.searchIconTexture = this.atlas.getTexture("search-icon");
+		this.searchIconDisabledTexture = this.atlas.getTexture("search-icon-disabled");
 
-		this.itemRendererUpSkinTexture = Texture.fromTexture(this.atlas.getTexture("item-renderer-up-skin0000"), ITEM_RENDERER_SKIN_TEXTURE_REGION);
-		this.itemRendererHoverSkinTexture = Texture.fromTexture(this.atlas.getTexture("item-renderer-hover-skin0000"), ITEM_RENDERER_SKIN_TEXTURE_REGION);
-		this.itemRendererSelectedUpSkinTexture = Texture.fromTexture(this.atlas.getTexture("item-renderer-selected-up-skin0000"), ITEM_RENDERER_SELECTED_SKIN_TEXTURE_REGION);
+		this.itemRendererSelectedSkinTexture = this.atlas.getTexture("item-renderer-selected-background-skin");
 
-		this.headerBackgroundSkinTexture = this.atlas.getTexture("header-background-skin0000");
-		this.headerPopupBackgroundSkinTexture = this.atlas.getTexture("header-popup-background-skin0000");
+		this.headerBackgroundSkinTexture = this.atlas.getTexture("header-background-skin");
+		this.headerPopupBackgroundSkinTexture = this.atlas.getTexture("header-popup-background-skin");
 
-		this.calloutTopArrowSkinTexture = this.atlas.getTexture("callout-arrow-top-skin0000");
-		this.calloutRightArrowSkinTexture = this.atlas.getTexture("callout-arrow-right-skin0000");
-		this.calloutBottomArrowSkinTexture = this.atlas.getTexture("callout-arrow-bottom-skin0000");
-		this.calloutLeftArrowSkinTexture = this.atlas.getTexture("callout-arrow-left-skin0000");
+		this.calloutTopArrowSkinTexture = this.atlas.getTexture("callout-arrow-top-skin");
+		this.calloutRightArrowSkinTexture = this.atlas.getTexture("callout-arrow-right-skin");
+		this.calloutBottomArrowSkinTexture = this.atlas.getTexture("callout-arrow-bottom-skin");
+		this.calloutLeftArrowSkinTexture = this.atlas.getTexture("callout-arrow-left-skin");
 
-		this.horizontalSimpleScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("horizontal-simple-scroll-bar-thumb-skin0000"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_HORIZONTAL);
-		this.horizontalScrollBarDecrementButtonIconTexture = this.atlas.getTexture("horizontal-scroll-bar-decrement-button-icon0000");
-		this.horizontalScrollBarDecrementButtonDisabledIconTexture = this.atlas.getTexture("horizontal-scroll-bar-decrement-button-disabled-icon0000");
-		this.horizontalScrollBarDecrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-up-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.horizontalScrollBarDecrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-down-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.horizontalScrollBarDecrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-disabled-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.horizontalScrollBarIncrementButtonIconTexture = this.atlas.getTexture("horizontal-scroll-bar-increment-button-icon0000");
-		this.horizontalScrollBarIncrementButtonDisabledIconTexture = this.atlas.getTexture("horizontal-scroll-bar-increment-button-disabled-icon0000");
-		this.horizontalScrollBarIncrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-up-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.horizontalScrollBarIncrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-down-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.horizontalScrollBarIncrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-disabled-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalSimpleScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("horizontal-simple-scroll-bar-thumb-skin"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_HORIZONTAL);
+		this.horizontalScrollBarDecrementButtonIconTexture = this.atlas.getTexture("horizontal-scroll-bar-decrement-button-icon");
+		this.horizontalScrollBarDecrementButtonDisabledIconTexture = this.atlas.getTexture("horizontal-scroll-bar-decrement-button-disabled-icon");
+		this.horizontalScrollBarDecrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-up-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalScrollBarDecrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-down-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalScrollBarDecrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-decrement-button-disabled-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalScrollBarIncrementButtonIconTexture = this.atlas.getTexture("horizontal-scroll-bar-increment-button-icon");
+		this.horizontalScrollBarIncrementButtonDisabledIconTexture = this.atlas.getTexture("horizontal-scroll-bar-increment-button-disabled-icon");
+		this.horizontalScrollBarIncrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-up-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalScrollBarIncrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-down-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.horizontalScrollBarIncrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("horizontal-scroll-bar-increment-button-disabled-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
 
-		this.verticalSimpleScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("vertical-simple-scroll-bar-thumb-skin0000"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_VERTICAL);
-		this.verticalScrollBarDecrementButtonIconTexture = this.atlas.getTexture("vertical-scroll-bar-decrement-button-icon0000");
-		this.verticalScrollBarDecrementButtonDisabledIconTexture = this.atlas.getTexture("vertical-scroll-bar-decrement-button-disabled-icon0000");
-		this.verticalScrollBarDecrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-up-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.verticalScrollBarDecrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-down-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.verticalScrollBarDecrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-disabled-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.verticalScrollBarIncrementButtonIconTexture = this.atlas.getTexture("vertical-scroll-bar-increment-button-icon0000");
-		this.verticalScrollBarIncrementButtonDisabledIconTexture = this.atlas.getTexture("vertical-scroll-bar-increment-button-disabled-icon0000");
-		this.verticalScrollBarIncrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-up-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.verticalScrollBarIncrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-down-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
-		this.verticalScrollBarIncrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-disabled-skin0000"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalSimpleScrollBarThumbSkinTextures = new Scale3Textures(this.atlas.getTexture("vertical-simple-scroll-bar-thumb-skin"), SCROLL_BAR_THUMB_REGION1, SCROLL_BAR_THUMB_REGION2, Scale3Textures.DIRECTION_VERTICAL);
+		this.verticalScrollBarDecrementButtonIconTexture = this.atlas.getTexture("vertical-scroll-bar-decrement-button-icon");
+		this.verticalScrollBarDecrementButtonDisabledIconTexture = this.atlas.getTexture("vertical-scroll-bar-decrement-button-disabled-icon");
+		this.verticalScrollBarDecrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-up-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalScrollBarDecrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-down-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalScrollBarDecrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-decrement-button-disabled-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalScrollBarIncrementButtonIconTexture = this.atlas.getTexture("vertical-scroll-bar-increment-button-icon");
+		this.verticalScrollBarIncrementButtonDisabledIconTexture = this.atlas.getTexture("vertical-scroll-bar-increment-button-disabled-icon");
+		this.verticalScrollBarIncrementButtonUpSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-up-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalScrollBarIncrementButtonDownSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-down-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
+		this.verticalScrollBarIncrementButtonDisabledSkinTextures = new Scale9Textures(this.atlas.getTexture("vertical-scroll-bar-increment-button-disabled-skin"), SCROLL_BAR_STEP_BUTTON_SCALE9_GRID);
 
-		StandardIcons.listDrillDownAccessoryTexture = this.atlas.getTexture("item-renderer-drill-down-accessory-icon0000");
-
-		this.playPauseButtonPlayUpIconTexture = this.atlas.getTexture("play-pause-toggle-button-play-up-icon0000");
-		this.playPauseButtonPlayDownIconTexture = this.atlas.getTexture("play-pause-toggle-button-play-down-icon0000");
-		this.playPauseButtonPauseUpIconTexture = this.atlas.getTexture("play-pause-toggle-button-pause-up-icon0000");
-		this.playPauseButtonPauseDownIconTexture = this.atlas.getTexture("play-pause-toggle-button-pause-down-icon0000");
-		this.overlayPlayPauseButtonPlayUpIconTexture = this.atlas.getTexture("overlay-play-pause-toggle-button-play-up-icon0000");
-		this.overlayPlayPauseButtonPlayDownIconTexture = this.atlas.getTexture("overlay-play-pause-toggle-button-play-down-icon0000");
-		this.fullScreenToggleButtonEnterUpIconTexture = this.atlas.getTexture("full-screen-toggle-button-enter-up-icon0000");
-		this.fullScreenToggleButtonEnterDownIconTexture = this.atlas.getTexture("full-screen-toggle-button-enter-down-icon0000");
-		this.fullScreenToggleButtonExitUpIconTexture = this.atlas.getTexture("full-screen-toggle-button-exit-up-icon0000");
-		this.fullScreenToggleButtonExitDownIconTexture = this.atlas.getTexture("full-screen-toggle-button-exit-down-icon0000");
-		this.muteToggleButtonMutedUpIconTexture = this.atlas.getTexture("mute-toggle-button-muted-up-icon0000");
-		this.muteToggleButtonMutedDownIconTexture = this.atlas.getTexture("mute-toggle-button-muted-down-icon0000");
-		this.muteToggleButtonLoudUpIconTexture = this.atlas.getTexture("mute-toggle-button-loud-up-icon0000");
-		this.muteToggleButtonLoudDownIconTexture = this.atlas.getTexture("mute-toggle-button-loud-down-icon0000");
-		this.popUpVolumeSliderTrackSkinTextures = new Scale9Textures(this.atlas.getTexture("pop-up-volume-slider-track-skin0000"), VOLUME_SLIDER_TRACK_SCALE9_GRID);
-		this.volumeSliderMinimumTrackSkinTexture = this.atlas.getTexture("volume-slider-minimum-track-skin0000");
-		this.volumeSliderMaximumTrackSkinTexture = this.atlas.getTexture("volume-slider-maximum-track-skin0000");
+		StandardIcons.listDrillDownAccessoryTexture = this.atlas.getTexture("list-accessory-drill-down-icon");
 	}
 
 	/**
@@ -860,21 +872,23 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	{
 		//alert
 		this.getStyleProviderForClass(Alert).defaultStyleFunction = this.setAlertStyles;
-		this.getStyleProviderForClass(Header).setFunctionForStyleName(Alert.DEFAULT_CHILD_STYLE_NAME_HEADER, this.setPopupHeaderStyles);
-		this.getStyleProviderForClass(ButtonGroup).setFunctionForStyleName(Alert.DEFAULT_CHILD_STYLE_NAME_BUTTON_GROUP, this.setAlertButtonGroupStyles);
-		this.getStyleProviderForClass(TextBlockTextRenderer).setFunctionForStyleName(Alert.DEFAULT_CHILD_STYLE_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
-
-		//autocomplete
-		this.getStyleProviderForClass(AutoComplete).defaultStyleFunction = this.setTextInputStyles;
-		this.getStyleProviderForClass(List).setFunctionForStyleName(AutoComplete.DEFAULT_CHILD_STYLE_NAME_LIST, this.setDropDownListStyles);
+		this.getStyleProviderForClass(Header).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_HEADER, this.setPopupHeaderStyles);
+		this.getStyleProviderForClass(ButtonGroup).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_BUTTON_GROUP, this.setAlertButtonGroupStyles);
+		#if flash
+		this.getStyleProviderForClass(TextBlockTextRenderer).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
+		#elseif html5
+		this.getStyleProviderForClass(TextFieldTextRenderer).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
+		#else
+		this.getStyleProviderForClass(BitmapFontTextRenderer).setFunctionForStyleName(Alert.DEFAULT_CHILD_NAME_MESSAGE, this.setAlertMessageTextRendererStyles);
+		#end
 
 		//button
 		this.getStyleProviderForClass(Button).defaultStyleFunction = this.setButtonStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON, this.setCallToActionButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_STYLE_NAME_QUIET_BUTTON, this.setQuietButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_STYLE_NAME_DANGER_BUTTON, this.setDangerButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON, this.setBackButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_STYLE_NAME_FORWARD_BUTTON, this.setForwardButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_CALL_TO_ACTION_BUTTON, this.setCallToActionButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_QUIET_BUTTON, this.setQuietButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_DANGER_BUTTON, this.setDangerButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_BACK_BUTTON, this.setBackButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Button.ALTERNATE_NAME_FORWARD_BUTTON, this.setForwardButtonStyles);
 
 		//button group
 		this.getStyleProviderForClass(ButtonGroup).defaultStyleFunction = this.setButtonGroupStyles;
@@ -896,47 +910,44 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 
 		//header and footer renderers for grouped list
 		this.getStyleProviderForClass(DefaultGroupedListHeaderOrFooterRenderer).defaultStyleFunction = this.setGroupedListHeaderRendererStyles;
-		this.getStyleProviderForClass(DefaultGroupedListHeaderOrFooterRenderer).setFunctionForStyleName(GroupedList.DEFAULT_CHILD_STYLE_NAME_FOOTER_RENDERER, this.setGroupedListFooterRendererStyles);
+		this.getStyleProviderForClass(DefaultGroupedListHeaderOrFooterRenderer).setFunctionForStyleName(GroupedList.DEFAULT_CHILD_NAME_FOOTER_RENDERER, this.setGroupedListFooterRendererStyles);
 
 		//item renderers for lists
 		this.getStyleProviderForClass(DefaultGroupedListItemRenderer).defaultStyleFunction = this.setItemRendererStyles;
 		this.getStyleProviderForClass(DefaultListItemRenderer).defaultStyleFunction = this.setItemRendererStyles;
-		this.getStyleProviderForClass(TextBlockTextRenderer).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ACCESSORY_LABEL, this.setItemRendererAccessoryLabelRendererStyles);
-		this.getStyleProviderForClass(TextBlockTextRenderer).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_STYLE_NAME_ICON_LABEL, this.setItemRendererIconLabelStyles);
+		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ACCESSORY_LABEL, this.setItemRendererAccessoryLabelRendererStyles);
+		this.getStyleProviderForClass(#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end).setFunctionForStyleName(BaseDefaultItemRenderer.DEFAULT_CHILD_NAME_ICON_LABEL, this.setItemRendererIconLabelStyles);
 
 		//labels
 		this.getStyleProviderForClass(Label).defaultStyleFunction = this.setLabelStyles;
-		this.getStyleProviderForClass(Label).setFunctionForStyleName(Label.ALTERNATE_STYLE_NAME_HEADING, this.setHeadingLabelStyles);
-		this.getStyleProviderForClass(Label).setFunctionForStyleName(Label.ALTERNATE_STYLE_NAME_DETAIL, this.setDetailLabelStyles);
-
-		//layout group
-		this.getStyleProviderForClass(LayoutGroup).setFunctionForStyleName(LayoutGroup.ALTERNATE_STYLE_NAME_TOOLBAR, this.setToolbarLayoutGroupStyles);
+		this.getStyleProviderForClass(Label).setFunctionForStyleName(Label.ALTERNATE_NAME_HEADING, this.setHeadingLabelStyles);
+		this.getStyleProviderForClass(Label).setFunctionForStyleName(Label.ALTERNATE_NAME_DETAIL, this.setDetailLabelStyles);
 
 		//list (see also: item renderers)
 		this.getStyleProviderForClass(List).defaultStyleFunction = this.setListStyles;
 
 		//numeric stepper
 		this.getStyleProviderForClass(NumericStepper).defaultStyleFunction = this.setNumericStepperStyles;
-		this.getStyleProviderForClass(TextInput).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_STYLE_NAME_TEXT_INPUT, this.setNumericStepperTextInputStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_STYLE_NAME_DECREMENT_BUTTON, this.setNumericStepperDecrementButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_STYLE_NAME_INCREMENT_BUTTON, this.setNumericStepperIncrementButtonStyles);
+		this.getStyleProviderForClass(TextInput).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_NAME_TEXT_INPUT, this.setNumericStepperTextInputStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_NAME_DECREMENT_BUTTON, this.setNumericStepperDecrementButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(NumericStepper.DEFAULT_CHILD_NAME_INCREMENT_BUTTON, this.setNumericStepperIncrementButtonStyles);
 
 		//page indicator
 		this.getStyleProviderForClass(PageIndicator).defaultStyleFunction = this.setPageIndicatorStyles;
 
 		//panel
 		this.getStyleProviderForClass(Panel).defaultStyleFunction = this.setPanelStyles;
-		this.getStyleProviderForClass(Header).setFunctionForStyleName(Panel.DEFAULT_CHILD_STYLE_NAME_HEADER, this.setPopupHeaderStyles);
+		this.getStyleProviderForClass(Header).setFunctionForStyleName(Panel.DEFAULT_CHILD_NAME_HEADER, this.setPopupHeaderStyles);
 
 		//panel screen
-		this.getStyleProviderForClass(PanelScreen).defaultStyleFunction = this.setPanelScreenStyles;
-		this.getStyleProviderForClass(Header).setFunctionForStyleName(PanelScreen.DEFAULT_CHILD_STYLE_NAME_HEADER, this.setPanelScreenHeaderStyles);
+		this.getStyleProviderForClass(PanelScreen).defaultStyleFunction = this.setScrollerStyles;
+		this.getStyleProviderForClass(Header).setFunctionForStyleName(PanelScreen.DEFAULT_CHILD_NAME_HEADER, this.setPanelScreenHeaderStyles);
 
 		//picker list (see also: list and item renderers)
 		this.getStyleProviderForClass(PickerList).defaultStyleFunction = this.setPickerListStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(PickerList.DEFAULT_CHILD_STYLE_NAME_BUTTON, this.setPickerListButtonStyles);
-		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(PickerList.DEFAULT_CHILD_STYLE_NAME_BUTTON, this.setPickerListButtonStyles);
-		this.getStyleProviderForClass(List).setFunctionForStyleName(PickerList.DEFAULT_CHILD_STYLE_NAME_LIST, this.setDropDownListStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(PickerList.DEFAULT_CHILD_NAME_BUTTON, this.setPickerListButtonStyles);
+		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(PickerList.DEFAULT_CHILD_NAME_BUTTON, this.setPickerListButtonStyles);
+		this.getStyleProviderForClass(List).setFunctionForStyleName(PickerList.DEFAULT_CHILD_NAME_LIST, this.setPickerListListStyles);
 
 		//progress bar
 		this.getStyleProviderForClass(ProgressBar).defaultStyleFunction = this.setProgressBarStyles;
@@ -945,49 +956,49 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		this.getStyleProviderForClass(Radio).defaultStyleFunction = this.setRadioStyles;
 
 		//scroll bar
-		this.getStyleProviderForClass(ScrollBar).setFunctionForStyleName(Scroller.DEFAULT_CHILD_STYLE_NAME_HORIZONTAL_SCROLL_BAR, this.setHorizontalScrollBarStyles);
-		this.getStyleProviderForClass(ScrollBar).setFunctionForStyleName(Scroller.DEFAULT_CHILD_STYLE_NAME_VERTICAL_SCROLL_BAR, this.setVerticalScrollBarStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON, this.setHorizontalScrollBarIncrementButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON, this.setHorizontalScrollBarDecrementButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_THUMB, this.setHorizontalScrollBarThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK, this.setHorizontalScrollBarMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MAXIMUM_TRACK, this.setHorizontalScrollBarMaximumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON, this.setVerticalScrollBarIncrementButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON, this.setVerticalScrollBarDecrementButtonStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_THUMB, this.setVerticalScrollBarThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK, this.setVerticalScrollBarMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK, this.setVerticalScrollBarMaximumTrackStyles);
+		this.getStyleProviderForClass(ScrollBar).setFunctionForStyleName(Scroller.DEFAULT_CHILD_NAME_HORIZONTAL_SCROLL_BAR, this.setHorizontalScrollBarStyles);
+		this.getStyleProviderForClass(ScrollBar).setFunctionForStyleName(Scroller.DEFAULT_CHILD_NAME_VERTICAL_SCROLL_BAR, this.setVerticalScrollBarStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON, this.setHorizontalScrollBarIncrementButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON, this.setHorizontalScrollBarDecrementButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB, this.setHorizontalScrollBarThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK, this.setHorizontalScrollBarMinimumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SCROLL_BAR_MAXIMUM_TRACK, this.setHorizontalScrollBarMaximumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON, this.setVerticalScrollBarIncrementButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON, this.setVerticalScrollBarDecrementButtonStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SCROLL_BAR_THUMB, this.setVerticalScrollBarThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK, this.setVerticalScrollBarMinimumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK, this.setVerticalScrollBarMaximumTrackStyles);
 
 		//scroll container
 		this.getStyleProviderForClass(ScrollContainer).defaultStyleFunction = this.setScrollContainerStyles;
-		this.getStyleProviderForClass(ScrollContainer).setFunctionForStyleName(ScrollContainer.ALTERNATE_STYLE_NAME_TOOLBAR, this.setToolbarScrollContainerStyles);
+		this.getStyleProviderForClass(ScrollContainer).setFunctionForStyleName(ScrollContainer.ALTERNATE_NAME_TOOLBAR, this.setToolbarScrollContainerStyles);
 
 		//scroll screen
-		this.getStyleProviderForClass(ScrollScreen).defaultStyleFunction = this.setScrollScreenStyles;
+		this.getStyleProviderForClass(ScrollScreen).defaultStyleFunction = this.setScrollerStyles;
 
 		//scroll text
 		this.getStyleProviderForClass(ScrollText).defaultStyleFunction = this.setScrollTextStyles;
 
 		//simple scroll bar
 		this.getStyleProviderForClass(SimpleScrollBar).defaultStyleFunction = this.setSimpleScrollBarStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB, this.setHorizontalSimpleScrollBarThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB, this.setVerticalSimpleScrollBarThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB, this.setHorizontalSimpleScrollBarThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB, this.setVerticalSimpleScrollBarThumbStyles);
 
 		//slider
 		this.getStyleProviderForClass(Slider).defaultStyleFunction = this.setSliderStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(Slider.DEFAULT_CHILD_STYLE_NAME_THUMB, this.setSliderThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK, this.setHorizontalSliderMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK, this.setHorizontalSliderMaximumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SLIDER_MINIMUM_TRACK, this.setVerticalSliderMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK, this.setVerticalSliderMaximumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(Slider.DEFAULT_CHILD_NAME_THUMB, this.setSliderThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK, this.setHorizontalSliderMinimumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK, this.setHorizontalSliderMaximumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK, this.setVerticalSliderMinimumTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK, this.setVerticalSliderMaximumTrackStyles);
 
 		//tab bar
 		this.getStyleProviderForClass(TabBar).defaultStyleFunction = this.setTabBarStyles;
-		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(TabBar.DEFAULT_CHILD_STYLE_NAME_TAB, this.setTabStyles);
+		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(TabBar.DEFAULT_CHILD_NAME_TAB, this.setTabStyles);
 
 		//text input
 		this.getStyleProviderForClass(TextInput).defaultStyleFunction = this.setTextInputStyles;
-		this.getStyleProviderForClass(TextInput).setFunctionForStyleName(TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT, this.setSearchTextInputStyles);
+		this.getStyleProviderForClass(TextInput).setFunctionForStyleName(TextInput.ALTERNATE_NAME_SEARCH_TEXT_INPUT, this.setSearchTextInputStyles);
 
 		//text area
 		this.getStyleProviderForClass(TextArea).defaultStyleFunction = this.setTextAreaStyles;
@@ -998,39 +1009,11 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 
 		//toggle switch
 		this.getStyleProviderForClass(ToggleSwitch).defaultStyleFunction = this.setToggleSwitchStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_THUMB, this.setToggleSwitchThumbStyles);
-		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_THUMB, this.setToggleSwitchThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_STYLE_NAME_ON_TRACK, this.setToggleSwitchTrackStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_NAME_THUMB, this.setToggleSwitchThumbStyles);
+		this.getStyleProviderForClass(ToggleButton).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_NAME_THUMB, this.setToggleSwitchThumbStyles);
+		this.getStyleProviderForClass(Button).setFunctionForStyleName(ToggleSwitch.DEFAULT_CHILD_NAME_ON_TRACK, this.setToggleSwitchTrackStyles);
 		//we don't need a style function for the off track in this theme
 		//the toggle switch layout uses a single track
-
-		//media controls
-		this.getStyleProviderForClass(VideoPlayer).defaultStyleFunction = this.setVideoPlayerStyles;
-
-		//play/pause toggle button
-		this.getStyleProviderForClass(PlayPauseToggleButton).defaultStyleFunction = this.setPlayPauseToggleButtonStyles;
-		this.getStyleProviderForClass(PlayPauseToggleButton).setFunctionForStyleName(PlayPauseToggleButton.ALTERNATE_STYLE_NAME_OVERLAY_PLAY_PAUSE_TOGGLE_BUTTON, this.setOverlayPlayPauseToggleButtonStyles);
-
-		//full screen toggle button
-		this.getStyleProviderForClass(FullScreenToggleButton).defaultStyleFunction = this.setFullScreenToggleButtonStyles;
-
-		//mute toggle button
-		this.getStyleProviderForClass(MuteToggleButton).defaultStyleFunction = this.setMuteToggleButtonStyles;
-		this.getStyleProviderForClass(VolumeSlider).setFunctionForStyleName(MuteToggleButton.DEFAULT_CHILD_STYLE_NAME_VOLUME_SLIDER, this.setPopUpVolumeSliderStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_THUMB, this.setSliderThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MINIMUM_TRACK, this.setPopUpVolumeSliderTrackStyles);
-
-		//seek slider
-		this.getStyleProviderForClass(SeekSlider).defaultStyleFunction = this.setSeekSliderStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(SeekSlider.DEFAULT_CHILD_STYLE_NAME_THUMB, this.setSeekSliderThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(SeekSlider.DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK, this.setSeekSliderMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(SeekSlider.DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK, this.setSeekSliderMaximumTrackStyles);
-
-		//volume slider
-		this.getStyleProviderForClass(VolumeSlider).defaultStyleFunction = this.setVolumeSliderStyles;
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(VolumeSlider.DEFAULT_CHILD_STYLE_NAME_THUMB, this.setVolumeSliderThumbStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(VolumeSlider.DEFAULT_CHILD_STYLE_NAME_MINIMUM_TRACK, this.setVolumeSliderMinimumTrackStyles);
-		this.getStyleProviderForClass(Button).setFunctionForStyleName(VolumeSlider.DEFAULT_CHILD_STYLE_NAME_MAXIMUM_TRACK, this.setVolumeSliderMaximumTrackStyles);
 	}
 
 	private function pageIndicatorNormalSymbolFactory():DisplayObject
@@ -1066,23 +1049,6 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		scroller.verticalScrollBarFactory = scrollBarFactory;
 		scroller.scrollBarDisplayMode = Scroller.SCROLL_BAR_DISPLAY_MODE_FIXED;
 		scroller.interactionMode = Scroller.INTERACTION_MODE_MOUSE;
-
-		scroller.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
-		scroller.focusPadding = 0;
-	}
-
-	private function setDropDownListStyles(list:List):Void
-	{
-		this.setListStyles(list);
-		var layout:VerticalLayout = new VerticalLayout();
-		layout.useVirtualLayout = true;
-		layout.padding = 0;
-		layout.gap = 0;
-		layout.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
-		layout.verticalAlign = VerticalLayout.VERTICAL_ALIGN_TOP;
-		layout.resetTypicalItemDimensionsOnMeasure = true;
-		list.layout = layout;
-		list.maxHeight = this.wideControlSize;
 	}
 
 //-------------------------
@@ -1118,10 +1084,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		group.padding = this.smallGutterSize;
 	}
 
-	private function setAlertMessageTextRendererStyles(renderer:TextBlockTextRenderer):Void
+	private function setAlertMessageTextRendererStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
 	{
 		renderer.wordWrap = true;
+		#if flash
 		renderer.elementFormat = this.lightElementFormat;
+		#else
+		renderer.textFormat = this.lightElementFormat;
+		#end
 	}
 
 //-------------------------
@@ -1130,13 +1100,13 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 
 	private function setBaseButtonStyles(button:Button):Void
 	{
-		button.defaultLabelProperties.elementFormat = this.darkUIElementFormat;
-		button.disabledLabelProperties.elementFormat = this.darkUIDisabledElementFormat;
-		if(button is ToggleButton)
+		button.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIElementFormat);
+		button.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIDisabledElementFormat);
+		if(Std.is(button, ToggleButton))
 		{
 			//for convenience, this function can style both a regular button
 			//and a toggle button
-			ToggleButton(button).selectedDisabledLabelProperties.elementFormat = this.darkUIDisabledElementFormat;
+			cast(button, ToggleButton).selectedDisabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIDisabledElementFormat);
 		}
 
 		button.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
@@ -1158,14 +1128,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		if(button is ToggleButton)
+		if(Std.is(button, ToggleButton))
 		{
 			//for convenience, this function can style both a regular button
 			//and a toggle button
-			skinSelector.defaultSelectedValue = this.toggleButtonSelectedUpSkinTextures;
-			skinSelector.setValueForState(this.toggleButtonSelectedDisabledSkinTextures, Button.STATE_DISABLED, true);
+			skinSelector.defaultSelectedValue = this.buttonSelectedUpSkinTextures;
+			skinSelector.setValueForState(this.buttonSelectedDisabledSkinTextures, Button.STATE_DISABLED, true);
 		}
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1183,7 +1153,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonCallToActionUpSkinTextures;
 		skinSelector.setValueForState(this.buttonCallToActionDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1202,14 +1172,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.setValueForState(this.buttonQuietHoverSkinTextures, Button.STATE_HOVER, false);
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(null, Button.STATE_DISABLED, false);
-		if(button is ToggleButton)
+		if(Std.is(button, ToggleButton))
 		{
 			//for convenience, this function can style both a regular button
 			//and a toggle button
-			skinSelector.defaultSelectedValue = this.toggleButtonSelectedUpSkinTextures;
-			skinSelector.setValueForState(this.toggleButtonSelectedDisabledSkinTextures, Button.STATE_DISABLED, false);
+			skinSelector.defaultSelectedValue = this.buttonSelectedUpSkinTextures;
+			skinSelector.setValueForState(this.buttonSelectedDisabledSkinTextures, Button.STATE_DISABLED, false);
 		}
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1220,14 +1190,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		button.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
 		button.focusPadding = this.focusPaddingSize;
 
-		button.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
-		button.downLabelProperties.elementFormat = this.darkUIElementFormat;
-		button.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-		if(button is ToggleButton)
+		button.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		button.downLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIElementFormat);
+		button.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
+		if(Std.is(button, ToggleButton))
 		{
-			var toggleButton:ToggleButton = ToggleButton(button);
-			toggleButton.defaultSelectedLabelProperties.elementFormat = this.darkUIElementFormat;
-			toggleButton.selectedDisabledLabelProperties.elementFormat = this.darkUIDisabledElementFormat;
+			var toggleButton:ToggleButton = cast(button, ToggleButton);
+			toggleButton.defaultSelectedLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIElementFormat);
+			toggleButton.selectedDisabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkUIDisabledElementFormat);
 		}
 
 		button.paddingTop = this.smallGutterSize;
@@ -1246,7 +1216,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonDangerUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDangerDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1264,7 +1234,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonBackUpSkinTextures;
 		skinSelector.setValueForState(this.buttonBackDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonBackDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1283,7 +1253,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonForwardUpSkinTextures;
 		skinSelector.setValueForState(this.buttonForwardDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonForwardDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1353,7 +1323,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		iconSelector.setValueForState(this.checkDisabledIconTexture, Button.STATE_DISABLED, false);
 		iconSelector.setValueForState(this.checkSelectedDownIconTexture, Button.STATE_DOWN, true);
 		iconSelector.setValueForState(this.checkSelectedDisabledIconTexture, Button.STATE_DISABLED, true);
-		iconSelector.displayObjectProperties =
+		iconSelector.displayObjectProperties.storage =
 		{
 			scaleX: this.scale,
 			scaleY: this.scale
@@ -1364,11 +1334,10 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		check.focusPaddingLeft = this.focusPaddingSize;
 		check.focusPaddingRight = this.focusPaddingSize;
 
-		check.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
-		check.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-		check.selectedDisabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
+		check.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		check.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
+		check.selectedDisabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
 
-		check.horizontalAlign = Check.HORIZONTAL_ALIGN_LEFT;
 		check.gap = this.smallGutterSize;
 		check.minWidth = this.controlSize;
 		check.minHeight = this.controlSize;
@@ -1397,6 +1366,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		list.backgroundSkin = new Scale9Image(this.listBackgroundSkinTextures, this.scale);
 		list.backgroundDisabledSkin = new Scale9Image(this.backgroundDisabledSkinTextures, this.scale);
 
+		list.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
+
 		list.verticalScrollPolicy = List.SCROLL_POLICY_AUTO;
 	}
 
@@ -1407,8 +1378,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		renderer.backgroundSkin = new Quad(this.controlSize, this.controlSize, GROUPED_LIST_HEADER_BACKGROUND_COLOR);
 
 		renderer.horizontalAlign = DefaultGroupedListHeaderOrFooterRenderer.HORIZONTAL_ALIGN_LEFT;
-		renderer.contentLabelProperties.elementFormat = this.lightUIElementFormat;
-		renderer.contentLabelProperties.disabledElementFormat = this.lightUIDisabledElementFormat;
+		renderer.contentLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		renderer.contentLabelProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
 
 		renderer.paddingTop = this.smallGutterSize;
 		renderer.paddingBottom = this.smallGutterSize;
@@ -1425,8 +1396,8 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		renderer.backgroundSkin = new Quad(this.controlSize, this.controlSize, GROUPED_LIST_FOOTER_BACKGROUND_COLOR);
 
 		renderer.horizontalAlign = DefaultGroupedListHeaderOrFooterRenderer.HORIZONTAL_ALIGN_CENTER;
-		renderer.contentLabelProperties.elementFormat = this.lightElementFormat;
-		renderer.contentLabelProperties.disabledElementFormat = this.lightUIDisabledElementFormat;
+		renderer.contentLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
+		renderer.contentLabelProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
 
 		renderer.paddingTop = this.smallGutterSize;
 		renderer.paddingBottom = this.smallGutterSize;
@@ -1453,10 +1424,9 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		header.titleGap = this.smallGutterSize;
 
 		var backgroundSkin:TiledImage = new TiledImage(this.headerBackgroundSkinTexture, this.scale);
-		backgroundSkin.width = this.controlSize;
-		backgroundSkin.height = this.controlSize;
+		backgroundSkin.width = backgroundSkin.height = this.controlSize;
 		header.backgroundSkin = backgroundSkin;
-		header.titleProperties.elementFormat = this.lightElementFormat;
+		header.titleProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
 	}
 
 //-------------------------
@@ -1465,44 +1435,20 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 
 	private function setLabelStyles(label:Label):Void
 	{
-		label.textRendererProperties.elementFormat = this.lightElementFormat;
-		label.textRendererProperties.disabledElementFormat = this.disabledElementFormat;
+		label.textRendererProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
+		label.textRendererProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.disabledElementFormat);
 	}
 
 	private function setHeadingLabelStyles(label:Label):Void
 	{
-		label.textRendererProperties.elementFormat = this.largeLightElementFormat;
-		label.textRendererProperties.disabledElementFormat = this.largeDisabledElementFormat;
+		label.textRendererProperties.setProperty(ELEMENT_FORMAT_STR, this.largeLightElementFormat);
+		label.textRendererProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.largeDisabledElementFormat);
 	}
 
 	private function setDetailLabelStyles(label:Label):Void
 	{
-		label.textRendererProperties.elementFormat = this.smallLightElementFormat;
-		label.textRendererProperties.disabledElementFormat = this.smallDisabledElementFormat;
-	}
-
-//-------------------------
-// LayoutGroup
-//-------------------------
-
-	private function setToolbarLayoutGroupStyles(group:LayoutGroup):Void
-	{
-		if(!group.layout)
-		{
-			var layout:HorizontalLayout = new HorizontalLayout();
-			layout.padding = this.gutterSize;
-			layout.gap = this.smallGutterSize;
-			layout.verticalAlign = HorizontalLayout.VERTICAL_ALIGN_MIDDLE;
-			group.layout = layout;
-		}
-
-		var backgroundSkin:TiledImage = new TiledImage(this.headerBackgroundSkinTexture, this.scale);
-		backgroundSkin.width = this.gridSize;
-		backgroundSkin.height = this.gridSize;
-		group.backgroundSkin = backgroundSkin;
-
-		group.minWidth = this.gridSize;
-		group.minHeight = this.gridSize;
+		label.textRendererProperties.setProperty(ELEMENT_FORMAT_STR, this.smallLightElementFormat);
+		label.textRendererProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.smallDisabledElementFormat);
 	}
 
 //-------------------------
@@ -1517,28 +1463,30 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		list.backgroundSkin = new Scale9Image(this.listBackgroundSkinTextures, this.scale);
 		list.backgroundDisabledSkin = new Scale9Image(this.backgroundDisabledSkinTextures, this.scale);
 
+		list.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
+
 		list.verticalScrollPolicy = List.SCROLL_POLICY_AUTO;
 	}
 
 	private function setItemRendererStyles(renderer:BaseDefaultItemRenderer):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		skinSelector.defaultValue = this.itemRendererUpSkinTexture;
-		skinSelector.defaultSelectedValue = this.itemRendererSelectedUpSkinTexture;
-		skinSelector.setValueForState(this.itemRendererHoverSkinTexture, Button.STATE_HOVER, false);
-		skinSelector.setValueForState(this.itemRendererSelectedUpSkinTexture, Button.STATE_DOWN, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.defaultValue = LIST_BACKGROUND_COLOR;
+		skinSelector.defaultSelectedValue = this.itemRendererSelectedSkinTexture;
+		skinSelector.setValueForState(LIST_BACKGROUND_HOVER_COLOR, Button.STATE_HOVER, false);
+		skinSelector.setValueForState(this.itemRendererSelectedSkinTexture, Button.STATE_DOWN, false);
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize
 		};
 		renderer.stateToSkinFunction = skinSelector.updateValue;
 
-		renderer.defaultLabelProperties.elementFormat = this.lightElementFormat;
-		renderer.hoverLabelProperties.elementFormat = this.darkElementFormat;
-		renderer.downLabelProperties.elementFormat = this.darkElementFormat;
-		renderer.defaultSelectedLabelProperties.elementFormat = this.darkElementFormat;
-		renderer.disabledLabelProperties.elementFormat = this.disabledElementFormat;
+		renderer.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
+		renderer.hoverLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkElementFormat);
+		renderer.downLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkElementFormat);
+		renderer.defaultSelectedLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.darkElementFormat);
+		renderer.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.disabledElementFormat);
 
 		renderer.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 		renderer.paddingTop = this.smallGutterSize;
@@ -1548,7 +1496,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		renderer.gap = this.smallGutterSize;
 		renderer.minGap = this.smallGutterSize;
 		renderer.iconPosition = Button.ICON_POSITION_LEFT;
-		renderer.accessoryGap = Float.POSITIVE_INFINITY;
+		renderer.accessoryGap = Math.POSITIVE_INFINITY;
 		renderer.minAccessoryGap = this.smallGutterSize;
 		renderer.accessoryPosition = BaseDefaultItemRenderer.ACCESSORY_POSITION_RIGHT;
 		renderer.minWidth = this.controlSize;
@@ -1560,14 +1508,22 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		renderer.iconLoaderFactory = this.imageLoaderFactory;
 	}
 
-	private function setItemRendererAccessoryLabelRendererStyles(renderer:TextBlockTextRenderer):Void
+	private function setItemRendererAccessoryLabelRendererStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
 	{
+		#if flash
 		renderer.elementFormat = this.lightElementFormat;
+		#else
+		renderer.textFormat = this.lightElementFormat;
+		#end
 	}
 
-	private function setItemRendererIconLabelStyles(renderer:TextBlockTextRenderer):Void
+	private function setItemRendererIconLabelStyles(renderer:#if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #else BitmapFontTextRenderer #end):Void
 	{
+		#if flash
 		renderer.elementFormat = this.lightElementFormat;
+		#else
+		renderer.textFormat = this.lightElementFormat;
+		#end
 	}
 
 //-------------------------
@@ -1588,7 +1544,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, TextInput.STATE_DISABLED);
 		skinSelector.setValueForState(this.backgroundFocusedSkinTextures, TextInput.STATE_FOCUSED);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.gridSize,
 			height: this.controlSize,
@@ -1604,11 +1560,13 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		input.paddingLeft = this.gutterSize;
 		input.paddingRight = this.gutterSize;
 
-		input.textEditorProperties.cursorSkin = new Quad(1, 1, LIGHT_TEXT_COLOR);
-		input.textEditorProperties.selectionSkin = new Quad(1, 1, TEXT_SELECTION_BACKGROUND_COLOR);
-		input.textEditorProperties.elementFormat = this.lightUIElementFormat;
-		input.textEditorProperties.disabledElementFormat = this.lightUIDisabledElementFormat;
-		input.textEditorProperties.textAlign = TextBlockTextEditor.TEXT_ALIGN_CENTER;
+		input.textEditorProperties.setProperty("cursorSkin", new Quad(1, 1, LIGHT_TEXT_COLOR));
+		input.textEditorProperties.setProperty("selectionSkin", new Quad(1, 1, TEXT_SELECTION_BACKGROUND_COLOR));
+		input.textEditorProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		input.textEditorProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
+		#if flash
+		input.textEditorProperties.setProperty("textAlign", TextBlockTextEditor.TEXT_ALIGN_CENTER);
+		#end
 	}
 
 	private function setNumericStepperDecrementButtonStyles(button:Button):Void
@@ -1617,7 +1575,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.verticalScrollBarIncrementButtonUpSkinTextures;
 		skinSelector.setValueForState(this.verticalScrollBarIncrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.verticalScrollBarIncrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.smallControlSize,
@@ -1642,7 +1600,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.verticalScrollBarDecrementButtonUpSkinTextures;
 		skinSelector.setValueForState(this.verticalScrollBarDecrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.verticalScrollBarDecrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.smallControlSize,
@@ -1706,17 +1664,12 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var backgroundSkin:TiledImage = new TiledImage(this.headerPopupBackgroundSkinTexture, this.scale);
 		backgroundSkin.width = backgroundSkin.height = this.controlSize;
 		header.backgroundSkin = backgroundSkin;
-		header.titleProperties.elementFormat = this.lightElementFormat;
+		header.titleProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
 	}
 
 //-------------------------
 // PanelScreen
 //-------------------------
-
-	private function setPanelScreenStyles(screen:PanelScreen):Void
-	{
-		this.setScrollerStyles(screen);
-	}
 
 	private function setPanelScreenHeaderStyles(header:Header):Void
 	{
@@ -1735,13 +1688,19 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		list.buttonFactory = pickerListButtonFactory;
 	}
 
+	private function setPickerListListStyles(list:List):Void
+	{
+		this.setListStyles(list);
+		list.maxHeight = this.wideControlSize;
+	}
+
 	private function setPickerListButtonStyles(button:Button):Void
 	{
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -1753,14 +1712,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 		iconSelector.defaultValue = this.pickerListButtonIconTexture;
 		iconSelector.setValueForState(this.pickerListButtonIconDisabledTexture, Button.STATE_DISABLED, false);
-		if(button is ToggleButton)
+		if(Std.is(button, ToggleButton))
 		{
 			//for convenience, this function can style both a regular button
 			//and a toggle button
 			iconSelector.defaultSelectedValue = this.pickerListButtonIconSelectedTexture;
 			iconSelector.setValueForState(this.pickerListButtonIconDisabledTexture, Button.STATE_DISABLED, true);
 		}
-		iconSelector.displayObjectProperties =
+		iconSelector.displayObjectProperties.storage =
 		{
 			snapToPixels: true,
 			textureScale: this.scale
@@ -1769,7 +1728,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 
 		this.setBaseButtonStyles(button);
 
-		button.gap = Float.POSITIVE_INFINITY; //fill as completely as possible
+		button.gap = Math.POSITIVE_INFINITY; //fill as completely as possible
 		button.horizontalAlign = Button.HORIZONTAL_ALIGN_LEFT;
 		button.iconPosition = Button.ICON_POSITION_RIGHT;
 		button.minWidth = this.buttonMinWidth;
@@ -1848,7 +1807,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		iconSelector.setValueForState(this.radioDisabledIconTexture, Button.STATE_DISABLED, false);
 		iconSelector.setValueForState(this.radioSelectedDownIconTexture, Button.STATE_DOWN, true);
 		iconSelector.setValueForState(this.radioSelectedDisabledIconTexture, Button.STATE_DISABLED, true);
-		iconSelector.displayObjectProperties =
+		iconSelector.displayObjectProperties.storage =
 		{
 			scaleX: this.scale,
 			scaleY: this.scale
@@ -1859,11 +1818,10 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		radio.focusPaddingLeft = this.focusPaddingSize;
 		radio.focusPaddingRight = this.focusPaddingSize;
 
-		radio.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
-		radio.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-		radio.selectedDisabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
+		radio.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		radio.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
+		radio.selectedDisabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
 
-		radio.horizontalAlign = Radio.HORIZONTAL_ALIGN_LEFT;
 		radio.gap = this.smallGutterSize;
 		radio.minWidth = this.controlSize;
 		radio.minHeight = this.controlSize;
@@ -1878,10 +1836,10 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		scrollBar.direction = ScrollBar.DIRECTION_HORIZONTAL;
 		scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_SINGLE;
 
-		scrollBar.customIncrementButtonStyleName = THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON;
-		scrollBar.customDecrementButtonStyleName = THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON;
-		scrollBar.customThumbStyleName = THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_THUMB;
-		scrollBar.customMinimumTrackStyleName = THEME_STYLE_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK;
+		scrollBar.customIncrementButtonName = THEME_NAME_HORIZONTAL_SCROLL_BAR_INCREMENT_BUTTON;
+		scrollBar.customDecrementButtonName = THEME_NAME_HORIZONTAL_SCROLL_BAR_DECREMENT_BUTTON;
+		scrollBar.customThumbName = THEME_NAME_HORIZONTAL_SCROLL_BAR_THUMB;
+		scrollBar.customMinimumTrackName = THEME_NAME_HORIZONTAL_SCROLL_BAR_MINIMUM_TRACK;
 	}
 
 	private function setVerticalScrollBarStyles(scrollBar:ScrollBar):Void
@@ -1889,11 +1847,11 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		scrollBar.direction = ScrollBar.DIRECTION_VERTICAL;
 		scrollBar.trackLayoutMode = ScrollBar.TRACK_LAYOUT_MODE_MIN_MAX;
 
-		scrollBar.customIncrementButtonStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON;
-		scrollBar.customDecrementButtonStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON;
-		scrollBar.customThumbStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_THUMB;
-		scrollBar.customMinimumTrackStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK;
-		scrollBar.customMaximumTrackStyleName = THEME_STYLE_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK;
+		scrollBar.customIncrementButtonName = THEME_NAME_VERTICAL_SCROLL_BAR_INCREMENT_BUTTON;
+		scrollBar.customDecrementButtonName = THEME_NAME_VERTICAL_SCROLL_BAR_DECREMENT_BUTTON;
+		scrollBar.customThumbName = THEME_NAME_VERTICAL_SCROLL_BAR_THUMB;
+		scrollBar.customMinimumTrackName = THEME_NAME_VERTICAL_SCROLL_BAR_MINIMUM_TRACK;
+		scrollBar.customMaximumTrackName = THEME_NAME_VERTICAL_SCROLL_BAR_MAXIMUM_TRACK;
 	}
 
 	private function setHorizontalScrollBarIncrementButtonStyles(button:Button):Void
@@ -1903,7 +1861,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.setValueForState(this.horizontalScrollBarIncrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.horizontalScrollBarIncrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
 		button.stateToSkinFunction = skinSelector.updateValue;
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -1926,7 +1884,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.horizontalScrollBarDecrementButtonUpSkinTextures;
 		skinSelector.setValueForState(this.horizontalScrollBarDecrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.horizontalScrollBarDecrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -1951,7 +1909,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -1984,7 +1942,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.verticalScrollBarIncrementButtonUpSkinTextures;
 		skinSelector.setValueForState(this.verticalScrollBarIncrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.verticalScrollBarIncrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -2008,7 +1966,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.verticalScrollBarDecrementButtonUpSkinTextures;
 		skinSelector.setValueForState(this.verticalScrollBarDecrementButtonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.verticalScrollBarDecrementButtonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -2032,7 +1990,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -2071,7 +2029,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	private function setToolbarScrollContainerStyles(container:ScrollContainer):Void
 	{
 		this.setScrollerStyles(container);
-		if(!container.layout)
+		if(container.layout == null)
 		{
 			var layout:HorizontalLayout = new HorizontalLayout();
 			layout.padding = this.gutterSize;
@@ -2087,21 +2045,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	}
 
 //-------------------------
-// ScrollScreen
-//-------------------------
-
-	private function setScrollScreenStyles(screen:ScrollScreen):Void
-	{
-		this.setScrollerStyles(screen);
-	}
-
-//-------------------------
 // ScrollText
 //-------------------------
 
 	private function setScrollTextStyles(text:ScrollText):Void
 	{
 		this.setScrollerStyles(text);
+
+		text.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
 
 		text.textFormat = this.scrollTextTextFormat;
 		text.disabledTextFormat = this.scrollTextDisabledTextFormat;
@@ -2119,14 +2070,14 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 			scrollBar.paddingRight = this.scrollBarGutterSize;
 			scrollBar.paddingBottom = this.scrollBarGutterSize;
 			scrollBar.paddingLeft = this.scrollBarGutterSize;
-			scrollBar.customThumbStyleName = THEME_STYLE_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB;
+			scrollBar.customThumbName = THEME_NAME_HORIZONTAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 		else
 		{
 			scrollBar.paddingTop = this.scrollBarGutterSize;
 			scrollBar.paddingRight = this.scrollBarGutterSize;
 			scrollBar.paddingBottom = this.scrollBarGutterSize;
-			scrollBar.customThumbStyleName = THEME_STYLE_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB;
+			scrollBar.customThumbName = THEME_NAME_VERTICAL_SIMPLE_SCROLL_BAR_THUMB;
 		}
 	}
 
@@ -2157,15 +2108,13 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_MIN_MAX;
 		if(slider.direction == Slider.DIRECTION_VERTICAL)
 		{
-			slider.customMinimumTrackStyleName = THEME_STYLE_NAME_VERTICAL_SLIDER_MINIMUM_TRACK;
-			slider.customMaximumTrackStyleName = THEME_STYLE_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK;
-			slider.minHeight = this.controlSize;
+			slider.customMinimumTrackName = THEME_NAME_VERTICAL_SLIDER_MINIMUM_TRACK;
+			slider.customMaximumTrackName = THEME_NAME_VERTICAL_SLIDER_MAXIMUM_TRACK;
 		}
-		else //horizontal
+		else
 		{
-			slider.customMinimumTrackStyleName = THEME_STYLE_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK;
-			slider.customMaximumTrackStyleName = THEME_STYLE_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK;
-			slider.minWidth = this.controlSize;
+			slider.customMinimumTrackName = THEME_NAME_HORIZONTAL_SLIDER_MINIMUM_TRACK;
+			slider.customMaximumTrackName = THEME_NAME_HORIZONTAL_SLIDER_MAXIMUM_TRACK;
 		}
 		slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
 		slider.focusPadding = this.focusPaddingSize;
@@ -2177,7 +2126,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.smallControlSize,
 			height: this.smallControlSize,
@@ -2196,12 +2145,12 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			textureScale: this.scale
 		};
-		skinSelector.displayObjectProperties.width = this.wideControlSize;
-		skinSelector.displayObjectProperties.height = this.smallControlSize;
+		skinSelector.displayObjectProperties.setProperty("width", this.wideControlSize);
+		skinSelector.displayObjectProperties.setProperty("height", this.smallControlSize);
 		track.stateToSkinFunction = skinSelector.updateValue;
 
 		track.hasLabelTextRenderer = false;
@@ -2212,12 +2161,12 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			textureScale: this.scale
 		};
-		skinSelector.displayObjectProperties.width = this.wideControlSize;
-		skinSelector.displayObjectProperties.height = this.smallControlSize;
+		skinSelector.displayObjectProperties.setProperty("width", this.wideControlSize);
+		skinSelector.displayObjectProperties.setProperty("height", this.smallControlSize);
 		track.stateToSkinFunction = skinSelector.updateValue;
 
 		track.hasLabelTextRenderer = false;
@@ -2228,12 +2177,12 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			textureScale: this.scale
 		};
-		skinSelector.displayObjectProperties.width = this.smallControlSize;
-		skinSelector.displayObjectProperties.height = this.wideControlSize;
+		skinSelector.displayObjectProperties.setProperty("width", this.smallControlSize);
+		skinSelector.displayObjectProperties.setProperty("height", this.wideControlSize);
 		track.stateToSkinFunction = skinSelector.updateValue;
 
 		track.hasLabelTextRenderer = false;
@@ -2244,12 +2193,12 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			textureScale: this.scale
 		};
-		skinSelector.displayObjectProperties.width = this.smallControlSize;
-		skinSelector.displayObjectProperties.height = this.wideControlSize;
+		skinSelector.displayObjectProperties.setProperty("width", this.smallControlSize);
+		skinSelector.displayObjectProperties.setProperty("height", this.wideControlSize);
 		track.stateToSkinFunction = skinSelector.updateValue;
 
 		track.hasLabelTextRenderer = false;
@@ -2274,7 +2223,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.setValueForState(this.tabDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.tabDisabledSkinTextures, Button.STATE_DISABLED, false);
 		skinSelector.setValueForState(this.tabSelectedDisabledSkinTextures, Button.STATE_DISABLED, true);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -2285,11 +2234,11 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		tab.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
 		tab.focusPadding = this.focusPaddingSize;
 
-		tab.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
-		tab.downLabelProperties.elementFormat = this.darkUIElementFormat;
-		tab.defaultSelectedLabelProperties.elementFormat = this.darkUIElementFormat;
-		tab.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-		tab.selectedDisabledLabelProperties.elementFormat = this.darkUIDisabledElementFormat;
+		tab.defaultLabelProperties.setProperty("elementFormat", this.lightUIElementFormat);
+		tab.downLabelProperties.setProperty("elementFormat", this.darkUIElementFormat);
+		tab.defaultSelectedLabelProperties.setProperty("elementFormat", this.darkUIElementFormat);
+		tab.disabledLabelProperties.setProperty("elementFormat", this.lightUIDisabledElementFormat);
+		tab.selectedDisabledLabelProperties.setProperty("elementFormat", this.darkUIDisabledElementFormat);
 
 		tab.paddingTop = this.smallGutterSize;
 		tab.paddingBottom = this.smallGutterSize;
@@ -2312,7 +2261,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, TextArea.STATE_DISABLED);
 		skinSelector.setValueForState(this.backgroundFocusedSkinTextures, TextArea.STATE_FOCUSED);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.wideControlSize * 2,
 			height: this.wideControlSize,
@@ -2320,14 +2269,10 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		};
 		textArea.stateToSkinFunction = skinSelector.updateValue;
 
-		textArea.padding = this.borderSize;
+		textArea.padding = this.gutterSize;
 
-		textArea.textEditorProperties.textFormat = this.scrollTextTextFormat;
-		textArea.textEditorProperties.disabledTextFormat = this.scrollTextDisabledTextFormat;
-		textArea.textEditorProperties.paddingTop = this.extraSmallGutterSize;
-		textArea.textEditorProperties.paddingRight = this.smallGutterSize;
-		textArea.textEditorProperties.paddingBottom = this.extraSmallGutterSize;
-		textArea.textEditorProperties.paddingLeft = this.smallGutterSize;
+		textArea.textEditorProperties.setProperty(ELEMENT_FORMAT_STR, this.scrollTextTextFormat);
+		textArea.textEditorProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.scrollTextDisabledTextFormat);
 	}
 
 //-------------------------
@@ -2340,13 +2285,16 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, TextInput.STATE_DISABLED);
 		skinSelector.setValueForState(this.backgroundFocusedSkinTextures, TextInput.STATE_FOCUSED);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.wideControlSize,
 			height: this.controlSize,
 			textureScale: this.scale
 		};
 		input.stateToSkinFunction = skinSelector.updateValue;
+
+		//input.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures);
+		//input.focusPadding = -1;
 
 		input.minWidth = this.controlSize;
 		input.minHeight = this.controlSize;
@@ -2356,13 +2304,13 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		input.paddingLeft = this.gutterSize;
 		input.paddingRight = this.gutterSize;
 
-		input.textEditorProperties.elementFormat = this.lightElementFormat;
-		input.textEditorProperties.disabledElementFormat = this.disabledElementFormat;
-		input.textEditorProperties.cursorSkin = new Quad(1, 1, LIGHT_TEXT_COLOR);
-		input.textEditorProperties.selectionSkin = new Quad(1, 1, TEXT_SELECTION_BACKGROUND_COLOR);
+		input.textEditorProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
+		input.textEditorProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.disabledElementFormat);
+		input.textEditorProperties.setProperty("cursorSkin", new Quad(1, 1, LIGHT_TEXT_COLOR));
+		input.textEditorProperties.setProperty("selectionSkin", new Quad(1, 1, TEXT_SELECTION_BACKGROUND_COLOR));
 
-		input.promptProperties.elementFormat = this.lightElementFormat;
-		input.promptProperties.disabledElementFormat = this.disabledElementFormat;
+		input.promptProperties.setProperty(ELEMENT_FORMAT_STR, this.lightElementFormat);
+		input.promptProperties.setProperty(DISABLED_ELEMENT_FORMAT_STR, this.disabledElementFormat);
 	}
 
 	private function setTextInputStyles(input:TextInput):Void
@@ -2378,7 +2326,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		iconSelector.setValueTypeHandler(SubTexture, textureValueTypeHandler);
 		iconSelector.defaultValue = this.searchIconTexture;
 		iconSelector.setValueForState(this.searchIconDisabledTexture, TextInput.STATE_DISABLED, false);
-		iconSelector.displayObjectProperties =
+		iconSelector.displayObjectProperties.storage =
 		{
 			snapToPixels: true,
 			textureScale: this.scale
@@ -2397,9 +2345,9 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		toggle.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
 		toggle.focusPadding = this.focusPaddingSize;
 
-		toggle.defaultLabelProperties.elementFormat = this.lightUIElementFormat;
-		toggle.disabledLabelProperties.elementFormat = this.lightUIDisabledElementFormat;
-		toggle.onLabelProperties.elementFormat = this.selectedUIElementFormat;
+		toggle.defaultLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIElementFormat);
+		toggle.disabledLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.lightUIDisabledElementFormat);
+		toggle.onLabelProperties.setProperty(ELEMENT_FORMAT_STR, this.selectedUIElementFormat);
 	}
 
 	private function setToggleSwitchThumbStyles(thumb:Button):Void
@@ -2408,7 +2356,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		skinSelector.defaultValue = this.buttonUpSkinTextures;
 		skinSelector.setValueForState(this.buttonDownSkinTextures, Button.STATE_DOWN, false);
 		skinSelector.setValueForState(this.buttonDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: this.controlSize,
 			height: this.controlSize,
@@ -2427,7 +2375,7 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
 		skinSelector.defaultValue = this.backgroundSkinTextures;
 		skinSelector.setValueForState(this.backgroundDisabledSkinTextures, Button.STATE_DISABLED, false);
-		skinSelector.displayObjectProperties =
+		skinSelector.displayObjectProperties.storage =
 		{
 			width: Math.round(this.controlSize * 2.5),
 			height: this.controlSize,
@@ -2438,227 +2386,4 @@ public class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 		track.hasLabelTextRenderer = false;
 	}
 
-//-------------------------
-// VideoPlayer
-//-------------------------
-
-	private function setVideoPlayerStyles(player:VideoPlayer):Void
-	{
-		player.backgroundSkin = new Quad(1, 1, 0x000000);
-	}
-
-//-------------------------
-// PlayPauseToggleButton
-//-------------------------
-
-	private function setPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):Void
-	{
-		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		iconSelector.defaultValue = this.playPauseButtonPlayUpIconTexture;
-		iconSelector.defaultSelectedValue = this.playPauseButtonPauseUpIconTexture;
-		iconSelector.setValueForState(this.playPauseButtonPlayDownIconTexture, Button.STATE_DOWN, false);
-		iconSelector.setValueForState(this.playPauseButtonPauseDownIconTexture, Button.STATE_DOWN, true);
-		iconSelector.displayObjectProperties =
-		{
-			scaleX: this.scale,
-			scaleY: this.scale
-		};
-		button.stateToIconFunction = iconSelector.updateValue;
-
-		button.hasLabelTextRenderer = false;
-
-		button.minWidth = this.controlSize;
-		button.minHeight = this.controlSize;
-	}
-
-	private function setOverlayPlayPauseToggleButtonStyles(button:PlayPauseToggleButton):Void
-	{
-		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		iconSelector.setValueForState(this.overlayPlayPauseButtonPlayUpIconTexture, Button.STATE_UP, false);
-		iconSelector.setValueForState(this.overlayPlayPauseButtonPlayUpIconTexture, Button.STATE_HOVER, false);
-		iconSelector.setValueForState(this.overlayPlayPauseButtonPlayDownIconTexture, Button.STATE_DOWN, false);
-		iconSelector.displayObjectProperties =
-		{
-			scaleX: this.scale,
-			scaleY: this.scale
-		};
-		button.stateToIconFunction = iconSelector.updateValue;
-
-		button.hasLabelTextRenderer = false;
-
-		var overlaySkin:Quad = new Quad(1, 1, VIDEO_OVERLAY_COLOR);
-		overlaySkin.alpha = VIDEO_OVERLAY_ALPHA;
-		button.upSkin = overlaySkin;
-		button.hoverSkin = overlaySkin;
-	}
-
-//-------------------------
-// FullScreenToggleButton
-//-------------------------
-
-	private function setFullScreenToggleButtonStyles(button:FullScreenToggleButton):Void
-	{
-		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		iconSelector.defaultValue = this.fullScreenToggleButtonEnterUpIconTexture;
-		iconSelector.defaultSelectedValue = this.fullScreenToggleButtonExitUpIconTexture;
-		iconSelector.setValueForState(this.fullScreenToggleButtonEnterDownIconTexture, Button.STATE_DOWN, false);
-		iconSelector.setValueForState(this.fullScreenToggleButtonExitDownIconTexture, Button.STATE_DOWN, true);
-		iconSelector.displayObjectProperties =
-		{
-			scaleX: this.scale,
-			scaleY: this.scale
-		};
-		button.stateToIconFunction = iconSelector.updateValue;
-
-		button.hasLabelTextRenderer = false;
-
-		button.minWidth = this.controlSize;
-		button.minHeight = this.controlSize;
-	}
-
-//-------------------------
-// VolumeSlider
-//-------------------------
-
-	private function setVolumeSliderStyles(slider:VolumeSlider):Void
-	{
-		slider.direction = VolumeSlider.DIRECTION_HORIZONTAL;
-		slider.trackLayoutMode = VolumeSlider.TRACK_LAYOUT_MODE_MIN_MAX;
-		slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
-		slider.focusPadding = this.focusPaddingSize;
-		slider.showThumb = false;
-		slider.minWidth = this.volumeSliderMinimumTrackSkinTexture.width;
-		slider.minHeight = this.volumeSliderMinimumTrackSkinTexture.height;
-	}
-
-	private function setVolumeSliderThumbStyles(thumb:Button):Void
-	{
-		var thumbSize:Float = 6 * this.scale;
-		var defaultSkin:Quad = new Quad(thumbSize, thumbSize);
-		defaultSkin.width = 0;
-		defaultSkin.height = 0;
-		thumb.defaultSkin = defaultSkin;
-		thumb.hasLabelTextRenderer = false;
-	}
-
-	private function setVolumeSliderMinimumTrackStyles(track:Button):Void
-	{
-		var defaultSkin:ImageLoader = new ImageLoader();
-		defaultSkin.scaleContent = false;
-		defaultSkin.source = this.volumeSliderMinimumTrackSkinTexture;
-		track.defaultSkin = defaultSkin;
-		track.hasLabelTextRenderer = false;
-	}
-
-	private function setVolumeSliderMaximumTrackStyles(track:Button):Void
-	{
-		var defaultSkin:ImageLoader = new ImageLoader();
-		defaultSkin.scaleContent = false;
-		defaultSkin.horizontalAlign = ImageLoader.HORIZONTAL_ALIGN_RIGHT;
-		defaultSkin.source = this.volumeSliderMaximumTrackSkinTexture;
-		track.defaultSkin = defaultSkin;
-		track.hasLabelTextRenderer = false;
-	}
-
-//-------------------------
-// MuteToggleButton
-//-------------------------
-
-	private function setMuteToggleButtonStyles(button:MuteToggleButton):Void
-	{
-		var iconSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		iconSelector.defaultValue = this.muteToggleButtonLoudUpIconTexture;
-		iconSelector.defaultSelectedValue = this.muteToggleButtonMutedUpIconTexture;
-		iconSelector.setValueForState(this.muteToggleButtonLoudDownIconTexture, Button.STATE_DOWN, false);
-		iconSelector.setValueForState(this.muteToggleButtonMutedDownIconTexture, Button.STATE_DOWN, true);
-		iconSelector.displayObjectProperties =
-		{
-			scaleX: this.scale,
-			scaleY: this.scale
-		};
-		button.stateToIconFunction = iconSelector.updateValue;
-
-		button.showVolumeSliderOnHover = true;
-		button.hasLabelTextRenderer = false;
-
-		button.minWidth = this.controlSize;
-		button.minHeight = this.controlSize;
-	}
-
-	private function setPopUpVolumeSliderStyles(slider:VolumeSlider):Void
-	{
-		slider.direction = VolumeSlider.DIRECTION_VERTICAL;
-		slider.trackLayoutMode = VolumeSlider.TRACK_LAYOUT_MODE_SINGLE;
-		slider.focusIndicatorSkin = new Scale9Image(this.focusIndicatorSkinTextures, this.scale);
-		slider.focusPadding = this.focusPaddingSize;
-		slider.minimumPadding = this.popUpVolumeSliderPaddingSize;
-		slider.maximumPadding = this.popUpVolumeSliderPaddingSize;
-		slider.customThumbStyleName = THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_THUMB;
-		slider.customMinimumTrackStyleName = THEME_STYLE_NAME_POP_UP_VOLUME_SLIDER_MINIMUM_TRACK;
-	}
-
-	private function setPopUpVolumeSliderTrackStyles(track:Button):Void
-	{
-		var skinSelector:SmartDisplayObjectStateValueSelector = new SmartDisplayObjectStateValueSelector();
-		skinSelector.defaultValue = this.popUpVolumeSliderTrackSkinTextures;
-		skinSelector.displayObjectProperties =
-		{
-			textureScale: this.scale
-		};
-		skinSelector.displayObjectProperties.width = this.gridSize;
-		skinSelector.displayObjectProperties.height = this.wideControlSize;
-		track.stateToSkinFunction = skinSelector.updateValue;
-
-		track.hasLabelTextRenderer = false;
-	}
-
-//-------------------------
-// SeekSlider
-//-------------------------
-
-	private function setSeekSliderStyles(slider:SeekSlider):Void
-	{
-		slider.trackLayoutMode = Slider.TRACK_LAYOUT_MODE_MIN_MAX;
-		slider.showThumb = false;
-		if(slider.direction == SeekSlider.DIRECTION_VERTICAL)
-		{
-			slider.minWidth = this.smallControlSize;
-			slider.minHeight = this.wideControlSize;
-		}
-		else //horizontal
-		{
-			slider.minWidth = this.wideControlSize;
-			slider.minHeight = this.smallControlSize;
-		}
-	}
-
-	private function setSeekSliderThumbStyles(thumb:Button):Void
-	{
-		var thumbSize:Float = 6 * this.scale;
-		var defaultSkin:Quad = new Quad(thumbSize, thumbSize);
-		defaultSkin.width = 0;
-		defaultSkin.height = 0;
-		thumb.defaultSkin = defaultSkin;
-		thumb.hasLabelTextRenderer = false;
-	}
-
-	private function setSeekSliderMinimumTrackStyles(track:Button):Void
-	{
-		var defaultSkin:Scale9Image = new Scale9Image(this.buttonUpSkinTextures, this.scale);
-		defaultSkin.width = this.wideControlSize;
-		defaultSkin.height = this.smallControlSize;
-		track.defaultSkin = defaultSkin;
-		track.hasLabelTextRenderer = false;
-	}
-
-	private function setSeekSliderMaximumTrackStyles(track:Button):Void
-	{
-		var defaultSkin:Scale9Image = new Scale9Image(this.backgroundSkinTextures, this.scale);
-		defaultSkin.width = this.wideControlSize;
-		defaultSkin.height = this.smallControlSize;
-		track.defaultSkin = defaultSkin;
-		track.hasLabelTextRenderer = false;
-	}
-
-}
 }

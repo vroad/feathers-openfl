@@ -1,31 +1,31 @@
 /*
-Copyright 2012-2015 Bowler Hat LLC
+ Copyright (c) 2014 Josh Tynjala
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-*/
-package feathers.themes
-{
-import flash.display.Bitmap;
-import flash.display.BitmapData;
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+ */
+package feathers.themes;
+import openfl.Assets;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
 
 import starling.events.Event;
 import starling.textures.Texture;
@@ -37,31 +37,28 @@ import starling.textures.TextureAtlas;
  * <p>This version of the theme embeds its assets. To load assets at
  * runtime, see <code>MetalWorksDesktopThemeWithAssetManager</code> instead.</p>
  *
- * @see http://feathersui.com/help/theme-assets.html
+ * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
+class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 {
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_desktop.xml",mimeType="application/octet-stream")]
-	inline private static var ATLAS_XML:Class;
+	//[Embed(source="/../assets/images/metalworks_desktop.xml",mimeType="application/octet-stream")]
+	//private static const ATLAS_XML:Class<Dynamic>;
+	inline private static var ATLAS_XML_FILE_NAME = "assets/images/metalworks_desktop.xml";
 
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_desktop.png")]
-	inline private static var ATLAS_BITMAP:Class;
-
-	/**
-	 * @private
-	 */
-	inline private static var ATLAS_SCALE_FACTOR:Int = 2;
+	//[Embed(source="/../assets/images/metalworks_desktop.png")]
+	//private static const ATLAS_BITMAP:Class<Dynamic>;
+	inline private static var ATLAS_BITMAP_FILE_NAME = "assets/images/metalworks_desktop.png";
 
 	/**
 	 * Constructor.
 	 */
-	public function MetalWorksDesktopTheme()
+	public function new()
 	{
 		super();
 		this.initialize();
@@ -73,20 +70,13 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	 */
 	override private function initialize():Void
 	{
-		this.initializeTextureAtlas();
-		super.initialize();
-	}
-
-	/**
-	 * @private
-	 */
-	private function initializeTextureAtlas():Void
-	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
-		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, ATLAS_SCALE_FACTOR);
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_FILE_NAME);
+		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false, false, 1);
 		atlasTexture.root.onRestore = this.atlasTexture_onRestore;
 		atlasBitmapData.dispose();
-		this.atlas = new TextureAtlas(atlasTexture, XML(new ATLAS_XML()));
+		this.atlas = new TextureAtlas(atlasTexture, Xml.parse(Assets.getText(ATLAS_XML_FILE_NAME)).firstElement());
+
+		super.initialize();
 	}
 
 	/**
@@ -94,9 +84,8 @@ public class MetalWorksDesktopTheme extends BaseMetalWorksDesktopTheme
 	 */
 	private function atlasTexture_onRestore():Void
 	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_FILE_NAME);
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
 		atlasBitmapData.dispose();
 	}
-}
 }

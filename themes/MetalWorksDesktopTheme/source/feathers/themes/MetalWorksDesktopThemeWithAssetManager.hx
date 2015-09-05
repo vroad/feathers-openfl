@@ -1,29 +1,29 @@
 /*
-Copyright 2012-2015 Bowler Hat LLC
+ Copyright (c) 2014 Josh Tynjala
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-*/
-package feathers.themes
-{
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+ */
+package feathers.themes;
+import starling.core.Starling;
 import starling.events.Event;
 import starling.utils.AssetManager;
 
@@ -49,7 +49,7 @@ import starling.utils.AssetManager;
  *
  * @eventType starling.events.Event.COMPLETE
  */
-[Event(name="complete",type="starling.events.Event")]
+//[Event(name="complete",type="starling.events.Event")]
 
 /**
  * The "Metal Works" theme for desktop Feathers apps.
@@ -64,9 +64,9 @@ import starling.utils.AssetManager;
  *     <li>images/metalworks_desktop.xml</li>
  * </ul>
  *
- * @see http://feathersui.com/help/theme-assets.html
+ * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDesktopTheme
+class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDesktopTheme
 {
 	/**
 	 * @private
@@ -75,16 +75,11 @@ public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDeskto
 	inline private static var ATLAS_NAME:String = "metalworks_desktop";
 
 	/**
-	 * @private
-	 */
-	inline private static var ATLAS_SCALE_FACTOR:Int = 2;
-
-	/**
 	 * Constructor.
 	 * @param assetsBasePath The root folder of the assets.
-	 * @param assetManager An optional pre-created AssetManager. The scaleFactor property must be equal to Starling.contentScaleFactor. To load assets with a different scale factor, use multiple AssetManager instances.
+	 * @param assetManager An optional pre-created asset manager.
 	 */
-	public function MetalWorksDesktopThemeWithAssetManager(assetsBasePath:String = "./", assetManager:AssetManager = null)
+	public function new(assetsBasePath:String = null, assetManager:AssetManager = null)
 	{
 		this.loadAssets(assetsBasePath, assetManager);
 	}
@@ -93,11 +88,11 @@ public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDeskto
 	 * @private
 	 * The paths to each of the assets, relative to the base path.
 	 */
-	private var assetPaths:Vector.<String> = new <String>
-	[
-		"images/" + ATLAS_NAME + ".xml",
-		"images/" + ATLAS_NAME + ".png"
-	];
+	private var assetPaths:Array<String> = new <String>
+		[
+			"images/metalworks_desktop.xml",
+			"images/metalworks_desktop.png"
+		];
 
 	/**
 	 * @private
@@ -122,16 +117,8 @@ public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDeskto
 	 */
 	override private function initialize():Void
 	{
-		this.initializeTextureAtlas();
-		super.initialize();
-	}
-
-	/**
-	 * @private
-	 */
-	private function initializeTextureAtlas():Void
-	{
 		this.atlas = this.assetManager.getTextureAtlas(ATLAS_NAME);
+		super.initialize();
 	}
 
 	/**
@@ -152,36 +139,24 @@ public class MetalWorksDesktopThemeWithAssetManager extends BaseMetalWorksDeskto
 	 */
 	private function loadAssets(assetsBasePath:String, assetManager:AssetManager):Void
 	{
-		var oldScaleFactor:Float = -1;
-		if(assetManager)
-		{
-			oldScaleFactor = assetManager.scaleFactor;
-			assetManager.scaleFactor = ATLAS_SCALE_FACTOR;
-		}
-		else
-		{
-			assetManager = new AssetManager(ATLAS_SCALE_FACTOR);
-		}
 		this.assetManager = assetManager;
+		if(!this.assetManager)
+		{
+			this.assetManager = new AssetManager(Starling.current.contentScaleFactor);
+		}
 		//add a trailing slash, if needed
 		if(assetsBasePath.lastIndexOf("/") != assetsBasePath.length - 1)
 		{
 			assetsBasePath += "/";
 		}
-		var assetPaths:Vector.<String> = this.assetPaths;
+		var assetPaths:Array<String> = this.assetPaths;
 		var assetCount:Int = assetPaths.length;
-		for(var i:Int = 0; i < assetCount; i++)
+		for(i in 0 ... assetCount)
 		{
 			var asset:String = assetPaths[i];
 			this.assetManager.enqueue(assetsBasePath + asset);
 		}
-		if(oldScaleFactor != -1)
-		{
-			//restore the old scale factor, just in case
-			this.assetManager.scaleFactor = oldScaleFactor;
-		}
 		this.assetManager.loadQueue(assetManager_onProgress);
 	}
-}
 }
 

@@ -1,5 +1,5 @@
 /*
-Copyright 2012-2015 Bowler Hat LLC
+Copyright (c) 2014 Josh Tynjala
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -22,10 +22,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 */
-package feathers.themes
-{
-import flash.display.Bitmap;
-import flash.display.BitmapData;
+package feathers.themes;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.Assets;
 
 import starling.events.Event;
 import starling.textures.Texture;
@@ -37,26 +37,28 @@ import starling.textures.TextureAtlas;
  * <p>This version of the theme embeds its assets. To load assets at
  * runtime, see <code>MetalWorksMobileThemeWithAssetManager</code> instead.</p>
  *
- * @see http://feathersui.com/help/theme-assets.html
+ * @see http://wiki.starling-framework.org/feathers/theme-assets
  */
-public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
+class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 {
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_mobile.xml",mimeType="application/octet-stream")]
-	inline private static var ATLAS_XML:Class;
+	//[Embed(source="/../assets/images/metalworks_mobile.xml",mimeType="application/octet-stream")]
+	//private static var ATLAS_XML:Class<Dynamic>;
+	inline private static var ATLAS_XML_NAME = "assets/images/metalworks_mobile.xml";
 
 	/**
 	 * @private
 	 */
-	[Embed(source="/../assets/images/metalworks_mobile.png")]
-	inline private static var ATLAS_BITMAP:Class;
+	//[Embed(source="/../assets/images/metalworks_mobile.png")]
+	//private static var ATLAS_BITMAP:Class<Dynamic>;
+	inline private static var ATLAS_BITMAP_NAME = "assets/images/metalworks_mobile.png";
 
 	/**
 	 * Constructor.
 	 */
-	public function MetalWorksMobileTheme(scaleToDPI:Bool = true)
+	public function new(scaleToDPI:Bool = true)
 	{
 		super(scaleToDPI);
 		this.initialize();
@@ -68,20 +70,13 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	 */
 	override private function initialize():Void
 	{
-		this.initializeTextureAtlas();
-		super.initialize();
-	}
-
-	/**
-	 * @private
-	 */
-	private function initializeTextureAtlas():Void
-	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_NAME);
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
 		atlasTexture.root.onRestore = this.atlasTexture_onRestore;
 		atlasBitmapData.dispose();
-		this.atlas = new TextureAtlas(atlasTexture, XML(new ATLAS_XML()));
+		this.atlas = new TextureAtlas(atlasTexture, Xml.parse(Assets.getText(ATLAS_XML_NAME)).firstElement());
+
+		super.initialize();
 	}
 
 	/**
@@ -89,9 +84,8 @@ public class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	 */
 	private function atlasTexture_onRestore():Void
 	{
-		var atlasBitmapData:BitmapData = Bitmap(new ATLAS_BITMAP()).bitmapData;
+		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_NAME);
 		this.atlas.texture.root.uploadBitmapData(atlasBitmapData);
 		atlasBitmapData.dispose();
 	}
-}
 }
