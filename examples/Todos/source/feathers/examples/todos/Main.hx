@@ -133,7 +133,7 @@ import starling.events.Event;
 		this._input.visible = !isEditing;
 	}
 
-	private function stage_resizeHandler():Void
+	override private function stage_resizeHandler(event:Event):Void
 	{
 		this.width = this.stage.stageWidth;
 		this.height = this.stage.stageHeight;

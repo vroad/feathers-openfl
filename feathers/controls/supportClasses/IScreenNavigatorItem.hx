@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls.supportClasses
-{
+package feathers.controls.supportClasses;
 import starling.display.DisplayObject;
 
 /**
@@ -24,11 +23,11 @@ interface IScreenNavigatorItem
 	 *
 	 * @see #getScreen()
 	 */
-	function get_canDispose():Bool;
+	var canDispose(get, never):Bool;
+	//function get_canDispose():Bool;
 
 	/**
 	 * Returns a display object instance of this screen.
 	 */
 	function getScreen():DisplayObject;
-}
 }

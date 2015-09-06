@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer.screens
-{
+package feathers.examples.transitionsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.List;
@@ -17,18 +16,19 @@ class FourWayTransitionScreen extends PanelScreen
 {
 	inline public static var TRANSITION:String = "transition";
 
-	public function FourWayTransitionScreen()
+	public function new()
 	{
+		super();
 	}
 
 	private var _list:List;
 	private var _backButton:Button;
 
 	public var transitionName:String;
-	public var upTransition:Function;
-	public var downTransition:Function;
-	public var leftTransition:Function;
-	public var rightTransition:Function;
+	public var upTransition:DisplayObject->DisplayObject->Dynamic->Void;
+	public var downTransition:DisplayObject->DisplayObject->Dynamic->Void;
+	public var leftTransition:DisplayObject->DisplayObject->Dynamic->Void;
+	public var rightTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	override private function initialize():Void
 	{
@@ -78,14 +78,14 @@ class FourWayTransitionScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 		this._backButton.label = "Transitions";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-		header.leftItems = new <DisplayObject>[this._backButton];
+		header.leftItems = [this._backButton];
 
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):Void
+	private function list_triggeredHandler(event:Event, item:Dynamic):Void
 	{
-		var transition:Function = item.transition as Function;
+		var transition:Dynamic = item.transition;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
@@ -93,5 +93,4 @@ class FourWayTransitionScreen extends PanelScreen
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
-}
 }

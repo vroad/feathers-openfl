@@ -16,6 +16,8 @@ import feathers.skins.IStyleProvider;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+
 /**
  * A container with layout, optional scrolling, a header, and an optional
  * footer.
@@ -297,6 +299,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	private function set_headerName(value:String):String
 	{
 		this.headerStyleName = value;
+		return get_headerName();
 	}
 
 	/**
@@ -335,6 +338,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	private function set_footerName(value:String):String
 	{
 		this.footerStyleName = value;
+		return get_footerName();
 	}
 
 	/**
@@ -370,6 +374,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerTitleField
 	 * @see #headerFactory
 	 */
+	public var title(get, set):String;
 	public function get_title():String
 	{
 		return this._title;
@@ -382,10 +387,11 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._title == value)
 		{
-			return;
+			return get_title();
 		}
 		this._title = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_title();
 	}
 
 
@@ -432,16 +438,17 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._headerTitleField == value)
 		{
-			return;
+			return get_headerTitleField();
 		}
 		this._headerTitleField = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_headerTitleField();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _headerFactory:Function;
+	private var _headerFactory:Void->IFeathersControl;
 
 	/**
 	 * A function used to generate the panel's header sub-component.
@@ -527,6 +534,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #headerFactory
 	 * @see #headerProperties
 	 */
+	public var customHeaderStyleName(get, set):String;
 	public function get_customHeaderStyleName():String
 	{
 		return this._customHeaderStyleName;
@@ -539,14 +547,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._customHeaderStyleName == value)
 		{
-			return get_customHeaderName();
+			return get_customHeaderStyleName();
 		}
 		this._customHeaderStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_HEADER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
-		return get_customHeaderName();
+		return get_customHeaderStyleName();
 	}
 
 	/**
@@ -570,6 +578,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	public function set_customHeaderName(value:String):String
 	{
 		this.customHeaderStyleName = value;
+		return get_customHeaderName();
 	}
 
 	/**
@@ -743,6 +752,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 * @see #footerFactory
 	 * @see #footerProperties
 	 */
+	public var customFooterStyleName(get, set):String;
 	public function get_customFooterStyleName():String
 	{
 		return this._customFooterStyleName;
@@ -755,14 +765,14 @@ class Panel extends ScrollContainer implements IFocusExtras
 	{
 		if(this._customFooterStyleName == value)
 		{
-			return get_customFooterName();
+			return get_customFooterStyleName();
 		}
 		this._customFooterStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_FOOTER_FACTORY);
 		//hack because the super class doesn't know anything about the
 		//header factory
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
-		return get_customFooterName();
+		return get_customFooterStyleName();
 	}
 
 	/**
@@ -786,6 +796,7 @@ class Panel extends ScrollContainer implements IFocusExtras
 	public function set_customFooterName(value:String):String
 	{
 		this.customFooterStyleName = value;
+		return get_customFooterName();
 	}
 
 	/**
@@ -1305,15 +1316,16 @@ class Panel extends ScrollContainer implements IFocusExtras
 	 */
 	private function refreshHeaderStyles():Void
 	{
-		if(Object(this.header).hasOwnProperty(this._headerTitleField))
+		if(Reflect.getProperty(this.header, this._headerTitleField) != null)
 		{
-			this.header[this._headerTitleField] = this._title;
+			Reflect.setProperty(this.header, this._headerTitleField, this._title);
 		}
-		for(var propertyName:String in this._headerProperties)
-		{
-			var propertyValue:Dynamic = Reflect.field(this._headerProperties.storage, propertyName);
-			Reflect.setProperty(this.header, propertyName, propertyValue);
-		}
+		if (this._headerProperties != null)
+			for (propertyName in Reflect.fields(this._headerProperties.storage))
+			{
+				var propertyValue:Dynamic = Reflect.field(this._headerProperties.storage, propertyName);
+				Reflect.setProperty(this.header, propertyName, propertyValue);
+			}
 	}
 
 	/**

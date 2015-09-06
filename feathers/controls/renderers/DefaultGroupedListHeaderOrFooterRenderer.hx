@@ -146,6 +146,7 @@ import starling.display.DisplayObject;
 	 *
 	 * @see #contentLabelStyleName
 	 */
+	private var contentLabelName(get, set):String;
 	private function get_contentLabelName():String
 	{
 		return this.contentLabelStyleName;
@@ -157,6 +158,7 @@ import starling.display.DisplayObject;
 	private function set_contentLabelName(value:String):String
 	{
 		this.contentLabelStyleName = value;
+		return get_contentLabelName();
 	}
 
 	/**

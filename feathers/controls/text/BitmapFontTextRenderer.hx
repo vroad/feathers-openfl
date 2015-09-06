@@ -608,7 +608,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(Std.Int(previousCharID)) * scale;
+				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -811,7 +811,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentX += charData.getKerning(Std.Int(previousCharID)) * scale;
+				currentX += charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 
 			var offsetX:Float = charData.xAdvance * scale;
@@ -1023,7 +1023,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		var texture:Texture = charData.texture;
 		var frame:Rectangle = texture.frame;
-		if(frame)
+		if(frame != null)
 		{
 			if(frame.width == 0 || frame.height == 0)
 			{
@@ -1034,7 +1034,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		if(!HELPER_IMAGE)
+		if(HELPER_IMAGE == null)
 		{
 			HELPER_IMAGE = new Image(texture);
 		}
@@ -1133,7 +1133,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 			if(isKerningEnabled &&
 				previousCharID == previousCharID) //!isNaN
 			{
-				currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
+				currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 			}
 			currentX += currentKerning + charData.xAdvance * scale;
 			if(currentX > width)
@@ -1169,7 +1169,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
+					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 				}
 				currentX += currentKerning + charData.xAdvance * scale + customLetterSpacing;
 				previousCharID = charID;
@@ -1192,7 +1192,7 @@ class BitmapFontTextRenderer extends FeathersControl implements ITextRenderer
 				if(isKerningEnabled &&
 					previousCharID == previousCharID) //!isNaN
 				{
-					currentKerning = charData.getKerning(Std.Int(previousCharID)) * scale;
+					currentKerning = charData.getKerning(Std.int(previousCharID)) * scale;
 				}
 				currentX -= (currentKerning + charData.xAdvance * scale + customLetterSpacing);
 				if(currentX <= width)

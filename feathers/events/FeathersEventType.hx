@@ -237,4 +237,3 @@ class FeathersEventType
 	 */
 	inline public static var LOCATION_CHANGE:String = "locationChange";
 }
-}

@@ -77,17 +77,17 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	private var _pushSlideTransition:Function;
+	private var _pushSlideTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * @private
 	 */
-	private var _popSlideTransition:Function;
+	private var _popSlideTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * @private
 	 */
-	private var _crossfadeTransition:Function;
+	private var _crossfadeTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * @private
@@ -99,6 +99,7 @@ class OldFadeNewSlideTransitionManager
 	 *
 	 * @default 0.25
 	 */
+	public var duration(get, set):Float;
 	public function get_duration():Float
 	{
 		return this._duration;
@@ -111,12 +112,13 @@ class OldFadeNewSlideTransitionManager
 	{
 		if(this._duration == value)
 		{
-			return;
+			return get_duration();
 		}
 		this._duration = value;
 		this._pushSlideTransition = null;
 		this._popSlideTransition = null;
 		this._crossfadeTransition = null;
+		return get_duration();
 	}
 
 	/**
@@ -131,6 +133,7 @@ class OldFadeNewSlideTransitionManager
 	 *
 	 * @default 0.1
 	 */
+	public var delay(get, set):Float;
 	public function get_delay():Float
 	{
 		return this._delay;
@@ -143,25 +146,27 @@ class OldFadeNewSlideTransitionManager
 	{
 		if(this._delay == value)
 		{
-			return;
+			return get_delay();
 		}
 		this._delay = value;
 		this._pushSlideTransition = null;
 		this._popSlideTransition = null;
 		this._crossfadeTransition = null;
+		return get_delay();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _ease:Object = Transitions.EASE_OUT;
+	private var _ease:String = Transitions.EASE_OUT;
 
 	/**
 	 * The easing function to use.
 	 *
 	 * @default starling.animation.Transitions.EASE_OUT
 	 */
-	public function get_ease():Object
+	public var ease(get, set):String;
+	public function get_ease():String
 	{
 		return this._ease;
 	}
@@ -169,16 +174,17 @@ class OldFadeNewSlideTransitionManager
 	/**
 	 * @private
 	 */
-	public function set_ease(value:Object):Object
+	public function set_ease(value:String):String
 	{
 		if(this._ease == value)
 		{
-			return;
+			return get_ease();
 		}
 		this._ease = value;
 		this._pushSlideTransition = null;
 		this._popSlideTransition = null;
 		this._crossfadeTransition = null;
+		return get_ease();
 	}
 
 	/**
@@ -219,7 +225,7 @@ class OldFadeNewSlideTransitionManager
 			return;
 		}
 
-		if(oldScreen)
+		if(oldScreen != null)
 		{
 			if(this._crossfadeTransition == null)
 			{

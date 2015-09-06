@@ -19,12 +19,18 @@ import feathers.layout.IVariableVirtualLayout;
 import feathers.layout.VerticalLayout;
 import feathers.skins.IStyleProvider;
 import feathers.utils.type.SafeCast.safe_cast;
+import openfl.errors.ArgumentError;
 
 import openfl.geom.Point;
 import openfl.ui.Keyboard;
 
 import starling.events.Event;
 import starling.events.KeyboardEvent;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SELECTED;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when the selected item changes.
@@ -71,7 +77,9 @@ import starling.events.KeyboardEvent;
  *
  * @eventType starling.events.Event.TRIGGERED
  */
+#if 0
 [Event(name="triggered",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when an item renderer is added to the list. When the layout is
@@ -342,6 +350,7 @@ class List extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
+	public var isChildFocusEnabled(get, set):Bool;
 	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
@@ -353,6 +362,7 @@ class List extends Scroller implements IFocusContainer
 	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
+		return get_isChildFocusEnabled();
 	}
 
 	/**
@@ -393,20 +403,21 @@ class List extends Scroller implements IFocusContainer
 		{
 			return get_layout();
 		}
-		if(!(this is SpinnerList) && value is ISpinnerLayout)
+		if(!Std.is(this, SpinnerList) && Std.is(value, ISpinnerLayout))
 		{
 			throw new ArgumentError("Layouts that implement the ISpinnerLayout interface should be used with the SpinnerList component.");
 		}
-		if(this._layout)
+		if(this._layout != null)
 		{
 			this._layout.removeEventListener(Event.SCROLL, layout_scrollHandler);
 		}
 		this._layout = value;
-		if(this._layout is IVariableVirtualLayout)
+		if(Std.is(this._layout, IVariableVirtualLayout))
 		{
 			this._layout.addEventListener(Event.SCROLL, layout_scrollHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 	
 	/**
@@ -500,7 +511,7 @@ class List extends Scroller implements IFocusContainer
 		//clear the selection for the same reason
 		this.selectedIndex = -1;
 
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_dataProvider();
 	}
 	
@@ -546,7 +557,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			this.selectedIndex = -1;
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		this.invalidate(INVALIDATION_FLAG_SELECTED);
 		return get_isSelectable();
 	}
 	
@@ -611,7 +622,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			this._selectedIndices.removeAll();
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		this.invalidate(INVALIDATION_FLAG_SELECTED);
 		return get_selectedIndex();
 	}
 
@@ -711,7 +722,7 @@ class List extends Scroller implements IFocusContainer
 			return get_allowMultipleSelection();
 		}
 		this._allowMultipleSelection = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		this.invalidate(INVALIDATION_FLAG_SELECTED);
 		return get_allowMultipleSelection();
 	}
 
@@ -784,7 +795,7 @@ class List extends Scroller implements IFocusContainer
 			}
 			this._selectedIndices.data = value;
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+		this.invalidate(INVALIDATION_FLAG_SELECTED);
 		return get_selectedIndices();
 	}
 
@@ -924,7 +935,7 @@ class List extends Scroller implements IFocusContainer
 		}
 		
 		this._itemRendererType = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_itemRendererType();
 	}
 	
@@ -976,7 +987,7 @@ class List extends Scroller implements IFocusContainer
 		}
 		
 		this._itemRendererFactory = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_itemRendererFactory();
 	}
 	
@@ -1017,7 +1028,7 @@ class List extends Scroller implements IFocusContainer
 			return get_typicalItem();
 		}
 		this._typicalItem = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_typicalItem();
 	}
 
@@ -1045,6 +1056,7 @@ class List extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customItemRendererStyleName(get, set):String;
 	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
@@ -1057,11 +1069,11 @@ class List extends Scroller implements IFocusContainer
 	{
 		if(this._customItemRendererStyleName == value)
 		{
-			return get_itemRendererName();
+			return get_customItemRendererStyleName();
 		}
 		this._customItemRendererStyleName = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_itemRendererName();
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_customItemRendererStyleName();
 	}
 
 	/**
@@ -1085,6 +1097,7 @@ class List extends Scroller implements IFocusContainer
 	public function set_itemRendererName(value:String):String
 	{
 		this.customItemRendererStyleName = value;
+		return get_itemRendererName();
 	}
 
 	/**
@@ -1175,7 +1188,7 @@ class List extends Scroller implements IFocusContainer
 		{
 			this._itemRendererProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_itemRendererProperties();
 	}
 
@@ -1196,6 +1209,7 @@ class List extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
+	public var keyScrollDuration(get, set):Float;
 	public function get_keyScrollDuration():Float
 	{
 		return this._keyScrollDuration;
@@ -1207,6 +1221,7 @@ class List extends Scroller implements IFocusContainer
 	public function set_keyScrollDuration(value:Float):Float
 	{
 		this._keyScrollDuration = value;
+		return get_keyScrollDuration();
 	}
 
 	/**
@@ -1417,12 +1432,12 @@ class List extends Scroller implements IFocusContainer
 		}
 		else if(event.keyCode == Keyboard.UP)
 		{
-			this.selectedIndex = Math.max(0, this._selectedIndex - 1);
+			this.selectedIndex = Std.int(Math.max(0, this._selectedIndex - 1));
 			changedSelection = true;
 		}
 		else if(event.keyCode == Keyboard.DOWN)
 		{
-			this.selectedIndex = Math.min(this._dataProvider.length - 1, this._selectedIndex + 1);
+			this.selectedIndex = Std.int(Math.min(this._dataProvider.length - 1, this._selectedIndex + 1));
 			changedSelection = true;
 		}
 		if(changedSelection)
@@ -1437,7 +1452,7 @@ class List extends Scroller implements IFocusContainer
 	 */
 	private function dataProvider_changeHandler(event:Event):Void
 	{
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
 
 	/**
@@ -1462,11 +1477,12 @@ class List extends Scroller implements IFocusContainer
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Array<Int> = new <Int>[];
+		var newIndices:Array<Int> = new Array<Int>();
 		var indexCount:Int = this._selectedIndices.length;
-		for(var i:Int = 0; i < indexCount; i++)
+		//for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i);
 			if(currentIndex >= index)
 			{
 				currentIndex++;
@@ -1490,11 +1506,12 @@ class List extends Scroller implements IFocusContainer
 			return;
 		}
 		var selectionChanged:Bool = false;
-		var newIndices:Array<Int> = new <Int>[];
+		var newIndices:Array<Int> = new Array<Int>();
 		var indexCount:Int = this._selectedIndices.length;
-		for(var i:Int = 0; i < indexCount; i++)
+		//for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			var currentIndex:Int = this._selectedIndices.getItemAt(i) as Int;
+			var currentIndex:Int = this._selectedIndices.getItemAt(i);
 			if(currentIndex == index)
 			{
 				selectionChanged = true;
@@ -1557,7 +1574,7 @@ class List extends Scroller implements IFocusContainer
 	 */
 	private function layout_scrollHandler(event:Event, scrollOffset:Point):Void
 	{
-		var layout:IVariableVirtualLayout = IVariableVirtualLayout(this._layout);
+		var layout:IVariableVirtualLayout = cast(this._layout, IVariableVirtualLayout);
 		if(!this.isScrolling || !layout.useVirtualLayout || !layout.hasVariableItemDimensions)
 		{
 			return;
@@ -1566,20 +1583,19 @@ class List extends Scroller implements IFocusContainer
 		var scrollOffsetX:Float = scrollOffset.x;
 		this._startHorizontalScrollPosition += scrollOffsetX;
 		this._horizontalScrollPosition += scrollOffsetX;
-		if(this._horizontalAutoScrollTween)
+		if(this._horizontalAutoScrollTween != null)
 		{
 			this._targetHorizontalScrollPosition += scrollOffsetX;
-			this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
+			this.throwTo(this._targetHorizontalScrollPosition, Math.NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
 		}
 
 		var scrollOffsetY:Float = scrollOffset.y;
 		this._startVerticalScrollPosition += scrollOffsetY;
 		this._verticalScrollPosition += scrollOffsetY;
-		if(this._verticalAutoScrollTween)
+		if(this._verticalAutoScrollTween != null)
 		{
 			this._targetVerticalScrollPosition += scrollOffsetY;
-			this.throwTo(NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
+			this.throwTo(Math.NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
 		}
 	}
-}
 }

@@ -5,14 +5,17 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.LayoutGroup;
 import feathers.core.PopUpManager;
 import feathers.events.FeathersEventType;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
+#if 0
 import feathers.utils.display.stageToStarling;
+#else
+import feathers.utils.display.FeathersDisplayUtil.stageToStarling;
+#end
 
 import flash.display.Stage;
 import flash.display.StageDisplayState;
@@ -52,7 +55,9 @@ import starling.textures.Texture;
  *
  * @eventType feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
  */
+#if 0
 [Event(name="dimensionsChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player changes to the full-screen display mode
@@ -80,7 +85,9 @@ import starling.textures.Texture;
  *
  * @eventType feathers.events.MediaPlayerEventType.DISPLAY_STATE_CHANGE
  */
+#if 0
 [Event(name="displayStateChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's sound transform changes.
@@ -104,7 +111,9 @@ import starling.textures.Texture;
  *
  * @eventType feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
  */
+#if 0
 [Event(name="soundTransformChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the video texture is ready to be rendered. Indicates that
@@ -132,7 +141,9 @@ import starling.textures.Texture;
  *
  * @eventType starling.events.Event.READY
  */
+#if 0
 [Event(name="ready",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the <code>flash.net.NetStream</code> object dispatches
@@ -158,7 +169,9 @@ import starling.textures.Texture;
  *
  * @eventType starling.events.Event.IO_ERROR
  */
+#if 0
 [Event(name="ioError",type="starling.events.Event")]
+#end
 
 /**
  * Controls playback of video with a <code>flash.net.NetStream</code> object.
@@ -222,7 +235,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * Constructor.
 	 */
-	public function VideoPlayer()
+	public function new()
 	{
 		super();
 	}
@@ -261,9 +274,10 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/SoundTransform.html flash.media.SoundTransform
 	 * @see #event:soundTransformChange feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
 	 */
+	public var soundTransform(get, set):SoundTransform;
 	public function get_soundTransform():SoundTransform
 	{
-		if(!this._soundTransform)
+		if(this._soundTransform == null)
 		{
 			this._soundTransform = new SoundTransform();
 		}
@@ -276,11 +290,12 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	public function set_soundTransform(value:SoundTransform):SoundTransform
 	{
 		this._soundTransform = value;
-		if(this._netStream)
+		if(this._netStream != null)
 		{
 			this._netStream.soundTransform = this._soundTransform;
 		}
 		this.dispatchEventWith(MediaPlayerEventType.SOUND_TRANSFORM_CHANGE);
+		return get_soundTransform();
 	}
 
 	/**
@@ -321,6 +336,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #event:ready starling.events.Event.READY
 	 * @see feathers.controls.ImageLoader
 	 */
+	public var texture(get, never):Texture;
 	public function get_texture():Texture
 	{
 		//there can be runtime errors if the texture is rendered before it
@@ -337,9 +353,10 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
+	public var nativeWidth(get, never):Float;
 	public function get_nativeWidth():Float
 	{
-		if(this._texture)
+		if(this._texture != null)
 		{
 			return this._texture.nativeWidth;
 		}
@@ -351,9 +368,10 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
+	public var nativeHeight(get, never):Float;
 	public function get_nativeHeight():Float
 	{
-		if(this._texture)
+		if(this._texture != null)
 		{
 			return this._texture.nativeHeight;
 		}
@@ -375,6 +393,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * 
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html flash.net.NetStream
 	 */
+	public var netStream(get, never):NetStream;
 	public function get_netStream():NetStream
 	{
 		return this._netStream;
@@ -397,6 +416,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * 
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#play() Full description of flash.net.NetStream.play() in Adobe's Flash Platform API Reference
 	 */
+	public var videoSource(get, set):String;
 	public function get_videoSource():String
 	{
 		return this._videoSource;
@@ -409,18 +429,18 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	{
 		if(this._videoSource == value)
 		{
-			return;
+			return get_videoSource();
 		}
 		if(this._isPlaying)
 		{
 			this.stop();
 		}
-		if(this._texture)
+		if(this._texture != null)
 		{
 			this._texture.dispose();
 			this._texture = null;
 		}
-		if(!value)
+		if(value == null)
 		{
 			//if we're not playing anything, we shouldn't keep the NetStream
 			//around in memory. if we're switching to something else, then
@@ -444,6 +464,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 		{
 			this.play();
 		}
+		return get_videoSource();
 	}
 
 	/**
@@ -462,6 +483,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @see #videoSource
 	 */
+	public var autoPlay(get, set):Bool;
 	public function get_autoPlay():Bool
 	{
 		return this._autoPlay;
@@ -473,6 +495,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	public function set_autoPlay(value:Bool):Bool
 	{
 		this._autoPlay = value;
+		return get_autoPlay();
 	}
 
 	/**
@@ -490,6 +513,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see #toggleFullScreen()
 	 * @see #event:displayStateChange feathers.events.MediaPlayerEventType.DISPLAY_STATE_CHANGE
 	 */
+	public var isFullScreen(get, never):Bool;
 	public function get_isFullScreen():Bool
 	{
 		return this._isFullScreen;
@@ -498,9 +522,11 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private var _normalDisplayState:String = StageDisplayState.NORMAL;
+	private var _normalDisplayState:StageDisplayState = StageDisplayState.NORMAL;
 
+	#if 0
 	[Inspectable(type="String",enumeration="fullScreenInteractive,fullScreen,normal")]
+	#end
 	/**
 	 * When the video player is displayed normally (in other words, when it
 	 * isn't full-screen), determines the value of the native stage's
@@ -528,7 +554,8 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/StageDisplayState.html#NORMAL StageDisplayState.NORMAL
 	 * @see #fullScreenDisplayState
 	 */
-	public function get_normalDisplayState():String
+	public var normalDisplayState(get, set):StageDisplayState;
+	public function get_normalDisplayState():StageDisplayState
 	{
 		return this._normalDisplayState;
 	}
@@ -536,27 +563,30 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set_normalDisplayState(value:String):String
+	public function set_normalDisplayState(value:StageDisplayState):StageDisplayState
 	{
 		if(this._normalDisplayState == value)
 		{
-			return;
+			return get_normalDisplayState();
 		}
 		this._normalDisplayState = value;
-		if(!this._isFullScreen && this.stage)
+		if(!this._isFullScreen && this.stage != null)
 		{
 			var starling:Starling = stageToStarling(this.stage);
 			var nativeStage:Stage = starling.nativeStage;
 			nativeStage.displayState = this._normalDisplayState;
 		}
+		return get_normalDisplayState();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _fullScreenDisplayState:String = StageDisplayState.FULL_SCREEN_INTERACTIVE;
+	private var _fullScreenDisplayState:StageDisplayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 
+	#if 0
 	[Inspectable(type="String",enumeration="fullScreenInteractive,fullScreen,normal")]
+	#end
 	/**
 	 * When the video player is displayed full-screen, determines the value
 	 * of the native stage's <code>displayState</code> property.
@@ -580,7 +610,8 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/StageDisplayState.html#NORMAL StageDisplayState.NORMAL
 	 * @see #normalDisplayState
 	 */
-	public function get_fullScreenDisplayState():String
+	public var fullScreenDisplayState(get, set):StageDisplayState;
+	public function get_fullScreenDisplayState():StageDisplayState
 	{
 		return this._fullScreenDisplayState;
 	}
@@ -588,19 +619,20 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	public function set_fullScreenDisplayState(value:String):String
+	public function set_fullScreenDisplayState(value:StageDisplayState):StageDisplayState
 	{
 		if(this._fullScreenDisplayState == value)
 		{
-			return;
+			return get_fullScreenDisplayState();
 		}
 		this._fullScreenDisplayState = value;
-		if(this._isFullScreen && this.stage)
+		if(this._isFullScreen && this.stage != null)
 		{
 			var starling:Starling = stageToStarling(this.stage);
 			var nativeStage:Stage = starling.nativeStage;
 			nativeStage.displayState = this._fullScreenDisplayState;
 		}
+		return get_fullScreenDisplayState();
 	}
 
 	/**
@@ -622,6 +654,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 *
 	 * @default true
 	 */
+	public var hideRootWhenFullScreen(get, set):Bool;
 	public function get_hideRootWhenFullScreen():Bool
 	{
 		return this._hideRootWhenFullScreen;
@@ -633,6 +666,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	public function set_hideRootWhenFullScreen(value:Bool):Bool
 	{
 		this._hideRootWhenFullScreen = value;
+		return get_hideRootWhenFullScreen();
 	}
 
 	/**
@@ -652,7 +686,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	override public function dispose():Void
 	{
-		if(this._texture)
+		if(this._texture != null)
 		{
 			this._texture.dispose();
 			this._texture = null;
@@ -680,22 +714,25 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	public function toggleFullScreen():Void
 	{
-		if(!this.stage)
+		if(this.stage == null)
 		{
-			throw new IllegalOperationError("Cannot enter full screen mode if the video player does not have access to the Starling stage.")
+			throw new IllegalOperationError("Cannot enter full screen mode if the video player does not have access to the Starling stage.");
 		}
 		var starling:Starling = stageToStarling(this.stage);
 		var nativeStage:Stage = starling.nativeStage;
 		var oldIgnoreDisplayListEvents:Bool = this._ignoreDisplayListEvents;
 		this._ignoreDisplayListEvents = true;
+		var childCount:Int;
+		var child:DisplayObject;
 		if(this._isFullScreen)
 		{
 			this.root.visible = true;
 			PopUpManager.removePopUp(this._fullScreenContainer, false);
-			var childCount:Int = this._fullScreenContainer.numChildren;
-			for(var i:Int = 0; i < childCount; i++)
+			childCount = this._fullScreenContainer.numChildren;
+			//for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
-				var child:DisplayObject = this._fullScreenContainer.getChildAt(0);
+				child = this._fullScreenContainer.getChildAt(0);
 				this.addChild(child);
 			}
 			nativeStage.displayState = this._normalDisplayState;
@@ -707,14 +744,15 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 				this.root.visible = false;
 			}
 			nativeStage.displayState = this._fullScreenDisplayState;
-			if(!this._fullScreenContainer)
+			if(this._fullScreenContainer == null)
 			{
 				this._fullScreenContainer = new LayoutGroup();
 				this._fullScreenContainer.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
 			}
 			this._fullScreenContainer.layout = this._layout;
 			childCount = this.numChildren;
-			for(i = 0; i < childCount; i++)
+			//for(i = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				child = this.getChildAt(0);
 				this._fullScreenContainer.addChild(child);
@@ -731,11 +769,11 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	override private function playMedia():Void
 	{
-		if(!this._videoSource)
+		if(this._videoSource == null)
 		{
 			throw new IllegalOperationError(NO_VIDEO_SOURCE_PLAY_ERROR);
 		}
-		if(!this._netStream)
+		if(this._netStream == null)
 		{
 			this._netConnection = new NetConnection();
 			this._netConnection.connect(null);
@@ -744,12 +782,12 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 			this._netStream.addEventListener(NetStatusEvent.NET_STATUS, netStream_netStatusHandler);
 			this._netStream.addEventListener(IOErrorEvent.IO_ERROR, netStream_ioErrorHandler);
 		}
-		if(!this._soundTransform)
+		if(this._soundTransform == null)
 		{
 			this._soundTransform = new SoundTransform();
 		}
 		this._netStream.soundTransform = this._soundTransform;
-		if(this._texture)
+		if(this._texture != null)
 		{
 			this.addEventListener(Event.ENTER_FRAME, videoPlayer_enterFrameHandler);
 			this._netStream.resume();
@@ -772,7 +810,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	override private function pauseMedia():Void
 	{
-		if(!this._videoSource)
+		if(this._videoSource == null)
 		{
 			throw new IllegalOperationError(NO_VIDEO_SOURCE_PAUSE_ERROR);
 		}
@@ -785,7 +823,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	override private function seekMedia(seconds:Float):Void
 	{
-		if(!this._videoSource)
+		if(this._videoSource == null)
 		{
 			throw new IllegalOperationError(NO_VIDEO_SOURCE_SEEK_ERROR);
 		}
@@ -798,13 +836,15 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	 */
 	private function disposeNetStream():Void
 	{
-		if(!this._netStream)
+		if(this._netStream == null)
 		{
 			return;
 		}
 		this._netStream.removeEventListener(NetStatusEvent.NET_STATUS, netStream_netStatusHandler);
 		this._netStream.removeEventListener(IOErrorEvent.IO_ERROR, netStream_ioErrorHandler);
+		#if flash
 		this._netStream.close();
+		#end
 		this._netStream = null;
 		this._netConnection = null;
 	}
@@ -861,7 +901,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_onMetaData(metadata:Object):Void
+	private function netStream_onMetaData(metadata:Dynamic):Void
 	{
 		this.dispatchEventWith(MediaPlayerEventType.DIMENSIONS_CHANGE);
 		this._totalTime = metadata.duration;
@@ -871,9 +911,9 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 	/**
 	 * @private
 	 */
-	private function netStream_onPlayStatus(data:Object):Void
+	private function netStream_onPlayStatus(data:Dynamic):Void
 	{
-		var code:String = data.code as String;
+		var code:String = cast(data.code, String);
 		switch(code)
 		{
 			case PLAY_STATUS_CODE_NETSTREAM_PLAY_COMPLETE:
@@ -884,7 +924,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 					this.stop();
 					this.dispatchEventWith(Event.COMPLETE);
 				}
-				break;
+				//break;
 			}
 		}
 	}
@@ -908,7 +948,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 			case NET_STATUS_CODE_NETSTREAM_PLAY_STREAMNOTFOUND:
 			{
 				this.dispatchEventWith(FeathersEventType.ERROR, false, code);
-				break;
+				//break;
 			}
 			case NET_STATUS_CODE_NETSTREAM_PLAY_STOP:
 			{
@@ -919,7 +959,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 				//0 when the Event.ENTER_FRAME listener is called one last
 				//time.
 				this.removeEventListener(Event.ENTER_FRAME, videoPlayer_enterFrameHandler);
-				break;
+				//break;
 			}
 			case NET_STATUS_CODE_NETSTREAM_SEEK_NOTIFY:
 			{
@@ -932,7 +972,7 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 				}
 				this._currentTime = this._netStream.time;
 				this.dispatchEventWith(MediaPlayerEventType.CURRENT_TIME_CHANGE);
-				break;
+				//break;
 			}
 		}
 	}
@@ -961,30 +1001,29 @@ class VideoPlayer extends BaseTimedMediaPlayer implements IVideoPlayer
 		super.mediaPlayer_removedHandler(event);
 	}
 }
-}
 
-dynamic class VideoPlayerNetStreamClient
+/*dynamic*/ class VideoPlayerNetStreamClient
 {
-public function VideoPlayerNetStreamClient(onMetaDataCallback:Function, onPlayStatusCallback:Function)
-{
-	this.onMetaDataCallback = onMetaDataCallback;
-	this.onPlayStatusCallback = onPlayStatusCallback;
-}
-
-public var onMetaDataCallback:Function;
-
-public function onMetaData(metadata:Object):Void
-{
-	this.onMetaDataCallback(metadata);
-}
-
-public var onPlayStatusCallback:Function;
-
-public function onPlayStatus(data:Object):Void
-{
-	if(this.onPlayStatusCallback != null)
+	public function new(onMetaDataCallback:Dynamic->Void, onPlayStatusCallback:Dynamic->Void)
 	{
-		this.onPlayStatusCallback(data);
+		this.onMetaDataCallback = onMetaDataCallback;
+		this.onPlayStatusCallback = onPlayStatusCallback;
 	}
-}
+
+	public var onMetaDataCallback:Dynamic->Void;
+
+	public function onMetaData(metadata:Dynamic):Void
+	{
+		this.onMetaDataCallback(metadata);
+	}
+
+	public var onPlayStatusCallback:Dynamic->Void;
+
+	public function onPlayStatus(data:Dynamic):Void
+	{
+		if(this.onPlayStatusCallback != null)
+		{
+			this.onPlayStatusCallback(data);
+		}
+	}
 }

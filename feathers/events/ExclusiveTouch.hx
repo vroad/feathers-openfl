@@ -17,13 +17,19 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+#if flash
+import haxe.ds.WeakMap;
+#else
+typedef WeakMap<K, V> = Map<K, V>;
+#end
+
 /**
  * Dispatched when a touch ID is claimed or a claim is removed. The
  * <code>data</code> property is the touch ID.
  *
  * @eventType starling.events.Event.CHANGE
  */
-///[Event(name="change",type="starling.events.Event")]
+//[Event(name="change",type="starling.events.Event")]
 
 /**
  * Allows a component to claim exclusive access to a touch to avoid
@@ -43,11 +49,7 @@ class ExclusiveTouch extends EventDispatcher
 	/**
 	 * @private
 	 */
-	#if flash
 	private static var stageToObject:WeakMap<Stage, ExclusiveTouch> = new WeakMap();
-	#else
-	private static var stageToObject:Map<Stage, ExclusiveTouch> = new Map();
-	#end
 
 	/**
 	 * Retrieves the exclusive touch manager for the specified stage.
@@ -58,13 +60,13 @@ class ExclusiveTouch extends EventDispatcher
 		{
 			throw new ArgumentError("Stage cannot be null.");
 		}
-		var object:ExclusiveTouch = stageToObject[stage];
+		var object:ExclusiveTouch = stageToObject.get(stage);
 		if(object != null)
 		{
 			return object;
 		}
 		object = new ExclusiveTouch(stage);
-		stageToObject[stage] = object;
+		stageToObject.set(stage, object);
 		return object;
 	}
 

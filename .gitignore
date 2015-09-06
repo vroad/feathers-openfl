@@ -19,3 +19,5 @@ feathers.js
 feathers.js.map
 feathers-export.hxml
 imports.js
+examples/TransitionsExplorer/bin/
+examples/Video/bin/

@@ -6,8 +6,14 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
+#if flash
 import haxe.ds.WeakMap;
+#else
+typedef WeakMap<K, V> = Map<K, V>;
+#end
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 /**
  * Maps a component's states to values, perhaps for one of the component's
@@ -26,11 +32,7 @@ class StateValueSelector<V>
 	 * @private
 	 * Stores the values for each state.
 	 */
-	#if flash
 	private var stateToValue:WeakMap<String, V> = new WeakMap();
-	#else
-	private var stateToValue:Map<String, V> = new Map();
-	#end
 
 	/**
 	 * If there is no value for the specified state, a default value can
@@ -44,7 +46,7 @@ class StateValueSelector<V>
 	 */
 	public function setValueForState(value:V, state:String):Void
 	{
-		this.stateToValue[state] = value;
+		this.stateToValue.set(state, value);
 	}
 
 	/**
@@ -52,7 +54,7 @@ class StateValueSelector<V>
 	 */
 	public function clearValueForState(state:String):V
 	{
-		var value:Dynamic = this.stateToValue[state];
+		var value:Dynamic = this.stateToValue.get(state);
 		this.stateToValue.remove(state);
 		return value;
 	}
@@ -62,7 +64,7 @@ class StateValueSelector<V>
 	 */
 	public function getValueForState(state:String):V
 	{
-		return this.stateToValue[state];
+		return this.stateToValue.get(state);
 	}
 
 	/**
@@ -75,7 +77,7 @@ class StateValueSelector<V>
 	 */
 	public function updateValue(target:Dynamic, state:String, oldValue:V = null):V
 	{
-		var value:Dynamic = this.stateToValue[state];
+		var value:Dynamic = this.stateToValue.get(state);
 		if(value == null)
 		{
 			value = this.defaultValue;

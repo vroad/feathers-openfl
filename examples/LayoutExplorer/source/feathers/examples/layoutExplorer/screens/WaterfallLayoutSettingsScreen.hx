@@ -1,5 +1,4 @@
-package feathers.examples.layoutExplorer.screens
-{
+package feathers.examples.layoutExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.List;
@@ -15,11 +14,13 @@ import feathers.layout.WaterfallLayout;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 class WaterfallLayoutSettingsScreen extends PanelScreen
 {
-	public function WaterfallLayoutSettingsScreen()
+	public function new()
 	{
 		super();
 	}
@@ -78,7 +79,7 @@ class WaterfallLayoutSettingsScreen extends PanelScreen
 
 		this._horizontalAlignPicker = new PickerList();
 		this._horizontalAlignPicker.typicalItem = WaterfallLayout.HORIZONTAL_ALIGN_CENTER;
-		this._horizontalAlignPicker.dataProvider = new ListCollection(new <String>
+		this._horizontalAlignPicker.dataProvider = new ListCollection(
 		[
 			WaterfallLayout.HORIZONTAL_ALIGN_LEFT,
 			WaterfallLayout.HORIZONTAL_ALIGN_CENTER,
@@ -158,16 +159,16 @@ class WaterfallLayoutSettingsScreen extends PanelScreen
 		var doneButton:Button = new Button();
 		doneButton.label = "Done";
 		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			doneButton
 		];
 		return header;
 	}
 
-	private function disposeItemAccessory(item:Object):Void
+	private function disposeItemAccessory(item:Dynamic):Void
 	{
-		DisplayObject(item.accessory).dispose();
+		cast(item.accessory, DisplayObject).dispose();
 	}
 
 	private function onBackButton():Void
@@ -182,17 +183,17 @@ class WaterfallLayoutSettingsScreen extends PanelScreen
 
 	private function itemCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.itemCount = this._itemCountStepper.value;
+		this.settings.itemCount = Std.int(this._itemCountStepper.value);
 	}
 
 	private function requestedColumnCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.requestedColumnCount = this._requestedColumnCountStepper.value;
+		this.settings.requestedColumnCount = Std.int(this._requestedColumnCountStepper.value);
 	}
 
 	private function horizontalAlignPicker_changeHandler(event:Event):Void
 	{
-		this.settings.horizontalAlign = this._horizontalAlignPicker.selectedItem as String;
+		this.settings.horizontalAlign = cast(this._horizontalAlignPicker.selectedItem, String);
 	}
 
 	private function horizontalGapStepper_changeHandler(event:Event):Void
@@ -224,5 +225,4 @@ class WaterfallLayoutSettingsScreen extends PanelScreen
 	{
 		this.settings.paddingLeft = this._paddingLeftStepper.value;
 	}
-}
 }

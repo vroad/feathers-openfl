@@ -271,6 +271,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #buttonStyleName
 	 */
+	public var buttonName(get, set):String;
 	private function get_buttonName():String
 	{
 		return this.buttonStyleName;
@@ -282,6 +283,7 @@ class ButtonGroup extends FeathersControl
 	private function set_buttonName(value:String):String
 	{
 		this.buttonStyleName = value;
+		return get_buttonName();
 	}
 
 	/**
@@ -305,6 +307,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #firstButtonStyleName
 	 */
+	private var firstButtonName(get, set):String;
 	private function get_firstButtonName():String
 	{
 		return this.firstButtonStyleName;
@@ -316,6 +319,7 @@ class ButtonGroup extends FeathersControl
 	private function set_firstButtonName(value:String):String
 	{
 		this.firstButtonStyleName = value;
+		return get_firstButtonName();
 	}
 
 	/**
@@ -339,6 +343,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #lastButtonStyleName
 	 */
+	private var lastButtonName(get, set):String;
 	private function get_lastButtonName():String
 	{
 		return this.lastButtonStyleName;
@@ -350,6 +355,7 @@ class ButtonGroup extends FeathersControl
 	private function set_lastButtonName(value:String):String
 	{
 		this.lastButtonStyleName = value;
+		return get_lastButtonName();
 	}
 
 	/**
@@ -1204,6 +1210,7 @@ class ButtonGroup extends FeathersControl
 	 * @see #DEFAULT_CHILD_STYLE_NAME_BUTTON
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customButtonStyleName(get, set):String;
 	public function get_customButtonStyleName():String
 	{
 		return this._customButtonStyleName;
@@ -1216,11 +1223,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customButtonStyleName == value)
 		{
-			return get_customButtonName();
+			return get_customButtonStyleName();
 		}
 		this._customButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
-		return get_customButtonName();
+		return get_customButtonStyleName();
 	}
 
 	/**
@@ -1233,6 +1240,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customButtonStyleName
 	 */
+	public var customButtonName(get, set):String;
 	public function get_customButtonName():String
 	{
 		return this.customButtonStyleName;
@@ -1244,6 +1252,7 @@ class ButtonGroup extends FeathersControl
 	public function set_customButtonName(value:String):String
 	{
 		this.customButtonStyleName = value;
+		return get_customButtonName();
 	}
 
 	/**
@@ -1271,6 +1280,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customFirstButtonStyleName(get, set):String;
 	public function get_customFirstButtonStyleName():String
 	{
 		return this._customFirstButtonStyleName;
@@ -1283,11 +1293,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customFirstButtonStyleName == value)
 		{
-			return get_customFirstButtonName();
+			return get_customFirstButtonStyleName();
 		}
 		this._customFirstButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
-		return get_customFirstButtonName();
+		return get_customFirstButtonStyleName();
 	}
 
 	/**
@@ -1300,6 +1310,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customFirstButtonStyleName
 	 */
+	public var customFirstButtonName(get, set):String;
 	public function get_customFirstButtonName():String
 	{
 		return this.customFirstButtonStyleName;
@@ -1311,6 +1322,7 @@ class ButtonGroup extends FeathersControl
 	public function set_customFirstButtonName(value:String):String
 	{
 		this.customFirstButtonStyleName = value;
+		return get_customFirstButtonName();
 	}
 
 	/**
@@ -1338,6 +1350,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customLastButtonStyleName(get, set):String;
 	public function get_customLastButtonStyleName():String
 	{
 		return this._customLastButtonStyleName;
@@ -1350,11 +1363,11 @@ class ButtonGroup extends FeathersControl
 	{
 		if(this._customLastButtonStyleName == value)
 		{
-			return get_customLastButtonName();
+			return get_customLastButtonStyleName();
 		}
 		this._customLastButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
-		return get_customLastButtonName();
+		return get_customLastButtonStyleName();
 	}
 
 	/**
@@ -1367,6 +1380,7 @@ class ButtonGroup extends FeathersControl
 	 *
 	 * @see #customLastButtonStyleName
 	 */
+	public var customLastButtonName(get, set):String;
 	public function get_customLastButtonName():String
 	{
 		return this.customLastButtonStyleName;
@@ -1378,6 +1392,7 @@ class ButtonGroup extends FeathersControl
 	public function set_customLastButtonName(value:String):String
 	{
 		this.customLastButtonStyleName = value;
+		return get_customLastButtonName();
 	}
 
 	/**
@@ -1747,13 +1762,13 @@ class ButtonGroup extends FeathersControl
 		else
 		{
 			isNewInstance = true;
-			var factory:Function = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
-			button = Button(factory());
-			if(this._customFirstButtonStyleName)
+			var factory:Void->Button = this._firstButtonFactory != null ? this._firstButtonFactory : this._buttonFactory;
+			button = factory();
+			if(this._customFirstButtonStyleName != null)
 			{
 				button.styleNameList.add(this._customFirstButtonStyleName);
 			}
-			else if(this._customButtonStyleName)
+			else if(this._customButtonStyleName != null)
 			{
 				button.styleNameList.add(this._customButtonStyleName);
 			}
@@ -1789,13 +1804,13 @@ class ButtonGroup extends FeathersControl
 		else
 		{
 			isNewInstance = true;
-			var factory:Function = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
-			button = Button(factory());
-			if(this._customLastButtonStyleName)
+			var factory:Void->Button = this._lastButtonFactory != null ? this._lastButtonFactory : this._buttonFactory;
+			button = factory();
+			if(this._customLastButtonStyleName != null)
 			{
 				button.styleNameList.add(this._customLastButtonStyleName);
 			}
-			else if(this._customButtonStyleName)
+			else if(this._customButtonStyleName != null)
 			{
 				button.styleNameList.add(this._customButtonStyleName);
 			}
@@ -1822,12 +1837,12 @@ class ButtonGroup extends FeathersControl
 	private function createButton(item:Dynamic):Button
 	{
 		var isNewInstance:Bool = false;
-		var button:Button;
+		var button:Button = null;
 		if(this.inactiveButtons.length == 0)
 		{
 			isNewInstance = true;
-			var button:Button = this._buttonFactory();
-			if(this._customButtonStyleName)
+			button = this._buttonFactory();
+			if(this._customButtonStyleName != null)
 			{
 				button.styleNameList.add(this._customButtonStyleName);
 			}
@@ -1886,7 +1901,7 @@ class ButtonGroup extends FeathersControl
 		}
 		this.setSizeInternal(this._layoutResult.contentWidth, this._layoutResult.contentHeight, false);
 		//final validation to avoid juggler next frame issues
-		for each(var button:Button in this.activeButtons)
+		for (button in this.activeButtons)
 		{
 			button.validate();
 		}

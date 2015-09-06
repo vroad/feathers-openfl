@@ -8,14 +8,18 @@ import flash.display.Loader;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
+#if 0
 import flash.display.StageOrientation;
+#end
 import flash.display.StageScaleMode;
 import flash.display3D.Context3DProfile;
 import flash.display3D.Context3DRenderMode;
 import flash.events.Event;
 import flash.filesystem.File;
+#if 0
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
+#end
 import flash.geom.Rectangle;
 import flash.system.Capabilities;
 import flash.utils.ByteArray;
@@ -34,14 +38,18 @@ class TrainTimes extends Sprite
 			this.stage.align = StageAlign.TOP_LEFT;
 		}
 		this.mouseEnabled = this.mouseChildren = false;
+		#if 0
 		this.showLaunchImage();
 		this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
+		#end
+		loaderInfo_completeHandler(new Event(Event.COMPLETE));
 	}
 
 	private var _starling:Starling;
 	private var _launchImage:Loader;
 	private var _savedAutoOrients:Bool;
 
+	#if 0
 	private function showLaunchImage():Void
 	{
 		var filePath:String;
@@ -91,7 +99,7 @@ class TrainTimes extends Sprite
 			}
 		}
 
-		if(filePath)
+		if(filePath != null)
 		{
 			var file:File = File.applicationDirectory.resolvePath(filePath);
 			if(file.exists)
@@ -113,6 +121,7 @@ class TrainTimes extends Sprite
 			}
 		}
 	}
+	#end
 
 	private function loaderInfo_completeHandler(event:Event):Void
 	{
@@ -120,7 +129,7 @@ class TrainTimes extends Sprite
 		this._starling = new Starling(Main, this.stage, null, null, Context3DRenderMode.AUTO, Context3DProfile.BASELINE);
 		this._starling.supportHighResolutions = true;
 		this._starling.start();
-		if(this._launchImage)
+		if(this._launchImage != null)
 		{
 			this._starling.addEventListener("rootCreated", starling_rootCreatedHandler);
 		}
@@ -129,14 +138,16 @@ class TrainTimes extends Sprite
 		this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
 	}
 
-	private function starling_rootCreatedHandler(event:Object):Void
+	private function starling_rootCreatedHandler(event:Dynamic):Void
 	{
-		if(this._launchImage)
+		if(this._launchImage != null)
 		{
 			this.removeChild(this._launchImage);
 			this._launchImage.unloadAndStop(true);
 			this._launchImage = null;
+			#if flash
 			this.stage.autoOrients = this._savedAutoOrients;
+			#end
 		}
 	}
 

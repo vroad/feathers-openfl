@@ -38,6 +38,9 @@ import starling.events.TouchPhase;
 import starling.text.BitmapChar;
 import starling.text.BitmapFont;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SELECTED;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+
 /**
  * Dispatched when the text property changes.
  *
@@ -132,7 +135,7 @@ import starling.text.BitmapFont;
  * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see http://doc.starling-framework.org/core/starling/text/BitmapFont.html starling.text.BitmapFont
  */
-class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor, INativeFocusOwner
+class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -588,6 +591,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
@@ -608,14 +612,14 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			return;
 		}
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
-			if(!this._nativeFocus.parent)
+			if(this._nativeFocus.parent == null)
 			{
 				Starling.current.nativeStage.addChild(this._nativeFocus);
 			}
 			var newIndex:Int = -1;
-			if(position)
+			if(position != null)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
 			}
@@ -698,7 +702,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	override public function dispose():Void
 	{
-		if(this._nativeFocus && this._nativeFocus.parent)
+		if(this._nativeFocus != null && this._nativeFocus.parent != null)
 		{
 			this._nativeFocus.parent.removeChild(this._nativeFocus);
 		}
@@ -725,7 +729,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	 */
 	override private function initialize():Void
 	{
-		if(!this._nativeFocus)
+		if(this._nativeFocus == null)
 		{
 			this._nativeFocus = new Sprite();
 			//let's ensure that this can only get focus through code
@@ -736,12 +740,14 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			//adds support for mobile
 			this._nativeFocus.needsSoftKeyboard = true;
 		}
+		#if flash
 		this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeFocus_cutHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeFocus_copyHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeFocus_pasteHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.SELECT_ALL, nativeFocus_selectAllHandler, false, 0, true);
+		#end
 		this._nativeFocus.addEventListener(TextEvent.TEXT_INPUT, nativeFocus_textInputHandler, false, 0, true);
-		if(!this._cursorSkin)
+		if(this._cursorSkin == null)
 		{
 			this.cursorSkin = new Quad(1, 1, 0x000000);
 		}
@@ -998,7 +1004,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfIndex(index);
-		cursorX = Std.Int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Std.int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 
@@ -1126,7 +1132,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			}
 			target = target.parent;
 		}
-		while(target)
+		while(target != null);
 	}
 
 	/**
@@ -1399,7 +1405,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 			return;
 		}
 		var charCode:Int = text.charCodeAt(0);
-		if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
+		if(this._restrict == null || this._restrict.isCharacterAllowed(charCode))
 		{
 			this.replaceSelectedText(text);
 		}
@@ -1427,7 +1433,9 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			return;
 		}
+		#if flash
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+		#end
 		if(!this._isEditable)
 		{
 			return;
@@ -1444,7 +1452,9 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			return;
 		}
+		#if flash
 		Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, this.getSelectedText());
+		#end
 	}
 
 	/**
@@ -1457,13 +1467,13 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 		{
 			return;
 		}
-		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
+		var pastedText:String = cast(Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT), String);
 		if(pastedText == null)
 		{
 			//the clipboard doesn't contain any text to paste
 			return;
 		}
-		if(this._restrict)
+		if(this._restrict != null)
 		{
 			pastedText = this._restrict.filterText(pastedText);
 		}

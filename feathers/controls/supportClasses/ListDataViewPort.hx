@@ -40,6 +40,8 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+
 /**
  * @private
  * Used internally by List. Not meant to be used on its own.
@@ -218,11 +220,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _typicalItemIsInDataProvider:Bool = false;
 	private var _typicalItemRenderer:IListItemRenderer;
-	private var _unrenderedData:Array = [];
-	private var _layoutItems:Array<DisplayObject> = new <DisplayObject>[];
-	private var _inactiveRenderers:Array<IListItemRenderer> = new <IListItemRenderer>[];
-	private var _activeRenderers:Array<IListItemRenderer> = new <IListItemRenderer>[];
-	private var _rendererMap:Dictionary = new Dictionary(true);
+	private var _unrenderedData:Array<Dynamic> = [];
+	private var _layoutItems:Array<DisplayObject> = new Array();
+	private var _inactiveRenderers:Array<IListItemRenderer> = new Array();
+	private var _activeRenderers:Array<IListItemRenderer> = new Array();
+	private var _rendererMap:UnionWeakMap<IListItemRenderer> = new feathers.utils.type.UnionWeakMap();
 	private var _minimumItemCount:Int;
 
 	private var _layoutIndexOffset:Int = 0;
@@ -341,6 +343,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	private var _customItemRendererStyleName:String;
 
+	public var customItemRendererStyleName(get, set):String;
 	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
@@ -350,11 +353,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 	{
 		if(this._customItemRendererStyleName == value)
 		{
-			return this._itemRendererName;
+			return get_customItemRendererStyleName();
 		}
 		this._customItemRendererStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_ITEM_RENDERER_FACTORY);
-		return this._itemRendererName;
+		return get_customItemRendererStyleName();
 	}
 
 	private var _typicalItem:Dynamic = null;
@@ -585,7 +588,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 
 	public function getNearestScrollPositionForIndex(index:Int, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -711,7 +714,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		var typicalItemIndex:Int = 0;
 		var newTypicalItemIsInDataProvider:Bool = false;
-		var typicalItem:Object = this._typicalItem;
+		var typicalItem:Dynamic = this._typicalItem;
 		if(typicalItem != null)
 		{
 			if(this._dataProvider != null)
@@ -733,16 +736,17 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			}
 		}
 
+		var typicalRenderer:IListItemRenderer = null;
 		if(typicalItem != null)
 		{
-			var typicalRenderer:IListItemRenderer = IListItemRenderer(this._rendererMap[typicalItem]);
-			if(typicalRenderer)
+			typicalRenderer = this._rendererMap.get(typicalItem);
+			if(typicalRenderer != null)
 			{
 				//the index may have changed if items were added, removed or
 				//reordered in the data provider
 				typicalRenderer.index = typicalItemIndex;
 			}
-			if(!typicalRenderer && this._typicalItemRenderer)
+			if(typicalRenderer == null && this._typicalItemRenderer != null)
 			{
 				//we can reuse the typical item renderer if the old typical item
 				//wasn't in the data provider.
@@ -791,7 +795,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		virtualLayout.typicalItem = safe_cast(typicalRenderer, DisplayObject);
 		this._typicalItemRenderer = typicalRenderer;
 		this._typicalItemIsInDataProvider = newTypicalItemIsInDataProvider;
-		if(this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		if(this._typicalItemRenderer != null && !this._typicalItemIsInDataProvider)
 		{
 			//we need to know if this item renderer resizes to adjust the
 			//layout because the layout may use this item renderer to resize
@@ -928,7 +932,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 
 		var unrenderedItemCount:Int = useVirtualLayout ? HELPER_VECTOR.length : itemCount;
-		if(useVirtualLayout && this._typicalItemIsInDataProvider && this._typicalItemRenderer &&
+		if(useVirtualLayout && this._typicalItemIsInDataProvider && this._typicalItemRenderer != null &&
 			HELPER_VECTOR.indexOf(this._typicalItemRenderer.index) >= 0)
 		{
 			//add an extra item renderer if the typical item is from the
@@ -940,8 +944,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			this._minimumItemCount = unrenderedItemCount;
 		}
-		var canUseBeforeAndAfter:Bool = this._layout is ITrimmedVirtualLayout && useVirtualLayout &&
-			(!(this._layout is IVariableVirtualLayout) || !IVariableVirtualLayout(this._layout).hasVariableItemDimensions) &&
+		var canUseBeforeAndAfter:Bool = Std.is(this._layout, ITrimmedVirtualLayout) && useVirtualLayout &&
+			(!(Std.is(this._layout, IVariableVirtualLayout)) || !cast(this._layout, IVariableVirtualLayout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		var index:Int;
 		if(canUseBeforeAndAfter)
@@ -1100,9 +1104,10 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		//we may keep around some extra renderers to avoid too much
 		//allocation and garbage collection. they'll be hidden.
 		var itemCount:Int = this._inactiveRenderers.length;
+		var keepCount:Int;
 		if(allowKeep)
 		{
-			var keepCount:Int = this._minimumItemCount - this._activeRenderers.length;
+			keepCount = this._minimumItemCount - this._activeRenderers.length;
 		}
 		else
 		{
@@ -1112,9 +1117,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			keepCount = itemCount;
 		}
-		for(var i:Int = 0; i < keepCount; i++)
+		//for(var i:Int = 0; i < keepCount; i++)
+		var renderer:IListItemRenderer;
+		for(i in 0 ... keepCount)
 		{
-			var renderer:IListItemRenderer = this._inactiveRenderers.shift();
+			renderer = this._inactiveRenderers.shift();
 			if(renderer == null)
 			{
 				keepCount++;
@@ -1130,10 +1137,11 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			this._activeRenderers.push(renderer);
 		}
 		itemCount -= keepCount;
-		for(i = 0; i < itemCount; i++)
+		//for(i = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
 			renderer = this._inactiveRenderers.shift();
-			if(!renderer)
+			if(renderer == null)
 			{
 				continue;
 			}
@@ -1156,8 +1164,8 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 				{
 					renderer = Type.createInstance(this._itemRendererType, []);
 				}
-				var uiRenderer:IFeathersControl = IFeathersControl(renderer);
-				if(this._customItemRendererStyleName && this._customItemRendererStyleName.length > 0)
+				var uiRenderer:IFeathersControl = cast(renderer, IFeathersControl);
+				if(this._customItemRendererStyleName != null && this._customItemRendererStyleName.length > 0)
 				{
 					uiRenderer.styleNameList.add(this._customItemRendererStyleName);
 				}
@@ -1287,22 +1295,22 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		}
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 		this.invalidateParent(INVALIDATION_FLAG_LAYOUT);
-		if(event.currentTarget == this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
+		if((cast event.currentTarget) == this._typicalItemRenderer && !this._typicalItemIsInDataProvider)
 		{
 			return;
 		}
-		var layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
-		if(!layout || !layout.hasVariableItemDimensions)
+		var layout:IVariableVirtualLayout = cast(this._layout, IVariableVirtualLayout);
+		if(layout == null || !layout.hasVariableItemDimensions)
 		{
 			return;
 		}
-		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
-		layout.resetVariableVirtualCacheAtIndex(renderer.index, DisplayObject(renderer));
+		var renderer:IListItemRenderer = cast(event.currentTarget, IListItemRenderer);
+		layout.resetVariableVirtualCacheAtIndex(renderer.index, cast(renderer, DisplayObject));
 	}
 
 	private function renderer_triggeredHandler(event:Event):Void
 	{
-		var renderer:IListItemRenderer = IListItemRenderer(event.currentTarget);
+		var renderer:IListItemRenderer = cast(event.currentTarget, IListItemRenderer);
 		this.parent.dispatchEventWith(Event.TRIGGERED, false, renderer.data);
 	}
 

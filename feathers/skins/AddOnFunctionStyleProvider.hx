@@ -99,6 +99,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 *
 	 * @default false
 	 */
+	public var callBeforeOriginalStyleProvider(get, set):Bool;
 	public function get_callBeforeOriginalStyleProvider():Bool
 	{
 		return this._callBeforeOriginalStyleProvider;
@@ -110,6 +111,7 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	public function set_callBeforeOriginalStyleProvider(value:Bool):Bool
 	{
 		this._callBeforeOriginalStyleProvider = value;
+		return get_callBeforeOriginalStyleProvider();
 	}
 
 	/**
@@ -117,11 +119,11 @@ class AddOnFunctionStyleProvider implements IStyleProvider
 	 */
 	public function applyStyles(target:IFeathersControl):Void
 	{
-		if(this._callBeforeOriginalStyleProvider && this._addOnFunction != null)
+		if(this._callBeforeOriginalStyleProvider != null && this._addOnFunction != null)
 		{
 			this._addOnFunction(target);
 		}
-		if(this._originalStyleProvider)
+		if(this._originalStyleProvider != null)
 		{
 			this._originalStyleProvider.applyStyles(target);
 		}

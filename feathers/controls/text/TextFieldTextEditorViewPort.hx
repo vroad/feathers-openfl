@@ -5,13 +5,20 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls.text
-{
+package feathers.controls.text;
 import feathers.controls.Scroller;
+#if 0
 import feathers.utils.geom.matrixToRotation;
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
 import feathers.utils.math.roundToNearest;
+#else
+import feathers.utils.geom.FeathersMatrixUtil.matrixToRotation;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+import feathers.utils.math.FeathersMathUtil.roundToNearest;
+#end
+import openfl.errors.ArgumentError;
 
 import flash.events.Event;
 import flash.events.FocusEvent;
@@ -22,6 +29,10 @@ import flash.text.TextField;
 
 import starling.core.Starling;
 import starling.utils.MatrixUtil;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SCROLL;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * A text editor view port for the <code>TextArea</code> component that uses
@@ -34,17 +45,17 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.
 	 */
-	public function TextFieldTextEditorViewPort()
+	public function new()
 	{
 		super();
 		this.multiline = true;
@@ -65,6 +76,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var minVisibleWidth(get, set):Float;
 	public function get_minVisibleWidth():Float
 	{
 		return this._minVisibleWidth;
@@ -77,7 +89,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._minVisibleWidth == value)
 		{
-			return;
+			return get_minVisibleWidth();
 		}
 		if(value != value) //isNaN
 		{
@@ -85,16 +97,18 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		}
 		this._minVisibleWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_minVisibleWidth();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _maxVisibleWidth:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleWidth:Float = Math.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
 	 */
+	public var maxVisibleWidth(get, set):Float;
 	public function get_maxVisibleWidth():Float
 	{
 		return this._maxVisibleWidth;
@@ -107,7 +121,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._maxVisibleWidth == value)
 		{
-			return;
+			return get_maxVisibleWidth();
 		}
 		if(value != value) //isNaN
 		{
@@ -115,16 +129,18 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		}
 		this._maxVisibleWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_maxVisibleWidth();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _visibleWidth:Float = NaN;
+	private var _visibleWidth:Float = Math.NaN;
 
 	/**
 	 * @inheritDoc
 	 */
+	public var visibleWidth(get, set):Float;
 	public function get_visibleWidth():Float
 	{
 		return this._visibleWidth;
@@ -138,10 +154,11 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		if(this._visibleWidth == value ||
 			(value != value && this._visibleWidth != this._visibleWidth)) //isNaN
 		{
-			return;
+			return get_visibleWidth();
 		}
 		this._visibleWidth = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_visibleWidth();
 	}
 
 	/**
@@ -152,6 +169,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var minVisibleHeight(get, set):Float;
 	public function get_minVisibleHeight():Float
 	{
 		return this._minVisibleHeight;
@@ -164,7 +182,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._minVisibleHeight == value)
 		{
-			return;
+			return get_minVisibleHeight();
 		}
 		if(value != value) //isNaN
 		{
@@ -172,16 +190,18 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		}
 		this._minVisibleHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_minVisibleHeight();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _maxVisibleHeight:Float = Float.POSITIVE_INFINITY;
+	private var _maxVisibleHeight:Float = Math.POSITIVE_INFINITY;
 
 	/**
 	 * @inheritDoc
 	 */
+	public var maxVisibleHeight(get, set):Float;
 	public function get_maxVisibleHeight():Float
 	{
 		return this._maxVisibleHeight;
@@ -194,7 +214,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._maxVisibleHeight == value)
 		{
-			return;
+			return get_maxVisibleHeight();
 		}
 		if(value != value) //isNaN
 		{
@@ -202,16 +222,18 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		}
 		this._maxVisibleHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_maxVisibleHeight();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _visibleHeight:Float = NaN;
+	private var _visibleHeight:Float = Math.NaN;
 
 	/**
 	 * @inheritDoc
 	 */
+	public var visibleHeight(get, set):Float;
 	public function get_visibleHeight():Float
 	{
 		return this._visibleHeight;
@@ -225,17 +247,20 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		if(this._visibleHeight == value ||
 			(value != value && this._visibleHeight != this._visibleHeight)) //isNaN
 		{
-			return;
+			return get_visibleHeight();
 		}
 		this._visibleHeight = value;
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_visibleHeight();
 	}
 
+	public var contentX(get, never):Float;
 	public function get_contentX():Float
 	{
 		return 0;
 	}
 
+	public var contentY(get, never):Float;
 	public function get_contentY():Float
 	{
 		return 0;
@@ -249,6 +274,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var horizontalScrollStep(get, never):Float;
 	public function get_horizontalScrollStep():Float
 	{
 		return this._scrollStep;
@@ -257,6 +283,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var verticalScrollStep(get, never):Float;
 	public function get_verticalScrollStep():Float
 	{
 		return this._scrollStep;
@@ -270,6 +297,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var horizontalScrollPosition(get, set):Float;
 	public function get_horizontalScrollPosition():Float
 	{
 		return this._horizontalScrollPosition;
@@ -283,6 +311,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		//this value is basically ignored because the text does not scroll
 		//horizontally. instead, it wraps.
 		this._horizontalScrollPosition = value;
+		return get_horizontalScrollPosition();
 	}
 
 	/**
@@ -293,6 +322,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	/**
 	 * @inheritDoc
 	 */
+	public var verticalScrollPosition(get, set):Float;
 	public function get_verticalScrollPosition():Float
 	{
 		return this._verticalScrollPosition;
@@ -305,12 +335,13 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._verticalScrollPosition == value)
 		{
-			return;
+			return get_verticalScrollPosition();
 		}
 		this._verticalScrollPosition = value;
 		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		//hack because the superclass doesn't know about the scroll flag
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_verticalScrollPosition();
 	}
 
 	/**
@@ -334,6 +365,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -348,6 +380,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -361,6 +394,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -373,10 +407,11 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -390,6 +425,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -402,10 +438,11 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -419,6 +456,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -431,10 +469,11 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -448,6 +487,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -460,10 +500,11 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -471,7 +512,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 */
 	override private function measure(result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -540,7 +581,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		var textFieldWidth:Float = this._visibleWidth - this._paddingLeft - this._paddingRight;
 		if(textFieldWidth != textFieldWidth) //isNaN
 		{
-			if(this._maxVisibleWidth < Float.POSITIVE_INFINITY)
+			if(this._maxVisibleWidth < Math.POSITIVE_INFINITY)
 			{
 				textFieldWidth = this._maxVisibleWidth - this._paddingLeft - this._paddingRight;
 			}
@@ -552,7 +593,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		var textFieldHeight:Float = this._visibleHeight - this._paddingTop - this._paddingBottom;
 		if(textFieldHeight != textFieldHeight) //isNaN
 		{
-			if(this._maxVisibleHeight < Float.POSITIVE_INFINITY)
+			if(this._maxVisibleHeight < Math.POSITIVE_INFINITY)
 			{
 				textFieldHeight = this._maxVisibleHeight - this._paddingTop - this._paddingBottom;
 			}
@@ -567,7 +608,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		this._textFieldSnapshotClipRect.x = 0;
 		this._textFieldSnapshotClipRect.y = 0;
 
-		var scaleFactor:Float = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor;
 		var clipWidth:Float = textFieldWidth * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
@@ -609,7 +650,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			this.textField.height = textFieldHeight;
 		}
-		var scroller:Scroller = Scroller(this.parent);
+		var scroller:Scroller = cast(this.parent, Scroller);
 		this.textField.scrollV = Math.round(1 + ((this.textField.maxScrollV - 1) * (this._verticalScrollPosition / scroller.maxVerticalScrollPosition)));
 		this._ignoreScrolling = oldIgnoreScrolling;
 	}
@@ -622,7 +663,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		super.commitStylesAndData(textField);
 		if(textField == this.textField)
 		{
-			this._scrollStep = textField.getLineMetrics(0).height;
+			this._scrollStep = Std.int(textField.getLineMetrics(0).height);
 		}
 	}
 
@@ -636,11 +677,13 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 			return;
 		}
 		var nativeScaleFactor:Float = 1;
+		#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
+		#end
+		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		HELPER_POINT.x = HELPER_POINT.y = 0;
 		this.getTransformationMatrix(this.stage, HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
@@ -666,7 +709,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	 */
 	override private function positionSnapshot():Void
 	{
-		if(!this.textSnapshot)
+		if(this.textSnapshot == null)
 		{
 			return;
 		}
@@ -681,7 +724,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 	override private function checkIfNewSnapshotIsNeeded():Void
 	{
 		super.checkIfNewSnapshotIsNeeded();
-		this._needsNewTexture ||= this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		this._needsNewTexture = this._needsNewTexture || this.isInvalid(INVALIDATION_FLAG_SCROLL);
 	}
 
 	/**
@@ -717,7 +760,7 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		{
 			return;
 		}
-		var scroller:Scroller = Scroller(this.parent);
+		var scroller:Scroller = cast(this.parent, Scroller);
 		if(scroller.maxVerticalScrollPosition > 0 && this.textField.maxScrollV > 1)
 		{
 			var calculatedVerticalScrollPosition:Float = scroller.maxVerticalScrollPosition * (scrollV - 1) / (this.textField.maxScrollV - 1);
@@ -725,5 +768,4 @@ class TextFieldTextEditorViewPort extends TextFieldTextEditor implements ITextEd
 		}
 	}
 
-}
 }

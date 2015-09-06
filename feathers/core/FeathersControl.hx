@@ -365,7 +365,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	public function set_styleProvider(value:IStyleProvider):IStyleProvider
 	{
 		this._styleProvider = value;
-		if(this._styleProvider && this.isInitialized)
+		if(this._styleProvider != null && this.isInitialized)
 		{
 			this._styleProvider.applyStyles(this);
 		}
@@ -1256,7 +1256,7 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 		{
 			return get_focusIndicatorSkin();
 		}
-		if(this._focusIndicatorSkin && this._focusIndicatorSkin.parent == this)
+		if(this._focusIndicatorSkin != null && this._focusIndicatorSkin.parent == this)
 		{
 			this._focusIndicatorSkin.removeFromParent(false);
 		}
@@ -2189,11 +2189,10 @@ class FeathersControl extends Sprite implements IFeathersControl implements ILay
 	 */
 	private function styleNameList_changeHandler(event:Event):Void
 	{
-		if(!this._styleProvider)
+		if(this._styleProvider == null)
 		{
 			return;
 		}
 		this._styleProvider.applyStyles(this);
 	}
-}
 }

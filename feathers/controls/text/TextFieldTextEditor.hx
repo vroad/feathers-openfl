@@ -22,7 +22,9 @@ import flash.display.Stage;
 import flash.display3D.Context3DProfile;
 import flash.events.FocusEvent;
 import flash.events.KeyboardEvent;
+#if flash
 import flash.events.SoftKeyboardEvent;
+#end
 import flash.geom.Matrix;
 import flash.geom.Matrix3D;
 import flash.geom.Point;
@@ -48,6 +50,10 @@ import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.MatrixUtil;
 import starling.utils.PowerOfTwo.getNextPowerOfTwo;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
 
 /**
  * Dispatched when the text property changes.
@@ -191,7 +197,7 @@ import starling.utils.PowerOfTwo.getNextPowerOfTwo;
  *
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html openfl.text.TextField
  */
-class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativeFocusOwner
+class TextFieldTextEditor extends FeathersControl implements ITextEditor implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -206,7 +212,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
@@ -232,6 +238,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
 		return this.textField;
@@ -782,7 +789,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	private var _antiAliasType:String = AntiAliasType.ADVANCED;
+	private var _antiAliasType:AntiAliasType = AntiAliasType.ADVANCED;
 
 	/**
 	 * The type of anti-aliasing used for this text field, defined as
@@ -801,7 +808,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/AntiAliasType.html flash.text.AntiAliasType
 	 * @see #embedFonts
 	 */
-	public function get_antiAliasType():String
+	public function get_antiAliasType():AntiAliasType
 	{
 		return this._antiAliasType;
 	}
@@ -809,20 +816,21 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_antiAliasType(value:String):String
+	public function set_antiAliasType(value:AntiAliasType):AntiAliasType
 	{
 		if(this._antiAliasType == value)
 		{
-			return;
+			return get_antiAliasType();
 		}
 		this._antiAliasType = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_antiAliasType();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _gridFitType:String = GridFitType.PIXEL;
+	private var _gridFitType:GridFitType = GridFitType.PIXEL;
 
 	/**
 	 * Determines whether Flash Player forces strong horizontal and vertical
@@ -842,7 +850,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/GridFitType.html flash.text.GridFitType
 	 * @see #antiAliasType
 	 */
-	public function get_gridFitType():String
+	public function get_gridFitType():GridFitType
 	{
 		return this._gridFitType;
 	}
@@ -850,14 +858,15 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	public function set_gridFitType(value:String):String
+	public function set_gridFitType(value:GridFitType):GridFitType
 	{
 		if(this._gridFitType == value)
 		{
-			return;
+			return get_gridFitType();
 		}
 		this._gridFitType = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_gridFitType();
 	}
 
 	/**
@@ -894,10 +903,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._sharpness == value)
 		{
-			return;
+			return get_sharpness();
 		}
 		this._sharpness = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_sharpness();
 	}
 
 	/**
@@ -934,10 +944,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._thickness == value)
 		{
-			return;
+			return get_thickness();
 		}
 		this._thickness = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_thickness();
 	}
 
 	/**
@@ -973,10 +984,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._background == value)
 		{
-			return;
+			return get_background();
 		}
 		this._background = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_background();
 	}
 
 	/**
@@ -1011,10 +1023,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._backgroundColor == value)
 		{
-			return;
+			return get_backgroundColor();
 		}
 		this._backgroundColor = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_backgroundColor();
 	}
 
 	/**
@@ -1052,10 +1065,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._border == value)
 		{
-			return;
+			return get_border();
 		}
 		this._border = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_border();
 	}
 
 	/**
@@ -1090,10 +1104,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._borderColor == value)
 		{
-			return;
+			return get_borderColor();
 		}
 		this._borderColor = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_borderColor();
 	}
 
 	/**
@@ -1233,10 +1248,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
-			return;
+			return get_updateSnapshotOnScaleChange();
 		}
 		this._updateSnapshotOnScaleChange = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_updateSnapshotOnScaleChange();
 	}
 
 	/**
@@ -1271,10 +1287,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	{
 		if(this._useSnapshotDelayWorkaround == value)
 		{
-			return;
+			return get_useSnapshotDelayWorkaround();
 		}
 		this._useSnapshotDelayWorkaround = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_useSnapshotDelayWorkaround();
 	}
 
 	/**
@@ -1314,7 +1331,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 */
 	override public function render(support:RenderSupport, parentAlpha:Float):Void
 	{
-		if(this.textSnapshot)
+		if(this.textSnapshot != null)
 		{
 			if(this._updateSnapshotOnScaleChange)
 			{
@@ -1331,7 +1348,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		}
 		//we'll skip this if the text field isn't visible to avoid running
 		//that code every frame.
-		if(this.textField && this.textField.visible)
+		if(this.textField != null && this.textField.visible)
 		{
 			this.transformTextField();
 		}
@@ -1369,7 +1386,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 					{
 						if(this._multiline)
 						{
-							var lineIndex:Int = Std.Int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
+							var lineIndex:Int = Std.int(positionY / this.textField.getLineMetrics(0).height) + (this.textField.scrollV - 1);
 							try
 							{
 								this._pendingSelectionBeginIndex = this.textField.getLineOffset(lineIndex)#if flash + this.textField.getLineLength(lineIndex) #end;
@@ -1682,7 +1699,9 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		textField.borderColor = this._borderColor;
 		textField.gridFitType = this._gridFitType;
 		textField.sharpness = this._sharpness;
+		#if flash
 		textField.thickness = this._thickness;
+		#end
 		textField.maxChars = this._maxChars;
 		textField.restrict = this._restrict;
 		#if flash
@@ -1807,7 +1826,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		this._textFieldSnapshotClipRect.x = 0;
 		this._textFieldSnapshotClipRect.y = 0;
 
-		var scaleFactor:Float = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor;
 		var clipWidth:Float = this.actualWidth * scaleFactor;
 		if(this._updateSnapshotOnScaleChange)
 		{
@@ -1870,7 +1889,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
 		#end
-		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		var gutterPositionOffset:Float = 0;
 		if(!this._useGutter)
 		{
@@ -1905,17 +1924,17 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		var canUseRectangleTexture:Bool = Starling.current.profile != Context3DProfile.BASELINE_CONSTRAINED;
 		if(canUseRectangleTexture)
 		{
-			this._snapshotWidth = this._textFieldSnapshotClipRect.width;
-			this._snapshotHeight = this._textFieldSnapshotClipRect.height;
+			this._snapshotWidth = Std.int(this._textFieldSnapshotClipRect.width);
+			this._snapshotHeight = Std.int(this._textFieldSnapshotClipRect.height);
 		}
 		else
 		{
-			this._snapshotWidth = getNextPowerOfTwo(this._textFieldSnapshotClipRect.width);
-			this._snapshotHeight = getNextPowerOfTwo(this._textFieldSnapshotClipRect.height);
+			this._snapshotWidth = getNextPowerOfTwo(Std.int(this._textFieldSnapshotClipRect.width));
+			this._snapshotHeight = getNextPowerOfTwo(Std.int(this._textFieldSnapshotClipRect.height));
 		}
-		var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
-		this._needsNewTexture = this._needsNewTexture || !this.textSnapshot ||
-		textureRoot.scale != Starling.contentScaleFactor ||
+		var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
+		this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null ||
+		textureRoot.scale != Starling.current.contentScaleFactor ||
 		this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
 	}
 
@@ -1945,8 +1964,8 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	 */
 	private function texture_onRestore():Void
 	{
-		if(this.textSnapshot && this.textSnapshot.texture &&
-			this.textSnapshot.texture.scale != Starling.contentScaleFactor)
+		if(this.textSnapshot != null && this.textSnapshot.texture != null &&
+			this.textSnapshot.texture.scale != Starling.current.contentScaleFactor)
 		{
 			//if we've changed between scale factors, we need to recreate
 			//the texture to match the new scale factor.
@@ -1972,12 +1991,14 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 		{
 			gutterPositionOffset = 0;
 		}
-		var scaleFactor:Float = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor;
+		var globalScaleX:Float = Math.NaN;
+		var globalScaleY:Float = Math.NaN;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+			globalScaleX = matrixToScaleX(HELPER_MATRIX);
+			globalScaleY = matrixToScaleY(HELPER_MATRIX);
 		}
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.translate(this._textFieldOffsetX - gutterPositionOffset, this._textFieldOffsetY - gutterPositionOffset);
@@ -2079,7 +2100,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 				}
 				target = target.parent;
 			}
-			while(target)
+			while(target != null);
 		}
 		else
 		{
@@ -2102,7 +2123,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	private function stage_touchHandler(event:TouchEvent):Void
 	{
 		var touch:Touch = event.getTouch(this.stage, TouchPhase.BEGAN);
-		if(!touch) //we only care about began touches
+		if(touch == null) //we only care about began touches
 		{
 			return;
 		}
@@ -2119,6 +2140,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
+	private function textField_changeHandler(event:flash.events.Event):Void
 	{
 		if(this._isHTML)
 		{
@@ -2177,16 +2199,20 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor, INativ
 	/**
 	 * @private
 	 */
-	/*private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
+	#if flash
+	private function textField_softKeyboardActivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_ACTIVATE, true);
-	}*/
+	}
+	#end
 
 	/**
 	 * @private
 	 */
-	/*private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
+	#if flash
+	private function textField_softKeyboardDeactivateHandler(event:SoftKeyboardEvent):Void
 	{
 		this.dispatchEventWith(FeathersEventType.SOFT_KEYBOARD_DEACTIVATE, true);
-	}*/
+	}
+	#end
 }

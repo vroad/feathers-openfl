@@ -26,6 +26,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 */
 	public function new()
 	{
+		super();
 		this.createRegistry();
 	}
 
@@ -50,7 +51,7 @@ class StyleNameFunctionTheme extends EventDispatcher
 	 * Returns a <code>StyleNameFunctionStyleProvider</code> to be passed to
 	 * the specified class.
 	 */
-	public function getStyleProviderForClass(type:Class):StyleNameFunctionStyleProvider
+	public function getStyleProviderForClass(type:Class<Dynamic>):StyleNameFunctionStyleProvider
 	{
 		return cast this._registry.getStyleProvider(type);
 	}

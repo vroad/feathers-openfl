@@ -62,7 +62,7 @@ class TiledImageScreen extends PanelScreen
 		
 		this.title = "Tiled Image";
 		
-		this._texture = Texture.fromEmbeddedAsset(TILE_TEXTURE, false);
+		this._texture = Texture.fromBitmapData(Assets.getBitmapData(TILE_TEXTURE_FILE_NAME, false), false);
 
 		this._image = new TiledImage(this._texture);
 		this._minDisplayObjectWidth = this._image.width;

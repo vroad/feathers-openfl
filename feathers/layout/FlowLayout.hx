@@ -5,9 +5,9 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.layout
-{
+package feathers.layout;
 import feathers.core.IValidating;
+import feathers.utils.ArrayUtil;
 
 import flash.errors.IllegalOperationError;
 import flash.geom.Point;
@@ -15,6 +15,8 @@ import flash.geom.Point;
 import starling.display.DisplayObject;
 import starling.events.Event;
 import starling.events.EventDispatcher;
+
+import feathers.utils.type.SafeCast.safe_cast;
 
 /**
  * Dispatched when a property of the layout changes, indicating that a
@@ -37,7 +39,9 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.CHANGE
  */
+#if 0
 [Event(name="change",type="starling.events.Event")]
+#end
 
 /**
  * Positions items of different dimensions from left to right in multiple
@@ -109,14 +113,15 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * Constructor.
 	 */
-	public function FlowLayout()
+	public function new()
 	{
+		super();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _rowItems:Array<DisplayObject> = new <DisplayObject>[];
+	private var _rowItems:Array<DisplayObject> = new Array<DisplayObject>();
 
 	/**
 	 * Quickly sets both <code>horizontalGap</code> and <code>verticalGap</code>
@@ -129,6 +134,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @see #horizontalGap
 	 * @see #verticalGap
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._horizontalGap;
@@ -141,6 +147,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		this.horizontalGap = value;
 		this.verticalGap = value;
+		return get_gap();
 	}
 
 	/**
@@ -153,6 +160,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var horizontalGap(get, set):Float;
 	public function get_horizontalGap():Float
 	{
 		return this._horizontalGap;
@@ -165,10 +173,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._horizontalGap == value)
 		{
-			return;
+			return get_horizontalGap();
 		}
 		this._horizontalGap = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_horizontalGap();
 	}
 
 	/**
@@ -181,6 +190,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var verticalGap(get, set):Float;
 	public function get_verticalGap():Float
 	{
 		return this._verticalGap;
@@ -193,10 +203,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._verticalGap == value)
 		{
-			return;
+			return get_verticalGap();
 		}
 		this._verticalGap = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_verticalGap();
 	}
 
 	/**
@@ -212,6 +223,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @see #paddingBottom
 	 * @see #paddingLeft
 	 */
+	public var padding(get, set):Float;
 	public function get_padding():Float
 	{
 		return this._paddingTop;
@@ -226,6 +238,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -238,6 +251,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -250,10 +264,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingTop();
 	}
 
 	/**
@@ -266,6 +281,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -278,10 +294,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingRight();
 	}
 
 	/**
@@ -294,6 +311,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -306,10 +324,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -322,6 +341,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -334,10 +354,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -345,7 +366,9 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
+	#if 0
 	[Inspectable(type="String",enumeration="left,center,right")]
+	#end
 	/**
 	 * If the total row width is less than the bounds, the items in the row
 	 * can be aligned horizontally.
@@ -358,6 +381,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @see #verticalAlign
 	 * @see #rowVerticalAlign
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -370,10 +394,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -381,7 +406,9 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
+	#if 0
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	#end
 	/**
 	 * If the total height of the content is less than the bounds, the
 	 * content may be aligned vertically.
@@ -394,6 +421,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @see #horizontalAlign
 	 * @see #rowVerticalAlign
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return this._verticalAlign;
@@ -406,10 +434,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -417,7 +446,9 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	private var _rowVerticalAlign:String = VERTICAL_ALIGN_TOP;
 
+	#if 0
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	#end
 	/**
 	 * If the height of an item is less than the height of a row, it can be
 	 * aligned vertically.
@@ -430,6 +461,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 * @see #horizontalAlign
 	 * @see #verticalAlign
 	 */
+	public var rowVerticalAlign(get, set):String;
 	public function get_rowVerticalAlign():String
 	{
 		return this._rowVerticalAlign;
@@ -442,10 +474,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._rowVerticalAlign == value)
 		{
-			return;
+			return get_rowVerticalAlign();
 		}
 		this._rowVerticalAlign = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_rowVerticalAlign();
 	}
 
 	/**
@@ -458,6 +491,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default true
 	 */
+	public var useVirtualLayout(get, set):Bool;
 	public function get_useVirtualLayout():Bool
 	{
 		return this._useVirtualLayout;
@@ -470,10 +504,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._useVirtualLayout == value)
 		{
-			return;
+			return get_useVirtualLayout();
 		}
 		this._useVirtualLayout = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_useVirtualLayout();
 	}
 
 	/**
@@ -484,6 +519,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @inheritDoc
 	 */
+	public var typicalItem(get, set):DisplayObject;
 	public function get_typicalItem():DisplayObject
 	{
 		return this._typicalItem;
@@ -496,10 +532,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._typicalItem == value)
 		{
-			return;
+			return get_typicalItem();
 		}
 		this._typicalItem = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_typicalItem();
 	}
 
 	/**
@@ -514,6 +551,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 *
 	 * @default true
 	 */
+	public var hasVariableItemDimensions(get, set):Bool;
 	public function get_hasVariableItemDimensions():Bool
 	{
 		return this._hasVariableItemDimensions;
@@ -526,15 +564,17 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	{
 		if(this._hasVariableItemDimensions == value)
 		{
-			return;
+			return get_hasVariableItemDimensions();
 		}
 		this._hasVariableItemDimensions = value;
 		this.dispatchEventWith(Event.CHANGE);
+		return get_hasVariableItemDimensions();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
+	public var requiresLayoutOnScroll(get, never):Bool;
 	public function get_requiresLayoutOnScroll():Bool
 	{
 		return this._useVirtualLayout;
@@ -543,12 +583,12 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _widthCache:Array = [];
+	private var _widthCache:Array<Null<Float>> = [];
 
 	/**
 	 * @private
 	 */
-	private var _heightCache:Array = [];
+	private var _heightCache:Array<Null<Float>> = [];
 
 	/**
 	 * @inheritDoc
@@ -562,14 +602,14 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		//feature either.
 
 		//since viewPortBounds can be null, we may need to provide some defaults
-		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var boundsX:Float = viewPortBounds != null ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds != null ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
+		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
 		
 		//let's figure out if we can show multiple rows
 		var supportsMultipleRows:Bool = true;
@@ -577,22 +617,24 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
-			if(availableRowWidth == Float.POSITIVE_INFINITY)
+			if(availableRowWidth == Math.POSITIVE_INFINITY)
 			{
 				supportsMultipleRows = false;
 			}
 		}
 
+		var calculatedTypicalItemWidth:Float = Math.NaN;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 		if(this._useVirtualLayout)
 		{
 			//if the layout is virtualized, we'll need the dimensions of the
 			//typical item so that we have fallback values when an item is null
-			if(this._typicalItem is IValidating)
+			if(Std.is(this._typicalItem, IValidating))
 			{
-				IValidating(this._typicalItem).validate();
+				cast(this._typicalItem, IValidating).validate();
 			}
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		var i:Int = 0;
@@ -601,6 +643,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var maxItemHeight:Float = 0;
 		var horizontalGap:Float = this._horizontalGap;
 		var verticalGap:Float = this._verticalGap;
+		var item:DisplayObject;
 		do
 		{
 			if(i > 0)
@@ -611,21 +654,26 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			maxItemHeight = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 			var positionX:Float = boundsX + this._paddingLeft;
 			//we save the items in this row to align them later.
-			this._rowItems.length = 0;
+			this._rowItems.splice(0, this._rowItems.length);
 			var rowItemCount:Int = 0;
-
+			
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
-			for(; i < itemCount; i++)
+			//for(; i < itemCount; i++)
+			while(i < itemCount)
 			{
-				var item:DisplayObject = items[i];
+				item = items[i];
 
+				var cachedWidth:Float = Math.NaN;
+				var cachedHeight:Float = Math.NaN;
+				var itemWidth:Float;
+				var itemHeight:Float;
 				if(this._useVirtualLayout && this._hasVariableItemDimensions)
 				{
-					var cachedWidth:Float = this._widthCache[i];
-					var cachedHeight:Float = this._heightCache[i];
+					cachedWidth = this._widthCache[i];
+					cachedHeight = this._heightCache[i];
 				}
-				if(this._useVirtualLayout && !item)
+				if(this._useVirtualLayout && item == null)
 				{
 					//the item is null, and the layout is virtualized, so we
 					//need to estimate the width of the item.
@@ -634,7 +682,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					{
 						if(cachedWidth != cachedWidth)
 						{
-							var itemWidth:Float = calculatedTypicalItemWidth;
+							itemWidth = calculatedTypicalItemWidth;
 						}
 						else
 						{
@@ -642,7 +690,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 						}
 						if(cachedHeight != cachedHeight)
 						{
-							var itemHeight:Float = calculatedTypicalItemHeight;
+							itemHeight = calculatedTypicalItemHeight;
 						}
 						else
 						{
@@ -659,13 +707,14 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				{
 					//we get here if the item isn't null. it is never null if
 					//the layout isn't virtualized.
-					if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+					if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 					{
+						i++;
 						continue;
 					}
-					if(item is IValidating)
+					if(Std.is(item, IValidating))
 					{
-						IValidating(item).validate();
+						cast(item, IValidating).validate();
 					}
 					itemWidth = item.width;
 					itemHeight = item.height;
@@ -706,7 +755,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					//we've reached the end of the row, so go to next
 					break;
 				}
-				if(item)
+				if(item != null)
 				{
 					this._rowItems[this._rowItems.length] = item;
 					item.x = item.pivotX + positionX;
@@ -723,6 +772,8 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					maxItemHeight = itemHeight;
 				}
 				rowItemCount++;
+				
+				i++;
 			}
 
 			//this is the total width of all items in the row
@@ -743,10 +794,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 				if(horizontalAlignOffsetX != 0)
 				{
-					for(var j:Int = 0; j < rowItemCount; j++)
+					//for(var j:Int = 0; j < rowItemCount; j++)
+					for(j in 0 ... rowItemCount)
 					{
 						item = this._rowItems[j];
-						if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+						if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 						{
 							continue;
 						}
@@ -755,11 +807,12 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 			}
 
-			for(j = 0; j < rowItemCount; j++)
+			//for(j = 0; j < rowItemCount; j++)
+			for(j in 0 ... rowItemCount)
 			{
 				item = this._rowItems[j];
-				var layoutItem:ILayoutDisplayObject = item as ILayoutDisplayObject;
-				if(layoutItem && !layoutItem.includeInLayout)
+				var layoutItem:ILayoutDisplayObject = safe_cast(item, ILayoutDisplayObject);
+				if(layoutItem != null && !layoutItem.includeInLayout)
 				{
 					continue;
 				}
@@ -786,10 +839,10 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 			}
 		}
-		while(i < itemCount)
+		while(i < itemCount);
 		//we don't want to keep a reference to any of the items, so clear
 		//this cache
-		this._rowItems.length = 0;
+		this._rowItems.splice(0, this._rowItems.length);
 
 		var totalHeight:Float = positionY + maxItemHeight + this._paddingBottom;
 		//the available height is the height of the viewport. if the explicit
@@ -817,10 +870,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				verticalAlignOffset /= 2;
 			}
-			for(i = 0; i < itemCount; i++)
+			//for(i = 0; i < itemCount; i++)
+			for(i in 0 ... itemCount)
 			{
 				item = items[i];
-				if(!item || (item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout))
+				if(item == null || (Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout))
 				{
 					continue;
 				}
@@ -831,7 +885,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		//finally, we want to calculate the result so that the container
 		//can use it to adjust its viewport and determine the minimum and
 		//maximum scroll positions (if needed)
-		if(!result)
+		if(result == null)
 		{
 			result = new LayoutBoundsResult();
 		}
@@ -849,13 +903,13 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function measureViewPort(itemCount:Int, viewPortBounds:ViewPortBounds = null, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
 		if(!this._useVirtualLayout)
 		{
-			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.")
+			throw new IllegalOperationError("measureViewPort() may be called only if useVirtualLayout is true.");
 		}
 		//this function is very long because it may be called every frame,
 		//in some situations. testing revealed that splitting this function
@@ -864,14 +918,14 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		//feature either.
 
 		//since viewPortBounds can be null, we may need to provide some defaults
-		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var boundsX:Float = viewPortBounds != null ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds != null ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
+		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
 
 		//let's figure out if we can show multiple rows
 		var supportsMultipleRows:Bool = true;
@@ -879,18 +933,18 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		if(availableRowWidth != availableRowWidth) //isNaN
 		{
 			availableRowWidth = maxWidth;
-			if(availableRowWidth == Float.POSITIVE_INFINITY)
+			if(availableRowWidth == Math.POSITIVE_INFINITY)
 			{
 				supportsMultipleRows = false;
 			}
 		}
 		
-		if(this._typicalItem is IValidating)
+		if(Std.is(this._typicalItem, IValidating))
 		{
-			IValidating(this._typicalItem).validate();
+			cast(this._typicalItem, IValidating).validate();
 		}
-		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
 		var i:Int = 0;
 		var positionY:Float = boundsY + this._paddingTop;
@@ -910,15 +964,18 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
-			for(; i < itemCount; i++)
+			//for(; i < itemCount; i++)
+			while(i < itemCount)
 			{
+				var itemWidth:Float;
+				var itemHeight:Float;
 				if(this._hasVariableItemDimensions)
 				{
 					var cachedWidth:Float = this._widthCache[i];
 					var cachedHeight:Float = this._heightCache[i];
 					if(cachedWidth != cachedWidth)
 					{
-						var itemWidth:Float = calculatedTypicalItemWidth;
+						itemWidth = calculatedTypicalItemWidth;
 					}
 					else
 					{
@@ -926,7 +983,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					}
 					if(cachedHeight != cachedHeight)
 					{
-						var itemHeight:Float = calculatedTypicalItemHeight;
+						itemHeight = calculatedTypicalItemHeight;
 					}
 					else
 					{
@@ -955,9 +1012,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					maxItemHeight = itemHeight;
 				}
 				rowItemCount++;
+				
+				i++;
 			}
 		}
-		while(i < itemCount)
+		while(i < itemCount);
 		
 		var totalHeight:Float = positionY + maxItemHeight + this._paddingBottom;
 		//the available height is the height of the viewport. if the explicit
@@ -1027,11 +1086,12 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 		var maxScrollY:Float = result.x;
 		var rowHeight:Float = result.y;
 
+		var itemHeight:Float;
 		if(this._useVirtualLayout)
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				var itemHeight:Float = this._heightCache[index];
+				itemHeight = this._heightCache[index];
 				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
@@ -1047,7 +1107,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			itemHeight = items[index].height;
 		}
 
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1062,8 +1122,8 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function resetVariableVirtualCache():Void
 	{
-		this._widthCache.length = 0;
-		this._heightCache.length = 0;
+		this._widthCache.splice(0, this._widthCache.length);
+		this._heightCache.splice(0, this._heightCache.length);
 	}
 
 	/**
@@ -1071,9 +1131,14 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function resetVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
+		#if 0
 		delete this._widthCache[index];
 		delete this._heightCache[index];
-		if(item)
+		#else
+		this._widthCache.splice(index, 1);
+		this._heightCache.splice(index, 1);
+		#end
+		if(item != null)
 		{
 			this._widthCache[index] = item.width;
 			this._heightCache[index] = item.height;
@@ -1086,11 +1151,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function addToVariableVirtualCacheAtIndex(index:Int, item:DisplayObject = null):Void
 	{
-		var widthValue:* = item ? item.width: undefined;
-		this._widthCache.splice(index, 0, widthValue);
+		var widthValue:Null<Float> = item != null ? item.width: null;
+		this._widthCache.insert(index, widthValue);
 		
-		var heightValue:* = item ? item.height : undefined;
-		this._heightCache.splice(index, 0, heightValue);
+		var heightValue:Null<Float> = item != null ? item.height : null;
+		this._heightCache.insert(index, heightValue);
 	}
 
 	/**
@@ -1107,25 +1172,25 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	 */
 	public function getVisibleIndicesAtScrollPosition(scrollX:Float, scrollY:Float, width:Float, height:Float, itemCount:Int, result:Array<Int> = null):Array<Int>
 	{
-		if(result)
+		if(result != null)
 		{
-			result.length = 0;
+			result.splice(0, result.length);
 		}
 		else
 		{
-			result = new <Int>[];
+			result = new Array<Int>();
 		}
 		if(!this._useVirtualLayout)
 		{
-			throw new IllegalOperationError("getVisibleIndicesAtScrollPosition() may be called only if useVirtualLayout is true.")
+			throw new IllegalOperationError("getVisibleIndicesAtScrollPosition() may be called only if useVirtualLayout is true.");
 		}
 
-		if(this._typicalItem is IValidating)
+		if(Std.is(this._typicalItem, IValidating))
 		{
-			IValidating(this._typicalItem).validate();
+			cast(this._typicalItem, IValidating).validate();
 		}
-		var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-		var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+		var calculatedTypicalItemWidth:Float = this._typicalItem != null ? this._typicalItem.width : 0;
+		var calculatedTypicalItemHeight:Float = this._typicalItem != null ? this._typicalItem.height : 0;
 
 		var resultLastIndex:Int = 0;
 
@@ -1153,18 +1218,23 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 
 			//this first loop sets the x position of items, and it calculates
 			//the total width of all items
-			for(; i < itemCount; i++)
+			//for(; i < itemCount; i++)
+			while(i < itemCount)
 			{
+				var cachedWidth:Float = Math.NaN;
+				var cachedHeight:Float = Math.NaN;
 				if(this._hasVariableItemDimensions)
 				{
-					var cachedWidth:Float = this._widthCache[i];
-					var cachedHeight:Float = this._heightCache[i];
+					cachedWidth = this._widthCache[i];
+					cachedHeight = this._heightCache[i];
 				}
+				var itemWidth:Float;
+				var itemHeight:Float;
 				if(this._hasVariableItemDimensions)
 				{
 					if(cachedWidth != cachedWidth)
 					{
-						var itemWidth:Float = calculatedTypicalItemWidth;
+						itemWidth = calculatedTypicalItemWidth;
 					}
 					else
 					{
@@ -1172,7 +1242,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					}
 					if(cachedHeight != cachedHeight)
 					{
-						var itemHeight:Float = calculatedTypicalItemHeight;
+						itemHeight = calculatedTypicalItemHeight;
 					}
 					else
 					{
@@ -1206,9 +1276,11 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 					maxItemHeight = itemHeight;
 				}
 				rowItemCount++;
+				
+				i++;
 			}
 		}
-		while(i < itemCount)
+		while(i < itemCount);
 		return result;
 	}
 
@@ -1218,20 +1290,22 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 	private function calculateMaxScrollYAndRowHeightOfIndex(index:Int, items:Array<DisplayObject>,
 		x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
+		var calculatedTypicalItemWidth:Float = Math.NaN;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 		if(this._useVirtualLayout)
 		{
 			//if the layout is virtualized, we'll need the dimensions of the
 			//typical item so that we have fallback values when an item is null
-			if(this._typicalItem is IValidating)
+			if(Std.is(this._typicalItem, IValidating))
 			{
-				IValidating(this._typicalItem).validate();
+				cast(this._typicalItem, IValidating).validate();
 			}
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		var horizontalGap:Float = this._horizontalGap;
@@ -1255,25 +1329,29 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 			maxItemHeight = this._useVirtualLayout ? calculatedTypicalItemHeight : 0;
 			var positionX:Float = x + this._paddingLeft;
 			var rowItemCount:Int = 0;
-			for(; i < itemCount; i++)
+			//for(; i < itemCount; i++)
+			while(i < itemCount)
 			{
 				var item:DisplayObject = items[i];
 
+				var cachedWidth:Float = Math.NaN;
+				var cachedHeight:Float = Math.NaN;
 				if(this._useVirtualLayout && this._hasVariableItemDimensions)
 				{
-					var cachedWidth:Float = this._widthCache[i];
-					var cachedHeight:Float = this._heightCache[i];
+					cachedWidth = this._widthCache[i];
+					cachedHeight = this._heightCache[i];
 				}
-				if(this._useVirtualLayout && !item)
+				var itemWidth:Float;
+				var itemHeight:Float;
+				if(this._useVirtualLayout && item == null)
 				{
 					//the item is null, and the layout is virtualized, so we
 					//need to estimate the width of the item.
-
 					if(this._hasVariableItemDimensions)
 					{
 						if(cachedWidth != cachedWidth) //isNaN
 						{
-							var itemWidth:Float = calculatedTypicalItemWidth;
+							itemWidth = calculatedTypicalItemWidth;
 						}
 						else
 						{
@@ -1281,7 +1359,7 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 						}
 						if(cachedHeight != cachedHeight) //isNaN
 						{
-							var itemHeight:Float = calculatedTypicalItemHeight;
+							itemHeight = calculatedTypicalItemHeight;
 						}
 						else
 						{
@@ -1298,13 +1376,13 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				{
 					//we get here if the item isn't null. it is never null if
 					//the layout isn't virtualized.
-					if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+					if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 					{
 						continue;
 					}
-					if(item is IValidating)
+					if(Std.is(item, IValidating))
 					{
-						IValidating(item).validate();
+						cast(item, IValidating).validate();
 					}
 					itemWidth = item.width;
 					itemHeight = item.height;
@@ -1359,11 +1437,12 @@ class FlowLayout extends EventDispatcher implements IVariableVirtualLayout
 				}
 				positionX += itemWidth + horizontalGap;
 				rowItemCount++;
+				
+				i++;
 			}
 		}
-		while(i < itemCount)
+		while(i < itemCount);
 		result.setTo(positionY, maxItemHeight);
 		return result;
 	}
-}
 }

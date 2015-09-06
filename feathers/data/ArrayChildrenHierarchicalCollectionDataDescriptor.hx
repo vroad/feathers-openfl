@@ -5,8 +5,8 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.data
-{
+package feathers.data;
+import feathers.utils.type.AcceptEither;
 /**
  * A hierarchical data descriptor where children are defined as arrays in a
  * property defined on each branch. The property name defaults to <code>"children"</code>,
@@ -40,7 +40,7 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * Constructor.
 	 */
-	public function ArrayChildrenHierarchicalCollectionDataDescriptor()
+	public function new()
 	{
 	}
 
@@ -52,14 +52,15 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getLength(data:Object, ...rest:Array):Int
+	public function getLength(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Int
 	{
-		var branch:Array = data as Array;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
+		var rest:Array<Int> = getIndicesFromEither(indices);
 		var indexCount:Int = rest.length;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			var index:Int = rest[i] as Int;
-			branch = branch[index][childrenField] as Array;
+			var index:Int = rest[i];
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
 
 		return branch.length;
@@ -68,32 +69,34 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemAt(data:Object, index:Int, ...rest:Array):Object
+	public function getItemAt(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Dynamic
 	{
-		rest.unshift(index);
-		var branch:Array = data as Array;
+		var rest:Array<Int> = getIndicesFromEither(indices);
+		var index:Int;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			index = rest[i] as Int;
-			branch = branch[index][childrenField] as Array;
+			index = rest[i];
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
-		var lastIndex:Int = rest[indexCount] as Int;
+		var lastIndex:Int = rest[indexCount];
 		return branch[lastIndex];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function setItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
+	public function setItemAt(data:Dynamic, item:Dynamic, indices:AcceptEither<Int, Array<Int>>):Void
 	{
-		rest.unshift(index);
-		var branch:Array = data as Array;
+		var rest:Array<Int> = getIndicesFromEither(indices);
+		var index:Int;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			index = rest[i] as Int;
-			branch = branch[index][childrenField] as Array;
+			index = rest[i];
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
 		var lastIndex:Int = rest[indexCount];
 		branch[lastIndex] = item;
@@ -102,35 +105,37 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function addItemAt(data:Object, item:Object, index:Int, ...rest:Array):Void
+	public function addItemAt(data:Dynamic, item:Dynamic, indices:AcceptEither<Int, Array<Int>>):Void
 	{
-		rest.unshift(index);
-		var branch:Array = data as Array;
+		var rest:Array<Int> = getIndicesFromEither(indices);
+		var index:Int;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			index = rest[i] as Int;
-			branch = branch[index][childrenField] as Array;
+			index = rest[i];
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
 		var lastIndex:Int = rest[indexCount];
-		branch.splice(lastIndex, 0, item);
+		branch.insert(lastIndex, item);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function removeItemAt(data:Object, index:Int, ...rest:Array):Object
+	public function removeItemAt(data:Dynamic, indices:AcceptEither<Int, Array<Int>>):Dynamic
 	{
-		rest.unshift(index);
-		var branch:Array = data as Array;
+		var rest:Array<Int> = getIndicesFromEither(indices);
+		var index:Int;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
 		var indexCount:Int = rest.length - 1;
-		for(var i:Int = 0; i < indexCount; i++)
+		for(i in 0 ... indexCount)
 		{
-			index = rest[i] as Int;
-			branch = branch[index][childrenField] as Array;
+			index = rest[i];
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
 		var lastIndex:Int = rest[indexCount];
-		var item:Object = branch[lastIndex];
+		var item:Dynamic = branch[lastIndex];
 		branch.splice(lastIndex, 1);
 		return item;
 	}
@@ -138,38 +143,39 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function removeAll(data:Object):Void
+	public function removeAll(data:Dynamic):Void
 	{
-		var branch:Array = data as Array;
-		branch.length = 0;
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
+		branch.splice(0, branch.length);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getItemLocation(data:Object, item:Object, result:Array<Int> = null, ...rest:Array):Array<Int>
+	public function getItemLocation(data:Dynamic, item:Dynamic, result:Array<Int> = null, indices:AcceptEither<Int, Array<Int>> = null):Array<Int>
 	{
-		if(!result)
+		if(result == null)
 		{
-			result = new <Int>[];
+			result = new Array();
 		}
 		else
 		{
-			result.length = 0;
+			result.splice(0, result.length);
 		}
-		var branch:Array = data as Array;
+		var rest:Array<Int> = getIndicesFromEither(indices);
+		var branch:Array<Dynamic> = cast(data, Array<Dynamic>);
 		var restCount:Int = rest.length;
-		for(var i:Int = 0; i < restCount; i++)
+		for(i in 0 ... restCount)
 		{
-			var index:Int = rest[i] as Int;
+			var index:Int = rest[i];
 			result[i] = index;
-			branch = branch[index][childrenField] as Array;
+			branch = cast(Reflect.getProperty(branch[index], childrenField), Array<Dynamic>);
 		}
 
 		var isFound:Bool = this.findItemInBranch(branch, item, result);
 		if(!isFound)
 		{
-			result.length = 0;
+			result.splice(0, result.length);
 		}
 		return result;
 	}
@@ -177,15 +183,15 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 	/**
 	 * @inheritDoc
 	 */
-	public function isBranch(node:Object):Bool
+	public function isBranch(node:Dynamic):Bool
 	{
-		return node.hasOwnProperty(this.childrenField) && node[this.childrenField] is Array;
+		return Std.is(Reflect.getProperty(node, this.childrenField), Array);
 	}
 
 	/**
 	 * @private
 	 */
-	private function findItemInBranch(branch:Array, item:Object, result:Array<Int>):Bool
+	private function findItemInBranch(branch:Array<Dynamic>, item:Dynamic, result:Array<Int>):Bool
 	{
 		var index:Int = branch.indexOf(item);
 		if(index >= 0)
@@ -195,13 +201,13 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		}
 
 		var branchLength:Int = branch.length;
-		for(var i:Int = 0; i < branchLength; i++)
+		for(i in 0 ... branchLength)
 		{
-			var branchItem:Object = branch[i];
+			var branchItem:Dynamic = branch[i];
 			if(this.isBranch(branchItem))
 			{
 				result.push(i);
-				var isFound:Bool = this.findItemInBranch(branchItem[childrenField] as Array, item, result);
+				var isFound:Bool = this.findItemInBranch(cast(Reflect.getProperty(branchItem, childrenField), Array<Dynamic>), item, result);
 				if(isFound)
 				{
 					return true;
@@ -211,5 +217,15 @@ class ArrayChildrenHierarchicalCollectionDataDescriptor implements IHierarchical
 		}
 		return false;
 	}
-}
+	
+	private static function getIndicesFromEither(index:AcceptEither<Int, Array<Int>>)
+	{
+		var rest:Array<Int> = [];
+		if(index != null)
+			switch index.type {
+				case Left(intIndex) : rest = [intIndex];
+				case Right(indices) : rest = indices;
+			}
+		return rest;
+	}
 }

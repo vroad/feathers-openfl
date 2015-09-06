@@ -6,7 +6,6 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.text;
-#if flash
 import feathers.core.FeathersControl;
 import feathers.core.FocusManager;
 import feathers.core.INativeFocusOwner;
@@ -26,8 +25,10 @@ import flash.events.TextEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextFormatAlign;
+#if flash
 import flash.text.engine.TextElement;
 import flash.text.engine.TextLine;
+#end
 import flash.ui.Keyboard;
 
 import starling.core.RenderSupport;
@@ -39,6 +40,11 @@ import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SELECTED;
+import feathers.controls.text.TextBlockTextRenderer.CARRIAGE_RETURN;
+import feathers.controls.text.TextBlockTextRenderer.LINE_FEED;
 
 /**
  * Dispatched when the text property changes.
@@ -137,7 +143,7 @@ import starling.events.TouchPhase;
  * @see ../../../help/text-editors.html Introduction to Feathers text editors
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/TextBlock.html openfl.text.engine.TextBlock
  */
-class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, INativeFocusOwner
+class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -185,7 +191,6 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _selectionSkin:DisplayObject;
-	public var selectionSkin(get, set):DisplayObject;
 
 	/**
 	 *
@@ -228,7 +233,6 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	/**
 	 *
 	 */
-	public var cursorSkin(get, set):DisplayObject;
 	public function get_cursorSkin():DisplayObject
 	{
 		return this._cursorSkin;
@@ -266,7 +270,6 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _displayAsPassword:Bool = false;
-	public var displayAsPassword(get, set):Bool;
 
 	/**
 	 * Indicates whether the text field is a password text field that hides
@@ -343,7 +346,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	{
 		if(this._passwordCharCode == value)
 		{
-			return;
+			return get_passwordCharCode();
 		}
 		this._passwordCharCode = value;
 		if(this._displayAsPassword)
@@ -351,13 +354,13 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			this.refreshMaskedText();
 		}
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_passwordCharCode();
 	}
 
 	/**
 	 * @private
 	 */
 	private var _isEditable:Bool = true;
-	public var isEditable(get, set):Bool;
 
 	/**
 	 * Determines if the text input is editable. If the text input is not
@@ -404,8 +407,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	/**
 	 * @private
 	 */
-	override public var text(get, set):String;
-	public function get_text():String
+	override public function get_text():String
 	{
 		if(this._displayAsPassword)
 		{
@@ -466,7 +468,6 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _maxChars:Int = 0;
-	public var maxChars(get, set):Int;
 
 	/**
 	 * Indicates the maximum number of characters that a user can enter into
@@ -505,7 +506,6 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _restrict:TextInputRestrict;
-	public var restrict(get, set):String;
 
 	/**
 	 * Restricts the set of characters that a user can enter into the text
@@ -566,12 +566,11 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _selectionBeginIndex:Int = 0;
-	public var selectionBeginIndex(get, never):Int;
 
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionBeginIndex(get, set):Int;
+	public var selectionBeginIndex(get, never):Int;
 	public function get_selectionBeginIndex():Int
 	{
 		return this._selectionBeginIndex;
@@ -581,12 +580,11 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 * @private
 	 */
 	private var _selectionEndIndex:Int = 0;
-	public var selectionEndIndex(get, never):Int;
 
 	/**
 	 * @inheritDoc
 	 */
-	public var selectionEndIndex(get, set):Int;
+	public var selectionEndIndex(get, never):Int;
 	public function get_selectionEndIndex():Int
 	{
 		return this._selectionEndIndex;
@@ -610,6 +608,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	/**
 	 * @copy feathers.core.INativeFocusOwner#nativeFocus
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
 		return this._nativeFocus;
@@ -630,14 +629,14 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 		{
 			return;
 		}
-		if(this._nativeFocus)
+		if(this._nativeFocus != null)
 		{
-			if(!this._nativeFocus.parent)
+			if(this._nativeFocus.parent == null)
 			{
 				Starling.current.nativeStage.addChild(this._nativeFocus);
 			}
 			var newIndex:Int = -1;
-			if(position)
+			if(position != null)
 			{
 				newIndex = this.getSelectionIndexAtPoint(position.x, position.y);
 			}
@@ -720,7 +719,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 */
 	override public function dispose():Void
 	{
-		if(this._nativeFocus && this._nativeFocus.parent)
+		if(this._nativeFocus != null && this._nativeFocus.parent != null)
 		{
 			this._nativeFocus.parent.removeChild(this._nativeFocus);
 		}
@@ -746,7 +745,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 	 */
 	override private function initialize():Void
 	{
-		if(!this._nativeFocus)
+		if(this._nativeFocus == null)
 		{
 			this._nativeFocus = new Sprite();
 			//let's ensure that this can only get focus through code
@@ -757,12 +756,14 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			//adds support for mobile
 			this._nativeFocus.needsSoftKeyboard = true;
 		}
+		#if flash
 		this._nativeFocus.addEventListener(flash.events.Event.CUT, nativeFocus_cutHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.COPY, nativeFocus_copyHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.PASTE, nativeFocus_pasteHandler, false, 0, true);
 		this._nativeFocus.addEventListener(flash.events.Event.SELECT_ALL, nativeFocus_selectAllHandler, false, 0, true);
+		#end
 		this._nativeFocus.addEventListener(TextEvent.TEXT_INPUT, nativeFocus_textInputHandler, false, 0, true);
-		if(!this._cursorSkin)
+		if(this._cursorSkin == null)
 		{
 			this.cursorSkin = new Quad(1, 1, 0x000000);
 		}
@@ -926,7 +927,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			index = 0;
 		}
 		var cursorX:Float = this.getXPositionOfCharIndex(index);
-		cursorX = Std.Int(cursorX - (this._cursorSkin.width / 2));
+		cursorX = Std.int(cursorX - (this._cursorSkin.width / 2));
 		this._cursorSkin.x = cursorX;
 		this._cursorSkin.y = 0;
 #if flash
@@ -1060,7 +1061,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			}
 			target = target.parent;
 		}
-		while(target)
+		while(target != null);
 	}
 
 	/**
@@ -1073,6 +1074,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			this.touchPointID = -1;
 			return;
 		}
+		var touch:Touch;
 		if(this.touchPointID >= 0)
 		{
 			touch = event.getTouch(this, null, this.touchPointID);
@@ -1333,7 +1335,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			return;
 		}
 		var charCode:Int = text.charCodeAt(0);
-		if(!this._restrict || this._restrict.isCharacterAllowed(charCode))
+		if(this._restrict == null || this._restrict.isCharacterAllowed(charCode))
 		{
 			this.replaceSelectedText(text);
 		}
@@ -1368,6 +1370,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 			return;
 		}
 		this.deleteSelectedText();
+#end
 	}
 
 	/**
@@ -1393,17 +1396,16 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor, 
 		{
 			return;
 		}
-		var pastedText:String = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT) as String;
+		var pastedText:String = cast(Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT), String);
 		if(pastedText == null)
 		{
 			//the clipboard doesn't contain any text to paste
 			return;
 		}
-		if(this._restrict)
+		if(this._restrict != null)
 		{
 			pastedText = this._restrict.filterText(pastedText);
 		}
 		this.replaceSelectedText(pastedText);
 	}
 }
-#end

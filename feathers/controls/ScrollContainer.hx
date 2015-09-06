@@ -21,6 +21,9 @@ import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+
 /**
  * Dispatched when the container is scrolled.
  *
@@ -69,7 +72,7 @@ import starling.events.Event;
  * @see ../../../help/scroll-container.html How to use the Feathers ScrollContainer component
  * @see feathers.controls.LayoutGroup
  */
-class ScrollContainer extends Scroller implements IScrollContainer, IFocusContainer
+class ScrollContainer extends Scroller implements IScrollContainer implements IFocusContainer
 {
 	/**
 	 * An alternate style name to use with <code>ScrollContainer</code> to
@@ -287,6 +290,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	 *
 	 * @see #isFocusEnabled
 	 */
+	public var isChildFocusEnabled(get, set):Bool;
 	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
@@ -298,6 +302,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
+		return get_isChildFocusEnabled();
 	}
 
 	/**
@@ -335,7 +340,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 			return get_layout();
 		}
 		this._layout = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_LAYOUT);
+		this.invalidate(INVALIDATION_FLAG_LAYOUT);
 		return get_layout();
 	}
 
@@ -344,7 +349,9 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	 */
 	private var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
 
+	#if 0
 	[Inspectable(type="String",enumeration="stage,content")]
+	#end
 	/**
 	 * Determines how the container will set its own size when its
 	 * dimensions (width and height) aren't set explicitly.
@@ -372,11 +379,11 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	{
 		if(this._autoSizeMode == value)
 		{
-			return get_mxmlContent();
+			return get_autoSizeMode();
 		}
 		this._autoSizeMode = value;
 		this._measureViewPort = this._autoSizeMode != AUTO_SIZE_MODE_STAGE;
-		if(this.stage)
+		if(this.stage != null)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 			{
@@ -388,6 +395,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 			}
 		}
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_autoSizeMode();
 	}
 
 	/**
@@ -504,12 +512,12 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 		{
 			return super.addChildAt(child, index);
 		}
-		var result:DisplayObject = DisplayObjectContainer(this.viewPort).addChildAt(child, index);
-		if(result is IFeathersControl)
+		var result:DisplayObject = cast(this.viewPort, DisplayObjectContainer).addChildAt(child, index);
+		if(Std.is(result, IFeathersControl))
 		{
 			result.addEventListener(Event.RESIZE, child_resizeHandler);
 		}
-		if(result is ILayoutDisplayObject)
+		if(Std.is(result, ILayoutDisplayObject))
 		{
 			result.addEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
@@ -554,12 +562,12 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 		{
 			return super.removeChildAt(index, dispose);
 		}
-		var result:DisplayObject = DisplayObjectContainer(this.viewPort).removeChildAt(index, dispose);
-		if(result is IFeathersControl)
+		var result:DisplayObject = cast(this.viewPort, DisplayObjectContainer).removeChildAt(index, dispose);
+		if(Std.is(result, IFeathersControl))
 		{
 			result.removeEventListener(Event.RESIZE, child_resizeHandler);
 		}
-		if(result is ILayoutDisplayObject)
+		if(Std.is(result, ILayoutDisplayObject))
 		{
 			result.removeEventListener(FeathersEventType.LAYOUT_DATA_CHANGE, child_layoutDataChangeHandler);
 		}
@@ -703,7 +711,7 @@ class ScrollContainer extends Scroller implements IScrollContainer, IFocusContai
 	public function readjustLayout():Void
 	{
 		this.layoutViewPort.readjustLayout();
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
 
 	/**

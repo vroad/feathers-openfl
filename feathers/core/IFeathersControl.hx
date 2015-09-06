@@ -202,4 +202,3 @@ interface IFeathersControl extends IValidating
 	 */
 	function move(x:Float, y:Float):Void;
 }
-}

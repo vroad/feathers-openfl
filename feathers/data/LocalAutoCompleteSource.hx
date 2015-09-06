@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.data
-{
+package feathers.data;
 import starling.events.Event;
 import starling.events.EventDispatcher;
 
@@ -31,7 +30,9 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.COMPLETE
  */
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 /**
  * Creates a list of suggestions for an <code>AutoComplete</code> component
@@ -45,7 +46,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	/**
 	 * @private
 	 */
-	private static function defaultCompareFunction(item:Object, textToMatch:String):Bool
+	private static function defaultCompareFunction(item:Dynamic, textToMatch:String):Bool
 	{
 		return item.toString().toLowerCase().indexOf(textToMatch.toLowerCase()) >= 0;
 	}
@@ -53,8 +54,9 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	/**
 	 * Constructor.
 	 */
-	public function LocalAutoCompleteSource(source:ListCollection = null)
+	public function new(source:ListCollection = null)
 	{
+		super();
 		this._dataProvider = source;
 	}
 
@@ -67,6 +69,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	 * A collection of items to be used as a source for auto-complete
 	 * results.
 	 */
+	public var dataProvider(get, set):ListCollection;
 	public function get_dataProvider():ListCollection
 	{
 		return this._dataProvider;
@@ -78,12 +81,13 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		this._dataProvider = value;
+		return get_dataProvider();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _compareFunction:Function = defaultCompareFunction;
+	private var _compareFunction:Dynamic->String->Bool = defaultCompareFunction;
 
 	/**
 	 * A function used to compare items from the data provider with the
@@ -95,7 +99,8 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	 * <p>The function is expected to have the following signature:</p>
 	 * <pre>function( item:Object, textToMatch:String ):Boolean</pre>
 	 */
-	public function get_compareFunction():Function
+	public var compareFunction(get, set):Dynamic->String->Bool;
+	public function get_compareFunction():Dynamic->String->Bool
 	{
 		return this._compareFunction;
 	}
@@ -103,13 +108,14 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	/**
 	 * @private
 	 */
-	public function set_compareFunction(value:Function):Function
+	public function set_compareFunction(value:Dynamic->String->Bool):Dynamic->String->Bool
 	{
 		if(value == null)
 		{
 			value = defaultCompareFunction;
 		}
 		this._compareFunction = value;
+		return get_compareFunction();
 	}
 
 	/**
@@ -117,7 +123,7 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 	 */
 	public function load(textToMatch:String, result:ListCollection = null):Void
 	{
-		if(result)
+		if(result != null)
 		{
 			result.removeAll();
 		}
@@ -125,15 +131,16 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 		{
 			result = new ListCollection();
 		}
-		if(!this._dataProvider || textToMatch.length == 0)
+		if(this._dataProvider == null || textToMatch.length == 0)
 		{
 			this.dispatchEventWith(Event.COMPLETE, false, result);
 			return;
 		}
-		var compareFunction:Function = this._compareFunction;
-		for(var i:Int = 0; i < this._dataProvider.length; i++)
+		var compareFunction:Dynamic->String->Bool = this._compareFunction;
+		//for(var i:Int = 0; i < this._dataProvider.length; i++)
+		for(i in 0 ... this._dataProvider.length)
 		{
-			var item:Object = this._dataProvider.getItemAt(i);
+			var item:Dynamic = this._dataProvider.getItemAt(i);
 			if(compareFunction(item, textToMatch))
 			{
 				result.addItem(item);
@@ -141,5 +148,4 @@ class LocalAutoCompleteSource extends EventDispatcher implements IAutoCompleteSo
 		}
 		this.dispatchEventWith(Event.COMPLETE, false, result);
 	}
-}
 }

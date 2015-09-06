@@ -24,6 +24,9 @@ import starling.core.RenderSupport;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+
 /**
  * A generic container that supports layout. For a container that supports
  * scrolling and more robust skinning options, see <code>ScrollContainer</code>.
@@ -55,7 +58,7 @@ class LayoutGroup extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * Flag to indicate that the clipping has changed.
@@ -284,7 +287,7 @@ class LayoutGroup extends FeathersControl
 		{
 			return get_backgroundSkin();
 		}
-		if(value && value.parent)
+		if(value != null && value.parent != null)
 		{
 			value.removeFromParent();
 		}
@@ -325,7 +328,7 @@ class LayoutGroup extends FeathersControl
 		{
 			return get_backgroundDisabledSkin();
 		}
-		if(value && value.parent)
+		if(value != null && value.parent != null)
 		{
 			value.removeFromParent();
 		}
@@ -339,7 +342,9 @@ class LayoutGroup extends FeathersControl
 	 */
 	private var _autoSizeMode:String = AUTO_SIZE_MODE_CONTENT;
 
+	#if 0
 	[Inspectable(type="String",enumeration="stage,content")]
+	#end
 	/**
 	 * Determines how the layout group will set its own size when its
 	 * dimensions (width and height) aren't set explicitly.
@@ -355,6 +360,7 @@ class LayoutGroup extends FeathersControl
 	 * @see #AUTO_SIZE_MODE_STAGE
 	 * @see #AUTO_SIZE_MODE_CONTENT
 	 */
+	public var autoSizeMode(get, set):String;
 	public function get_autoSizeMode():String
 	{
 		return this._autoSizeMode;
@@ -367,10 +373,10 @@ class LayoutGroup extends FeathersControl
 	{
 		if(this._autoSizeMode == value)
 		{
-			return;
+			return get_autoSizeMode();
 		}
 		this._autoSizeMode = value;
-		if(this.stage)
+		if(this.stage != null)
 		{
 			if(this._autoSizeMode == AUTO_SIZE_MODE_STAGE)
 			{
@@ -382,6 +388,7 @@ class LayoutGroup extends FeathersControl
 			}
 		}
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_autoSizeMode();
 	}
 
 	/**
@@ -507,7 +514,7 @@ class LayoutGroup extends FeathersControl
 		{
 			return null;
 		}
-		if(this.currentBackgroundSkin && this._hitArea.contains(localX, localY))
+		if(this.currentBackgroundSkin != null && this._hitArea.contains(localX, localY))
 		{
 			return this;
 		}
@@ -522,7 +529,7 @@ class LayoutGroup extends FeathersControl
 		if(this.currentBackgroundSkin != null && this.currentBackgroundSkin.hasVisibleArea)
 		{
 			var clipRect:Rectangle = this.clipRect;
-			if(clipRect)
+			if(clipRect != null)
 			{
 				clipRect = support.pushClipRect(this.getClipRect(stage, HELPER_RECTANGLE));
 				if(clipRect.isEmpty())
@@ -539,7 +546,7 @@ class LayoutGroup extends FeathersControl
 			this.currentBackgroundSkin.render(support, parentAlpha * this.alpha);
 			support.blendMode = blendMode;
 			support.popMatrix();
-			if(clipRect)
+			if(clipRect != null)
 			{
 				support.popClipRect();
 			}
@@ -786,7 +793,7 @@ class LayoutGroup extends FeathersControl
 		}
 
 		var clipRect:Rectangle = this.clipRect;
-		if(!clipRect)
+		if(clipRect == null)
 		{
 			clipRect = new Rectangle();
 		}

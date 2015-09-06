@@ -13,6 +13,9 @@ import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+
 /**
  * Based on <code>LayoutGroup</code>, this component is meant as a base
  * class for creating a custom header or footer renderer for a
@@ -160,6 +163,7 @@ class LayoutGroupGroupedListHeaderOrFooterRenderer extends LayoutGroup implement
 		//LayoutGroup doesn't know about INVALIDATION_FLAG_DATA, so we need
 		//set set another flag that it understands.
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_data();
 	}
 
 	/**

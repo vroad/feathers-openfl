@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.controls.supportClasses.BaseScreenNavigator;
 import feathers.core.FeathersControl;
 import feathers.core.IValidating;
@@ -407,7 +406,7 @@ class Drawers extends FeathersControl
 		this._content = value;
 		if(this._content != null)
 		{
-			if(this._content is BaseScreenNavigator)
+			if(Std.is(this._content, BaseScreenNavigator))
 			{
 				this.contentEventDispatcherField = SCREEN_NAVIGATOR_CONTENT_EVENT_DISPATCHER_FIELD;
 				this.contentEventDispatcherChangeEventType = Event.CHANGE;
@@ -544,7 +543,9 @@ class Drawers extends FeathersControl
 	 */
 	private var _topDrawerDockMode:String = DOCK_MODE_NONE;
 
+    #if 0
 	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
+    #end
 	/**
 	 * Determines if the top drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -773,7 +774,9 @@ class Drawers extends FeathersControl
 	 */
 	private var _rightDrawerDockMode:String = DOCK_MODE_NONE;
 
+    #if 0
 	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
+    #end
 	/**
 	 * Determines if the right drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -1002,7 +1005,9 @@ class Drawers extends FeathersControl
 	 */
 	private var _bottomDrawerDockMode:String = DOCK_MODE_NONE;
 
+	#if 0
 	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
+	#end
 	/**
 	 * Determines if the bottom drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -1231,7 +1236,9 @@ class Drawers extends FeathersControl
 	 */
 	private var _leftDrawerDockMode:String = DOCK_MODE_NONE;
 
+	#if 0
 	[Inspectable(type="String",enumeration="portrait,landscape,both,none")]
+	#end
 	/**
 	 * Determines if the left drawer is docked in all, some, or no stage
 	 * orientations. The current stage orientation is determined by
@@ -1506,7 +1513,9 @@ class Drawers extends FeathersControl
 	 */
 	private var _openGesture:String = OPEN_GESTURE_DRAG_CONTENT_EDGE;
 
+	#if 0
 	[Inspectable(type="String",enumeration="dragContentEdge,dragContent,none")]
+	#end
 	/**
 	 * An optional touch gesture used to open a drawer.
 	 *

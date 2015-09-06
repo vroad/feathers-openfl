@@ -1,5 +1,7 @@
 package feathers.utils.display;
+import starling.core.Starling;
 import starling.display.DisplayObject;
+import starling.display.Stage;
 
 class FeathersDisplayUtil
 {
@@ -56,6 +58,18 @@ public static function getDisplayObjectDepthFromStage(target:DisplayObject):Int
 		count++;
 	}
 	return count;
+}
+
+public static function stageToStarling(stage:Stage):Starling
+{
+	for (starling in Starling.all)
+	{
+		if(starling.stage == stage)
+		{
+			return starling;
+		}
+	}
+	return null;
 }
 	
 }

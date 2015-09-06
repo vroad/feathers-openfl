@@ -76,7 +76,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private var _transition:Function;
+	private var _transition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * Typically used to provide some kind of animation or visual effect,
@@ -124,7 +124,8 @@ class ScreenNavigator extends BaseScreenNavigator
 	 * @see #clearScreen()
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get_transition():Function
+	public var transition(get, set):DisplayObject->DisplayObject->Dynamic->Void;
+	public function get_transition():DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return this._transition;
 	}
@@ -132,13 +133,14 @@ class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	public function set_transition(value:Function):Function
+	public function set_transition(value:DisplayObject->DisplayObject->Dynamic->Void):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		if(this._transition == value)
 		{
-			return;
+			return get_transition();
 		}
 		this._transition = value;
+		return get_transition();
 	}
 
 	/**
@@ -167,7 +169,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	 */
 	public function removeScreen(id:String):ScreenNavigatorItem
 	{
-		return ScreenNavigatorItem(this.removeScreenInternal(id));
+		return cast(this.removeScreenInternal(id), ScreenNavigatorItem);
 	}
 
 	/**
@@ -176,11 +178,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	 */
 	public function getScreen(id:String):ScreenNavigatorItem
 	{
-		if(this._screens.hasOwnProperty(id))
-		{
-			return ScreenNavigatorItem(this._screens[id]);
-		}
-		return null;
+		return cast(this._screens[id], ScreenNavigatorItem);
 	}
 
 	/**
@@ -193,7 +191,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #transition
 	 */
-	public function showScreen(id:String, transition:Function = null):DisplayObject
+	public function showScreen(id:String, transition:DisplayObject->DisplayObject->Dynamic->Void = null):DisplayObject
 	{
 		if(transition == null)
 		{
@@ -211,7 +209,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	 *
 	 * @see #transition
 	 */
-	public function clearScreen(transition:Function = null):Void
+	public function clearScreen(transition:DisplayObject->DisplayObject->Dynamic->Void = null):Void
 	{
 		if(transition == null)
 		{
@@ -226,14 +224,15 @@ class ScreenNavigator extends BaseScreenNavigator
 	 */
 	override private function prepareActiveScreen():Void
 	{
-		var item:ScreenNavigatorItem = ScreenNavigatorItem(this._screens[this._activeScreenID]);
+		var item:ScreenNavigatorItem = cast(this._screens[this._activeScreenID], ScreenNavigatorItem);
 		var events:Dynamic = item.events;
 		var savedScreenEvents:Map<String, Dynamic->Void> = new Map();
 		for (eventName in Reflect.fields(events))
 		{
-			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;
-			var eventAction:Object = events[eventName];
-			if(eventAction is Function)
+			var prop = Reflect.getProperty(this._activeScreen, eventName);
+			var signal:Dynamic =  prop/* != null ? cast(prop, BaseScreenNavigator.SIGNAL_TYPE) : null*/;
+			var eventAction:Dynamic = Reflect.field(events, eventName);
+			if(Reflect.isFunction(eventAction))
 			{
 				if(signal != null)
 				{
@@ -246,14 +245,15 @@ class ScreenNavigator extends BaseScreenNavigator
 			}
 			else if(Std.is(eventAction, String))
 			{
+				var eventListener:Dynamic;
 				if(signal != null)
 				{
-					var eventListener:Function = this.createShowScreenSignalListener(eventAction as String, signal);
+					eventListener = this.createShowScreenSignalListener(cast(eventAction, String), signal);
 					signal.add(eventListener);
 				}
 				else
 				{
-					eventListener = this.createShowScreenEventListener(eventAction as String);
+					eventListener = this.createShowScreenEventListener(cast(eventAction, String));
 					this._activeScreen.addEventListener(eventName, eventListener);
 				}
 				savedScreenEvents[eventName] = eventListener;
@@ -276,9 +276,10 @@ class ScreenNavigator extends BaseScreenNavigator
 		var savedScreenEvents:Map<String, Dynamic->Void> = this._screenEvents[this._activeScreenID];
 		for (eventName in Reflect.fields(events))
 		{
-			var signal:Object = this._activeScreen.hasOwnProperty(eventName) ? (this._activeScreen[eventName] as BaseScreenNavigator.SIGNAL_TYPE) : null;
-			var eventAction:Object = events[eventName];
-			if(eventAction is Function)
+			var prop = Reflect.getProperty(this._activeScreen, eventName);
+			var signal:Dynamic = prop /*!= null ? cast(prop, BaseScreenNavigator.SIGNAL_TYPE) : null*/;
+			var eventAction:Dynamic = Reflect.field(events, eventName);
+			if(Reflect.isFunction(eventAction))
 			{
 				if(signal != null)
 				{
@@ -308,7 +309,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function createShowScreenEventListener(screenID:String):Function
+	private function createShowScreenEventListener(screenID:String):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		var self:ScreenNavigator = this;
 		var eventListener:Dynamic = function(event:Event):Void
@@ -322,7 +323,7 @@ class ScreenNavigator extends BaseScreenNavigator
 	/**
 	 * @private
 	 */
-	private function createShowScreenSignalListener(screenID:String, signal:Object):Function
+	private function createShowScreenSignalListener(screenID:String, signal:Dynamic):Dynamic->Void
 	{
 		var self:ScreenNavigator = this;
 		var signalListener:Dynamic->Void;
@@ -344,6 +345,4 @@ class ScreenNavigator extends BaseScreenNavigator
 
 		return signalListener;
 	}
-}
-
 }

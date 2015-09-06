@@ -61,7 +61,7 @@ interface IHierarchicalCollectionDataDescriptor
 	/**
 	 * Removes all items from the data source.
 	 */
-	function removeAll(data:Object):Void;
+	function removeAll(data:Dynamic):Void;
 
 	/**
 	 * Determines which location the item appears at within the data source.

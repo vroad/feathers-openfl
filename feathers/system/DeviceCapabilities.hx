@@ -71,7 +71,7 @@ class DeviceCapabilities
 	public static function get_dpi():Int
 	{
 		#if (flash || html5)
-		return Std.Int(Capabilities.screenDPI);
+		return Std.int(Capabilities.screenDPI);
 		#else
 		return 96;
 		#end

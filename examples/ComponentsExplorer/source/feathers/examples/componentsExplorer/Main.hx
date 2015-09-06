@@ -275,9 +275,9 @@ import starling.events.Event;
 		else
 		{
 			var mainMenuItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(MainMenuScreen);
-			for(eventType in MAIN_MENU_EVENTS)
+			for(eventType in Reflect.fields(MAIN_MENU_EVENTS))
 			{
-				mainMenuItem.setScreenIDForPushEvent(eventType, MAIN_MENU_EVENTS[eventType] as String);
+				mainMenuItem.setScreenIDForPushEvent(eventType, cast(Reflect.field(MAIN_MENU_EVENTS, eventType), String));
 			}
 			this._navigator.addScreen(MAIN_MENU, mainMenuItem);
 			this._navigator.rootScreenID = MAIN_MENU;
@@ -289,7 +289,7 @@ import starling.events.Event;
 
 	private function mainMenuEventHandler(event:Event):Void
 	{
-		var screenName:String = MAIN_MENU_EVENTS[event.type] as String;
+		var screenName:String = cast(Reflect.field(MAIN_MENU_EVENTS, event.type), String);
 		//since this navigation is triggered by an external menu, we don't
 		//want to push a new screen onto the stack. we want to start fresh.
 		this._navigator.rootScreenID = screenName;

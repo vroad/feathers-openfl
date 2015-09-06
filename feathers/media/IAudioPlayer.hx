@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import flash.media.SoundTransform;
 
 /**
@@ -31,7 +30,9 @@ import flash.media.SoundTransform;
  *
  * @eventType feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
  */
+#if 0
 [Event(name="soundTransformChange",type="starling.events.Event")]
+#end
 
 /**
  * An interface for media players that play audio content.
@@ -45,11 +46,11 @@ interface IAudioPlayer extends ITimedMediaPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/SoundTransform.html flash.media.SoundTransform
 	 * @see #event:soundTransformChange feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
 	 */
-	function get_soundTransform():SoundTransform;
+	var soundTransform(get, set):SoundTransform;
+	//function get_soundTransform():SoundTransform;
 
 	/**
 	 * @private
 	 */
-	function set_soundTransform(value:SoundTransform):SoundTransform;
-}
+	//function set_soundTransform(value:SoundTransform):SoundTransform;
 }

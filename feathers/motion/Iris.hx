@@ -5,8 +5,8 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.motion
-{
+package feathers.motion;
+import openfl.errors.ArgumentError;
 import starling.animation.Transitions;
 import starling.display.DisplayObject;
 
@@ -38,18 +38,20 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisOpenTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			var originX:Float;
+			var originY:Float;
+			if(oldScreen != null)
 			{
-				var originX:Float = oldScreen.width / 2;
-				var originY:Float = oldScreen.height / 2;
+				originX = oldScreen.width / 2;
+				originY = oldScreen.height / 2;
 			}
 			else
 			{
@@ -69,11 +71,11 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisOpenTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
@@ -90,18 +92,20 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisCloseTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			var originX:Float;
+			var originY:Float;
+			if(oldScreen != null)
 			{
-				var originX:Float = oldScreen.width / 2;
-				var originY:Float = oldScreen.height / 2;
+				originX = oldScreen.width / 2;
+				originY = oldScreen.height / 2;
 			}
 			else
 			{
@@ -121,179 +125,15 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createIrisCloseTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
 			new IrisTween(newScreen, oldScreen, x, y, false, duration, ease, onComplete, tweenProperties);
 		}
 	}
-}
-}
-
-import feathers.display.RenderDelegate;
-
-import flash.geom.Point;
-
-import starling.animation.Tween;
-import starling.core.Starling;
-import starling.display.Canvas;
-import starling.display.DisplayObject;
-
-class IrisTween extends Tween
-{
-public function IrisTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	originX:Float, originY:Float, openIris:Bool, duration:Float, ease:Object,
-	onCompleteCallback:Function, tweenProperties:Object)
-{
-	if(newScreen)
-	{
-		var width:Float = newScreen.width;
-		var height:Float = newScreen.height;
-	}
-	else
-	{
-		width = oldScreen.width;
-		height = oldScreen.height;
-	}
-	var halfWidth:Float = width / 2;
-	var halfHeight:Float = height / 2;
-	var p1:Point = new Point(halfWidth, halfHeight);
-	var p2:Point = new Point(originX, originY);
-	var radiusFromCenter:Float = p1.length;
-	if(p1.equals(p2))
-	{
-		var radius:Float = radiusFromCenter;
-	}
-	else
-	{
-		var distanceFromCenterToOrigin:Float = Point.distance(p1, p2);
-		radius = radiusFromCenter + distanceFromCenterToOrigin;
-	}
-	var maskTarget:Canvas;
-	if(newScreen && openIris)
-	{
-		this._newScreenDelegate = new RenderDelegate(newScreen);
-		this._newScreenDelegate.alpha = newScreen.alpha;
-		this._newScreenDelegate.blendMode = newScreen.blendMode;
-		this._newScreenDelegate.rotation = newScreen.rotation;
-		this._newScreenDelegate.scaleX = newScreen.scaleX;
-		this._newScreenDelegate.scaleY = newScreen.scaleY;
-		newScreen.parent.addChild(this._newScreenDelegate);
-		newScreen.visible = false;
-		this._savedNewScreen = newScreen;
-
-		var mask:Canvas = new Canvas();
-		mask.x = originX;
-		mask.y = originY;
-		mask.beginFill(0xff00ff);
-		mask.drawCircle(0, 0, radius);
-		mask.endFill();
-		if(openIris)
-		{
-			mask.scaleX = 0;
-			mask.scaleY = 0;
-		}
-		if(openIris)
-		{
-			this._newScreenDelegate.mask = mask;
-		}
-		newScreen.parent.addChild(mask);
-		maskTarget = mask;
-	}
-	if(oldScreen && !openIris)
-	{
-		this._oldScreenDelegate = new RenderDelegate(oldScreen);
-		this._oldScreenDelegate.alpha = oldScreen.alpha;
-		this._oldScreenDelegate.blendMode = oldScreen.blendMode;
-		this._oldScreenDelegate.rotation = oldScreen.rotation;
-		this._oldScreenDelegate.scaleX = oldScreen.scaleX;
-		this._oldScreenDelegate.scaleY = oldScreen.scaleY;
-		oldScreen.parent.addChild(this._oldScreenDelegate);
-		oldScreen.visible = false;
-		this._savedOldScreen = oldScreen;
-
-		mask = new Canvas();
-		mask.x = originX;
-		mask.y = originY;
-		mask.beginFill(0xff00ff);
-		mask.drawCircle(0, 0, radius);
-		mask.endFill();
-		if(!openIris)
-		{
-			this._oldScreenDelegate.mask = mask;
-		}
-		oldScreen.parent.addChild(mask);
-		maskTarget = mask;
-	}
-
-	super(maskTarget, duration, ease);
-
-	if(openIris)
-	{
-		this.animate("scaleX", 1);
-		this.animate("scaleY", 1);
-	}
-	else
-	{
-		this.animate("scaleX", 0);
-		this.animate("scaleY", 0);
-	}
-
-	if(tweenProperties)
-	{
-		for(var propertyName:String in tweenProperties)
-		{
-			this[propertyName] = tweenProperties[propertyName];
-		}
-	}
-	this._savedWidth = width;
-	this._savedHeight = height;
-	this._onCompleteCallback = onCompleteCallback;
-	this.onComplete = this.cleanupTween;
-	Starling.juggler.add(this);
-}
-
-private var _newScreenDelegate:RenderDelegate;
-private var _oldScreenDelegate:RenderDelegate;
-private var _savedOldScreen:DisplayObject;
-private var _savedNewScreen:DisplayObject;
-private var _onCompleteCallback:Function;
-private var _savedWidth:Float;
-private var _savedHeight:Float;
-
-private function cleanupTween():Void
-{
-	if(this._newScreenDelegate)
-	{
-		this._newScreenDelegate.mask.removeFromParent(true);
-		this._newScreenDelegate.removeFromParent(true);
-		this._newScreenDelegate = null;
-	}
-	if(this._oldScreenDelegate)
-	{
-		this._oldScreenDelegate.mask.removeFromParent(true);
-		this._oldScreenDelegate.removeFromParent(true);
-		this._oldScreenDelegate = null;
-	}
-	if(this._savedNewScreen)
-	{
-		this._savedNewScreen.visible = true;
-		this._savedNewScreen = null;
-	}
-	if(this._savedOldScreen)
-	{
-		this._savedOldScreen.visible = true;
-		this._savedOldScreen = null;
-	}
-	if(this._onCompleteCallback != null)
-	{
-		this._onCompleteCallback();
-	}
-}
-
 }

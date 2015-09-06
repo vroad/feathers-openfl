@@ -211,35 +211,36 @@ class ListCollection extends EventDispatcher
 		{
 			return _data;
 		}
+		if(value == null)
+		{
+			this.removeAll();
+			return _data;
+		}
 		this._data = value;
 		//we'll automatically detect an array, vector, or xmllist for convenience
 		if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, ArrayListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new ArrayListCollectionDataDescriptor();
+			this.dataDescriptor = new ArrayListCollectionDataDescriptor();
 		}
 		/*else if(Std.is(this._data, Array<Float>) && !Std.is(this._dataDescriptor, VectorFloatListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new VectorNumberListCollectionDataDescriptor();
+			this.dataDescriptor = new VectorFloatListCollectionDataDescriptor();
 		}
 		else if(Std.is(this._data, Array<Int>) && !Std.is(this._dataDescriptor, VectorIntListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new VectorIntListCollectionDataDescriptor();
+			this.dataDescriptor = new VectorIntListCollectionDataDescriptor();
 		}
 		else if(Std.is(this._data, Array<UInt>) && !Std.is(this._dataDescriptor, VectorUintListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new VectorUintListCollectionDataDescriptor();
+			this.dataDescriptor = new VectorUintListCollectionDataDescriptor();
 		}*/
 		else if(Std.is(this._data, Array) && !Std.is(this._dataDescriptor, VectorListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new VectorListCollectionDataDescriptor();
+			this.dataDescriptor = new VectorListCollectionDataDescriptor();
 		}
 		/*else if(Std.is(this._data, XMLList) && !Std.is(this._dataDescriptor, XMLListListCollectionDataDescriptor))
 		{
-			this._dataDescriptor = new XMLListListCollectionDataDescriptor();
-		}
-		if(this._data === null)
-		{
-			this._dataDescriptor = null;
+			this.dataDescriptor = new XMLListListCollectionDataDescriptor();
 		}*/
 		this.dispatchEventWith(CollectionEventType.RESET);
 		this.dispatchEventWith(Event.CHANGE);
@@ -283,10 +284,6 @@ class ListCollection extends EventDispatcher
 	public var length(get, never):Int;
 	public function get_length():Int
 	{
-		if(!this._dataDescriptor)
-		{
-			return 0;
-		}
 		return this._dataDescriptor.getLength(this._data);
 	}
 

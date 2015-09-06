@@ -34,7 +34,9 @@ import starling.display.DisplayObject;
  *
  * @eventType starling.events.Event.SCROLL
  */
+#if 0
 [Event(name="scroll",type="starling.events.Event")]
+#end
 
 /**
  * A virtual layout that supports variable item dimensions.

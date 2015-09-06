@@ -275,6 +275,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	 *
 	 * @see #iconLabelStyleName
 	 */
+	private var iconLabelName(get, set):String;
 	private function get_iconLabelName():String
 	{
 		return this.iconLabelStyleName;
@@ -286,6 +287,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	private function set_iconLabelName(value:String):String
 	{
 		this.iconLabelStyleName = value;
+		return get_iconLabelName();
 	}
 
 	/**
@@ -306,6 +308,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	 *
 	 * @see #accessoryLabelStyleName
 	 */
+	private var accessoryLabelName(get, set):String;
 	private function get_accessoryLabelName():String
 	{
 		return this.accessoryLabelStyleName;
@@ -317,6 +320,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	private function set_accessoryLabelName(value:String):String
 	{
 		this.accessoryLabelStyleName = value;
+		return get_accessoryLabelName();
 	}
 
 	/**
@@ -331,6 +335,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
+	public var isChildFocusEnabled(get, set):Bool;
 	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
@@ -342,6 +347,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
+		return get_isChildFocusEnabled();
 	}
 
 	/**
@@ -3632,7 +3638,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 	{
 		//we need to use strict equality here because the data can be
 		//non-strictly equal to null
-		if(this._data != null && this._owner)
+		if(this._data != null && this._owner != null)
 		{
 			if(this._itemHasLabel)
 			{
@@ -3830,7 +3836,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 			}
 		}
 
-		if(this.accessoryLabel != null && this.accessoryLabel != cast(newAccessory, ITextRenderer))
+		if(this.accessoryLabel != null && this.accessoryLabel != cast newAccessory)
 		{
 			//we can dispose this one, though, since we created it
 			this.accessoryLabel.dispose();
@@ -3943,11 +3949,12 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 		if(this.accessoryLabel != null)
 		{
 			var displayAccessoryLabel:DisplayObject = cast(this.accessoryLabel, DisplayObject);
-			for (propertyName in Reflect.fields(this._accessoryLabelProperties.storage))
-			{
-				var propertyValue:Dynamic = Reflect.field(this._accessoryLabelProperties.storage, propertyName);
-				Reflect.setProperty(displayAccessoryLabel, propertyName, propertyValue);
-			}
+			if (this._accessoryLabelProperties != null)
+				for (propertyName in Reflect.fields(this._accessoryLabelProperties.storage))
+				{
+					var propertyValue:Dynamic = Reflect.field(this._accessoryLabelProperties.storage, propertyName);
+					Reflect.setProperty(displayAccessoryLabel, propertyName, propertyValue);
+				}
 		}
 	}
 
@@ -4170,9 +4177,9 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 
 		var hasIconToLeftOrRight:Bool = this.currentIcon != null && (this._iconPosition == ICON_POSITION_LEFT || this._iconPosition == ICON_POSITION_LEFT_BASELINE ||
 			this._iconPosition == ICON_POSITION_RIGHT || this._iconPosition == ICON_POSITION_RIGHT_BASELINE);
-		var hasIconToTopOrBottom:Bool = this.currentIcon && (this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM);
-		var hasAccessoryToLeftOrRight:Bool = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
-		var hasAccessoryToTopOrBottom:Bool = this.accessory && (this._accessoryPosition == ACCESSORY_POSITION_TOP || this._accessoryPosition == ACCESSORY_POSITION_BOTTOM);
+		var hasIconToTopOrBottom:Bool = this.currentIcon != null && (this._iconPosition == ICON_POSITION_TOP || this._iconPosition == ICON_POSITION_BOTTOM);
+		var hasAccessoryToLeftOrRight:Bool = this.accessory != null && (this._accessoryPosition == ACCESSORY_POSITION_LEFT || this._accessoryPosition == ACCESSORY_POSITION_RIGHT);
+		var hasAccessoryToTopOrBottom:Bool = this.accessory != null && (this._accessoryPosition == ACCESSORY_POSITION_TOP || this._accessoryPosition == ACCESSORY_POSITION_BOTTOM);
 
 		if(this.accessoryLabel != null)
 		{
@@ -4199,7 +4206,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 			}
 			this.accessoryLabel.maxWidth = calculatedWidth;
 			this.accessoryLabel.maxHeight = calculatedHeight;
-			if(hasIconToLeftOrRight && this.currentIcon && !iconAffectsAccessoryLabelMaxWidth)
+			if(hasIconToLeftOrRight && this.currentIcon != null && !iconAffectsAccessoryLabelMaxWidth)
 			{
 				calculatedWidth -= (this.currentIcon.width + adjustedGap);
 			}
@@ -4233,7 +4240,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 			}
 			this.iconLabel.maxWidth = calculatedWidth;
 			this.iconLabel.maxHeight = calculatedHeight;
-			if(hasAccessoryToLeftOrRight && this.accessory && !accessoryAffectsIconLabelMaxWidth)
+			if(hasAccessoryToLeftOrRight && this.accessory != null && !accessoryAffectsIconLabelMaxWidth)
 			{
 				calculatedWidth -= (adjustedAccessoryGap + this.accessory.width);
 			}
@@ -4264,7 +4271,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 			{
 				calculatedHeight -= (adjustedGap + this.currentIcon.height);
 			}
-			if(this.accessory is IValidating)
+			if(Std.is(this.accessory, IValidating))
 			{
 				cast(this.accessory, IValidating).validate();
 			}
@@ -4285,7 +4292,7 @@ class BaseDefaultItemRenderer extends ToggleButton implements IFocusContainer
 		{
 			calculatedHeight = 0;
 		}
-		if(this.labelTextRenderer)
+		if(this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.maxWidth = calculatedWidth;
 			this.labelTextRenderer.maxHeight = calculatedHeight;

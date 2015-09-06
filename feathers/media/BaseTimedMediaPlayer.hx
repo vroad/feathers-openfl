@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.events.MediaPlayerEventType;
 
 import starling.errors.AbstractClassError;
@@ -33,7 +32,9 @@ import starling.errors.AbstractClassError;
  *
  * @eventType feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
  */
+#if 0
 [Event(name="totalTimeChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's current playhead time changes.
@@ -57,7 +58,9 @@ import starling.errors.AbstractClassError;
  *
  * @eventType feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
  */
+#if 0
 [Event(name="currentTimeChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's playback state changes, such as when
@@ -82,7 +85,9 @@ import starling.errors.AbstractClassError;
  *
  * @eventType feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
  */
+#if 0
 [Event(name="playbackStageChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media completes playback because the current time has
@@ -105,7 +110,9 @@ import starling.errors.AbstractClassError;
  *
  * @eventType starling.events.Event.COMPLETE
  */
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 /**
  * An abstract superclass for media players that should implement the
@@ -116,13 +123,15 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	/**
 	 * Constructor.
 	 */
-	public function BaseTimedMediaPlayer()
+	public function new()
 	{
 		super();
+		#if 0
 		if(Object(this).constructor == BaseTimedMediaPlayer)
 		{
 			throw new AbstractClassError();
 		}
+		#end
 	}
 
 	/**
@@ -135,6 +144,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
+	public var isPlaying(get, never):Bool;
 	public function get_isPlaying():Bool
 	{
 		return this._isPlaying;
@@ -150,6 +160,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
+	public var currentTime(get, never):Float;
 	public function get_currentTime():Float
 	{
 		return this._currentTime;
@@ -165,6 +176,7 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
+	public var totalTime(get, never):Float;
 	public function get_totalTime():Float
 	{
 		return this._totalTime;
@@ -275,5 +287,4 @@ class BaseTimedMediaPlayer extends BaseMediaPlayer implements ITimedMediaPlayer
 	{
 
 	}
-}
 }

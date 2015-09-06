@@ -128,6 +128,5 @@ interface ILayout extends IFeathersEventDispatcher
 	 * @see #getScrollPositionForIndex()
 	 */
 	function getNearestScrollPositionForIndex(index:Int, scrollX:Float, scrollY:Float,
-		items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point
-}
+		items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float, result:Point = null):Point;
 }

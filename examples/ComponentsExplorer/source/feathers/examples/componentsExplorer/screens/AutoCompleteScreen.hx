@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.screens
-{
+package feathers.examples.componentsExplorer.screens;
 import feathers.controls.AutoComplete;
 import feathers.controls.Button;
 import feathers.controls.Header;
@@ -13,14 +12,17 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 class AutoCompleteScreen extends PanelScreen
 {
 	public static var globalStyleProvider:IStyleProvider;
 
-	public function AutoCompleteScreen()
+	public function new()
 	{
+		super();
 	}
 
 	private var _input:AutoComplete;
@@ -39,7 +41,7 @@ class AutoCompleteScreen extends PanelScreen
 
 		this._input = new AutoComplete();
 		this._input.prompt = "Fruits. Type 'ap' to see suggestions";
-		this._input.source = new LocalAutoCompleteSource(new ListCollection(new <String>
+		this._input.source = new LocalAutoCompleteSource(new ListCollection(
 		[
 			"Apple",
 			"Apricot",
@@ -82,7 +84,7 @@ class AutoCompleteScreen extends PanelScreen
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -99,5 +101,4 @@ class AutoCompleteScreen extends PanelScreen
 	{
 		this.onBackButton();
 	}
-}
 }

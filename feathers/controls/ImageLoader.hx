@@ -9,7 +9,12 @@ package feathers.controls;
 import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
 import feathers.skins.IStyleProvider;
+#if 0
 import feathers.utils.display.stageToStarling;
+#else
+import feathers.utils.display.FeathersDisplayUtil.stageToStarling;
+#end
+import openfl.errors.Error;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
@@ -26,10 +31,14 @@ import flash.geom.Rectangle;
 import flash.net.URLLoader;
 import flash.net.URLLoaderDataFormat;
 import flash.net.URLRequest;
+#if flash
 import flash.system.ImageDecodingPolicy;
+#end
 import flash.system.LoaderContext;
 import flash.utils.ByteArray;
+#if 0
 import flash.utils.setTimeout;
+#end
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
@@ -41,6 +50,12 @@ import starling.textures.TextureSmoothing;
 import starling.utils.RectangleUtil;
 import starling.utils.ScaleMode;
 import starling.utils.SystemUtil;
+
+import haxe.Timer;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when the source finishes loading, if the source is a URL. This
@@ -87,7 +102,9 @@ import starling.utils.SystemUtil;
  *
  * @eventType feathers.events.FeathersEventType.PROGRESS
  */
+#if 0
 [Event(name="progress",type="starling.events.Event")]
+#end
 
 /**
  * DEPRECATED: Replaced by <code>Event.IO_ERROR</code> and
@@ -126,7 +143,9 @@ import starling.utils.SystemUtil;
  *
  * @eventType starling.events.Event.IO_ERROR
  */
+#if 0
 [Event(name="ioError",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched if a security error occurs while loading the source content.
@@ -149,7 +168,9 @@ import starling.utils.SystemUtil;
  *
  * @eventType starling.events.Event.SECURITY_ERROR
  */
+#if 0
 [Event(name="securityError",type="starling.events.Event")]
+#end
 
 /**
  * Displays an image, either from an existing <code>Texture</code> object or
@@ -728,6 +749,7 @@ class ImageLoader extends FeathersControl
 	 * @see #verticalAlign
 	 * @see #maintainAspectRatio
 	 */
+	public var scaleContent(get, set):Bool;
 	public function get_scaleContent():Bool
 	{
 		return this._scaleContent;
@@ -740,10 +762,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._scaleContent == value)
 		{
-			return;
+			return get_scaleContent();
 		}
 		this._scaleContent = value;
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		return get_scaleContent();
 	}
 	
 	/**
@@ -795,7 +818,9 @@ class ImageLoader extends FeathersControl
 	 */
 	private var _scaleMode:String = ScaleMode.SHOW_ALL;
 
+	#if 0
 	[Inspectable(type="String",enumeration="showAll,noBorder,none")]
+	#end
 	/**
 	 * Determines how the texture is scaled if <code>scaleContent</code> and
 	 * <code>maintainAspectRatio</code> are both set to <code>true</code>.
@@ -830,10 +855,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._scaleMode == value)
 		{
-			return;
+			return get_scaleMode();
 		}
 		this._scaleMode = value;
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		return get_scaleMode();
 	}
 
 	/**
@@ -841,7 +867,9 @@ class ImageLoader extends FeathersControl
 	 */
 	private var _horizontalAlign:String = HORIZONTAL_ALIGN_LEFT;
 
-	[Inspectable(type="String",enumeration="left,center,right")]
+	#if 0
+	[Inspectable(type = "String", enumeration = "left,center,right")]
+	#end
 	/**
 	 * The location where the content is aligned horizontally (on
 	 * the x-axis) when its width is larger or smaller than the width of
@@ -863,6 +891,7 @@ class ImageLoader extends FeathersControl
 	 * @see #HORIZONTAL_ALIGN_CENTER
 	 * @see #HORIZONTAL_ALIGN_RIGHT
 	 */
+	public var horizontalAlign(get, set):String;
 	public function get_horizontalAlign():String
 	{
 		return this._horizontalAlign;
@@ -875,10 +904,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._horizontalAlign == value)
 		{
-			return;
+			return get_horizontalAlign();
 		}
 		this._horizontalAlign = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_horizontalAlign();
 	}
 
 	/**
@@ -886,7 +916,9 @@ class ImageLoader extends FeathersControl
 	 */
 	private var _verticalAlign:String = VERTICAL_ALIGN_TOP;
 
+	#if 0
 	[Inspectable(type="String",enumeration="top,middle,bottom")]
+	#end
 	/**
 	 * The location where the content is aligned vertically (on
 	 * the y-axis) when its height is larger or smaller than the height of
@@ -908,6 +940,7 @@ class ImageLoader extends FeathersControl
 	 * @see #VERTICAL_ALIGN_MIDDLE
 	 * @see #VERTICAL_ALIGN_BOTTOM
 	 */
+	public var verticalAlign(get, set):String;
 	public function get_verticalAlign():String
 	{
 		return _verticalAlign;
@@ -920,10 +953,11 @@ class ImageLoader extends FeathersControl
 	{
 		if(this._verticalAlign == value)
 		{
-			return;
+			return get_verticalAlign();
 		}
 		this._verticalAlign = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_verticalAlign();
 	}
 
 	/**
@@ -1574,6 +1608,8 @@ class ImageLoader extends FeathersControl
 		{
 			return;
 		}
+		var imageWidth:Float = Math.NaN;
+		var imageHeight:Float = Math.NaN;
 		if(this._scaleContent)
 		{
 			if(this._maintainAspectRatio)
@@ -1602,8 +1638,8 @@ class ImageLoader extends FeathersControl
 		}
 		else
 		{
-			var imageWidth:Float = this._currentTextureWidth * this._textureScale;
-			var imageHeight:Float = this._currentTextureHeight * this._textureScale;
+			imageWidth = this._currentTextureWidth * this._textureScale;
+			imageHeight = this._currentTextureHeight * this._textureScale;
 			if(this._horizontalAlign == HORIZONTAL_ALIGN_RIGHT)
 			{
 				this.image.x = this.actualWidth - this._paddingRight - imageWidth;
@@ -1635,9 +1671,9 @@ class ImageLoader extends FeathersControl
 			(this.actualWidth != imageWidth || this.actualHeight != imageHeight))
 		{
 			var clipRect:Rectangle = this.clipRect;
-			if(!clipRect)
+			if(clipRect == null)
 			{
-				clipRect = new Rectangle()
+				clipRect = new Rectangle();
 			}
 			clipRect.setTo(0, 0, this.actualWidth, this.actualHeight);
 			this.clipRect = clipRect;

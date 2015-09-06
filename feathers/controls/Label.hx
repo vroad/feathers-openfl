@@ -16,6 +16,8 @@ import openfl.geom.Point;
 
 import starling.display.DisplayObject;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+
 /**
  * Displays text using a text renderer.
  *
@@ -343,12 +345,12 @@ class Label extends FeathersControl implements ITextBaselineControl
 	/**
 	 * @private
 	 */
-	private var originalBackgroundWidth:Float = NaN;
+	private var originalBackgroundWidth:Float = Math.NaN;
 
 	/**
 	 * @private
 	 */
-	private var originalBackgroundHeight:Float = NaN;
+	private var originalBackgroundHeight:Float = Math.NaN;
 
 	/**
 	 * @private
@@ -382,16 +384,17 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._backgroundSkin == value)
 		{
-			return;
+			return get_backgroundSkin();
 		}
 
-		if(this._backgroundSkin && this.currentBackgroundSkin == this._backgroundSkin)
+		if(this._backgroundSkin != null && this.currentBackgroundSkin == this._backgroundSkin)
 		{
 			this.removeChild(this._backgroundSkin);
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundSkin = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_backgroundSkin();
 	}
 
 	/**
@@ -421,16 +424,17 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._backgroundDisabledSkin == value)
 		{
-			return;
+			return get_backgroundDisabledSkin();
 		}
 
-		if(this._backgroundDisabledSkin && this.currentBackgroundSkin == this._backgroundDisabledSkin)
+		if(this._backgroundDisabledSkin != null && this.currentBackgroundSkin == this._backgroundDisabledSkin)
 		{
 			this.removeChild(this._backgroundDisabledSkin);
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundDisabledSkin = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_backgroundDisabledSkin();
 	}
 
 	/**
@@ -465,6 +469,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 		this.paddingRight = value;
 		this.paddingBottom = value;
 		this.paddingLeft = value;
+		return get_padding();
 	}
 
 	/**
@@ -483,6 +488,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
+	public var paddingTop(get, set):Float;
 	public function get_paddingTop():Float
 	{
 		return this._paddingTop;
@@ -495,10 +501,11 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._paddingTop == value)
 		{
-			return;
+			return get_paddingTop();
 		}
 		this._paddingTop = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingTop();
 	}
 
 	/**
@@ -517,6 +524,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
+	public var paddingRight(get, set):Float;
 	public function get_paddingRight():Float
 	{
 		return this._paddingRight;
@@ -529,10 +537,11 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._paddingRight == value)
 		{
-			return;
+			return get_paddingRight();
 		}
 		this._paddingRight = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingRight();
 	}
 
 	/**
@@ -551,6 +560,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
+	public var paddingBottom(get, set):Float;
 	public function get_paddingBottom():Float
 	{
 		return this._paddingBottom;
@@ -563,10 +573,11 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._paddingBottom == value)
 		{
-			return;
+			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingBottom();
 	}
 
 	/**
@@ -585,6 +596,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 *
 	 * @default 0
 	 */
+	public var paddingLeft(get, set):Float;
 	public function get_paddingLeft():Float
 	{
 		return this._paddingLeft;
@@ -597,10 +609,11 @@ class Label extends FeathersControl implements ITextBaselineControl
 	{
 		if(this._paddingLeft == value)
 		{
-			return;
+			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_paddingLeft();
 	}
 
 	/**
@@ -746,23 +759,23 @@ class Label extends FeathersControl implements ITextBaselineControl
 	private function refreshBackgroundSkin():Void
 	{
 		var newCurrentBackgroundSkin:DisplayObject = this._backgroundSkin;
-		if(!this._isEnabled && this._backgroundDisabledSkin)
+		if(!this._isEnabled && this._backgroundDisabledSkin != null)
 		{
 			newCurrentBackgroundSkin = this._backgroundDisabledSkin;
 		}
 		if(this.currentBackgroundSkin != newCurrentBackgroundSkin)
 		{
-			if(this.currentBackgroundSkin)
+			if(this.currentBackgroundSkin != null)
 			{
 				this.removeChild(this.currentBackgroundSkin);
 			}
 			this.currentBackgroundSkin = newCurrentBackgroundSkin;
-			if(this.currentBackgroundSkin)
+			if(this.currentBackgroundSkin != null)
 			{
 				this.addChildAt(this.currentBackgroundSkin, 0);
 			}
 		}
-		if(this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin != null)
 		{
 			//force it to the bottom
 			this.setChildIndex(this.currentBackgroundSkin, 0);
@@ -784,7 +797,7 @@ class Label extends FeathersControl implements ITextBaselineControl
 	 */
 	private function layoutChildren():Void
 	{
-		if(this.currentBackgroundSkin)
+		if(this.currentBackgroundSkin != null)
 		{
 			this.currentBackgroundSkin.x = 0;
 			this.currentBackgroundSkin.y = 0;

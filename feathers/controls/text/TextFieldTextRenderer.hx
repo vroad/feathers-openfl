@@ -9,10 +9,17 @@ package feathers.controls.text;
 import feathers.core.FeathersControl;
 import feathers.core.ITextRenderer;
 import feathers.skins.IStyleProvider;
+#if 0
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
+#else
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+#end
 
+#if !flash
 import openfl._internal.text.TextEngine;
+#end
 import openfl.display.BitmapData;
 import openfl.display3D.Context3DProfile;
 import openfl.filters.BitmapFilter;
@@ -22,7 +29,7 @@ import openfl.geom.Rectangle;
 import openfl.text.AntiAliasType;
 import openfl.text.GridFitType;
 #if flash
-import openfl.text.StyleSheet;
+import flash.text.StyleSheet;
 #end
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
@@ -36,6 +43,9 @@ import starling.text.TextRenderer;
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.PowerOfTwo.getNextPowerOfTwo;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
 
 /**
  * Renders text with a native <code>openfl.text.TextField</code> and draws
@@ -370,10 +380,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._styleSheet == value)
 		{
-			return;
+			return get_styleSheet();
 		}
 		this._styleSheet = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		return get_styleSheet();
 	}
 	#end
 
@@ -1079,10 +1090,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._updateSnapshotOnScaleChange == value)
 		{
-			return;
+			return get_updateSnapshotOnScaleChange();
 		}
 		this._updateSnapshotOnScaleChange = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_updateSnapshotOnScaleChange();
 	}
 
 	/**
@@ -1117,10 +1129,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	{
 		if(this._useSnapshotDelayWorkaround == value)
 		{
-			return;
+			return get_useSnapshotDelayWorkaround();
 		}
 		this._useSnapshotDelayWorkaround = value;
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_useSnapshotDelayWorkaround();
 	}
 
 	/**
@@ -1181,10 +1194,12 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				}
 			}
 			var scaleFactor:Float = Starling.current.contentScaleFactor;
-			if(!this._nativeFilters || this._nativeFilters.length == 0)
+			var offsetX:Float;
+			var offsetY:Float;
+			if(this._nativeFilters == null || this._nativeFilters.length == 0)
 			{
-				var offsetX:Float = 0;
-				var offsetY:Float = 0;
+				offsetX = 0;
+				offsetY = 0;
 			}
 			else
 			{
@@ -1216,9 +1231,10 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					{
 						currentBitmapHeight = this._maxTextureDimensions;
 					}
+					var snapshot:Image;
 					if(snapshotIndex < 0)
 					{
-						var snapshot:Image = this.textSnapshot;
+						snapshot = this.textSnapshot;
 					}
 					else
 					{
@@ -1235,13 +1251,13 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					yPosition += currentBitmapHeight;
 					totalBitmapHeight -= currentBitmapHeight;
 				}
-				while(totalBitmapHeight > 0)
+				while(totalBitmapHeight > 0);
 				xPosition += currentBitmapWidth;
 				totalBitmapWidth -= currentBitmapWidth;
 				yPosition = offsetY;
 				totalBitmapHeight = this._snapshotHeight;
 			}
-			while(totalBitmapWidth > 0)
+			while(totalBitmapWidth > 0);
 		}
 		super.render(support, parentAlpha);
 	}
@@ -1349,7 +1365,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			this.textField.wordWrap = this._wordWrap;
 			this.textField.embedFonts = this._embedFonts;
 			#if flash
-			if(this._styleSheet)
+			if(this._styleSheet != null)
 			{
 				this.textField.styleSheet = this._styleSheet;
 			}
@@ -1506,11 +1522,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				rectangleSnapshotHeight *= matrixToScaleY(HELPER_MATRIX);
 			}
 			if(rectangleSnapshotWidth >= 1 && rectangleSnapshotHeight >= 1 &&
-				this._nativeFilters && this._nativeFilters.length > 0)
+				this._nativeFilters != null && this._nativeFilters.length > 0)
 			{
 				HELPER_MATRIX.identity();
 				HELPER_MATRIX.scale(scaleFactor, scaleFactor);
-				var bitmapData:BitmapData = new BitmapData(rectangleSnapshotWidth, rectangleSnapshotHeight, true, 0x00ff00ff);
+				var bitmapData:BitmapData = new BitmapData(Std.int(rectangleSnapshotWidth), Std.int(rectangleSnapshotHeight), true, 0x00ff00ff);
 				bitmapData.draw(this.textField, HELPER_MATRIX, null, null, HELPER_RECTANGLE);
 				this.measureNativeFilters(bitmapData, HELPER_RECTANGLE);
 				bitmapData.dispose();
@@ -1525,50 +1541,50 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Std.Int(Std.Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions));
+					this._snapshotWidth = Std.int(Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotWidth % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotWidth = Std.Int(rectangleSnapshotWidth);
+					this._snapshotWidth = Std.int(rectangleSnapshotWidth);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotWidth > this._maxTextureDimensions)
 				{
-					this._snapshotWidth = Std.Int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.Int(rectangleSnapshotWidth % this._maxTextureDimensions));
+					this._snapshotWidth = Std.int(rectangleSnapshotWidth / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotWidth % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotWidth = getNextPowerOfTwo(Std.Int(rectangleSnapshotWidth));
+					this._snapshotWidth = getNextPowerOfTwo(Std.int(rectangleSnapshotWidth));
 				}
 			}
 			if(canUseRectangleTexture)
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Std.Int(Std.Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions));
+					this._snapshotHeight = Std.int(Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + (rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = Std.Int(rectangleSnapshotHeight);
+					this._snapshotHeight = Std.int(rectangleSnapshotHeight);
 				}
 			}
 			else
 			{
 				if(rectangleSnapshotHeight > this._maxTextureDimensions)
 				{
-					this._snapshotHeight = Std.Int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.Int(rectangleSnapshotHeight % this._maxTextureDimensions));
+					this._snapshotHeight = Std.int(rectangleSnapshotHeight / this._maxTextureDimensions) * this._maxTextureDimensions + getNextPowerOfTwo(Std.int(rectangleSnapshotHeight % this._maxTextureDimensions));
 				}
 				else
 				{
-					this._snapshotHeight = getNextPowerOfTwo(Std.Int(rectangleSnapshotHeight));
+					this._snapshotHeight = getNextPowerOfTwo(Std.int(rectangleSnapshotHeight));
 				}
 			}
-			var textureRoot:ConcreteTexture = this.textSnapshot ? this.textSnapshot.texture.root : null;
-			this._needsNewTexture = this._needsNewTexture || !this.textSnapshot || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
-			this._snapshotVisibleWidth = rectangleSnapshotWidth;
-			this._snapshotVisibleHeight = rectangleSnapshotHeight;
+			var textureRoot:ConcreteTexture = this.textSnapshot != null ? this.textSnapshot.texture.root : null;
+			this._needsNewTexture = this._needsNewTexture || this.textSnapshot == null || this._snapshotWidth != textureRoot.width || this._snapshotHeight != textureRoot.height;
+			this._snapshotVisibleWidth = Std.int(rectangleSnapshotWidth);
+			this._snapshotVisibleHeight = Std.int(rectangleSnapshotHeight);
 		}
 
 		//instead of checking sizeInvalid, which will often be triggered by
@@ -1682,7 +1698,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var texture:Texture = snapshot.texture;
 		texture.root.onRestore = function():Void
 		{
-			var scaleFactor:Float = Starling.contentScaleFactor;
+			var scaleFactor:Float = Starling.current.contentScaleFactor;
 			HELPER_MATRIX.identity();
 			HELPER_MATRIX.scale(scaleFactor, scaleFactor);
 			var bitmapData:BitmapData = self.drawTextFieldRegionToBitmapData(
@@ -1698,16 +1714,16 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 	private function drawTextFieldRegionToBitmapData(textFieldX:Float, textFieldY:Float,
 		bitmapWidth:Float, bitmapHeight:Float, bitmapData:BitmapData = null):BitmapData
 	{
-		var scaleFactor:Float = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor;
 		var clipWidth:Float = this._snapshotVisibleWidth - textFieldX;
 		var clipHeight:Float = this._snapshotVisibleHeight - textFieldY;
-		if(!bitmapData || bitmapData.width != bitmapWidth || bitmapData.height != bitmapHeight)
+		if(bitmapData == null || bitmapData.width != bitmapWidth || bitmapData.height != bitmapHeight)
 		{
-			if(bitmapData)
+			if(bitmapData != null)
 			{
 				bitmapData.dispose();
 			}
-			bitmapData = new BitmapData(bitmapWidth, bitmapHeight, true, 0x00ff00ff);
+			bitmapData = new BitmapData(Std.int(bitmapWidth), Std.int(bitmapHeight), true, 0x00ff00ff);
 		}
 		else
 		{
@@ -1735,12 +1751,14 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			return;
 		}
-		var scaleFactor:Float = Starling.contentScaleFactor;
+		var scaleFactor:Float = Starling.current.contentScaleFactor;
+		var globalScaleX:Float = Math.NaN;
+		var globalScaleY:Float = Math.NaN;
 		if(this._updateSnapshotOnScaleChange)
 		{
 			this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-			var globalScaleX:Float = matrixToScaleX(HELPER_MATRIX);
-			var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
+			globalScaleX = matrixToScaleX(HELPER_MATRIX);
+			globalScaleY = matrixToScaleY(HELPER_MATRIX);
 		}
 		HELPER_MATRIX.identity();
 		HELPER_MATRIX.scale(scaleFactor, scaleFactor);
@@ -1748,6 +1766,14 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		{
 			HELPER_MATRIX.scale(globalScaleX, globalScaleY);
 		}
+		var totalBitmapWidth:Float = this._snapshotWidth;
+		var totalBitmapHeight:Float = this._snapshotHeight;
+		var xPosition:Float = 0;
+		var yPosition:Float = 0;
+		#if ((js && html5) || flash)
+		var bitmapData:BitmapData = null;
+		#end
+		var snapshotIndex:Int = -1;
 		do
 		{
 			var currentBitmapWidth:Float = totalBitmapWidth;
@@ -1762,10 +1788,8 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					currentBitmapHeight = this._maxTextureDimensions;
 				}
+				#if ((js && html5) || flash)
 				bitmapData = this.drawTextFieldRegionToBitmapData(xPosition, yPosition, currentBitmapWidth, currentBitmapHeight, bitmapData);
-				#else
-				this._textSnapshotOffsetX = 0;
-				this._textSnapshotOffsetY = 0;
 				#end
 				var newTexture:Texture = null;
 				if(this.textSnapshot == null || this._needsNewTexture)
@@ -1773,9 +1797,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					//skip Texture.fromBitmapData() because we don't want
 					//it to create an onRestore function that will be
 					//immediately discarded for garbage collection. 
+					#if ((js && html5) || flash)
 					newTexture = Texture.empty(bitmapData.width / scaleFactor, bitmapData.height / scaleFactor,
 						true, false, false, scaleFactor);
 					newTexture.root.uploadBitmapData(bitmapData);
+					#end
 				}
 				var snapshot:Image = null;
 				if(snapshotIndex >= 0)
@@ -1816,7 +1842,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 						#end
 					}
 				}
-				if(newTexture)
+				if(newTexture != null)
 				{
 					this.createTextureOnRestoreCallback(snapshot);
 				}

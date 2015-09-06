@@ -208,6 +208,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #thumbStyleName
 	 */
+	private var thumbName(get, set):String;
 	private function get_thumbName():String
 	{
 		return this.thumbStyleName;
@@ -219,6 +220,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	private function set_thumbName(value:String):String
 	{
 		this.thumbStyleName = value;
+		return get_thumbName();
 	}
 
 	/**
@@ -808,6 +810,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public var customThumbStyleName(get, set):String;
 	public function get_customThumbStyleName():String
 	{
 		return this._customThumbStyleName;
@@ -820,11 +823,11 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	{
 		if(this._customThumbStyleName == value)
 		{
-			return get_customThumbName();
+			return get_customThumbStyleName();
 		}
 		this._customThumbStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
-		return get_customThumbName();
+		return get_customThumbStyleName();
 	}
 
 	/**
@@ -837,6 +840,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	 *
 	 * @see #customThumbStyleName
 	 */
+	public var customThumbName(get, set):String;
 	public function get_customThumbName():String
 	{
 		return this.customThumbStyleName;
@@ -848,6 +852,7 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 	public function set_customThumbName(value:String):String
 	{
 		this.customThumbStyleName = value;
+		return get_customThumbName();
 	}
 
 	/**
@@ -1297,9 +1302,10 @@ class SimpleScrollBar extends FeathersControl implements IDirectionalScrollBar
 		{
 			adjustedPage = range;
 		}
+		var newValue:Float;
 		if(this._touchValue < this._value)
 		{
-			var newValue:Float = Math.max(this._touchValue, this._value - adjustedPage);
+			newValue = Math.max(this._touchValue, this._value - adjustedPage);
 			if(this._step != 0 && newValue != this._maximum && newValue != this._minimum)
 			{
 				newValue = roundToNearest(newValue, this._step);

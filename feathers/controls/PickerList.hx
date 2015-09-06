@@ -49,7 +49,9 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.OPEN
  */
+#if 0
 [Event(name="open",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the pop-up list is closed.
@@ -71,7 +73,9 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.CLOSE
  */
+#if 0
 [Event(name="close",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the selected item changes.
@@ -248,6 +252,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	private function set_buttonName(value:String):String
 	{
 		this.buttonStyleName = value;
+		return get_buttonName();
 	}
 
 	/**
@@ -286,6 +291,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	private function set_listName(value:String):String
 	{
 		this.listStyleName = value;
+		return get_listName();
 	}
 
 	/**
@@ -362,8 +368,8 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			return get_dataProvider();
 		}
 		var oldSelectedIndex:Int = this.selectedIndex;
-		var oldSelectedItem:Object = this.selectedItem;
-		if(this._dataProvider)
+		var oldSelectedItem:Dynamic = this.selectedItem;
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.removeEventListener(CollectionEventType.RESET, dataProvider_multipleEventHandler);
 			this._dataProvider.removeEventListener(CollectionEventType.ADD_ITEM, dataProvider_multipleEventHandler);
@@ -371,14 +377,14 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this._dataProvider.removeEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_multipleEventHandler);
 		}
 		this._dataProvider = value;
-		if(this._dataProvider)
+		if(this._dataProvider != null)
 		{
 			this._dataProvider.addEventListener(CollectionEventType.RESET, dataProvider_multipleEventHandler);
 			this._dataProvider.addEventListener(CollectionEventType.ADD_ITEM, dataProvider_multipleEventHandler);
 			this._dataProvider.addEventListener(CollectionEventType.REMOVE_ITEM, dataProvider_multipleEventHandler);
 			this._dataProvider.addEventListener(CollectionEventType.REPLACE_ITEM, dataProvider_multipleEventHandler);
 		}
-		if(!this._dataProvider || this._dataProvider.length == 0)
+		if(this._dataProvider == null || this._dataProvider.length == 0)
 		{
 			this.selectedIndex = -1;
 		}
@@ -829,6 +835,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #buttonFactory
 	 * @see #buttonProperties
 	 */
+	public var customButtonStyleName(get, set):String;
 	public function get_customButtonStyleName():String
 	{
 		return this._customButtonStyleName;
@@ -841,11 +848,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customButtonStyleName == value)
 		{
-			return get_customButtonName();
+			return get_customButtonStyleName();
 		}
 		this._customButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_BUTTON_FACTORY);
-		return get_customButtonName();
+		return get_customButtonStyleName();
 	}
 
 	/**
@@ -869,6 +876,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	public function set_customButtonName(value:String):String
 	{
 		this.customButtonStyleName = value;
+		return get_customButtonName();
 	}
 	
 	/**
@@ -1031,6 +1039,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
+	public var customListStyleName(get, set):String;
 	public function get_customListStyleName():String
 	{
 		return this._customListStyleName;
@@ -1043,11 +1052,11 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customListStyleName == value)
 		{
-			return get_customListName();
+			return get_customListStyleName();
 		}
 		this._customListStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
-		return get_customListName();
+		return get_customListStyleName();
 	}
 
 	/**
@@ -1060,6 +1069,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #customListStyleName
 	 */
+	public var customListName(get, set):String;
 	public function get_customListName():String
 	{
 		return this.customListStyleName;
@@ -1071,6 +1081,7 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 	public function set_customListName(value:String):String
 	{
 		this.customListStyleName = value;
+		return get_customListName();
 	}
 	
 	/**

@@ -210,10 +210,10 @@ import starling.events.Event;
 		var doneButton:Button = new Button();
 		doneButton.label = "Done";
 		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			doneButton
-		]);
+		];
 		return header;
 	}
 
@@ -234,12 +234,12 @@ import starling.events.Event;
 
 	private function itemCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.itemCount = Std.Int(this._itemCountStepper.value);
+		this.settings.itemCount = Std.int(this._itemCountStepper.value);
 	}
 
 	private function requestedRowCountStepper_changeHandler(event:Event):Void
 	{
-		this.settings.requestedRowCount = this._requestedRowCountStepper.value;
+		this.settings.requestedRowCount = Std.int(this._requestedRowCountStepper.value);
 	}
 
 	private function pagingPicker_changeHandler(event:Event):Void

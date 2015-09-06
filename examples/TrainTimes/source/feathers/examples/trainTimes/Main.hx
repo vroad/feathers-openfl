@@ -24,7 +24,7 @@ class Main extends StackScreenNavigator
 		//never forget to call super.initialize()
 		super.initialize();
 
-		new TrainTimesTheme(null, false);
+		new TrainTimesTheme();
 
 		var stationScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(StationScreen);
 		stationScreenItem.setScreenIDForPushEvent(Event.COMPLETE, TIMES_SCREEN);

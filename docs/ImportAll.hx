@@ -167,7 +167,6 @@ import feathers.utils.math.FeathersMathUtil;
 //import feathers.utils.math.roundToNearest;
 //import feathers.utils.math.roundToPrecision;
 //import feathers.utils.math.roundUpToNearest;
-import feathers.utils.text.OpenFLTextFormat;
 import feathers.utils.text.TextInputNavigation;
 import feathers.utils.text.TextInputRestrict;
 #if !codegen

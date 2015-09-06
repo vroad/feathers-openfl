@@ -28,6 +28,9 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+
 /**
  * Dispatched when the stepper's value changes.
  *
@@ -67,7 +70,7 @@ import starling.events.TouchPhase;
  *
  * @see ../../../help/numeric-stepper.html How to use the Feathers NumericStepper component
  */
-class NumericStepper extends FeathersControl implements IRange, INativeFocusOwner
+class NumericStepper extends FeathersControl implements IRange implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -237,6 +240,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #decrementButtonStyleName
 	 */
+	private var decrementButtonName(get, set):String;
 	private function get_decrementButtonName():String
 	{
 		return this.decrementButtonStyleName;
@@ -248,6 +252,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	private function set_decrementButtonName(value:String):String
 	{
 		this.decrementButtonStyleName = value;
+		return get_decrementButtonName();
 	}
 
 	/**
@@ -275,6 +280,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #incrementButtonStyleName
 	 */
+	private var incrementButtonName(get, set):String;
 	private function get_incrementButtonName():String
 	{
 		return this.incrementButtonStyleName;
@@ -286,6 +292,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	private function set_incrementButtonName(value:String):String
 	{
 		this.incrementButtonStyleName = value;
+		return get_incrementButtonName();
 	}
 
 	/**
@@ -313,6 +320,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #textInputStyleName
 	 */
+	private var textInputName(get, set):String;
 	private function get_textInputName():String
 	{
 		return this.textInputStyleName;
@@ -324,6 +332,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	private function set_textInputName(value:String):String
 	{
 		this.textInputStyleName = value;
+		return get_textInputName();
 	}
 
 	/**
@@ -373,9 +382,10 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see feathers.core.INativeFocusOwner
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
-		if(this.textInput)
+		if(this.textInput != null)
 		{
 			return this.textInput.nativeFocus;
 		}
@@ -562,7 +572,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	/**
 	 * @private
 	 */
-	private var _valueFormatFunction:Function;
+	private var _valueFormatFunction:Float->String;
 
 	/**
 	 * A callback that formats the numeric stepper's value as a string to
@@ -584,7 +594,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #valueParseFunction
 	 */
-	public function get_valueFormatFunction():Function
+	public function get_valueFormatFunction():Float->String
 	{
 		return this._valueFormatFunction;
 	}
@@ -592,20 +602,21 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	/**
 	 * @private
 	 */
-	public function set_valueFormatFunction(value:Function):Function
+	public function set_valueFormatFunction(value:Float->String):Float->String
 	{
 		if(this._valueFormatFunction == value)
 		{
-			return;
+			return get_valueFormatFunction();
 		}
 		this._valueFormatFunction = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_valueFormatFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _valueParseFunction:Function;
+	private var _valueParseFunction:String->String;
 
 	/**
 	 * A callback that accepts the displayed text of the numeric stepper and
@@ -627,7 +638,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #valueFormatFunction
 	 */
-	public function get_valueParseFunction():Function
+	public function get_valueParseFunction():String->String
 	{
 		return this._valueParseFunction;
 	}
@@ -635,15 +646,16 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	/**
 	 * @private
 	 */
-	public function set_valueParseFunction(value:Function):Function
+	public function set_valueParseFunction(value:String->String):String->String
 	{
 		this._valueParseFunction = value;
+		return get_valueParseFunction();
 	}
 
 	/**
 	 * @private
 	 */
-	private var currentRepeatAction:Function;
+	private var currentRepeatAction:Dynamic;
 
 	/**
 	 * @private
@@ -894,6 +906,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 * @see #decrementButtonFactory
 	 * @see #decrementButtonProperties
 	 */
+	public var customDecrementButtonStyleName(get, set):String;
 	public function get_customDecrementButtonStyleName():String
 	{
 		return this._customDecrementButtonStyleName;
@@ -906,11 +919,11 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	{
 		if(this._customDecrementButtonStyleName == value)
 		{
-			return get_customDecrementButtonName();
+			return get_customDecrementButtonStyleName();
 		}
 		this._customDecrementButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_DECREMENT_BUTTON_FACTORY);
-		return get_customDecrementButtonName();
+		return get_customDecrementButtonStyleName();
 	}
 
 	/**
@@ -923,6 +936,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #customDecrementButtonStyleName
 	 */
+	public var customDecrementButtonName(get, set):String;
 	public function get_customDecrementButtonName():String
 	{
 		return this.customDecrementButtonStyleName;
@@ -934,6 +948,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	public function set_customDecrementButtonName(value:String):String
 	{
 		this.customDecrementButtonStyleName = value;
+		return get_customDecrementButtonName();
 	}
 
 	/**
@@ -1132,6 +1147,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 * @see #incrementButtonFactory
 	 * @see #incrementButtonProperties
 	 */
+	public var customIncrementButtonStyleName(get, set):String;
 	public function get_customIncrementButtonStyleName():String
 	{
 		return this._customIncrementButtonStyleName;
@@ -1144,11 +1160,11 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	{
 		if(this._customIncrementButtonStyleName == value)
 		{
-			return get_customIncrementButtonName();
+			return get_customIncrementButtonStyleName();
 		}
 		this._customIncrementButtonStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_INCREMENT_BUTTON_FACTORY);
-		return get_customIncrementButtonName();
+		return get_customIncrementButtonStyleName();
 	}
 
 	/**
@@ -1161,6 +1177,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #customIncrementButtonStyleName
 	 */
+	public var customIncrementButtonName(get, set):String;
 	public function get_customIncrementButtonName():String
 	{
 		return this.customIncrementButtonStyleName;
@@ -1172,6 +1189,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	public function set_customIncrementButtonName(value:String):String
 	{
 		this.customIncrementButtonStyleName = value;
+		return get_customIncrementButtonName();
 	}
 
 	/**
@@ -1369,6 +1387,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 * @see #textInputFactory
 	 * @see #textInputProperties
 	 */
+	public var customTextInputStyleName(get, set):String;
 	public function get_customTextInputStyleName():String
 	{
 		return this._customTextInputStyleName;
@@ -1381,11 +1400,11 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	{
 		if(this._customTextInputStyleName == value)
 		{
-			return get_customTextInputName();
+			return get_customTextInputStyleName();
 		}
 		this._customTextInputStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_TEXT_INPUT_FACTORY);
-		return get_customTextInputName();
+		return get_customTextInputStyleName();
 	}
 
 	/**
@@ -1398,6 +1417,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 *
 	 * @see #customTextInputStyleName
 	 */
+	public var customTextInputName(get, set):String;
 	public function get_customTextInputName():String
 	{
 		return this.customTextInputStyleName;
@@ -1409,6 +1429,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	public function set_customTextInputName(value:String):String
 	{
 		this.customTextInputStyleName = value;
+		return get_customTextInputName();
 	}
 
 	/**
@@ -1791,7 +1812,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 		//while we're setting isFocusEnabled to false on the text input when
 		//we have a focus manager, we'll still be able to call setFocus() on
 		//the text input manually.
-		this.textInput.isFocusEnabled = !this._focusManager;
+		this.textInput.isFocusEnabled = this._focusManager == null;
 		this.addChild(this.textInput);
 	}
 
@@ -1853,7 +1874,7 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 		}
 		else
 		{
-			this.textInput.text = this._value.toString();
+			this.textInput.text = "" + this._value;
 		}
 	}
 
@@ -1863,18 +1884,18 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	private function refreshTypicalText():Void
 	{
 		var typicalText:String = "";
-		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.Int(this._minimum)).length, ("" + Std.Int(this._maximum)).length), ("" + Std.Int(this._step)).length);
+		var maxCharactersBeforeDecimal:Float = Math.max(Math.max(("" + Std.int(this._minimum)).length, ("" + Std.int(this._maximum)).length), ("" + Std.int(this._step)).length);
 
 		//roundToPrecision() helps us to avoid numbers like 1.00000000000000001
 		//caused by the inaccuracies of floating point math.
-		var maxCharactersAfterDecimal:Float = Math.max(Math.max(("" + roundToPrecision(this._minimum - Std.Int(this._minimum), 10)).length,
-			("" + roundToPrecision(this._maximum - Std.Int(this._maximum), 10)).length),
-			("" + roundToPrecision(this._step - Std.Int(this._step), 10)).length) - 2;
+		var maxCharactersAfterDecimal:Float = Math.max(Math.max(("" + roundToPrecision(this._minimum - Std.int(this._minimum), 10)).length,
+			("" + roundToPrecision(this._maximum - Std.int(this._maximum), 10)).length),
+			("" + roundToPrecision(this._step - Std.int(this._step), 10)).length) - 2;
 		if(maxCharactersAfterDecimal < 0)
 		{
 			maxCharactersAfterDecimal = 0;
 		}
-		var characterCount:Int = Std.Int(maxCharactersBeforeDecimal + maxCharactersAfterDecimal);
+		var characterCount:Int = Std.int(maxCharactersBeforeDecimal + maxCharactersAfterDecimal);
 		for(i in 0 ... characterCount)
 		{
 			typicalText += "0";
@@ -1994,13 +2015,14 @@ class NumericStepper extends FeathersControl implements IRange, INativeFocusOwne
 	 */
 	private function parseTextInputValue():Void
 	{
+		var newValue:Float;
 		if(this._valueParseFunction != null)
 		{
-			var newValue:Float = this._valueParseFunction(this.textInput.text);
+			newValue = Std.parseFloat(this._valueParseFunction(this.textInput.text));
 		}
 		else
 		{
-			newValue = parseFloat(this.textInput.text);
+			newValue = Std.parseFloat(this.textInput.text);
 		}
 		if(newValue == newValue) //!isNaN
 		{

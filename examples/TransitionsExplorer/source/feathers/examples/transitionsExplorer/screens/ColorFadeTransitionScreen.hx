@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer.screens
-{
+package feathers.examples.transitionsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.List;
@@ -18,13 +17,13 @@ class ColorFadeTransitionScreen extends PanelScreen
 {
 	inline public static var TRANSITION:String = "transition";
 
-	private static function fadeToRandomColor(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
+	private static function fadeToRandomColor(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void
 	{
-		var randomColor:UInt = Math.random() * 0xffffff;
+		var randomColor:UInt = Std.int(Math.random() * 0xffffff);
 		ColorFade.createColorFadeTransition(randomColor)(oldScreen, newScreen, completeCallback);
 	}
 
-	public function ColorFadeTransitionScreen()
+	public function new()
 	{
 		super();
 	}
@@ -81,14 +80,14 @@ class ColorFadeTransitionScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 		this._backButton.label = "Transitions";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-		header.leftItems = new <DisplayObject>[this._backButton];
+		header.leftItems = [this._backButton];
 
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):Void
+	private function list_triggeredHandler(event:Event, item:Dynamic):Void
 	{
-		var transition:Function = item.transition as Function;
+		var transition:Dynamic = item.transition;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
@@ -96,5 +95,4 @@ class ColorFadeTransitionScreen extends PanelScreen
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
-}
 }

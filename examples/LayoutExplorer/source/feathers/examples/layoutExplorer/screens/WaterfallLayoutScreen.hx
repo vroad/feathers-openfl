@@ -1,5 +1,4 @@
-package feathers.examples.layoutExplorer.screens
-{
+package feathers.examples.layoutExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.PanelScreen;
@@ -13,15 +12,17 @@ import starling.display.DisplayObject;
 import starling.display.Quad;
 import starling.events.Event;
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
 
 [Event(name="showSettings",type="starling.events.Event")]
+#end
 
 class WaterfallLayoutScreen extends PanelScreen
 {
 	inline public static var SHOW_SETTINGS:String = "showSettings";
 
-	public function WaterfallLayoutScreen()
+	public function new()
 	{
 		super();
 	}
@@ -49,7 +50,8 @@ class WaterfallLayoutScreen extends PanelScreen
 		this.snapScrollPositionsToPixels = true;
 
 		var minQuadSize:Float = Math.round(Math.min(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight) / 5);
-		for(var i:Int = 0; i < this.settings.itemCount; i++)
+		//for(var i:Int = 0; i < this.settings.itemCount; i++)
+		for(i in 0 ... this.settings.itemCount)
 		{
 			var height:Float = Math.round((minQuadSize + minQuadSize * Math.random()));
 			var quad:Quad = new Quad(minQuadSize, height, 0xff8800);
@@ -81,7 +83,7 @@ class WaterfallLayoutScreen extends PanelScreen
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -89,7 +91,7 @@ class WaterfallLayoutScreen extends PanelScreen
 		var settingsButton:Button = new Button();
 		settingsButton.label = "Settings";
 		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			settingsButton
 		];
@@ -115,5 +117,4 @@ class WaterfallLayoutScreen extends PanelScreen
 	{
 		this.dispatchEventWith(SHOW_SETTINGS);
 	}
-}
 }

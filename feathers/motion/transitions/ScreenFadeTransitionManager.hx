@@ -43,7 +43,7 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	private var _transition:Function;
+	private var _transition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * @private
@@ -55,6 +55,7 @@ class ScreenFadeTransitionManager
 	 *
 	 * @default 0.25
 	 */
+	public var duration(get, set):Float;
 	public function get_duration():Float
 	{
 		return this._duration;
@@ -67,10 +68,11 @@ class ScreenFadeTransitionManager
 	{
 		if(this._duration == value)
 		{
-			return;
+			return get_duration();
 		}
 		this._duration = value;
 		this._transition = null;
+		return get_duration();
 	}
 
 	/**
@@ -85,6 +87,7 @@ class ScreenFadeTransitionManager
 	 *
 	 * @default 0.1
 	 */
+	public var delay(get, set):Float;
 	public function get_delay():Float
 	{
 		return this._delay;
@@ -97,23 +100,25 @@ class ScreenFadeTransitionManager
 	{
 		if(this._delay == value)
 		{
-			return;
+			return get_delay();
 		}
 		this._delay = value;
 		this._transition = null;
+		return get_delay();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _ease:Object = Transitions.EASE_OUT;
+	private var _ease:String = Transitions.EASE_OUT;
 	
 	/**
 	 * The easing function to use.
 	 *
 	 * @default starling.animation.Transitions.EASE_OUT
 	 */
-	public function get_ease():Object
+	public var ease(get, set):String;
+	public function get_ease():String
 	{
 		return this._ease;
 	}
@@ -121,14 +126,15 @@ class ScreenFadeTransitionManager
 	/**
 	 * @private
 	 */
-	public function set_ease(value:Object):Object
+	public function set_ease(value:String):String
 	{
 		if(this._ease == value)
 		{
-			return;
+			return get_ease();
 		}
 		this._ease = value;
 		this._transition = null;
+		return get_ease();
 	}
 
 	/**

@@ -28,7 +28,7 @@ class Main extends LayoutGroup
 	//used by the extended theme
 	inline public static var THUMBNAIL_LIST_NAME:String = "thumbnailList";
 
-	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + CONFIG::FLICKR_API_KEY + "&format=rest";
+	inline private static var FLICKR_URL:String = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=" + FLICKR_API_KEY + "&format=rest";
 	inline private static var FLICKR_PHOTO_URL:String = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_{size}.jpg";
 
 	public function new()
@@ -105,13 +105,13 @@ class Main extends LayoutGroup
 	private function list_changeHandler(event:starling.events.Event):Void
 	{
 		this.selectedImage.visible = false;
-		if(this.fadeTween)
+		if(this.fadeTween != null)
 		{
-			Starling.juggler.remove(this.fadeTween);
+			Starling.current.juggler.remove(this.fadeTween);
 			this.fadeTween = null;
 		}
-		var item:GalleryItem = GalleryItem(this.list.selectedItem);
-		if(!item)
+		var item:GalleryItem = cast(this.list.selectedItem, GalleryItem);
+		if(item == null)
 		{
 			return;
 		}

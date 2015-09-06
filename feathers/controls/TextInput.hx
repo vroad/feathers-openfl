@@ -26,7 +26,9 @@ import flash.display.InteractiveObject;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.ui.Mouse;
+#if flash
 import flash.ui.MouseCursor;
+#end
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -192,7 +194,7 @@ import starling.events.TouchPhase;
  * @see feathers.controls.AutoComplete
  * @see feathers.controls.TextArea
  */
-class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBaselineControl, INativeFocusOwner
+class TextInput extends FeathersControl implements IFocusDisplayObject implements ITextBaselineControl implements INativeFocusOwner
 {
 	/**
 	 * @private
@@ -345,11 +347,12 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	 * 
 	 * @see feathers.core.INativeFocusOwner
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
-		if(this.textEditor is INativeFocusOwner)
+		if(Std.is(this.textEditor, INativeFocusOwner))
 		{
-			return INativeFocusOwner(this.textEditor).nativeFocus;
+			return cast(this.textEditor, INativeFocusOwner).nativeFocus;
 		}
 		return null;
 	}
@@ -1867,7 +1870,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		{
 			this.textEditor.isEnabled = this._isEnabled;
 			#if flash
-			if(!this._isEnabled && Mouse.supportsNativeCursor && this._oldMouseCursor)
+			if(!this._isEnabled && Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
@@ -2355,7 +2358,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		this._isWaitingToSetFocus = false;
 		this._touchPointID = -1;
 		#if flash
-		if(Mouse.supportsNativeCursor && this._oldMouseCursor)
+		if(Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 		{
 			Mouse.cursor = this._oldMouseCursor;
 			this._oldMouseCursor = null;
@@ -2404,7 +2407,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			if(touch != null)
 			{
 				#if flash
-				if(Mouse.supportsNativeCursor && !this._oldMouseCursor)
+				if(Mouse.supportsNativeCursor && this._oldMouseCursor == null)
 				{
 					this._oldMouseCursor = Mouse.cursor;
 					Mouse.cursor = MouseCursor.IBEAM;
@@ -2415,7 +2418,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 
 			//end hover
 			#if flash
-			if(Mouse.supportsNativeCursor && this._oldMouseCursor)
+			if(Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
@@ -2482,7 +2485,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 		}
 		this._textEditorHasFocus = true;
 		this.currentState = STATE_FOCUSED;
-		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus != this)
+		if(this._focusManager != null && this.isFocusEnabled && this._focusManager.focus != this)
 		{
 			//if setFocus() was called manually, we need to notify the focus
 			//manager (unless isFocusEnabled is false).
@@ -2490,7 +2493,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 			//simply return without doing anything.
 			this._focusManager.focus = this;
 		}
-		else if(!this._focusManager)
+		else if(this._focusManager == null)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_IN);
 		}
@@ -2503,13 +2506,13 @@ class TextInput extends FeathersControl implements IFocusDisplayObject, ITextBas
 	{
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
-		if(this._focusManager && this._focusManager.focus == this)
+		if(this._focusManager != null && this._focusManager.focus == this)
 		{
 			//if clearFocus() was called manually, we need to notify the
 			//focus manager if it still thinks we have focus.
 			this._focusManager.focus = null;
 		}
-		else if(!this._focusManager)
+		else if(this._focusManager == null)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 		}

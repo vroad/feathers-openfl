@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.core.IValidating;
 import feathers.data.ListCollection;
 import feathers.events.FeathersEventType;
@@ -14,12 +13,20 @@ import feathers.layout.ILayout;
 import feathers.layout.ISpinnerLayout;
 import feathers.layout.VerticalSpinnerLayout;
 import feathers.skins.IStyleProvider;
+import openfl.errors.ArgumentError;
+import starling.utils.Max;
 
 import flash.ui.Keyboard;
 
 import starling.display.DisplayObject;
 import starling.events.Event;
 import starling.events.KeyboardEvent;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+import feathers.controls.List.SCROLL_POLICY_AUTO;
+import feathers.controls.List.SCROLL_POLICY_ON;
+import feathers.controls.List.SCROLL_BAR_DISPLAY_MODE_FIXED;
+import feathers.controls.List.SCROLL_BAR_DISPLAY_MODE_NONE;
 
 /**
  * A customized <code>List</code> component where scrolling updates the
@@ -68,7 +75,7 @@ class SpinnerList extends List
 	/**
 	 * Constructor.
 	 */
-	public function SpinnerList()
+	public function new()
 	{
 		super();
 		this._scrollBarDisplayMode = SCROLL_BAR_DISPLAY_MODE_NONE;
@@ -84,7 +91,7 @@ class SpinnerList extends List
 	 */
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
-		if(SpinnerList.globalStyleProvider)
+		if(SpinnerList.globalStyleProvider != null)
 		{
 			return SpinnerList.globalStyleProvider;
 		}
@@ -105,6 +112,7 @@ class SpinnerList extends List
 			throw new ArgumentError("SpinnerList requires snapToPages to be true.");
 		}
 		super.snapToPages = value;
+		return get_snapToPages();
 	}
 
 	/**
@@ -121,6 +129,7 @@ class SpinnerList extends List
 			throw new ArgumentError("SpinnerList requires allowMultipleSelection to be false.");
 		}
 		super.allowMultipleSelection = value;
+		return get_allowMultipleSelection();
 	}
 
 	/**
@@ -137,6 +146,7 @@ class SpinnerList extends List
 			throw new ArgumentError("SpinnerList requires isSelectable to be true.");
 		}
 		super.snapToPages = value;
+		return get_isSelectable();
 	}
 
 	/**
@@ -144,11 +154,12 @@ class SpinnerList extends List
 	 */
 	override public function set_layout(value:ILayout):ILayout
 	{
-		if(value && !(value is ISpinnerLayout))
+		if(value != null && !Std.is(value, ISpinnerLayout))
 		{
 			throw new ArgumentError("SpinnerList requires layouts to implement the ISpinnerLayout interface.");
 		}
 		super.layout = value;
+		return get_layout();
 	}
 
 	/**
@@ -161,6 +172,7 @@ class SpinnerList extends List
 			this.scrollToDisplayIndex(value, 0);
 		}
 		super.selectedIndex = value;
+		return get_selectedIndex();
 	}
 
 	/**
@@ -169,7 +181,7 @@ class SpinnerList extends List
 	override public function set_dataProvider(value:ListCollection):ListCollection
 	{
 		super.dataProvider = value;
-		if(!this._dataProvider || this._dataProvider.length == 0)
+		if(this._dataProvider == null || this._dataProvider.length == 0)
 		{
 			this.selectedIndex = -1;
 		}
@@ -177,6 +189,7 @@ class SpinnerList extends List
 		{
 			this.selectedIndex = 0;
 		}
+		return get_dataProvider();
 	}
 
 	/**
@@ -201,6 +214,7 @@ class SpinnerList extends List
 	 *
 	 * @default null
 	 */
+	public var selectionOverlaySkin(get, set):DisplayObject;
 	public function get_selectionOverlaySkin():DisplayObject
 	{
 		return this._selectionOverlaySkin;
@@ -213,18 +227,19 @@ class SpinnerList extends List
 	{
 		if(this._selectionOverlaySkin == value)
 		{
-			return;
+			return get_selectionOverlaySkin();
 		}
-		if(this._selectionOverlaySkin && this._selectionOverlaySkin.parent == this)
+		if(this._selectionOverlaySkin != null && this._selectionOverlaySkin.parent == this)
 		{
 			this.removeRawChildInternal(this._selectionOverlaySkin);
 		}
 		this._selectionOverlaySkin = value;
-		if(this._selectionOverlaySkin)
+		if(this._selectionOverlaySkin != null)
 		{
 			this.addRawChildInternal(this._selectionOverlaySkin);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_selectionOverlaySkin();
 	}
 
 	/**
@@ -263,11 +278,11 @@ class SpinnerList extends List
 		super.refreshMinAndMaxScrollPositions();
 		if(this._maxVerticalScrollPosition != this._minVerticalScrollPosition)
 		{
-			this.actualPageHeight = ISpinnerLayout(this._layout).snapInterval;
+			this.actualPageHeight = cast(this._layout, ISpinnerLayout).snapInterval;
 		}
 		else if(this._maxHorizontalScrollPosition != this._minHorizontalScrollPosition)
 		{
-			this.actualPageWidth = ISpinnerLayout(this._layout).snapInterval;
+			this.actualPageWidth = cast(this._layout, ISpinnerLayout).snapInterval;
 		}
 	}
 
@@ -301,11 +316,11 @@ class SpinnerList extends List
 	{
 		super.layoutChildren();
 
-		if(this._selectionOverlaySkin)
+		if(this._selectionOverlaySkin != null)
 		{
-			if(this._selectionOverlaySkin is IValidating)
+			if(Std.is(this._selectionOverlaySkin, IValidating))
 			{
-				IValidating(this._selectionOverlaySkin).validate();
+				cast(this._selectionOverlaySkin, IValidating).validate();
 			}
 			if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 			{
@@ -329,17 +344,19 @@ class SpinnerList extends List
 	 */
 	private function calculateNearestPageIndexForItem(itemIndex:Int, currentPageIndex:Int, maxPageIndex:Int):Int
 	{
-		if(maxPageIndex != Int.MAX_VALUE)
+		if(maxPageIndex != Max.INT_MAX_VALUE)
 		{
 			return itemIndex;
 		}
 		var itemCount:Int = this._dataProvider.length;
-		var fullDataProviderOffsets:Int = currentPageIndex / itemCount;
+		var fullDataProviderOffsets:Int = Std.int(currentPageIndex / itemCount);
 		var currentItemIndex:Int = currentPageIndex % itemCount;
+		var previousPageIndex:Float;
+		var nextPageIndex:Float;
 		if(itemIndex < currentItemIndex)
 		{
-			var previousPageIndex:Float = fullDataProviderOffsets * itemCount + itemIndex;
-			var nextPageIndex:Float = (fullDataProviderOffsets + 1) * itemCount + itemIndex;
+			previousPageIndex = fullDataProviderOffsets * itemCount + itemIndex;
+			nextPageIndex = (fullDataProviderOffsets + 1) * itemCount + itemIndex;
 		}
 		else
 		{
@@ -348,9 +365,9 @@ class SpinnerList extends List
 		}
 		if((nextPageIndex - currentPageIndex) < (currentPageIndex - previousPageIndex))
 		{
-			return nextPageIndex;
+			return Std.int(nextPageIndex);
 		}
-		return previousPageIndex;
+		return Std.int(previousPageIndex);
 	}
 
 	/**
@@ -359,9 +376,10 @@ class SpinnerList extends List
 	private function spinnerList_scrollCompleteHandler(event:Event):Void
 	{
 		var itemCount:Int = this._dataProvider.length;
+		var pageIndex:Int = 0;
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 		{
-			var pageIndex:Int = this._verticalPageIndex % itemCount;
+			pageIndex = this._verticalPageIndex % itemCount;
 		}
 		else if(this._maxHorizontalPageIndex != this._minHorizontalPageIndex)
 		{
@@ -377,7 +395,7 @@ class SpinnerList extends List
 	/**
 	 * @private
 	 */
-	private function spinnerList_triggeredHandler(event:Event, item:Object):Void
+	private function spinnerList_triggeredHandler(event:Event, item:Dynamic):Void
 	{
 		var itemIndex:Int = this._dataProvider.getItemIndex(item);
 		if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
@@ -397,11 +415,12 @@ class SpinnerList extends List
 	 */
 	override private function stage_keyDownHandler(event:KeyboardEvent):Void
 	{
-		if(!this._dataProvider)
+		if(this._dataProvider == null)
 		{
 			return;
 		}
 		var changedSelection:Bool = false;
+		var newIndex:Int;
 		if(event.keyCode == Keyboard.HOME)
 		{
 			if(this._dataProvider.length > 0)
@@ -417,7 +436,7 @@ class SpinnerList extends List
 		}
 		else if(event.keyCode == Keyboard.UP)
 		{
-			var newIndex:Int = this._selectedIndex - 1;
+			newIndex = this._selectedIndex - 1;
 			if(newIndex < 0)
 			{
 				newIndex = this._dataProvider.length + newIndex;
@@ -437,9 +456,10 @@ class SpinnerList extends List
 		}
 		if(changedSelection)
 		{
+			var pageIndex:Int;
 			if(this._maxVerticalPageIndex != this._minVerticalPageIndex)
 			{
-				var pageIndex:Int = this.calculateNearestPageIndexForItem(this._selectedIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
+				pageIndex = this.calculateNearestPageIndexForItem(this._selectedIndex, this._verticalPageIndex, this._maxVerticalPageIndex);
 				this.throwToPage(this._horizontalPageIndex, pageIndex, this._pageThrowDuration);
 			}
 			else if(this._maxHorizontalPageIndex != this._minHorizontalPageIndex)
@@ -449,5 +469,4 @@ class SpinnerList extends List
 			}
 		}
 	}
-}
 }

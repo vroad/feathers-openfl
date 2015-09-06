@@ -16,12 +16,18 @@ import feathers.system.DeviceCapabilities;
 import feathers.utils.math.FeathersMathUtil.roundDownToNearest;
 import feathers.utils.math.FeathersMathUtil.roundToNearest;
 import feathers.utils.math.FeathersMathUtil.roundUpToNearest;
+import openfl.errors.ArgumentError;
+import starling.utils.Max;
 
 import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.ui.Keyboard;
+#if 0
 import flash.utils.getTimer;
+#else
+import openfl.Lib.getTimer;
+#end
 
 import starling.animation.Transitions;
 import starling.animation.Tween;
@@ -33,6 +39,12 @@ import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SCROLL;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STATE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when the scroller scrolls in either direction or when the view
@@ -213,7 +225,9 @@ import starling.events.TouchPhase;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_IN
  */
+#if 0
 [Event(name="focusIn",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the component loses focus.
@@ -235,7 +249,9 @@ import starling.events.TouchPhase;
  *
  * @eventType feathers.events.FeathersEventType.FOCUS_OUT
  */
+#if 0
 [Event(name="focusOut",type="starling.events.Event")]
+#end
 
 /**
  * Allows horizontal and vertical scrolling of a <em>view port</em>. Not
@@ -549,6 +565,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	private function set_horizontalScrollBarName(value:String):String
 	{
 		this.horizontalScrollBarStyleName = value;
+		return get_horizontalScrollBarName();
 	}
 
 	/**
@@ -587,6 +604,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	private function set_verticalScrollBarName(value:String):String
 	{
 		this.verticalScrollBarStyleName = value;
+		return get_verticalScrollBarName();
 	}
 
 	/**
@@ -810,7 +828,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			this._viewPort.addEventListener(FeathersEventType.RESIZE, viewPort_resizeHandler);
 			this.addRawChildAtInternal(cast(this._viewPort, DisplayObject), 0);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		this.invalidate(INVALIDATION_FLAG_SIZE);
 		return get_viewPort();
 	}
 
@@ -847,7 +865,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_measureViewPort();
 		}
 		this._measureViewPort = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+		this.invalidate(INVALIDATION_FLAG_SIZE);
 		return get_measureViewPort();
 	}
 
@@ -882,7 +900,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_snapToPages();
 		}
 		this._snapToPages = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_snapToPages();
 	}
 
@@ -894,7 +912,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	private var _horizontalScrollBarFactory:Function = defaultScrollBarFactory;
+	private var _horizontalScrollBarFactory:Void->IScrollBar = defaultScrollBarFactory;
 
 	/**
 	 * Creates the horizontal scroll bar. The horizontal scroll bar must be
@@ -971,6 +989,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #horizontalScrollBarFactory
 	 * @see #horizontalScrollBarProperties
 	 */
+	public var customHorizontalScrollBarStyleName(get, set):String;
 	public function get_customHorizontalScrollBarStyleName():String
 	{
 		return this._customHorizontalScrollBarStyleName;
@@ -983,11 +1002,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customHorizontalScrollBarStyleName == value)
 		{
-			return get_customHorizontalScrollBarName();
+			return get_customHorizontalScrollBarStyleName();
 		}
 		this._customHorizontalScrollBarStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
-		return get_customHorizontalScrollBarName();
+		return get_customHorizontalScrollBarStyleName();
 	}
 
 	/**
@@ -1011,6 +1030,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public function set_customHorizontalScrollBarName(value:String):String
 	{
 		this.customHorizontalScrollBarStyleName = value;
+		return get_customHorizontalScrollBarName();
 	}
 
 	/**
@@ -1091,7 +1111,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			this._horizontalScrollBarProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_horizontalScrollBarProperties();
 	}
 
@@ -1130,7 +1150,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_verticalScrollBarPosition();
 		}
 		this._verticalScrollBarPosition = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_verticalScrollBarPosition();
 	}
 
@@ -1214,6 +1234,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 * @see #verticalScrollBarFactory
 	 * @see #verticalScrollBarProperties
 	 */
+	public var customVerticalScrollBarStyleName(get, set):String;
 	public function get_customVerticalScrollBarStyleName():String
 	{
 		return this._customVerticalScrollBarStyleName;
@@ -1226,11 +1247,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	{
 		if(this._customVerticalScrollBarStyleName == value)
 		{
-			return get_customVerticalScrollBarName();
+			return get_customVerticalScrollBarStyleName();
 		}
 		this._customVerticalScrollBarStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
-		return get_customVerticalScrollBarName();
+		return get_customVerticalScrollBarStyleName();
 	}
 
 	/**
@@ -1254,6 +1275,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public function set_customVerticalScrollBarName(value:String):String
 	{
 		this.customVerticalScrollBarStyleName = value;
+		return get_customVerticalScrollBarName();
 	}
 
 	/**
@@ -1334,7 +1356,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			this._verticalScrollBarProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_verticalScrollBarProperties();
 	}
 
@@ -1376,7 +1398,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_horizontalScrollStep();
 		}
 		this.explicitHorizontalScrollStep = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_horizontalScrollStep();
 	}
 
@@ -1427,7 +1449,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			throw new ArgumentError("horizontalScrollPosition cannot be NaN.");
 		}
 		this._horizontalScrollPosition = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_horizontalScrollPosition();
 	}
 
@@ -1550,10 +1572,10 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public var horizontalPageCount(get, never):Int;
 	public function get_horizontalPageCount():Int
 	{
-		if(this._maxHorizontalPageIndex == Int.MAX_VALUE ||
-			this._minHorizontalPageIndex == Int.MIN_VALUE)
+		if(this._maxHorizontalPageIndex == Max.INT_MAX_VALUE ||
+			this._minHorizontalPageIndex == Max.INT_MIN_VALUE)
 		{
-			return Int.MAX_VALUE;
+			return Max.INT_MAX_VALUE;
 		}
 		return this._maxHorizontalPageIndex - this._minHorizontalPageIndex + 1;
 	}
@@ -1595,7 +1617,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_horizontalScrollPolicy();
 		}
 		this._horizontalScrollPolicy = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 		return get_horizontalScrollPolicy();
 	}
@@ -1638,7 +1660,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_verticalScrollStep();
 		}
 		this.explicitVerticalScrollStep = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_verticalScrollStep();
 	}
 
@@ -1676,7 +1698,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_verticalMouseWheelScrollStep();
 		}
 		this._verticalMouseWheelScrollStep = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_verticalMouseWheelScrollStep();
 	}
 
@@ -1727,7 +1749,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			throw new ArgumentError("verticalScrollPosition cannot be NaN.");
 		}
 		this._verticalScrollPosition = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		return get_verticalScrollPosition();
 	}
 
@@ -1850,10 +1872,10 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public var verticalPageCount(get, never):Int;
 	public function get_verticalPageCount():Int
 	{
-		if(this._maxVerticalPageIndex == Int.MAX_VALUE ||
-			this._minVerticalPageIndex == Int.MIN_VALUE)
+		if(this._maxVerticalPageIndex == Max.INT_MAX_VALUE ||
+			this._minVerticalPageIndex == Max.INT_MIN_VALUE)
 		{
-			return Int.MAX_VALUE;
+			return Max.INT_MAX_VALUE;
 		}
 		return this._maxVerticalPageIndex - this._minVerticalPageIndex + 1;
 	}
@@ -1895,7 +1917,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_verticalScrollPolicy();
 		}
 		this._verticalScrollPolicy = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		this.invalidate(INVALIDATION_FLAG_SCROLL);
 		this.invalidate(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 		return get_verticalScrollPolicy();
 	}
@@ -1937,7 +1959,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_clipContent();
 		}
 		this._clipContent = value;
-		if(!value && this._viewPort)
+		if(!value && this._viewPort != null)
 		{
 			this._viewPort.clipRect = null;
 		}
@@ -2201,7 +2223,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_scrollBarDisplayMode();
 		}
 		this._scrollBarDisplayMode = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_scrollBarDisplayMode();
 	}
 
@@ -2241,7 +2263,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_interactionMode();
 		}
 		this._interactionMode = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_interactionMode();
 	}
 
@@ -2297,7 +2319,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundSkin = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_backgroundSkin();
 	}
 
@@ -2338,7 +2360,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			this.currentBackgroundSkin = null;
 		}
 		this._backgroundDisabledSkin = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_backgroundDisabledSkin();
 	}
 
@@ -2383,7 +2405,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_autoHideBackground();
 		}
 		this._autoHideBackground = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_autoHideBackground();
 	}
 
@@ -2518,7 +2540,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_paddingTop();
 		}
 		this._paddingTop = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingTop();
 	}
 
@@ -2554,7 +2576,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_paddingRight();
 		}
 		this._paddingRight = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingRight();
 	}
 
@@ -2590,7 +2612,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_paddingBottom();
 		}
 		this._paddingBottom = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingBottom();
 	}
 
@@ -2626,7 +2648,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return get_paddingLeft();
 		}
 		this._paddingLeft = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingLeft();
 	}
 
@@ -2933,12 +2955,13 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public function set_verticalMouseWheelScrollDirection(value:String):String
 	{
 		this._verticalMouseWheelScrollDirection = value;
+		return get_verticalMouseWheelScrollDirection();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _throwEase:Object = defaultThrowEase;
+	private var _throwEase:Float->Float = defaultThrowEase;
 
 	/**
 	 * The easing function used for "throw" animations.
@@ -2951,8 +2974,8 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see http://doc.starling-framework.org/core/starling/animation/Transitions.html starling.animation.Transitions
 	 */
-	public var throwEase(get, set):Dynamic;
-	public function get_throwEase():Dynamic
+	public var throwEase(get, set):Float->Float;
+	public function get_throwEase():Float->Float
 	{
 		return this._throwEase;
 	}
@@ -2960,7 +2983,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	/**
 	 * @private
 	 */
-	public function set_throwEase(value:Dynamic):Dynamic
+	public function set_throwEase(value:Float->Float):Float->Float
 	{
 		if(value == null)
 		{
@@ -3271,8 +3294,8 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		}
 		//cancel any pending scroll to a specific scroll position. we can
 		//have only one type of pending scroll at a time.
-		this.pendingHorizontalScrollPosition = NaN;
-		this.pendingVerticalScrollPosition = NaN;
+		this.pendingHorizontalScrollPosition = Math.NaN;
+		this.pendingVerticalScrollPosition = Math.NaN;
 		this.hasPendingHorizontalPageIndex = this._horizontalPageIndex != horizontalPageIndex;
 		this.hasPendingVerticalPageIndex = this._verticalPageIndex != verticalPageIndex;
 		if(!this.hasPendingHorizontalPageIndex && !this.hasPendingVerticalPageIndex)
@@ -3327,15 +3350,15 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
 		//we don't use this flag in this class, but subclasses will use it,
 		//and it's better to handle it here instead of having them
 		//invalidate unrelated flags
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
 		var clippingInvalid:Bool = this.isInvalid(Scroller.INVALIDATION_FLAG_CLIPPING);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 		var scrollBarInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL_BAR_RENDERER);
 		var pendingScrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_SCROLL);
 		var pendingRevealScrollBarsInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_PENDING_REVEAL_SCROLL_BARS);
@@ -3700,7 +3723,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	override private function refreshFocusIndicator():Void
 	{
-		if(this._focusIndicatorSkin)
+		if(this._focusIndicatorSkin != null)
 		{
 			if(this._hasFocus && this._showFocus)
 			{
@@ -3853,7 +3876,9 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			if(this._snapToPages)
 			{
+				trace(this._horizontalScrollPosition);
 				this._horizontalScrollPosition = roundToNearest(this._horizontalScrollPosition, this.actualPageWidth);
+				trace(this._horizontalScrollPosition);
 			}
 			var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 			if(targetHorizontalScrollPosition < this._minHorizontalScrollPosition)
@@ -3940,11 +3965,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		if(this._viewPort != null)
 		{
 			this._minHorizontalScrollPosition = this._viewPort.contentX;
-			if(this._viewPort.width == Float.POSITIVE_INFINITY)
+			if(this._viewPort.width == Math.POSITIVE_INFINITY)
 			{
 				//we don't want to risk the possibility of negative infinity
 				//being added to positive infinity. the result is NaN.
-				this._maxHorizontalScrollPosition = Float.POSITIVE_INFINITY;
+				this._maxHorizontalScrollPosition = Math.POSITIVE_INFINITY;
 			}
 			else
 			{
@@ -3955,11 +3980,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				this._maxHorizontalScrollPosition = this._minHorizontalScrollPosition;
 			}
 			this._minVerticalScrollPosition = this._viewPort.contentY;
-			if(this._viewPort.height == Float.POSITIVE_INFINITY)
+			if(this._viewPort.height == Math.POSITIVE_INFINITY)
 			{
 				//we don't want to risk the possibility of negative infinity
 				//being added to positive infinity. the result is NaN.
-				this._maxVerticalScrollPosition = Float.POSITIVE_INFINITY;
+				this._maxVerticalScrollPosition = Math.POSITIVE_INFINITY;
 			}
 			else
 			{
@@ -3994,26 +4019,27 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		if(this._snapToPages)
 		{
 			var horizontalScrollRange:Float = this._maxHorizontalScrollPosition - this._minHorizontalScrollPosition;
-			if(horizontalScrollRange == Float.POSITIVE_INFINITY)
+			var roundedDownRange:Float;
+			if(horizontalScrollRange == Math.POSITIVE_INFINITY)
 			{
 				//trying to put positive infinity into an int results in 0
 				//so we need a special case to provide a large int value.
-				if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY)
+				if(this._minHorizontalScrollPosition == Math.NEGATIVE_INFINITY)
 				{
-					this._minHorizontalPageIndex = Int.MIN_VALUE;
+					this._minHorizontalPageIndex = Max.INT_MIN_VALUE;
 				}
 				else
 				{
 					this._minHorizontalPageIndex = 0;
 				}
-				this._maxHorizontalPageIndex = Int.MAX_VALUE;
+				this._maxHorizontalPageIndex = Max.INT_MAX_VALUE;
 			}
 			else
 			{
 				this._minHorizontalPageIndex = 0;
 				//floating point errors could result in the max page index
 				//being 1 larger than it should be.
-				var roundedDownRange:Float = roundDownToNearest(horizontalScrollRange, this.actualPageWidth);
+				roundedDownRange = roundDownToNearest(horizontalScrollRange, this.actualPageWidth);
 				if((horizontalScrollRange - roundedDownRange) < FUZZY_PAGE_SIZE_PADDING)
 				{
 					horizontalScrollRange = roundedDownRange;
@@ -4022,19 +4048,19 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 
 			var verticalScrollRange:Float = this._maxVerticalScrollPosition - this._minVerticalScrollPosition;
-			if(verticalScrollRange == Float.POSITIVE_INFINITY)
+			if(verticalScrollRange == Math.POSITIVE_INFINITY)
 			{
 				//trying to put positive infinity into an int results in 0
 				//so we need a special case to provide a large int value.
-				if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY)
+				if(this._minVerticalScrollPosition == Math.NEGATIVE_INFINITY)
 				{
-					this._minVerticalPageIndex = Int.MIN_VALUE;
+					this._minVerticalPageIndex = Max.INT_MIN_VALUE;
 				}
 				else
 				{
 					this._minVerticalPageIndex = 0;
 				}
-				this._maxVerticalPageIndex = Int.MAX_VALUE;
+				this._maxVerticalPageIndex = Max.INT_MAX_VALUE;
 			}
 			else
 			{
@@ -4063,7 +4089,9 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function refreshPageIndices():Void
 	{
-		if(!this._horizontalAutoScrollTween && !this.hasPendingHorizontalPageIndex)
+		var unroundedPageIndex:Float;
+		var nextPageIndex:Int;
+		if(this._horizontalAutoScrollTween == null && !this.hasPendingHorizontalPageIndex)
 		{
 			if(this._snapToPages)
 			{
@@ -4075,19 +4103,19 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				{
 					this._horizontalPageIndex = this._minHorizontalPageIndex;
 				}
-				else if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY && this._horizontalScrollPosition < 0)
+				else if(this._minHorizontalScrollPosition == Math.NEGATIVE_INFINITY && this._horizontalScrollPosition < 0)
 				{
 					this._horizontalPageIndex = Math.floor(this._horizontalScrollPosition / this.actualPageWidth);
 				}
-				else if(this._maxHorizontalScrollPosition == Float.POSITIVE_INFINITY && this._horizontalScrollPosition >= 0)
+				else if(this._maxHorizontalScrollPosition == Math.POSITIVE_INFINITY && this._horizontalScrollPosition >= 0)
 				{
 					this._horizontalPageIndex = Math.floor(this._horizontalScrollPosition / this.actualPageWidth);
 				}
 				else
 				{
 					var adjustedHorizontalScrollPosition:Float = this._horizontalScrollPosition - this._minHorizontalScrollPosition;
-					var unroundedPageIndex:Float = adjustedHorizontalScrollPosition / this.actualPageWidth;
-					var nextPageIndex:Int = Math.ceil(unroundedPageIndex);
+					unroundedPageIndex = adjustedHorizontalScrollPosition / this.actualPageWidth;
+					nextPageIndex = Math.ceil(unroundedPageIndex);
 					if(unroundedPageIndex != nextPageIndex && (nextPageIndex - unroundedPageIndex) < FUZZY_PAGE_SIZE_PADDING)
 					{
 						//we almost always want to round down, but a
@@ -4114,7 +4142,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				this._horizontalPageIndex = this._maxHorizontalPageIndex;
 			}
 		}
-		if(!this._verticalAutoScrollTween && !this.hasPendingVerticalPageIndex)
+		if(this._verticalAutoScrollTween == null && !this.hasPendingVerticalPageIndex)
 		{
 			if(this._snapToPages)
 			{
@@ -4126,11 +4154,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				{
 					this._verticalPageIndex = this._minVerticalPageIndex;
 				}
-				else if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY && this._verticalScrollPosition < 0)
+				else if(this._minVerticalScrollPosition == Math.NEGATIVE_INFINITY && this._verticalScrollPosition < 0)
 				{
 					this._verticalPageIndex = Math.floor(this._verticalScrollPosition / this.actualPageHeight);
 				}
-				else if(this._maxVerticalScrollPosition == Float.POSITIVE_INFINITY && this._verticalScrollPosition >= 0)
+				else if(this._maxVerticalScrollPosition == Math.POSITIVE_INFINITY && this._verticalScrollPosition >= 0)
 				{
 					this._verticalPageIndex = Math.floor(this._verticalScrollPosition / this.actualPageHeight);
 				}
@@ -4154,11 +4182,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 			else
 			{
-				this._verticalPageIndex = this._minVerticalScrollPosition;
+				this._verticalPageIndex = Std.int(this._minVerticalScrollPosition);
 			}
 			if(this._verticalPageIndex < this._minVerticalScrollPosition)
 			{
-				this._verticalPageIndex = this._minVerticalScrollPosition;
+				this._verticalPageIndex = Std.int(this._minVerticalScrollPosition);
 			}
 			if(this._verticalPageIndex > this._maxVerticalPageIndex)
 			{
@@ -4469,7 +4497,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			return;
 		}
 		var clipRect:Rectangle = this._viewPort.clipRect;
-		if(!clipRect)
+		if(clipRect == null)
 		{
 			clipRect = new Rectangle();
 		}
@@ -4558,7 +4586,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	{
 		if(Std.is(this, IScrollContainer))
 		{
-			IScrollContainer(this).setRawChildIndex(child, index);
+			cast(this, IScrollContainer).setRawChildIndex(child, index);
 			return;
 		}
 		this.setChildIndex(child, index);
@@ -4648,7 +4676,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				targetHorizontalScrollPosition = roundToNearest(targetHorizontalScrollPosition, this.actualPageWidth);
 			}
-			if(this._horizontalAutoScrollTween)
+			if(this._horizontalAutoScrollTween != null)
 			{
 				Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 				this._horizontalAutoScrollTween = null;
@@ -4671,7 +4699,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 					//warning: if you try to set onUpdate here, it may be
 					//replaced elsewhere.
 					this._horizontalAutoScrollTween.onComplete = horizontalAutoScrollTween_onComplete;
-					Starling.juggler.add(this._horizontalAutoScrollTween);
+					Starling.current.juggler.add(this._horizontalAutoScrollTween);
 					this.refreshHorizontalAutoScrollTweenEndRatio();
 				}
 			}
@@ -4688,7 +4716,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				targetVerticalScrollPosition = roundToNearest(targetVerticalScrollPosition, this.actualPageHeight);
 			}
-			if(this._verticalAutoScrollTween)
+			if(this._verticalAutoScrollTween != null)
 			{
 				Starling.current.juggler.remove(this._verticalAutoScrollTween);
 				this._verticalAutoScrollTween = null;
@@ -4711,7 +4739,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 					//warning: if you try to set onUpdate here, it may be
 					//replaced elsewhere.
 					this._verticalAutoScrollTween.onComplete = verticalAutoScrollTween_onComplete;
-					Starling.juggler.add(this._verticalAutoScrollTween);
+					Starling.current.juggler.add(this._verticalAutoScrollTween);
 					this.refreshVerticalAutoScrollTweenEndRatio();
 				}
 			}
@@ -4906,7 +4934,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 					snappedPageHorizontalScrollPosition = roundToNearest(this._horizontalScrollPosition, this.actualPageWidth);
 				}
 			}
-			var targetHorizontalPageIndex:Int;
+			var targetHorizontalPageIndex:Int = 0;
 			if(snappedPageHorizontalScrollPosition < this._minHorizontalScrollPosition)
 			{
 				snappedPageHorizontalScrollPosition = this._minHorizontalScrollPosition;
@@ -4924,7 +4952,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//we need to use Math.round() on these values to avoid
 				//floating-point errors that could result in the values
 				//being rounded down too far.
-				if(this._minHorizontalScrollPosition == Float.NEGATIVE_INFINITY)
+				if(this._minHorizontalScrollPosition == Math.NEGATIVE_INFINITY)
 				{
 					targetHorizontalPageIndex = Math.round(snappedPageHorizontalScrollPosition / this.actualPageWidth);
 				}
@@ -4949,7 +4977,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
 		}
-		this.throwTo(this._horizontalScrollPosition + this.calculateThrowDistance(pixelsPerMS), NaN, duration);
+		this.throwTo(this._horizontalScrollPosition + this.calculateThrowDistance(pixelsPerMS), Math.NaN, duration);
 	}
 
 	/**
@@ -5002,7 +5030,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			{
 				snappedPageVerticalScrollPosition = this._maxVerticalScrollPosition;
 			}
-			var targetVerticalPageIndex:Int;
+			var targetVerticalPageIndex:Int = 0;
 			if(snappedPageVerticalScrollPosition == this._maxVerticalScrollPosition)
 			{
 				var targetVerticalPageIndex:Int = this._maxVerticalPageIndex;
@@ -5012,7 +5040,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 				//we need to use Math.round() on these values to avoid
 				//floating-point errors that could result in the values
 				//being rounded down too far.
-				if(this._minVerticalScrollPosition == Float.NEGATIVE_INFINITY)
+				if(this._minVerticalScrollPosition == Math.NEGATIVE_INFINITY)
 				{
 					targetVerticalPageIndex = Math.round(snappedPageVerticalScrollPosition / this.actualPageHeight);
 				}
@@ -5037,7 +5065,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			duration = this.calculateDynamicThrowDuration(pixelsPerMS);
 		}
-		this.throwTo(NaN, this._verticalScrollPosition + this.calculateThrowDistance(pixelsPerMS), duration);
+		this.throwTo(Math.NaN, this._verticalScrollPosition + this.calculateThrowDistance(pixelsPerMS), duration);
 	}
 
 	/**
@@ -5376,7 +5404,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		}
 		else
 		{
-			this.invalidate(FeathersControl.INVALIDATION_FLAG_SIZE);
+			this.invalidate(INVALIDATION_FLAG_SIZE);
 		}
 	}
 
@@ -5385,7 +5413,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function childProperties_onChange(proxy:PropertyProxy, name:String):Void
 	{
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 	}
 
 	/**
@@ -5409,9 +5437,9 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function horizontalScrollBar_beginInteractionHandler(event:Event):Void
 	{
-		if(this._horizontalAutoScrollTween)
+		if(this._horizontalAutoScrollTween != null)
 		{
-			Starling.juggler.remove(this._horizontalAutoScrollTween);
+			Starling.current.juggler.remove(this._horizontalAutoScrollTween);
 			this._horizontalAutoScrollTween = null;
 		}
 		this._isDraggingHorizontally = false;
@@ -5438,9 +5466,9 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	 */
 	private function verticalScrollBar_beginInteractionHandler(event:Event):Void
 	{
-		if(this._verticalAutoScrollTween)
+		if(this._verticalAutoScrollTween != null)
 		{
-			Starling.juggler.remove(this._verticalAutoScrollTween);
+			Starling.current.juggler.remove(this._verticalAutoScrollTween);
 			this._verticalAutoScrollTween = null;
 		}
 		this._isDraggingVertically = false;

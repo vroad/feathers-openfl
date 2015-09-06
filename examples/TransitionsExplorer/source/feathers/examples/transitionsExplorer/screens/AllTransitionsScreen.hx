@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer.screens
-{
+package feathers.examples.transitionsExplorer.screens;
 import feathers.controls.List;
 import feathers.controls.PanelScreen;
 import feathers.controls.renderers.DefaultListItemRenderer;
@@ -81,7 +80,7 @@ class AllTransitionsScreen extends PanelScreen
 		this.addEventListener(FeathersEventType.TRANSITION_IN_COMPLETE, transitionInCompleteHandler);
 	}
 
-	private function accessorySourceFunction(item:Object):Texture
+	private function accessorySourceFunction(item:Dynamic):Texture
 	{
 		return StandardIcons.listDrillDownAccessoryTexture;
 	}
@@ -92,9 +91,9 @@ class AllTransitionsScreen extends PanelScreen
 		this._list.revealScrollBars();
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):Void
+	private function list_triggeredHandler(event:Event, item:Dynamic):Void
 	{
-		var eventType:String = item.event as String;
+		var eventType:String = cast(item.event, String);
 		this.dispatchEventWith(eventType, false,
 		{
 			//we're going to save the position of the list so that when the user
@@ -106,5 +105,4 @@ class AllTransitionsScreen extends PanelScreen
 			savedSelectedIndex: this._list.selectedIndex
 		});
 	}
-}
 }

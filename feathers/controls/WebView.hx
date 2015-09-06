@@ -5,25 +5,36 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.core.FeathersControl;
 import feathers.events.FeathersEventType;
+#if 0
 import feathers.utils.geom.matrixToScaleX;
 import feathers.utils.geom.matrixToScaleY;
+#else
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
+import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
+#end
 
 import flash.errors.IllegalOperationError;
 import flash.events.ErrorEvent;
 import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
+#if 0
 import flash.utils.getDefinitionByName;
+#end
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 import starling.utils.MatrixUtil;
+
+import openfl.errors.Error;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
 
 /**
  * Dispatched when a URL has finished loading with <code>loadURL()</code> or a
@@ -49,7 +60,9 @@ import starling.utils.MatrixUtil;
  * @see #loadURL()
  * @see #loadString()
  */
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 /**
  * Indicates that the <code>location</code> property has changed.
@@ -73,7 +86,9 @@ import starling.utils.MatrixUtil;
  * 
  * @eventType feathers.events.FeathersEventType.LOCATION_CHANGE
  */
+#if 0
 [Event(name="locationChange",type="starling.events.Event")]
+#end
 
 /**
  * Indicates that an error occurred in the <code>StageWebView</code>.
@@ -96,7 +111,9 @@ import starling.utils.MatrixUtil;
  *
  * @eventType feathers.events.FeathersEventType.ERROR
  */
+#if 0
 [Event(name="error",type="starling.events.Event")]
+#end
 
 /**
  * A Feathers component that displays a web browser in Adobe AIR, using the
@@ -112,12 +129,12 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * @private
@@ -142,32 +159,34 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private static var STAGE_WEB_VIEW_CLASS:Class;
+	private static var STAGE_WEB_VIEW_CLASS:Class<Dynamic>;
 
 	/**
 	 * Indicates if this component is supported on the current platform.
 	 */
+	public static var isSupported(get, never):Bool;
 	public static function get_isSupported():Bool
 	{
-		if(!STAGE_WEB_VIEW_CLASS)
+		if(STAGE_WEB_VIEW_CLASS == null)
 		{
 			try
 			{
-				STAGE_WEB_VIEW_CLASS = Class(getDefinitionByName(STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME));
+				STAGE_WEB_VIEW_CLASS = Type.resolveClass(STAGE_WEB_VIEW_FULLY_QUALIFIED_CLASS_NAME);
 			}
 			catch(error:Error)
 			{
 				return false;
 			}
 		}
-		return STAGE_WEB_VIEW_CLASS.isSupported;
+		return Type.getInstanceFields(STAGE_WEB_VIEW_CLASS).indexOf("isSupported") != -1;
 	}
 
 	/**
 	 * Constructor.
 	 */
-	public function WebView()
+	public function new()
 	{
+		super();
 		this.addEventListener(starling.events.Event.ADDED_TO_STAGE, webView_addedToStageHandler);
 		this.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, webView_removedFromStageHandler);
 	}
@@ -175,7 +194,7 @@ class WebView extends FeathersControl
 	/**
 	 * @private
 	 */
-	private var stageWebView:Object;
+	private var stageWebView:Dynamic;
 
 	/**
 	 * @private
@@ -188,6 +207,7 @@ class WebView extends FeathersControl
 	 *
 	 * <p>Note: Although it is not prohibited, with some content, failures can occur when the same process uses both the embedded and the system WebKit, so it is recommended that all StageWebViews in a given application be constructed with the same value for useNative. In addition, as HTMLLoader depends on the embedded WebKit, applications using HTMLLoader should only construct StageWebViews with useNative set to false.</p>
 	 */
+	public var useNative(get, set):Bool;
 	public function get_useNative():Bool
 	{
 		return this._useNative;
@@ -203,6 +223,7 @@ class WebView extends FeathersControl
 			throw new IllegalOperationError(USE_NATIVE_ERROR);
 		}
 		this._useNative = value;
+		return get_useNative();
 	}
 
 	/**
@@ -210,9 +231,10 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#location Full description of flash.media.StageWebView.location in Adobe's Flash Platform API Reference
 	 */
+	public var location(get, never):String;
 	public function get_location():String
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			return this.stageWebView.location;
 		}
@@ -224,9 +246,10 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#title Full description of flash.media.StageWebView.title in Adobe's Flash Platform API Reference
 	 */
+	public var title(get, never):String;
 	public function get_title():String
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			return this.stageWebView.title;
 		}
@@ -238,9 +261,10 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryBackEnabled Full description of flash.media.StageWebView.isHistoryBackEnabled in Adobe's Flash Platform API Reference
 	 */
+	public var isHistoryBackEnabled(get, never):Bool;
 	public function get_isHistoryBackEnabled():Bool
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			return this.stageWebView.isHistoryBackEnabled;
 		}
@@ -252,9 +276,10 @@ class WebView extends FeathersControl
 	 *
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html#isHistoryForwardEnabled Full description of flash.media.StageWebView.isHistoryForwardEnabled in Adobe's Flash Platform API Reference
 	 */
+	public var isHistoryForwardEnabled(get, never):Bool;
 	public function get_isHistoryForwardEnabled():Bool
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			return this.stageWebView.isHistoryForwardEnabled;
 		}
@@ -266,7 +291,7 @@ class WebView extends FeathersControl
 	 */
 	override public function dispose():Void
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			this.stageWebView.stage = null;
 			this.stageWebView.dispose();
@@ -421,7 +446,7 @@ class WebView extends FeathersControl
 	{
 		if(isSupported)
 		{
-			this.stageWebView = new STAGE_WEB_VIEW_CLASS(this._useNative);
+			this.stageWebView = Type.createInstance(STAGE_WEB_VIEW_CLASS, [this._useNative]);
 		}
 		else
 		{
@@ -440,7 +465,7 @@ class WebView extends FeathersControl
 	{
 		var starlingViewPort:Rectangle = Starling.current.viewPort;
 		var stageWebViewViewPort:Rectangle = this.stageWebView.viewPort;
-		if(!stageWebViewViewPort)
+		if(stageWebViewViewPort == null)
 		{
 			stageWebViewViewPort = new Rectangle();
 		}
@@ -451,11 +476,13 @@ class WebView extends FeathersControl
 		var globalScaleY:Float = matrixToScaleY(HELPER_MATRIX);
 		MatrixUtil.transformCoords(HELPER_MATRIX, 0, 0, HELPER_POINT);
 		var nativeScaleFactor:Float = 1;
+		#if flash
 		if(Starling.current.supportHighResolutions)
 		{
 			nativeScaleFactor = Starling.current.nativeStage.contentsScaleFactor;
 		}
-		var scaleFactor:Float = Starling.contentScaleFactor / nativeScaleFactor;
+		#end
+		var scaleFactor:Float = Starling.current.contentScaleFactor / nativeScaleFactor;
 		stageWebViewViewPort.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
 		stageWebViewViewPort.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
 		var viewPortWidth:Float = Math.round(this.actualWidth * scaleFactor * globalScaleX);
@@ -489,7 +516,7 @@ class WebView extends FeathersControl
 	 */
 	private function webView_removedFromStageHandler(event:starling.events.Event):Void
 	{
-		if(this.stageWebView)
+		if(this.stageWebView != null)
 		{
 			this.stageWebView.stage = null;
 		}
@@ -511,7 +538,7 @@ class WebView extends FeathersControl
 			}
 			target = target.parent;
 		}
-		while(target)
+		while(target != null);
 		this.stageWebView.stage = Starling.current.nativeStage;
 	}
 
@@ -535,5 +562,4 @@ class WebView extends FeathersControl
 	{
 		this.dispatchEventWith(starling.events.Event.COMPLETE);
 	}
-}
 }

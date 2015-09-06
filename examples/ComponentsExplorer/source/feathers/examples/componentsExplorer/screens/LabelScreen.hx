@@ -79,7 +79,7 @@ import starling.events.Event;
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];

@@ -92,10 +92,10 @@ import starling.events.Event;
 		var doneButton:Button = new Button();
 		doneButton.label = "Done";
 		doneButton.addEventListener(Event.TRIGGERED, doneButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			doneButton
-		]);
+		];
 		return header;
 	}
 

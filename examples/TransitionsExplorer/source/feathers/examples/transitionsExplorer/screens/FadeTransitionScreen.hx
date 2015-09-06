@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer.screens
-{
+package feathers.examples.transitionsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.List;
@@ -18,7 +17,7 @@ class FadeTransitionScreen extends PanelScreen
 {
 	inline public static var TRANSITION:String = "transition";
 
-	public function FadeTransitionScreen()
+	public function new()
 	{
 		super();
 	}
@@ -73,14 +72,14 @@ class FadeTransitionScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 		this._backButton.label = "Transitions";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-		header.leftItems = new <DisplayObject>[this._backButton];
+		header.leftItems = [this._backButton];
 
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):Void
+	private function list_triggeredHandler(event:Event, item:Dynamic):Void
 	{
-		var transition:Function = item.transition as Function;
+		var transition:Dynamic = item.transition;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
@@ -88,5 +87,4 @@ class FadeTransitionScreen extends PanelScreen
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
-}
 }

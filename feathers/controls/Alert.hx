@@ -19,6 +19,9 @@ import feathers.skins.IStyleProvider;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_TEXT_RENDERER;
+
+#if 0
 [Exclude(name="layout",kind="property")]
 [Exclude(name="footer",kind="property")]
 [Exclude(name="footerFactory",kind="property")]
@@ -26,6 +29,7 @@ import starling.events.Event;
 [Exclude(name="customFooterName",kind="property")]
 [Exclude(name="customFooterStyleName",kind="property")]
 [Exclude(name="createFooter",kind="method")]
+#end
 
 /**
  * Dispatched when the alert is closed. The <code>data</code> property of
@@ -300,6 +304,7 @@ class Alert extends Panel
 	private function set_messageName(value:String):String
 	{
 		this.messageStyleName = value;
+		return get_messageName();
 	}
 
 	/**
@@ -635,10 +640,11 @@ class Alert extends Panel
 	{
 		if(this._customMessageStyleName == value)
 		{
-			return;
+			return get_customMessageStyleName();
 		}
 		this._customMessageStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_TEXT_RENDERER);
+		return get_customMessageStyleName();
 	}
 
 	/**
@@ -704,6 +710,7 @@ class Alert extends Panel
 	 * @see #buttonGroupFactory
 	 * @see #buttonGroupProperties
 	 */
+	public var customButtonGroupStyleName(get, set):String;
 	public function get_customButtonGroupStyleName():String
 	{
 		return super.customFooterStyleName;
@@ -715,6 +722,7 @@ class Alert extends Panel
 	public function set_customButtonGroupStyleName(value:String):String
 	{
 		super.customFooterStyleName = value;
+		return get_customButtonGroupStyleName();
 	}
 
 	/**
@@ -738,6 +746,7 @@ class Alert extends Panel
 	public function set_customButtonGroupName(value:String):String
 	{
 		this.customButtonGroupStyleName = value;
+		return get_customButtonGroupName();
 	}
 
 	/**
@@ -995,10 +1004,10 @@ class Alert extends Panel
 			this.messageTextRenderer = null;
 		}
 
-		var factory:Function = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
-		this.messageTextRenderer = ITextRenderer(factory());
+		var factory:Void->ITextRenderer = this._messageFactory != null ? this._messageFactory : FeathersControl.defaultTextRendererFactory;
+		this.messageTextRenderer = factory();
 		var messageStyleName:String = this._customMessageStyleName != null ? this._customMessageStyleName : this.messageStyleName;
-		var uiTextRenderer:IFeathersControl = IFeathersControl(this.messageTextRenderer);
+		var uiTextRenderer:IFeathersControl = cast(this.messageTextRenderer, IFeathersControl);
 		uiTextRenderer.styleNameList.add(messageStyleName);
 		uiTextRenderer.touchable = false;
 		this.addChild(cast(this.messageTextRenderer, DisplayObject));

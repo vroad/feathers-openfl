@@ -1,10 +1,9 @@
-package feathers.examples.layoutExplorer.data
-{
+package feathers.examples.layoutExplorer.data;
 import feathers.layout.FlowLayout;
 
 class FlowLayoutSettings
 {
-	public function FlowLayoutSettings()
+	public function new()
 	{
 	}
 
@@ -18,5 +17,4 @@ class FlowLayoutSettings
 	public var paddingRight:Float = 0;
 	public var paddingBottom:Float = 0;
 	public var paddingLeft:Float = 0;
-}
 }

@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 /**
  * Dispatched when the media player's total playhead time changes.
  *
@@ -29,7 +28,9 @@ package feathers.media
  *
  * @eventType feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
  */
+#if 0
 [Event(name="totalTimeChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's current playhead time changes.
@@ -53,7 +54,9 @@ package feathers.media
  *
  * @eventType feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
  */
+#if 0
 [Event(name="currentTimeChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's playback state changes, such as when
@@ -78,7 +81,9 @@ package feathers.media
  *
  * @eventType feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
  */
+#if 0
 [Event(name="playbackStageChange",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media has played to its end.
@@ -100,7 +105,9 @@ package feathers.media
  *
  * @eventType starling.events.Event.COMPLETE
  */
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 /**
  * An interface for media players that play timed content.
@@ -112,21 +119,24 @@ interface ITimedMediaPlayer extends IMediaPlayer
 	 *
 	 * @see #event:currentTimeChange feathers.events.MediaPlayerEventType.CURRENT_TIME_CHANGE
 	 */
-	function get_currentTime():Float;
+	var currentTime(get, never):Float;
+	//function get_currentTime():Float;
 
 	/**
 	 * The maximum position of the playhead, in seconds.
 	 *
 	 * @see #event:totalTimeChange feathers.events.MediaPlayerEventType.TOTAL_TIME_CHANGE
 	 */
-	function get_totalTime():Float;
+	var totalTime(get, never):Float;
+	//function get_totalTime():Float;
 
 	/**
 	 * Determines if the media content is currently playing.
 	 *
 	 * @see #event:playbackStateChange feathers.events.MediaPlayerEventType.PLAYBACK_STATE_CHANGE
 	 */
-	function get_isPlaying():Bool;
+	var isPlaying(get, never):Bool;
+	//function get_isPlaying():Bool;
 
 	/**
 	 * Toggles the media content between playing and paused states.
@@ -167,5 +177,4 @@ interface ITimedMediaPlayer extends IMediaPlayer
 	 * Seeks the media content to a specific position, in seconds.
 	 */
 	function seek(seconds:Float):Void;
-}
 }

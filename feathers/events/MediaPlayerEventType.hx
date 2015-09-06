@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.events
-{
+package feathers.events;
 /**
  * Event <code>type</code> constants for Feathers media player controls.
  * This class is not a subclass of <code>starling.events.Event</code>
@@ -68,5 +67,4 @@ class MediaPlayerEventType
 	 * may be played to completion without buffering.
 	 */
 	inline public static var LOAD_COMPLETE:String = "loadComplete";
-}
 }

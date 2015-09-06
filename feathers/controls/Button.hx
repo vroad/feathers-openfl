@@ -31,6 +31,8 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+
 /**
  * Dispatched when the the user taps or clicks the button. The touch must
  * remain within the bounds of the button on release to register as a tap
@@ -479,6 +481,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	 *
 	 * @see #labelStyleName
 	 */
+	public var labelName(get, set):String;
 	private function get_labelName():String
 	{
 		return this.labelStyleName;
@@ -490,6 +493,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	private function set_labelName(value:String):String
 	{
 		this.labelStyleName = value;
+		return get_labelName();
 	}
 	
 	/**
@@ -2238,6 +2242,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public function set_scaleWhenDown(value:Float):Float
 	{
 		this._scaleWhenDown = value;
+		return get_scaleWhenDown();
 	}
 
 	/**
@@ -2266,6 +2271,7 @@ class Button extends FeathersControl implements IFocusDisplayObject
 	public function set_scaleWhenHovering(value:Float):Float
 	{
 		this._scaleWhenHovering = value;
+		return get_scaleWhenHovering();
 	}
 
 	/**
@@ -2580,9 +2586,9 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		{
 			if(oldIcon != null)
 			{
-				if(oldIcon is IFeathersControl)
+				if(Std.is(oldIcon, IFeathersControl))
 				{
-					IFeathersControl(oldIcon).removeEventListener(FeathersEventType.RESIZE, currentIcon_resizeHandler);
+					cast(oldIcon, IFeathersControl).removeEventListener(FeathersEventType.RESIZE, currentIcon_resizeHandler);
 				}
 				this.removeChild(oldIcon, false);
 			}
@@ -2595,9 +2601,9 @@ class Button extends FeathersControl implements IFocusDisplayObject
 					index = this.getChildIndex(cast(this.labelTextRenderer, DisplayObject));
 				}
 				this.addChildAt(this.currentIcon, index);
-				if(this.currentIcon is IFeathersControl)
+				if(Std.is(this.currentIcon, IFeathersControl))
 				{
-					IFeathersControl(this.currentIcon).addEventListener(FeathersEventType.RESIZE, currentIcon_resizeHandler);
+					cast(this.currentIcon, IFeathersControl).addEventListener(FeathersEventType.RESIZE, currentIcon_resizeHandler);
 				}
 			}
 		}
@@ -2727,11 +2733,11 @@ class Button extends FeathersControl implements IFocusDisplayObject
 				calculatedHeight = this._maxHeight;
 			}
 		}
-		if(this._label && this.labelTextRenderer)
+		if(this._label != null && this.labelTextRenderer != null)
 		{
 			this.labelTextRenderer.maxWidth = calculatedWidth - this._paddingLeft - this._paddingRight;
 			this.labelTextRenderer.maxHeight = calculatedHeight - this._paddingTop - this._paddingBottom;
-			if(this.currentIcon)
+			if(this.currentIcon != null)
 			{
 				var adjustedGap:Float = this._gap;
 				if(adjustedGap == Math.POSITIVE_INFINITY)
@@ -3107,5 +3113,4 @@ class Button extends FeathersControl implements IFocusDisplayObject
 		}
 		this.invalidate(INVALIDATION_FLAG_SIZE);
 	}
-}
 }

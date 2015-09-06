@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.screens
-{
+package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.LayoutGroup;
@@ -16,11 +15,13 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 class WebViewScreen extends PanelScreen
 {
-	public function WebViewScreen()
+	public function new()
 	{
 		super();
 	}
@@ -37,13 +38,14 @@ class WebViewScreen extends PanelScreen
 
 		this.layout = new AnchorLayout();
 
-		var items:Array = [];
-		for(var i:Int = 0; i < 150; i++)
+		var items:Array<Dynamic> = [];
+		//for(var i:Int = 0; i < 150; i++)
+		for(i in 0 ... 150)
 		{
-			var item:Object = {text: "Item " + (i + 1).toString()};
+			var item:Dynamic = {text: "Item " + (i + 1)};
 			items[i] = item;
 		}
-		items.fixed = true;
+		//items.fixed = true;
 
 		this._browser = new WebView();
 		this._browser.layoutData = new AnchorLayoutData(0, 0, 0, 0);
@@ -72,7 +74,7 @@ class WebViewScreen extends PanelScreen
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -109,11 +111,11 @@ class WebViewScreen extends PanelScreen
 		var url:String = this._locationInput.text;
 		//make sure that there's a protocol. otherwise, AIR will add app:/,
 		//which probably isn't what you want.
-		if(!url.match(/^\w+:\//))
+		if(!(~/^\w+:\//).match(url))
 		{
 			url = "http://" + url;
 		}
-		url = encodeURI(url);
+		url = StringTools.urlEncode(url);
 		this._browser.loadURL(url);
 	}
 
@@ -129,7 +131,9 @@ class WebViewScreen extends PanelScreen
 	
 	private function webView_locationChangeHandler(event:Event):Void
 	{
+		#if flash
 		this._locationInput.text = this._browser.location;
+		#end
 	}
 	
 	private function locationInput_enterHandler(event:Event):Void
@@ -143,5 +147,4 @@ class WebViewScreen extends PanelScreen
 	}
 	
 	
-}
 }

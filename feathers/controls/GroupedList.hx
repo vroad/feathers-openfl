@@ -28,6 +28,8 @@ import openfl.ui.Keyboard;
 import starling.events.Event;
 import starling.events.KeyboardEvent;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_LAYOUT;
+
 /**
  * Dispatched when the selected item changes.
  *
@@ -73,7 +75,9 @@ import starling.events.KeyboardEvent;
  *
  * @eventType starling.events.Event.TRIGGERED
  */
+#if 0
 [Event(name="triggered",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when an item renderer is added to the list. When the layout is
@@ -594,6 +598,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #isFocusEnabled
 	 */
+	public var isChildFocusEnabled(get, set):Bool;
 	public function get_isChildFocusEnabled():Bool
 	{
 		return this._isEnabled && this._isChildFocusEnabled;
@@ -605,6 +610,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_isChildFocusEnabled(value:Bool):Bool
 	{
 		this._isChildFocusEnabled = value;
+		return get_isChildFocusEnabled();
 	}
 
 	/**
@@ -643,16 +649,17 @@ class GroupedList extends Scroller implements IFocusContainer
 		{
 			return get_layout();
 		}
-		if(this._layout)
+		if(this._layout != null)
 		{
 			this._layout.removeEventListener(Event.SCROLL, layout_scrollHandler);
 		}
 		this._layout = value;
-		if(this._layout is IVariableVirtualLayout)
+		if(Std.is(this._layout, IVariableVirtualLayout))
 		{
 			this._layout.addEventListener(Event.SCROLL, layout_scrollHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_LAYOUT);
+		return get_layout();
 	}
 
 	/**
@@ -1133,6 +1140,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customLastItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
+	public var customItemRendererStyleName(get, set):String;
 	public function get_customItemRendererStyleName():String
 	{
 		return this._customItemRendererStyleName;
@@ -1145,11 +1153,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customItemRendererStyleName == value)
 		{
-			return get_itemRendererName();
+			return get_customItemRendererStyleName();
 		}
 		this._customItemRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_itemRendererName();
+		return get_customItemRendererStyleName();
 	}
 
 	/**
@@ -1162,6 +1170,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customItemRendererStyleName
 	 */
+	public var itemRendererName(get, set):String;
 	public function get_itemRendererName():String
 	{
 		return this.customItemRendererStyleName;
@@ -1173,6 +1182,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_itemRendererName(value:String):String
 	{
 		this.customItemRendererStyleName = value;
+		return get_itemRendererName();
 	}
 
 	/**
@@ -1399,6 +1409,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customLastItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
+	public var customFirstItemRendererStyleName(get, set):String;
 	public function get_customFirstItemRendererStyleName():String
 	{
 		return this._customFirstItemRendererStyleName;
@@ -1411,11 +1422,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customFirstItemRendererStyleName == value)
 		{
-			return get_firstItemRendererName();
+			return get_customFirstItemRendererStyleName();
 		}
 		this._customFirstItemRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_firstItemRendererName();
+		return get_customFirstItemRendererStyleName();
 	}
 
 	/**
@@ -1428,6 +1439,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customFirstItemRendererStyleName
 	 */
+	public var firstItemRendererName(get, set):String;
 	public function get_firstItemRendererName():String
 	{
 		return this.customFirstItemRendererStyleName;
@@ -1439,6 +1451,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_firstItemRendererName(value:String):String
 	{
 		this.customFirstItemRendererStyleName = value;
+		return get_firstItemRendererName();
 	}
 
 	/**
@@ -1574,6 +1587,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customFirstItemRendererStyleName
 	 * @see #customSingleItemRendererStyleName
 	 */
+	public var customLastItemRendererStyleName(get, set):String;
 	public function get_customLastItemRendererStyleName():String
 	{
 		return this._customLastItemRendererStyleName;
@@ -1586,11 +1600,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customLastItemRendererStyleName == value)
 		{
-			return get_lastItemRendererName();
+			return get_customLastItemRendererStyleName();
 		}
 		this._customLastItemRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_lastItemRendererName();
+		return get_customLastItemRendererStyleName();
 	}
 
 	/**
@@ -1603,6 +1617,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customLastItemRendererStyleName
 	 */
+	public var lastItemRendererName(get, set):String;
 	public function get_lastItemRendererName():String
 	{
 		return this.customLastItemRendererStyleName;
@@ -1614,6 +1629,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_lastItemRendererName(value:String):String
 	{
 		this.customLastItemRendererStyleName = value;
+		return get_lastItemRendererName();
 	}
 
 	/**
@@ -1749,6 +1765,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 * @see #customFirstItemRendererStyleName
 	 * @see #customLastItemRendererStyleName
 	 */
+	public var customSingleItemRendererStyleName(get, set):String;
 	public function get_customSingleItemRendererStyleName():String
 	{
 		return this._customSingleItemRendererStyleName;
@@ -1761,11 +1778,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customSingleItemRendererStyleName == value)
 		{
-			return get_singleItemRendererName();
+			return get_customSingleItemRendererStyleName();
 		}
 		this._customSingleItemRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_singleItemRendererName();
+		return get_customSingleItemRendererStyleName();
 	}
 
 	/**
@@ -1778,6 +1795,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customLastItemRendererStyleName
 	 */
+	public var singleItemRendererName(get, set):String;
 	public function get_singleItemRendererName():String
 	{
 		return this.customSingleItemRendererStyleName;
@@ -1789,12 +1807,13 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_singleItemRendererName(value:String):String
 	{
 		this.customSingleItemRendererStyleName = value;
+		return get_singleItemRendererName();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _headerRendererType:Class = DefaultGroupedListHeaderOrFooterRenderer;
+	private var _headerRendererType:Class<Dynamic> = DefaultGroupedListHeaderOrFooterRenderer;
 
 	/**
 	 * The class used to instantiate header renderers. Must implement the
@@ -1909,6 +1928,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customHeaderRendererStyleName(get, set):String;
 	public function get_customHeaderRendererStyleName():String
 	{
 		return this._customHeaderRendererStyleName;
@@ -1921,11 +1941,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customHeaderRendererStyleName == value)
 		{
-			return get_headerRendererName();
+			return get_customHeaderRendererStyleName();
 		}
 		this._customHeaderRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_headerRendererName();
+		return get_customHeaderRendererStyleName();
 	}
 
 	/**
@@ -1938,6 +1958,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customHeaderRendererStyleName
 	 */
+	public var headerRendererName(get, set):String;
 	public function get_headerRendererName():String
 	{
 		return this.customHeaderRendererStyleName;
@@ -1949,6 +1970,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_headerRendererName(value:String):String
 	{
 		this.customHeaderRendererStyleName = value;
+		return get_headerRendererName();
 	}
 
 	/**
@@ -2159,6 +2181,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see feathers.core.FeathersControl#styleNameList
 	 */
+	public var customFooterRendererStyleName(get, set):String;
 	public function get_customFooterRendererStyleName():String
 	{
 		return this._customFooterRendererStyleName;
@@ -2171,11 +2194,11 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this._customFooterRendererStyleName == value)
 		{
-			return get_footerRendererName();
+			return get_customFooterRendererStyleName();
 		}
 		this._customFooterRendererStyleName = value;
 		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
-		return get_footerRendererName();
+		return get_customFooterRendererStyleName();
 	}
 
 	/**
@@ -2188,6 +2211,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @see #customFooterRendererStyleName
 	 */
+	public var footerRendererName(get, set):String;
 	public function get_footerRendererName():String
 	{
 		return this.customFooterRendererStyleName;
@@ -2199,6 +2223,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_footerRendererName(value:String):String
 	{
 		this.customFooterRendererStyleName = value;
+		return get_footerRendererName();
 	}
 
 	/**
@@ -2502,6 +2527,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 *
 	 * @default 0.25
 	 */
+	public var keyScrollDuration(get, set):Float;
 	public function get_keyScrollDuration():Float
 	{
 		return this._keyScrollDuration;
@@ -2513,6 +2539,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	public function set_keyScrollDuration(value:Float):Float
 	{
 		this._keyScrollDuration = value;
+		return get_keyScrollDuration();
 	}
 
 	/**
@@ -2770,15 +2797,18 @@ class GroupedList extends Scroller implements IFocusContainer
 	{
 		if(this.pendingGroupIndex >= 0)
 		{
+			var pendingData:Dynamic;
 			if(this.pendingItemIndex >= 0)
 			{
-				var pendingData:Object = this._dataProvider.getItemAt(this.pendingGroupIndex, this.pendingItemIndex);
+				pendingData = this._dataProvider.getItemAt([this.pendingGroupIndex, this.pendingItemIndex]);
 			}
 			else
 			{
 				pendingData = this._dataProvider.getItemAt(this.pendingGroupIndex);
 			}
-			if(pendingData is Object)
+			#if 0
+			if(Std.is(pendingData, Object))
+			#end
 			{
 				this.dataViewPort.getScrollPositionForIndex(this.pendingGroupIndex, this.pendingItemIndex, HELPER_POINT);
 				this.pendingGroupIndex = -1;
@@ -2933,16 +2963,16 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_addItemHandler(event:Event, indices:Array):Void
+	private function dataProvider_addItemHandler(event:Event, indices:Array<Int>):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
 			return;
 		}
-		var groupIndex:Int = indices[0] as Int;
+		var groupIndex:Int = indices[0];
 		if(indices.length > 1) //adding an item to a group
 		{
-			var itemIndex:Int = indices[1] as Int;
+			var itemIndex:Int = indices[1];
 			if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex >= itemIndex)
 			{
 				//adding an item at an index that is less than or equal to
@@ -2962,16 +2992,16 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_removeItemHandler(event:Event, indices:Array):Void
+	private function dataProvider_removeItemHandler(event:Event, indices:Array<Int>):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
 			return;
 		}
-		var groupIndex:Int = indices[0] as Int;
+		var groupIndex:Int = indices[0];
 		if(indices.length > 1) //removing an item from a group
 		{
-			var itemIndex:Int = indices[1] as Int;
+			var itemIndex:Int = indices[1];
 			if(this._selectedGroupIndex == groupIndex)
 			{
 				if(this._selectedItemIndex == itemIndex)
@@ -3009,16 +3039,16 @@ class GroupedList extends Scroller implements IFocusContainer
 	/**
 	 * @private
 	 */
-	private function dataProvider_replaceItemHandler(event:Event, indices:Array):Void
+	private function dataProvider_replaceItemHandler(event:Event, indices:Array<Int>):Void
 	{
 		if(this._selectedGroupIndex == -1)
 		{
 			return;
 		}
-		var groupIndex:Int = indices[0] as Int;
+		var groupIndex:Int = indices[0];
 		if(indices.length > 1) //replacing an item from a group
 		{
-			var itemIndex:Int = indices[1] as Int;
+			var itemIndex:Int = indices[1];
 			if(this._selectedGroupIndex == groupIndex && this._selectedItemIndex == itemIndex)
 			{
 				//replacing the selected item.
@@ -3047,7 +3077,7 @@ class GroupedList extends Scroller implements IFocusContainer
 	 */
 	private function layout_scrollHandler(event:Event, scrollOffset:Point):Void
 	{
-		var layout:IVariableVirtualLayout = IVariableVirtualLayout(this._layout);
+		var layout:IVariableVirtualLayout = cast(this._layout, IVariableVirtualLayout);
 		if(!this.isScrolling || !layout.useVirtualLayout || !layout.hasVariableItemDimensions)
 		{
 			return;
@@ -3056,19 +3086,19 @@ class GroupedList extends Scroller implements IFocusContainer
 		var scrollOffsetX:Float = scrollOffset.x;
 		this._startHorizontalScrollPosition += scrollOffsetX;
 		this._horizontalScrollPosition += scrollOffsetX;
-		if(this._horizontalAutoScrollTween)
+		if(this._horizontalAutoScrollTween != null)
 		{
 			this._targetHorizontalScrollPosition += scrollOffsetX;
-			this.throwTo(this._targetHorizontalScrollPosition, NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
+			this.throwTo(this._targetHorizontalScrollPosition, Math.NaN, this._horizontalAutoScrollTween.totalTime - this._horizontalAutoScrollTween.currentTime);
 		}
 
 		var scrollOffsetY:Float = scrollOffset.y;
 		this._startVerticalScrollPosition += scrollOffsetY;
 		this._verticalScrollPosition += scrollOffsetY;
-		if(this._verticalAutoScrollTween)
+		if(this._verticalAutoScrollTween != null)
 		{
 			this._targetVerticalScrollPosition += scrollOffsetY;
-			this.throwTo(NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
+			this.throwTo(Math.NaN, this._targetVerticalScrollPosition, this._verticalAutoScrollTween.totalTime - this._verticalAutoScrollTween.currentTime);
 		}
 	}
 }

@@ -5,14 +5,16 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.Slider;
 import feathers.events.FeathersEventType;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
+
+import feathers.utils.type.SafeCast.safe_cast;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
 
 /**
  * A specialized slider that displays and controls the current position of
@@ -137,7 +139,7 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * Constructor.
 	 */
-	public function SeekSlider()
+	public function new()
 	{
 		super();
 		this.thumbStyleName = SeekSlider.DEFAULT_CHILD_STYLE_NAME_THUMB;
@@ -163,6 +165,7 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -175,15 +178,15 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.CURRENT_TIME_CHANGE, mediaPlayer_currentTimeChangeHandler);
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.TOTAL_TIME_CHANGE, mediaPlayer_totalTimeChangeHandler);
 		}
-		this._mediaPlayer = value as ITimedMediaPlayer;
-		if(this._mediaPlayer)
+		this._mediaPlayer = safe_cast(value, ITimedMediaPlayer);
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.CURRENT_TIME_CHANGE, mediaPlayer_currentTimeChangeHandler);
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.TOTAL_TIME_CHANGE, mediaPlayer_totalTimeChangeHandler);
@@ -197,6 +200,7 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 			this.maximum = 0;
 			this.value = 0;
 		}
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -218,7 +222,7 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 	 */
 	private function seekSlider_changeHandler(event:Event):Void
 	{
-		if(!this._mediaPlayer)
+		if(this._mediaPlayer == null)
 		{
 			return;
 		}
@@ -251,5 +255,4 @@ class SeekSlider extends Slider implements IMediaPlayerControl
 		this.maximum = this._mediaPlayer.totalTime;
 	}
 	
-}
 }

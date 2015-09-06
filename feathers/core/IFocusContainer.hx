@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.core
-{
+package feathers.core;
 /**
  * A component that can receive focus with children that can receive focus.
  *
@@ -28,11 +27,11 @@ interface IFocusContainer extends IFocusDisplayObject
 	 *
 	 * @see #isFocusEnabled
 	 */
-	function get_isChildFocusEnabled():Bool;
+	var isChildFocusEnabled(get, set):Bool;
+	//function get_isChildFocusEnabled():Bool;
 
 	/**
 	 * @private
 	 */
-	function set_isChildFocusEnabled(value:Bool):Bool;
-}
+	//function set_isChildFocusEnabled(value:Bool):Bool;
 }

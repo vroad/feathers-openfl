@@ -169,7 +169,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var mainVector:Array<DisplayObject> = items;
 		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.measureVector(items, otherVector, HELPER_POINT);
-		var currentLength:Float = otherArraylength;
+		var currentLength:Float = otherVector.length;
 		while(currentLength > 0)
 		{
 			if(otherVector == this._helperVector1)
@@ -184,7 +184,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 			}
 			this.measureVector(mainVector, otherVector, HELPER_POINT);
 			var oldLength:Float = currentLength;
-			currentLength = otherArraylength;
+			currentLength = otherVector.length;
 			if(oldLength == currentLength)
 			{
 				this._helperVector1.splice(0, this._helperVector1.length);
@@ -599,7 +599,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 		var mainVector:Array<DisplayObject> = items;
 		var otherVector:Array<DisplayObject> = this._helperVector1;
 		this.layoutVector(items, otherVector, x, y, width, height);
-		var currentLength:Float = otherArraylength;
+		var currentLength:Float = otherVector.length;
 		while(currentLength > 0)
 		{
 			if(otherVector == this._helperVector1)
@@ -614,7 +614,7 @@ class AnchorLayout extends EventDispatcher implements ILayout
 			}
 			this.layoutVector(mainVector, otherVector, x, y, width, height);
 			var oldLength:Float = currentLength;
-			currentLength = otherArraylength;
+			currentLength = otherVector.length;
 			if(oldLength == currentLength)
 			{
 				this._helperVector1.splice(0, this._helperVector1.length);
@@ -1012,14 +1012,14 @@ class AnchorLayout extends EventDispatcher implements ILayout
 			return false;
 		}
 		var horizontalCenterAnchorDisplayObject:DisplayObject = layoutData.horizontalCenterAnchorDisplayObject;
-		if(horizontalCenterAnchorDisplayObject && (items.indexOf(horizontalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(horizontalCenterAnchorDisplayObject) >= 0))
+		if(horizontalCenterAnchorDisplayObject != null && (items.indexOf(horizontalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(horizontalCenterAnchorDisplayObject) >= 0))
 		{
-			return false
+			return false;
 		}
 		var verticalCenterAnchorDisplayObject:DisplayObject = layoutData.verticalCenterAnchorDisplayObject;
-		if(verticalCenterAnchorDisplayObject && (items.indexOf(verticalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(verticalCenterAnchorDisplayObject) >= 0))
+		if(verticalCenterAnchorDisplayObject != null && (items.indexOf(verticalCenterAnchorDisplayObject, nextIndex) >= nextIndex || unpositionedItems.indexOf(verticalCenterAnchorDisplayObject) >= 0))
 		{
-			return false
+			return false;
 		}
 		return true;
 	}

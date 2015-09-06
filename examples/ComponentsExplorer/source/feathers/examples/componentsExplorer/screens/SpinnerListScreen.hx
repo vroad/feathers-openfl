@@ -1,5 +1,4 @@
-package feathers.examples.componentsExplorer.screens
-{
+package feathers.examples.componentsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.PanelScreen;
@@ -16,11 +15,13 @@ import starling.core.Starling;
 import starling.display.DisplayObject;
 import starling.events.Event;
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 class SpinnerListScreen extends PanelScreen
 {
-	public function SpinnerListScreen()
+	public function new()
 	{
 		super();
 	}
@@ -107,7 +108,7 @@ class SpinnerListScreen extends PanelScreen
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -134,5 +135,4 @@ class SpinnerListScreen extends PanelScreen
 	{
 		trace("SpinnerList change:", this._list.selectedIndex);
 	}
-}
 }

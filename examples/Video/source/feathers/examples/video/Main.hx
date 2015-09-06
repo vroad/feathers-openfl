@@ -1,5 +1,4 @@
-package feathers.examples.video
-{
+package feathers.examples.video;
 import feathers.controls.ImageLoader;
 import feathers.controls.LayoutGroup;
 import feathers.events.MediaPlayerEventType;
@@ -13,11 +12,15 @@ import feathers.media.SeekSlider;
 import feathers.media.VideoPlayer;
 import feathers.themes.MetalWorksDesktopTheme;
 
+#if 0
 import flash.desktop.NativeApplication;
 import flash.display.NativeMenu;
 import flash.display.NativeMenuItem;
+#end
 import flash.events.ContextMenuEvent;
+#if 0
 import flash.filesystem.File;
+#end
 import flash.net.FileFilter;
 
 import starling.core.Starling;
@@ -26,14 +29,14 @@ import starling.events.Event;
 
 class Main extends Sprite
 {
-	public function Main()
+	public function new()
 	{
 		new MetalWorksDesktopTheme();
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 	}
 	
-	private var _videoPlayer:VideoPlayer
+	private var _videoPlayer:VideoPlayer;
 	private var _controls:LayoutGroup;
 	private var _playPauseButton:PlayPauseToggleButton;
 	private var _seekSlider:SeekSlider;
@@ -41,8 +44,10 @@ class Main extends Sprite
 	private var _fullScreenButton:FullScreenToggleButton;
 	private var _view:ImageLoader;
 	
+	#if 0
 	private var _fullScreenItem:NativeMenuItem;
 	private var _fileToOpen:File;
+	#end
 	
 	private function addedToStageHandler(event:starling.events.Event):Void
 	{
@@ -89,6 +94,7 @@ class Main extends Sprite
 	
 	private function createMenu():Void
 	{
+		#if 0
 		var menu:NativeMenu;
 		if(NativeApplication.supportsMenu)
 		{
@@ -139,6 +145,7 @@ class Main extends Sprite
 			zoomItem.addEventListener(flash.events.Event.SELECT, zoomItem_selectHandler);
 			windowMenu.addItem(zoomItem);
 		}
+		#end
 	}
 	
 	private function videoPlayer_readyHandler(event:Event):Void
@@ -149,11 +156,14 @@ class Main extends Sprite
 
 	private function videoPlayer_displayStateChangeHandler(event:Event):Void
 	{
+		#if 0
 		this._fullScreenItem.label = this._videoPlayer.isFullScreen ? "Exit Full Screen" : "Enter Full Screen";
+		#end
 	}
 	
 	private function openItem_selectHandler(event:flash.events.Event):Void
 	{
+		#if 0
 		this._fileToOpen = new File();
 		this._fileToOpen.addEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
 		this._fileToOpen.addEventListener(flash.events.Event.CANCEL, fileToOpen_cancelHandler);
@@ -161,6 +171,7 @@ class Main extends Sprite
 		[
 			new FileFilter("Video files", "*.m4v;*.mp4;*.f4v;*.flv;*.mov")
 		]);
+		#end
 	}
 	
 	private function closeItem_selectHandler(event:flash.events.Event):Void
@@ -174,13 +185,16 @@ class Main extends Sprite
 	
 	private function fileToOpen_cancelHandler(event:flash.events.Event):Void
 	{
+		#if 0
 		this._fileToOpen.removeEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
 		this._fileToOpen.removeEventListener(flash.events.Event.CANCEL, fileToOpen_cancelHandler);
 		this._fileToOpen = null;
+		#end
 	}
 
 	private function fileToOpen_selectHandler(event:flash.events.Event):Void
 	{
+		#if 0
 		if(this._videoPlayer.videoSource == this._fileToOpen.url)
 		{
 			//it's the same file, so just start it over instead of trying
@@ -189,11 +203,14 @@ class Main extends Sprite
 			this._videoPlayer.play();
 			return;
 		}
+		#end
 		this._controls.touchable = false;
+		#if 0
 		this._videoPlayer.videoSource = this._fileToOpen.url;
 		this._fileToOpen.removeEventListener(flash.events.Event.SELECT, fileToOpen_selectHandler);
 		this._fileToOpen.removeEventListener(flash.events.Event.CANCEL, fileToOpen_cancelHandler);
 		this._fileToOpen = null;
+		#end
 	}
 	
 	private function fullScreenItem_selectHandler(event:flash.events.Event):Void
@@ -203,12 +220,15 @@ class Main extends Sprite
 	
 	private function minimizeItem_selectHandler(event:flash.events.Event):Void
 	{
+		#if 0
 		Starling.current.nativeStage.nativeWindow.minimize();
+		#end
 	}
 
 	private function zoomItem_selectHandler(event:flash.events.Event):Void
 	{
+		#if 0
 		Starling.current.nativeStage.nativeWindow.maximize();
+		#end
 	}
-}
 }

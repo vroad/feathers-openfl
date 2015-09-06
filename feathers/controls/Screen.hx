@@ -36,7 +36,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_IN_START
  */
+#if 0
 [Event(name="transitionInStart",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the transition animation finishes as the screen is shown
@@ -59,7 +61,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_IN_COMPLETE
  */
+#if 0
 [Event(name="transitionInComplete",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the transition animation begins as a different screen is
@@ -82,7 +86,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_OUT_START
  */
+#if 0
 [Event(name="transitionOutStart",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the transition animation finishes as a different screen
@@ -105,7 +111,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.FeathersEventType.TRANSITION_OUT_COMPLETE
  */
+#if 0
 [Event(name="transitionOutComplete",type="starling.events.Event")]
+#end
 
 /**
  * A basic screen to be displayed by <code>ScreenNavigator</code>. Provides
@@ -208,12 +216,13 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	private var _owner:Object;
+	private var _owner:Dynamic;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function get_owner():Object
+	public var owner(get, set):Dynamic;
+	public function get_owner():Dynamic
 	{
 		return this._owner;
 	}
@@ -221,7 +230,7 @@ class Screen extends LayoutGroup implements IScreen
 	/**
 	 * @private
 	 */
-	public function set_owner(value:Object):Object
+	public function set_owner(value:Dynamic):Dynamic
 	{
 		this._owner = value;
 		return get_owner();

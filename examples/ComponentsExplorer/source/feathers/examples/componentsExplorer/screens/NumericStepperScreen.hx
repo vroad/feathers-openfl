@@ -68,7 +68,7 @@ import starling.events.Event;
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -76,7 +76,7 @@ import starling.events.Event;
 		var settingsButton:Button = new Button();
 		settingsButton.label = "Settings";
 		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			settingsButton
 		];

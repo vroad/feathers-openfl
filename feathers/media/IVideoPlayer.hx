@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 /**
  * Dispatched when the original, native width or height of the video content
  * is calculated.
@@ -31,7 +30,9 @@ package feathers.media
  *
  * @eventType feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
  */
+#if 0
 [Event(name="dimensionsChange",type="starling.events.Event")]
+#end
 
 /**
  * An interface media players that play video content.
@@ -51,5 +52,4 @@ interface IVideoPlayer extends IAudioPlayer
 	 * @see #event:dimensionsChange feathers.events.MediaPlayerEventType.DIMENSIONS_CHANGE
 	 */
 	function get_nativeHeight():Float;
-}
 }

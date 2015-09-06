@@ -6,12 +6,15 @@ import starling.utils.Max;
 import flash.display.Loader;
 import flash.display.Sprite;
 import flash.display.StageAlign;
+#if 0
 import flash.display.StageOrientation;
+#end
 import flash.display.StageScaleMode;
 import flash.display3D.Context3DProfile;
 import flash.display3D.Context3DRenderMode;
 import flash.events.Event;
 import flash.filesystem.File;
+#if 0
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 #end

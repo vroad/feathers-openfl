@@ -11,8 +11,13 @@ import feathers.core.IValidating;
 import feathers.core.PopUpManager;
 import feathers.core.ValidationQueue;
 import feathers.events.FeathersEventType;
+#if 0
 import feathers.utils.display.getDisplayObjectDepthFromStage;
 import feathers.utils.display.stageToStarling;
+#else
+import feathers.utils.display.FeathersDisplayUtil.getDisplayObjectDepthFromStage;
+import feathers.utils.display.FeathersDisplayUtil.stageToStarling;
+#end
 
 import openfl.errors.IllegalOperationError;
 import openfl.events.KeyboardEvent;
@@ -80,7 +85,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
+	private static var HELPER_RECTANGLE:Rectangle = new Rectangle();
 
 	/**
 	 * The pop-up content will be positioned below the source, if possible. 
@@ -142,6 +147,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default false
 	 */
+	public var isModal(get, set):Bool;
 	public function get_isModal():Bool
 	{
 		return this._isModal;
@@ -153,12 +159,13 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	public function set_isModal(value:Bool):Bool
 	{
 		this._isModal = value;
+		return get_isModal();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _overlayFactory:Function;
+	private var _overlayFactory:Void->DisplayObject;
 
 	/**
 	 * If <code>isModal</code> is <code>true</code>, this function may be
@@ -184,7 +191,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 * 
 	 * @see feathers.core.PopUpManager#overlayFactory
 	 */
-	public function get_overlayFactory():Function
+	public var overlayFactory(get, set):Void->DisplayObject;
+	public function get_overlayFactory():Void->DisplayObject
 	{
 		return this._overlayFactory;
 	}
@@ -192,9 +200,10 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	/**
 	 * @private
 	 */
-	public function set_overlayFactory(value:Function):Function
+	public function set_overlayFactory(value:Void->DisplayObject):Void->DisplayObject
 	{
 		this._overlayFactory = value;
+		return get_overlayFactory();
 	}
 
 	/**
@@ -233,6 +242,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 * @see #PRIMARY_DIRECTION_DOWN
 	 * @see #PRIMARY_DIRECTION_UP
 	 */
+	public var primaryDirection(get, set):String;
 	public function get_primaryDirection():String
 	{
 		return this._primaryDirection;
@@ -244,6 +254,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	public function set_primaryDirection(value:String):String
 	{
 		this._primaryDirection = value;
+		return get_primaryDirection();
 	}
 
 	/**
@@ -258,6 +269,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	 *
 	 * @default true
 	 */
+	public var fitContentMinWidthToOrigin(get, set):Bool;
 	public function get_fitContentMinWidthToOrigin():Bool
 	{
 		return this._fitContentMinWidthToOrigin;
@@ -269,6 +281,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	public function set_fitContentMinWidthToOrigin(value:Bool):Bool
 	{
 		this._fitContentMinWidthToOrigin = value;
+		return get_fitContentMinWidthToOrigin();
 	}
 
 	/**
@@ -330,12 +343,12 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		stage.removeEventListener(Event.ENTER_FRAME, stage_enterFrameHandler);
 		var starling:Starling = stageToStarling(stage);
 		starling.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
-		if(content is IFeathersControl)
+		if(Std.is(content, IFeathersControl))
 		{
 			content.removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
 		content.removeEventListener(Event.REMOVED_FROM_STAGE, content_removedFromStageHandler);
-		if(content.parent)
+		if(content.parent != null)
 		{
 			content.removeFromParent(false);
 		}
@@ -357,7 +370,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 	{
 		if(Std.is(this.source, IValidating))
 		{
-			IValidating(this.source).validate();
+			cast(this.source, IValidating).validate();
 			if(!this.isOpen)
 			{
 				//it's possible that the source will close its pop-up during
@@ -368,8 +381,8 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 
 		var sourceWidth:Float = this.source.width;
 		var hasSetBounds:Bool = false;
-		var uiContent:IFeathersControl = this.content as IFeathersControl;
-		if(this._fitContentMinWidthToOrigin && uiContent && uiContent.minWidth < sourceWidth)
+		var uiContent:IFeathersControl = cast(this.content, IFeathersControl);
+		if(this._fitContentMinWidthToOrigin && uiContent != null && uiContent.minWidth < sourceWidth)
 		{
 			uiContent.minWidth = sourceWidth;
 			hasSetBounds = true;
@@ -389,7 +402,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 		//positioning the content relative to it.
 		var starling:Starling = stageToStarling(stage);
 		var validationQueue:ValidationQueue = ValidationQueue.forStarling(starling);
-		if(validationQueue && !validationQueue.isValidating)
+		if(validationQueue != null && !validationQueue.isValidating)
 		{
 			//force a COMPLETE validation of everything
 			//but only if we're not already doing that...
@@ -563,7 +576,7 @@ class DropDownPopUpContentManager extends EventDispatcher implements IPopUpConte
 			return;
 		}
 		//any began touch is okay here. we don't need to check all touches
-		var stage:Stage = Stage(event.currentTarget);
+		var stage:Stage = cast(event.currentTarget, Stage);
 		var touch:Touch = event.getTouch(stage, TouchPhase.BEGAN);
 		if(touch == null)
 		{

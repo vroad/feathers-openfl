@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2014 Josh Tynjala
+Copyright 2012-2015 Bowler Hat LLC
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -37,7 +37,7 @@ import starling.textures.TextureAtlas;
  * <p>This version of the theme embeds its assets. To load assets at
  * runtime, see <code>MetalWorksMobileThemeWithAssetManager</code> instead.</p>
  *
- * @see http://wiki.starling-framework.org/feathers/theme-assets
+ * @see http://feathersui.com/help/theme-assets.html
  */
 class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 {
@@ -70,13 +70,20 @@ class MetalWorksMobileTheme extends BaseMetalWorksMobileTheme
 	 */
 	override private function initialize():Void
 	{
+		this.initializeTextureAtlas();
+		super.initialize();
+	}
+
+	/**
+	 * @private
+	 */
+	private function initializeTextureAtlas():Void
+	{
 		var atlasBitmapData:BitmapData = Assets.getBitmapData(ATLAS_BITMAP_NAME);
 		var atlasTexture:Texture = Texture.fromBitmapData(atlasBitmapData, false);
 		atlasTexture.root.onRestore = this.atlasTexture_onRestore;
 		atlasBitmapData.dispose();
 		this.atlas = new TextureAtlas(atlasTexture, Xml.parse(Assets.getText(ATLAS_XML_NAME)).firstElement());
-
-		super.initialize();
 	}
 
 	/**

@@ -5,11 +5,11 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.display
-{
+package feathers.display;
 import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
+import starling.utils.Max;
 
 import starling.core.RenderSupport;
 import starling.display.DisplayObject;
@@ -28,18 +28,19 @@ class RenderDelegate extends DisplayObject
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_MATRIX:Matrix = new Matrix();
+	private static var HELPER_MATRIX:Matrix = new Matrix();
 	
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 
 	/**
 	 * Constructor.
 	 */
-	public function RenderDelegate(target:DisplayObject)
+	public function new(target:DisplayObject)
 	{
+		super();
 		this._target = target;
 	}
 
@@ -62,6 +63,7 @@ class RenderDelegate extends DisplayObject
 	public function set_target(value:DisplayObject):DisplayObject
 	{
 		this._target = value;
+		return get_target();
 	}
 
 	/**
@@ -71,11 +73,12 @@ class RenderDelegate extends DisplayObject
 	{
 		resultRect = this._target.getBounds(this._target, resultRect);
 		this.getTransformationMatrix(targetSpace, HELPER_MATRIX);
-		var minX:Float = Float.MAX_VALUE;
-		var maxX:Float = -Float.MAX_VALUE;
-		var minY:Float = Float.MAX_VALUE;
-		var maxY:Float = -Float.MAX_VALUE;
-		for(var i:Int = 0; i < 4; i++)
+		var minX:Float = Max.MAX_VALUE;
+		var maxX:Float = -Max.MAX_VALUE;
+		var minY:Float = Max.MAX_VALUE;
+		var maxY:Float = -Max.MAX_VALUE;
+		//for(var i:Int = 0; i < 4; i++)
+		for(i in 0 ... 4)
 		{
 			MatrixUtil.transformCoords(HELPER_MATRIX, i % 2 == 0 ? 0 : resultRect.width, i < 2 ? 0 : resultRect.height, HELPER_POINT);
 			if(HELPER_POINT.x < minX)
@@ -109,5 +112,4 @@ class RenderDelegate extends DisplayObject
 		this._target.render(support, parentAlpha);
 		this._target.alpha = oldAlpha;
 	}
-}
 }

@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.ToggleButton;
 import feathers.controls.popups.DropDownPopUpContentManager;
 import feathers.controls.popups.IPopUpContentManager;
@@ -21,6 +20,11 @@ import starling.events.EventDispatcher;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+import feathers.utils.type.SafeCast.safe_cast;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when the pop-up volume slider is opened.
@@ -42,7 +46,9 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.OPEN
  */
+#if 0
 [Event(name="open",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the pop-up volume slider is closed.
@@ -64,7 +70,9 @@ import starling.events.TouchPhase;
  *
  * @eventType starling.events.Event.CLOSE
  */
+#if 0
 [Event(name="close",type="starling.events.Event")]
+#end
 
 /**
  * A specialized toggle button that controls whether a media player's volume
@@ -110,7 +118,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * Constructor.
 	 */
-	public function MuteToggleButton()
+	public function new()
 	{
 		super();
 		this.addEventListener(Event.CHANGE, muteToggleButton_changeHandler);
@@ -173,6 +181,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -185,15 +194,16 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		this._mediaPlayer = value as IAudioPlayer;
+		this._mediaPlayer = safe_cast(value, IAudioPlayer);
 		this.refreshVolumeFromMediaPlayer();
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.SOUND_TRANSFORM_CHANGE, mediaPlayer_soundTransformChangeHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -212,6 +222,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 *
 	 * @default null
 	 */
+	public var popUpContentManager(get, set):IPopUpContentManager;
 	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
@@ -224,22 +235,24 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		if(this._popUpContentManager == value)
 		{
-			return;
+			return get_popUpContentManager();
 		}
-		if(this._popUpContentManager is EventDispatcher)
+		var dispatcher:EventDispatcher;
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			var dispatcher:EventDispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.removeEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.removeEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this._popUpContentManager = value;
-		if(this._popUpContentManager is EventDispatcher)
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			dispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.addEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.addEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_popUpContentManager();
 	}
 
 	/**
@@ -263,6 +276,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 *
 	 * @see feathers.media.VolumeSlider
 	 */
+	public var showVolumeSliderOnHover(get, set):Bool;
 	public function get_showVolumeSliderOnHover():Bool
 	{
 		return this._showVolumeSliderOnHover;
@@ -275,16 +289,17 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		if(this._showVolumeSliderOnHover == value)
 		{
-			return;
+			return get_showVolumeSliderOnHover();
 		}
 		this._showVolumeSliderOnHover = value;
 		this.invalidate(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
+		return get_showVolumeSliderOnHover();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _volumeSliderFactory:Function;
+	private var _volumeSliderFactory:Void->VolumeSlider;
 
 	/**
 	 * A function used to generate the button's pop-up volume slider
@@ -315,7 +330,8 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 * @see #showVolumeSliderOnHover
 	 * @see #volumeSliderProperties
 	 */
-	public function get_volumeSliderFactory():Function
+	public var volumeSliderFactory(get, set):Void->VolumeSlider;
+	public function get_volumeSliderFactory():Void->VolumeSlider
 	{
 		return this._volumeSliderFactory;
 	}
@@ -323,14 +339,15 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set_volumeSliderFactory(value:Function):Function
+	public function set_volumeSliderFactory(value:Void->VolumeSlider):Void->VolumeSlider
 	{
 		if(this._volumeSliderFactory == value)
 		{
-			return;
+			return get_volumeSliderFactory();
 		}
 		this._volumeSliderFactory = value;
 		this.invalidate(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
+		return get_volumeSliderFactory();
 	}
 
 	/**
@@ -363,6 +380,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 * @see #volumeSliderFactory
 	 * @see #volumeSliderProperties
 	 */
+	public var customVolumeSliderStyleName(get, set):String;
 	public function get_customVolumeSliderStyleName():String
 	{
 		return this._customVolumeSliderStyleName;
@@ -375,10 +393,11 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		if(this._customVolumeSliderStyleName == value)
 		{
-			return;
+			return get_customVolumeSliderStyleName();
 		}
 		this._customVolumeSliderStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_VOLUME_SLIDER_FACTORY);
+		return get_customVolumeSliderStyleName();
 	}
 
 	/**
@@ -414,9 +433,10 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 * @see #volumeSliderFactory
 	 * @see feathers.media.VolumeSlider
 	 */
-	public function get_volumeSliderProperties():Object
+	public var volumeSliderProperties(get, set):PropertyProxy;
+	public function get_volumeSliderProperties():PropertyProxy
 	{
-		if(!this._volumeSliderProperties)
+		if(this._volumeSliderProperties == null)
 		{
 			this._volumeSliderProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -426,35 +446,36 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	public function set_volumeSliderProperties(value:Object):Object
+	public function set_volumeSliderProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._volumeSliderProperties == value)
 		{
-			return;
+			return get_volumeSliderProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue.storage, propertyName, Reflect.field(value, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._volumeSliderProperties)
+		if(this._volumeSliderProperties != null)
 		{
 			this._volumeSliderProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._volumeSliderProperties = PropertyProxy(value);
-		if(this._volumeSliderProperties)
+		this._volumeSliderProperties = value;
+		if(this._volumeSliderProperties != null)
 		{
 			this._volumeSliderProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_volumeSliderProperties();
 	}
 
 	/**
@@ -518,14 +539,14 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	override public function dispose():Void
 	{
-		if(this.slider)
+		if(this.slider != null)
 		{
 			this.closePopUp();
 			this.slider.mediaPlayer = null;
 			this.slider.dispose();
 			this.slider = null;
 		}
-		if(this._popUpContentManager)
+		if(this._popUpContentManager != null)
 		{
 			this._popUpContentManager.dispose();
 			this._popUpContentManager = null;
@@ -538,7 +559,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	override private function initialize():Void
 	{
-		if(!this._popUpContentManager)
+		if(this._popUpContentManager == null)
 		{
 			var popUpContentManager:DropDownPopUpContentManager = new DropDownPopUpContentManager();
 			popUpContentManager.fitContentMinWidthToOrigin = false;
@@ -560,7 +581,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 			this.createVolumeSlider();
 		}
 
-		if(this.slider && (volumeSliderFactoryInvalid || stylesInvalid))
+		if(this.slider != null && (volumeSliderFactoryInvalid || stylesInvalid))
 		{
 			this.refreshVolumeSliderProperties();
 		}
@@ -583,7 +604,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function createVolumeSlider():Void
 	{
-		if(this.slider)
+		if(this.slider != null)
 		{
 			this.slider.removeFromParent(false);
 			//disposing separately because the slider may not have a parent
@@ -595,9 +616,9 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 			return;
 		}
 
-		var factory:Function = this._volumeSliderFactory != null ? this._volumeSliderFactory : defaultVolumeSliderFactory;
+		var factory:Void->VolumeSlider = this._volumeSliderFactory != null ? this._volumeSliderFactory : defaultVolumeSliderFactory;
 		var volumeSliderStyleName:String = this._customVolumeSliderStyleName != null ? this._customVolumeSliderStyleName : this.volumeSliderStyleName;
-		this.slider = VolumeSlider(factory());
+		this.slider = factory();
 		this.slider.focusOwner = this;
 		this.slider.styleNameList.add(volumeSliderStyleName);
 	}
@@ -607,11 +628,12 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function refreshVolumeSliderProperties():Void
 	{
-		for(var propertyName:String in this._volumeSliderProperties)
-		{
-			var propertyValue:Object = this._volumeSliderProperties[propertyName];
-			this.slider[propertyName] = propertyValue;
-		}
+		if (this._volumeSliderProperties != null)
+			for(propertyName in Reflect.fields(this._volumeSliderProperties.storage))
+			{
+				var propertyValue:Dynamic = Reflect.field(this._volumeSliderProperties.storage, propertyName);
+				Reflect.setProperty(this.slider, propertyName, propertyValue);
+			}
 		this.slider.mediaPlayer = this._mediaPlayer;
 	}
 
@@ -637,7 +659,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		var oldIgnoreChanges:Bool = this._ignoreChanges;
 		this._ignoreChanges = true;
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this.isSelected = this._mediaPlayer.soundTransform.volume == 0;
 		}
@@ -661,7 +683,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function muteToggleButton_changeHandler(event:Event):Void
 	{
-		if(this._ignoreChanges || !this._mediaPlayer)
+		if(this._ignoreChanges || this._mediaPlayer == null)
 		{
 			return;
 		}
@@ -695,21 +717,22 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function muteToggleButton_touchHandler(event:TouchEvent):Void
 	{
-		if(!this.slider)
+		if(this.slider == null)
 		{
 			this._touchPointID = -1;
 			return;
 		}
+		var touch:Touch;
 		if(this._touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, null, this._touchPointID);
-			if(touch)
+			touch = event.getTouch(this, null, this._touchPointID);
+			if(touch != null)
 			{
 				return;
 			}
 			this._touchPointID = -1;
 			touch = event.getTouch(this.slider);
-			if(this._popUpTouchPointID < 0 && !touch)
+			if(this._popUpTouchPointID < 0 && touch == null)
 			{
 				this.closePopUp();
 			}
@@ -717,7 +740,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 		else
 		{
 			touch = event.getTouch(this, TouchPhase.HOVER);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -731,16 +754,17 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 	 */
 	private function volumeSlider_touchHandler(event:TouchEvent):Void
 	{
+		var touch:Touch;
 		if(this._popUpTouchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this.slider, null, this._popUpTouchPointID);
-			if(touch)
+			touch = event.getTouch(this.slider, null, this._popUpTouchPointID);
+			if(touch != null)
 			{
 				return;
 			}
 			this._popUpTouchPointID = -1;
 			touch = event.getTouch(this);
-			if(this._touchPointID < 0 && !touch)
+			if(this._touchPointID < 0 && touch == null)
 			{
 				this.closePopUp();
 			}
@@ -748,7 +772,7 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 		else
 		{
 			touch = event.getTouch(this.slider, TouchPhase.HOVER);
-			if(!touch)
+			if(touch == null)
 			{
 				return;
 			}
@@ -772,5 +796,4 @@ class MuteToggleButton extends ToggleButton implements IMediaPlayerControl
 		this.slider.removeEventListener(TouchEvent.TOUCH, volumeSlider_touchHandler);
 		this.dispatchEventWith(Event.CLOSE);
 	}
-}
 }

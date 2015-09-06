@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.LayoutGroup;
 import feathers.layout.AnchorLayout;
 
@@ -24,13 +23,15 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	/**
 	 * Constructor.
 	 */
-	public function BaseMediaPlayer()
+	public function new()
 	{
 		super();
+		#if 0
 		if(Object(this).constructor == BaseMediaPlayer)
 		{
 			throw new AbstractClassError();
 		}
+		#end
 		this.addEventListener(Event.ADDED, mediaPlayer_addedHandler);
 		this.addEventListener(Event.REMOVED, mediaPlayer_removedHandler);
 	}
@@ -40,7 +41,7 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	 */
 	override private function initialize():Void
 	{
-		if(!this._layout)
+		if(this._layout == null)
 		{
 			this.layout = new AnchorLayout();
 		}
@@ -52,15 +53,16 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	 */
 	private function handleAddedChild(child:DisplayObject):Void
 	{
-		if(child is IMediaPlayerControl)
+		if(Std.is(child, IMediaPlayerControl))
 		{
-			IMediaPlayerControl(child).mediaPlayer = this;
+			cast(child, IMediaPlayerControl).mediaPlayer = this;
 		}
-		if(child is DisplayObjectContainer)
+		if(Std.is(child, DisplayObjectContainer))
 		{
-			var container:DisplayObjectContainer = DisplayObjectContainer(child);
+			var container:DisplayObjectContainer = cast(child, DisplayObjectContainer);
 			var childCount:Int = container.numChildren;
-			for(var i:Int = 0; i < childCount; i++)
+			//for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				child = container.getChildAt(i);
 				this.handleAddedChild(child);
@@ -73,15 +75,16 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	 */
 	private function handleRemovedChild(child:DisplayObject):Void
 	{
-		if(child is IMediaPlayerControl)
+		if(Std.is(child, IMediaPlayerControl))
 		{
-			IMediaPlayerControl(child).mediaPlayer = null;
+			cast(child, IMediaPlayerControl).mediaPlayer = null;
 		}
-		if(child is DisplayObjectContainer)
+		if(Std.is(child, DisplayObjectContainer))
 		{
-			var container:DisplayObjectContainer = DisplayObjectContainer(child);
+			var container:DisplayObjectContainer = cast child;
 			var childCount:Int = container.numChildren;
-			for(var i:Int = 0; i < childCount; i++)
+			//for(var i:Int = 0; i < childCount; i++)
+			for(i in 0 ... childCount)
 			{
 				child = container.getChildAt(i);
 				this.handleRemovedChild(child);
@@ -94,7 +97,7 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	 */
 	private function mediaPlayer_addedHandler(event:Event):Void
 	{
-		var addedChild:DisplayObject = DisplayObject(event.target);
+		var addedChild:DisplayObject = cast(event.target, DisplayObject);
 		this.handleAddedChild(addedChild);
 	}
 
@@ -103,8 +106,7 @@ class BaseMediaPlayer extends LayoutGroup implements IMediaPlayer
 	 */
 	private function mediaPlayer_removedHandler(event:Event):Void
 	{
-		var removedChild:DisplayObject = DisplayObject(event.target);
+		var removedChild:DisplayObject = cast(event.target, DisplayObject);
 		this.handleRemovedChild(removedChild);
 	}
-}
 }

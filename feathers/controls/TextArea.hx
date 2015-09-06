@@ -18,7 +18,9 @@ import openfl.errors.RangeError;
 import flash.display.InteractiveObject;
 import flash.geom.Point;
 import flash.ui.Mouse;
+#if flash
 import flash.ui.MouseCursor;
+#end
 
 import starling.display.DisplayObject;
 import starling.events.Event;
@@ -26,6 +28,13 @@ import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SKIN;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SELECTED;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STATE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR;
 
 /**
  * Dispatched when the text area's <code>text</code> property changes.
@@ -248,11 +257,12 @@ class TextArea extends Scroller implements INativeFocusOwner
 	 *
 	 * @see feathers.core.INativeFocusOwner
 	 */
+	public var nativeFocus(get, never):InteractiveObject;
 	public function get_nativeFocus():InteractiveObject
 	{
-		if(this.textEditorViewPort is INativeFocusOwner)
+		if(Std.is(this.textEditorViewPort, INativeFocusOwner))
 		{
-			return INativeFocusOwner(this.textEditorViewPort).nativeFocus;
+			return cast(this.textEditorViewPort, INativeFocusOwner).nativeFocus;
 		}
 		return null;
 	}
@@ -391,7 +401,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			throw new ArgumentError("Invalid state: " + value + ".");
 		}
 		this._currentState = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		this.invalidate(INVALIDATION_FLAG_STATE);
 		return get_currentState();
 	}
 
@@ -435,7 +445,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_text();
 		}
 		this._text = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		this.dispatchEventWith(Event.CHANGE);
 		return get_text();
 	}
@@ -472,7 +482,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_maxChars();
 		}
 		this._maxChars = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_maxChars();
 	}
 
@@ -508,7 +518,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_restrict();
 		}
 		this._restrict = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_restrict();
 	}
 
@@ -544,7 +554,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_isEditable();
 		}
 		this._isEditable = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_isEditable();
 	}
 
@@ -593,7 +603,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			this._backgroundFocusedSkin.touchable = false;
 			this.addChildAt(this._backgroundFocusedSkin, 0);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		this.invalidate(INVALIDATION_FLAG_SKIN);
 		return get_backgroundFocusedSkin();
 	}
 
@@ -626,7 +636,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_stateToSkinFunction();
 		}
 		this._stateToSkinFunction = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_SKIN);
+		this.invalidate(INVALIDATION_FLAG_SKIN);
 		return get_stateToSkinFunction();
 	}
 
@@ -678,7 +688,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			return get_textEditorFactory();
 		}
 		this._textEditorFactory = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
+		this.invalidate(INVALIDATION_FLAG_TEXT_EDITOR);
 		return get_textEditorFactory();
 	}
 
@@ -760,7 +770,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		{
 			this._textEditorProperties.addOnChangeCallback(childProperties_onChange);
 		}
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_textEditorProperties();
 	}
 
@@ -794,7 +804,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		else
 		{
 			this._isWaitingToSetFocus = true;
-			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+			this.invalidate(INVALIDATION_FLAG_SELECTED);
 		}
 	}
 
@@ -841,7 +851,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		{
 			this._pendingSelectionStartIndex = startIndex;
 			this._pendingSelectionEndIndex = endIndex;
-			this.invalidate(FeathersControl.INVALIDATION_FLAG_SELECTED);
+			this.invalidate(INVALIDATION_FLAG_SELECTED);
 		}
 	}
 
@@ -850,10 +860,10 @@ class TextArea extends Scroller implements INativeFocusOwner
 	 */
 	override private function draw():Void
 	{
-		var textEditorInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_TEXT_EDITOR);
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
-		var stateInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STATE);
+		var textEditorInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_TEXT_EDITOR);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
+		var stateInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STATE);
 
 		if(textEditorInvalid)
 		{
@@ -877,7 +887,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		{
 			this.textEditorViewPort.isEnabled = this._isEnabled;
 			#if flash
-			if(!this._isEnabled && Mouse.supportsNativeCursor && this._oldMouseCursor)
+			if(!this._isEnabled && Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
@@ -983,7 +993,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		{
 			this.currentBackgroundSkin = this._backgroundDisabledSkin;
 		}
-		else if(this.hasFocus && this._backgroundFocusedSkin)
+		else if(this.hasFocus && this._backgroundFocusedSkin != null)
 		{
 			this.currentBackgroundSkin = this._backgroundFocusedSkin;
 		}
@@ -1086,7 +1096,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 					return;
 				}
 				#if flash
-				if(Mouse.supportsNativeCursor && !this._oldMouseCursor)
+				if(Mouse.supportsNativeCursor && this._oldMouseCursor == null)
 				{
 					this._oldMouseCursor = Mouse.cursor;
 					Mouse.cursor = MouseCursor.IBEAM;
@@ -1096,7 +1106,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			}
 			//end hover
 			#if flash
-			if(Mouse.supportsNativeCursor && this._oldMouseCursor)
+			if(Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 			{
 				Mouse.cursor = this._oldMouseCursor;
 				this._oldMouseCursor = null;
@@ -1128,7 +1138,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		this._textAreaTouchPointID = -1;
 		this.removeEventListener(Event.SCROLL, textArea_scrollHandler);
 		#if flash
-		if(Mouse.supportsNativeCursor && this._oldMouseCursor)
+		if(Mouse.supportsNativeCursor && this._oldMouseCursor != null)
 		{
 			Mouse.cursor = this._oldMouseCursor;
 			this._oldMouseCursor = null;
@@ -1160,7 +1170,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		}
 		super.focusOutHandler(event);
 		this.textEditorViewPort.clearFocus();
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STATE);
+		this.invalidate(INVALIDATION_FLAG_STATE);
 	}
 
 	/**
@@ -1196,7 +1206,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 		this.currentState = STATE_FOCUSED;
 		this._touchPointID = -1;
 		this.invalidate(INVALIDATION_FLAG_STATE);
-		if(this._focusManager && this.isFocusEnabled && this._focusManager.focus != this)
+		if(this._focusManager != null && this.isFocusEnabled && this._focusManager.focus != this)
 		{
 			//if setFocus() was called manually, we need to notify the focus
 			//manager (unless isFocusEnabled is false).
@@ -1204,7 +1214,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 			//simply return without doing anything.
 			this._focusManager.focus = this;
 		}
-		else if(!this._focusManager)
+		else if(this._focusManager == null)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_IN);
 		}
@@ -1218,13 +1228,13 @@ class TextArea extends Scroller implements INativeFocusOwner
 		this._textEditorHasFocus = false;
 		this.currentState = this._isEnabled ? STATE_ENABLED : STATE_DISABLED;
 		this.invalidate(INVALIDATION_FLAG_STATE);
-		if(this._focusManager && this._focusManager.focus == this)
+		if(this._focusManager != null && this._focusManager.focus == this)
 		{
 			//if clearFocus() was called manually, we need to notify the
 			//focus manager if it still thinks we have focus.
 			this._focusManager.focus = null;
 		}
-		else if(!this._focusManager)
+		else if(this._focusManager == null)
 		{
 			this.dispatchEventWith(FeathersEventType.FOCUS_OUT);
 		}

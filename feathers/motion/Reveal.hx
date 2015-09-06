@@ -5,8 +5,8 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.motion
-{
+package feathers.motion;
+import openfl.errors.ArgumentError;
 import starling.animation.Transitions;
 import starling.animation.Tween;
 import starling.core.Starling;
@@ -37,20 +37,20 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealLeftTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = 0;
@@ -73,20 +73,20 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealRightTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = 0;
@@ -109,20 +109,20 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealUpTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = 0;
@@ -145,20 +145,20 @@ class Reveal
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createRevealDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createRevealDownTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = 0;
@@ -175,8 +175,8 @@ class Reveal
 	 * @private
 	 */
 	private static function slideOutOldScreen(oldScreen:DisplayObject,
-		xOffset:Float, yOffset:Float, duration:Float, ease:Object,
-		tweenProperties:Object, onComplete:Function):Void
+		xOffset:Float, yOffset:Float, duration:Float, ease:String,
+		tweenProperties:Dynamic, onComplete:Dynamic):Void
 	{
 		var tween:Tween = new Tween(oldScreen, duration, ease);
 		if(xOffset != 0)
@@ -189,147 +189,13 @@ class Reveal
 		}
 		if(tweenProperties)
 		{
-			for(var propertyName:String in tweenProperties)
+			for(propertyName in Reflect.fields(tweenProperties))
 			{
-				tween[propertyName] = tweenProperties[propertyName];
+				Reflect.setProperty(tween, propertyName, Reflect.field(tweenProperties, propertyName));
 			}
 		}
 		tween.onComplete = onComplete;
-		Starling.juggler.add(tween);
+		Starling.current.juggler.add(tween);
 	}
-}
-}
-
-import feathers.display.RenderDelegate;
-
-import flash.geom.Rectangle;
-
-import starling.animation.Tween;
-import starling.core.Starling;
-import starling.display.DisplayObject;
-import starling.display.Sprite;
-
-class RevealTween extends Tween
-{
-public function RevealTween(oldScreen:DisplayObject, newScreen:DisplayObject,
-	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
-	tweenProperties:Object)
-{
-	var clipRect:Rectangle = new Rectangle();
-	if(xOffset == 0)
-	{
-		clipRect.width = newScreen.width;
-	}
-	else if(xOffset < 0)
-	{
-		clipRect.x = -xOffset;
-	}
-	if(yOffset == 0)
-	{
-		clipRect.height = newScreen.height;
-	}
-	else if(yOffset < 0)
-	{
-		clipRect.y = -yOffset;
-	}
-	this._temporaryParent = new Sprite();
-	this._temporaryParent.clipRect = clipRect;
-	newScreen.parent.addChild(this._temporaryParent);
-	var delegate:RenderDelegate = new RenderDelegate(newScreen);
-	delegate.alpha = newScreen.alpha;
-	delegate.blendMode = newScreen.blendMode;
-	delegate.rotation = newScreen.rotation;
-	delegate.scaleX = newScreen.scaleX;
-	delegate.scaleY = newScreen.scaleY;
-	this._temporaryParent.addChild(delegate);
-	newScreen.visible = false;
-	this._savedNewScreen = newScreen;
-
-	super(this._temporaryParent.clipRect, duration, ease);
-
-	if(xOffset < 0)
-	{
-		this.animate("x", clipRect.x + xOffset);
-		this.animate("width", -xOffset);
-	}
-	else if(xOffset > 0)
-	{
-		this.animate("width", xOffset);
-	}
-	if(yOffset < 0)
-	{
-		this.animate("y", clipRect.y + yOffset);
-		this.animate("height", -yOffset);
-	}
-	else if(yOffset > 0)
-	{
-		this.animate("height", yOffset);
-	}
-
-	if(tweenProperties)
-	{
-		for(var propertyName:String in tweenProperties)
-		{
-			this[propertyName] = tweenProperties[propertyName];
-		}
-	}
-	this._onCompleteCallback = onCompleteCallback;
-	if(oldScreen)
-	{
-		this._savedOldScreen = oldScreen;
-		this._savedXOffset = xOffset;
-		this._savedYOffset = yOffset;
-		this.onUpdate = this.updateOldScreen;
-	}
-	this.onComplete = this.cleanupTween;
-	Starling.juggler.add(this);
-}
-
-private var _savedXOffset:Float;
-private var _savedYOffset:Float;
-private var _savedNewScreen:DisplayObject;
-private var _savedOldScreen:DisplayObject;
-private var _temporaryParent:Sprite;
-private var _onCompleteCallback:Function;
-
-private function updateOldScreen():Void
-{
-	var clipRect:Rectangle = this._temporaryParent.clipRect;
-	if(this._savedXOffset < 0)
-	{
-		this._savedOldScreen.x = -clipRect.width;
-	}
-	else if(this._savedXOffset > 0)
-	{
-		this._savedOldScreen.x = clipRect.width;
-	}
-	if(this._savedYOffset < 0)
-	{
-		this._savedOldScreen.y = -clipRect.height;
-	}
-	else if(this._savedYOffset > 0)
-	{
-		this._savedOldScreen.y = clipRect.height;
-	}
-}
-
-private function cleanupTween():Void
-{
-	this._temporaryParent.removeFromParent(true);
-	this._temporaryParent = null;
-	this._savedNewScreen.visible = true;
-	this._savedNewScreen = null;
-	if(this._savedOldScreen)
-	{
-		this._savedOldScreen.x = 0;
-		this._savedOldScreen.y = 0;
-		this._savedOldScreen = null;
-	}
-	if(this._onCompleteCallback != null)
-	{
-		this._onCompleteCallback();
-	}
-}
-
 }
 

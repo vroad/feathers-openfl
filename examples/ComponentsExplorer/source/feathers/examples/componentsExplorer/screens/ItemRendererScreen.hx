@@ -30,7 +30,7 @@ import starling.events.Event;
 	}
 
 	private var _list:List;
-	private var _listItem:Object;
+	private var _listItem:Dynamic;
 
 	private var _itemRendererGap:Float = 0;
 
@@ -127,35 +127,35 @@ import starling.events.Event;
 				case ItemRendererSettings.ICON_ACCESSORY_TYPE_LABEL:
 				{
 					this._listItem.iconText = "Icon Text";
-					this._list.itemRendererProperties.iconLabelField = "iconText";
+					this._list.itemRendererProperties.setProperty("iconLabelField", "iconText");
 
 					//clear these in case this setting has changed
-					delete this._listItem.iconTexture;
-					delete this._listItem.icon;
-					break;
+					Reflect.deleteField(this._listItem, "iconTexture");
+					Reflect.deleteField(this._listItem, "icon");
+					//break;
 				}
 				case ItemRendererSettings.ICON_ACCESSORY_TYPE_TEXTURE:
 				{
 					this._listItem.iconTexture = EmbeddedAssets.SKULL_ICON_LIGHT;
-					this._list.itemRendererProperties.iconSourceField = "iconTexture";
+					this._list.itemRendererProperties.setProperty("iconSourceField", "iconTexture");
 
 					//clear these in case this setting has changed
-					delete this._listItem.iconText;
-					delete this._listItem.icon;
-					break;
+					Reflect.deleteField(this._listItem, "iconText");
+					Reflect.deleteField(this._listItem, "icon");
+					//break;
 				}
 				default:
 				{
 					this._listItem.icon = new ToggleSwitch();
-					this._list.itemRendererProperties.iconField = "icon";
+					this._list.itemRendererProperties.setProperty("iconField", "icon");
 
 					//clear these in case this setting has changed
-					delete this._listItem.iconText;
-					delete this._listItem.iconTexture;
+					Reflect.deleteField(this._listItem, "iconText");
+					Reflect.deleteField(this._listItem, "iconTexture");
 
 				}
 			}
-			this._list.itemRendererProperties.iconPosition = this.settings.iconPosition;
+			this._list.itemRendererProperties.setProperty("iconPosition", this.settings.iconPosition);
 		}
 		if(this.settings.hasAccessory)
 		{
@@ -230,7 +230,7 @@ import starling.events.Event;
 			backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 			backButton.label = "Back";
 			backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-			header.leftItems = new <DisplayObject>
+			header.leftItems = 
 			[
 				backButton
 			];
@@ -238,14 +238,14 @@ import starling.events.Event;
 		var settingsButton:Button = new Button();
 		settingsButton.label = "Settings";
 		settingsButton.addEventListener(Event.TRIGGERED, settingsButton_triggeredHandler);
-		header.rightItems = new <DisplayObject>
+		header.rightItems = 
 		[
 			settingsButton
 		];
 		return header;
 	}
 
-	private function disposeItemIconOrAccessory(item:Object):Void
+	private function disposeItemIconOrAccessory(item:Dynamic):Void
 	{
 		if(item.hasOwnProperty("icon"))
 		{

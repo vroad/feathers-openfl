@@ -13,11 +13,12 @@ import feathers.system.DeviceCapabilities;
 import starling.core.Starling;
 import starling.events.Event;
 import starling.textures.Texture;
-//[Event(name="showAnchor",type="starling.events.Event")]
-//[Event(name="showHorizontal",type="starling.events.Event")]
-//[Event(name="showVertical",type="starling.events.Event")]
-//[Event(name="showTiledRows",type="starling.events.Event")]
-//[Event(name="showTiledColumns",type="starling.events.Event")]
+#if 0
+[Event(name="showAnchor",type="starling.events.Event")]
+[Event(name="showHorizontal",type="starling.events.Event")]
+[Event(name="showVertical",type="starling.events.Event")]
+[Event(name="showTiledRows",type="starling.events.Event")]
+[Event(name="showTiledColumns",type="starling.events.Event")]
 
 [Event(name="showAnchor",type="starling.events.Event")]
 
@@ -32,6 +33,7 @@ import starling.textures.Texture;
 [Event(name="showTiledColumns",type="starling.events.Event")]
 
 [Event(name="showWaterfall",type="starling.events.Event")]
+#end
 
 class MainMenuScreen extends PanelScreen
 {
@@ -127,7 +129,7 @@ class MainMenuScreen extends PanelScreen
 
 	private function list_changeHandler(event:Event):Void
 	{
-		var eventType:String = this._list.selectedItem.event as String;
+		var eventType:String = cast(this._list.selectedItem.event, String);
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
 			this.dispatchEventWith(eventType);

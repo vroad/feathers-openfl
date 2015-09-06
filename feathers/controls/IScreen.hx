@@ -31,10 +31,11 @@ interface IScreen extends IFeathersControl
 	/**
 	 * The screen navigator that is currently displaying this screen.
 	 */
-	function get_owner():Object;
+	var owner(get, set):Dynamic;
+	//function get_owner():Dynamic;
 
 	/**
 	 * @private
 	 */
-	function set_owner(value:Object):Object;
+	//function set_owner(value:Dynamic):Dynamic;
 }

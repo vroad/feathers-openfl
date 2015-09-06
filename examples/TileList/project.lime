@@ -11,7 +11,7 @@
 	
 	<haxelib name="openfl" />
     <haxelib name="starling" />
-    <haxelib name="feathersui" />
+    <haxelib name="feathers" />
 	
 	<assets path="assets/images/atlas.png" />
 	<assets path="assets/images/atlas.xml" />

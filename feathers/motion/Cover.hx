@@ -5,12 +5,13 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.motion
-{
+package feathers.motion;
 import starling.animation.Transitions;
 import starling.animation.Tween;
 import starling.core.Starling;
 import starling.display.DisplayObject;
+
+import openfl.errors.ArgumentError;
 
 /**
  * Creates animated effects, like transitions for screen navigators, that
@@ -36,20 +37,20 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverLeftTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = newScreen.width;
 				newScreen.y = 0;
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
@@ -72,20 +73,20 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverRightTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = -newScreen.width;
 				newScreen.y = 0;
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
@@ -108,20 +109,20 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverUpTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = newScreen.height;
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
@@ -144,20 +145,20 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createCoverDownTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.x = 0;
 				newScreen.y = -newScreen.height;
 			}
-			if(oldScreen)
+			if(oldScreen != null)
 			{
 				oldScreen.x = 0;
 				oldScreen.y = 0;
@@ -174,7 +175,7 @@ class Cover
 	 * @private
 	 */
 	private static function slideInNewScreen(newScreen:DisplayObject,
-		duration:Float, ease:Object, tweenProperties:Object, onComplete:Function):Void
+		duration:Float, ease:String, tweenProperties:Dynamic, onComplete:Dynamic):Void
 	{
 		var tween:Tween = new Tween(newScreen, duration, ease);
 		if(newScreen.x != 0)
@@ -187,125 +188,12 @@ class Cover
 		}
 		if(tweenProperties)
 		{
-			for(var propertyName:String in tweenProperties)
+			for(propertyName in Reflect.fields(tweenProperties))
 			{
-				tween[propertyName] = tweenProperties[propertyName];
+				Reflect.setProperty(tween, propertyName, Reflect.field(tweenProperties, propertyName));
 			}
 		}
 		tween.onComplete = onComplete;
-		Starling.juggler.add(tween);
+		Starling.current.juggler.add(tween);
 	}
 }
-}
-
-import feathers.display.RenderDelegate;
-
-import flash.geom.Rectangle;
-
-import starling.animation.Tween;
-import starling.core.Starling;
-import starling.display.DisplayObject;
-import starling.display.Sprite;
-
-class CoverTween extends Tween
-{
-public function CoverTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
-	tweenProperties:Object)
-{
-	var clipRect:Rectangle = new Rectangle(0, 0, oldScreen.width, oldScreen.height);
-	this._temporaryParent = new Sprite();
-	this._temporaryParent.clipRect = clipRect;
-	oldScreen.parent.addChild(this._temporaryParent);
-	var delegate:RenderDelegate = new RenderDelegate(oldScreen);
-	delegate.alpha = oldScreen.alpha;
-	delegate.blendMode = oldScreen.blendMode;
-	delegate.rotation = oldScreen.rotation;
-	delegate.scaleX = oldScreen.scaleX;
-	delegate.scaleY = oldScreen.scaleY;
-	this._temporaryParent.addChild(delegate);
-	oldScreen.visible = false;
-	this._savedOldScreen = oldScreen;
-
-	super(this._temporaryParent.clipRect, duration, ease);
-
-	if(xOffset < 0)
-	{
-		this.animate("width", 0);
-	}
-	else if(xOffset > 0)
-	{
-		this.animate("x", xOffset);
-		this.animate("width", 0);
-	}
-	if(yOffset < 0)
-	{
-		this.animate("height", 0);
-	}
-	else if(yOffset > 0)
-	{
-		this.animate("y", yOffset);
-		this.animate("height", 0);
-	}
-	if(tweenProperties)
-	{
-		for(var propertyName:String in tweenProperties)
-		{
-			this[propertyName] = tweenProperties[propertyName];
-		}
-	}
-	this._onCompleteCallback = onCompleteCallback;
-	if(newScreen)
-	{
-		this._savedNewScreen = newScreen;
-		this._savedXOffset = xOffset;
-		this._savedYOffset = yOffset;
-		this.onUpdate = this.updateNewScreen;
-	}
-	this.onComplete = this.cleanupTween;
-	Starling.juggler.add(this);
-}
-
-private var _savedXOffset:Float;
-private var _savedYOffset:Float;
-private var _savedOldScreen:DisplayObject;
-private var _savedNewScreen:DisplayObject;
-private var _temporaryParent:Sprite;
-private var _onCompleteCallback:Function;
-
-private function updateNewScreen():Void
-{
-	var clipRect:Rectangle = this._temporaryParent.clipRect;
-	if(this._savedXOffset < 0)
-	{
-		this._savedNewScreen.x = clipRect.width;
-	}
-	else if(this._savedXOffset > 0)
-	{
-		this._savedNewScreen.x = -clipRect.width;
-	}
-	if(this._savedYOffset < 0)
-	{
-		this._savedNewScreen.y = clipRect.height;
-	}
-	else if(this._savedYOffset > 0)
-	{
-		this._savedNewScreen.y = -clipRect.height;
-	}
-}
-
-private function cleanupTween():Void
-{
-	this._temporaryParent.removeFromParent(true);
-	this._temporaryParent = null;
-	this._savedOldScreen.visible = true;
-	this._savedNewScreen = null;
-	this._savedOldScreen = null;
-	if(this._onCompleteCallback != null)
-	{
-		this._onCompleteCallback();
-	}
-}
-
-}
-

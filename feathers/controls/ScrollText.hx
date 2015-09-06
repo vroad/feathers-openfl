@@ -11,10 +11,17 @@ import feathers.skins.IStyleProvider;
 
 import flash.text.AntiAliasType;
 import flash.text.GridFitType;
+#if flash
 import flash.text.StyleSheet;
+#end
 import flash.text.TextFormat;
 
 import starling.events.Event;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SCROLL;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when an anchor (<code>&lt;a&gt;</code>) element in the HTML
@@ -264,7 +271,7 @@ class ScrollText extends Scroller
 			return get_text();
 		}
 		this._text = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_text();
 	}
 
@@ -303,7 +310,7 @@ class ScrollText extends Scroller
 			return get_isHTML();
 		}
 		this._isHTML = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_isHTML();
 	}
 
@@ -341,7 +348,7 @@ class ScrollText extends Scroller
 			return get_textFormat();
 		}
 		this._textFormat = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_textFormat();
 	}
 
@@ -380,7 +387,7 @@ class ScrollText extends Scroller
 			return get_disabledTextFormat();
 		}
 		this._disabledTextFormat = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_disabledTextFormat();
 	}
 
@@ -434,10 +441,11 @@ class ScrollText extends Scroller
 	{
 		if(this._styleSheet == value)
 		{
-			return;
+			return get_styleSheet();
 		}
 		this._styleSheet = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_styleSheet();
 	}
 	#end
 
@@ -477,7 +485,7 @@ class ScrollText extends Scroller
 			return get_embedFonts();
 		}
 		this._embedFonts = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_embedFonts();
 	}
 
@@ -516,7 +524,7 @@ class ScrollText extends Scroller
 			return get_antiAliasType();
 		}
 		this._antiAliasType = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_antiAliasType();
 	}
 
@@ -557,7 +565,7 @@ class ScrollText extends Scroller
 			return get_background();
 		}
 		this._background = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_background();
 	}
 
@@ -597,7 +605,7 @@ class ScrollText extends Scroller
 			return get_backgroundColor();
 		}
 		this._backgroundColor = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_backgroundColor();
 	}
 
@@ -637,7 +645,7 @@ class ScrollText extends Scroller
 			return get_border();
 		}
 		this._border = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_border();
 	}
 
@@ -677,7 +685,7 @@ class ScrollText extends Scroller
 			return get_borderColor();
 		}
 		this._borderColor = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_borderColor();
 	}
 
@@ -712,10 +720,11 @@ class ScrollText extends Scroller
 	{
 		if(this._cacheAsBitmap == value)
 		{
-			return;
+			return get_cacheAsBitmap();
 		}
 		this._cacheAsBitmap = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_cacheAsBitmap();
 	}
 
 	/**
@@ -753,7 +762,7 @@ class ScrollText extends Scroller
 			return get_condenseWhite();
 		}
 		this._condenseWhite = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_condenseWhite();
 	}
 
@@ -792,7 +801,7 @@ class ScrollText extends Scroller
 			return get_displayAsPassword();
 		}
 		this._displayAsPassword = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_displayAsPassword();
 	}
 
@@ -835,7 +844,7 @@ class ScrollText extends Scroller
 			return get_gridFitType();
 		}
 		this._gridFitType = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_gridFitType();
 	}
 
@@ -877,7 +886,7 @@ class ScrollText extends Scroller
 			return get_sharpness();
 		}
 		this._sharpness = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_sharpness();
 	}
 
@@ -919,7 +928,7 @@ class ScrollText extends Scroller
 			return get_thickness();
 		}
 		this._thickness = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_DATA);
+		this.invalidate(INVALIDATION_FLAG_DATA);
 		return get_thickness();
 	}
 
@@ -964,7 +973,7 @@ class ScrollText extends Scroller
 			return get_paddingTop();
 		}
 		this._textPaddingTop = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingTop();
 	}
 
@@ -997,7 +1006,7 @@ class ScrollText extends Scroller
 			return get_paddingRight();
 		}
 		this._textPaddingRight = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingRight();
 	}
 
@@ -1030,7 +1039,7 @@ class ScrollText extends Scroller
 			return get_paddingBottom();
 		}
 		this._textPaddingBottom = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingBottom();
 	}
 
@@ -1063,7 +1072,7 @@ class ScrollText extends Scroller
 			return get_paddingLeft();
 		}
 		this._textPaddingLeft = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_paddingLeft();
 	}
 
@@ -1090,7 +1099,7 @@ class ScrollText extends Scroller
 			return get_visible();
 		}
 		this._visible = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_visible();
 	}
 
@@ -1117,7 +1126,7 @@ class ScrollText extends Scroller
 			return get_alpha();
 		}
 		this._alpha = value;
-		this.invalidate(FeathersControl.INVALIDATION_FLAG_STYLES);
+		this.invalidate(INVALIDATION_FLAG_STYLES);
 		return get_alpha();
 	}
 
@@ -1134,10 +1143,10 @@ class ScrollText extends Scroller
 	 */
 	override private function draw():Void
 	{
-		var sizeInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SIZE);
-		var dataInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_DATA);
-		var scrollInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_SCROLL);
-		var stylesInvalid:Bool = this.isInvalid(FeathersControl.INVALIDATION_FLAG_STYLES);
+		var sizeInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SIZE);
+		var dataInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_DATA);
+		var scrollInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_SCROLL);
+		var stylesInvalid:Bool = this.isInvalid(INVALIDATION_FLAG_STYLES);
 
 		if(dataInvalid)
 		{

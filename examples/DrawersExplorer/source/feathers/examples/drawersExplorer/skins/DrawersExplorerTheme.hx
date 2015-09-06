@@ -8,6 +8,9 @@ import feathers.themes.MetalWorksMobileTheme;
 
 import starling.display.Quad;
 
+import feathers.themes.BaseMetalWorksMobileTheme.LIST_BACKGROUND_COLOR;
+import feathers.themes.BaseMetalWorksMobileTheme.GROUPED_LIST_HEADER_BACKGROUND_COLOR;
+
 class DrawersExplorerTheme extends MetalWorksMobileTheme
 {
 	inline public static var THEME_NAME_TOP_AND_BOTTOM_DRAWER:String = "drawers-explorer-top-and-bottom-drawer";

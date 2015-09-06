@@ -21,7 +21,7 @@ import feathers.system.DeviceCapabilities;
 import openfl.display.Stage;
 import openfl.display.StageDisplayState;
 #if flash
-import openfl.events.FullScreenEvent;
+import flash.events.FullScreenEvent;
 #end
 import openfl.geom.Point;
 import openfl.system.Capabilities;
@@ -249,6 +249,7 @@ class Header extends FeathersControl
 	private function set_titleName(value:String):String
 	{
 		this.titleStyleName = value;
+		return get_titleName();
 	}
 
 	/**
@@ -283,6 +284,7 @@ class Header extends FeathersControl
 	private function set_itemName(value:String):String
 	{
 		this.itemStyleName = value;
+		return get_itemName();
 	}
 
 	/**
@@ -492,7 +494,7 @@ class Header extends FeathersControl
 			{
 				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -556,7 +558,7 @@ class Header extends FeathersControl
 			{
 				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -617,7 +619,7 @@ class Header extends FeathersControl
 			{
 				if(Std.is(item, IFeathersControl))
 				{
-					IFeathersControl(item).styleNameList.remove(this.itemStyleName);
+					cast(item, IFeathersControl).styleNameList.remove(this.itemStyleName);
 					item.removeEventListener(FeathersEventType.RESIZE, item_resizeHandler);
 				}
 				item.removeFromParent();
@@ -1306,7 +1308,7 @@ class Header extends FeathersControl
 				{
 					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemStyleName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}
@@ -1321,7 +1323,7 @@ class Header extends FeathersControl
 				{
 					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemStyleName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}
@@ -1336,7 +1338,7 @@ class Header extends FeathersControl
 				{
 					if(Std.is(item, IFeathersControl))
 					{
-						IFeathersControl(item).styleNameList.add(this.itemStyleName);
+						cast(item, IFeathersControl).styleNameList.add(this.itemStyleName);
 					}
 					this.addChild(item);
 				}

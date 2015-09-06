@@ -254,12 +254,12 @@ class VerticalCenteredPopUpContentManager extends EventDispatcher implements IPo
 		stage.removeEventListener(TouchEvent.TOUCH, stage_touchHandler);
 		stage.removeEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
 		Starling.current.nativeStage.removeEventListener(KeyboardEvent.KEY_DOWN, nativeStage_keyDownHandler);
-		if(content is IFeathersControl)
+		if(Std.is(content, IFeathersControl))
 		{
 			content.removeEventListener(FeathersEventType.RESIZE, content_resizeHandler);
 		}
 		content.removeEventListener(Event.REMOVED_FROM_STAGE, content_removedFromStageHandler);
-		if(content.parent)
+		if(content.parent != null)
 		{
 			content.removeFromParent(false);
 		}

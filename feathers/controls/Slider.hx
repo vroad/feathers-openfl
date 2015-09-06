@@ -27,6 +27,8 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+
 /**
  * Dispatched when the slider's value changes.
  *
@@ -337,6 +339,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #minimumTrackStyleName
 	 */
+	private var minimumTrackName(get, set):String;
 	private function get_minimumTrackName():String
 	{
 		return this.minimumTrackStyleName;
@@ -348,6 +351,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	private function set_minimumTrackName(value:String):String
 	{
 		this.minimumTrackStyleName = value;
+		return get_minimumTrackName();
 	}
 
 	/**
@@ -375,6 +379,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #maximumTrackStyleName
 	 */
+	private var maximumTrackName(get, set):String;
 	private function get_maximumTrackName():String
 	{
 		return this.maximumTrackStyleName;
@@ -386,6 +391,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	private function set_maximumTrackName(value:String):String
 	{
 		this.maximumTrackStyleName = value;
+		return get_maximumTrackName();
 	}
 
 	/**
@@ -412,6 +418,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #thumbStyleName
 	 */
+	private var thumbName(get, set):String;
 	private function get_thumbName():String
 	{
 		return this.thumbStyleName;
@@ -423,6 +430,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	private function set_thumbName(value:String):String
 	{
 		this.thumbStyleName = value;
+		return get_thumbName();
 	}
 
 	/**
@@ -831,6 +839,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @default 0
 	 */
+	public var thumbOffset(get, set):Float;
 	public function get_thumbOffset():Float
 	{
 		return this._thumbOffset;
@@ -843,10 +852,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	{
 		if(this._thumbOffset == value)
 		{
-			return;
+			return get_thumbOffset();
 		}
 		this._thumbOffset = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_thumbOffset();
 	}
 
 	/**
@@ -1175,6 +1185,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #minimumTrackFactory
 	 * @see #minimumTrackProperties
 	 */
+	public var customMinimumTrackStyleName(get, set):String;
 	public function get_customMinimumTrackStyleName():String
 	{
 		return this._customMinimumTrackStyleName;
@@ -1187,11 +1198,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	{
 		if(this._customMinimumTrackStyleName == value)
 		{
-			return get_customMinimumTrackName();
+			return get_customMinimumTrackStyleName();
 		}
 		this._customMinimumTrackStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_MINIMUM_TRACK_FACTORY);
-		return get_customMinimumTrackName();
+		return get_customMinimumTrackStyleName();
 	}
 
 	/**
@@ -1204,6 +1215,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #customMinimumTrackStyleName
 	 */
+	public var customMinimumTrackName(get, set):String;
 	public function get_customMinimumTrackName():String
 	{
 		return this.customMinimumTrackStyleName;
@@ -1215,6 +1227,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	public function set_customMinimumTrackName(value:String):String
 	{
 		this.customMinimumTrackStyleName = value;
+		return get_customMinimumTrackName();
 	}
 
 	/**
@@ -1377,6 +1390,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #maximumTrackFactory
 	 * @see #maximumTrackProperties
 	 */
+	public var customMaximumTrackStyleName(get, set):String;
 	public function get_customMaximumTrackStyleName():String
 	{
 		return this._customMaximumTrackStyleName;
@@ -1389,11 +1403,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	{
 		if(this._customMaximumTrackStyleName == value)
 		{
-			return get_customMaximumTrackName();
+			return get_customMaximumTrackStyleName();
 		}
 		this._customMaximumTrackStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_MAXIMUM_TRACK_FACTORY);
-		return get_customMaximumTrackName();
+		return get_customMaximumTrackStyleName();
 	}
 
 	/**
@@ -1406,6 +1420,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #customMaximumTrackStyleName
 	 */
+	public var customMaximumTrackName(get, set):String;
 	public function get_customMaximumTrackName():String
 	{
 		return this.customMaximumTrackStyleName;
@@ -1417,6 +1432,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	public function set_customMaximumTrackName(value:String):String
 	{
 		this.customMaximumTrackStyleName = value;
+		return get_customMaximumTrackName();
 	}
 	
 	/**
@@ -1578,6 +1594,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 * @see #thumbFactory
 	 * @see #thumbProperties
 	 */
+	public var customThumbStyleName(get, set):String;
 	public function get_customThumbStyleName():String
 	{
 		return this._customThumbStyleName;
@@ -1590,11 +1607,11 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	{
 		if(this._customThumbStyleName == value)
 		{
-			return get_customThumbName();
+			return get_customThumbStyleName();
 		}
 		this._customThumbStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_THUMB_FACTORY);
-		return get_customThumbName();
+		return get_customThumbStyleName();
 	}
 
 	/**
@@ -1607,6 +1624,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	 *
 	 * @see #customThumbStyleName
 	 */
+	public var customThumbName(get, set):String;
 	public function get_customThumbName():String
 	{
 		return this.customThumbStyleName;
@@ -1618,6 +1636,7 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 	public function set_customThumbName(value:String):String
 	{
 		this.customThumbStyleName = value;
+		return get_customThumbName();
 	}
 	
 	/**
@@ -2070,9 +2089,10 @@ class Slider extends FeathersControl implements IDirectionalScrollBar implements
 		//this will auto-size the thumb, if needed
 		this.thumb.validate();
 		
+		var percentage:Float;
 		if(this._minimum == this._maximum)
 		{
-			var percentage:Float = 1;
+			percentage = 1;
 		}
 		else
 		{

@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.Slider;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
@@ -14,6 +13,9 @@ import feathers.skins.IStyleProvider;
 import flash.media.SoundTransform;
 
 import starling.events.Event;
+
+import feathers.utils.type.SafeCast.safe_cast;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
 
 /**
  * A specialized slider that controls the volume of a media player that
@@ -138,7 +140,7 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * Constructor.
 	 */
-	public function VolumeSlider()
+	public function new()
 	{
 		super();
 		this.thumbStyleName = VolumeSlider.DEFAULT_CHILD_STYLE_NAME_THUMB;
@@ -170,6 +172,7 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -182,15 +185,16 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		this._mediaPlayer = value as IAudioPlayer;
+		this._mediaPlayer = safe_cast(value, IAudioPlayer);
 		this.refreshVolumeFromMediaPlayer();
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.SOUND_TRANSFORM_CHANGE, mediaPlayer_soundTransformChangeHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -200,7 +204,7 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 	{
 		var oldIgnoreChanges:Bool = this._ignoreChanges;
 		this._ignoreChanges = true;
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this.value = this._mediaPlayer.soundTransform.volume;
 		}
@@ -224,7 +228,7 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 	 */
 	private function volumeSlider_changeHandler(event:Event):Void
 	{
-		if(!this._mediaPlayer || this._ignoreChanges)
+		if(this._mediaPlayer == null || this._ignoreChanges)
 		{
 			return;
 		}
@@ -232,5 +236,4 @@ class VolumeSlider extends Slider implements IMediaPlayerControl
 		soundTransform.volume = this._value;
 		this._mediaPlayer.soundTransform = soundTransform;
 	}
-}
 }

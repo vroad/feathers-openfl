@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.data
-{
+package feathers.data;
 import feathers.core.IFeathersEventDispatcher;
 
 /**
@@ -30,7 +29,9 @@ import feathers.core.IFeathersEventDispatcher;
  *
  * @eventType starling.events.Event.COMPLETE
  */
+#if 0
 [Event(name="complete",type="starling.events.Event")]
+#end
 
 /**
  * A source of items to display in the pop-up list of an
@@ -48,5 +49,4 @@ interface IAutoCompleteSource extends IFeathersEventDispatcher
 	 * result, all items will be removed before new items are added.</p>
 	 */
 	function load(textToMatch:String, suggestionsResult:ListCollection = null):Void;
-}
 }

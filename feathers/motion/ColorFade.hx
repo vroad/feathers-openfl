@@ -5,12 +5,14 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.motion
-{
+package feathers.motion;
+import openfl.errors.ArgumentError;
 import starling.animation.Transitions;
 import starling.display.DisplayObject;
 
+#if 0
 [Exclude(name="createBlackFadeToBlackTransition",kind="method")]
+#end
 
 /**
  * Creates animated effects, like transitions for screen navigators, that
@@ -30,7 +32,7 @@ class ColorFade
 	 * This was accidentally named wrong. It is included for temporary
 	 * backward compatibility.
 	 */
-	public static function createBlackFadeToBlackTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createBlackFadeToBlackTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return createBlackFadeTransition(duration, ease, tweenProperties);
 	}
@@ -46,7 +48,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createBlackFadeTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createBlackFadeTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return createColorFadeTransition(0x000000, duration, ease, tweenProperties);
 	}
@@ -61,7 +63,7 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWhiteFadeTransition(duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWhiteFadeTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return createColorFadeTransition(0xffffff, duration, ease, tweenProperties);
 	}
@@ -77,18 +79,18 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createColorFadeTransition(color:UInt, duration:Float = 0.75, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createColorFadeTransition(color:UInt, duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:DisplayObject->DisplayObject->Dynamic->Void):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			if(newScreen)
+			if(newScreen != null)
 			{
 				newScreen.alpha = 0;
-				if(oldScreen) //oldScreen can be null, that's okay
+				if(oldScreen != null) //oldScreen can be null, that's okay
 				{
 					oldScreen.alpha = 1;
 				}
@@ -101,88 +103,4 @@ class ColorFade
 			}
 		}
 	}
-}
-}
-
-import starling.animation.Tween;
-import starling.core.Starling;
-import starling.display.DisplayObject;
-import starling.display.DisplayObjectContainer;
-import starling.display.Quad;
-
-class ColorFadeTween extends Tween
-{
-public function ColorFadeTween(target:DisplayObject, otherTarget:DisplayObject,
-	color:UInt, duration:Float, ease:Object, onCompleteCallback:Function,
-	tweenProperties:Object)
-{
-	super(target, duration, ease);
-	if(target.alpha == 0)
-	{
-		this.fadeTo(1);
-	}
-	else
-	{
-		this.fadeTo(0);
-	}
-	if(tweenProperties)
-	{
-		for(var propertyName:String in tweenProperties)
-		{
-			this[propertyName] = tweenProperties[propertyName];
-		}
-	}
-	if(otherTarget)
-	{
-		this._otherTarget = otherTarget;
-		target.visible = false;
-	}
-	this.onUpdate = this.updateOverlay;
-	this._onCompleteCallback = onCompleteCallback;
-	this.onComplete = this.cleanupTween;
-
-	var navigator:DisplayObjectContainer = target.parent;
-	this._overlay = new Quad(navigator.width, navigator.height, color);
-	this._overlay.alpha = 0;
-	this._overlay.touchable = false;
-	navigator.addChild(this._overlay);
-
-	Starling.juggler.add(this);
-}
-
-private var _otherTarget:DisplayObject;
-private var _overlay:Quad;
-private var _onCompleteCallback:Function;
-
-private function updateOverlay():Void
-{
-	var progress:Float = this.progress;
-	if(progress < 0.5)
-	{
-		this._overlay.alpha = progress * 2;
-	}
-	else
-	{
-		target.visible = true;
-		if(this._otherTarget)
-		{
-			this._otherTarget.visible = false;
-		}
-		this._overlay.alpha = (1 - progress) * 2;
-	}
-}
-
-private function cleanupTween():Void
-{
-	this._overlay.removeFromParent(true);
-	this.target.visible = true;
-	if(this._otherTarget)
-	{
-		this._otherTarget.visible = true;
-	}
-	if(this._onCompleteCallback != null)
-	{
-		this._onCompleteCallback();
-	}
-}
 }

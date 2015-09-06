@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer
-{
+package feathers.examples.transitionsExplorer;
 import feathers.controls.ImageLoader;
 import feathers.controls.LayoutGroup;
 import feathers.controls.ScreenNavigator;
@@ -20,6 +19,8 @@ import feathers.motion.Reveal;
 import feathers.motion.Slide;
 import feathers.motion.Wipe;
 import feathers.themes.MetalWorksMobileTheme;
+import openfl.Assets;
+import starling.display.DisplayObject;
 
 import starling.display.Quad;
 import starling.events.Event;
@@ -27,11 +28,19 @@ import starling.textures.Texture;
 
 class Main extends LayoutGroup
 {
+	#if 0
 	[Embed(source="/../assets/images/test-pattern1.png")]
 	inline private static var TEST_PATTERN1:Class;
+	#else
+	inline private static var TEST_PATTERN1_NAME = "assets/images/test-pattern1.png";
+	#end
 
+	#if 0
 	[Embed(source="/../assets/images/test-pattern2.png")]
 	inline private static var TEST_PATTERN2:Class;
+	#else
+	inline private static var TEST_PATTERN2_NAME = "assets/images/test-pattern2.png";
+	#end
 
 	inline private static var MENU_SCREEN_ID_ALL_TRANSITIONS:String = "allTransitions";
 	inline private static var MENU_SCREEN_ID_COLOR_FADE:String = "colorFade";
@@ -47,10 +56,10 @@ class Main extends LayoutGroup
 	inline private static var CONTENT_SCREEN_ID_ONE:String = "one";
 	inline private static var CONTENT_SCREEN_ID_TWO:String = "two";
 
-	public function Main()
+	public function new()
 	{
 		//set up the theme right away!
-		new MetalWorksMobileTheme();
+		new MetalWorksMobileTheme(false);
 		super();
 		this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
 	}
@@ -69,7 +78,7 @@ class Main extends LayoutGroup
 		menuLayoutData.bottom = 0;
 		menuLayoutData.left = 0;
 		this._menu.width = this.stage.stageWidth / 3;
-		this._menu.layoutData = new AnchorLayoutData(0, NaN, 0, 0);
+		this._menu.layoutData = new AnchorLayoutData(0, Math.NaN, 0, 0);
 		this._menu.clipContent = true;
 		this.addChild(this._menu);
 
@@ -174,7 +183,7 @@ class Main extends LayoutGroup
 		var content1:LayoutGroup = new LayoutGroup();
 		content1.layout = new AnchorLayout();
 		var image:ImageLoader = new ImageLoader();
-		image.source = Texture.fromEmbeddedAsset(TEST_PATTERN1, false);
+		image.source = Texture.fromBitmapData(Assets.getBitmapData(TEST_PATTERN1_NAME), false);
 		image.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		content1.addChild(image);
 		content1.backgroundSkin = new Quad(1, 1, 0x000000);
@@ -182,7 +191,7 @@ class Main extends LayoutGroup
 		var content2:LayoutGroup = new LayoutGroup();
 		content2.layout = new AnchorLayout();
 		image = new ImageLoader();
-		image.source = Texture.fromEmbeddedAsset(TEST_PATTERN2, false);
+		image.source = Texture.fromBitmapData(Assets.getBitmapData(TEST_PATTERN2_NAME), false);
 		image.layoutData = new AnchorLayoutData(0, 0, 0, 0);
 		content2.addChild(image);
 		content2.backgroundSkin = new Quad(1, 1, 0xffffff);
@@ -203,9 +212,8 @@ class Main extends LayoutGroup
 		return CONTENT_SCREEN_ID_ONE;
 	}
 
-	private function transitionHandler(event:Event, transition:Function):Void
+	private function transitionHandler(event:Event, transition:DisplayObject->DisplayObject->Dynamic->Void):Void
 	{
 		this._content.showScreen(this.getNextScreenID(), transition);
 	}
-}
 }

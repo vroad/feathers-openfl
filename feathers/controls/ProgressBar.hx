@@ -12,6 +12,10 @@ import feathers.utils.math.FeathersMathUtil.clamp;
 
 import starling.display.DisplayObject;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STATE;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
+
 /**
  * Displays the progress of a task over time. Non-interactive.
  *
@@ -760,15 +764,16 @@ class ProgressBar extends FeathersControl
 	 */
 	private function layoutChildren():Void
 	{
-		if(this.currentBackground)
+		if(this.currentBackground != null)
 		{
 			this.currentBackground.width = this.actualWidth;
 			this.currentBackground.height = this.actualHeight;
 		}
 
+		var percentage:Float;
 		if(this._minimum == this._maximum)
 		{
-			var percentage:Float = 1;
+			percentage = 1;
 		}
 		else
 		{

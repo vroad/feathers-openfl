@@ -1,10 +1,9 @@
-package feathers.examples.layoutExplorer.data
-{
+package feathers.examples.layoutExplorer.data;
 import feathers.layout.WaterfallLayout;
 
 class WaterfallLayoutSettings
 {
-	public function WaterfallLayoutSettings()
+	public function new()
 	{
 	}
 
@@ -17,5 +16,4 @@ class WaterfallLayoutSettings
 	public var paddingRight:Float = 0;
 	public var paddingBottom:Float = 0;
 	public var paddingLeft:Float = 0;
-}
 }

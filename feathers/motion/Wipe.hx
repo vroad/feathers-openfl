@@ -5,8 +5,8 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.motion
-{
+package feathers.motion;
+import openfl.errors.ArgumentError;
 import starling.animation.Transitions;
 import starling.display.DisplayObject;
 
@@ -36,15 +36,15 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeLeftTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeLeftTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var xOffset:Float = oldScreen ? -oldScreen.width : -newScreen.width;
+			var xOffset:Float = oldScreen != null ? -oldScreen.width : -newScreen.width;
 			new WipeTween(newScreen, oldScreen, xOffset, 0, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -60,15 +60,15 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeRightTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeRightTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var xOffset:Float = oldScreen ? oldScreen.width : newScreen.width;
+			var xOffset:Float = oldScreen != null ? oldScreen.width : newScreen.width;
 			new WipeTween(newScreen, oldScreen, xOffset, 0, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -84,15 +84,15 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeUpTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeUpTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var yOffset:Float = oldScreen ? -oldScreen.height : -newScreen.height;
+			var yOffset:Float = oldScreen != null ? -oldScreen.height : -newScreen.height;
 			new WipeTween(newScreen, oldScreen, 0, yOffset, duration, ease, onComplete, tweenProperties);
 		}
 	}
@@ -108,209 +108,16 @@ class Wipe
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWipeDownTransition(duration:Float = 0.5, ease:Object = Transitions.EASE_OUT, tweenProperties:Object = null):Function
+	public static function createWipeDownTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
-		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):Void
+		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
-			if(!oldScreen && !newScreen)
+			if(oldScreen == null && newScreen == null)
 			{
 				throw new ArgumentError(SCREEN_REQUIRED_ERROR);
 			}
-			var yOffset:Float = oldScreen ? oldScreen.height : newScreen.height;
+			var yOffset:Float = oldScreen != null ? oldScreen.height : newScreen.height;
 			new WipeTween(newScreen, oldScreen, 0, yOffset, duration, ease, onComplete, tweenProperties);
 		}
 	}
 }
-}
-
-import feathers.display.RenderDelegate;
-
-import flash.geom.Rectangle;
-
-import starling.animation.Tween;
-import starling.core.Starling;
-import starling.display.DisplayObject;
-import starling.display.Sprite;
-
-class WipeTween extends Tween
-{
-public function WipeTween(newScreen:DisplayObject, oldScreen:DisplayObject,
-	xOffset:Float, yOffset:Float, duration:Float, ease:Object, onCompleteCallback:Function,
-	tweenProperties:Object)
-{
-	var clipRect:Rectangle;
-	if(newScreen)
-	{
-		this._temporaryNewScreenParent = new Sprite();
-		clipRect = new Rectangle();
-		if(xOffset != 0)
-		{
-			if(xOffset < 0)
-			{
-				clipRect.x = newScreen.width;
-			}
-			clipRect.height = newScreen.height;
-		}
-		if(yOffset != 0)
-		{
-			if(yOffset < 0)
-			{
-				clipRect.y = newScreen.height;
-			}
-			clipRect.width = newScreen.width;
-		}
-		this._temporaryNewScreenParent.clipRect = clipRect;
-		newScreen.parent.addChild(this._temporaryNewScreenParent);
-		var delegate:RenderDelegate = new RenderDelegate(newScreen);
-		delegate.alpha = newScreen.alpha;
-		delegate.blendMode = newScreen.blendMode;
-		delegate.rotation = newScreen.rotation;
-		delegate.scaleX = newScreen.scaleX;
-		delegate.scaleY = newScreen.scaleY;
-		this._temporaryNewScreenParent.addChild(delegate);
-		newScreen.visible = false;
-		this._savedNewScreen = newScreen;
-		//the clipRect setter may have made a clone
-		clipRect = this._temporaryNewScreenParent.clipRect;
-	}
-	if(oldScreen)
-	{
-		this._temporaryOldScreenParent = new Sprite();
-		this._temporaryOldScreenParent.clipRect = new Rectangle(0, 0, oldScreen.width, oldScreen.height);
-		delegate = new RenderDelegate(oldScreen);
-		delegate.alpha = oldScreen.alpha;
-		delegate.blendMode = oldScreen.blendMode;
-		delegate.rotation = oldScreen.rotation;
-		delegate.scaleX = oldScreen.scaleX;
-		delegate.scaleY = oldScreen.scaleY;
-		this._temporaryOldScreenParent.addChild(delegate);
-		clipRect = this._temporaryOldScreenParent.clipRect;
-		oldScreen.parent.addChild(this._temporaryOldScreenParent);
-		oldScreen.visible = false;
-		this._savedOldScreen = oldScreen;
-	}
-
-	super(clipRect, duration, ease);
-	
-	if(oldScreen)
-	{
-		if(xOffset < 0)
-		{
-			this.animate("width", oldScreen.width + xOffset);
-		}
-		else if(xOffset > 0)
-		{
-			this.animate("x", xOffset);
-			this.animate("width", oldScreen.width - xOffset);
-		}
-		if(yOffset < 0)
-		{
-			this.animate("height", oldScreen.height + yOffset);
-		}
-		else if(yOffset > 0)
-		{
-			this.animate("y", yOffset);
-			this.animate("height", oldScreen.height - yOffset);
-		}
-		if(this._temporaryNewScreenParent)
-		{
-			this.onUpdate = this.updateNewScreen;
-		}
-	}
-	else //new screen only
-	{
-		if(xOffset < 0)
-		{
-			this.animate("x", newScreen.width + xOffset);
-			this.animate("width", -xOffset);
-		}
-		else if(xOffset > 0)
-		{
-			this.animate("width", xOffset);
-		}
-		if(yOffset < 0)
-		{
-			this.animate("y", newScreen.height + yOffset);
-			this.animate("height", -yOffset);
-		}
-		else if(yOffset > 0)
-		{
-			this.animate("height", yOffset);
-		}
-	}
-	if(tweenProperties)
-	{
-		for(var propertyName:String in tweenProperties)
-		{
-			this[propertyName] = tweenProperties[propertyName];
-		}
-	}
-	this._savedXOffset = xOffset;
-	this._savedYOffset = yOffset;
-	this._onCompleteCallback = onCompleteCallback;
-	this.onComplete = this.cleanupTween;
-	Starling.juggler.add(this);
-}
-
-private var _temporaryOldScreenParent:Sprite;
-private var _temporaryNewScreenParent:Sprite;
-private var _savedOldScreen:DisplayObject;
-private var _savedNewScreen:DisplayObject;
-private var _savedXOffset:Float;
-private var _savedYOffset:Float;
-private var _onCompleteCallback:Function;
-
-private function updateNewScreen():Void
-{
-	var oldScreenClipRect:Rectangle = Rectangle(this.target);
-	var newScreenClipRect:Rectangle = this._temporaryNewScreenParent.clipRect;
-	if(this._savedXOffset < 0)
-	{
-		newScreenClipRect.x = oldScreenClipRect.width;
-		newScreenClipRect.width = this._savedNewScreen.width - newScreenClipRect.x;
-	}
-	else if(this._savedXOffset > 0)
-	{
-		newScreenClipRect.width = oldScreenClipRect.x;
-	}
-	if(this._savedYOffset < 0)
-	{
-		newScreenClipRect.y = oldScreenClipRect.height;
-		newScreenClipRect.height = this._savedNewScreen.height - newScreenClipRect.y;
-	}
-	else if(this._savedYOffset > 0)
-	{
-		newScreenClipRect.height = oldScreenClipRect.y;
-	}
-}
-
-private function cleanupTween():Void
-{
-	if(this._temporaryOldScreenParent)
-	{
-		this._temporaryOldScreenParent.removeFromParent(true);
-		this._temporaryOldScreenParent = null;
-	}
-	if(this._temporaryNewScreenParent)
-	{
-		this._temporaryNewScreenParent.removeFromParent(true);
-		this._temporaryNewScreenParent = null;
-	}
-	if(this._savedOldScreen)
-	{
-		this._savedOldScreen.visible = true;
-		this._savedOldScreen = null;
-	}
-	if(this._savedNewScreen)
-	{
-		this._savedNewScreen.visible = true;
-		this._savedNewScreen = null;
-	}
-	if(this._onCompleteCallback != null)
-	{
-		this._onCompleteCallback();
-	}
-}
-
-}
-

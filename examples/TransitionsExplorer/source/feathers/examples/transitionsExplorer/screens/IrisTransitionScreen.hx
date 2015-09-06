@@ -1,5 +1,4 @@
-package feathers.examples.transitionsExplorer.screens
-{
+package feathers.examples.transitionsExplorer.screens;
 import feathers.controls.Button;
 import feathers.controls.Header;
 import feathers.controls.List;
@@ -17,23 +16,23 @@ import starling.events.Event;
 
 class IrisTransitionScreen extends PanelScreen
 {
-	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
+	private static function irisCloseAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void
 	{
-		var randomX:Float = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
-		var randomY:Float = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
+		var randomX:Float = Math.random() * (oldScreen != null ? oldScreen.width : newScreen.width);
+		var randomY:Float = Math.random() * (oldScreen != null ? oldScreen.height : newScreen.height);
 		Iris.createIrisCloseTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	
-	private static function irisOpenAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Function):Void
+	private static function irisOpenAtRandomPosition(oldScreen:DisplayObject, newScreen:DisplayObject, completeCallback:Dynamic):Void
 	{
-		var randomX:Float = Math.random() * (oldScreen ? oldScreen.width : newScreen.width);
-		var randomY:Float = Math.random() * (oldScreen ? oldScreen.height : newScreen.height);
+		var randomX:Float = Math.random() * (oldScreen != null ? oldScreen.width : newScreen.width);
+		var randomY:Float = Math.random() * (oldScreen != null ? oldScreen.height : newScreen.height);
 		Iris.createIrisOpenTransitionAt(randomX, randomY)(oldScreen, newScreen, completeCallback);
 	}
 	
 	inline public static var TRANSITION:String = "transition";
 	
-	public function IrisTransitionScreen()
+	public function new()
 	{
 		super();
 	}
@@ -91,14 +90,14 @@ class IrisTransitionScreen extends PanelScreen
 		this._backButton.styleNameList.add(Button.ALTERNATE_STYLE_NAME_BACK_BUTTON);
 		this._backButton.label = "Transitions";
 		this._backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
-		header.leftItems = new <DisplayObject>[this._backButton];
+		header.leftItems = [this._backButton];
 
 		return header;
 	}
 
-	private function list_triggeredHandler(event:Event, item:Object):Void
+	private function list_triggeredHandler(event:Event, item:Dynamic):Void
 	{
-		var transition:Function = item.transition as Function;
+		var transition:Dynamic = item.transition;
 		this.dispatchEventWith(TRANSITION, false, transition);
 	}
 
@@ -106,5 +105,4 @@ class IrisTransitionScreen extends PanelScreen
 	{
 		this.dispatchEventWith(Event.COMPLETE);
 	}
-}
 }

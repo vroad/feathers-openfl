@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.controls.popups.DropDownPopUpContentManager;
 import feathers.controls.popups.IPopUpContentManager;
 import feathers.core.PropertyProxy;
@@ -17,12 +16,18 @@ import feathers.skins.IStyleProvider;
 
 import flash.events.KeyboardEvent;
 import flash.ui.Keyboard;
+#if 0
 import flash.utils.getTimer;
+#else
+import openfl.Lib.getTimer;
+#end
 
 import starling.core.Starling;
 import starling.events.Event;
 import starling.events.EventDispatcher;
 import starling.events.KeyboardEvent;
+
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * Dispatched when the pop-up list is opened.
@@ -44,7 +49,9 @@ import starling.events.KeyboardEvent;
  *
  * @eventType starling.events.Event.OPEN
  */
+#if 0
 [Event(name="open",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the pop-up list is closed.
@@ -66,7 +73,9 @@ import starling.events.KeyboardEvent;
  *
  * @eventType starling.events.Event.CLOSE
  */
+#if 0
 [Event(name="close",type="starling.events.Event")]
+#end
 
 /**
  * A text input that provides a pop-up list with suggestions as you type.
@@ -127,8 +136,9 @@ class AutoComplete extends TextInput
 	/**
 	 * Constructor.
 	 */
-	public function AutoComplete()
+	public function new()
 	{
+		super();
 		this.addEventListener(Event.CHANGE, autoComplete_changeHandler);
 	}
 
@@ -167,7 +177,7 @@ class AutoComplete extends TextInput
 	 */
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
-		if(AutoComplete.globalStyleProvider)
+		if(AutoComplete.globalStyleProvider != null)
 		{
 			return AutoComplete.globalStyleProvider;
 		}
@@ -203,6 +213,7 @@ class AutoComplete extends TextInput
 	 * 
 	 * @default null
 	 */
+	public var source(get, set):IAutoCompleteSource;
 	public function get_source():IAutoCompleteSource
 	{
 		return this._source;
@@ -215,17 +226,18 @@ class AutoComplete extends TextInput
 	{
 		if(this._source == value)
 		{
-			return;
+			return get_source();
 		}
-		if(this._source)
+		if(this._source != null)
 		{
 			this._source.removeEventListener(Event.COMPLETE, dataProvider_completeHandler);
 		}
 		this._source = value;
-		if(this._source)
+		if(this._source != null)
 		{
 			this._source.addEventListener(Event.COMPLETE, dataProvider_completeHandler);
 		}
+		return get_source();
 	}
 
 	/**
@@ -246,6 +258,7 @@ class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
+	public var autoCompleteDelay(get, set):Float;
 	public function get_autoCompleteDelay():Float
 	{
 		return this._autoCompleteDelay;
@@ -257,6 +270,7 @@ class AutoComplete extends TextInput
 	public function set_autoCompleteDelay(value:Float):Float
 	{
 		this._autoCompleteDelay = value;
+		return get_autoCompleteDelay();
 	}
 
 	/**
@@ -278,6 +292,7 @@ class AutoComplete extends TextInput
 	 *
 	 * @see #source
 	 */
+	public var minimumAutoCompleteLength(get, set):Float;
 	public function get_minimumAutoCompleteLength():Float
 	{
 		return this._minimumAutoCompleteLength;
@@ -288,7 +303,8 @@ class AutoComplete extends TextInput
 	 */
 	public function set_minimumAutoCompleteLength(value:Float):Float
 	{
-		this._minimumAutoCompleteLength = value;
+		this._minimumAutoCompleteLength = Std.int(value);
+		return get_minimumAutoCompleteLength();
 	}
 
 	/**
@@ -306,6 +322,7 @@ class AutoComplete extends TextInput
 	 *
 	 * @default null
 	 */
+	public var popUpContentManager(get, set):IPopUpContentManager;
 	public function get_popUpContentManager():IPopUpContentManager
 	{
 		return this._popUpContentManager;
@@ -318,28 +335,30 @@ class AutoComplete extends TextInput
 	{
 		if(this._popUpContentManager == value)
 		{
-			return;
+			return get_popUpContentManager();
 		}
-		if(this._popUpContentManager is EventDispatcher)
+		var dispatcher:EventDispatcher;
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			var dispatcher:EventDispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.removeEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.removeEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this._popUpContentManager = value;
-		if(this._popUpContentManager is EventDispatcher)
+		if(Std.is(this._popUpContentManager, EventDispatcher))
 		{
-			dispatcher = EventDispatcher(this._popUpContentManager);
+			dispatcher = cast(this._popUpContentManager, EventDispatcher);
 			dispatcher.addEventListener(Event.OPEN, popUpContentManager_openHandler);
 			dispatcher.addEventListener(Event.CLOSE, popUpContentManager_closeHandler);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_popUpContentManager();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _listFactory:Function;
+	private var _listFactory:Void->List;
 
 	/**
 	 * A function used to generate the pop-up list sub-component. The list
@@ -367,7 +386,8 @@ class AutoComplete extends TextInput
 	 * @see feathers.controls.List
 	 * @see #listProperties
 	 */
-	public function get_listFactory():Function
+	public var listFactory(get, set):Void->List;
+	public function get_listFactory():Void->List
 	{
 		return this._listFactory;
 	}
@@ -375,14 +395,15 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set_listFactory(value:Function):Function
+	public function set_listFactory(value:Void->List):Void->List
 	{
 		if(this._listFactory == value)
 		{
-			return;
+			return get_listFactory();
 		}
 		this._listFactory = value;
 		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+		return get_listFactory();
 	}
 
 	/**
@@ -414,6 +435,7 @@ class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see #listProperties
 	 */
+	public var customListStyleName(get, set):String;
 	public function get_customListStyleName():String
 	{
 		return this._customListStyleName;
@@ -426,10 +448,11 @@ class AutoComplete extends TextInput
 	{
 		if(this._customListStyleName == value)
 		{
-			return;
+			return get_customListStyleName();
 		}
 		this._customListStyleName = value;
 		this.invalidate(INVALIDATION_FLAG_LIST_FACTORY);
+		return get_customListStyleName();
 	}
 
 	/**
@@ -465,9 +488,10 @@ class AutoComplete extends TextInput
 	 * @see #listFactory
 	 * @see feathers.controls.List
 	 */
-	public function get_listProperties():Object
+	public var listProperties(get, set):PropertyProxy;
+	public function get_listProperties():PropertyProxy
 	{
-		if(!this._listProperties)
+		if(this._listProperties == null)
 		{
 			this._listProperties = new PropertyProxy(childProperties_onChange);
 		}
@@ -477,35 +501,36 @@ class AutoComplete extends TextInput
 	/**
 	 * @private
 	 */
-	public function set_listProperties(value:Object):Object
+	public function set_listProperties(value:PropertyProxy):PropertyProxy
 	{
 		if(this._listProperties == value)
 		{
-			return;
+			return get_listProperties();
 		}
-		if(!value)
+		if(value == null)
 		{
 			value = new PropertyProxy();
 		}
-		if(!(value is PropertyProxy))
+		if(!Std.is(value, PropertyProxy))
 		{
 			var newValue:PropertyProxy = new PropertyProxy();
-			for(var propertyName:String in value)
+			for(propertyName in Reflect.fields(value.storage))
 			{
-				newValue[propertyName] = value[propertyName];
+				Reflect.setField(newValue, propertyName, Reflect.field(value.storage, propertyName));
 			}
 			value = newValue;
 		}
-		if(this._listProperties)
+		if(this._listProperties != null)
 		{
 			this._listProperties.removeOnChangeCallback(childProperties_onChange);
 		}
-		this._listProperties = PropertyProxy(value);
-		if(this._listProperties)
+		this._listProperties = cast(value, PropertyProxy);
+		if(this._listProperties != null)
 		{
 			this._listProperties.addOnChangeCallback(childProperties_onChange);
 		}
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_listProperties();
 	}
 
 	/**
@@ -551,7 +576,7 @@ class AutoComplete extends TextInput
 		this._isOpenListPending = false;
 		this._popUpContentManager.open(this.list, this);
 		this.list.validate();
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this.stage.addEventListener(starling.events.KeyboardEvent.KEY_UP, stage_keyUpHandler);
 		}
@@ -591,13 +616,13 @@ class AutoComplete extends TextInput
 	override public function dispose():Void
 	{
 		this.source = null;
-		if(this.list)
+		if(this.list != null)
 		{
 			this.closeList();
 			this.list.dispose();
 			this.list = null;
 		}
-		if(this._popUpContentManager)
+		if(this._popUpContentManager != null)
 		{
 			this._popUpContentManager.dispose();
 			this._popUpContentManager = null;
@@ -613,7 +638,7 @@ class AutoComplete extends TextInput
 		super.initialize();
 
 		this._listCollection = new ListCollection();
-		if(!this._popUpContentManager)
+		if(this._popUpContentManager == null)
 		{
 			this.popUpContentManager = new DropDownPopUpContentManager();
 		}
@@ -655,7 +680,7 @@ class AutoComplete extends TextInput
 	 */
 	private function createList():Void
 	{
-		if(this.list)
+		if(this.list != null)
 		{
 			this.list.removeFromParent(false);
 			//disposing separately because the list may not have a parent
@@ -663,9 +688,9 @@ class AutoComplete extends TextInput
 			this.list = null;
 		}
 
-		var factory:Function = this._listFactory != null ? this._listFactory : defaultListFactory;
+		var factory:Void->List = this._listFactory != null ? this._listFactory : defaultListFactory;
 		var listStyleName:String = this._customListStyleName != null ? this._customListStyleName : this.listStyleName;
-		this.list = List(factory());
+		this.list = factory();
 		this.list.focusOwner = this;
 		this.list.isFocusEnabled = false;
 		this.list.isChildFocusEnabled = false;
@@ -680,11 +705,12 @@ class AutoComplete extends TextInput
 	 */
 	private function refreshListProperties():Void
 	{
-		for(var propertyName:String in this._listProperties)
-		{
-			var propertyValue:Object = this._listProperties[propertyName];
-			this.list[propertyName] = propertyValue;
-		}
+		if (this._listProperties != null)
+			for(propertyName in Reflect.fields(this._listProperties.storage))
+			{
+				var propertyValue:Dynamic = Reflect.field(this._listProperties.storage, propertyName);
+				Reflect.setProperty(this.list, propertyName, propertyValue);
+			}
 	}
 
 	/**
@@ -776,7 +802,7 @@ class AutoComplete extends TextInput
 	 */
 	private function autoComplete_changeHandler(event:Event):Void
 	{
-		if(this._ignoreAutoCompleteChanges || !this._source || !this.hasFocus)
+		if(this._ignoreAutoCompleteChanges || this._source == null || !this.hasFocus)
 		{
 			return;
 		}
@@ -871,7 +897,7 @@ class AutoComplete extends TextInput
 	 */
 	private function list_removedFromStageHandler(event:Event):Void
 	{
-		if(this._focusManager)
+		if(this._focusManager != null)
 		{
 			this.list.stage.removeEventListener(starling.events.KeyboardEvent.KEY_UP, stage_keyUpHandler);
 		}
@@ -905,5 +931,4 @@ class AutoComplete extends TextInput
 			this.selectRange(this.text.length, this.text.length);
 		}
 	}
-}
 }

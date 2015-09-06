@@ -5,10 +5,11 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.core
-{
+package feathers.core;
+#if 0
 import flash.utils.Proxy;
 import flash.utils.flash_proxy;
+#end
 
 /**
  * Detects when its own properties have changed and dispatches an event
@@ -19,17 +20,17 @@ import flash.utils.flash_proxy;
  * is like saying, "If this nested <code>PropertyProxy</code> doesn't exist
  * yet, create one. If it does, use the existing one."</p>
  */
-public final dynamic class PropertyProxy extends Proxy
+/*dynamic*/ @:final class PropertyProxy /*extends Proxy*/
 {
 	/**
 	 * Creates a <code>PropertyProxy</code> from a regular old <code>Object</code>.
 	 */
-	public static function fromObject(source:Object, onChangeCallback:Function = null):PropertyProxy
+	public static function fromObject(source:Dynamic, onChangeCallback:Dynamic = null):PropertyProxy
 	{
 		var newValue:PropertyProxy = new PropertyProxy(onChangeCallback);
-		for(var propertyName:String in source)
+		for(propertyName in Type.getInstanceFields(source))
 		{
-			newValue[propertyName] = source[propertyName];
+			Reflect.setField(newValue._storage, propertyName, Reflect.getProperty(source, propertyName));
 		}
 		return newValue;
 	}
@@ -37,7 +38,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * Constructor.
 	 */
-	public function PropertyProxy(onChangeCallback:Function = null)
+	public function new(onChangeCallback:Dynamic = null)
 	{
 		if(onChangeCallback != null)
 		{
@@ -53,35 +54,54 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	private var _onChangeCallbacks:Array<Function> = new <Function>[];
+	private var _onChangeCallbacks:Array<Dynamic> = new Array();
 
 	/**
 	 * @private
 	 */
-	private var _names:Array = [];
+	private var _names:Array<String> = [];
 
 	/**
 	 * @private
 	 */
-	private var _storage:Object = {};
-
-	/**
-	 * @private
-	 */
-	override flash_proxy function hasProperty(name:*):Bool
+	private var _storage:Dynamic = {};
+	public var storage(get, set):Dynamic;
+	
+	@:noComplete private function get_storage():Dynamic
 	{
-		return this._storage.hasOwnProperty(name);
+		return _storage;
+	}
+	
+	@:noComplete private function set_storage(value:Dynamic):Dynamic
+	{
+		for (propertyName in Reflect.fields(_storage))
+		{
+			if (!Reflect.hasField(value, propertyName))
+				deleteProperty(propertyName);
+		}
+		for (propertyName in Reflect.fields(value))
+			setProperty(propertyName, Reflect.field(value, propertyName));
+		return _storage;
 	}
 
 	/**
 	 * @private
 	 */
-	override flash_proxy function getProperty(name:*):*
+	/*override flash_proxy*/ public function hasProperty(name:String):Bool
 	{
-		if(this.flash_proxy::isAttribute(name))
+		return this._storage.exists(name);
+	}
+
+	/**
+	 * @private
+	 */
+	/*override flash_proxy public function getProperty(name:String):Dynamic
+	{
+		//if(this.flash_proxy::isAttribute(name))
 		{
-			var nameAsString:String = name is QName ? QName(name).localName : name.toString();
-			if(!this._storage.hasOwnProperty(nameAsString))
+			//var nameAsString:String = Std.is(name, QName) ? QName(name).localName : name.toString();
+			var nameAsString:String = name;
+			if(!this._storage.exists(nameAsString))
 			{
 				var subProxy:PropertyProxy = new PropertyProxy(subProxy_onChange);
 				subProxy._subProxyName = nameAsString;
@@ -92,15 +112,16 @@ public final dynamic class PropertyProxy extends Proxy
 			return this._storage[nameAsString];
 		}
 		return this._storage[name];
-	}
+	}*/
 
 	/**
 	 * @private
 	 */
-	override flash_proxy function setProperty(name:*, value:*):Void
+	/*override flash_proxy*/ public function setProperty(name:String, value:Dynamic):Void
 	{
-		var nameAsString:String = name is QName ? QName(name).localName : name.toString();
-		this._storage[nameAsString] = value;
+		//var nameAsString:String = Std.is(name, QName) ? QName(name).localName : name.toString();
+		var nameAsString:String = name;
+		Reflect.setField(this._storage, nameAsString, value);
 		if(this._names.indexOf(nameAsString) < 0)
 		{
 			this._names[this._names.length] = nameAsString;
@@ -111,9 +132,10 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function deleteProperty(name:*):Bool
+	/*override flash_proxy*/ public function deleteProperty(name:String):Bool
 	{
-		var nameAsString:String = name is QName ? QName(name).localName : name.toString();
+		//var nameAsString:String = Std.is(name, QName) ? QName(name).localName : name.toString();
+		var nameAsString:String = name;
 		var index:Int = this._names.indexOf(nameAsString);
 		if(index == 0)
 		{
@@ -131,7 +153,7 @@ public final dynamic class PropertyProxy extends Proxy
 				this._names.splice(index, 1);
 			}
 		}
-		var result:Bool = delete this._storage[nameAsString];
+		var result:Bool = this._storage.remove(nameAsString);
 		if(result)
 		{
 			this.fireOnChangeCallback(nameAsString);
@@ -142,7 +164,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextNameIndex(index:Int):Int
+	/*override flash_proxy*/ function nextNameIndex(index:Int):Int
 	{
 		if(index < this._names.length)
 		{
@@ -154,7 +176,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextName(index:Int):String
+	/*override flash_proxy*/ function nextName(index:Int):String
 	{
 		return this._names[index - 1];
 	}
@@ -162,16 +184,16 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	override flash_proxy function nextValue(index:Int):*
+	/*override flash_proxy*/ function nextValue(index:Int):Dynamic
 	{
-		var name:* = this._names[index - 1];
-		return this._storage[name];
+		var name:String = this._names[index - 1];
+		return Reflect.field(this._storage, name);
 	}
 
 	/**
 	 * Adds a callback to react to property changes.
 	 */
-	public function addOnChangeCallback(callback:Function):Void
+	public function addOnChangeCallback(callback:Dynamic):Void
 	{
 		this._onChangeCallbacks[this._onChangeCallbacks.length] = callback;
 	}
@@ -179,7 +201,7 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * Removes a callback.
 	 */
-	public function removeOnChangeCallback(callback:Function):Void
+	public function removeOnChangeCallback(callback:Dynamic):Void
 	{
 		var index:Int = this._onChangeCallbacks.indexOf(callback);
 		if(index < 0)
@@ -203,14 +225,14 @@ public final dynamic class PropertyProxy extends Proxy
 	/**
 	 * @private
 	 */
-	public function toString():String
+	private function toString():String
 	{
 		var result:String = "[object PropertyProxy";
-		for(var propertyName:String in this)
+		for(propertyName in Reflect.fields(this.storage))
 		{
 			result += " " + propertyName;
 		}
-		return result + "]"
+		return result + "]";
 	}
 
 	/**
@@ -219,10 +241,12 @@ public final dynamic class PropertyProxy extends Proxy
 	private function fireOnChangeCallback(forName:String):Void
 	{
 		var callbackCount:Int = this._onChangeCallbacks.length;
-		for(var i:Int = 0; i < callbackCount; i++)
+		//for(var i:Int = 0; i < callbackCount; i++)
+		for(i in 0 ... callbackCount)
 		{
-			var callback:Function = this._onChangeCallbacks[i] as Function;
-			callback(this, forName);
+			var callback:Dynamic = this._onChangeCallbacks[i];
+			//callback(this, forName);
+			Reflect.callMethod(null, callback, [this, forName]);
 		}
 	}
 
@@ -233,5 +257,4 @@ public final dynamic class PropertyProxy extends Proxy
 	{
 		this.fireOnChangeCallback(proxy._subProxyName);
 	}
-}
 }

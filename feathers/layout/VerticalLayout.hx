@@ -11,6 +11,7 @@ import feathers.core.IValidating;
 import feathers.utils.type.SafeCast.safe_cast;
 
 import openfl.errors.IllegalOperationError;
+import openfl.errors.RangeError;
 import openfl.geom.Point;
 
 import starling.display.DisplayObject;
@@ -66,7 +67,9 @@ import starling.events.EventDispatcher;
  *
  * @eventType starling.events.Event.SCROLL
  */
+#if 0
 [Event(name="scroll",type="starling.events.Event")]
+#end
 
 /**
  * Positions items from top to bottom in a single column.
@@ -596,15 +599,15 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	{
 		if(value < 0)
 		{
-			throw RangeError("requestedRowCount requires a value >= 0");
+			throw new RangeError("requestedRowCount requires a value >= 0");
 		}
 		if(this._requestedRowCount == value)
 		{
-			return get_manageVisibility();
+			return get_requestedRowCount();
 		}
 		this._requestedRowCount = value;
 		this.dispatchEventWith(Event.CHANGE);
-		return get_manageVisibility();
+		return get_requestedRowCount();
 	}
 
 	/**
@@ -885,16 +888,19 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//feature either.
 
 		//since viewPortBounds can be null, we may need to provide some defaults
-		var scrollX:Float = viewPortBounds ? viewPortBounds.scrollX : 0;
-		var scrollY:Float = viewPortBounds ? viewPortBounds.scrollY : 0;
-		var boundsX:Float = viewPortBounds ? viewPortBounds.x : 0;
-		var boundsY:Float = viewPortBounds ? viewPortBounds.y : 0;
-		var minWidth:Float = viewPortBounds ? viewPortBounds.minWidth : 0;
-		var minHeight:Float = viewPortBounds ? viewPortBounds.minHeight : 0;
-		var maxWidth:Float = viewPortBounds ? viewPortBounds.maxWidth : Float.POSITIVE_INFINITY;
-		var maxHeight:Float = viewPortBounds ? viewPortBounds.maxHeight : Float.POSITIVE_INFINITY;
-		var explicitWidth:Float = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
-		var explicitHeight:Float = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
+		var scrollX:Float = viewPortBounds != null ? viewPortBounds.scrollX : 0;
+		var scrollY:Float = viewPortBounds != null ? viewPortBounds.scrollY : 0;
+		var boundsX:Float = viewPortBounds != null ? viewPortBounds.x : 0;
+		var boundsY:Float = viewPortBounds != null ? viewPortBounds.y : 0;
+		var minWidth:Float = viewPortBounds != null ? viewPortBounds.minWidth : 0;
+		var minHeight:Float = viewPortBounds != null ? viewPortBounds.minHeight : 0;
+		var maxWidth:Float = viewPortBounds != null ? viewPortBounds.maxWidth : Math.POSITIVE_INFINITY;
+		var maxHeight:Float = viewPortBounds != null ? viewPortBounds.maxHeight : Math.POSITIVE_INFINITY;
+		var explicitWidth:Float = viewPortBounds != null ? viewPortBounds.explicitWidth : Math.NaN;
+		var explicitHeight:Float = viewPortBounds != null ? viewPortBounds.explicitHeight : Math.NaN;
+		
+		var calculatedTypicalItemWidth:Float = Math.NaN;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 
 		if(this._useVirtualLayout)
 		{
@@ -957,14 +963,19 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//this cache is used to save non-null items in virtual layouts. by
 		//using a smaller array, we can improve performance by spending less
 		//time in the upcoming loops.
-		this._discoveredItemsCache.length = 0;
+		this._discoveredItemsCache.splice(0, this._discoveredItemsCache.length);
 		var discoveredItemsCacheLastIndex:Int = 0;
+		
+		var cachedHeight:Float = Math.NaN;
+		var itemWidth:Float;
+		var item:DisplayObject;
 
 		//this first loop sets the y position of items, and it calculates
 		//the total height of all items
-		for(var i:Int = 0; i < itemCount; i++)
+		//for(var i:Int = 0; i < itemCount; i++)
+		for(i in 0 ... itemCount)
 		{
-			var item:DisplayObject = items[i];
+			item = items[i];
 			//if we're trimming some items at the beginning, we need to
 			//adjust i to account for the missing items in the array
 			var iNormalized:Int = i + indexOffset;
@@ -1013,7 +1024,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			{
 				//we get here if the item isn't null. it is never null if
 				//the layout isn't virtualized.
-				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+				if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 				{
 					continue;
 				}
@@ -1264,7 +1275,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//finally, we want to calculate the result so that the container
 		//can use it to adjust its viewport and determine the minimum and
 		//maximum scroll positions (if needed)
-		if(!result)
+		if(result == null)
 		{
 			result = new LayoutBoundsResult();
 		}
@@ -1373,9 +1384,10 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 
 		if(needsHeight)
 		{
+			var resultHeight:Float;
 			if(this._requestedRowCount > 0)
 			{
-				var resultHeight:Float = (calculatedTypicalItemHeight + this._gap) * this._requestedRowCount - this._gap;
+				resultHeight = (calculatedTypicalItemHeight + this._gap) * this._requestedRowCount - this._gap;
 			}
 			else
 			{
@@ -1491,7 +1503,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 					indexOffset = Math.ceil(((height - totalItemHeight) / (calculatedTypicalItemHeight + this._gap)) / 2);
 				}
 			}
-			var minimum:Int = Std.Int((scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._gap));
+			var minimum:Int = Std.int((scrollY - this._paddingTop) / (calculatedTypicalItemHeight + this._gap));
 			if(minimum < 0)
 			{
 				minimum = 0;
@@ -1624,11 +1636,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
+		var itemHeight:Float;
 		if(this._useVirtualLayout)
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				var itemHeight:Float = this._heightCache[index];
+				itemHeight = this._heightCache[index];
 				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
@@ -1680,11 +1693,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	{
 		var maxScrollY:Float = this.calculateMaxScrollYOfIndex(index, items, x, y, width, height);
 
+		var itemHeight:Float;
 		if(this._useVirtualLayout)
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				var itemHeight:Float = this._heightCache[index];
+				itemHeight = this._heightCache[index];
 				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
@@ -1700,7 +1714,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			itemHeight = items[index].height;
 		}
 
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1731,7 +1745,9 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		//layout if it happens after validation, causing more invalidation
 		var isJustified:Bool = this._horizontalAlign == HORIZONTAL_ALIGN_JUSTIFY;
 		var itemCount:Int = items.length;
-		for(var i:Int = 0; i < itemCount; i++)
+		//for(var i:Int = 0; i < itemCount; i++)
+		var i:Int = 0;
+		while(i < itemCount)
 		{
 			var item:DisplayObject = items[i];
 			if(item == null || (Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout))
@@ -1746,9 +1762,9 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 				//the items instead of using an old justified width that may
 				//be wrong now!
 				item.width = explicitWidth;
-				if(item is IFeathersControl)
+				if(Std.is(item, IFeathersControl))
 				{
-					var feathersItem:IFeathersControl = IFeathersControl(item);
+					var feathersItem:IFeathersControl = cast item;
 					feathersItem.minWidth = minWidth;
 					feathersItem.maxWidth = maxWidth;
 				}
@@ -1962,12 +1978,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 					}
 				}
 				layoutItem.height = itemHeight;
-				if(layoutItem is IValidating)
+				if(Std.is(layoutItem, IValidating))
 				{
 					//changing the height of the item may cause its width
 					//to change, so we need to validate. the width is needed
 					//for measurement.
-					IValidating(layoutItem).validate();
+					cast(layoutItem, IValidating).validate();
 				}
 			}
 		}
@@ -1980,11 +1996,13 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	 */
 	private function calculateMaxScrollYOfIndex(index:Int, items:Array<DisplayObject>, x:Float, y:Float, width:Float, height:Float):Float
 	{
+		var calculatedTypicalItemWidth:Float;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem(width - this._paddingLeft - this._paddingRight);
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		var hasFirstGap:Bool = this._firstGap == this._firstGap; //!isNaN
@@ -2018,12 +2036,17 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			}
 			positionY += (startIndexOffset * (calculatedTypicalItemHeight + this._gap));
 		}
-		index -= (startIndexOffset + endIndexOffset);
+		index -= (startIndexOffset + Std.int(endIndexOffset));
 		var secondToLastIndex:Int = totalItemCount - 2;
-		for(var i:Int = 0; i <= index; i++)
+		//for(var i:Int = 0; i <= index; i++)
+		var i:Int = 0;
+		while(i <= index)
 		{
 			var item:DisplayObject = items[i];
 			var iNormalized:Int = i + startIndexOffset;
+			
+			var cachedHeight:Float = Math.NaN;
+			
 			if(hasFirstGap && iNormalized == 0)
 			{
 				gap = this._firstGap;
@@ -2038,9 +2061,9 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			}
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				var cachedHeight:Float = this._heightCache[iNormalized];
+				cachedHeight = this._heightCache[iNormalized];
 			}
-			if(this._useVirtualLayout && !item)
+			if(this._useVirtualLayout && item == null)
 			{
 				if(!this._hasVariableItemDimensions ||
 					cachedHeight != cachedHeight) //isNaN
@@ -2073,6 +2096,8 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 				lastHeight = itemHeight;
 			}
 			positionY += lastHeight + gap;
+			
+			i++;
 		}
 		positionY -= (lastHeight + gap);
 		return positionY;

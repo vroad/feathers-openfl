@@ -61,7 +61,7 @@ class DragSource extends LayoutGroup implements IDragSource
 		else
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(!touch || touch.target == this || touch.target == this.backgroundSkin)
+			if(touch == null || touch.target == this || touch.target == this.backgroundSkin)
 			{
 				return;
 			}

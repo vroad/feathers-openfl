@@ -17,6 +17,7 @@ import starling.events.Event;
 import starling.textures.Texture;
 //[Event(name="complete",type="starling.events.Event")]//[Event(name="showAlert",type="starling.events.Event")]//[Event(name="showButton",type="starling.events.Event")]//[Event(name="showButtonGroup",type="starling.events.Event")]//[Event(name="showCallout",type="starling.events.Event")]//[Event(name="showGroupedList",type="starling.events.Event")]//[Event(name="showItemRenderer",type="starling.events.Event")]//[Event(name="showList",type="starling.events.Event")]//[Event(name="showNumericStepper",type="starling.events.Event")]//[Event(name="showPageIndicator",type="starling.events.Event")]//[Event(name="showPickerList",type="starling.events.Event")]//[Event(name="showProgressBar",type="starling.events.Event")]//[Event(name="showScrollText",type="starling.events.Event")]//[Event(name="showSlider",type="starling.events.Event")]//[Event(name="showTabBar",type="starling.events.Event")]//[Event(name="showTextInput",type="starling.events.Event")]//[Event(name="showToggles",type="starling.events.Event")]
 
+#if 0
 [Event(name="complete",type="starling.events.Event")]
 [Event(name="showAlert",type="starling.events.Event")]
 [Event(name="showButton",type="starling.events.Event")]
@@ -35,6 +36,7 @@ import starling.textures.Texture;
 [Event(name="showTabBar",type="starling.events.Event")]
 [Event(name="showTextInput",type="starling.events.Event")]
 [Event(name="showToggles",type="starling.events.Event")]
+#end
 
 class MainMenuScreen extends PanelScreen
 {
@@ -98,7 +100,9 @@ class MainMenuScreen extends PanelScreen
 			{ label: "Slider", event: SHOW_SLIDER},
 			{ label: "Spinner List", event: SHOW_SPINNER_LIST },
 			{ label: "Tab Bar", event: SHOW_TAB_BAR },
+			#if flash
 			{ label: "Text Input", event: SHOW_TEXT_INPUT },
+			#end
 			{ label: "Toggles", event: SHOW_TOGGLES },
 		]);
 		if(Capabilities.playerType == "Desktop") //this means AIR, even for mobile
@@ -111,7 +115,7 @@ class MainMenuScreen extends PanelScreen
 		this._list.verticalScrollPosition = this.savedVerticalScrollPosition;
 
 		var isTablet:Bool = DeviceCapabilities.isTablet(Starling.current.nativeStage);
-		var itemRendererAccessorySourceFunction:Function = null;
+		var itemRendererAccessorySourceFunction:Dynamic->Texture = null;
 		if(!isTablet)
 		{
 			itemRendererAccessorySourceFunction = this.accessorySourceFunction;
@@ -160,7 +164,7 @@ class MainMenuScreen extends PanelScreen
 	
 	private function list_changeHandler(event:Event):Void
 	{
-		var eventType:String = this._list.selectedItem.event as String;
+		var eventType:String = cast(this._list.selectedItem.event, String);
 		if(DeviceCapabilities.isTablet(Starling.current.nativeStage))
 		{
 			this.dispatchEventWith(eventType);

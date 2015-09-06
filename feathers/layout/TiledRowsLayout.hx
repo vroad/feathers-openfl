@@ -1042,13 +1042,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		if(explicitWidth == explicitWidth) //!isNaN
 		{
 			availableWidth = explicitWidth;
-			horizontalTileCount = Std.Int((explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+			horizontalTileCount = Std.int((explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		}
 		else if(maxWidth == maxWidth && //!isNaN
 			maxWidth < Math.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
-			horizontalTileCount = Std.Int((maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+			horizontalTileCount = Std.int((maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		}
 		else if(this._requestedColumnCount > 0)
 		{
@@ -1081,13 +1081,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		if(explicitHeight == explicitHeight) //!isNaN
 		{
 			availableHeight = explicitHeight;
-			verticalTileCount = Std.Int((explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+			verticalTileCount = Std.int((explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		}
 		else if(maxHeight == maxHeight && //!isNaN
 			maxHeight < Math.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
-			verticalTileCount = Std.Int((maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+			verticalTileCount = Std.int((maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		}
 		else
 		{
@@ -1370,13 +1370,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		if(explicitWidth == explicitWidth) //!isNaN
 		{
 			availableWidth = explicitWidth;
-			horizontalTileCount = Std.Int((explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+			horizontalTileCount = Std.int((explicitWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		}
 		else if(maxWidth == maxWidth && //!isNaN
 			maxWidth < Math.POSITIVE_INFINITY)
 		{
 			availableWidth = maxWidth;
-			horizontalTileCount = Std.Int((maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+			horizontalTileCount = Std.int((maxWidth - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		}
 		else if(this._requestedColumnCount > 0)
 		{
@@ -1407,13 +1407,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		if(explicitHeight == explicitHeight) //!isNaN
 		{
 			availableHeight = explicitHeight;
-			verticalTileCount = Std.Int((explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+			verticalTileCount = Std.int((explicitHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		}
 		else if(maxHeight == maxHeight && //!isNaN
 			maxHeight < Math.POSITIVE_INFINITY)
 		{
 			availableHeight = maxHeight;
-			verticalTileCount = Std.Int((maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+			verticalTileCount = Std.int((maxHeight - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		}
 		else
 		{
@@ -1685,7 +1685,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var horizontalTileCount:Int = Std.Int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+		var horizontalTileCount:Int = Std.int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		if(horizontalTileCount < 1)
 		{
 			horizontalTileCount = 1;
@@ -1694,7 +1694,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		{
 			horizontalTileCount = this._requestedColumnCount;
 		}
-		var verticalTileCount:Int = Std.Int((height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+		var verticalTileCount:Int = Std.int((height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		if(verticalTileCount < 1)
 		{
 			verticalTileCount = 1;
@@ -1771,7 +1771,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		{
 			var rowIndex:Int = 0;
 			var columnIndex:Int = (horizontalTileCount + columnOffset) % horizontalTileCount;
-			var pageStart:Int = Std.Int(minimum / perPage) * perPage;
+			var pageStart:Int = Std.int(minimum / perPage) * perPage;
 			var i:Int = minimum;
 			var resultLength:Int = 0;
 			do
@@ -1829,7 +1829,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var horizontalTileCount:Int = Std.Int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+		var horizontalTileCount:Int = Std.int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		if(horizontalTileCount < 1)
 		{
 			horizontalTileCount = 1;
@@ -1838,7 +1838,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		{
 			horizontalTileCount = this._requestedColumnCount;
 		}
-		var verticalTileCount:Int = Std.Int((height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
+		var verticalTileCount:Int = Std.int((height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 		if(verticalTileCount < 1)
 		{
 			verticalTileCount = 1;
@@ -1946,7 +1946,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var horizontalTileCount:Int = Std.Int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
+		var horizontalTileCount:Int = Std.int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		if(horizontalTileCount < 1)
 		{
 			horizontalTileCount = 1;
@@ -2041,16 +2041,18 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		x:Float, y:Float, width:Float, height:Float, result:Point = null,
 		nearest:Bool = false, scrollX:Float = 0, scrollY:Float = 0):Point
 	{
-		if(!result)
+		if(result == null)
 		{
 			result = new Point();
 		}
 
+		var calculatedTypicalItemWidth:Float = Math.NaN;
+		var calculatedTypicalItemHeight:Float = Math.NaN;
 		if(this._useVirtualLayout)
 		{
 			this.prepareTypicalItem();
-			var calculatedTypicalItemWidth:Float = this._typicalItem ? this._typicalItem.width : 0;
-			var calculatedTypicalItemHeight:Float = this._typicalItem ? this._typicalItem.height : 0;
+			calculatedTypicalItemWidth = this._typicalItem != null ? this._typicalItem.width : 0;
+			calculatedTypicalItemHeight = this._typicalItem != null ? this._typicalItem.height : 0;
 		}
 
 		var itemCount:Int = items.length;
@@ -2061,14 +2063,15 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		//that case
 		if(!this._useVirtualLayout)
 		{
-			for(var i:Int = 0; i < itemCount; i++)
+			//for(var i:Int = 0; i < itemCount; i++)
+			for(i in 0 ... itemCount)
 			{
 				var item:DisplayObject = items[i];
-				if(!item)
+				if(item == null)
 				{
 					continue;
 				}
-				if(item is ILayoutDisplayObject && !ILayoutDisplayObject(item).includeInLayout)
+				if(Std.is(item, ILayoutDisplayObject) && !cast(item, ILayoutDisplayObject).includeInLayout)
 				{
 					continue;
 				}
@@ -2103,7 +2106,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 				tileWidth = tileHeight;
 			}
 		}
-		var horizontalTileCount:Int = (width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap);
+		var horizontalTileCount:Int = Std.int((width - this._paddingLeft - this._paddingRight + this._horizontalGap) / (tileWidth + this._horizontalGap));
 		if(horizontalTileCount < 1)
 		{
 			horizontalTileCount = 1;
@@ -2114,13 +2117,13 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		if(this._paging != PAGING_NONE)
 		{
-			var verticalTileCount:Int = (height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap);
+			var verticalTileCount:Int = Std.int((height - this._paddingTop - this._paddingBottom + this._verticalGap) / (tileHeight + this._verticalGap));
 			if(verticalTileCount < 1)
 			{
 				verticalTileCount = 1;
 			}
 			var perPage:Float = horizontalTileCount * verticalTileCount;
-			var pageIndex:Int = index / perPage;
+			var pageIndex:Int = Std.int(index / perPage);
 			if(this._paging == PAGING_HORIZONTAL)
 			{
 				result.x = pageIndex * width;
@@ -2134,7 +2137,7 @@ class TiledRowsLayout extends EventDispatcher implements IVirtualLayout
 		}
 		else
 		{
-			var resultY:Float = this._paddingTop + ((tileHeight + this._verticalGap) * Int(index / horizontalTileCount));
+			var resultY:Float = this._paddingTop + ((tileHeight + this._verticalGap) * Std.int(index / horizontalTileCount));
 			if(nearest)
 			{
 				var bottomPosition:Float = resultY - (height - tileHeight);

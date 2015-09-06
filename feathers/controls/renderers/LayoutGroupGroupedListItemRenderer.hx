@@ -13,6 +13,9 @@ import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
 
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_SIZE;
+
 /**
  * Based on <code>LayoutGroup</code>, this component is meant as a base
  * class for creating a custom item renderer for a <code>GroupedList</code>
@@ -183,6 +186,7 @@ class LayoutGroupGroupedListItemRenderer extends LayoutGroup implements IGrouped
 		//LayoutGroup doesn't know about INVALIDATION_FLAG_DATA, so we need
 		//set set another flag that it understands.
 		this.invalidate(INVALIDATION_FLAG_SIZE);
+		return get_data();
 	}
 
 	/**

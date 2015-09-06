@@ -5,9 +5,9 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.controls.supportClasses.IScreenNavigatorItem;
+import openfl.errors.ArgumentError;
 
 import starling.display.DisplayObject;
 
@@ -47,7 +47,7 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	private var _screen:Object;
+	private var _screen:Dynamic;
 	
 	/**
 	 * The screen to be displayed by the <code>ScreenNavigator</code>. It
@@ -74,7 +74,8 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public function get_screen():Object
+	public var screen(get, set):Dynamic;
+	public function get_screen():Dynamic
 	{
 		return this._screen;
 	}
@@ -82,15 +83,16 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_screen(value:Object):Object
+	public function set_screen(value:Dynamic):Dynamic
 	{
 		this._screen = value;
+		return get_screen();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _events:Object;
+	private var _events:Dynamic;
 	
 	/**
 	 * A set of key-value pairs representing actions that should be
@@ -106,7 +108,8 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #setFunctionForEvent()
 	 * @see #setScreenIDForEvent()
 	 */
-	public function get_events():Object
+	public var events(get, set):Dynamic;
+	public function get_events():Dynamic
 	{
 		return this._events;
 	}
@@ -114,19 +117,20 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_events(value:Object):Object
+	public function set_events(value:Dynamic):Dynamic
 	{
 		if(!value)
 		{
 			value = {};
 		}
 		this._events = value;
+		return get_events();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _properties:Object;
+	private var _properties:Dynamic;
 	
 	/**
 	 * A set of key-value pairs representing properties to be set on the
@@ -134,7 +138,8 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * property, and a pair's value is the value to be passed to the
 	 * screen's property.
 	 */
-	public function get_properties():Object
+	public var properties(get, set):Dynamic;
+	public function get_properties():Dynamic
 	{
 		return this._properties;
 	}
@@ -142,21 +147,23 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_properties(value:Object):Object
+	public function set_properties(value:Dynamic):Dynamic
 	{
 		if(!value)
 		{
 			value = {};
 		}
 		this._properties = value;
+		return get_properties();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
+	public var canDispose(get, never):Bool;
 	public function get_canDispose():Bool
 	{
-		return !(this._screen is DisplayObject);
+		return !Std.is(this._screen, DisplayObject);
 	}
 
 	/**
@@ -173,9 +180,9 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearEvent()
 	 * @see #events
 	 */
-	public function setFunctionForEvent(eventType:String, action:Function):Void
+	public function setFunctionForEvent(eventType:String, action:Dynamic):Void
 	{
-		this._events[eventType] = action;
+		Reflect.setField(this._events, eventType, action);
 	}
 
 	/**
@@ -195,7 +202,7 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function setScreenIDForEvent(eventType:String, screenID:String):Void
 	{
-		this._events[eventType] = screenID;
+		Reflect.setField(this._events, eventType, screenID);
 	}
 
 	/**
@@ -206,7 +213,7 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function clearEvent(eventType:String):Void
 	{
-		delete this._events[eventType];
+		Reflect.deleteField(this._events, eventType);
 	}
 	
 	/**
@@ -215,29 +222,29 @@ class ScreenNavigatorItem implements IScreenNavigatorItem
 	public function getScreen():DisplayObject
 	{
 		var screenInstance:DisplayObject;
-		if(this._screen is Class)
+		if(Std.is(this._screen, Class))
 		{
-			var ScreenType:Class = Class(this._screen);
-			screenInstance = new ScreenType();
+			var ScreenType:Class<Dynamic> = cast this._screen;
+			screenInstance = Type.createInstance(ScreenType, []);
 		}
-		else if(this._screen is Function)
+		else if(Reflect.isFunction(this._screen))
 		{
-			screenInstance = DisplayObject((this._screen as Function)());
+			screenInstance = cast(this._screen(), DisplayObject);
 		}
 		else
 		{
-			screenInstance = DisplayObject(this._screen);
+			screenInstance = cast(this._screen, DisplayObject);
 		}
-		if(!(screenInstance is DisplayObject))
+		if(!Std.is(screenInstance, DisplayObject))
 		{
 			throw new ArgumentError("ScreenNavigatorItem \"getScreen()\" must return a Starling display object.");
 		}
 		
 		if(this._properties)
 		{
-			for(var propertyName:String in this._properties)
+			for(propertyName in Reflect.fields(this._properties))
 			{
-				screenInstance[propertyName] = this._properties[propertyName];
+				Reflect.setProperty(screenInstance, propertyName, Reflect.field(this._properties, propertyName));
 			}
 		}
 		

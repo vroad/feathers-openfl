@@ -5,11 +5,12 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.controls
-{
+package feathers.controls;
 import feathers.controls.supportClasses.IScreenNavigatorItem;
 
 import starling.display.DisplayObject;
+
+import openfl.errors.ArgumentError;
 
 /**
  * Data for an individual screen that will be displayed by a
@@ -47,11 +48,11 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @param popEvent An event that pops the screen from the top of the stack.
 	 * @param properties A set of key-value pairs to pass to the screen when it is shown.
 	 */
-	public function StackScreenNavigatorItem(screen:Object, pushEvents:Object = null, popEvent:String = null, properties:Object = null)
+	public function new(screen:Dynamic, pushEvents:Dynamic = null, popEvent:String = null, properties:Dynamic = null)
 	{
 		this._screen = screen;
 		this._pushEvents = pushEvents ? pushEvents : {};
-		if(popEvent)
+		if(popEvent != null)
 		{
 			this.addPopEvent(popEvent);
 		}
@@ -61,7 +62,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	private var _screen:Object;
+	private var _screen:Dynamic;
 
 	/**
 	 * The screen to be displayed by the <code>ScreenNavigator</code>. It
@@ -88,7 +89,8 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 *
 	 * @default null
 	 */
-	public function get_screen():Object
+	public var screen(get, set):Dynamic;
+	public function get_screen():Dynamic
 	{
 		return this._screen;
 	}
@@ -96,15 +98,16 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_screen(value:Object):Object
+	public function set_screen(value:Dynamic):Dynamic
 	{
 		this._screen = value;
+		return get_screen();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _pushEvents:Object;
+	private var _pushEvents:Dynamic;
 
 	/**
 	 * A set of key-value pairs representing actions that should be
@@ -120,7 +123,8 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #setFunctionForPushEvent()
 	 * @see #setScreenIDForPushEvent()
 	 */
-	public function get_pushEvents():Object
+	public var pushEvents(get, set):Dynamic;
+	public function get_pushEvents():Dynamic
 	{
 		return this._pushEvents;
 	}
@@ -128,13 +132,14 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_pushEvents(value:Object):Object
+	public function set_pushEvents(value:Dynamic):Dynamic
 	{
-		if(!value)
+		if(value == null)
 		{
 			value = {};
 		}
 		this._pushEvents = value;
+		return get_pushEvents();
 	}
 
 	/**
@@ -149,6 +154,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopEvent()
 	 * @see #removePopEvent()
 	 */
+	public var popEvents(get, set):Array<String>;
 	public function get_popEvents():Array<String>
 	{
 		return this._popEvents;
@@ -157,13 +163,14 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popEvents(value:Array<String>):Void
+	public function set_popEvents(value:Array<String>):Array<String>
 	{
-		if(!value)
+		if(value == null)
 		{
-			value = new <String>[];
+			value = new Array<String>();
 		}
 		this._popEvents = value;
+		return get_popEvents();
 	}
 
 	/**
@@ -178,6 +185,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #addPopToRootEvent()
 	 * @see #removePopToRootEvent()
 	 */
+	public var popToRootEvents(get, set):Array<String>;
 	public function get_popToRootEvents():Array<String>
 	{
 		return this._popToRootEvents;
@@ -186,15 +194,16 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set popToRootEvents(value:Array<String>):Void
+	public function set_popToRootEvents(value:Array<String>):Array<String>
 	{
 		this._popToRootEvents = value;
+		return get_popToRootEvents();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _properties:Object;
+	private var _properties:Dynamic;
 
 	/**
 	 * A set of key-value pairs representing properties to be set on the
@@ -202,7 +211,8 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * property, and a pair's value is the value to be passed to the
 	 * screen's property.
 	 */
-	public function get_properties():Object
+	public var properties(get, set):Dynamic;
+	public function get_properties():Dynamic
 	{
 		return this._properties;
 	}
@@ -210,19 +220,20 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_properties(value:Object):Object
+	public function set_properties(value:Dynamic):Dynamic
 	{
-		if(!value)
+		if(value == null)
 		{
 			value = {};
 		}
 		this._properties = value;
+		return get_properties();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _pushTransition:Function;
+	private var _pushTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * A custom push transition for this screen only. If <code>null</code>,
@@ -270,7 +281,8 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see feathers.controls.StackScreenNavigator#pushTransition
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get_pushTransition():Function
+	public var pushTransition(get, set):DisplayObject->DisplayObject->Dynamic->Void;
+	public function get_pushTransition():DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return this._pushTransition;
 	}
@@ -278,15 +290,16 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_pushTransition(value:Function):Function
+	public function set_pushTransition(value:DisplayObject->DisplayObject->Dynamic->Void):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		this._pushTransition = value;
+		return get_pushTransition();
 	}
 
 	/**
 	 * @private
 	 */
-	private var _popTransition:Function;
+	private var _popTransition:DisplayObject->DisplayObject->Dynamic->Void;
 
 	/**
 	 * A custom pop transition for this screen only. If <code>null</code>,
@@ -334,7 +347,8 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see ../../../help/transitions.html Transitions for Feathers screen navigators
 	 */
-	public function get_popTransition():Function
+	public var popTransition(get, set):DisplayObject->DisplayObject->Dynamic->Void;
+	public function get_popTransition():DisplayObject->DisplayObject->Dynamic->Void
 	{
 		return this._popTransition;
 	}
@@ -342,17 +356,19 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	/**
 	 * @private
 	 */
-	public function set_popTransition(value:Function):Function
+	public function set_popTransition(value:DisplayObject->DisplayObject->Dynamic->Void):DisplayObject->DisplayObject->Dynamic->Void
 	{
 		this._popTransition = value;
+		return get_popTransition();
 	}
 
 	/**
 	 * @inheritDoc
 	 */
+	public var canDispose(get, never):Bool;
 	public function get_canDispose():Bool
 	{
-		return !(this._screen is DisplayObject);
+		return !Std.is(this._screen, DisplayObject);
 	}
 
 	/**
@@ -369,9 +385,9 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 * @see #clearEvent()
 	 * @see #events
 	 */
-	public function setFunctionForPushEvent(eventType:String, action:Function):Void
+	public function setFunctionForPushEvent(eventType:String, action:Dynamic):Void
 	{
-		this._pushEvents[eventType] = action;
+		Reflect.setField(this._pushEvents, eventType, action);
 	}
 
 	/**
@@ -392,7 +408,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function setScreenIDForPushEvent(eventType:String, screenID:String):Void
 	{
-		this._pushEvents[eventType] = screenID;
+		Reflect.setField(this._pushEvents, eventType, screenID);
 	}
 
 	/**
@@ -403,7 +419,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function clearPushEvent(eventType:String):Void
 	{
-		delete this._pushEvents[eventType];
+		Reflect.deleteField(this._pushEvents, eventType);
 	}
 
 	/**
@@ -422,9 +438,9 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function addPopEvent(eventType:String):Void
 	{
-		if(!this._popEvents)
+		if(this._popEvents == null)
 		{
-			this._popEvents = new <String>[];
+			this._popEvents = new Array<String>();
 		}
 		var index:Int = this._popEvents.indexOf(eventType);
 		if(index >= 0)
@@ -450,7 +466,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function removePopEvent(eventType:String):Void
 	{
-		if(!this._popEvents)
+		if(this._popEvents == null)
 		{
 			return;
 		}
@@ -478,9 +494,9 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function addPopToRootEvent(eventType:String):Void
 	{
-		if(!this._popToRootEvents)
+		if(this._popToRootEvents == null)
 		{
-			this._popToRootEvents = new <String>[];
+			this._popToRootEvents = new Array<String>();
 		}
 		var index:Int = this._popToRootEvents.indexOf(eventType);
 		if(index >= 0)
@@ -506,7 +522,7 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	 */
 	public function removePopToRootEvent(eventType:String):Void
 	{
-		if(!this._popToRootEvents)
+		if(this._popToRootEvents == null)
 		{
 			return;
 		}
@@ -524,32 +540,31 @@ class StackScreenNavigatorItem implements IScreenNavigatorItem
 	public function getScreen():DisplayObject
 	{
 		var screenInstance:DisplayObject;
-		if(this._screen is Class)
+		if(Std.is(this._screen, Class))
 		{
-			var ScreenType:Class = Class(this._screen);
-			screenInstance = new ScreenType();
+			var ScreenType:Class<Dynamic> = cast this._screen;
+			screenInstance = Type.createInstance(ScreenType, []);
 		}
-		else if(this._screen is Function)
+		else if(Reflect.isFunction(this._screen))
 		{
-			screenInstance = DisplayObject((this._screen as Function)());
+			screenInstance = cast(this._screen(), DisplayObject);
 		}
 		else
 		{
-			screenInstance = DisplayObject(this._screen);
+			screenInstance = cast(this._screen, DisplayObject);
 		}
-		if(!(screenInstance is DisplayObject))
+		if(!Std.is(screenInstance, DisplayObject))
 		{
 			throw new ArgumentError("ScreenNavigatorItem \"getScreen()\" must return a Starling display object.");
 		}
 		if(this._properties)
 		{
-			for(var propertyName:String in this._properties)
+			for(propertyName in Reflect.fields(this._properties))
 			{
-				screenInstance[propertyName] = this._properties[propertyName];
+				Reflect.setProperty(screenInstance, propertyName, Reflect.field(this._properties, propertyName));
 			}
 		}
 
 		return screenInstance;
 	}
-}
 }

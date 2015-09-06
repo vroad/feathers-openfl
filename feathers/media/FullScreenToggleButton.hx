@@ -5,13 +5,14 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.ToggleButton;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
 
 import starling.events.Event;
+
+import feathers.utils.type.SafeCast.safe_cast;
 
 /**
  * A specialized toggle button that controls whether a media player is
@@ -33,7 +34,7 @@ class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * Constructor.
 	 */
-	public function FullScreenToggleButton()
+	public function new()
 	{
 		super();
 		//we don't actually want this to toggle automatically. instead,
@@ -59,6 +60,7 @@ class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -71,18 +73,19 @@ class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.DISPLAY_STATE_CHANGE, mediaPlayer_displayStageChangeHandler);
 		}
-		this._mediaPlayer = value as VideoPlayer;
-		if(this._mediaPlayer)
+		this._mediaPlayer = safe_cast(value, VideoPlayer);
+		if(this._mediaPlayer != null)
 		{
 			this.isSelected = this._mediaPlayer.isFullScreen;
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.DISPLAY_STATE_CHANGE, mediaPlayer_displayStageChangeHandler);
 		}
+		return get_mediaPlayer();
 	}
 	
 	/**
@@ -100,5 +103,4 @@ class FullScreenToggleButton extends ToggleButton implements IMediaPlayerControl
 	{
 		this.isSelected = this._mediaPlayer.isFullScreen;
 	}
-}
 }
