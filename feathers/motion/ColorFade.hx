@@ -32,8 +32,9 @@ class ColorFade
 	 * This was accidentally named wrong. It is included for temporary
 	 * backward compatibility.
 	 */
-	public static function createBlackFadeToBlackTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createBlackFadeToBlackTransition(duration:Float = 0.75, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return createBlackFadeTransition(duration, ease, tweenProperties);
 	}
 
@@ -48,8 +49,9 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createBlackFadeTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createBlackFadeTransition(duration:Float = 0.75, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return createColorFadeTransition(0x000000, duration, ease, tweenProperties);
 	}
 
@@ -63,8 +65,9 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createWhiteFadeTransition(duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createWhiteFadeTransition(duration:Float = 0.75, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return createColorFadeTransition(0xffffff, duration, ease, tweenProperties);
 	}
 
@@ -79,8 +82,9 @@ class ColorFade
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createColorFadeTransition(color:UInt, duration:Float = 0.75, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createColorFadeTransition(color:UInt, duration:Float = 0.75, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:DisplayObject->DisplayObject->Dynamic->Void):Void
 		{
 			if(oldScreen == null && newScreen == null)

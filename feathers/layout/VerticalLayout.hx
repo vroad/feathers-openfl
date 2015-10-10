@@ -141,7 +141,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 	/**
 	 * @private
 	 */
-	private var _heightCache:Array<Float> = [];
+	private var _heightCache:Array<Null<Float>> = [];
 
 	/**
 	 * @private
@@ -994,7 +994,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				cachedHeight = iNormalized < this._heightCache.length ? this._heightCache[iNormalized] : Math.NaN;
+				cachedHeight = getHeightFromCache(iNormalized);
 			}
 			if(this._useVirtualLayout && item == null)
 			{
@@ -1342,7 +1342,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 				//for(var i:Int = 0; i < itemCount; i++)
 				for(i in 0 ... itemCount)
 				{
-					var cachedHeight:Float = i < this._heightCache.length ? this._heightCache[i] : Math.NaN;
+					var cachedHeight:Float = getHeightFromCache(i);
 					if(cachedHeight != cachedHeight) //isNaN
 					{
 						positionY += calculatedTypicalItemHeight + this._gap;
@@ -1559,7 +1559,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			{
 				gap = this._lastGap;
 			}
-			var cachedHeight:Float = i < this._heightCache.length ? this._heightCache[i] : Math.NaN;
+			var cachedHeight:Float = getHeightFromCache(i);
 			if(cachedHeight != cachedHeight) //isNaN
 			{
 				itemHeight = calculatedTypicalItemHeight;
@@ -1641,7 +1641,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				itemHeight = this._heightCache[index];
+				itemHeight = getHeightFromCache(index);
 				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
@@ -1657,6 +1657,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			itemHeight = items[index].height;
 		}
 
+		if(result == null)
 		{
 			result = new Point();
 		}
@@ -1698,7 +1699,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				itemHeight = this._heightCache[index];
+				itemHeight = getHeightFromCache(index);
 				if(itemHeight != itemHeight) //isNaN
 				{
 					itemHeight = this._typicalItem.height;
@@ -2061,7 +2062,7 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 			}
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				cachedHeight = this._heightCache[iNormalized];
+				cachedHeight = getHeightFromCache(iNormalized);
 			}
 			if(this._useVirtualLayout && item == null)
 			{
@@ -2101,5 +2102,12 @@ class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout i
 		}
 		positionY -= (lastHeight + gap);
 		return positionY;
+	}
+	
+	private function getHeightFromCache(index:Int):Float
+	{
+		if (index >= this._heightCache.length) return Math.NaN;
+		var itemHeight:Null<Float> = this._heightCache[index];
+		return itemHeight != null ? itemHeight : Math.NaN;
 	}
 }

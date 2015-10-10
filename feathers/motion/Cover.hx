@@ -37,8 +37,9 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverLeftTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createCoverLeftTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -73,8 +74,9 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverRightTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createCoverRightTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -109,8 +111,9 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverUpTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createCoverUpTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -145,8 +148,9 @@ class Cover
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createCoverDownTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createCoverDownTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)

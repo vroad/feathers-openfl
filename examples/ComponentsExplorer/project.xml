@@ -28,6 +28,6 @@
 	
 	<haxedef name="disable_gl_renderer" />
 	
-	<haxeflag name="-swf-version" value="11.4" if="flash" />
+	<haxeflag name="-swf-version" value="11.8" if="flash" />
 	
 </project>

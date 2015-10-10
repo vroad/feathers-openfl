@@ -38,8 +38,9 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createIrisOpenTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -71,8 +72,9 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisOpenTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createIrisOpenTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -92,8 +94,9 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransition(duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createIrisCloseTransition(duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)
@@ -125,8 +128,9 @@ class Iris
 	 * @see feathers.controls.StackScreenNavigator#popTransition
 	 * @see feathers.controls.ScreenNavigator#transition
 	 */
-	public static function createIrisCloseTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = Transitions.EASE_OUT, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
+	public static function createIrisCloseTransitionAt(x:Float, y:Float, duration:Float = 0.5, ease:String = null, tweenProperties:Dynamic = null):DisplayObject->DisplayObject->Dynamic->Void
 	{
+		if (ease == null) ease = Transitions.EASE_OUT;
 		return function(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Dynamic):Void
 		{
 			if(oldScreen == null && newScreen == null)

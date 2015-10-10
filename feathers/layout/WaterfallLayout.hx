@@ -7,7 +7,6 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.layout;
 import feathers.core.IValidating;
-import feathers.utils.ArrayUtil;
 import openfl.errors.RangeError;
 
 import flash.errors.IllegalOperationError;

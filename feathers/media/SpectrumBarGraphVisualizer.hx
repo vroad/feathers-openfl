@@ -5,18 +5,23 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.core.FeathersControl;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
 
+#if flash
 import flash.media.SoundMixer;
+#end
 import flash.utils.ByteArray;
 
 import starling.display.Quad;
 import starling.display.QuadBatch;
 import starling.events.Event;
+
+import feathers.utils.type.SafeCast.safe_cast;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * A visualization of the audio spectrum of the runtime's currently playing
@@ -48,8 +53,9 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * Constructor
 	 */
-	public function SpectrumBarGraphVisualizer()
+	public function new()
 	{
+		super();
 		this.isQuickHitAreaEnabled = true;
 	}
 
@@ -74,7 +80,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @private
 	 */
-	private var _barValues:Array<Float> = new <Float>[];
+	private var _barValues:Array<Float> = new Array<Float>();
 
 	/**
 	 * @private
@@ -84,6 +90,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * The number of bars displayed by the visualizer.
 	 */
+	public var barCount(get, set):Int;
 	public function get_barCount():Int
 	{
 		return this._barCount;
@@ -104,10 +111,11 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		}
 		if(this._barCount == value)
 		{
-			return;
+			return get_barCount();
 		}
 		this._barCount = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_barCount();
 	}
 
 	/**
@@ -118,6 +126,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -130,10 +139,11 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -144,6 +154,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * The color of the bars.
 	 */
+	public var color(get, set):UInt;
 	public function get_color():UInt
 	{
 		return this._color;
@@ -156,10 +167,11 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		if(this._color == value)
 		{
-			return;
+			return get_color();
 		}
 		this._color = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_color();
 	}
 
 	/**
@@ -170,6 +182,7 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -182,19 +195,20 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.PLAYBACK_STATE_CHANGE, mediaPlayer_playbackStateChange);
 		}
-		this._mediaPlayer = value as ITimedMediaPlayer;
-		if(this._mediaPlayer)
+		this._mediaPlayer = safe_cast(value, ITimedMediaPlayer);
+		if(this._mediaPlayer != null)
 		{
 			this.handlePlaybackStateChange();
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.PLAYBACK_STATE_CHANGE, mediaPlayer_playbackStateChange);
 		}
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -266,18 +280,27 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 			return;
 		}
 		
+		#if flash
 		SoundMixer.computeSpectrum(this._bytes, true, 0);
+		#else
+		trace("WARNING: SoundMixer.computeSpectrum is not implemented for this platform");
+		#end
 		
+		#if 0
 		this._barValues.length = barCount;
-		var valuesPerBar:Int = 256 / barCount;
+		#end
+		var valuesPerBar:Int = Std.int(256 / barCount);
+		var float:Float;
 		//read left values
-		for(var i:Int = 0; i < barCount; i++)
+		//for(var i:Int = 0; i < barCount; i++)
+		for(i in 0 ... barCount)
 		{
 			//reset to zero first
 			this._barValues[i] = 0;
-			for(var j:Int = 0; j < valuesPerBar; j++)
+			//for(var j:Int = 0; j < valuesPerBar; j++)
+			for(j in 0 ... valuesPerBar)
 			{
-				var float:Float = this._bytes.readFloat();
+				float = this._bytes.readFloat();
 				if(float > 1)
 				{
 					float = 1;
@@ -287,9 +310,11 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		}
 		//read right values
 		this._bytes.position = 1024;
-		for(i = 0; i < barCount; i++)
+		//for(i = 0; i < barCount; i++)
+		for(i in 0 ... barCount)
 		{
-			for(j = 0; j < valuesPerBar; j++)
+			//for(j = 0; j < valuesPerBar; j++)
+			for(j in 0 ... valuesPerBar)
 			{
 				float = this._bytes.readFloat();
 				if(float > 1)
@@ -305,7 +330,8 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 		var xPosition:Float = 0;
 		var maxHeight:Float = this.actualHeight - 1;
 		HELPER_QUAD.color = this._color;
-		for(i = 0; i < barCount; i++)
+		//for(i = 0; i < barCount; i++)
+		for(i in 0 ... barCount)
 		{
 			HELPER_QUAD.x = xPosition;
 			HELPER_QUAD.width = barWidth;
@@ -346,5 +372,4 @@ class SpectrumBarGraphVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
-}
 }

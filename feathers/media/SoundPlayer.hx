@@ -5,10 +5,10 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
+import openfl.errors.ArgumentError;
 
 import flash.errors.IllegalOperationError;
 
@@ -44,7 +44,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.MediaPlayerEventType.LOAD_PROGRESS
  */
+#if 0
 [Event(name="loadProgress",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when a media player's content is fully loaded and it
@@ -69,7 +71,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.MediaPlayerEventType.LOAD_COMPLETE
  */
+#if 0
 [Event(name="loadComplete",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the <code>flash.media.Sound</code> object dispatches
@@ -95,7 +99,9 @@ import starling.events.Event;
  *
  * @eventType starling.events.Event.IO_ERROR
  */
+#if 0
 [Event(name="ioError",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the <code>flash.media.Sound</code> object dispatches
@@ -121,7 +127,9 @@ import starling.events.Event;
  *
  * @eventType starling.events.Event.SECURITY_ERROR
  */
+#if 0
 [Event(name="securityError",type="starling.events.Event")]
+#end
 
 /**
  * Dispatched when the media player's sound transform changes.
@@ -145,7 +153,9 @@ import starling.events.Event;
  *
  * @eventType feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
  */
+#if 0
 [Event(name="soundTransformChange",type="starling.events.Event")]
+#end
 
 /**
  * Controls playback of audio with a <code>flash.media.Sound</code> object.
@@ -180,7 +190,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * Constructor.
 	 */
-	public function SoundPlayer()
+	public function new()
 	{
 		super();
 	}
@@ -204,6 +214,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * 
 	 * @see #soundSource
 	 */
+	public var sound(get, never):Sound;
 	public function get_sound():Sound
 	{
 		return this._sound;
@@ -217,6 +228,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * The currently playing <code>flash.media.SoundChannel</code>.
 	 */
+	public var soundChannel(get, never):SoundChannel;
 	public function get_soundChannel():SoundChannel
 	{
 		return this._soundChannel;
@@ -225,7 +237,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	private var _soundSource:Object;
+	private var _soundSource:Dynamic;
 
 	/**
 	 * A URL specified as a <code>String</code> representing a URL, a
@@ -243,7 +255,8 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequest.html flash.net.URLRequest
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Sound.html flash.media.Sound
 	 */
-	public function get_soundSource():Object
+	public var soundSource(get, set):Dynamic;
+	public function get_soundSource():Dynamic
 	{
 		return this._soundSource;
 	}
@@ -251,11 +264,11 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	/**
 	 * @private
 	 */
-	public function set_soundSource(value:Object):Object
+	public function set_soundSource(value:Dynamic):Dynamic
 	{
 		if(this._soundSource == value)
 		{
-			return;
+			return get_soundSource();
 		}
 		if(this._isPlaying)
 		{
@@ -275,17 +288,17 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 			this.dispatchEventWith(MediaPlayerEventType.TOTAL_TIME_CHANGE);
 		}
 		this._isLoaded = false;
-		if(this._soundSource is String)
+		if(Std.is(this._soundSource, String))
 		{
-			this.loadSourceFromURL(value as String);
+			this.loadSourceFromURL(cast value);
 		}
-		else if(this._soundSource is URLRequest)
+		else if(Std.is(this._soundSource, URLRequest))
 		{
-			this.loadSourceFromURLRequest(URLRequest(value));
+			this.loadSourceFromURLRequest(cast value);
 		}
-		else if(this._soundSource is Sound)
+		else if(Std.is(this._soundSource, Sound))
 		{
-			this._sound = Sound(this._soundSource);
+			this._sound = cast this._soundSource;
 		}
 		else if(this._soundSource == null)
 		{
@@ -293,12 +306,13 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 		}
 		else
 		{
-			throw new ArgumentError("Invalid source type for AudioPlayer. Expected a URL as a String, an URLRequest, a Sound object, or null.")
+			throw new ArgumentError("Invalid source type for AudioPlayer. Expected a URL as a String, an URLRequest, a Sound object, or null.");
 		}
-		if(this._autoPlay && this._sound)
+		if(this._autoPlay && this._sound != null)
 		{
 			this.play();
 		}
+		return get_soundSource();
 	}
 
 	/**
@@ -310,6 +324,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * Indicates if the <code>flash.media.Sound</code> object is currently
 	 * loading its content.
 	 */
+	public var isLoading(get, never):Bool;
 	public function get_isLoading():Bool
 	{
 		return this._isLoading;
@@ -327,6 +342,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see #event:loadProgress feathers.events.MediaPlayerEventType.LOAD_PROGRESS
 	 * @see #event:loadComplete feathers.events.MediaPlayerEventType.LOAD_COMPLETE
 	 */
+	public var isLoaded(get, never):Bool;
 	public function get_isLoaded():Bool
 	{
 		return this._isLoaded;
@@ -348,9 +364,10 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/SoundTransform.html flash.media.SoundTransform
 	 * @see #event:soundTransformChange feathers.events.MediaPlayerEventType.SOUND_TRANSFORM_CHANGE
 	 */
+	public var soundTransform(get, set):SoundTransform;
 	public function get_soundTransform():SoundTransform
 	{
-		if(!this._soundTransform)
+		if(this._soundTransform == null)
 		{
 			this._soundTransform = new SoundTransform();
 		}
@@ -363,11 +380,12 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	public function set_soundTransform(value:SoundTransform):SoundTransform
 	{
 		this._soundTransform = value;
-		if(this._soundChannel)
+		if(this._soundChannel != null)
 		{
 			this._soundChannel.soundTransform = this._soundTransform;
 		}
 		this.dispatchEventWith(MediaPlayerEventType.SOUND_TRANSFORM_CHANGE);
+		return get_soundTransform();
 	}
 
 	/**
@@ -386,6 +404,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * 
 	 * @see #soundSource
 	 */
+	public var autoPlay(get, set):Bool;
 	public function get_autoPlay():Bool
 	{
 		return this._autoPlay;
@@ -397,6 +416,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	public function set_autoPlay(value:Bool):Bool
 	{
 		this._autoPlay = value;
+		return get_autoPlay();
 	}
 
 	/**
@@ -417,6 +437,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 * <listing version="3.0">
 	 * soundPlayer.loop = true;</listing>
 	 */
+	public var loop(get, set):Bool;
 	public function get_loop():Bool
 	{
 		return this._loop;
@@ -428,6 +449,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	public function set_loop(value:Bool):Bool
 	{
 		this._loop = value;
+		return get_loop();
 	}
 
 	/**
@@ -435,7 +457,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 */
 	override private function playMedia():Void
 	{
-		if(!this._soundSource)
+		if(this._soundSource == null)
 		{
 			throw new IllegalOperationError(NO_SOUND_SOURCE_PLAY_ERROR);
 		}
@@ -448,7 +470,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 			this.handleSoundComplete();
 			return;
 		}
-		if(!this._soundTransform)
+		if(this._soundTransform == null)
 		{
 			this._soundTransform = new SoundTransform();
 		}
@@ -462,7 +484,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	 */
 	override private function pauseMedia():Void
 	{
-		if(!this._soundChannel)
+		if(this._soundChannel == null)
 		{
 			//this could be null when seeking
 			return;
@@ -514,7 +536,7 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 	private function loadSourceFromURLRequest(request:URLRequest):Void
 	{
 		this._isLoading = true;
-		if(this._sound)
+		if(this._sound != null)
 		{
 			this._sound.removeEventListener(IOErrorEvent.IO_ERROR, sound_errorHandler);
 			this._sound.removeEventListener(ProgressEvent.PROGRESS, sound_progressHandler);
@@ -583,5 +605,4 @@ class SoundPlayer extends BaseTimedMediaPlayer implements IAudioPlayer
 		this.handleSoundComplete();
 	}
 	
-}
 }

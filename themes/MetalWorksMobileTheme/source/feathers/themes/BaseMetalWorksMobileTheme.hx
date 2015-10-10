@@ -94,13 +94,13 @@ import openfl.text.TextFormatAlign;
 import openfl.geom.Rectangle;
 import openfl.text.TextFormat;
 #if flash
-import openfl.text.engine.CFFHinting;
-import openfl.text.engine.ElementFormat;
-import openfl.text.engine.FontDescription;
-import openfl.text.engine.FontLookup;
-import openfl.text.engine.FontPosture;
-import openfl.text.engine.FontWeight;
-import openfl.text.engine.RenderingMode;
+import flash.text.engine.CFFHinting;
+import flash.text.engine.ElementFormat;
+import flash.text.engine.FontDescription;
+import flash.text.engine.FontLookup;
+import flash.text.engine.FontPosture;
+import flash.text.engine.FontWeight;
+import flash.text.engine.RenderingMode;
 #end
 
 import starling.core.Starling;
@@ -131,10 +131,8 @@ class BaseMetalWorksMobileTheme extends StyleNameFunctionTheme
 	 * in normal and bold weights.
 	 */
 	inline public static var FONT_NAME:String = "SourceSansPro";
-	#if !flash
 	inline private static var FONT_FILE_NAME:String = "assets/fonts/SourceSansPro-Regular.ttf";
 	inline private static var BOLD_FONT_FILE_NAME:String = "assets/fonts/SourceSansPro-Semibold.ttf";
-	#end
 	inline private static var ELEMENT_FORMAT_STR:String = #if flash "elementFormat" #else "textFormat" #end;
 	inline private static var DISABLED_ELEMENT_FORMAT_STR:String = #if flash "disabledElementFormat" #else "disabledTextFormat" #end;
 

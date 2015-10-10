@@ -141,7 +141,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 	/**
 	 * @private
 	 */
-	private var _widthCache:Array<Float> = [];
+	private var _widthCache:Array<Null<Float>> = [];
 
 	/**
 	 * @private
@@ -994,7 +994,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			var cachedWidth:Float = Math.NaN;
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				cachedWidth = this._widthCache[iNormalized];
+				cachedWidth = getWidthFromCache(iNormalized);
 			}
 			if(this._useVirtualLayout && item == null)
 			{
@@ -1338,7 +1338,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 				//for(var i:Int = 0; i < itemCount; i++)
 				for(i in 0 ... itemCount)
 				{
-					var cachedWidth:Float = this._widthCache[i];
+					var cachedWidth:Float = getWidthFromCache(i);
 					if(cachedWidth != cachedWidth) //isNaN
 					{
 						positionX += calculatedTypicalItemWidth + this._gap;
@@ -1554,7 +1554,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			{
 				gap = this._lastGap;
 			}
-			var cachedWidth:Float = this._widthCache[i];
+			var cachedWidth:Float = getWidthFromCache(i);
 			if(cachedWidth != cachedWidth) //isNaN
 			{
 				itemWidth = calculatedTypicalItemWidth;
@@ -1634,7 +1634,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				itemWidth = this._widthCache[index];
+				itemWidth = getWidthFromCache(index);
 				if(itemWidth != itemWidth)
 				{
 					itemWidth = this._typicalItem.width;
@@ -1690,7 +1690,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		{
 			if(this._hasVariableItemDimensions)
 			{
-				itemWidth = this._widthCache[index];
+				itemWidth = getWidthFromCache(index);
 				if(itemWidth != itemWidth)
 				{
 					itemWidth = this._typicalItem.width;
@@ -2041,7 +2041,7 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 			var cachedWidth:Float = Math.NaN;
 			if(this._useVirtualLayout && this._hasVariableItemDimensions)
 			{
-				cachedWidth = this._widthCache[iNormalized];
+				cachedWidth = getWidthFromCache(iNormalized);
 			}
 			if(this._useVirtualLayout && item == null)
 			{
@@ -2081,5 +2081,12 @@ class HorizontalLayout extends EventDispatcher implements IVariableVirtualLayout
 		}
 		positionX -= (lastWidth + gap);
 		return positionX;
+	}
+    
+    private function getWidthFromCache(index:Int):Float
+	{
+		if (index >= this._widthCache.length) return Math.NaN;
+		var itemWidth:Null<Float> = this._widthCache[index];
+		return itemWidth != null ? itemWidth : Math.NaN;
 	}
 }

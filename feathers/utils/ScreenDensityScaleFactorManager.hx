@@ -5,10 +5,10 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.utils
-{
+package feathers.utils;
 import feathers.system.DeviceCapabilities;
-import feathers.utils.math.roundDownToNearest;
+import feathers.utils.math.FeathersMathUtil.roundDownToNearest;
+import openfl.errors.Error;
 
 import flash.display.Stage;
 import flash.events.Event;
@@ -16,6 +16,8 @@ import flash.geom.Rectangle;
 import flash.system.Capabilities;
 
 import starling.core.Starling;
+
+import starling.utils.Max;
 
 /**
  * Automatically manages the Starling view port and stage dimensions to
@@ -88,7 +90,7 @@ class ScreenDensityScaleFactorManager
 		this.updateStarlingStageDimensions();
 		//this needs top priority because we don't want Starling's listener
 		//to get this event first use have bad dimensions.
-		nativeStage.addEventListener(Event.RESIZE, nativeStage_resizeHandler, false, Int.MAX_VALUE, true);
+		nativeStage.addEventListener(Event.RESIZE, nativeStage_resizeHandler, false, Max.INT_MAX_VALUE, true);
 	}
 
 	/**
@@ -122,7 +124,8 @@ class ScreenDensityScaleFactorManager
 		}
 		var previousBucket:ScreenDensityBucket = bucket;
 		var bucketCount:Int = BUCKETS.length;
-		for(var i:Int = 1; i < bucketCount; i++)
+		//for(var i:Int = 1; i < bucketCount; i++)
+		for(i in 1 ... bucketCount)
 		{
 			bucket = BUCKETS[i];
 			if(screenDensity > bucket.density)
@@ -146,19 +149,19 @@ class ScreenDensityScaleFactorManager
 	private function updateStarlingStageDimensions():Void
 	{
 		var nativeStage:Stage = this._starling.nativeStage;
-		var needsToBeDivisibleByTwo:Bool = Int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
-		var starlingStageWidth:Float = Int(nativeStage.stageWidth / this._calculatedScaleFactor);
+		var needsToBeDivisibleByTwo:Bool = Std.int(this._calculatedScaleFactor) != this._calculatedScaleFactor;
+		var starlingStageWidth:Float = Std.int(nativeStage.stageWidth / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageWidth = roundDownToNearest(starlingStageWidth, 2);
 		}
-		this._starling.stage.stageWidth = starlingStageWidth;
-		var starlingStageHeight:Float = Int(nativeStage.stageHeight / this._calculatedScaleFactor);
+		this._starling.stage.stageWidth = Std.int(starlingStageWidth);
+		var starlingStageHeight:Float = Std.int(nativeStage.stageHeight / this._calculatedScaleFactor);
 		if(needsToBeDivisibleByTwo)
 		{
 			starlingStageHeight = roundDownToNearest(starlingStageHeight, 2);
 		}
-		this._starling.stage.stageHeight = starlingStageHeight;
+		this._starling.stage.stageHeight = Std.int(starlingStageHeight);
 		
 		var viewPort:Rectangle = this._starling.viewPort;
 		viewPort.width = starlingStageWidth * this._calculatedScaleFactor;
@@ -177,28 +180,26 @@ class ScreenDensityScaleFactorManager
 	{
 		this.updateStarlingStageDimensions();
 	}
-}
+	
+	private static var BUCKETS:Array<ScreenDensityBucket> = 
+	[
+		new ScreenDensityBucket(120, 0.75), //ldpi
+		new ScreenDensityBucket(160, 1), //mdpi
+		new ScreenDensityBucket(240, 1.5), //hdpi
+		new ScreenDensityBucket(320, 2), //xhdpi
+		new ScreenDensityBucket(480, 3), //xxhdpi
+		new ScreenDensityBucket(640, 4) ///xxxhpi
+	];
 }
 
 class ScreenDensityBucket
 {
-public function ScreenDensityBucket(dpi:Float, scale:Float)
-{
-	this.density = dpi;
-	this.scale = scale;
+	public function new(dpi:Float, scale:Float)
+	{
+		this.density = dpi;
+		this.scale = scale;
+	}
+
+	public var density:Float;
+	public var scale:Float;
 }
-
-public var density:Float;
-public var scale:Float;
-}
-
-
-var BUCKETS:Array<ScreenDensityBucket> = new <ScreenDensityBucket>
-[
-new ScreenDensityBucket(120, 0.75), //ldpi
-new ScreenDensityBucket(160, 1), //mdpi
-new ScreenDensityBucket(240, 1.5), //hdpi
-new ScreenDensityBucket(320, 2), //xhdpi
-new ScreenDensityBucket(480, 3), //xxhdpi
-new ScreenDensityBucket(640, 4) ///xxxhpi
-];

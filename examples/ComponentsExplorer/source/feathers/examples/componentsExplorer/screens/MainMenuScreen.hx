@@ -84,7 +84,9 @@ class MainMenuScreen extends PanelScreen
 		this._list.dataProvider = new ListCollection(
 		[
 			{ label: "Alert", event: SHOW_ALERT },
+            #if flash
 			{ label: "Auto-complete", event: SHOW_AUTO_COMPLETE },
+            #end
 			{ label: "Button", event: SHOW_BUTTON },
 			{ label: "Button Group", event: SHOW_BUTTON_GROUP },
 			{ label: "Callout", event: SHOW_CALLOUT },

@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.core.FeathersControl;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
@@ -15,6 +14,10 @@ import flash.media.SoundChannel;
 
 import starling.display.Quad;
 import starling.events.Event;
+
+import feathers.utils.type.SafeCast.safe_cast;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
+import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
 
 /**
  * A visualization of the left and right peaks of the
@@ -37,8 +40,9 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * Constructor.
 	 */
-	public function SoundChannelPeakVisualizer()
+	public function new()
 	{
+		super();
 	}
 
 	/**
@@ -67,6 +71,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * The gap, in pixels, between the bars.
 	 */
+	public var gap(get, set):Float;
 	public function get_gap():Float
 	{
 		return this._gap;
@@ -79,10 +84,11 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		if(this._gap == value)
 		{
-			return;
+			return get_gap();
 		}
 		this._gap = value;
 		this.invalidate(INVALIDATION_FLAG_STYLES);
+		return get_gap();
 	}
 
 	/**
@@ -93,6 +99,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -105,19 +112,20 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.PLAYBACK_STATE_CHANGE, mediaPlayer_playbackStateChange);
 		}
-		this._mediaPlayer = value as SoundPlayer;
-		if(this._mediaPlayer)
+		this._mediaPlayer = safe_cast(value, SoundPlayer);
+		if(this._mediaPlayer != null)
 		{
 			this.handlePlaybackStateChange();
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.PLAYBACK_STATE_CHANGE, mediaPlayer_playbackStateChange);
 		}
 		this.invalidate(INVALIDATION_FLAG_DATA);
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -134,12 +142,12 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	 */
 	override private function initialize():Void
 	{
-		if(!this.leftPeakBar)
+		if(this.leftPeakBar == null)
 		{
 			this.leftPeakBar = new Quad(1, 1);
 			this.addChild(this.leftPeakBar);
 		}
-		if(!this.rightPeakBar)
+		if(this.rightPeakBar == null)
 		{
 			this.rightPeakBar = new Quad(1, 1);
 			this.addChild(this.rightPeakBar);
@@ -153,7 +161,7 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		this.autoSizeIfNeeded();
 		
-		if(this._mediaPlayer && this._mediaPlayer.soundChannel)
+		if(this._mediaPlayer != null && this._mediaPlayer.soundChannel != null)
 		{
 			var soundChannel:SoundChannel = this._mediaPlayer.soundChannel;
 			var maxHeight:Float = this.actualHeight - 1;
@@ -228,5 +236,4 @@ class SoundChannelPeakVisualizer extends FeathersControl implements IMediaPlayer
 	{
 		this.invalidate(INVALIDATION_FLAG_DATA);
 	}
-}
 }

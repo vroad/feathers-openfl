@@ -50,6 +50,9 @@ import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.MatrixUtil;
 import starling.utils.PowerOfTwo.getNextPowerOfTwo;
+#if (!flash && !html5)
+import starling.text.TextRenderer;
+#end
 
 import feathers.core.FeathersControl.INVALIDATION_FLAG_DATA;
 import feathers.core.FeathersControl.INVALIDATION_FLAG_STYLES;
@@ -2007,17 +2010,26 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor impleme
 		{
 			HELPER_MATRIX.scale(globalScaleX, globalScaleY);
 		}
+		#if (flash || html5)
 		var bitmapData:BitmapData = new BitmapData(this._snapshotWidth, this._snapshotHeight, true, 0x00ff00ff);
 		bitmapData.draw(this.textField, HELPER_MATRIX, null, null, this._textFieldSnapshotClipRect);
+		#else
+		var textRenderer:TextRenderer = @:privateAccess starling.text.TextField.getTextRenderer(textField.defaultTextFormat);
+		#end
 		var newTexture:Texture = null;
 		if(this.textSnapshot == null || this._needsNewTexture)
 		{
 			//skip Texture.fromBitmapData() because we don't want
 			//it to create an onRestore function that will be
 			//immediately discarded for garbage collection. 
+			#if (flash || html5)
 			newTexture = Texture.empty(bitmapData.width / scaleFactor, bitmapData.height / scaleFactor,
 				true, false, false, scaleFactor);
 			newTexture.root.uploadBitmapData(bitmapData);
+			#else
+			newTexture = Texture.empty(this._snapshotWidth / scaleFactor, this._snapshotHeight / scaleFactor, true, false, true, scaleFactor);
+			textRenderer.renderText(this.textField, newTexture, HELPER_MATRIX);
+			#end
 			newTexture.root.onRestore = texture_onRestore;
 		}
 		if(this.textSnapshot == null)
@@ -2037,7 +2049,11 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor impleme
 			{
 				//this is faster, if we haven't resized the bitmapdata
 				var existingTexture:Texture = this.textSnapshot.texture;
+				#if (flash || html5)
 				existingTexture.root.uploadBitmapData(bitmapData);
+				#else
+				textRenderer.renderText(this.textField, existingTexture, HELPER_MATRIX);
+				#end
 			}
 		}
 		if(this._updateSnapshotOnScaleChange)
@@ -2048,7 +2064,9 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor impleme
 			this._lastGlobalScaleY = globalScaleY;
 		}
 		this.textSnapshot.alpha = this._text.length > 0 ? 1 : 0;
+		#if (flash || html5)
 		bitmapData.dispose();
+		#end
 		this._needsNewTexture = false;
 	}
 

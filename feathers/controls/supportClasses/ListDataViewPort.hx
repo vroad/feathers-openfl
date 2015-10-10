@@ -21,6 +21,7 @@ import feathers.layout.IVariableVirtualLayout;
 import feathers.layout.IVirtualLayout;
 import feathers.layout.LayoutBoundsResult;
 import feathers.layout.ViewPortBounds;
+import feathers.utils.type.ArrayUtil;
 import feathers.utils.type.UnionMap;
 import feathers.utils.type.UnionWeakMap;
 import feathers.utils.type.SafeCast.safe_cast;
@@ -945,7 +946,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			this._minimumItemCount = unrenderedItemCount;
 		}
 		var canUseBeforeAndAfter:Bool = Std.is(this._layout, ITrimmedVirtualLayout) && useVirtualLayout &&
-			(!(Std.is(this._layout, IVariableVirtualLayout)) || !cast(this._layout, IVariableVirtualLayout).hasVariableItemDimensions) &&
+			(!Std.is(this._layout, IVariableVirtualLayout) || !cast(this._layout, IVariableVirtualLayout).hasVariableItemDimensions) &&
 			unrenderedItemCount > 0;
 		var index:Int;
 		if(canUseBeforeAndAfter)
@@ -973,14 +974,13 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 			var sequentialVirtualLayout:ITrimmedVirtualLayout = cast(this._layout, ITrimmedVirtualLayout);
 			sequentialVirtualLayout.beforeVirtualizedItemCount = beforeItemCount;
 			sequentialVirtualLayout.afterVirtualizedItemCount = afterItemCount;
-			var newLayoutItemLength = itemCount - beforeItemCount - afterItemCount;
-			this._layoutItems.splice(newLayoutItemLength, this._layoutItems.length - newLayoutItemLength);
+			ArrayUtil.resize(this._layoutItems, itemCount - beforeItemCount - afterItemCount);
 			this._layoutIndexOffset = -beforeItemCount;
 		}
 		else
 		{
 			this._layoutIndexOffset = 0;
-			this._layoutItems.splice(itemCount, this._layoutItems.length - itemCount);
+			ArrayUtil.resize(this._layoutItems, itemCount);
 		}
 
 		var activeRenderersLastIndex:Int = this._activeRenderers.length;
@@ -1299,7 +1299,7 @@ class ListDataViewPort extends FeathersControl implements IViewPort
 		{
 			return;
 		}
-		var layout:IVariableVirtualLayout = cast(this._layout, IVariableVirtualLayout);
+		var layout:IVariableVirtualLayout = safe_cast(this._layout, IVariableVirtualLayout);
 		if(layout == null || !layout.hasVariableItemDimensions)
 		{
 			return;

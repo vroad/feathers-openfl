@@ -5,8 +5,7 @@ Copyright 2012-2015 Bowler Hat LLC. All Rights Reserved.
 This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
-package feathers.media
-{
+package feathers.media;
 import feathers.controls.Label;
 import feathers.events.MediaPlayerEventType;
 import feathers.skins.IStyleProvider;
@@ -17,6 +16,8 @@ import starling.events.Event;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+
+import feathers.utils.type.SafeCast.safe_cast;
 
 /**
  * A specialized label that can display the current playhead time, total
@@ -31,7 +32,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @private
 	 */
-	inline private static var HELPER_POINT:Point = new Point();
+	private static var HELPER_POINT:Point = new Point();
 	
 	/**
 	 * The label displays only the current time of the media content.
@@ -76,8 +77,9 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * Constructor.
 	 */
-	public function TimeLabel()
+	public function new()
 	{
+		super();
 		this.addEventListener(TouchEvent.TOUCH, timeLabel_touchHandler);
 	}
 
@@ -86,7 +88,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 */
 	override private function get_defaultStyleProvider():IStyleProvider
 	{
-		if(TimeLabel.globalStyleProvider)
+		if(TimeLabel.globalStyleProvider != null)
 		{
 			return TimeLabel.globalStyleProvider;
 		}
@@ -101,6 +103,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	/**
 	 * @inheritDoc
 	 */
+	public var mediaPlayer(get, set):IMediaPlayer;
 	public function get_mediaPlayer():IMediaPlayer
 	{
 		return this._mediaPlayer;
@@ -113,20 +116,21 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	{
 		if(this._mediaPlayer == value)
 		{
-			return;
+			return get_mediaPlayer();
 		}
-		if(this._mediaPlayer)
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.CURRENT_TIME_CHANGE, mediaPlayer_currentTimeChangeHandler);
 			this._mediaPlayer.removeEventListener(MediaPlayerEventType.TOTAL_TIME_CHANGE, mediaPlayer_totalTimeChangeHandler);
 		}
-		this._mediaPlayer = value as ITimedMediaPlayer;
-		if(this._mediaPlayer)
+		this._mediaPlayer = safe_cast(value, ITimedMediaPlayer);
+		if(this._mediaPlayer != null)
 		{
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.CURRENT_TIME_CHANGE, mediaPlayer_currentTimeChangeHandler);
 			this._mediaPlayer.addEventListener(MediaPlayerEventType.TOTAL_TIME_CHANGE, mediaPlayer_totalTimeChangeHandler);
 		}
 		this.updateText();
+		return get_mediaPlayer();
 	}
 
 	/**
@@ -143,6 +147,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES
 	 */
+	public var delimiter(get, set):String;
 	public function get_delimiter():String
 	{
 		return this._delimiter;
@@ -155,10 +160,11 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	{
 		if(this._delimiter == value)
 		{
-			return;
+			return get_delimiter();
 		}
 		this._delimiter = value;
 		this.updateText();
+		return get_delimiter();
 	}
 
 	/**
@@ -166,7 +172,9 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 */
 	private var _displayMode:String = DISPLAY_MODE_CURRENT_AND_TOTAL_TIMES;
 
+	#if 0
 	[Inspectable(type="String",enumeration="currentAndTotalTimes,currentTime,totalTime,remainingTime")]
+	#end
 	/**
 	 * Determines how the time is displayed by the label.
 	 *
@@ -177,6 +185,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 * @see #DISPLAY_MODE_TOTAL_TIME
 	 * @see #DISPLAY_MODE_REMAINING_TIME
 	 */
+	public var displayMode(get, set):String;
 	public function get_displayMode():String
 	{
 		return this._displayMode;
@@ -189,13 +198,14 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	{
 		if(this._displayMode == value)
 		{
-			return;
+			return get_displayMode();
 		}
 		this._displayMode = value;
 		//reset this value because it would be unexpected for the label
 		//not to change when changing this property.
 		this._isToggled = false;
 		this.updateText();
+		return get_displayMode();
 	}
 
 	/**
@@ -226,6 +236,7 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 * 
 	 * @see #displayMode
 	 */
+	public var toggleDisplayMode(get, set):Bool;
 	public function get_toggleDisplayMode():Bool
 	{
 		return this._toggleDisplayMode;
@@ -238,10 +249,11 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	{
 		if(this._toggleDisplayMode == value)
 		{
-			return;
+			return get_toggleDisplayMode();
 		}
 		this._toggleDisplayMode = value;
 		this._isToggled = false;
+		return get_toggleDisplayMode();
 	}
 
 	/**
@@ -249,8 +261,8 @@ class TimeLabel extends Label implements IMediaPlayerControl
 	 */
 	private function updateText():Void
 	{
-		var currentTime:Float = this._mediaPlayer ? this._mediaPlayer.currentTime : 0;
-		var totalTime:Float = this._mediaPlayer ? this._mediaPlayer.totalTime : 0;
+		var currentTime:Float = this._mediaPlayer != null ? this._mediaPlayer.currentTime : 0;
+		var totalTime:Float = this._mediaPlayer != null ? this._mediaPlayer.totalTime : 0;
 		var displayMode:String = this._displayMode;
 		if(this._isToggled)
 		{
@@ -268,17 +280,17 @@ class TimeLabel extends Label implements IMediaPlayerControl
 			case DISPLAY_MODE_CURRENT_TIME:
 			{
 				this.text = this.secondsToTimeString(currentTime);
-				break;
+				//break;
 			}
 			case DISPLAY_MODE_TOTAL_TIME:
 			{
 				this.text = this.secondsToTimeString(totalTime);
-				break;
+				//break;
 			}
 			case DISPLAY_MODE_REMAINING_TIME:
 			{
 				this.text = this.secondsToTimeString(currentTime - totalTime);
-				break;
+				//break;
 			}
 			default:
 			{
@@ -297,9 +309,9 @@ class TimeLabel extends Label implements IMediaPlayerControl
 		{
 			seconds = -seconds;
 		}
-		var hours:Int = Int(seconds / 3600);
-		var minutes:Int = Int(seconds / 60);
-		seconds = Int(seconds - (hours * 3600) - (minutes * 60));
+		var hours:Int = Std.int(seconds / 3600);
+		var minutes:Int = Std.int(seconds / 60);
+		seconds = Std.int(seconds - (hours * 3600) - (minutes * 60));
 		var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 		if(hours > 0)
 		{
@@ -344,10 +356,11 @@ class TimeLabel extends Label implements IMediaPlayerControl
 			return;
 		}
 
+		var touch:Touch;
 		if(this.touchPointID >= 0)
 		{
-			var touch:Touch = event.getTouch(this, null, this.touchPointID);
-			if(!touch)
+			touch = event.getTouch(this, null, this.touchPointID);
+			if(touch == null)
 			{
 				//this should never happen
 				return;
@@ -368,12 +381,11 @@ class TimeLabel extends Label implements IMediaPlayerControl
 		else //if we get here, we don't have a saved touch ID yet
 		{
 			touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(touch)
+			if(touch != null)
 			{
 				this.touchPointID = touch.id;
 				return;
 			}
 		}
 	}
-}
 }

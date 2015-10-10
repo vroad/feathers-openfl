@@ -3,6 +3,7 @@
 -feathers.skins.SmartDisplayObjectStateValueSelector
 -feathers.skins.StateValueSelector
 -feathers.skins.StateWithToggleValueSelector
+-feathers.skins.WeakMap
 -feathers.utils.type.AcceptEither
 -feathers.utils.type.SafeCast
 -feathers.utils.type.UnionMap
