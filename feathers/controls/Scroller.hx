@@ -3862,6 +3862,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			this.clampScrollPositions();
 		}
+		trace('$maximumPositionsChanged, ${this._touchPointID}');
 
 		this.refreshPageCount();
 		this.refreshPageIndices();
@@ -4945,7 +4946,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 			if(snappedPageHorizontalScrollPosition == this._maxHorizontalScrollPosition)
 			{
-				var targetHorizontalPageIndex:Int = this._maxHorizontalPageIndex;
+				targetHorizontalPageIndex = this._maxHorizontalPageIndex;
 			}
 			else
 			{
@@ -5033,7 +5034,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			var targetVerticalPageIndex:Int = 0;
 			if(snappedPageVerticalScrollPosition == this._maxVerticalScrollPosition)
 			{
-				var targetVerticalPageIndex:Int = this._maxVerticalPageIndex;
+				targetVerticalPageIndex = this._maxVerticalPageIndex;
 			}
 			else
 			{
