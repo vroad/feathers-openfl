@@ -3862,7 +3862,6 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			this.clampScrollPositions();
 		}
-		trace('$maximumPositionsChanged, ${this._touchPointID}');
 
 		this.refreshPageCount();
 		this.refreshPageIndices();
@@ -3877,9 +3876,7 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		{
 			if(this._snapToPages)
 			{
-				trace(this._horizontalScrollPosition);
 				this._horizontalScrollPosition = roundToNearest(this._horizontalScrollPosition, this.actualPageWidth);
-				trace(this._horizontalScrollPosition);
 			}
 			var targetHorizontalScrollPosition:Float = this._horizontalScrollPosition;
 			if(targetHorizontalScrollPosition < this._minHorizontalScrollPosition)
