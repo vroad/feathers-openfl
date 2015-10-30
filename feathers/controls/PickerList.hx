@@ -1483,10 +1483,16 @@ class PickerList extends FeathersControl implements IFocusDisplayObject
 			this.layout();
 		}
 
-		//final validation to avoid juggler next frame issues
-		//also, to ensure that property changes on the pop-up list are fully
-		//committed
-		this.list.validate();
+		if(this.list.stage != null)
+		{
+			//final validation to avoid juggler next frame issues
+			//only validate if it's on the display list, though, because the
+			//popUpContentManager may need to place restrictions on
+			//dimensions or make other important changes.
+			//otherwise, the List may create an item renderer for every item
+			//in the data provider, which is not good for performance!
+			this.list.validate();
+		}
 
 		this.handlePendingActions();
 	}
