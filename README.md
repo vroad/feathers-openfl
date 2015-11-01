@@ -1,5 +1,5 @@
 # feathers-openfl
-Unofficial port of Feathers UI Framework. Currently based on Feathers 2.0.
+Unofficial port of Feathers UI Framework. Currently based on Feathers 2.2.0.
 
 [HTML5 version of ComponentExplorer](http://vroad.github.io/feathers-openfl/ComponentExplorer)
 
