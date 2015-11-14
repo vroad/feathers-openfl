@@ -505,6 +505,7 @@ class TextBlockTextEditor extends TextBlockTextRenderer implements ITextEditor i
 	/**
 	 * @private
 	 */
+	@:native("_restrict1")
 	private var _restrict:TextInputRestrict;
 
 	/**
