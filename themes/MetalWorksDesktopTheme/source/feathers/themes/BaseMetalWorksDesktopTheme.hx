@@ -60,8 +60,10 @@ import feathers.controls.renderers.BaseDefaultItemRenderer;
 import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
 import feathers.controls.renderers.DefaultGroupedListItemRenderer;
 import feathers.controls.renderers.DefaultListItemRenderer;
+#if flash
 import feathers.controls.text.TextBlockTextEditor;
 import feathers.controls.text.TextBlockTextRenderer;
+#end
 import feathers.core.FeathersControl;
 import feathers.core.FocusManager;
 import feathers.core.PopUpManager;
@@ -286,7 +288,7 @@ class BaseMetalWorksDesktopTheme extends StyleNameFunctionTheme
 	 */
 	private static function textRendererFactory():#if flash TextBlockTextRenderer #else TextFieldTextRenderer #end
 	{
-		return new #if flash TextBlockTextRenderer #elseif html5 TextFieldTextRenderer #end ();
+		return new #if flash TextBlockTextRenderer #else TextFieldTextRenderer #end ();
 	}
 
 	/**
