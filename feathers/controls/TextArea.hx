@@ -489,6 +489,7 @@ class TextArea extends Scroller implements INativeFocusOwner
 	/**
 	 * @private
 	 */
+	@:native("_restrict1")
 	private var _restrict:String;
 
 	/**

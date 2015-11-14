@@ -633,6 +633,7 @@ class TextInput extends FeathersControl implements IFocusDisplayObject implement
 	/**
 	 * @private
 	 */
+	@:native("_restrict1")
 	private var _restrict:String;
 
 	/**

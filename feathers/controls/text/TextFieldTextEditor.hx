@@ -714,6 +714,7 @@ class TextFieldTextEditor extends FeathersControl implements ITextEditor impleme
 	/**
 	 * @private
 	 */
+	@:native("_restrict1")
 	private var _restrict:String;
 
 	/**

@@ -483,6 +483,7 @@ class BitmapFontTextEditor extends BitmapFontTextRenderer implements ITextEditor
 	/**
 	 * @private
 	 */
+	@:native("_restrict1")
 	private var _restrict:TextInputRestrict;
 
 	/**
