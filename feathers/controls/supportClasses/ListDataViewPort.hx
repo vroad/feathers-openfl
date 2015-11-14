@@ -26,13 +26,17 @@ import feathers.utils.type.UnionMap;
 import feathers.utils.type.UnionWeakMap;
 import feathers.utils.type.SafeCast.safe_cast;
 import haxe.ds.WeakMap;
+#if 0
 import openfl.utils.Object;
+#end
 import starling.core.RenderSupport;
 
 import openfl.errors.ArgumentError;
 import openfl.errors.IllegalOperationError;
 import openfl.geom.Point;
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 import starling.display.DisplayObject;
 import starling.events.Event;

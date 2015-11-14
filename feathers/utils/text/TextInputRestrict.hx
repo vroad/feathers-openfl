@@ -6,7 +6,9 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.utils.text;
+#if 0
 import flash.utils.Dictionary;
+#end
 
 /**
  * Duplicates the functionality of the <code>restrict</code> property on

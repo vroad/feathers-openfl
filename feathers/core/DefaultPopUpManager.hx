@@ -10,7 +10,9 @@ import feathers.events.FeathersEventType;
 import haxe.ds.WeakMap;
 import openfl.errors.ArgumentError;
 
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;

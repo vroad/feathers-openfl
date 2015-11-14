@@ -6,7 +6,9 @@ This program is free software. You can redistribute and/or modify it in
 accordance with the terms of the accompanying license agreement.
 */
 package feathers.skins;
+#if 0
 import openfl.utils.Dictionary;
+#end
 import haxe.ds.WeakMap;
 import openfl.errors.ArgumentError;
 

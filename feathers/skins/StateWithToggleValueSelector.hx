@@ -10,7 +10,9 @@ import feathers.core.IToggle;
 import feathers.utils.type.SafeCast.safe_cast;
 import haxe.ds.WeakMap;
 
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 /**
  * Maps a component's states to values, perhaps for one of the component's

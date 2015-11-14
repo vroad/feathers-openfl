@@ -16,6 +16,7 @@ import feathers.utils.geom.matrixToScaleY;
 import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleX;
 import feathers.utils.geom.FeathersMatrixUtil.matrixToScaleY;
 #end
+import feathers.utils.type.ArrayUtil;
 
 import openfl.display.BitmapData;
 import openfl.display3D.Context3DProfile;
@@ -36,9 +37,6 @@ import starling.core.RenderSupport;
 import starling.core.Starling;
 import starling.display.Image;
 import starling.events.Event;
-#if (!flash && !html5)
-import starling.text.TextRenderer;
-#end
 import starling.textures.ConcreteTexture;
 import starling.textures.Texture;
 import starling.utils.PowerOfTwo.getNextPowerOfTwo;
@@ -1525,13 +1523,11 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			{
 				HELPER_MATRIX.identity();
 				HELPER_MATRIX.scale(scaleFactor, scaleFactor);
-				#if (flash || html5)
 				var bitmapData:BitmapData = new BitmapData(Std.int(rectangleSnapshotWidth), Std.int(rectangleSnapshotHeight), true, 0x00ff00ff);
 				bitmapData.draw(this.textField, HELPER_MATRIX, null, null, HELPER_RECTANGLE);
 				this.measureNativeFilters(bitmapData, HELPER_RECTANGLE);
 				bitmapData.dispose();
 				bitmapData = null;
-				#end
 				this._textSnapshotOffsetX = HELPER_RECTANGLE.x;
 				this._textSnapshotOffsetY = HELPER_RECTANGLE.y;
 				rectangleSnapshotWidth = HELPER_RECTANGLE.width;
@@ -1702,13 +1698,10 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			var scaleFactor:Float = Starling.current.contentScaleFactor;
 			HELPER_MATRIX.identity();
 			HELPER_MATRIX.scale(scaleFactor, scaleFactor);
-			#if (flash || html5)
 			var bitmapData:BitmapData = self.drawTextFieldRegionToBitmapData(
 				snapshot.x, snapshot.y, texture.nativeWidth, texture.nativeHeight);
 			texture.root.uploadBitmapData(bitmapData);
 			bitmapData.dispose();
-			#else
-			#end
 		};
 	}
 
@@ -1745,42 +1738,6 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		bitmapData.draw(this.textField, HELPER_MATRIX, null, null, HELPER_RECTANGLE);
 		return bitmapData;
 	}
-	 
-	#if (!flash && !html5)
-	private function drawTextFieldRegionToTexture(textFieldX:Float, textFieldY:Float,
-		textureWidth:Float, textureHeight:Float, texture:Texture = null):Texture
-	{
-		var scaleFactor:Float = Starling.current.contentScaleFactor;
-		var clipWidth:Float = this._snapshotVisibleWidth - textFieldX;
-		var clipHeight:Float = this._snapshotVisibleHeight - textFieldY;
-		if(texture == null || texture.nativeWidth != textureWidth || texture.nativeHeight != textureHeight)
-		{
-			if(texture != null)
-			{
-				texture.dispose();
-			}
-			texture = Texture.empty(textureWidth / scaleFactor, textureHeight / scaleFactor, true, false, true, scaleFactor);
-		}
-		else
-		{
-			//clear the bitmap data and reuse it
-			#if 0
-			bitmapData.fillRect(bitmapData.rect, 0x00ff00ff);
-			#end
-		}
-		var gutterPositionOffset:Float = 2 * scaleFactor;
-		if(this._useGutter)
-		{
-			gutterPositionOffset = 0;
-		}
-		HELPER_MATRIX.tx = -(textFieldX + gutterPositionOffset) - this._textSnapshotOffsetX;
-		HELPER_MATRIX.ty = -(textFieldY + gutterPositionOffset) - this._textSnapshotOffsetY;
-		HELPER_RECTANGLE.setTo(0, 0, clipWidth, clipHeight);
-		var textRenderer:TextRenderer = @:privateAccess starling.text.TextField.getTextRenderer(this.textField.defaultTextFormat);
-		textRenderer.renderText(this.textField, texture, HELPER_MATRIX);
-		return texture;
-	}
-	#end
 
 	/**
 	 * @private
@@ -1810,9 +1767,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 		var totalBitmapHeight:Float = this._snapshotHeight;
 		var xPosition:Float = 0;
 		var yPosition:Float = 0;
-		#if ((js && html5) || flash)
 		var bitmapData:BitmapData = null;
-		#end
 		var snapshotIndex:Int = -1;
 		do
 		{
@@ -1828,22 +1783,16 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 				{
 					currentBitmapHeight = this._maxTextureDimensions;
 				}
-				#if ((js && html5) || flash)
 				bitmapData = this.drawTextFieldRegionToBitmapData(xPosition, yPosition, currentBitmapWidth, currentBitmapHeight, bitmapData);
-				#end
 				var newTexture:Texture = null;
 				if(this.textSnapshot == null || this._needsNewTexture)
 				{
 					//skip Texture.fromBitmapData() because we don't want
 					//it to create an onRestore function that will be
 					//immediately discarded for garbage collection. 
-					#if ((js && html5) || flash)
 					newTexture = Texture.empty(bitmapData.width / scaleFactor, bitmapData.height / scaleFactor,
 						true, false, false, scaleFactor);
 					newTexture.root.uploadBitmapData(bitmapData);
-					#else
-					newTexture = this.drawTextFieldRegionToTexture(xPosition, yPosition, currentBitmapWidth, currentBitmapHeight);
-					#end
 				}
 				var snapshot:Image = null;
 				if(snapshotIndex >= 0)
@@ -1879,11 +1828,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 					{
 						//this is faster, if we haven't resized the bitmapdata
 						var existingTexture:Texture = snapshot.texture;
-						#if ((js && html5) || flash)
 						existingTexture.root.uploadBitmapData(bitmapData);
-						#else
-						this.drawTextFieldRegionToTexture(xPosition, yPosition, currentBitmapWidth, currentBitmapHeight, existingTexture);
-						#end
 					}
 				}
 				if(newTexture != null)
@@ -1918,9 +1863,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			totalBitmapHeight = this._snapshotHeight;
 		}
 		while(totalBitmapWidth > 0);
-		#if ((js && html5) || flash)
 		bitmapData.dispose();
-		#end
 		if(this.textSnapshots != null)
 		{
 			var snapshotCount:Int = this.textSnapshots.length;
@@ -1937,7 +1880,7 @@ class TextFieldTextRenderer extends FeathersControl implements ITextRenderer
 			else
 			{
 				//this.textSnapshots.length = snapshotIndex;
-				this.textSnapshots.splice(snapshotIndex, this.textSnapshots.length - snapshotIndex);
+				ArrayUtil.resize(this.textSnapshots, snapshotIndex);
 			}
 		}
 		if(this._updateSnapshotOnScaleChange)

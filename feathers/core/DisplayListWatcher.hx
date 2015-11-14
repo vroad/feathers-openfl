@@ -7,7 +7,9 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.core;
 import haxe.ds.WeakMap;
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 import starling.display.DisplayObject;
 import starling.display.DisplayObjectContainer;

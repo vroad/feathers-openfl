@@ -18,7 +18,9 @@ import openfl.display.InteractiveObject;
 import openfl.display.Stage;
 import openfl.events.FocusEvent;
 import openfl.ui.Keyboard;
+#if 0
 import openfl.utils.Dictionary;
+#end
 
 import starling.core.Starling;
 import starling.display.DisplayObject;
