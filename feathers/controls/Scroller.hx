@@ -3234,7 +3234,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public function scrollToPosition(horizontalScrollPosition:Float, verticalScrollPosition:Float, animationDuration:Null<Float> = null):Void
 	{
 		if (animationDuration == null) animationDuration = Math.NaN;
+		#if 0
 		if(animationDuration != animationDuration) //isNaN
+		#else
+		if(Math.isNaN(animationDuration))
+		#end
 		{
 			if(this._useFixedThrowDuration)
 			{
@@ -3288,7 +3292,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 	public function scrollToPageIndex(horizontalPageIndex:Int, verticalPageIndex:Int, animationDuration:Null<Float> = null):Void
 	{
 		if (animationDuration == null) animationDuration = Math.NaN;
+		#if 0
 		if(animationDuration != animationDuration) //isNaN
+		#else
+		if(Math.isNaN(animationDuration))
+		#end
 		{
 			animationDuration = this._pageThrowDuration;
 		}
@@ -4667,7 +4675,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 		if (targetHorizontalScrollPosition == null) targetHorizontalScrollPosition = Math.NaN;
 		if (targetVerticalScrollPosition == null) targetVerticalScrollPosition = Math.NaN;
 		var changedPosition:Bool = false;
+		#if 0
 		if(targetHorizontalScrollPosition == targetHorizontalScrollPosition) //!isNaN
+		#else
+		if(!Math.isNaN(targetHorizontalScrollPosition))
+		#end
 		{
 			if(this._snapToPages && targetHorizontalScrollPosition > this._minHorizontalScrollPosition &&
 				targetHorizontalScrollPosition < this._maxHorizontalScrollPosition)
@@ -4707,7 +4719,11 @@ class Scroller extends FeathersControl implements IFocusDisplayObject
 			}
 		}
 
+		#if 0
 		if(targetVerticalScrollPosition == targetVerticalScrollPosition) //!isNaN
+		#else
+		if(!Math.isNaN(targetVerticalScrollPosition))
+		#end
 		{
 			if(this._snapToPages && targetVerticalScrollPosition > this._minVerticalScrollPosition &&
 				targetVerticalScrollPosition < this._maxVerticalScrollPosition)
