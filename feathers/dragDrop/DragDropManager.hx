@@ -256,7 +256,7 @@ class DragDropManager
 		{
 			target.globalToLocal(location, location);
 		}
-		if(Std.is(target, DisplayObject))
+		if(target != cast dropTarget)
 		{
 			if(dropTarget != null)
 			{
